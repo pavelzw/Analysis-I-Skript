@@ -7,9 +7,13 @@
 %\includegraphics[width=0.7\textwidth]{Profilbild.png}
 
 
-\usepackage{german} %deutsches Format
+%\usepackage{german} %deutsches Format
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
 \usepackage{graphicx} %Grafiken einbinden
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{nicefrac}
 \usepackage{hyperref} %Hyperlinks in pdf
 
@@ -21,6 +25,10 @@
 \newcommand{\bsp}{\textbf{Beispiel:}\\}
 \newcommand{\definition}{\textbf{Definition:\\}}
 \newcommand{\satz}{\textbf{Satz:\\}}
+\newcommand{\behauptung}{\textbf{Behauptung:\\}}
+\newcommand{\beweis}{\textbf{Beweis:\\}}
+\newcommand{\bemerkung}{\textbf{Bemerkung:\\}}
+
 
 \begin{document}
 \title{Analysis I (WS 18/19)}
@@ -60,11 +68,63 @@ Die Anmeldung findet über das Online-Portal statt. Die Klausur findet in KW 8 2
 
 \section{Was ist Analysis?}
 \textbf{Zentrale Begriffe:}\\
-Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume\\
+Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume
 
 \bsp
 $S = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^n} + \dots\\
-2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\$
-$2S = 1 + S$
+2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\
+2S = 1 + S$\\
+$S$ entspricht der Wahrscheinlichkeit, dass irgendwann mal Kopf in einem Münzwurf kommt.\\
+Vorsicht!\\
+$S = 1 + 2 + 4 + \dots\\
+2S = 2 + 4 + 8 + \dots = -1 + 1 + 2 + 4 + \dots = -1 + S\\
+S = -1$\\
+Natürlich Quatsch!\\
+Formales Rechnen kann gefährlich sein!
+
+\begin{itemize}
+  \item Was sind mathematische Aussagen?
+  \item Wie macht man Beweise, wie findet man sie? (learning by doing)
+  \item logische Zusammenhänge
+\end{itemize}
+
+\section{Etwas Logik}
+Eine (mathematische) Aussage ist ein Ausdruck, der wahr oder falsch ist.\\
+z. B.
+\begin{enumerate}
+  \item $A :$ \glqq $1+1=2$.\grqq (auch \glqq $1+1=3$\grqq, \glqq $1+1=0$\grqq)
+  \item $B :$ \glqq Es gibt unendlich viele Primzahlen.\grqq
+  \item $C :$ \glqq Es gibt unendlich viele Primzahlen $p$ für die $p + 2$ auch eine Primzahl ist.\grqq
+  \item $D :$ \glqq Die Gleichung $m \ddot{x} = F$ hat geg. $\dot{x}(0) = v_0, x(0) = x_0$ immer genau eine Lösung.\grqq
+  \item $E :$ \glqq Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.\grqq
+  \item $F :$ \glqq Morgen ist das Wetter schön.\grqq
+  \item $G :$ \glqq Ein einzelnes Atom im Vakuum mit der Kernladungszahl $Z$ kann höchstens $Z+1$ Elektronen binden.\grqq
+  \item $H(k,m,n) :$ \glqq Es gilt: $k^2 + m^2 = n^2$.\grqq (z. B. $H(3,4,5)$ ist wahr.)    
+\end{enumerate}
+Gegeben für natürliche Zahlen $n$, Aussagen $A(n)$, dann gilt:\\
+Für jede nat. Zahl $n$ ist $A(n)$ wahr, genau dann, wenn 
+\begin{enumerate}
+  \item $A(1)$ ist wahr.
+  \item Unter der Annahme, dass $A(n)$ wahr ist, folgt, dass $A(n+1)$ wahr ist.
+\end{enumerate}
+\bsp 
+$A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}$.
+\begin{proof} Vollständige Induktion\\
+  Induktionsanfang:\\
+  $1 = \frac{1(1+1)}{2}$ \checkmark\\
+  Induktionsschluss:\\
+  Wir nehmen an, dass $A(n)$ wahr ist (für $n\in\mathbb{N}$)\\
+  D. h. Induktionsannahme:\\
+  $1+2+3+\dots+n=\frac{n(n+1)}{2}$\\
+  Dann folgt:\\
+  $\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
+  =\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
+\end{proof}
+\bemerkung
+Gaußscher Trick:\\
+$S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
+2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = \frac{n(n+1)}{2}$.
+
+
 
 \end{document}

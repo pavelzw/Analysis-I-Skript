@@ -22,12 +22,12 @@
 	pdftitle = {Analysis I Skript (WS 18/19)},
 	pdfauthor = {Pavel Zwerschke}}
 
-\newcommand{\bsp}{\textbf{Beispiel:}\\}
-\newcommand{\definition}{\textbf{Definition:\\}}
-\newcommand{\satz}{\textbf{Satz:\\}}
-\newcommand{\behauptung}{\textbf{Behauptung:\\}}
-\newcommand{\beweis}{\textbf{Beweis:\\}}
-\newcommand{\bemerkung}{\textbf{Bemerkung:\\}}
+\newcommand{\bsp}{\textbf{Beispiel:}}
+\newcommand{\definition}{\textbf{Definition:}}
+\newcommand{\satz}{\textbf{Satz:}}
+\newcommand{\behauptung}{\textbf{Behauptung:}}
+\newcommand{\beweis}{\textbf{Beweis:}}
+\newcommand{\bemerkung}{\textbf{Bemerkung:}}
 
 
 \begin{document}
@@ -44,23 +44,19 @@
 \section{Organisatorisches}
 \textbf{Dozent}\\
 Prof. Dr. Dirk Hundertmark (20.30, 2.028)\\
-\href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}
-
+\href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}\\
 \textbf{Übungsleiter}\\
 Dr. Markus Lange (20.30, 2.030)\\
-\href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}
-
+\href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}\\
 \textbf{Übungszettel}\\
 Ausgabe:\\
 donnerstags unter \href{http://www.math.kit.edu/iana1/lehre/ana12018w/}{\texttt{www.math.kit.edu/iana1/lehre/ana12018w/}}\\
 Abgabe:\\
 bis mittwochs um 19:00 in den Abgabekästen des Foyers des Mathematikgebäudes (20.30)\\
 getackert, mit Namen, Matrikelnummer, Tutoriennummer und Deckblatt (optional) in das Fach mit der richtigen Kennzeichnung legen\\
-Zettel dürfen zu zweit abgegeben werden
-
-\textbf{Übungsschein}
-Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\% der Punkte aller K-Aufgaben erzielt.
-
+Zettel dürfen zu zweit abgegeben werden\\
+\textbf{Übungsschein}\\
+Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\% der Punkte aller K-Aufgaben erzielt.\\
 \textbf{Klausur}\\
 Die Anmeldung findet über das Online-Portal statt. Die Klausur findet in KW 8 2019 statt. Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 
@@ -69,8 +65,7 @@ Die Anmeldung findet über das Online-Portal statt. Die Klausur findet in KW 8 2
 \section{Was ist Analysis?}
 \textbf{Zentrale Begriffe:}\\
 Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume
-
-\bsp
+\bsp\\
 $S = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^n} + \dots\\
 2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\
 2S = 1 + S$\\
@@ -108,7 +103,9 @@ Für jede nat. Zahl $n$ ist $A(n)$ wahr, genau dann, wenn
   \item Unter der Annahme, dass $A(n)$ wahr ist, folgt, dass $A(n+1)$ wahr ist.
 \end{enumerate}
 \bsp 
+\begin{center}
 $A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}$.
+\end{center}
 \begin{proof} Vollständige Induktion\\
   Induktionsanfang:\\
   $1 = \frac{1(1+1)}{2}$ \checkmark\\
@@ -120,11 +117,10 @@ $A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}$.
   $\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
   =\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
 \end{proof}
-\bemerkung
+\bemerkung\\
 Gaußscher Trick:\\
 $S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
-2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = \frac{n(n+1)}{2}$.
-
-
+2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = 
+\frac{n(n+1)}{2}$.
 
 \end{document}

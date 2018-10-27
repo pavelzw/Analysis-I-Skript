@@ -22,12 +22,19 @@
 	pdftitle = {Analysis I Skript (WS 18/19)},
 	pdfauthor = {Pavel Zwerschke}}
 
-\newcommand{\bsp}{\textbf{Beispiel:}}
-\newcommand{\definition}{\textbf{Definition:}}
-\newcommand{\satz}{\textbf{Satz:}}
-\newcommand{\behauptung}{\textbf{Behauptung:}}
-\newcommand{\beweis}{\textbf{Beweis:}}
-\newcommand{\bemerkung}{\textbf{Bemerkung:}}
+
+\newtheorem{satz}{Satz}[section]
+\newtheorem{lem}{Lemma}
+
+\theoremstyle{definition}
+\newtheorem*{defi}{Definition}
+\newtheorem*{beh}{Behauptung}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+\newtheorem*{bsp}{Beispiel}
+
+\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
 
 
 \begin{document}
@@ -65,24 +72,24 @@ Die Anmeldung findet über das Online-Portal statt. Die Klausur findet in KW 8 2
 \section{Was ist Analysis?}
 \textbf{Zentrale Begriffe:}\\
 Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume
-\bsp\\
-$S = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^n} + \dots\\
-2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\
-2S = 1 + S$\\
-$S$ entspricht der Wahrscheinlichkeit, dass irgendwann mal Kopf in einem Münzwurf kommt.\\
-Vorsicht!\\
-$S = 1 + 2 + 4 + \dots\\
-2S = 2 + 4 + 8 + \dots = -1 + 1 + 2 + 4 + \dots = -1 + S\\
-S = -1$\\
-Natürlich Quatsch!\\
-Formales Rechnen kann gefährlich sein!
+\begin{bsp}
+	$S = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^n} + \dots\\
+	2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\
+	2S = 1 + S$\\
+	$S$ entspricht der Wahrscheinlichkeit, dass irgendwann mal Kopf in einem Münzwurf kommt.\\
+	Vorsicht!\\
+	$S = 1 + 2 + 4 + \dots\\
+	2S = 2 + 4 + 8 + \dots = -1 + 1 + 2 + 4 + \dots = -1 + S\\
+	S = -1$\\
+	Natürlich Quatsch!\\
+  	Formales Rechnen kann gefährlich sein!
 
-\begin{itemize}
-  \item Was sind mathematische Aussagen?
-  \item Wie macht man Beweise, wie findet man sie? (learning by doing)
-  \item logische Zusammenhänge
-\end{itemize}
-
+	\begin{itemize}
+		\item Was sind mathematische Aussagen?
+		\item Wie macht man Beweise, wie findet man sie? (learning by doing)
+		\item logische Zusammenhänge
+	\end{itemize}
+\end{bsp}
 \section{Etwas Logik}
 Eine (mathematische) Aussage ist ein Ausdruck, der wahr oder falsch ist.\\
 z. B.
@@ -106,21 +113,66 @@ Für jede nat. Zahl $n$ ist $A(n)$ wahr, genau dann, wenn
 \begin{center}
 $A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}$.
 \end{center}
-\begin{proof} Vollständige Induktion\\
-  Induktionsanfang:\\
-  $1 = \frac{1(1+1)}{2}$ \checkmark\\
-  Induktionsschluss:\\
-  Wir nehmen an, dass $A(n)$ wahr ist (für $n\in\mathbb{N}$)\\
-  D. h. Induktionsannahme:\\
-  $1+2+3+\dots+n=\frac{n(n+1)}{2}$\\
-  Dann folgt:\\
-  $\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
-  =\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
-\end{proof}
-\bemerkung\\
-Gaußscher Trick:\\
-$S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
-2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = 
-\frac{n(n+1)}{2}$.
+\begin{bew} 
+	Vollständige Induktion\\
+	Induktionsanfang:\\
+	$1 = \frac{1(1+1)}{2}$ \checkmark\\
+	Induktionsschluss:\\
+	Wir nehmen an, dass $A(n)$ wahr ist (für $n\in\mathbb{N}$)\\
+	D. h. Induktionsannahme:\\
+	$1+2+3+\dots+n=\frac{n(n+1)}{2}$\\
+	Dann folgt:\\
+	$\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
+	=\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
+\end{bew}
+\begin{bem}
+	Gaußscher Trick:\\
+	1)\\
+	$S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
+	2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = 
+	\frac{n(n+1)}{2}$.\\
+	2)\\
+	$S_n = 0 + 1 + 2 + \dots + n\\=$ Anzahl der Punkte in\\
+	%BILD EINFUEGEN
+	$\approx$ Fläche eines rechtwinkligen Dreiecks $=\frac{1}{2}*n*n$.\\
+	Also: Ansatz (\glqq geschicktes Raten\grqq , \glqq scientific guess\grqq , englisch: ansatz):\\
+	$S_n = \underbrace{a_2 n^2 + a_1 n + a_0}_{\text{Polynom 2. Grades in n}}\\
+	a_2 = \frac{1}{2}$\\
+	Wie bekommt man $a_0, a_1, (a_2)$?
+	$n=0: S_0 = 0 = a_2*0^2+a_1*0+a_0 \Rightarrow a_0 = 0$.\\
+	$n=1: S_1 = 1 = a_2*1^2+a_1*1^2 = a_2 + a_1 = \frac{1}{2} + a_1$.\\
+	also: $a_1 = \frac{1}{2}$\\
+	$\Rightarrow$ Raten: $S_n = \frac{1}{2}n^2 + \frac{1}{2} n = \frac{n(n+1)}{2}$.
+\end{bem}
 
+\subsection{Grundbegriffe}
+Aussagen: Notation\\
+\begin{tabular}{r|l}
+	$:$ & \glqq so, dass gilt\grqq\\
+	$\exists$ & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq\\
+	$\forall$ & \glqq für alle\grqq\\
+	$\Rightarrow$ & \glqq impliziert\grqq($A \Rightarrow B$ \glqq aus $A$ folgt $B$\grqq)\\
+	$\Leftrightarrow$ & \glqq genau dann, wenn\grqq\\
+	$\neg A$ & nicht $A$\\
+	$A \wedge B$ & $A$ und $B$\\
+	$A \vee B$ & $A$ oder $B$\\
+	$A := B$ & $A$ ist per Definition gleich $B$
+\end{tabular}
+
+\begin{satz}
+	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
+	\begin{tabular}{rl}
+		$\neg(\neg A) \Leftrightarrow A$ & Gesetz der doppelten Verneinung\\
+		$A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$ & Kontraposition\\
+		$A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))$ & beim Widerspruchsbeweis\\
+		$\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)$ & de Morgan\\
+		$\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)$ & de Morgan\\
+	\end{tabular}
+\end{satz}
+\begin{bem}
+	$A \Rightarrow B \Leftrightarrow B $ ist mindestens so wahr wie $A \Leftrightarrow A$ ist mindestens so falsch wie $B \Leftrightarrow \neg B \Rightarrow \neg A$.\\$(A\Leftrightarrow B) \Leftrightarrow (A \Rightarrow B \wedge B \Rightarrow A)$.
+\end{bem}
+\begin{bsp}
+	$n \in \mathbb{N}$ ist gerade, falls $k \in \mathbb{N}$ existiert mit $n = 2k$.\\
+\end{bsp}
 \end{document}

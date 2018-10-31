@@ -174,5 +174,19 @@ Aussagen: Notation\\
 \end{bem}
 \begin{bsp}
 	$n \in \mathbb{N}$ ist gerade, falls $k \in \mathbb{N}$ existiert mit $n = 2k$.\\
-\end{bsp}
+	$n\in \mathbb{N}$ ist ungerade, falls $\exists k\in \mathbb{N}_0: \vee n = 2k+1$.\\
+	Dann gilt: $n$ ist gerade $\Leftrightarrow n^2$ ist gerade.
+	\begin{bew}
+		\glqq $\Rightarrow$\grqq : $n$ gerade $\Rightarrow n=2k$, für $k\in \mathbb{N}$\\
+		$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$ ist gerade.\\
+		Umgekehrt müssen wir zeigen:\\
+		\glqq $\Leftarrow$\grqq : $n^2$ gerade $\Rightarrow n$ gerade\\
+		Kontraposition: $n$ ungerade $\Rightarrow$ $n^2$ ungerade\\
+		Also sei $n = 2k+1, k \in \mathbb{N}_0 \Rightarrow n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = \underbrace{2(2k^2 + 2k)}_{\text{gerade}} + 1 \Rightarrow n^2$ ist ungerade. 
+	\end{bew}
+\end{bsp} 
+\textbf{Mengen} (nach Cantor)\\
+informell: Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.\\
+Vorsicht: Russels Paradox\\
+genaue Definition von Zermelo-Fraenkel Axiome ($\rightarrow$ Logik Mengenlehre)
 \end{document}

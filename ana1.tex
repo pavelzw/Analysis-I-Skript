@@ -310,6 +310,47 @@ ist ein Körper.
 \begin{bem}
 	\begin{enumerate}.%FORMATIERUNG SCHLECHT
 		\item Somit ist ein Körper $\mathbb{K}$ mit \glqq $+$\grqq eine kommutative Gruppe und $\mathbb{K} \setminus \{0\}$ mit \glqq $\cdot$\grqq auch eine kommutative Gruppe.
+		\item Die neutralen Elemente sind eindeutig bestimmt.\\
+		z.B.: angenommen, $0_1$ und $0_2$ sind neutrale Elemente mit \glqq $+$\grqq .\\
+		$\Rightarrow 0_1 \overset{(3)}{=} 0_1 + 0_2 \overset{(1)}{=} 0_2 + 0_1 \overset{(2)}{=} 0_2$\\
+		analog für Multiplikation
 	\end{enumerate}
 \end{bem}
+\begin{defi}
+	Zu $a\in \mathbb{K}$ ist $-a$ das Inverse bzgl. der Addition\\
+	schreibe $a-b := a + (-b)$.\\
+	Zu $a\in\mathbb{K}\setminus\{0\}$ sei $a^{/1}$ das Inverse bzgl. der Multiplikation.\\
+	Ist $b\neq 0$, so schreiben wir $\frac{a}{b} := a\cdot b^{-1} =b^{-1}\cdot a$.\\
+	schreibe $(ab) := a\cdot b$.
+\end{defi}
+\begin{lem}[Rechnen in einem Körper].%FORMATIERUNG SCHLECHT
+	\begin{enumerate}
+	\item Umformen von Gleichungen\\
+	$\forall a,b,c\in\mathbb{K}:$\\
+	aus $a+b=c$ folgt $a=c-b$\\
+	aus $a\cdot b=c$, $b\neq 0$ folgt $a=\frac{c}{b}$
+	\item Allgemeine Rechenregeln\\
+	$\begin{aligned}
+		-(-a) &= a\\
+		(a^{-1})^{-1}&=a\text{, falls }a\neq 0\\
+		-(a+b) &= (-a) + (-b)\\
+		(a\cdot b)^{-1}&=b^{-1}\cdot a^{-1}=a^{-1}\cdot b^{-1}\\
+		a\cdot 0&=0\\
+		a(-b)&=-(ab), (-a)(-b)=ab\\
+		a(b-c) &= ab - ac\\
+		ab &= 0 \Leftrightarrow a = 0 \vee b = 0 \text{ (Nullteilerfreiheit)}\\ 
+	\end{aligned}$
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	$0 = a + (-a) = (-a) + a\\
+	\Rightarrow -(-a) = a\\
+	(a+b) + ((-a)+(-b)) = (a+(-a))+(b+(-b))=0+0=0\\
+	\Rightarrow -(a+b)=(-a)+(-b)$\\
+	benutzen wir auch Eindeutigkeit des inversen Elements\\
+	analog zeigt man $(a^{-1})^{-1} = a$ und $(ab)^{-1}= b^{-1}a^{-1}=a^{-1}b^{-1}$\\
+	z.B.: $(ab)\cdot (b^{-1}a^{-1})=a(b\cdot b^{-1}) a^{-1} = (a\cdot 1)a^{-1} = a\cdot b^{-1}=1$\\
+	Ferner $a\cdot 0 = a\cdot(0+0)=a\cdot 0 + a\cdot 0 = a\cdot 0 + 0\\
+	\Rightarrow a\cdot 0 = a\cdot 0 - a\cdot 0 = 0$
+\end{bew}
 \end{document}

@@ -27,7 +27,7 @@
 \newtheorem{lem}{Lemma}
 
 \theoremstyle{definition}
-\newtheorem*{defi}{Definition}
+\newtheorem{defi}{Definition}[subsection]
 \newtheorem*{beh}{Behauptung}
 
 \theoremstyle{remark}
@@ -68,7 +68,7 @@ Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\%
 Die Anmeldung findet über das Online-Portal statt. Die Klausur findet in KW 8 2019 statt. Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 
 \newpage
-
+%17.10.2018
 \section{Was ist Analysis?}
 \textbf{Zentrale Begriffe:}\\
 Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume
@@ -125,6 +125,7 @@ $A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}$.
 	$\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
 	=\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
 \end{bew}
+%18.10.2018
 \begin{bem}
 	Gaußscher Trick:\\
 	1)\\
@@ -188,5 +189,127 @@ Aussagen: Notation\\
 \textbf{Mengen} (nach Cantor)\\
 informell: Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.\\
 Vorsicht: Russels Paradox\\
-genaue Definition von Zermelo-Fraenkel Axiome ($\rightarrow$ Logik Mengenlehre)
+genaue Definition von Zermelo-Fraenkel Axiome ($\rightarrow$ Logik Mengenlehre)\\
+$a\in M: a$ ist Element von $M$\\
+$a \notin M: a$ ist kein Element von $M$\\
+z.B.:\\
+$M = \{1, 4\}\\1\in M\\5 \notin M$\\
+Angabe von Mengen durch 
+\begin{itemize}
+	\item Auflistung\\
+	$M = \{x_1, x_2, x_3, \dots, x_{17} \}$
+	\item Eigenschaft\\
+	$M = \{a | a \text{ hat Eigenschaft } E\}$
+\end{itemize}
+z.B.:
+\begin{itemize}
+	\item $\mathbb{N} := \{1,2,3,\dots\}$
+	\item $\mathbb{Z} := \{x | x \in \mathbb{N} \vee x \in -\mathbb{N} \vee x = 0 \}$
+	\item $-\mathbb{N} := \{-n|n\in\mathbb{N}\}$
+\end{itemize}
+\begin{defi}
+	Sei $M$ eine Menge und $A(x)$ Aussagen mit $x\in M$\\
+	$\forall x \in M: A(x)$ ist wahr, falls alle $A(x)$ wahr sind.\\
+	$\exists x\in M:A(x)$ ist wahr, falls mindestens eine Aussage $A(x)$ wahr ist.
+\end{defi}
+Achtung: Zusammensetzen: Reihenfolge ist wichtig!
+\begin{bsp}
+	Töpfe $:=$ Menge der Töpfe\\
+	Deckel $:=$ Menge der Deckel\\
+	$A: \forall T \in \text{Töpfe } \exists D\in \text{Deckel}: D \text{ passt auf } T$\\(Für jeden Topf gibt es einen Deckel, der passt)\\
+	$B: \exists D \in \text{Deckel } \forall T \in \text{Töpfe}: D \text{ passt auf } T$\\(Es existiert mindestens ein Deckel, der auf alle Töpfe passt)
+\end{bsp}
+Negation:\\
+$\neg (\forall x \in M : A(x)) \\ \Leftrightarrow \exists x \in M : \neg A(x)$\\
+$\neg (\exists x \in M : A(x)) \\ \Leftrightarrow \forall x \in M : \neg A(x)$
+\begin{defi}[wichtige Mengen]
+	Seien $M,N$ Mengen.
+	\begin{align*}
+		\emptyset &:= \text{ die Menge ohne Elemente (leere Menge)}\\
+		M \cap N &:= \{x | x \in M \wedge x \in N \} \text{ (Schnitt)}\\
+		M \cup N &:= \{x | x \in M \vee x \in N \} \text{ (Vereinigung)}\\
+		M \setminus N &:= \{x | x \in M \wedge x \notin N \} \text{ (Differenzmenge)}\\
+		\mathcal{P}(M) &:= \{A | A \subset M \} \text{ die Menge aller Teilmengen von } M \text{ (Potenzmenge)}
+	\end{align*}
+	Sei $I$ eine Menge und für $i\in I$ eine Menge $M_i$.
+	\begin{align*}
+		\bigcap\limits_{i\in I} M_i &:= \{x | \forall i \in I:x\in M_i\}.\\	
+		\bigcup\limits_{i\in I} M_i &:= \{x | \exists i \in I:x\in M_i\}.
+	\end{align*}
+	Ist $M\cap N = \emptyset$, so heißen $M$ und $N$ divergent.\\
+	$M\subset N$, falls $\forall x \in M: x \in N$ ($M$ Teilmenge von $N$).\\
+	$M = N$, falls $M$ und $N$ dieselben Elemente haben.\\
+	Insbesondere ist $(M=N) \Leftrightarrow M\subset N \wedge N\subset M$.\\
+	$M \subsetneq N : M \subset N \wedge M \neq N$ ($M$ echte Teilmenge von $N$).
+\end{defi}
+\begin{bsp}
+$\emptyset \subset M$\\
+$M = \{1,2\} \Rightarrow \mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+\end{bsp}
+\begin{enumerate}
+	\item Eigenschaften von \glqq $\subset$\grqq
+	\begin{enumerate}
+		\item $\emptyset \subset M$
+		\item $M\subset M$
+		\item $M=N \Leftrightarrow M\subset N \wedge N\subset M$
+		\item $A\subset B \wedge B \subset C \Leftrightarrow A \subset C$
+	\end{enumerate}
+	\item Assoziativität
+	\begin{enumerate}
+		\item $(A\cup B) \cup C = A \cup (B \cup C)$
+		\item $(A\cap B) \cap C = A \cap (B \cap C)$
+	\end{enumerate}
+	\item Kommutativität
+	\begin{enumerate}
+		\item $A\cup B = B \cup A$
+		\item $A\cap B = B \cap A$
+	\end{enumerate}
+	\item Distributivgesetz
+	\begin{enumerate}
+		\item $A \cap (B\cup C) = (A\cap B) \cup (A\cap C)$
+		\item $A \cup (B\cap C) = (A\cup B) \cap (A\cup C)$
+	\end{enumerate}
+\end{enumerate}
+\section{Die reellen Zahlen}
+\subsection{Körperaxiome (engl. field)}
+$\mathbb{K:}$ Menge mit zwei Operationen \glqq $+$\grqq und \glqq $\cdot$\grqq.\\
+$\forall a,b \in \mathbb{K}$ ist $a+b\in \mathbb{K} \wedge a\cdot b \in \mathbb{K}$ erklärt sollen kompatibel sein.
+\begin{defi}[Körperaxiome]
+	In einem Körper gelten diese Axiome:
+	\begin{enumerate}
+		\item Kommutativität: $\forall a,b\in \mathbb{K}: a+b=b+a, a\cdot b=b\cdot a$
+		\item Assoziativität: $\forall a,b,c\in \mathbb{K}: a+(b+c) = (a+b)+c, a\cdot (b\cdot c) = (a\cdot b)\cdot c$
+		\item Existenz des neutralen Elements: \\
+		$\exists 0 \in \mathbb{K}: a + 0 = 0 + a = a \forall a\in \mathbb{K}\\
+		\exists 1 \in \mathbb{K}: a \cdot 1 = 1 \cdot a = a \forall a\in\mathbb{K}$
+		\item Existenz eines inversen Elements:\\
+		$\forall a\in\mathbb{K}\exists -a\in\mathbb{K}:a+ (-a)=0\\
+		\forall a\in\mathbb{K}\setminus\{0\}\exists \frac{1}{a}\in\mathbb{K}:a\cdot\frac{1}{a}=1$\\
+		Es gilt: $0 \neq 1$.
+		\item Distributivgesetz: $\forall a,b,c\in\mathbb{K}:a\cdot(b+c)=a\cdot b + a \cdot c$
+	\end{enumerate}
+\end{defi}
+%23.10.2018
+\begin{bsp}
+$\mathbb{Q} = \frac{m}{n}, n \in \mathbb{N}, m\in\mathbb{Z}$ ist ein Körper.\\
+$\mathbb{F}_2: $
+\begin{tabular}{c|cc}
+	$+$ & $0$ & $1$\\
+	\hline
+	$0$ & $0$ & $1$\\
+	$1$ & $1$ & $0$
+\end{tabular}
+\begin{tabular}{c|cc}
+	$\cdot$ & $0$ & $1$\\
+	\hline
+	$0$ & $0$ & $0$\\
+	$1$ & $0$ & $0$
+\end{tabular}
+ist ein Körper.
+\end{bsp}
+\begin{bem}
+	\begin{enumerate}.%FORMATIERUNG SCHLECHT
+		\item Somit ist ein Körper $\mathbb{K}$ mit \glqq $+$\grqq eine kommutative Gruppe und $\mathbb{K} \setminus \{0\}$ mit \glqq $\cdot$\grqq auch eine kommutative Gruppe.
+	\end{enumerate}
+\end{bem}
 \end{document}

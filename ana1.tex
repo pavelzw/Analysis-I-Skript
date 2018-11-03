@@ -388,7 +388,9 @@ ist ein Körper.
 	Statt $-a>0$ schreiben wir $a<0$\\
 	Statt $a-b>0$ schreiben wir $a>b$\\
 	Bild:
-	\includegraphics[width=0.4\textwidth]{images/img02.png}\\
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{images/img02.png}
+	\end{center}
 	Statt $a-b<0$ schreiben wir $a<b$.\\
 	$a \geq b$, falls $a>b \vee a=b$\\
 	$a \leq b$, falls $a<b \vee a=b$.
@@ -400,14 +402,14 @@ ist ein Körper.
 		\item Aus $a>b, b>c$ folgt $a>c$ (Transitivität)
 		\item Aus $a>b$ folgt:\\
 		$\begin{cases}
-			a+b>b+c \forall c\in\mathbb{K}\\
+			a+c>b+c, \forall c\in\mathbb{K}\\
 			ac>bc, \text{ falls } c>0\\
 			ac<bc, \text{ falls } c<0
 		\end{cases}$.
 		\item Aus $a>b$ und $c>d$ folgt:\\
 		$\begin{cases}
-			a+b>b+d\\
-			ac>bd, \text{ falls } b,d>0
+			a+c>b+d\\
+			ac>bd, \text{ falls } b,d>0 %WARUM FALLS b,d>0???
 		\end{cases}$
 		\item Für $a\neq 0$ ist $a^2 >0$.
 		\item Aus $a>0$ folgt $\frac{1}{a}>0$.
@@ -427,8 +429,65 @@ ist ein Körper.
 		Ist $c<0$, so ist $-c>0\\
 		\Rightarrow bc-ac=\underbrace{(a-b)}_{>0}\cdot\underbrace{(-c)}_{>0} \overset{\text{(A.2)}}{>} 0$\\
 		$ac-bd=ac-bc+bc-bd=\underbrace{(a-b)}_{>0} \cdot \underbrace{c}_{>0} + \underbrace{b}_{>0} \cdot \underbrace{(c-d)}_{>0} \overset{\text{(A.2)}}{>}0$.
-		\item 
+		\item $(a+c)-(b+d) = (a-b)+(c-d)>0$ nach (A.2)\\
+		$ac-bd = ac-bc + bc-bd = (a-b)c + b(c-d)$\\
+		Ist $b=0 \Rightarrow a> b = 0 \Rightarrow ac > 0 = bd$\\
+		Ist $b<0 \Rightarrow (-b)d > 0 \Rightarrow -bd > 0 \Rightarrow bd < 0 \Rightarrow ac<-bd \Rightarrow \underbrace{ac}_{>0} + \underbrace{(-bd)}_{>0} \overset{\text{(A.2)}}{>} 0$.
+		\item  Fallunterscheidung:\\
+		ist $a>0\Rightarrow a^2 = a\cdot a > 0$ (A.2)\\
+		ist $a<0\Rightarrow a^2 = (-a)\cdot(-a) > 0$ (A.2)
+		\item sei $a>0:$\\
+		$\overset{\text{5.}}{\Rightarrow} \left(\frac{1}{a}\right) > 0 \Rightarrow \frac{1}{a} = \underbrace{\left(\frac{1}{a}\right)^2}_{>0} \cdot \underbrace{a}_{>0} > 0$.
+		\item aus $a>b>0\\
+		\Rightarrow \frac{1}{b} - \frac{1}{a} = \frac{1}{b}(a-b)\frac{1}{a}>0$.
+		\item $a>b, 0>\lambda>1 \Rightarrow \lambda > 0 \wedge 1-\lambda > 0\\
+		b=\lambda b + \underbrace{(1-\lambda)b}_{<(1-\lambda)a}\\
+		<\lambda b + (1-\lambda) a < \lambda a + (1-\lambda)a = a\\
+		\Rightarrow b<\lambda b + (1-\lambda)a =a$.\\
+		Insbesondere $\lambda = \nicefrac{1}{2}\Rightarrow b< \nicefrac{1}{2} b + \nicefrac{1}{2}a = \frac{a+b}{2} < a$.
 	\end{enumerate}
+\end{bew}
+\begin{defi}[Betrag]
+	Sei $(\mathbb{K}, +,\cdot,>)$ ein angeordneter Körper.\\
+	Betrag von $a\in\mathbb{K}$ ist gegeben durch\\
+	$\left| a\right| := 
+	\begin{cases}
+		a, \text{ falls } a\geq 0\\
+		-a, \text{ falls }a<0
+	\end{cases}$\\
+	auch noch $a,b\in \mathbb{K}$\\
+	$\max(a,b) := 
+	\begin{cases}
+		a, \text{ falls } a\geq b\\
+		b, \text{ falls } a < b
+	\end{cases}\\
+	\min(a,b) := 
+	\begin{cases}
+		a, \text{ falls } a\leq b\\
+		b, \text{ falls } a > b
+	\end{cases}$\\
+\end{defi}
+\begin{bem} . %SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item $a,b\in \mathbb{K}\\
+		\left| a-b\right| = $ Abstand von $a$ zu $b$.\\
+		$\left| a\right| = \left| a-0\right| = $ Abstand von $a$ zu $0$.
+		\item $\left| a\right| = \max(a, -a)$.
+	\end{enumerate}
+\end{bem}
+\begin{satz}
+	$(\mathbb{K},+,\cdot,>)$ ang. Körper\\
+	Dann gilt $\forall a,b\in\mathbb{K}:$
+	\begin{enumerate}
+		\item $\left|-a\right| = \left| a\right|$ und $a\leq\left|a\right|$
+		\item $\left| a\right| \geq 0$ und $\left| a\right| = 0 \Leftrightarrow a = 0$
+		\item $\left| ab\right| = \left| a\right| \left| b\right|$
+		\item $\left| a+b\right| \leq \left| a\right| + \left|b\right|$ (Dreiecksungleichung)
+		\item $\left|\left|a\right|-\left|b\right|\right| \leq \left| a-b\right|$ (umgekehrte Dreiecksungleichung)
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	Inhalt...
 \end{bew}
 
 %complete
@@ -515,7 +574,7 @@ $\operatorname{id}_A: A\rightarrow A, a\mapsto a.$
 Beachte: Reihenfolge ist wichtig! im Allg. $(a,b)\neq (b,a)$\\
 Menge $A\times B := \{(a,b)|a\in A, b\in B\}$\\
 heißt kartesisches Produkt (von $A$ und $B$)\\
-z.B. $\mathbb{R}\times\mathbb{R}$
+z.B. $\mathbb{R}\times\mathbb{R}$\\
 \includegraphics[width=0.3\textwidth]{images/img03.png}\\
 \underline{2. Abbildungen} Projektionen\\
 \includegraphics[width=0.3\textwidth]{images/img04.png}\\
@@ -533,12 +592,10 @@ Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B
 \begin{defi}[Graph einer Abbildung]
 	Geg: $f: A \rightarrow B$ Funktion\\
 	$\Gamma := \Gamma_f := \{(a,b) \in A\times B : b = f(a)\} \subset A\times B$\\
-	Bild:
 	\includegraphics[width=0.3\textwidth]{images/img05.png}
 	\quad
-	\includegraphics[width=0.3\textwidth]{images/img06.png}
-	$P\subset A\times B$ ist der Graph einer Funktion genau dann, wenn aus $(a_1,b_1), (a_2,b_2) \in \Gamma$ folgt $b_1 = b_2$.\\
-	(und $\forall a\in A \exists b\in B:(a,b)\in\Gamma$)
+	\includegraphics[width=0.3\textwidth]{images/img06.png}\\
+	$P\subset A\times B$ ist der Graph einer Funktion genau dann, wenn aus $(a_1,b_1), (a_2,b_2) \in \Gamma$ folgt $b_1 = b_2$. (und $\forall a\in A \exists b\in B:(a,b)\in\Gamma$)
 \end{defi}
 \begin{satz}
 	$\Gamma \subset A\times B$ ist genau dann Graph einer Abbildung $f: A\rightarrow B$, wenn die Projektion $\Pi_A \vert_\Gamma : \Gamma \rightarrow A$ bijektiv ist.\\

@@ -11,9 +11,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
 \usepackage{graphicx} %Grafiken einbinden
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{nicefrac}
 \usepackage{hyperref} %Hyperlinks in pdf
 
@@ -24,6 +22,7 @@
 
 
 \newtheorem{satz}{Satz}[subsection]
+\newtheorem{kor}{Korollar}
 \newtheorem{lem}{Lemma}
 
 \theoremstyle{definition}
@@ -486,11 +485,112 @@ ist ein Körper.
 		\item $\left|\left|a\right|-\left|b\right|\right| \leq \left| a-b\right|$ (umgekehrte Dreiecksungleichung)
 	\end{enumerate}
 \end{satz}
+\begin{bew} . %SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item $\left| -a \right| = 
+		\begin{cases}
+			-a, -a \geq 0 \\
+			-(-a), -a \leq 0
+		\end{cases}
+		= \begin{cases}
+			-a, a \leq 0\\
+			a, a \geq 0
+		\end{cases}
+		= \left| a\right|\\
+		\left|a\right| - a=\begin{cases}
+			a-a,a\geq 0\\
+			-a-a, a<0
+		\end{cases}
+		= \begin{cases}
+			0, a \geq 0\\
+			-(a+a), a<0
+		\end{cases} \geq 0$.\\
+		alternativ: $a \leq \max(a, -a) = \left|a\right|$.
+		\item 
+		\item Hier ändern sich die linke und rechte Seite \underline{nicht}, wenn man $a$ bzw. $b$ durch $-a$ bzw. $-b$ ersetzt.\\
+		Also, o.B.d.A. können wir annehmen, dass $a,b \geq 0$.\\
+		$\Rightarrow \left| ab\right| = ab = \left|a\right|\left|b\right|$.
+		\item $\overset{\text{Satz 1 (5)}}{\Rightarrow} \left| a+b\right|^2 = (a+b)^2=a^2+2ab+b^2=\left|a\right|^2 + 2\underbrace{ab}{\leq \left| ab\right|} + \left|b\right|^2\\
+		\overset{\text{(2)}}{\leq} \left|a\right|^2 + 2\left|ab\right| + \left|b\right|^2\\
+		\overset{\text{(3)}}{\left|a\right|^2+2\left|a\right|\left|b\right| + \left|b\right|^2}$.\\
+		Also $(a+b)^2 \leq (\left|a\right| + \left| b\right|)^2\\
+		\overset{\text{H.A.}}{\Rightarrow}\left|a+b\right| \leq \left|a\right|+\left|b\right|$.\\
+		H.A. aus $\left|c\right|^2 \leq \left|d\right|^2$ folgt $|c| \leq |d|$ (Kontraposition).
+		\item $|a| = \left| a-b+b\right| = \left| (a-b) + b\right| \overset{\text{(4)}}{\leq} \left|a-b\right| + |b|\\
+		|a|-|b|\leq \left|a-b\right| \forall a,b\in\mathbb{K}$.\\
+		Jetzt: Symmetrieargument. (Vertausch von $a$ und $b$)\\
+		$\Rightarrow |b| - |a| \leq \left|b-a\right| = \left|(-b-a)\right| = \left|a-b\right|$\\
+		also $|b|-|a| \leq \left|a-b\right|\\
+		|a|-|b| \leq \left|a-b\right|\\
+		\left| |a|-|b|\right| = \max(\left|a\right|-\left|b\right|, -(|a|-|b|))=\max(|a|-|b|, |b|-|a|) \leq |a-b|$.
+	\end{enumerate}
+\end{bew}
+\begin{bsp}
+	Sei $a,b\in\mathbb{K}$ ein angeordneter Körper. Aus $|b-a|\leq \nicefrac{b}{2}, 2 = 1+1$ folgt $a \geq \nicefrac{b}{2}$
+	Bild: %BILD EINFUEGEN\\
+	\begin{bew}
+		$b-a \leq |b-a| \leq \nicefrac{b}{2} \Rightarrow a \geq b - \nicefrac{b}{2} = \nicefrac{b}{2}$.
+	\end{bew}
+\end{bsp}
+\begin{kor}[\glqq geometrisch-arithmetische Ungleichung\grqq]
+	Sei $(\mathbb{K},+,\cdot,>)$ ein ang. Körper, $a,b\in\mathbb{K}\\
+	\Rightarrow ab \leq \left( \dfrac{a+b}{2}\right)^2$.\\
+	Wenn Gleichheit gilt, so folgt $a=b$.
+\end{kor}
+\begin{bew}
+	In Übung
+\end{bew}
+\textbf{Fakt:}
+\begin{itemize}
+	\item In jedem angeordneten Körper gilt $0<1$!
+	\item Es gibt keine Anordnung, die $\mathbb{F}_2$ zu einem angeordneten Körper macht. (H.A.)
+\end{itemize}
+\subsection{Obere und untere Schranken, Supremum und Infimum}
+Notation: $a$ ist nicht negativ, falls $a\geq 0$.
+\\natürlich $a=b\Leftrightarrow a\leq b \wedge a \geq b$.\\
+Im Folgenden ist $\mathbb{K}$ immer ein angeordneter Körper. $A,B \subset \mathbb{K}, A,B\neq \emptyset$ und $\gamma \in \mathbb{K}$, so bedeutet $A\leq \gamma: \forall a\in A: a \leq \gamma$ ($\gamma$ it obere Schranke für $A$).\\
+$B\geq \beta: \forall b\in B: b\geq \beta$ ($\beta$ ist untere Schranke für $B$).\\
+Analog sind $a<\gamma, A>\gamma, A<B,$ usw. definiert.\\
+Hat $A$ eine obere Schranke, so heißt $A$ nach oben beschränkt. Hat $B$ eine untere Schranke, so ist $B$ nach unten beschränkt. $A$ ist beschränkt, falls es nach oben und unten beschränkt ist.\\
+Ist $A\leq \alpha$ und $\alpha\in A$, so heißt $\alpha$ größtes (maximales) Element von $A$, schreibe $\alpha = \max A$ (Maximum).\\
+Ist $B\geq \beta$ und $\beta\in B$, so heißt $B$ kleinstes (minimales) Element von $B$, schreibe $\beta = \min B$ (Minimum).\\
+Man zeige, dass $\max$ und $\min$ eindeutig sind, sofern sie existieren.\\
+$[0,1) := \{x\in\mathbb{K}|0\leq x\leq 1\}$ hat kein Maximum bzw. kein maximales Element.
+\begin{defi}
+	Sei $A\subset \mathbb{K}, A\neq \emptyset$. Dann ist $\gamma\in\mathbb{K}$ die kleinste obere Schranke (oder Supremum), falls $A\leq \gamma$ und aus $A\leq n$ folgt $\gamma \leq n$.\\
+	Schreibe $\gamma = \sup A = \sup(A)$.\\
+	Analog: $\beta$ it die größte untere Schranke von $A$ (Infimum), falls $\beta \leq A$ und aus $\eta \leq A$ folgt $\eta \leq \beta$\\
+	Schreibe $\beta = \inf A = \inf(A)$.
+\end{defi}
+\begin{bsp}
+	$P := \{x\in\mathbb{K}|x>0\}\\
+	\Rightarrow$
+	\begin{enumerate}
+		\item $P$ ist nicht nach oben beschränkt.
+		\item $P$ hat kein Minimum, aber $\inf P = 0$.
+	\end{enumerate}
+\end{bsp}
+\begin{bew} . %Schlecht formatiert
+	\begin{enumerate}
+		\item Ang. $\gamma$ ist obere Schranke für $P$. D.h. $\forall x\in P$ folgt $0<x\leq\gamma\Rightarrow\gamma >0\Rightarrow \gamma \in P \Rightarrow 0 < \gamma = \gamma + 0 < \gamma + 1 \in P\Rightarrow\gamma + 1\in P$ und $\gamma +1>\gamma \gamma$ ist nicht obere Schranke für $P$ (Widerspruch!) %\lightning
+		\item $2:= 1+1 > 1>0$\\
+		Ang. $\min P := \eta$ existiert. $\Rightarrow \eta \in P, \eta > 0, \tilde{x} := \frac{\eta}{2} = \frac{0 + \eta}{2} < \eta$.\\
+		Es gilt $0 = \inf P$.\\
+		Sicherlich $0<P$, also ist $0$ eine untere Schranke für $P$.\\
+		$0$ ist die größte untere Schranke, denn nach obigem Argument ist jede Zahl $>0$ keine untere Schranke für $P$!
+	\end{enumerate}
+\end{bew}
+\begin{lem}
+	$A\subset\mathbb{K}, A\neq \emptyset$.
+	\begin{enumerate}
+		\item $\alpha := \sup A \Leftrightarrow \alpha \geq A \wedge \forall \varepsilon > 0 \exists a \in A: \alpha - \varepsilon < a$.
+		\item $\beta := \inf B \Leftrightarrow \beta \leq B \wedge \forall \varepsilon > 0 \exists b \in B: b < \beta + \varepsilon$.
+	\end{enumerate}
+\end{lem}
 \begin{bew}
 	Inhalt...
 \end{bew}
-
-%complete
+%to complete
 
 
 

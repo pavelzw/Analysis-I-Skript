@@ -13,6 +13,7 @@
 \usepackage{graphicx} %Grafiken einbinden
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{nicefrac}
+\usepackage{marvosym}[Lightning]
 \usepackage{hyperref} %Hyperlinks in pdf
 
 %Metadaten
@@ -572,7 +573,7 @@ $[0,1) := \{x\in\mathbb{K}|0\leq x\leq 1\}$ hat kein Maximum bzw. kein maximales
 \end{bsp}
 \begin{bew} . %Schlecht formatiert
 	\begin{enumerate}
-		\item Ang. $\gamma$ ist obere Schranke für $P$. D.h. $\forall x\in P$ folgt $0<x\leq\gamma\Rightarrow\gamma >0\Rightarrow \gamma \in P \Rightarrow 0 < \gamma = \gamma + 0 < \gamma + 1 \in P\Rightarrow\gamma + 1\in P$ und $\gamma +1>\gamma \gamma$ ist nicht obere Schranke für $P$ (Widerspruch!) %\lightning
+		\item Ang. $\gamma$ ist obere Schranke für $P$. D.h. $\forall x\in P$ folgt $0<x\leq\gamma\Rightarrow\gamma >0\Rightarrow \gamma \in P \Rightarrow 0 < \gamma = \gamma + 0 < \gamma + 1 \in P\Rightarrow\gamma + 1\in P$ und $\gamma +1>\gamma \gamma$ ist nicht obere Schranke für $P$ (Widerspruch!) \Lightning
 		\item $2:= 1+1 > 1>0$\\
 		Ang. $\min P := \eta$ existiert. $\Rightarrow \eta \in P, \eta > 0, \tilde{x} := \frac{\eta}{2} = \frac{0 + \eta}{2} < \eta$.\\
 		Es gilt $0 = \inf P$.\\
@@ -587,9 +588,111 @@ $[0,1) := \{x\in\mathbb{K}|0\leq x\leq 1\}$ hat kein Maximum bzw. kein maximales
 		\item $\beta := \inf B \Leftrightarrow \beta \leq B \wedge \forall \varepsilon > 0 \exists b \in B: b < \beta + \varepsilon$.
 	\end{enumerate}
 \end{lem}
-\begin{bew}
-	Inhalt...
+\begin{bew} .%SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item \glqq $\Rightarrow$\grqq: Sei $\alpha = \sup A$. Also $\alpha$ ist die kleinste obere Schranke für $A$. D.h. $\alpha \geq A$ und $\forall \varepsilon > 0$ ist $\varepsilon>0<\alpha$, also ist $\alpha-\varepsilon$ keine obere Schranke für $A$. D.h. $\exists a\in A:\alpha - \varepsilon <a$.\\
+		\glqq $\Leftarrow$\grqq: Sei $\alpha \geq A \wedge \forall \varepsilon > 0 \exists a \in A: \alpha - \varepsilon < a$. Also ist $\alpha$ eine obere Schranke für $A$. Sei $\tilde{\alpha}<\alpha$.\\
+		Setze $\varepsilon:= \alpha -\tilde{\alpha} > 0 \Rightarrow \exists a \in A: \tilde{\alpha} = \alpha - \varepsilon < a \Rightarrow \tilde{\alpha}$ ist keine obere Schranke für $a$. $\Rightarrow\alpha$ ist die kleinste obere Schranke.
+		\item $A:= -B = \{-b|b \in B\}$. Beachte: $\sup A = \sup(-B) = -\inf B$.
+	\end{enumerate}
 \end{bew}
+%30.10.2018
+\subsection{Das Vollständigkeitsaxiom}
+\begin{defi}
+	Ein angeordneter Körper $(\mathbb{K},+,\cdot,>)$ erfüllt das Vollständigkeitsaxiom, falls\\
+	\begin{center}
+		Jede nichtleere, nach oben beschränkte Teilmenge hat ein Supremum.
+	\end{center}
+	Solch einen Körper nennt man ordnungsvollständig. $\mathbb{R}$, der Körper der reellen Zahlen, ist \underline{der} ordnungsvollständige Körper. (Im Wesentlichen gibt es nur einen!)
+\end{defi}
+$\mathbb{Q}; A:= \{r\in\mathbb{Q}|r^2 < 2\}$\\
+Notation: $a,b\in\mathbb{R} \quad a<b$\\
+$[a,b] := \{x\in\mathbb{R}|a\leq x\leq b\}$ abgeschlossenes Intervall\\
+$(a,b) := \{x\in\mathbb{R} | a<x<b\}$ offenes Intervall\\
+$[a,b) := \{x\in\mathbb{R}|a\leq x<b\}$ nach rechts halboffenes Intervall\\
+$(a,b] := \{x\in\mathbb{R}|a<x\leq b\}$ nach links halboffenes Intervall\\
+Intervalllänge: $b-a$\\
+unbeschränkte Intervalle:\\
+$(-\infty, a] := \{x\in\mathbb{R}|x\leq a\}$\\
+$[a,\infty) := \{x\in\mathbb{R}|x\geq a\}$\\
+$(-\infty, a) := \{x\in\mathbb{R}|x<a\}$\\
+$(a, \infty) := \{x\in\mathbb{R}|x>a\}$.
+\subsection{Die natürlichen Zahlen $\mathbb{N}$}
+(als Teilmenge von $\mathbb{R}$)\\
+$n$ natürliche Zahl, $n=\underbrace{1+1+\ldots + 1}_{n\text{-mal}}$ (zirkulär \Lightning)
+\begin{defi}
+	Eine Teilmenge $M\subset \mathbb{R}$ heißt \underline{induktiv}, falls
+	\begin{enumerate}
+		\item $1\in M$
+		\item Aus $x\in M$ folgt $x+1 \in M$
+	\end{enumerate}
+\end{defi}
+\begin{bsp}
+	$[1,\infty)$ ist induktiv.\\
+	$\mathbb{R}$ ist induktiv.\\
+	$(1,\infty)$ ist nicht induktiv.\\
+	$\{1\} \cup [1+1,\infty)$ ist induktiv.
+\end{bsp}
+\textbf{Beobachtung:} Ein beliebiger Schnitt induktiver Mengen ist wieder induktiv.\\
+$J$: Indexmenge $A_0$ induktiv $\forall j\in J$\\
+$\Rightarrow \forall i\in J: 1\in A_j \Rightarrow 1\in \underset{j\in J}{\bigcap} A_j$\\
+Ist $x\in \underset{j\in J}{\bigcap} A_j\Rightarrow \forall j \in J: x\in A_j \Rightarrow x+1 \in A_j \Rightarrow x+1 \in \underset{j\in J}{\bigcap} A_j$.
+\begin{defi}[natürliche Zahlen] .\\ %SCHLECHT FORMATIERT
+	$\mathbb{N} := \{x\in \mathbb{R}: \text{ für jede induktive Teilmenge } M\in\mathbb{R} \text{ gilt } x\in M\} := \underset{M\subset \mathbb{R}\text{ ist induktiv}}{\bigcap} M$
+\end{defi}
+\begin{bem}
+	$\mathbb{N}$ ist induktiv und $\mathbb{N}$ ist die kleinste induktive Teilmenge von $\mathbb{R}$.
+\end{bem}
+\begin{satz}[Archimedisches Prinzip für $\mathbb{R}$] .%SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item $\mathbb{N}$ ist (in $\mathbb{R}$) \underline{nicht} nach oben beschränkt!
+		\item $\forall x\in\mathbb{R}$ mit $x>0 \exists n\in \mathbb{N}: \frac{1}{n} < x$.
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	\begin{enumerate}
+		\item Angenommen, $\mathbb{N}\subset{R}$ ist nach oben beschränkt.\\
+		$\mathbb{N} \neq \emptyset$ (da $1\in\mathbb{N}$)\\
+		Vollständigkeitsaxiom $\Rightarrow \alpha := \sup \mathbb{N} \in \mathbb{R}$.\\
+		Setze $\varepsilon = 1$ in Lemma 3.3.2\\ %NOCH VERKNÜPFUNG EINFÜGEN
+		$\alpha -1$ ist nicht obere Schranke für $\mathbb{N}$.\\
+		$\exists n\in \mathbb{N}: n>\alpha-1\\
+		\Rightarrow n+1 > \alpha \in \mathbb{N}$ \Lightning  zu $\alpha$ ist obere Schranke von $\mathbb{N}$.
+		\item Sei $x>0 \overset{\text{Satz 3.2.1 (6)}}{\Rightarrow} \frac{1}{x} > 0\Rightarrow \exists n\in \mathbb{N}: n > \frac{1}{x}\underset{\text{Satz 3.2.1 (7)}}{\Rightarrow} x = \dfrac{1}{\nicefrac{1}{x}} > \frac{1}{n}$. %VERLINKUNGEN ZU SÄTZEN
+	\end{enumerate}
+\end{bew}
+\begin{satz}[Induktionsprinzip]
+	Sei $M\subset \mathbb{N}$ mit 
+	\begin{enumerate}
+		\item $1\in M$
+		\item Ist $x\in M \Rightarrow x+1 \in M$
+	\end{enumerate}
+	Dann ist $M= \mathbb{N}$.
+\end{satz}
+\begin{bew}
+	$\Rightarrow M$ ist induktiv. $\mathbb{N}$ kleinste induktive Teilmenge von $\mathbb{R}$\\
+	$\Rightarrow \mathbb{N} \subset M$\\
+	$M\subset \mathbb{N} \wedge \mathbb{N} \subset M \Leftrightarrow M = \mathbb{N}$.
+\end{bew}
+\begin{kor}[Vollständige Induktion]
+	Für $n\in\mathbb{N}$ seien $A(n)$ Aussagen.
+	Es gelte:
+	\begin{enumerate}
+		\item $A(1)$ ist wahr.
+		\item aus $A(n)$ ist wahr folgt $A(n+1)$ ist wahr.
+	\end{enumerate}
+\end{kor}
+\begin{bew}
+	Definiere $M := \{n\in \mathbb{N}| A(n) \text{ ist wahr}\} \subset \mathbb{N}$.
+	\begin{enumerate}
+		\item $\Rightarrow 1\in M$, da $A(1)$ wahr ist
+		\item $\Rightarrow$ sei $n\in M$, d.h. $A(n)$ ist wahr $\Rightarrow A(n+1)$ ist wahr, d.h. $n+1\in M$.
+	\end{enumerate}
+	$\overset{\text{Ind.prinzip Satz 4}}{\Rightarrow} M = \mathbb{N}$, also sind alle $A(n)$ wahr! %LINK ZU SATZ 4!
+\end{bew}
+Notation: Induktive Definition von Summen und Produkten.\\
+$a_1+a_2+\ldots + a_n$ vage \dots\\
+\textbf{Summe:}
 %to complete
 
 

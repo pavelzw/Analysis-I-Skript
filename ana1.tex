@@ -34,7 +34,10 @@
 \newtheorem*{bsp}{Beispiel}
 
 \newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
-
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
 
 \begin{document}
 \title{Analysis I (WS 18/19)}
@@ -975,7 +978,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\end{enumerate}
 \end{bem}
 \begin{satz}
-	Inhalt...
+	Inhalt... 
 \end{satz}
 
 %FERTIG MACHEN
@@ -1079,15 +1082,105 @@ Beh.: $\sqrt{2}\in\mathbb{R}\setminus \mathbb{Q}.$
 	Sei $k\in\mathbb{N}$ und $\sqrt{k} \notin \mathbb{N}$.\\
 	Angenommen $\sqrt{k}\in\mathbb{Q}$, also $\sqrt{k} = \frac{m}{n}, m\in\mathbb{Z},n\in\mathbb{N}$\\
 	$A:=\{n\in\mathbb{N}|\exists m\in\mathbb{Z} \frac{m^2}{n^2} = k\}$
-	$$\overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \mathbb{N}$$ 
+	$$\overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N$$ 
 	Sei $\frac{m}{n_*} = \sqrt{k}$, dann gilt
 	$$m-n_* = \underbrace{(\sqrt{k}-1)}_{<1} n_*$$ %DURCHGESTRICHEN
-	Aber wähle $q\in\mathbb{N}: q\leq \sqrt{k} < q+1$\\
-	Existiert nach Lemma 5.2.1. Da $\sqrt{k} \notin \mathbb{N}$ gilt $q<\sqrt{k}<q+1$.\\
+	Aber wähle $q\in\N: q\leq \sqrt{k} < q+1$\\
+	Existiert nach Lemma 5.2.1. Da $\sqrt{k} \notin \N$ gilt $q<\sqrt{k}<q+1$.\\
 	Also gilt:
 	$$0\overset{q<\sqrt{k}}{<} \underbrace{m-qn_*}_{\in\mathbb{N}} = (\underbrace{\sqrt{k}-q}_{<1})n_* < n_*$$
 	Somit $$\sqrt{k} = \frac{m}{n_*} = \frac{m(m-qn_*)}{n_*(m-qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m-qn_*)}=\frac{kn_*-mq}{m-qn_*}$$
 	\Lightning $n_* = \min A, m-qn_* < n_*$\\
-	Somit muss $\sqrt{k}\in\mathbb{R}\setminus\mathbb{Q}$ sein.
+	Somit muss $\sqrt{k}\in\R\setminus\Q$ sein. 
 \end{bew}
+\section{Existenz von Wurzeln (in $\R$)}
+Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, schreiben $\alpha = a^{\frac{1}{n}}$ oder $\sqrt[n]{a}$, falls $a^n = a$.
+\begin{satz}
+	Sei $\alpha \in\R, a>0$ und $n\in\N$. Dann existiert die $n$-te Wurzel von $a$ als reelle Zahl. D.h. $\exists ! \alpha\in\R$ mit $\alpha>0$ und $\alpha^n = a$.
+\end{satz}
+\begin{bem}
+	Für die rationalen Zahlen ist dies falsch!
+\end{bem}
+\begin{bew}
+	Angenommen, die Beh. gilt für $a\geq 1$. Sei $0<b<1$. Setze $a :=\frac{1}{b}>1\Rightarrow \exists !\alpha>0:\alpha^n = a = \frac{1}{b}$. Setze $\beta := \frac{1}{\alpha}$.\\
+	Dann gilt also $$\beta^n = \left(\frac{1}{\alpha}\right)^n = \frac{1}{\alpha^n} = \frac{1}{a} = b.$$
+	Also nehme an $a\geq 1$. Ist $a=1$, so ist $\alpha = 1$ die einzige Lösung von $\alpha^n = 1$. Außerdem können wir $n\in\N$ mit $n>1$ wählen. Also sei $a>1,n\in\N,n>1$. Setze 
+	$$A := \{x\in\R|0<x, x^n<a\}$$
+	Dann ist $1\in A$ und somit $A\neq\emptyset$. Außerdem ist $A$ nach oben beschränkt, denn ist $y \geq a$, so folgt 
+	$$y^n \geq a^n = \underbrace{a \cdot a \ldots \cdot a}_{n\text{-mal}} > \underbrace{1 \cdot 1 \ldots \cdot 1}_{n\text{-mal}} \cdot a = a$$
+	Also ist $A \leq a$.
+	$$\overset{\text{Vollst.axiom}}{\Rightarrow} \alpha := \sup A \in\R \text{ existiert}.$$
+	Da $1\in A \Rightarrow \alpha \geq 1 > 0$.\\
+	$\alpha^n$ ist eine reelle Zahl für die gilt nach Anordnungsaxiom entweder $\alpha^n <a, \alpha^n >a$ oder $\alpha^n = a$.\\
+	1. Fall: Annahme: $\alpha^n <a$.\\
+	Sei $0<\delta\leq 1$. Dann gilt (binom. Formel)
+	\begin{align*}
+		(\alpha + \delta)^n &= \sum_{k=0}^{n} \binom{n}{k} \alpha^k\delta^{n-k}\\
+		&= \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k} \alpha^k\delta^{n-k}\\
+		&= \alpha^n + \sum_{k=1}^{n-1} \binom{n}{k-1} \underbrace{\alpha^{k-1}}_{\leq a^{k-1}}\underbrace{\delta^{n+1-k}}_{\leq \delta \cdot \delta^{n-k} \leq \delta}\\
+		&\leq \alpha^n \delta \sum_{k=1}^{n-1} \binom{n}{k-1} \alpha^{k-1}\\
+		&\leq \alpha^n \delta \sum_{k=0}^{n} \binom{n}{k} \alpha^{k}\\
+		&= \alpha^n + \delta(a+1)^n (*)
+	\end{align*}
+	$\alpha^n <a$ nach Annahme und $\delta := \frac{1}{2} \min\left(1, \frac{a-\alpha^n}{(a+1)^n}\right)$\\
+	Dann gilt $0<\delta\leq 1$ und $(*)$
+	$$(\alpha + \delta)^n \leq \alpha^n + \delta(a+1)^n \leq \alpha^n + \frac{1}{2} (a-\alpha^n) = \frac{1}{2} (\alpha^n+a) < \frac{1}{2} (a+a) =a$$
+	Somit ist $\alpha < \alpha + \delta$ \Lightning $\alpha$ ist $\sup A$.\\
+	2. Fall: Annahme: $\alpha^n > a, 0<\delta \leq 1$
+	\begin{align*}
+		\Rightarrow (\alpha - \delta)^n &= \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} (-\delta)^k = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} (-1)^k\delta^k \\
+		&= \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} (-1)^{k+1}\delta^{k+1}\\
+		&= \alpha^n - \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} (-1)^{k} \delta^k\\
+		&\geq \alpha^n - \delta \sum_{k=0}^{n-1} \binom{n}{k+1} a^{n-k+1}\\
+		&= \alpha^n - \delta \sum_{k=1}^{n} \binom{n}{k} a^k\\
+		&\geq \alpha^n - \delta (a+1)^n (**)
+	\end{align*}
+	Setze $\delta := \frac{1}{2} \min \left(1, \frac{\alpha^n-a}{(a+1)^n} \right)$. Dann gilt $0\leq\delta\leq \frac{1}{2}<1$.
+	$$(\alpha -\delta)^n \geq \alpha^n - \frac{1}{2} (\alpha^n + a) = \frac{1}{2} (\alpha^n + a) > \frac{1}{2} (a + a) \geq a.$$
+	Somit $\alpha - \delta$ eine obere Schranke für $A$. Da $\alpha - \delta<\alpha$, ist das ein Widerspruch zu $\alpha = \sup A$. Somit bleibt nur $\alpha^n = a$.
+\end{bew}
+\section{Folgen und Konvergenz}
+\subsection{Grundlagen}
+\begin{defi}
+	Sei $X\neq\emptyset$ eine Menge. Eine Folge (mit Werten in $X$ oder auch $X$-wertige Folge) ist eine Funktion 
+	$$f: \N \rightarrow X, n \mapsto f(n)\in X$$
+	Wir setzen $a_n := f(n), n\in\N$.\\
+	$a_n$ heißt $n$-tes Folgenglied. Wir schreiben auch $(a_n)_{n\in\N}$ oder kurz $(a_n)_n$.\\
+	Ist $X = \R$, so heißt die Folge reellwertig oder reelle Folge (Folge reeller Zahlen). $(a_n)_{n\in\N} \subset \R$.
+\end{defi}
+\begin{defi}[Konvergenz (reeller Folgen)]
+	Eine reelle Folge $(a_n)_{n\in\N}$ konvergiert (mit $n\rightarrow\infty)$ gegen ein $a\in\R$, falls 
+	$$\forall \varepsilon > 0 \exists k \in \N: \forall n\geq k \text{ folgt } |a_n - a| < \varepsilon.$$
+	Die Zahl $a$ heißt Grenzwert der Folge, wir schreiben $\lim\limits_{n\rightarrow\infty}a_n = a$ oder $a_n\rightarrow a$ (für $n\rightarrow\infty$).\\
+	Eine (reelle) Folge heißt \underline{konvergent}, falls ein $a\in\R$ der Grenzwert der Folge ist, andernfalls heißt die Folge \underline{divergent}.
+\end{defi}
+\begin{bem}
+	$$\lim\limits_{n\rightarrow\infty}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|\leq \varepsilon.$$ %WARUM LEQ????
+\end{bem}
+\begin{bsp}. %SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item $a_n := \frac{1}{n}$ konvergiert gegen $0$. Denn zu geg. $\varepsilon>0$ wähle $k\in\N$ mit $k>\frac{1}{\varepsilon}$. Dann gilt für $n\geq k$
+		$$|a_n-a| = |\frac{1}{n} - 0| = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.$$
+		\item Konstante Folge . Sei $a\in\R$ und sei $a_n = a$ für $n\in\N$.\\
+		Dann folgt $\lim\limits_{n\rightarrow\infty} a_n = a$, denn für $\varepsilon > 0$
+		$$|a_n - a| = |a-a|=0<\varepsilon \text{, wähle } k=1$$
+		\item Sei $a_n := (-1)^n$, also $a_1 = -1, a_2 = 1, a_3 = -1, \ldots$\\
+		Dann ist $(a_n)_{n\in\N}$ nicht konvergent.
+		\begin{bew}
+			Angenommen: $(a_n)_n$ konvergiert und $a\in\R$ ist Grenzwert. Zu $\varepsilon = 1$ existiert dann $k\in\N$ so, dass $|a_n - a| < \varepsilon = 1 \quad \forall n\geq k$\\
+			Also gilt für $n\geq k$:
+			$$2 = |a_n - a_{n+1}| = |a_n - a + a - a_{n+1}| \leq |a_n - a| + |a-a_{n+1}| < 1 + 1 = 2 \text{ \Lightning}$$
+		\end{bew}
+		\item Die Folge $(a_n)$ konvergiert gegen $a$. Dann konvergiert auch $(|a_n|)_n$ gegeen $|a|$. (Hinweis: Umgekehrte Dreiecksungleichung)
+		\item Geometrische Folge:\\
+		Sei $q\in\R, |q|<1$. Dann gilt
+		$$\lim\limits_{n\rightarrow\infty} q^n = 0.$$
+		\begin{bew}
+			Annahme: $q\neq 0$, dann gilt $\frac{1}{|q|}>1$ und es existiert $x>0$, sodass $\frac{1}{|q|} = 1 + x$.\\
+			Aus Bernoullischer Ungleichung folgt $$(1+x)^n \geq 1+nx$$ und somit $$|q^n-0| = |q^n| = |q|^n = \frac{1}{(1+x)^n} \leq \frac{1}{1+nx}.$$
+			Also zu $\varepsilon > 0$ wähle $k\in\N \forall n\geq k$ gilt $nx > \frac{1}{\varepsilon}$.
+			$$|q^n-0|\leq \frac{1}{1+nx} \leq \frac{1}{nx} < \varepsilon \text{ für } n\geq k.$$
+		\end{bew}
+	\end{enumerate}
+\end{bsp}
 \end{document}

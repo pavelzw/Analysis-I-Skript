@@ -15,6 +15,7 @@
 \usepackage{nicefrac}
 \usepackage{marvosym}[Lightning]
 \usepackage{array}
+\usepackage{dsfont} %statt \mathbb{1}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 \usepackage{hyperref} %Hyperlinks in pdf
@@ -1127,14 +1128,85 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 	Sei \(A\neq\emptyset\) eine endliche Menge. Dann ist \[\#(\{0,1\}^A) = 2^{\#A}.\]
 \end{satz}
 \begin{bew}
-	Inhalt...
+	Sei \(n := \# A \in\N \).\\
+	\(\Rightarrow\) Bijektion \(h:\{1,\ldots,n\} \rightarrow A\).\\
+	\( \Rightarrow \) können annehmen \(A = \{1,2,\ldots,n\}\)\\
+	z.z. \(\#( \{0,1\}^[n] ) = 2^n\).\\
+	Induktion: \(n=1 \exists \) Fkt. \(f_1,f_2 : \{1\} \rightarrow \{0,1\} \\
+	f_1(1) = 0 \quad f_2(1) = 1 \)\\
+	Formel stimmt für \(n=1\).
+	Ang. Formel stimmt für \(n\geq 1\). Fkt. \(f: \{1,\ldots, n+1\} \rightarrow \{0,1\} \)\\
+	2 Klassen: 
+	\begin{enumerate}
+		\item \(S_0 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 0 \}\)
+		\item \(S_1 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 1 \}\)
+	\end{enumerate}
+	\[S_0 \cap S_1 = \emptyset, \{0,1\}^{[n+1]} = S_0 \cup S_1 \]
+	\[\underbrace{\# S_0}_{=\#S_1} = \# (\{0,1\}^{[n]})  \overset{\text{IA}}{=} 2^n \]
+	\[ \Rightarrow \# (\{0,1\}^{n+1}) = \#S_0+\#S_1 = 2^n + 2^n = 2^{n+1}. \]
+\end{bew}
+\begin{kor}
+	Sei \(A\) endliche Menge. \\
+	\(\mathcal{P}(A) = \) Potenzmenge = \(\{B | B \subseteq A\}\)\\
+	\(\Rightarrow \#\mathcal{P}(A = 2^{\#A}) \).
+\end{kor}
+\begin{bew}
+	Sei \(A\neq \emptyset \Rightarrow\mathcal{P}(\emptyset) = \{\emptyset\}, \quad 2^0 = 1 \checkmark \)\\
+	Sei \(\#A \in\N\). Nach Satz 11 reicht eine Bijektion \( \varphi : \mathcal{P} \rightarrow \underbrace{\{0,1\}^A}_{= \{f: A \rightarrow \{0,1 \} \}} \). Dies wird in Lemma 13 für bel. Mengen \(A\) gemacht.
+\end{bew}
+\begin{lem}
+	Sei \(A\neq\emptyset\). Dann sind \( \mathcal{P}(A) \) und \(\{0,1\}^A\) gleichmächtig.
+\end{lem}
+\begin{bew}
+	Brauchen \(\varphi : \mathcal{P}(A) \rightarrow \{0,1\}^A \).\\
+	Sei \(B \subseteq A \), Indikatorfunktion \[ \mathds{1}_B(x) := \begin{cases} 
+	1, &x\in B\\
+	0, &x\in A\setminus B
+	\end{cases}
+	, \mathds{1}_B : A \rightarrow \{0,1\}. \]
+	Beachte: \(B = \{x\in A | \mathds{1}_B(x) = 1 \} \).\\
+	Definiere \( \varphi : \mathcal{P}(A) \rightarrow \{0,1\}^A, B \mapsto \mathds{1}_B \).\\
+	Beh.: \(\varphi\) ist bijektiv.
+	\begin{enumerate}
+		\item \( \varphi \) ist surjektiv.\\
+		Sei \(f: A\rightarrow \{0,1\}\)
+		\[ B_f := f^{-1} (\{1\}) = \{a \in A| f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f\text{ (nachrechnen)}.\]
+		\item \( \varphi \) ist injektiv.\\
+		Seien \( B_1,B_2\subseteq A, B_1 \neq B_2 \).
+		\begin{align*}
+			B_1\setminus B_2 \neq \emptyset \vee B_2\setminus B_1 \neq \emptyset\\
+			\text{o.B.d.A. } B_1 \setminus B_2 \neq \emptyset \Rightarrow \exists x \in B_2 \setminus B_1 \subset A\\
+			\mathds{1}_{B_1}(x) = 0 \neq 1 = \mathds{1}_{B_2}(x)\\
+			\Rightarrow \varphi(B_1) = \mathds{1}_{B_1} \neq \mathds{1}_{B_2} = \varphi(B_2).
+		\end{align*}
+	\end{enumerate}
+\end{bew}
+\begin{lem}
+	Sei \(A\) Menge. Dann gibt es eine surj. Fkt. \(f: A\rightarrow \mathcal{P}(A) \).
+\end{lem}
+\begin{bem}
+	Ist \(A\) endlich \( \Rightarrow \# \mathcal{P} (A) = 2^{\# A} > \#A \).\\
+	\( \varphi: \mathcal{P}(A) \rightarrow \{0,1\}^A, \quad A\supset B \mapsto \mathds{1}_B \).
+\end{bem}
+\begin{bew}
+	Sei \(f: A \rightarrow \mathcal{P}(A) \)
+	\[ f(A) \subset A \quad \forall a \in A. \]
+	Definiere \(R := \{a\in A, a \neq f(a)\} \subset A \).\\
+	Angenommen \(f: A \rightarrow \mathcal{P}(A) \) ist surjektiv.
+	\[ \Rightarrow \forall b\in A \exists b : B=f(b) \Rightarrow \exists a\in A : R = f(a). \]
+	\(\Rightarrow\) 2 Möglichkeiten:
+	\begin{enumerate}
+		\item \(a\in R\) \[ a\in f(a = R = \{x\in A| x\notin f(x)\}) \text{\Lightning} \]
+		\item \(a \notin R = f(a) \Rightarrow a \notin f(a) \Rightarrow a\in R \) \Lightning\\
+		\( f\) kann nicht surjektiv sein!
+	\end{enumerate}
 \end{bew}
 
 %FERTIG MACHEN
 
 \newpage
 %09.11.2018
-\section{Starke Induktion und das Wohlordnungsprinzip}
+\section{}
 \subsection{Starke Induktion und das Wohlordnungsprinzip}
 \begin{satz}[starke Induktion]
 	Seien $A(n)$ Aussagen für $n\in\mathbb{N}$. Dann gilt

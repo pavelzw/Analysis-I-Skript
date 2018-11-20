@@ -1582,7 +1582,7 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 		-1<q<1.\\
 		a_n &:= 1 + q + q^2 + \ldots + q^n\\
 		&= \sum_{l=0}^{n} q^l \overset{\text{Satz 3.5.7}}{=} \frac{1-q^{n+1}}{1-q}\\
-		\Rightarrow \lim\limits_{n\rightarrow\infty} a_n &= \frac{1- \lim\limits_{n\rightarrow\infty} q^{n+1}{1-q} = \frac{1}{1-q}.
+		\Rightarrow \lim\limits_{n\rightarrow\infty} a_n &= \frac{1- \lim\limits_{n\rightarrow\infty} q^{n+1}}{1-q} = \frac{1}{1-q}.
 	\end{align*}
 	Da \(q^n \rightarrow 0, n\rightarrow\infty \), Bsp. 6 oben.
 	Schreiben hierfür \[ \sum_{l=0}^{n} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
@@ -1607,7 +1607,7 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 		\item Bild: 
 		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
-		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &$\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon\\
+		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon\\
 		&\Rightarrow K := \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
 		\end{align*}
 		Ang. \(a>b: \varepsilon := \frac{a-b}{2} > 0 \Rightarrow\)\\
@@ -1634,12 +1634,12 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{defi}[Uneigentliche Konvergenz]
 	Die Folge \((a_n)_n\) konvergiert uneigentlich (divergiert bestimmt) gegen \(+\infty\), falls 
 	\[ \forall R>0 \exists K\in\N \text{ mit } a_n >R \quad \forall n\geq K. \]
-	Schreiben \( \limits_{n\rightarrow\infty} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
-	Analog für \( \limits_{n\rightarrow\infty} a_n = -\infty \), falls 
+	Schreiben \( \lim\limits_{n\rightarrow\infty} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
+	Analog für \( \lim\limits_{n\rightarrow\infty} a_n = -\infty \), falls 
 	\[ \forall R<0 \exists K\in\N: a_n < R \forall n\geq K. \]
 \end{defi}
 \begin{bsp}
-	Ist \(a>1 \Rightarrow\limits_{n\rightarrow\infty}q^n = +\infty, 0< \frac{1}{q} < 1. \)
+	Ist \(a>1 \Rightarrow \lim\limits_{n\rightarrow\infty}q^n = +\infty, 0< \frac{1}{q} < 1. \)
 \end{bsp}
 \begin{bew}
 	\(\frac{1}{q^n} = \left( \frac{1}{q} \right)^n \rightarrow 0, n\rightarrow \infty  \)\\
@@ -1648,7 +1648,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	Insgesamt: 
 	\begin{align*}
 		&q>1 &\Rightarrow \lim\limits_{n\rightarrow\infty}q^n = +\infty.\\
-		&q=1 &\Rightarrow \limits_{n\rightarrow\infty}q^n = 1.\\
+		&q=1 &\Rightarrow \lim\limits_{n\rightarrow\infty}q^n = 1.\\
 		&-1<q<1 & \Rightarrow \lim\limits_{n\rightarrow\infty} q^n = 0.\\
 		&q\leq 1 & \Rightarrow (q^n)_n \text{ ist nicht konvergent.}
 	\end{align*}

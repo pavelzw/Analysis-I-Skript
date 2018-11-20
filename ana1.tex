@@ -1517,7 +1517,7 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 \end{satz}
 \begin{bew}
 	\begin{enumerate}
-		\item 1. Fal $\lambda = \mu = 1$.\\
+		\item 1. Fall $\lambda = \mu = 1$.\\
 		Zu $\varepsilon>0 \exists K_1, K_2 \in\N$, sodass
 		\begin{align*}
 			|a_n-a|<\frac{\varepsilon}{2} \quad \forall n\geq K_1\\
@@ -1551,6 +1551,141 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 		Somit folgt \( \frac{1}{b_n} \rightarrow \frac{1}{b} \) (für \(n\rightarrow \infty \)). Somit folgt die allg. Aussage aus Teil 2 von Satz 7.1.8.
 	\end{enumerate}
 \end{bew}
-
-
+%20.11.2018
+reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
+\[ (f+g)_n := f_n + g_n, \quad n\in\N \]
+\(x (\lambda f)_n := \lambda f_n \Rightarrow ( \lambda f + \mu g )_n = \lambda f_n + \mu g_n \) ist eine Linearkombination.\\
+\(\Rightarrow\) Raum der reellen Folgen ist ein reeller Vektorraum.
+\begin{align*}
+	&\{ \text{Raum der (reellen) Folgen} \}\\
+	&\supsetneq \{ \text{Raum der beschränkten (reellen) Folgen} \}\\
+	&\supsetneq \{ \text{Raum der (reellen) konvergenten Folgen} \}\\
+	&\supsetneq \{ \text{Raum der (reellen) Nullfolgen} \}.
+\end{align*}
+\((f_n)_{n\in\N}\) ist eine Nullfolge, falls \( \lim\limits_{n\rightarrow\infty} f_n = 0 \).
+\begin{bsp}[1]
+	\(p,q\) Polynome vom Grad \(m,n\in\N\).\\
+	D. h. \[ p(x) = a_m x^m + a_{m-1} x^{m-1} + \ldots + a_1 x + a_0 \quad \forall x\in\R \]
+	\[q(x) = b_n x^n + b_{n-1} x^{n-1} + \ldots + b_1 x + b_0 \quad b_n \neq 0 \neq a_m \]
+	\begin{align*}
+		k\in\N. \frac{p(k)}{q(k)} = \frac{a_m x^m + a_{m-1} x^{m-1} + \ldots + a_1 x + a_0}{b_n x^n + b_{n-1} x^{n-1} + \ldots + b_1 x + b_0}\\
+		= k^{m-n} \frac{a_m + a_{m-1} k^{-1} + \ldots + a_1 k^{1-m} + a_0 k^{-m} }{b_n + b_{n-1} k^{-1} + \ldots + b_1 k^{1-n} + b_0 k^{-n}}\\
+		\overset{\text{Satz 8}}{\longrightarrow}
+		\begin{cases}
+			0, \text{ falls } n>m.\\
+			\frac{a_n}{b_n}, \text{ falls } n = m.
+		\end{cases}
+	\end{align*}
+\end{bsp}
+\begin{bsp}[Geometrische Reihe]
+	\begin{align*}
+		-1<q<1.\\
+		a_n &:= 1 + q + q^2 + \ldots + q^n\\
+		&= \sum_{l=0}^{n} q^l \overset{\text{Satz 3.5.7}}{=} \frac{1-q^{n+1}}{1-q}\\
+		\Rightarrow \lim\limits_{n\rightarrow\infty} a_n &= \frac{1- \lim\limits_{n\rightarrow\infty} q^{n+1}{1-q} = \frac{1}{1-q}.
+	\end{align*}
+	Da \(q^n \rightarrow 0, n\rightarrow\infty \), Bsp. 6 oben.
+	Schreiben hierfür \[ \sum_{l=0}^{n} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
+\end{bsp}
+\begin{bsp}
+	Ist \((b_n)_n\) beschränkt, \((a_n)_n\) Nullfolge. \(\Rightarrow (b_n a_n)_n \) Nullfolge. (Hausaufgabe)
+\end{bsp}
+\textbf{Notation:} Wir sagen die Aussagen \(A(n), n\in\N\) gelten für \underline{fast alle \(n\in\N\)}, falls \(K_0\in\N\) existiert, sodass \(A(n)\) wahr ist für alle \(n\geq K_0\) (d. h. für alle genügend großen \(n\), d. h. \(A(n)\) wahr für alle bis auf endlich viele \(n\in\N\)).
+\begin{bsp}
+	\[ a_n\rightarrow a,n\rightarrow\infty \Leftrightarrow (\forall \varepsilon > 0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon \text{ für fast alle } n.)  \]
+\end{bsp}
+\begin{satz}
+	Seien \((a_n)_n, (b_n)_n\) konvergente reelle Folgen, \(a_n\rightarrow a, b_n \rightarrow b, n\rightarrow\infty\). Dann gilt
+	\begin{enumerate}
+			\item Aus \(a_n\leq b_n\) für fast alle \(n\) folgt \(a\leq b\).
+			\item Sind \(c,d\in\R, c\leq a_n\leq d \) für fast alle \(n \Rightarrow c\leq a\leq d\)
+			\item (Sandwichlemma) Ist \(a_n \leq c_n \leq b_n \) für fast alle \(n\) (\((c_n)_n\) weitere reelle Folge) und \(a=b \Rightarrow (c_n)_n\) konvergiert und \( \lim\limits_{b\rightarrow\infty}c_n = a\) (\(=b\)).
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	\begin{enumerate}
+		\item Bild: 
+		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
+		\begin{align*}
+		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &$\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon\\
+		&\Rightarrow K := \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
+		\end{align*}
+		Ang. \(a>b: \varepsilon := \frac{a-b}{2} > 0 \Rightarrow\)\\
+		\(K \) wie oben \(:\Rightarrow a< a_n + \varepsilon \leq b_n + \varepsilon < b + e\varepsilon = b + 2 \frac{a-b}{2} = a \)
+		\( \Rightarrow a<a\) \Lightning \(\Rightarrow a\leq b \checkmark\).
+		Andere Möglichkeit:\\
+		\[ a_n \leq b_n, \forall \varepsilon > 0: a-\varepsilon < a_n<a + \varepsilon, b-\varepsilon < b_n < b + \varepsilon \quad \forall n\geq K. \]
+		\[ a < a_n + \varepsilon \leq b_n + \varepsilon < b + 2\varepsilon \Rightarrow \underbrace{a-b < 2\varepsilon \quad \forall \varepsilon > 0}_{\Rightarrow a-b\leq 0 \Leftrightarrow a\leq b.}. \]
+		\item Nehme \(b_n = c, b_n \rightarrow c\).\\
+		Da \(b_n = c \leq a_n \overset{1.}{\Rightarrow} c= \lim b_n \leq \lim a_n = a \).\\
+		Nehme auch \(b_n = d, a_n \leq d = b_n \overset{1.}{\Rightarrow} a \leq \lim b_n = d. \checkmark \)
+		\item Haben \(\forall \varepsilon > 0\).
+		\begin{align*}
+			&\exists K_0 \in\N: &a_n \leq c_n \leq b_n \quad \forall n\geq K_0\\
+			&\exists K_1, K_2 \in\N: &a-\varepsilon < a_n < a + \varepsilon \quad \forall n\geq K_1\\
+			&&\underbrace{b-\varepsilon}_{=a-\varepsilon} < b_n < \underbrace{b + \varepsilon}_{=a+\varepsilon} \quad \forall n \geq K_2. \text{( da )}b=a
+		\end{align*}
+		\[\forall  n\geq K: a-\varepsilon < a_n \leq c_n \leq b_n < a+\varepsilon \]
+		\[ \Rightarrow a-\varepsilon < c_n < a_n + \varepsilon \Leftrightarrow c_n\in U_\varepsilon(a) \quad \forall n\geq K \] 
+		\( \Leftrightarrow \) konvergiert \((c_n)_n\) gegen \(a\)!
+	\end{enumerate}
+\end{bew}
+Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarrow  a<b.\)\\Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
+\begin{defi}[Uneigentliche Konvergenz]
+	Die Folge \((a_n)_n\) konvergiert uneigentlich (divergiert bestimmt) gegen \(+\infty\), falls 
+	\[ \forall R>0 \exists K\in\N \text{ mit } a_n >R \quad \forall n\geq K. \]
+	Schreiben \( \limits_{n\rightarrow\infty} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
+	Analog für \( \limits_{n\rightarrow\infty} a_n = -\infty \), falls 
+	\[ \forall R<0 \exists K\in\N: a_n < R \forall n\geq K. \]
+\end{defi}
+\begin{bsp}
+	Ist \(a>1 \Rightarrow\limits_{n\rightarrow\infty}q^n = +\infty, 0< \frac{1}{q} < 1. \)
+\end{bsp}
+\begin{bew}
+	\(\frac{1}{q^n} = \left( \frac{1}{q} \right)^n \rightarrow 0, n\rightarrow \infty  \)\\
+	d. h. zu \(R>0 \exists K\in\N: \frac{1}{q^n} < \frac{1}{R} \quad \forall n\geq K. \)\\
+	\( \Leftrightarrow q^n > R \quad \forall n\geq K. \) Also \(\lim q^n = +\infty \) nach Def.\\
+	Insgesamt: 
+	\begin{align*}
+		&q>1 &\Rightarrow \lim\limits_{n\rightarrow\infty}q^n = +\infty.\\
+		&q=1 &\Rightarrow \limits_{n\rightarrow\infty}q^n = 1.\\
+		&-1<q<1 & \Rightarrow \lim\limits_{n\rightarrow\infty} q^n = 0.\\
+		&q\leq 1 & \Rightarrow (q^n)_n \text{ ist nicht konvergent.}
+	\end{align*}
+	Ist \( q<1 \Rightarrow (q_n)_n \) nicht beschränkt ist.
+\end{bew}
+\begin{satz}[Kehrwerte]
+	\begin{enumerate}
+		\item Aus \( |a_n| \rightarrow \infty, n\rightarrow\infty \) folgt \(\frac{1}{n} \rightarrow\infty,n\rightarrow\infty \).
+		\item Aus \( a_n\rightarrow 0, a_n > 0 \) (bzw. \(a_n<0\)) \( \forall n \) folgt \( \frac{1}{a_n} \rightarrow\infty, n\rightarrow\infty \) (\( \frac{1}{a_n} \rightarrow -\infty, n\rightarrow\infty \)).
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	Übungsaufgabe
+\end{bew}
+\section{Monotone Konvergenz}
+\begin{defi}
+	Eine Folge \((a_n)_n\) heißt \\monoton wachsend, falls \(a_n\leq a_{n+1} \quad \forall n\in\N \).\\monoton fallend, falls \(a_{n+1} \leq a_n \quad\forall n\in\N \).\\
+	Ähnlich: monoton wachsend (fallend) für fast alle \(n\in\N\), falls \( K\in\N \) existiert mit \( a_n\leq a_{n+1} \quad \forall n\geq K \) (bzw. \(a_{n+1}\leq a_n \quad \forall n\geq K \)).\\
+	Ist \\\( a_n<a_{n+1} \quad \forall n\in\N \), so heißt \(a_n\) streng monoton wachsend.\\
+	\( a_{n+1}<a_n \quad \forall n\in\N \), so heißt \(a_n\) streng monoton fallend.
+\end{defi}
+\begin{satz}
+	Jede monoton wachsende, nach oben beschränkte Folge ist konvergent. Jede monoton fallende, nach unten beschränkte Folge ist konvergent.
+\end{satz}
+\begin{bew}
+	\((a_n)_{n\in\N}, a_{n+1} \geq a_n \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
+	und \( \exists C\in\R: a_n \leq C \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
+	\[ B:= \{a_n, n\in\N\} \subset \R, b\neq \emptyset \text{ und } B\leq C. \]
+	\(\overset{\text{Vollst.axiom}}{\Rightarrow} L := \sup B\) die kleinste obere Schranke für \(B\).\\
+	\(\Rightarrow a_n \leq L \quad \forall n\in\N \).\\
+	Und: \(L\) kleinste ob. Schranke \( \Rightarrow \forall \varepsilon>0: L-\varepsilon \) keine obere Schranke für \(B\).\\
+	\[ \Rightarrow \exists K \in\N: L-\varepsilon < a_K \leq a_{K+1} \leq a_{K+2} \leq \ldots \leq a_n \quad \forall n\geq K. \]
+	\[ \forall n\geq K: L-\varepsilon < a_n \leq L < L + \varepsilon \Leftrightarrow a_n \in (L-\varepsilon, L + \varepsilon) \]
+	\( \Leftrightarrow (a_n)_n \) konvergiert gegen \(L\).\\
+	Ist \(a_{n+1} \leq a_n, a_n\geq C \quad \forall n\in\N \), so betrachte \(b_n := -a_n \leq -C \) und \(b_{n+1} \geq b_n\). Dann ersten Fall anwenden!
+\end{bew}
+\begin{bsp}[1]
+	Inhalt...
+\end{bsp}
 \end{document}

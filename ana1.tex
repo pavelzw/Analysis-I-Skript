@@ -1686,6 +1686,11 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	Ist \(a_{n+1} \leq a_n, a_n\geq C \quad \forall n\in\N \), so betrachte \(b_n := -a_n \leq -C \) und \(b_{n+1} \geq b_n\). Dann ersten Fall anwenden!
 \end{bew}
 \begin{bsp}[1]
-	Inhalt...
+	\(x_0 = 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
+	Ang.: \( \lim\limits_{n\rightarrow\infty} x_n = l \) existiert, dann auch \( \lim\limits_{n\rightarrow\infty} x_{n+1} = l, l>0 \)
+	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \lim\limits_{n\rightarrow\infty} x_{n+1} = \lim\limits_{n\rightarrow\infty} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
+\end{bsp}
+\begin{bsp}[2]
+	\(f_n := \left( 1 + \frac{1}{n} \right)^n \) Grenzwert \( \lim\limits_{n\rightarrow\infty} f_n = \lim\limits_{n\rightarrow\infty} \left( 1 + \frac{1}{n} \right)^n \) existiert \( =: e \).
 \end{bsp}
 \end{document}

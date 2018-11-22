@@ -43,6 +43,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+\newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
 
 \begin{document}
 \title{Analysis I (WS 18/19)}
@@ -1670,7 +1671,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	Ist \\\( a_n<a_{n+1} \quad \forall n\in\N \), so heißt \(a_n\) streng monoton wachsend.\\
 	\( a_{n+1}<a_n \quad \forall n\in\N \), so heißt \(a_n\) streng monoton fallend.
 \end{defi}
-\begin{satz}
+\begin{satz}[Monotone Konvergenz]
 	Jede monoton wachsende, nach oben beschränkte Folge ist konvergent. Jede monoton fallende, nach unten beschränkte Folge ist konvergent.
 \end{satz}
 \begin{bew}
@@ -1686,11 +1687,129 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	Ist \(a_{n+1} \leq a_n, a_n\geq C \quad \forall n\in\N \), so betrachte \(b_n := -a_n \leq -C \) und \(b_{n+1} \geq b_n\). Dann ersten Fall anwenden!
 \end{bew}
 \begin{bsp}[1]
-	\(x_0 = 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
+	\(x_0 > 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
 	Ang.: \( \lim\limits_{n\rightarrow\infty} x_n = l \) existiert, dann auch \( \lim\limits_{n\rightarrow\infty} x_{n+1} = l, l>0 \)
 	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \lim\limits_{n\rightarrow\infty} x_{n+1} = \lim\limits_{n\rightarrow\infty} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
 \end{bsp}
 \begin{bsp}[2]
-	\(f_n := \left( 1 + \frac{1}{n} \right)^n \) Grenzwert \( \lim\limits_{n\rightarrow\infty} f_n = \lim\limits_{n\rightarrow\infty} \left( 1 + \frac{1}{n} \right)^n \) existiert \( =: e \).
+	\(f_n := \left( 1 + \frac{1}{n} \right)^n \) Grenzwert \( \lim\limits_{n\rightarrow\infty} f_n = \lim\limits_{n\rightarrow\infty} \left( 1 + \frac{1}{n} \right)^n \) existiert \( =: e \).\\
+	Beh. 1: \( f_n\) ist nach oben beschränkt.\\
+	Beh. 2: \( f_n\) ist monoton wachsend.
 \end{bsp}
+%22.11.2018
+\begin{bew}
+	Beh. 1:
+	\begin{align*}
+		f_n = (1+\frac{1}{n})^n  &= \sum_{k=0}^{n} \binom{n}{k} \left( \frac{1}{n} \right)^k\\
+		&= \sum_{k=0}^{n} \underbrace{\frac{n!}{k!(n-k)!}}_{=\frac{n(n-1)\ldots (n-k+1)}{k!}} \\
+		&= \sum_{k=0}^{n} \frac{1}{k!} \frac{n}{n} \underbrace{\frac{n-1}{n}}_{<1} \underbrace{\frac{n-k+1}{n}}_{<1}\\
+		&\leq \sum_{k=0}^{n} \frac{1}{k!} =: e_n, \quad f_n \leq e_n \forall n\in\N\\
+		e_{n+1} = e_n + \frac{1}{(n+1)!} > 1_n.
+	\end{align*}
+	Beachte: \( k! = k(k-1)(k-2)\ldots3\cdot2\cdot1 \qquad k\geq 2 \)\\
+	\( \geq 3\cdot3\ldots3\cdot2\cdot1 = 3^{k-2}\cdot2 (*) \)\\
+	Also ist \(n\geq3\).
+	\begin{align*}
+		e_n = \sum_{k=0}^{n} \frac{1}{k!} = 1+1 + \sum_{k=2}^{n} \frac{1}{k!} \overset{(*)}{\leq} 2 + \sum_{k=2}^{n} \frac{1}{2 \cdot 3^{k-2}}\\
+		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} (\frac{1}{3})^l}_{=1-(\frac{1}{3})^{n-1}}\\
+		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} = 2 + \frac{3}{4} = 2,75.\\
+		\Rightarrow e_n \leq 2,75 \forall n\geq 2.
+	\end{align*}
+	\(\Rightarrow (e_n)_n \) ist nach oben beschränkt.\\
+	\( \overset{Mon. Konv.}{\Rightarrow} \lim\limits_{n\rightarrow\infty} e_n \) existiert \(\leq 2,75\).\\
+	Auch \( f_n\leq e_n\leq 2,75 \quad \forall n\geq 2 \).\\
+	\( \Rightarrow (f_n)_n \) ist auch oben beschränkt.
+	Beh. 2:\\
+	\begin{align*}
+		\frac{f_n}{f_{n-1}} &= \frac{(1+\frac{1}{n})^n}{(1+\frac{1}{n})^{n-1}} \qquad n\geq 2\\
+		&= \frac{(\frac{n+1}{n})^n}{(\frac{n}{n-1})^{n-1}} = \frac{n}{n-1} \frac{(\frac{n+1}{n})^n}{(\frac{n}{n-1})^{n}} \frac{n}{n-1} \left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)^n\\
+		&= \frac{n}{n-1} \left( \frac{n^2-1}{n^2} \right)^n = \frac{n}{n-1} \underbrace{\left( 1-\frac{1}{n^2} \right)^n}_{\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
+		&\geq \frac{n}{n-1} (1-n \frac{1}{n^2}) = \frac{n}{n-1} (1-\frac{1}{n}) = 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
+	\end{align*}
+	\( \Rightarrow \lim\limits_{n\rightarrow\infty} f_n \) existiert!
+\end{bew}
+\begin{defi}[Eulersche Zahl]
+	\( e:= \lim\limits_{n\rightarrow\infty} (1+\frac{1}{n})^n \) (\(\leq 2,75\))
+\end{defi}
+\begin{bem}
+	\begin{enumerate}
+		\item Es gilt auch \( \lim\limits_{n\rightarrow\infty} (1+\frac{x}{n})^n \) exist. \( \forall x\in\R \) (H.A.)
+		\item Alternative Darstellung für \(e\):\\
+		Hatten gesehen: \(f_n \leq e_n = \sum_{k=0}^{n} \frac{1}{k!} \quad \forall n \)\\
+		\(e_n \leq 2,75, e_{n+1} > e_n \)\\
+		\( \Rightarrow \) es existiert \( \lim\limits_{n\rightarrow\infty} e_n = \lim\limits_{n\rightarrow\infty} \sum_{k=0}^{n} \frac{1}{k!} =: \sum_{k=0}^{\infty} \frac{1}{k!} \) und somit auch \(e = \lim\limits_{n\rightarrow\infty} f_n\leq \lim\limits_{n\rightarrow\infty} e_n = \sum_{k=0}^{\infty} \frac{1}{k!} \).
+	\end{enumerate}
+	Beobachtung: 
+	\[ f_n = (1+\frac{1}{n})^n = \sum_{k=0}^{n} \frac{1}{k!} \underbrace{\frac{n}{n}\frac{(n-1)}{n} \ldots\frac{n-k+1}{n}}_{\geq 0} , \quad(1+\frac{1}{n}^n = \sum_{k=0}^{n} \binom{n}{k} \frac{1}{n^k} \]
+	Nehme \(m\in\N\) fest.
+	\[ n\geq m \geq \sum_{k=0}^{m} \frac{1}{k!} 1 \underbrace{\frac{n-1}{n}}_{\overset{n\rightarrow\infty}{\rightarrow} 1} \ldots \underbrace{\frac{n-k+1}{n}}_{\overset{n\rightarrow\infty}{\rightarrow} 1} \]
+	Grenzwertsätze \(\Rightarrow \sum_{k=0}^{m} \frac{1}{k!} \) für \(n\rightarrow\infty\).
+	\( \Rightarrow \) Für jedes \(m\in\N\) ist
+	\[e_m \leq \lim\limits_{n\rightarrow\infty} f_n = e \]
+	Auch, \(e_m = \sum_{k=0}^{m} \frac{1}{k!} \) hat den Grenzwert \(m\rightarrow\infty\)!
+	\[ \overset{\text{Satz 7.1.9.}}{\lim\limits{m\rightarrow\infty}} e_m \leq e. \]
+	\[\Rightarrow e = \lim\limits_{m\rightarrow\infty} \sum_{k=0}^{m} \frac{1}{k!} =: \sum_{k=0}^{\infty} \frac{1}{k!} \]
+\end{bem}
+\begin{satz} 
+	\(e\) ist irrational!
+\end{satz}
+\begin{bew}
+	\(e_n = \sum_{k=0}^{n} \frac{1}{k!} \) approximiert \(e\) extrem gut\\
+	\[ 0< e-e_n = \sum_{k=0}^{\infty} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} = \sum_{k=n+1}^{\infty} \frac{1}{k!} \].
+	%%BID ABC BEI TELEGRAM EINFUEGEN
+	\begin{align*}
+		m>n: &\sum_{k=n+1}^{m} \frac{1}{k!} \qquad k \geq n+1\\
+		&\leq \sum_{k=n+1}^{m} \frac{1}{(n+1)!} \left(\frac{1}{2}\right)^{k-(n+1)}\\
+		&\leq \frac{1}{(n+1)!} \sum_{k=n+1}^{m} \left(\frac{1}{2}\right)^{k-(n+1)}\\
+		&= \frac{1}{(n+1)!} \sum_{l=0}^{m-(n+1)} (\frac{1}{2})^l = \frac{1}{(n+1)!} \frac{1-(\frac{1}{2})^{m-(n-1)}}{1-\frac{1}{2}}\\
+		&\leq \frac{1}{(n+1)!} \frac{1}{1-\frac{1}{2}} = \frac{2}{(n+1)!}\\
+		&\Rightarrow 0 < e - e_n \leq \frac{2}{(n+1)!} (*) \qquad\forall n\geq 2.
+	\end{align*}
+	Wäre \(e\) rational, \(\Rightarrow p\in\N,q\in\in:e=\frac{p}{q} \)
+	\[ \Rightarrow n! e = n! \frac{p}{q} \in\N \forall n\geq q \]
+	Auch: \( n! e_n = n! \sum_{k=0}^{n} \frac{1}{k!} \in\N \)\\
+	\( \Rightarrow n!(e-e_n) \in\N_0 \qquad \forall n \), die groß genug sind
+	\[ \overset{(*)}{\Rightarrow} 0<n!(e-e_n) \leq \frac{n!2}{(n+1)!} = \frac{2}{n+1} < 1 \quad \forall n\geq 3 \]
+	\Lightning also ist \(e\) irrational!
+\end{bew}
+\textbf{Anwendungen:}
+\begin{satz}[Invervallschachtelungsprinzip]
+	Seien \( a_n\leq b_n, I_n := [a_n,b_n] \) abgeschlossene Intervalle und \[I_{n+1} \subset I_n \quad \forall n\in\N\]
+	sowie \( |I_n| := b_n - a_n \overset{n\rightarrow\infty}{\rightarrow} 0 \).\\
+	Dann besteht \(\bigcap_{n\in\N} I_n\) aus genau einem Punkt!
+	Bild: %%BILD DEF TELEGRAM
+\end{satz}
+\begin{bew}
+	\begin{enumerate}
+		\item \( \bigcap_{n\in\N} I_n \) besteht aus höchstens einem Punkt in \(\R\).\\
+		Ang. \( \exists a, a^2 \in \bigcap_{n\in\N} I_n \quad a\neq a^2 \) (o.B.d.A. \(\tilde{a}>a\)).\\
+		\[I_{n+1} \subset I_n \quad\forall n \Rightarrow I_n \subset I_{n-1} \subset \ldots\subset I_m \quad \forall n>m.\]
+		\[ \Rightarrow \bigcap_{n\in\N} I_n = \{ x\in\R| x\in I_n \forall n\in\N \} \subset \{ x\in\R|x\in I_k \quad \forall 1\leq k \leq m \} = \bigcap_{k=1}^m I_k = I_m \]
+		\[ \Rightarrow \{ a,\tilde{a} \} \subset I_m \quad\forall m\in\N. \]
+		\[a,\tilde{a} \in I_m = [a_m,b_m]. \]
+		%%%BILD GHI TELEGRAM
+		\[\Rightarrow 0<\tilde{a}-a \leq b_m - a_m = |I_m| \rightarrow 0 \quad m\rightarrow\infty \]
+		\Lightning für \(m\) groß \(\bigcap_{n\in\N} I_n\) hat höchstens ein Element!
+		\item \( \bigcap_{n\in\N} I_n \neq \emptyset \qquad I_n = [a_n,b_n] \)\\
+		\[I_{n+1} \subset I_n \Leftrightarrow a_{n+1} \geq a_n \wedge b_{n+1} \leq b_n \quad \forall n. \]
+		Auch: \( a_n \leq b_n \leq b_{n-1} \leq \ldots\leq b_1 \)
+		\( \Rightarrow \) Folge \((a_n)_n\) ist nach oben beschränkte monoton wachsende Folge.\\
+		\( \overset{\text{Mon.Konv.}}{\Rightarrow} a:= \limes{n} a_n \) existiert und \(a\geq a_n \quad \forall n \).\\
+		Sei \(n\geq m:\)
+		\[a-n\leq b_n\leq\ldots\leq b_m \Rightarrow a = \limes{n} a_n \leq b_m \]\[\Rightarrow a_m\leq a_{n-1}\leq a_n\leq a\leq b_m. \]
+		\( \Rightarrow a\in I_m\) für jedes \(m\in\N\)\\
+		\[  \Rightarrow \{a\}\subset \bigcap_{m\in\N} I_m \]
+		\[ \text{d. h. } \bigcap_{m\in\N} I_m \neq \emptyset \]
+	\end{enumerate}
+\end{bew}
+\begin{satz}[\(k\)-adische Darstellung reeller Zahlen]
+	\(k\in\N, k\geq Z\) und \(x\in\R\). Dann gibt es \(z_0\in \Z\) und \(l_j \in\{0,1,\ldots,k-1\} \) derart, dass \(x = z_0 + \limes{n} \sum_{j=1}^{n} l_j k^{-j} = z_0 + \sum_{j=1}^{\infty} l_j k^{-j} \).\\
+	\(Z_0 := \lfloor x \rfloor := \min(p\in\Z, p>x) -1 = \max(q\in\Z, q\leq x). \)\\
+	\( 0\leq x-\lfloor c\rfloor <1. \)\\
+	\(\Rightarrow\) o.B.d.A. sei \(0\leq x<1\).
+	%%BILD KLM TELEGRAM
+	iteriere diesen Prozess.
+	\(\rightarrow\) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\)\\
+	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
+\end{satz}
 \end{document}

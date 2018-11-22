@@ -1376,18 +1376,18 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 \begin{defi}[Konvergenz (reeller Folgen)]
 	Eine reelle Folge $(a_n)_{n\in\N}$ konvergiert (mit $n\rightarrow\infty)$ gegen ein $a\in\R$, falls 
 	$$\forall \varepsilon > 0 \exists k \in \N: \forall n\geq k \text{ folgt } |a_n - a| < \varepsilon.$$
-	Die Zahl $a$ heißt Grenzwert der Folge, wir schreiben $\lim\limits_{n\rightarrow\infty}a_n = a$ oder $a_n\rightarrow a$ (für $n\rightarrow\infty$).\\
+	Die Zahl $a$ heißt Grenzwert der Folge, wir schreiben $\limes{n}a_n = a$ oder $a_n\rightarrow a$ (für $n\rightarrow\infty$).\\
 	Eine (reelle) Folge heißt \underline{konvergent}, falls ein $a\in\R$ der Grenzwert der Folge ist, andernfalls heißt die Folge \underline{divergent}.
 \end{defi}
 \begin{bem}
-	$$\lim\limits_{n\rightarrow\infty}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.$$
+	$$\limes{n}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.$$
 \end{bem}
 \begin{bsp}. %SCHLECHT FORMATIERT
 	\begin{enumerate}
 		\item $a_n := \frac{1}{n}$ konvergiert gegen $0$. Denn zu geg. $\varepsilon>0$ wähle $k\in\N$ mit $k>\frac{1}{\varepsilon}$. Dann gilt für $n\geq k$
 		$$|a_n-a| = |\frac{1}{n} - 0| = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.$$
 		\item Konstante Folge . Sei $a\in\R$ und sei $a_n = a$ für $n\in\N$.\\
-		Dann folgt $\lim\limits_{n\rightarrow\infty} a_n = a$, denn für $\varepsilon > 0$
+		Dann folgt $\limes{n} a_n = a$, denn für $\varepsilon > 0$
 		$$|a_n - a| = |a-a|=0<\varepsilon \text{, wähle } k=1$$
 		\item Sei $a_n := (-1)^n$, also $a_1 = -1, a_2 = 1, a_3 = -1, \ldots$\\
 		Dann ist $(a_n)_{n\in\N}$ nicht konvergent.
@@ -1399,7 +1399,7 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 		\item Die Folge $(a_n)$ konvergiert gegen $a$. Dann konvergiert auch $(|a_n|)_n$ gegeen $|a|$. (Hinweis: Umgekehrte Dreiecksungleichung)
 		\item Geometrische Folge:\\
 		Sei $q\in\R, |q|<1$. Dann gilt
-		$$\lim\limits_{n\rightarrow\infty} q^n = 0.$$
+		$$\limes{n} q^n = 0.$$
 		\begin{bew}
 			Annahme: $q\neq 0$, dann gilt $\frac{1}{|q|}>1$ und es existiert $x>0$, sodass $\frac{1}{|q|} = 1 + x$.\\
 			Aus Bernoullischer Ungleichung folgt $$(1+x)^n \geq 1+nx$$ und somit $$|q^n-0| = |q^n| = |q|^n = \frac{1}{(1+x)^n} \leq \frac{1}{1+nx}.$$
@@ -1416,16 +1416,16 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 			Dann $n\geq K$
 			$$|a_n-1| = |a^{\nicefrac{1}{n}}-1|= a^{\nicefrac{1}{n}} -1 = q_n \leq \frac{a-1}{n} < \varepsilon.$$
 			Fall 3: $0<a<1$. Dann ist $b := \frac{1}{a}>1$.			
-			$$\overset{\text{Fall 2}}{\Rightarrow} \lim\limits_{n\rightarrow\infty} b^{\frac{1}{n}} = 1$$
+			$$\overset{\text{Fall 2}}{\Rightarrow} \limes{n} b^{\frac{1}{n}} = 1$$
 			\begin{align*}
 				|a^{\nicefrac{1}{n}}-1|&=a^{\nicefrac{1}{n}}\left|1-\frac{a}{a^{\nicefrac{1}{n}}}\right|\\
 				&= a^{\nicefrac{1}{n}}\left|1-\left(\frac{a}{a}\right)^{\nicefrac{1}{n}}\right|\\
 				&= a^{\nicefrac{1}{n}} \left|1-b^{\nicefrac{1}{n}}\right|\\
 				&\leq \left|1-b^{\nicefrac{1}{n}} \right|\underset{n\rightarrow\infty}{\longrightarrow} 0
 			\end{align*}
-			Somit gilt $$\lim\limits_{n\rightarrow\infty} a^{\nicefrac{1}{n}} = 1$$
+			Somit gilt $$\limes{n} a^{\nicefrac{1}{n}} = 1$$
 		\end{bew}
-	\item Es gilt $\lim\limits_{n\rightarrow\infty}n^{\nicefrac{1}{n}}=1$.
+	\item Es gilt $\limes{n}n^{\nicefrac{1}{n}}=1$.
 	\begin{bew}
 		1. Versuch:\\
 		Setze $q_n := n^{\nicefrac{1}{n}} -1>0$ für $n>1$\\
@@ -1449,7 +1449,7 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 		Somit gilt $\forall\varepsilon>0\exists k\in\N$, sodass für $n\geq K$ gilt
 		$$|n^{\nicefrac{1}{n}} - 1| <\varepsilon.$$
 		Also per Definition
-		$$\lim\limits_{n\rightarrow\infty} n^{\nicefrac{1}{n}} = 1.$$
+		$$\limes{n} n^{\nicefrac{1}{n}} = 1.$$
 	\end{bew}
 	\end{enumerate}
 \end{bsp}
@@ -1487,7 +1487,7 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 	Jede konvergente Folge ist beschränkt.
 \end{satz}
 \begin{bew}
-	Sei $\lim\limits_{n\rightarrow\infty} a_n = a$. Zu $\varepsilon = 1$ wähle $K\in\N$.
+	Sei $\limes{n} a_n = a$. Zu $\varepsilon = 1$ wähle $K\in\N$.
 	$|a_n-a|<1 \quad \forall n\geq K$.
 	\begin{align*}
 		n\geq K &\Rightarrow |a_n| = |a_n -a+a| \leq |a_n -a| + |a| < 1 + |a|\\
@@ -1511,9 +1511,9 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 \begin{satz}[Rechenregel für Grenzwerte]
 	Es gelte $a_n\rightarrow a, b_n \rightarrow b$ für $n\rightarrow\infty$.
 	\begin{enumerate}
-		\item $\forall \lambda, \mu \in\R$ ist $(\lambda a_n + \mu b_n)_{n\in\N}$ konvergent mit Grenzwert $$\lim\limits_{n\rightarrow\infty} (\lambda a_n + \mu b_n) = \lambda a + \mu b.$$
-		\item Die Folge $(a_nb_n)_{n\in\N}$ konvergiert mit Grenzwert $$\lim\limits_{n\rightarrow\infty} (a_nb_n) = ab.$$
-		\item Falls $b\neq 0$, so gibt es ein $K_0 \in\N$ mit $b_n \neq 0 \quad \forall n\geq K$ und die Folge $\left(\frac{a_n}{b_n}\right)_{n\geq K_0}$ ist konvergent mit Grenzwert $$\lim\limits_{n\rightarrow\infty} \frac{a_n}{b_n} = \frac{a}{b}.$$
+		\item $\forall \lambda, \mu \in\R$ ist $(\lambda a_n + \mu b_n)_{n\in\N}$ konvergent mit Grenzwert $$\limes{n} (\lambda a_n + \mu b_n) = \lambda a + \mu b.$$
+		\item Die Folge $(a_nb_n)_{n\in\N}$ konvergiert mit Grenzwert $$\limes{n} (a_nb_n) = ab.$$
+		\item Falls $b\neq 0$, so gibt es ein $K_0 \in\N$ mit $b_n \neq 0 \quad \forall n\geq K$ und die Folge $\left(\frac{a_n}{b_n}\right)_{n\geq K_0}$ ist konvergent mit Grenzwert $$\limes{n} \frac{a_n}{b_n} = \frac{a}{b}.$$
 	\end{enumerate}
 \end{satz}
 \begin{bew}
@@ -1526,12 +1526,12 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 		\end{align*}
 		Setze $K := \max \{K_1, K_2\}$. Dann folgt 
 		$$|a_n + b_n - (a+b)| = |(a_n-a)+(b_n-b)| \leq |a_n-a|+|b_n-b| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \quad \forall n\geq K$$.
-		Also ist $\lim\limits_{n\rightarrow\infty}a_n+b_n=a+b$.
+		Also ist $\limes{n}a_n+b_n=a+b$.
 		Fall 2: allg. $\lambda,\mu\in\R$\\
 		Aus 2. folgt 
-		$$\lim\limits_{n\rightarrow\infty} \lambda a_n = \lambda \lim\limits_{n\rightarrow\infty} a_n$$
-		$$\lim\limits_{n\rightarrow\infty} \mu b_n = \mu \lim\limits_{n\rightarrow\infty} b_n \qquad(*)$$
-		$\overset{\text{Fall 1}}{\Rightarrow} \lambda a_n + \mu b_n$ ist konvergent und $$\lim\limits_{n\rightarrow\infty} (\lambda a_n + \mu b_n) = \lim\limits_{n\rightarrow\infty} (\lambda a_n) + \lim\limits_{n\rightarrow\infty} (\mu b_n) \overset{(*)}{=} \lambda \lim\limits_{n\rightarrow\infty} a_n + \mu \lim\limits_{n\rightarrow\infty} b_n = \lambda a + \mu b.$$
+		$$\limes{n} \lambda a_n = \lambda \limes{n} a_n$$
+		$$\limes{n} \mu b_n = \mu \limes{n} b_n \qquad(*)$$
+		$\overset{\text{Fall 1}}{\Rightarrow} \lambda a_n + \mu b_n$ ist konvergent und $$\limes{n} (\lambda a_n + \mu b_n) = \limes{n} (\lambda a_n) + \limes{n} (\mu b_n) \overset{(*)}{=} \lambda \limes{n} a_n + \mu \limes{n} b_n = \lambda a + \mu b.$$
 		\item Sei $n\in\N$. Dann folgt $a_nb_n-ab = a_nb_n -a_nb + a_n b - ab=a_n(b_n-b)+(a_n-a)b$
 		$$\Rightarrow |a_nb_n -ab|\leq |a_n| |b_n-b| + |a_n-a||b|.$$
 		Nach Satz 6 existiert $C\geq 0$ mit $|a_n|\leq C \forall n\in\N$. Setze $D:= \max \{C, |b|\}$. 
@@ -1540,7 +1540,7 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 		$$|b_n-b|<\frac{\varepsilon}{2(0+1)} \quad \forall n\in K_2$$
 		Dann folgt $\forall n\geq K := \max \{K_1, K_2\}$
 		$$|a_nb_n -ab|<\frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.$$
-		Also $\lim\limits_{n\rightarrow\infty} a_nb_n = ab$.
+		Also $\limes{n} a_nb_n = ab$.
 		\item o.B.d.A. \(a_n = 1\). (aus 2. folgt dann der allg. Fall mit \( \frac{a_n}{b_n} = a_n \cdot\frac{1}{b_n} \))\\
 		Da \(b_n \rightarrow b \neq 0\), folgt mit Lemma 7, dass ein \(K_0\in\N\) existiert mit \(|b_n| >\frac{|b|}{2} \) für \(n\geq K_0\) 
 		\[\frac{1}{b_n} \text{ ist wohldefiniert } \forall n\geq K_0.\]
@@ -1563,7 +1563,7 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 	&\supsetneq \{ \text{Raum der (reellen) konvergenten Folgen} \}\\
 	&\supsetneq \{ \text{Raum der (reellen) Nullfolgen} \}.
 \end{align*}
-\((f_n)_{n\in\N}\) ist eine Nullfolge, falls \( \lim\limits_{n\rightarrow\infty} f_n = 0 \).
+\((f_n)_{n\in\N}\) ist eine Nullfolge, falls \( \limes{n} f_n = 0 \).
 \begin{bsp}[1]
 	\(p,q\) Polynome vom Grad \(m,n\in\N\).\\
 	D. h. \[ p(x) = a_m x^m + a_{m-1} x^{m-1} + \ldots + a_1 x + a_0 \quad \forall x\in\R \]
@@ -1583,7 +1583,7 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 		-1<q<1.\\
 		a_n &:= 1 + q + q^2 + \ldots + q^n\\
 		&= \sum_{l=0}^{n} q^l \overset{\text{Satz 3.5.7}}{=} \frac{1-q^{n+1}}{1-q}\\
-		\Rightarrow \lim\limits_{n\rightarrow\infty} a_n &= \frac{1- \lim\limits_{n\rightarrow\infty} q^{n+1}}{1-q} = \frac{1}{1-q}.
+		\Rightarrow \limes{n} a_n &= \frac{1- \limes{n} q^{n+1}}{1-q} = \frac{1}{1-q}.
 	\end{align*}
 	Da \(q^n \rightarrow 0, n\rightarrow\infty \), Bsp. 6 oben.
 	Schreiben hierfür \[ \sum_{l=0}^{n} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
@@ -1635,12 +1635,12 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{defi}[Uneigentliche Konvergenz]
 	Die Folge \((a_n)_n\) konvergiert uneigentlich (divergiert bestimmt) gegen \(+\infty\), falls 
 	\[ \forall R>0 \exists K\in\N \text{ mit } a_n >R \quad \forall n\geq K. \]
-	Schreiben \( \lim\limits_{n\rightarrow\infty} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
-	Analog für \( \lim\limits_{n\rightarrow\infty} a_n = -\infty \), falls 
+	Schreiben \( \limes{n} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
+	Analog für \( \limes{n} a_n = -\infty \), falls 
 	\[ \forall R<0 \exists K\in\N: a_n < R \forall n\geq K. \]
 \end{defi}
 \begin{bsp}
-	Ist \(a>1 \Rightarrow \lim\limits_{n\rightarrow\infty}q^n = +\infty, 0< \frac{1}{q} < 1. \)
+	Ist \(a>1 \Rightarrow \limes{n}q^n = +\infty, 0< \frac{1}{q} < 1. \)
 \end{bsp}
 \begin{bew}
 	\(\frac{1}{q^n} = \left( \frac{1}{q} \right)^n \rightarrow 0, n\rightarrow \infty  \)\\
@@ -1648,9 +1648,9 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\( \Leftrightarrow q^n > R \quad \forall n\geq K. \) Also \(\lim q^n = +\infty \) nach Def.\\
 	Insgesamt: 
 	\begin{align*}
-		&q>1 &\Rightarrow \lim\limits_{n\rightarrow\infty}q^n = +\infty.\\
-		&q=1 &\Rightarrow \lim\limits_{n\rightarrow\infty}q^n = 1.\\
-		&-1<q<1 & \Rightarrow \lim\limits_{n\rightarrow\infty} q^n = 0.\\
+		&q>1 &\Rightarrow \limes{n}q^n = +\infty.\\
+		&q=1 &\Rightarrow \limes{n}q^n = 1.\\
+		&-1<q<1 & \Rightarrow \limes{n} q^n = 0.\\
 		&q\leq 1 & \Rightarrow (q^n)_n \text{ ist nicht konvergent.}
 	\end{align*}
 	Ist \( q<1 \Rightarrow (q_n)_n \) nicht beschränkt ist.
@@ -1688,11 +1688,11 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \end{bew}
 \begin{bsp}[1]
 	\(x_0 > 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
-	Ang.: \( \lim\limits_{n\rightarrow\infty} x_n = l \) existiert, dann auch \( \lim\limits_{n\rightarrow\infty} x_{n+1} = l, l>0 \)
-	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \lim\limits_{n\rightarrow\infty} x_{n+1} = \lim\limits_{n\rightarrow\infty} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
+	Ang.: \( \limes{n} x_n = l \) existiert, dann auch \( \limes{n} x_{n+1} = l, l>0 \)
+	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \limes{n} x_{n+1} = \limes{n} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
 \end{bsp}
 \begin{bsp}[2]
-	\(f_n := \left( 1 + \frac{1}{n} \right)^n \) Grenzwert \( \lim\limits_{n\rightarrow\infty} f_n = \lim\limits_{n\rightarrow\infty} \left( 1 + \frac{1}{n} \right)^n \) existiert \( =: e \).\\
+	\(f_n := \left( 1 + \frac{1}{n} \right)^n \) Grenzwert \( \limes{n} f_n = \limes{n} \left( 1 + \frac{1}{n} \right)^n \) existiert \( =: e \).\\
 	Beh. 1: \( f_n\) ist nach oben beschränkt.\\
 	Beh. 2: \( f_n\) ist monoton wachsend.
 \end{bsp}
@@ -1716,7 +1716,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 		\Rightarrow e_n \leq 2,75 \forall n\geq 2.
 	\end{align*}
 	\(\Rightarrow (e_n)_n \) ist nach oben beschränkt.\\
-	\( \overset{Mon. Konv.}{\Rightarrow} \lim\limits_{n\rightarrow\infty} e_n \) existiert \(\leq 2,75\).\\
+	\( \overset{Mon. Konv.}{\Rightarrow} \limes{n} e_n \) existiert \(\leq 2,75\).\\
 	Auch \( f_n\leq e_n\leq 2,75 \quad \forall n\geq 2 \).\\
 	\( \Rightarrow (f_n)_n \) ist auch oben beschränkt.
 	Beh. 2:\\
@@ -1726,18 +1726,18 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 		&= \frac{n}{n-1} \left( \frac{n^2-1}{n^2} \right)^n = \frac{n}{n-1} \underbrace{\left( 1-\frac{1}{n^2} \right)^n}_{\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
 		&\geq \frac{n}{n-1} (1-n \frac{1}{n^2}) = \frac{n}{n-1} (1-\frac{1}{n}) = 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
 	\end{align*}
-	\( \Rightarrow \lim\limits_{n\rightarrow\infty} f_n \) existiert!
+	\( \Rightarrow \limes{n} f_n \) existiert!
 \end{bew}
 \begin{defi}[Eulersche Zahl]
-	\( e:= \lim\limits_{n\rightarrow\infty} (1+\frac{1}{n})^n \) (\(\leq 2,75\))
+	\( e:= \limes{n} (1+\frac{1}{n})^n \) (\(\leq 2,75\))
 \end{defi}
 \begin{bem}
 	\begin{enumerate}
-		\item Es gilt auch \( \lim\limits_{n\rightarrow\infty} (1+\frac{x}{n})^n \) exist. \( \forall x\in\R \) (H.A.)
+		\item Es gilt auch \( \limes{n} (1+\frac{x}{n})^n \) exist. \( \forall x\in\R \) (H.A.)
 		\item Alternative Darstellung für \(e\):\\
 		Hatten gesehen: \(f_n \leq e_n = \sum_{k=0}^{n} \frac{1}{k!} \quad \forall n \)\\
 		\(e_n \leq 2,75, e_{n+1} > e_n \)\\
-		\( \Rightarrow \) es existiert \( \lim\limits_{n\rightarrow\infty} e_n = \lim\limits_{n\rightarrow\infty} \sum_{k=0}^{n} \frac{1}{k!} =: \sum_{k=0}^{\infty} \frac{1}{k!} \) und somit auch \(e = \lim\limits_{n\rightarrow\infty} f_n\leq \lim\limits_{n\rightarrow\infty} e_n = \sum_{k=0}^{\infty} \frac{1}{k!} \).
+		\( \Rightarrow \) es existiert \( \limes{n} e_n = \limes{n} \sum_{k=0}^{n} \frac{1}{k!} =: \sum_{k=0}^{\infty} \frac{1}{k!} \) und somit auch \(e = \limes{n} f_n\leq \limes{n} e_n = \sum_{k=0}^{\infty} \frac{1}{k!} \).
 	\end{enumerate}
 	Beobachtung: 
 	\[ f_n = (1+\frac{1}{n})^n = \sum_{k=0}^{n} \frac{1}{k!} \underbrace{\frac{n}{n}\frac{(n-1)}{n} \ldots\frac{n-k+1}{n}}_{\geq 0} , \quad(1+\frac{1}{n}^n = \sum_{k=0}^{n} \binom{n}{k} \frac{1}{n^k} \]
@@ -1745,7 +1745,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\[ n\geq m \geq \sum_{k=0}^{m} \frac{1}{k!} 1 \underbrace{\frac{n-1}{n}}_{\overset{n\rightarrow\infty}{\rightarrow} 1} \ldots \underbrace{\frac{n-k+1}{n}}_{\overset{n\rightarrow\infty}{\rightarrow} 1} \]
 	Grenzwertsätze \(\Rightarrow \sum_{k=0}^{m} \frac{1}{k!} \) für \(n\rightarrow\infty\).
 	\( \Rightarrow \) Für jedes \(m\in\N\) ist
-	\[e_m \leq \lim\limits_{n\rightarrow\infty} f_n = e \]
+	\[e_m \leq \limes{n} f_n = e \]
 	Auch, \(e_m = \sum_{k=0}^{m} \frac{1}{k!} \) hat den Grenzwert \(m\rightarrow\infty\)!
 	\[ \overset{\text{Satz 7.1.9.}}{\lim\limits{m\rightarrow\infty}} e_m \leq e. \]
 	\[\Rightarrow e = \lim\limits_{m\rightarrow\infty} \sum_{k=0}^{m} \frac{1}{k!} =: \sum_{k=0}^{\infty} \frac{1}{k!} \]

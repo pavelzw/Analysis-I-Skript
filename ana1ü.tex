@@ -1,12 +1,5 @@
 \documentclass[12pt,a4paper,titlepage]{article} %twopage
 
-%Befehle
-
-%Grafik einbinden
-%\centering
-%\includegraphics[width=0.7\textwidth]{Bild.pdf}
-
-
 %\usepackage{german} %deutsches Format
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
@@ -56,11 +49,11 @@
 	
 	%Inhaltsverzeichnis
 	\tableofcontents
-	\newpage
-	
+	\newpage	
 	\section{Aussagenlogik (19.10.18)}
 	\begin{defi}
-		Eine Aussage ist die gedankliche Widerspiegelung eines Sachverhalts in Form eines Satzes in einer natürlichen oder künstlichen Sprache.\\\\
+		Eine Aussage ist die gedankliche Widerspiegelung eines Sachverhalts in Form eines Satzes in einer natürlichen oder künstlichen Sprache.
+		\vspace{5mm}\\
 		Jede Aussage ist entweder wahr oder falsch.
 	\end{defi}
 	\begin{bsp}
@@ -70,7 +63,6 @@
 			\item Vögel können fliegen
 		\end{enumerate}
 	\end{bsp}
-
 	\textbf{Aussagen verknüpfen:}
 	\begin{align*}
 		\neg &A\\
@@ -79,10 +71,8 @@
 		A &\rightarrow B\\
 		A &\Leftrightarrow B
 	\end{align*}
-
 	\textbf{Wahrheitstafel:}
-	Seien A und B Variablen die entweder wahr oder falsch sind.
-	
+	Seien A und B Variablen die entweder wahr oder falsch sind.	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{c | c}			
@@ -92,8 +82,7 @@
 			false & true
 		\end{tabular}
 		\caption{Negation}
-	\end{table}
-	
+	\end{table}	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{c | c | c | c | c | c}			
@@ -107,17 +96,14 @@
 		\end{tabular}
 		\caption{Konjunktion, Disjunktion, Implikation, Äquivalenz}
 	\end{table}
-
 	\textbf{Ausdrücken der Aussagenlogik:}
 	\begin{enumerate}
 		\item Konstanten und Variablen sind Ausdrücke
 		\item Sind A und B Variablen, so sind auch (siehe Wahrheitstabelle) Ausdrücke
 	\end{enumerate}
-
 	\begin{defi}
 		Zwei Aussagenlogische Ausdrücke heißen logisch äquivalent oder wertgleich (A = B), wenn sie die gleichen Wahrheitswerte besitzen.
 	\end{defi}
-
 	\begin{bsp}
 		\begin{align*}
 			(A \wedge B) \vee C &= (A \vee C) \wedge (B \vee C)\\
@@ -126,7 +112,6 @@
 	 		\Leftrightarrow (A \wedge B) \vee C &= (A \wedge B) \vee C
 		\end{align*}		
 	\end{bsp}
-
 	\begin{bsp}
 		\begin{align*}
 			\neg(A \wedge B) &= (\neg A \vee \neg B)\\
@@ -137,13 +122,10 @@
 			\neg(A \wedge B) = (\neg A \vee \neg B)
 		\end{align*}
 	\end{bsp}
-
 	\subsection{Tautologie}
-
 	\begin{defi}
 		Ein Aussagenlogischer Ausdruck heißt allgemeingültig oder Tautologie, wenn die Wahrheitsfunktion identisch true ist.
-	\end{defi}
-	
+	\end{defi}	
 	\begin{bsp}
 		Kontraposition:\\
 		\begin{align*}
@@ -158,6 +140,5 @@
 			true &\wedge true\\
 			&true
 		\end{align*}
-	\end{bsp}
-	
+	\end{bsp}	
 \end{document}

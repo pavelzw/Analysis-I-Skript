@@ -1,0 +1,144 @@
+\documentclass[12pt,a4paper,titlepage]{article} %twopage
+
+%\usepackage{german} %deutsches Format
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} %Umlaute
+\usepackage{graphicx} %Grafiken einbinden
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{nicefrac}
+\usepackage{marvosym}[Lightning]
+\usepackage{array}
+\usepackage{dsfont} %statt \mathbb{1}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{matrix}
+\usepackage{hyperref} %Hyperlinks in pdf
+
+\restylefloat{table}
+
+%Metadaten
+\hypersetup{
+	pdftitle = {Analysis I Übungs Skript (WS 18/19)},
+	pdfauthor = {Pavel Zwerschke, Daniel Augustin}}
+
+\theoremstyle{definition}
+\newtheorem{satz}{Satz}[subsection]
+\newtheorem{kor}[satz]{Korollar}
+\newtheorem{lem}[satz]{Lemma}
+
+\newtheorem{defi}[satz]{Definition}
+\newtheorem*{beh}{Behauptung}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+\newtheorem*{bsp}{Beispiel}
+
+\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+\newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
+
+\begin{document}
+	\title{Analysis I Übung (WS 18/19)}
+	\date{\today}
+	\author{Pavel Zwerschke, Daniel Augustin}
+	\maketitle
+	
+	%Inhaltsverzeichnis
+	\tableofcontents
+	\newpage	
+	\section{Aussagenlogik (19.10.18)}
+	\begin{defi}
+		Eine Aussage ist die gedankliche Widerspiegelung eines Sachverhalts in Form eines Satzes in einer natürlichen oder künstlichen Sprache.
+		\vspace{5mm}\\
+		Jede Aussage ist entweder wahr oder falsch.
+	\end{defi}
+	\begin{bsp}
+		Aussagen:
+		\begin{enumerate}
+			\item Wenn es regnet, dann ist die Straße nass.
+			\item Vögel können fliegen
+		\end{enumerate}
+	\end{bsp}
+	\textbf{Aussagen verknüpfen:}
+	\begin{align*}
+		\neg &A\\
+		A &\wedge B\\
+		A &\vee B\\
+		A &\rightarrow B\\
+		A &\Leftrightarrow B
+	\end{align*}
+	\textbf{Wahrheitstafel:}
+	Seien A und B Variablen die entweder wahr oder falsch sind.	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c}			
+			A & \(\neg A\) \\ 
+			\hline
+			true & false \\
+			false & true
+		\end{tabular}
+		\caption{Negation}
+	\end{table}	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{c | c | c | c | c | c}			
+			A & B & \(A \wedge B\) & \(A \vee B\) & \(A \rightarrow B\) & \(A \Leftrightarrow B\) \\
+			\hline
+			w & w & w & w & w & w \\
+			w & f & f & w & f & f \\
+			f & w & f & w & w & f \\
+			f & f & f & f & w & w
+			
+		\end{tabular}
+		\caption{Konjunktion, Disjunktion, Implikation, Äquivalenz}
+	\end{table}
+	\textbf{Ausdrücken der Aussagenlogik:}
+	\begin{enumerate}
+		\item Konstanten und Variablen sind Ausdrücke
+		\item Sind A und B Variablen, so sind auch (siehe Wahrheitstabelle) Ausdrücke
+	\end{enumerate}
+	\begin{defi}
+		Zwei Aussagenlogische Ausdrücke heißen logisch äquivalent oder wertgleich (A = B), wenn sie die gleichen Wahrheitswerte besitzen.
+	\end{defi}
+	\begin{bsp}
+		\begin{align*}
+			(A \wedge B) \vee C &= (A \vee C) \wedge (B \vee C)\\
+			\Leftrightarrow (A \wedge B) \vee C &= (B \wedge (A \vee C)) \vee (C \wedge (A \vee C)))\\
+			\Leftrightarrow (A \wedge B) \vee C &= (B \wedge A) \vee ((B \wedge C) \vee C)\\
+	 		\Leftrightarrow (A \wedge B) \vee C &= (A \wedge B) \vee C
+		\end{align*}		
+	\end{bsp}
+	\begin{bsp}
+		\begin{align*}
+			\neg(A \wedge B) &= (\neg A \vee \neg B)\\
+			(\neg A \vee \neg B) &= (\neg A \vee \neg B)
+		\end{align*}
+		Somit sind \(\neg(A \wedge B)\) und \((\neg A \vee \neg B)\) logisch äquivalent und es gilt:
+		\begin{align*}
+			\neg(A \wedge B) = (\neg A \vee \neg B)
+		\end{align*}
+	\end{bsp}
+	\subsection{Tautologie}
+	\begin{defi}
+		Ein Aussagenlogischer Ausdruck heißt allgemeingültig oder Tautologie, wenn die Wahrheitsfunktion identisch true ist.
+	\end{defi}	
+	\begin{bsp}
+		Kontraposition:\\
+		\begin{align*}
+			A \rightarrow B \Leftrightarrow \neg B \rightarrow \neg A
+		\end{align*}
+		\begin{align*}
+			((A \rightarrow B) \rightarrow (\neg B \rightarrow \neg A)) &\wedge ((\neg B \rightarrow \neg A) \rightarrow (A \rightarrow B))\\
+			((\neg A \vee B) \rightarrow (B \vee \neg A)) &\wedge ((B \vee \neg A) \rightarrow (\neg A \vee B))\\
+			(\neg (\neg A \vee B) \vee (B \vee \neg A)) &\wedge (\neg (B \vee \neg A) \vee (\neg A \vee B))\\
+			((A \wedge \neg B) \vee (\neg A \vee B)) &\wedge ((A \wedge \neg B) \vee (\neg A \vee B))\\
+			((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B))) &\wedge ((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B)))\\
+			true &\wedge true\\
+			&true
+		\end{align*}
+	\end{bsp}	
+\end{document}

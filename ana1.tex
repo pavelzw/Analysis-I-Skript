@@ -1844,11 +1844,30 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\( \Rightarrow x= \limes{n} a_n = \limes{n} \sum_{j=1}^{n} l_j/k^j \).\\
 	Alternative:\\
 	\begin{align*}
-		a_{n+1} \geq a_n\\
-		a_n \leq b_n &= \sum_{j=1}^{n} l_j/k^j + 1/k^n\\
-		&\leq \sum_{j=1}^{n} \frac{k-1}{k^j} + 1/k^n = (k-1) \underbrace{ \sum_{j=1}^{n} (1/k)^j + 1/k^n }_{= 1/k \sum_{j=0}^{n-1} (1/k)^j = 1/k \frac{1-(1/k)^n}{1-1/k} }\\
-		&= 1- (1/k)^n + 1/k^n = 1.
-		\overset{\text{Mon. Konv.}}{\Rightarrow} a = \limes{n} ...AUFSCHRIEB
+		a_{n+1} &\geq a_n\\
+		a_n &\leq b_n = \sum_{j=1}^{n} \frac{l_j}{k^j} + \frac{1}{k^n}\\
+		&\leq \sum_{j=1}^{n} \frac{k-1}{k^j} + \frac{1}{k^n}\\
+		&= (k-1)\underbrace{ \sum_{j=1}^{n} (\frac{1}{k})^j + \frac{1}{k^n} }_{= \frac{1}{k} \sum_{j=0}^{n-1} (\frac{1}{k})^j = \frac{1}{k} \frac{1-(\frac{1}{k})^n}{1-\frac{1}{k}} }\\
+		&=\frac{k-1}{k}-\frac{1-(\frac{1}{k})^n}{1-\frac{1}{k}} + \frac{1}{k^n}\\
+		&= 1- (\frac{1}{k})^n + \frac{1}{k^n} = 1.\\
+		\overset{\text{Mon. Konv.}}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
+	\end{align*}
+	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \rightarrow\overset{n \rightarrow \infty}{\rightarrow} 0\)\\	 
+	\begin{align*}
+		a_n \leq x < a_n + \frac{1}{k^n} \Rightarrow\overset{\text{Sandwich}}{\Rightarrow}
+		a &= \limes{n} a_n \leq x \leq \limes{n} a_n + \limes{n} \frac{1}{k^n}\\
+		&= a + 0 = a\\
+		&\Rightarrow a \leq x \leq a \Rightarrow a = x
+	\end{align*}
+\end{bsp}
+\begin{bsp}
+	\(k\)-adische Darstellung\\
+	\(k = 10\)\\
+	Behauptung: \(0,99999 = 1\)
+	\begin{align*}
+		0,9999 &= \limes{n} \sum_{j=1}^{n} \frac{9}{10^j}\\
+		&=\limes{n} \frac{9}{10}\cdot \sum_{j=0}^{n-1}(\frac{1}{10})^j\\
+		&=\frac{9}{10}\cdot\frac{10}{9} = 1
 	\end{align*}
 \end{bsp}
 \begin{kor}
@@ -1857,8 +1876,8 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{bew}
 	Es reicht zu zeigen \( [0,1) \) ist überabzählbar. Es reicht, eine Teilmenge von \(A \subset [0,1) \) anzugeben, die nicht abzählbar ist.\\
 	nehmen: \(k=3\)
-	\[ A:= \{ x\in[0,1) : \exists l_j \in \{0,1 \} x = \sum_{j=1}^{\infty} l_j/3^j = \limes{n} \sum_{j=1}^{n}\frac{l_j}{3^j} \}. \]
-	\(A\) hat dieselbe Mächtigkeit wie die Menge der \( \{0,1\} \)-wertigen Folgen. hat dieselbe Mächtigkeit wie \(\mathcal{P}(\N)\). Dies ist überabzählbar.
+	\[ A:= \{ x\in[0,1) : \exists l_j \in \{0,1 \}: x = \sum_{j=1}^{\infty} \frac{l_j}{3^j} = \limes{n} \sum_{j=1}^{n}\frac{l_j}{3^j} \}. \]
+	\(A\) hat die gleiche Mächtigkeit wie die Menge der \( \{0,1\} \)-wertigen Folgen. Hat dieselbe Mächtigkeit wie \(\mathcal{P}(\N)\). Diese ist überabzählbar.
 \end{bew}
 \section{}
 \subsection{Cauchyfolgen}

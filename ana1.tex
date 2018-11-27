@@ -1812,4 +1812,123 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\(\rightarrow\) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\)\\
 	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
 \end{satz}
+%27.11.2018
+\begin{bsp}
+	\( p := \lfloor x \rfloor := \max (z\in\Z:z\leq x) \Rightarrow p\leq x < p+1 \Rightarrow \tilde{x} := x - p \in [0,1) \). Also reicht es, \(x\in[0,1)\) zu betrachten!\\
+	BILD: \(k=8\) %2701
+	\(l_1 = \lfloor kx \rfloor \)
+	\[ \frac{l_1}{k} \leq x < \frac{l_1 + 1}{k} \Rightarrow 0 \leq x - \frac{l_1}{k} < \frac{1}{k} \]
+	\[ \Rightarrow 0 \leq k\left( x - \frac{l_1}{k} \right) < 1 \Leftrightarrow 0 \leq k^2 [x-\frac{l_1}{k}] < k. \]
+	\[ l_2 := \lfloor k^2\left( x - \frac{l_1}{k} \right) \rfloor \overset{\text{wie vorher}}{\Rightarrow} \frac{l_2}{k} \leq k(x-\frac{l_1}{k}) < \frac{1}{k} \]
+	\[ \Rightarrow l_1/k + l_2/k^2 \leq x < l_1/k + \frac{l_2 + 1}{k^2} \]
+	induktiv weitermachen. Geg. \( l_1, l_2, \ldots, l_n \in \{ 0,1,2,\ldots,k-1 \} \). 
+	\[ \text{mit } l_1/k + l_2/k^2 + \ldots + l_n/k^n \leq x < l_1 /k + l_2/k^2 + l_{n-1}/k^{n-1} + \frac{l_n + 1}{k^n} \]
+	\[ \Rightarrow 0\leq x - \sum_{j=1}^{n} \frac{l_j}{k^j} < \frac{1}{k^n} \]
+	\[ \text{oder } k^{n+1} [x-\sum_{j=1}^{n} \frac{l_j}{k^j} ] < k\in\N \]
+	\[ \text{definiere } l_{n+1} := \lfloor k^{n+1} (x-\sum_{j=1}^{n} \frac{l_j}{k^j} ) \rfloor  \]
+	\[ \text{kriegen } a_n := \sum_{j-1}^{n} \frac{l_j}{k^j} \leq x < \sum_{j=1}^{n} l_j/k^j + 1/k^n =: b_n \]
+	\[ \Rightarrow a_n \leq x < b_n \]
+	\[ \text{und } b_n - a_n = 1/k^n \rightarrow 0, n\rightarrow\infty. \]
+	Entweder: \(I_n := [a_n,b_n] \) sind geschachtelt \(I_{n+1} \subset I_n \)
+	Lange \(I_n - |I_n| = b_n - a_n \rightarrow 0. \)
+	Intervallschachtelungsprinzip \(\Rightarrow \{x\} = \bigcap_{n\in\N} I_n \)
+	\( \Rightarrow x= \limes{n} a_n = \limes{n} \sum_{j=1}^{n} l_j/k^j \).\\
+	Alternative:\\
+	\begin{align*}
+		a_{n+1} \geq a_n\\
+		a_n \leq b_n &= \sum_{j=1}^{n} l_j/k^j + 1/k^n\\
+		&\leq \sum_{j=1}^{n} \frac{k-1}{k^j} + 1/k^n = (k-1) \underbrace{ \sum_{j=1}^{n} (1/k)^j + 1/k^n }_{= 1/k \sum_{j=0}^{n-1} (1/k)^j = 1/k \frac{1-(1/k)^n}{1-1/k} }\\
+		&= 1- (1/k)^n + 1/k^n = 1.
+		\overset{\text{Mon. Konv.}}{\Rightarrow} a = \limes{n} ...AUFSCHRIEB
+	\end{align*}
+\end{bsp}
+\begin{kor}
+	Die reellen Zahlen sind überabzählbar!
+\end{kor}
+\begin{bew}
+	Es reicht zu zeigen \( [0,1) \) ist überabzählbar. Es reicht, eine Teilmenge von \(A \subset [0,1) \) anzugeben, die nicht abzählbar ist.\\
+	nehmen: \(k=3\)
+	\[ A:= \{ x\in[0,1) : \exists l_j \in \{0,1 \} x = \sum_{j=1}^{\infty} l_j/3^j = \limes{n} \sum_{j=1}^{n}\frac{l_j}{3^j} \}. \]
+	\(A\) hat dieselbe Mächtigkeit wie die Menge der \( \{0,1\} \)-wertigen Folgen. hat dieselbe Mächtigkeit wie \(\mathcal{P}(\N)\). Dies ist überabzählbar.
+\end{bew}
+\section{}
+\subsection{Cauchyfolgen}
+\begin{defi}[Cauchyfolge]
+	Eine Folge \((a_n)_n\) heißt Cauchyfolge (kurz Cauchy), falls
+	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\in K \]
+\end{defi}
+\begin{bem}
+	Reicht \(m,n\in\N\) mit \( m>n\geq K \) zu betrachten, da Def. symmetrisch in \(m,n\) ist und falls \(m=n \Rightarrow a_m-a_n=0\)
+\end{bem}
+\begin{lem}
+	Jede konvergente Folge ist eine Cauchyfolge.
+\end{lem}
+\begin{bew}
+	\( (a_n)_n \quad a_n \rightarrow a \) für \(n\rightarrow\infty\) \\
+	d. h. \( \forall \varepsilon > 0 \exists K \in \N: \forall n\geq K \) ist \( |a_n-a| < \varepsilon/2 \).\\
+	Ist \(m>n\geq K: |a_m -a_n| = |a_m-a+a-a_n| \leq \underbrace{|a_m-a|}_{<\varepsilon/2} + \underbrace{ |a-a_n| }_{<\varepsilon/2}. \) Also ist \((a_n)_n\) Cauchyfolge.
+\end{bew}
+\begin{lem}
+	Jede Cauchyfolge ist beschränkt.
+\end{lem}
+\begin{bew}
+	Sei \(a_n\) Cauchyfolge. 
+	\[ \forall \varepsilon > 0 \exists K\in\N:|a_m-a_n| < \varepsilon \quad \forall m,n\geq K. \]
+	Wähle \(\varepsilon = 1, k_0: |a_m-a_n| < 1 \quad \forall n,m\geq K_0 \)\\
+	Sei \(n \geq k_0 \Rightarrow |a_{K_0} - a_n| < 1. \)
+	\[ \Rightarrow |a_n| = |a_n - a_{K_0} + a_{K_0}| \leq |a_n - a_{K_0}| + |a_{K_0} < 1 + |a_{K_0}| \] für alle \(n\geq K_0\)\\
+	Also setze: \( C := \max ( |a_1|,|a_2|,\ldots,|a_{K_0}|,1+|a_{K_0}| ) < \infty \) 
+	\[ \Rightarrow \forall n\in\N \text{ ist } |a_n| \leq C. \]
+\end{bew}
+\begin{bsp}
+	\begin{align*}
+		a_n = (-1)^n \text{ (oder} (-1)^n + 1/n \text{)}\\
+		n = 2k, k\in\N \Rightarrow a_{2k} = (-1)^{2k} = 1\\
+		a_{2k+1} = (-1)^{2k+1} = -1.
+	\end{align*}
+	Die neue Folge \( (a_{2k})_{k\in\N} \) ist kostant, also konvergiert sie.
+\end{bsp}
+\begin{bsp}
+	\(B= \{b_1, b_2,\ldots,b_R \} \subset \R \quad R\in\N \).\\
+	\( (a_n)_n \) Folge mit Werten in \(B\).
+	\(a_n \in B \forall n\in\N \)\\
+	\(B\) endliche Menge!\\
+	\( \Rightarrow \) Es gibt mind. ein \(r_0 \in \{1,2,\ldots,R\} \), sodass \( a_n=b_{r_0}  \) für unendlich viele \(n\).\\
+	\[ \Leftrightarrow \forall K\in\N \exists n>K : a_n = b_{r_0} \]
+	Jetzt induktiv: \\
+	\begin{align*}
+		n_1 \in\N: a_{n_1} = b_{r_0}.\\
+		n_2 := \min (n>n_1:a_n=b_{r_0}) >n_1 \quad a_{n_2} = b_{r_0}\\
+		\text{induktiv}\\
+		\text{geg. } n_1 < n_2<\ldots<n_k\\
+		a_{n_l} = b_{r_0} \quad l = \{1, \ldots,k \}\\
+		n_{k+1} = \min(n>n_k:a_n = b_{r_0}) > n_k \text{ und } a_{n_{k+1}} = b_{r_0}.
+	\end{align*}
+	Erhalte \(n_k\in\N \quad \forall n\in\N \) mit \( n_{k+1} > n_k \forall k\in\N \) und \( a_{n_k} = b_{r_0} \)\\
+	\( \Rightarrow \) Folge \( (a_{n_k})_{k\in\N} \) die konstant ist.\\
+	Außerdem \( (a_{n_k})_k \) ist Teil der Folge \( (a_n)_n \)!
+\end{bsp}
+\begin{defi}[Teilfolge]
+	Eine Funktion \( \sigma:\N \rightarrow\N \) heißt Ausdünnung, falls \( \sigma (n+1) > \sigma(n) \quad \forall n\in\N \) (d. h. \(\sigma\) ist streng monoton wachsend).
+\end{defi}
+Erinnerung: Folge ist eine Funktion \(f: \N\rightarrow X \)\\
+\( \sigma : \N\rightarrow\N \Rightarrow f \circ \sigma : \N\rightarrow X, n\mapsto f(\sigma(n))  \) ist auch eine Folge.\\
+\(a_n = f(n),\qquad a_{\sigma(n)} = f(\sigma(n)) = (f\circ\sigma)(n) \)\\
+Geg. Folge \( (a_n)_{n\in\N} \) und eine Ausdünnung \( \sigma : \N\rightarrow \N. \) Setzen wir \( n_k := \sigma (k), k\in\N \) und \( (a_{\sigma(k)})_k = (a_{n_k})_{k\in\N} \) Teilfolge von \( (a_n)_{n\in\N} \).\\
+Beobachtung: abg. und beschr. Intervalle sind aus Folgensicht fast so gut wie endliche Mengen!
+\begin{lem}
+	Sei \(I = [a,b], \quad a,b\in\R, a\leq b. (a_n)_n \subset I \). d. h. \(a_n \in I \quad\forall n\in\N \), dann gibt es eine Teilfolge, von \((a_n)_n\), die konvergiert.
+\end{lem}
+\begin{bew}
+	\(I_0 = [a,b]\)
+	BILD 271102
+\end{bew}
+\begin{kor}
+	Jede beschräNkte (reelle) Folge hat eine konvergente Teilfolge (Satz von Bolzano-Weierstrauß).
+\end{kor}
+\begin{bew}
+	Sei \( 0\leq C < \infty. |a_n| \leq C \forall n\in\N. \)\\
+	\[ \Rightarrow -C \leq a_n \leq C, a_n \in [-C, C] \forall n\in\N. \]
+	\( \Rightarrow \) Beh. folgt aus Lemma 5!
+\end{bew}
 \end{document}

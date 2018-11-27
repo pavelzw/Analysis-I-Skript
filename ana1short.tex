@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper,titlepage]{article} %twopage
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} %Umlaute
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref} %Hyperlinks in pdf
+
+%Metadaten
+\hypersetup{
+	pdftitle = {Analysis I Skript (WS 18/19)},
+	pdfauthor = {Pavel Zwerschke, Daniel Augustin}}
+
+\theoremstyle{definition}
+\newtheorem{satz}{Satz}[subsection]
+\newtheorem{kor}[satz]{Korollar}
+\newtheorem{lem}[satz]{Lemma}
+
+\newtheorem{defi}[satz]{Definition}
+\newtheorem*{beh}{Behauptung}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Bemerkung}
+\newtheorem*{bsp}{Beispiel}
+
+\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+\newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
+
+\begin{document}
+\title{Analysis I (WS 18/19)}
+\date{\today}
+\author{Pavel Zwerschke, Daniel Augustin}
+\maketitle
+
+%Inhaltsverzeichnis
+\tableofcontents
+\newpage
+\section{Was ist Analysis?}
+\subsection{Grundbegriffe}
+\begin{satz}
+	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
+	\begin{tabular}{rl}
+		$\neg(\neg A) \Leftrightarrow A$ & Gesetz der doppelten Verneinung\\
+		$A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$ & Kontraposition\\
+		$A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))$ & beim Widerspruchsbeweis\\
+		$\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)$ & de Morgan\\
+		$\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)$ & de Morgan\\
+	\end{tabular}
+\end{satz}
+\end{document}

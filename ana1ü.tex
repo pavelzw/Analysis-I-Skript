@@ -108,7 +108,7 @@
 		\begin{align*}
 			(A \wedge B) \vee C &= (A \vee C) \wedge (B \vee C)\\
 			\Leftrightarrow (A \wedge B) \vee C &= (B \wedge (A \vee C)) \vee (C \wedge (A \vee C)))\\
-			\Leftrightarrow (A \wedge B) \vee C &= (B \wedge A) \vee ((B \wedge C) \vee C)\\
+			\Leftrightarrow (A \wedge B) \vee C &=  (B \wedge A) \vee ((B \wedge C) \vee C)\\
 	 		\Leftrightarrow (A \wedge B) \vee C &= (A \wedge B) \vee C
 		\end{align*}		
 	\end{bsp}
@@ -141,4 +141,45 @@
 			&true
 		\end{align*}
 	\end{bsp}	
+	\section{Folgenkonvergenz 23.11.18}
+	\begin{bsp}
+		Quadratwurzel\\
+		\(a > 0, a \in \R\), wir wollen\(\sqrt{a}\) bestimmen.\\
+		es gilt \(x^2 = a\), dann \(x = \frac{a}{x}\)\vspace{5mm}\\
+		Babylonier verwendeten Iterationsverfahren zur Berechnung der Quadratwurzel, welches in jedem Schritt als Näherungswerte das arithmetische Mittel\vspace{5mm}\\
+		\(x := \frac{1}{2}(x+\frac{a}{x})\)
+		\begin{beh}
+			Seien \(a > 0\) und \(x_0 > 0\) reelle Zahlen\\
+			Die Folge \((x_n)_n\) sei gegeben durch \(x_n+1 := \frac{1}{2}(x_n + \frac{a}{x_n})\) dann konvergiert die Folge gegen \(\sqrt{a}\), d.h. gegen die eindeutig bestimmte positive Lösung der Gleichung \(x^2 = a\)
+		\end{beh}		
+		Vorgehen im Beweis:
+		\begin{enumerate}
+			\item \(x_n > 0, \forall n \geq 0\)
+			\item \(x_n^2 \geq a, \forall n \in \N\)
+			\item \(x_n+1 \leq x_n, \forall n \in \N\)
+			\item Existenz des Grenzwertes
+			\item Eindeutigkeit des Grenzwertes
+		\end{enumerate}
+		\begin{bew}
+			\vspace{5mm}
+			\begin{enumerate}				
+				\item 
+					Beweis durch vollständige Induktion:\\
+					(IA):\\
+					\(n=0: x_0 > 0\) per Voraussetzung\\
+					\(n=1: x_1 = \frac{1}{2}(\underbrace{x_0}_{>0} + \underbrace{\frac{a}{x_0}}_{>0}) > 0\) ist wohldefiniert, da \(x_0 > 0\)\\
+					(IS): \(n \rightarrow n+1\): für beliebiges, aber festes n sei gezeigt, dass \(x_n > 0\)\\
+					Dann gilt \(x_n+1 = \frac{1}{2}(\underbrace{x_n}_{>0} + \underbrace{\frac{a}{x_n}}_{>0}) > 0\) wohldefiniert, weil \(x_n > 0\)\\
+					Somit gilt nach dem Induktionsprinzip \(x_n > 0\) \(\forall n \in \N\)
+				\item 
+					\(x_n^2 \geq a \Leftrightarrow x_n^2 - a \geq 0 \)
+					\begin{align*}
+						x_n^2 - a &= \frac{1}{4}\left(x_n-1 + \frac{a}{x_n-1}\right)^2 - a\\
+						&= \frac{1}{4}\left(x_n-1^2 + 2a + \frac{a^2}{x_n-1^2}\right) - a\\
+						&= \frac{1}{4}\left(x_n-1^2 + 2a + \frac{a^2}{x_n-1^2} - 4a\right)\\
+						&= \frac{1}{4}\left(x_n-1 - \frac{a}{x_n-1}\right)^2 \geq 0
+					\end{align*}
+			\end{enumerate}
+		\end{bew}
+	\end{bsp}
 \end{document}

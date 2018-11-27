@@ -1849,7 +1849,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 		&\leq \sum_{j=1}^{n} \frac{k-1}{k^j} + \frac{1}{k^n}\\
 		&= (k-1)\underbrace{ \sum_{j=1}^{n} (\frac{1}{k})^j + \frac{1}{k^n} }_{= \frac{1}{k} \sum_{j=0}^{n-1} (\frac{1}{k})^j = \frac{1}{k} \frac{1-(\frac{1}{k})^n}{1-\frac{1}{k}} }\\
 		&=\frac{k-1}{k}-\frac{1-(\frac{1}{k})^n}{1-\frac{1}{k}} + \frac{1}{k^n}\\
-		&= 1- (\frac{1}{k})^n + \frac{1}{k^n} = 1.\\
+		&= 1- \left(\frac{1}{k}\right)^n + \frac{1}{k^n} = 1.\\
 		\overset{\text{Mon. Konv.}}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
 	\end{align*}
 	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \rightarrow\overset{n \rightarrow \infty}{\rightarrow} 0\)\\	 
@@ -1863,10 +1863,10 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{bsp}
 	\(k\)-adische Darstellung\\
 	\(k = 10\)\\
-	Behauptung: \(0,99999 = 1\)
+	Behauptung: \(0\text{,}\overline{9} = 1\)
 	\begin{align*}
-		0,9999 &= \limes{n} \sum_{j=1}^{n} \frac{9}{10^j}\\
-		&=\limes{n} \frac{9}{10}\cdot \sum_{j=0}^{n-1}(\frac{1}{10})^j\\
+		0\text{,}\overline{9} &= \limes{n} \sum_{j=1}^{n} \frac{9}{10^j}\\
+		&=\limes{n} \frac{9}{10}\cdot \sum_{j=0}^{n-1}\left(\frac{1}{10}\right)^j\\
 		&=\frac{9}{10}\cdot\frac{10}{9} = 1
 	\end{align*}
 \end{bsp}

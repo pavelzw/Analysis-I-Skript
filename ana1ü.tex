@@ -150,35 +150,64 @@
 		\(x := \frac{1}{2}(x+\frac{a}{x})\)
 		\begin{beh}
 			Seien \(a > 0\) und \(x_0 > 0\) reelle Zahlen\\
-			Die Folge \((x_n)_n\) sei gegeben durch \(x_n+1 := \frac{1}{2}(x_n + \frac{a}{x_n})\) dann konvergiert die Folge gegen \(\sqrt{a}\), d.h. gegen die eindeutig bestimmte positive Lösung der Gleichung \(x^2 = a\)
+			Die Folge \((x_n)_n\) sei gegeben durch \(x_{n+1} := \frac{1}{2}(x_n + \frac{a}{x_n})\) dann konvergiert die Folge gegen \(\sqrt{a}\), d.h. gegen die eindeutig bestimmte positive Lösung der Gleichung \(x^2 = a\)
 		\end{beh}		
 		Vorgehen im Beweis:
 		\begin{enumerate}
 			\item \(x_n > 0, \forall n \geq 0\)
 			\item \(x_n^2 \geq a, \forall n \in \N\)
-			\item \(x_n+1 \leq x_n, \forall n \in \N\)
+			\item \(x_{n+1} \leq x_n, \forall n \in \N\)
 			\item Existenz des Grenzwertes
 			\item Eindeutigkeit des Grenzwertes
 		\end{enumerate}
 		\begin{bew}
-			\vspace{5mm}
+			Umsetzen des Plans:\\
 			\begin{enumerate}				
-				\item 
+				\item Schritt:\\
 					Beweis durch vollständige Induktion:\\
 					(IA):\\
 					\(n=0: x_0 > 0\) per Voraussetzung\\
 					\(n=1: x_1 = \frac{1}{2}(\underbrace{x_0}_{>0} + \underbrace{\frac{a}{x_0}}_{>0}) > 0\) ist wohldefiniert, da \(x_0 > 0\)\\
 					(IS): \(n \rightarrow n+1\): für beliebiges, aber festes n sei gezeigt, dass \(x_n > 0\)\\
-					Dann gilt \(x_n+1 = \frac{1}{2}(\underbrace{x_n}_{>0} + \underbrace{\frac{a}{x_n}}_{>0}) > 0\) wohldefiniert, weil \(x_n > 0\)\\
+					Dann gilt \(x_{n+1} = \frac{1}{2}(\underbrace{x_n}_{>0} + \underbrace{\frac{a}{x_n}}_{>0}) > 0\) wohldefiniert, weil \(x_n > 0\)\\
 					Somit gilt nach dem Induktionsprinzip \(x_n > 0\) \(\forall n \in \N\)
-				\item 
+				\item Schritt:\\
 					\(x_n^2 \geq a \Leftrightarrow x_n^2 - a \geq 0 \)
 					\begin{align*}
-						x_n^2 - a &= \frac{1}{4}\left(x_n-1 + \frac{a}{x_n-1}\right)^2 - a\\
-						&= \frac{1}{4}\left(x_n-1^2 + 2a + \frac{a^2}{x_n-1^2}\right) - a\\
-						&= \frac{1}{4}\left(x_n-1^2 + 2a + \frac{a^2}{x_n-1^2} - 4a\right)\\
-						&= \frac{1}{4}\left(x_n-1 - \frac{a}{x_n-1}\right)^2 \geq 0
+						x_n^2 - a &= \frac{1}{4}\left(x_{n-1} + \frac{a}{x_{n-1}}\right)^2 - a\\
+						&= \frac{1}{4}\left(x_{n-1}^2 + 2a + \frac{a^2}{x_{n-1}^2}\right) - a\\
+						&= \frac{1}{4}\left(x_{n-1}^2 + 2a + \frac{a^2}{x_{n-1}^2} - 4a\right)\\
+						&= \frac{1}{4}\left(x_{n-1} - \frac{a}{x_{n-1}}\right)^2 \geq 0
 					\end{align*}
+				\item Schritt:\\
+					\begin{align*}
+						x_{n+1} \leq x_n &\Leftrightarrow x_n - x_{n+1} \geq 1\\
+						x_n - x_{n+1} &= x_n - \frac{1}{2}(x_n + \frac{a}{x_n})\\
+						&=\frac{1}{2}x_n - \frac{a}{2x_n}\\
+						&= \underbrace{\frac{1}{2x_n}}_{>0} \cdot \underbrace{(x_n^2 - a)}_{>0} \geq 0
+					\end{align*}
+				\item Schritt:\\
+					Wegen Schritt 3 gilt die Folge \((x_n)_n\) ist monoton fallend und durch 0 nach unten beschränkt. Somit gilt nach Satz 8.2, dass \((x_n)_n\) konvergent ist.\\
+					Aus Satz 7.1.9:
+					\(\limes{n} x_n = x \geq 0\)
+					\begin{align*}
+						x_{n+1} = \frac{1}{2}(x_n + \frac{a}{x_n}) \overset{\cdot 2x_n} {\Leftrightarrow} 2x_{n+1}x_n = x_n^2 + a \;(\ast)\\						
+					\end{align*}
+					Betrachte Grenzwert von (\(\ast\))
+					\begin{align*}
+						\limes{n} (2x_{n+1}x_n) &= \limes{n} (x_n^2 + a)\\
+						\overset{\text{7.1.8}}{\Leftrightarrow} 2x^2 &= x^2 + a\\
+						\Leftrightarrow x^2 = a						
+					\end{align*}
+					Somit konvergiert \((x_n)_n\) gegen eine Quadratwurzel von a.
+				\item Schritt:\\
+					Annahme: \(y\) ist einer weitere Lösung von der Gleichung \(y^2 = a\) mit \(x \neq y\).\\
+					Dann gilt:
+					\begin{align*}
+						0 = x^2 - y^2 = (x-y)\underbrace{(x+y)}_{>0} \text{ \Lightning} x \neq y\\
+						\Rightarrow x = y
+					\end{align*}
+					Also ist x die einzige Lösung der Gleichung \(x^2 = a\).
 			\end{enumerate}
 		\end{bew}
 	\end{bsp}

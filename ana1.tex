@@ -1945,29 +1945,176 @@ Erinnerung: Folge ist eine Funktion \(f: \N\rightarrow X \)\\
 Geg. Folge \( (a_n)_{n\in\N} \) und eine Ausdünnung \( \sigma : \N\rightarrow \N. \) Setzen wir \( n_k := \sigma (k), k\in\N \) und \( (a_{\sigma(k)})_k = (a_{n_k})_{k\in\N} \) Teilfolge von \( (a_n)_{n\in\N} \).\\
 Beobachtung: abg. und beschr. Intervalle sind aus Folgensicht fast so gut wie endliche Mengen!
 \begin{lem}
-	Sei \(I = [a,b], \quad a,b\in\R, a\leq b. (a_n)_n \subset I \). d. h. \(a_n \in I \quad\forall n\in\N \), dann gibt es eine Teilfolge, von \((a_n)_n\), die konvergiert.
+	Sei \(I = [b,c], \quad b,c\in\R, b\leq c. (a_n)_n \subset I \). d. h. \(a_n \in I \quad\forall n\in\N \), dann gibt es eine Teilfolge, von \((a_n)_n\), die mit Grenzwert in \(I\) konvergiert.
 \end{lem}
 \begin{bew}
 	\(I_0 = [a,b]\)\\
 	Bild:\\
 	\begin{tikzpicture}[scale = 8]
 		\draw (0,0) -- (1,0);
-		\draw (0,0) node {\([\)} node[below = 2mm] {\(a\)};
-		\draw (1,0) node {\(]\)} node[below = 2mm] {\(b\)};
-		\draw (1/2,0) node {\(]\)} node[below = 2mm] {\(\frac{a+b}{2}\)};
+		\draw (0,0) node {\([\)} node[below = 2mm] {\(b\)};
+		\draw (1,0) node {\(]\)} node[below = 2mm] {\(c\)};
+		\draw (1/2,0) node {\(]\)} node[below = 2mm] {\(z_1:=\frac{b+c}{2}\)};
 		\draw (1/4,0) node {\([\)};
 		\draw (3/4,0) node[above] {endl.};
 		\draw (3/8,0) node[above] {endl.};
 		\draw (1/8,0) node[above] {\(\infty\)};
 	\end{tikzpicture}\\
-	Der unendliche Intervall wird immer halbiert in einen endlichen und unendlichen Teil (rekursiv).
+	%29.11.2018
+	Fallunterscheidung:\\
+	1.) Es sind \(\infty\)-viele \( a_n\in I_1 := [b,z_1] \). Dann setze \(b_1 := b, c_1 := z_1, I_1 = I_{1,-} = [b_1,c]\).\\
+	2.) Nun endlich viele \(a_n\in I_{1,-} \Rightarrow b_1 := z_1, c_1 := c, I_1 := I_1 := I_{1,+} := [z_1,c] = [b_1,c_1] \Rightarrow \exists \infty \)-viele \(a_n \in I_1\).\\
+	\(|I_1| = \) Länge von \(I_1 = c_1-b_1 = \frac{c-b}{2} \). \(n_1 = \min (n\in\N:a_n \in I_1)  \Rightarrow n_1 \geq 1. a_{n_1} \in I_1 \).
+	Dann \(z_2 := \frac{b_1 + c_1}{2}\)\\
+	\(\Rightarrow \) Sind \(\infty\)-viele \(a_n\in I_{2,-} := [b_1,z_2] \), sp setze \(I_2 := I_{2,-}\). Somit sind \(\infty\)-viele \(a_n\in I_{2,+} = [z_1,c_1] \). Setze dann \(I_2 := I_{2,+}\).\\
+	\[ n_2 := \min(n>n_1:a_n\in I_2) \Rightarrow a_{n_2} \in I_2 \text{ und } n_2>n_1\geq 1. |I_2| = \frac{|I_1|}{2} = \frac{c-b}{2}. \]
+	Iteriere dies: Ang. haben \(I_k = [b_k, c_k] \subset I_{k-1} \subset \ldots \subset I_1 \subset I_0 = [b,c]. |I_k| = \frac{|I_0|}{2}. \)\\
+	\(z_{k+1} := \frac{b_k + c_k}{2} \) Mittelpunkt von \(I_k\).\\
+	Sind \(\infty\)-viele \(a_n\) in \(I_{k+1} := [b_k, z_{k+1}] \), so setze \(I_{k+1} := I_{k+1,-} \qquad b_{k+1} = b_k, c_{k+1} = z_k+1 \).\\
+	Somit \(I_{k+1} := I_{k+1,+} = [z_{k+1, c_k}]/ b_{k+1} = z_{k+1}, c_{k+1} = c_k. \)\\
+	Nach Konstruktion sind \(\infty\)-viele \(a_n\in I_{k+1} \). (d. h. \(\forall K\in\N \exists n>k:a_n\in I_{k+1} \))\\
+	\( n_{k+1} := \min (n>n_k: a_n \in I_{k+1}) > n_k\\
+	\Rightarrow \) Folge von Indizes \(n_1 <n_2<\ldots<n_k<n_{k+1}<\ldots\\
+	n_k\in\N \) mit \( a_{n_k} \in I_k, |I_k| = \frac{|I_0|}{2^k}\\
+	I_k = [b_k, c_k] \)
+	\[b_k \leq a_{n_k} \leq c_k \quad \forall k\in\N (*) \]
+	\( (b_k)_k \) mon. wachsende Folge \(b_k\leq c \forall k \).\\
+	\( (c_k)_k \) mon. fallende Folge \( c_k \geq b \forall k \).\\
+	\( \overset{\text{Mon. Konv.}}{\Rightarrow} \\b= \limes{k} b_k \) exist.\\
+	\(c = \limes{k} c_k \) exist.\\
+	und \(0 \leq c_k - b_k \leq \frac{c-b}{2^k} \rightarrow0 (k\rightarrow\infty) \).\\
+	\(\Rightarrow b=c \overset{(*)}{\Rightarrow} (a_{n_k})_k \) konvergiert gegen \(b\).\\
+	d. h. \( (a_{n_k})_k \) ist konv. Teifolge von \( (a_n)_n \).
+	%Der unendliche Intervall wird immer halbiert in einen endlichen und unendlichen Teil (rekursiv).
 \end{bew}
 \begin{kor}
 	Jede beschränkte (reelle) Folge hat eine konvergente Teilfolge (Satz von Bolzano-Weierstraß).
 \end{kor}
 \begin{bew}
-	Sei \( 0\leq C < \infty. |a_n| \leq C \forall n\in\N. \)\\
-	\[ \Rightarrow -C \leq a_n \leq C, a_n \in [-C, C] \forall n\in\N. \]
+	Sei \( 0\leq C < \infty. |a_n| \leq C \quad\forall n\in\N. \)\\
+	\[ \Rightarrow -C \leq a_n \leq C, a_n \in [-C, C] \quad\forall n\in\N. \]
 	\( \Rightarrow \) Beh. folgt aus Lemma 5!
 \end{bew}
+\begin{kor}
+	Jede Cauchy-Folge hat eine konv. Teilfolge.
+\end{kor}
+\begin{bew}
+	Nach Lemma 3 ist \( (a_n)_n \) beschränkt. Wende Korrolar 6 an.
+\end{bew}
+Hauptbeobachtung:
+\begin{lem}
+	Sei \((a_n)_n\) eine Cauchyfolge. Dann gilt
+	\[ (a_n)_n \text{ konvergiert } \Leftrightarrow (a_n)_n \text{ hat eine konvergente Teilfolge.} \]
+\end{lem}
+\begin{bem}
+	Ist \( (a_n)_n \) konvergente Folge, so konvergiert jede Teilfolge gegen den gleichen Grenzwert von \((a_n)_n\).
+\end{bem}
+\begin{bem}
+	\( (a_n)_n \) Cauchyfolge \\
+	\begin{align*}
+		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:|a_m-a_n|<\varepsilon \quad \forall m>n\geq K.\\
+		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:|a_{n+p}-a_n|<\varepsilon \quad \forall n\geq K, p\in\N\\
+		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:\sup \underbrace{|a_{n+p}-a_n|}_{\text{muss gleichm. in }p\in\N\text{ klein sein für } n \text{ groß} }<\varepsilon \quad \forall m>n\geq K
+	\end{align*}
+\end{bem}
+\begin{bew}
+	\glqq\( \Rightarrow \)\grqq: Nach Bem 1 konvergiert jede Teilfolge von \( (a_n)_n \) gegen denselben Grenzwert.\\
+	\glqq\(\Rightarrow\)\grqq: Ang. Teilfolge \( (a_{n_k})_k \) konvergiert gegen \(L\in\R\). \(L = \limes{k} a_{n_k} \) existiert.\\
+	\( n_k\in\N, n_1<n_2<\ldots<n_k<n_{k+1}<\ldots \)\\
+	Auch: \((a_n)_n\) ist Cauchy, d. h. 
+	\[ \forall \varepsilon>0\exists K\in\N:|a_m-a_n|<\varepsilon \quad\forall m>n\geq K (*). \]
+	\[n_1 \geq 1 \Rightarrow n_2 > n_1 \geq 1 \Rightarrow n_2 \geq 2 \ldots n_k \geq k \forall k \]
+	D. h. ist \(k>n \Rightarrow m=n_k \geq k>n \overset{(*)}{\Rightarrow} |a_{n_k}-a_n|<\varepsilon \quad \forall k>n\geq K \).\\
+	Sei \( \varepsilon>0, K\) gegeben\\
+	\[ \Rightarrow |a_{n_k} - a_n| <\varepsilon \quad \forall k>n\geq K \Rightarrow \limes{k} |a_{n_k}-a_n| = \limes{k} |a_{\sigma(k)}-a_n| = |L-a_n| \leq \varepsilon \]
+	\(\sigma(k) = n_k, \limes{k} a_{\sigma(k)} = L \)
+	\[ \forall \varepsilon>0 \exists K\in\N: |L-a_n|\leq \varepsilon \forall n\geq K \]
+	\(\Rightarrow (a_n)_n\) konvergiert gegen \(L\)!
+\end{bew}
+\begin{satz}
+	Eine (reelle) Folge \((a_n)_n\) konvergiert \( \Leftrightarrow (a_n)_n \) ist Cauchyfolge.
+\end{satz}
+\begin{bew}
+	\glqq\(\Rightarrow\)\grqq ist Lemma 2.\\
+	\glqq \( \Leftarrow \)\grqq \((a_n)_n\) Cauchy \( \overset{\text{Kor. 7}}{\Rightarrow} \exists \) konv. Teilfolge von \((a_n)_n \overset{\text{Lem. 8}}{\Rightarrow} (a_n)_n \) konvergiert. 
+\end{bew}
+z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+1}}-a_{n_k}| <2^{-k}\).
+\section{Häufungspunkte, Limes Superior, Limes Inferior}
+\( (a_n)_n \) konvergente Folge \(a= \limes{n} a_n \)
+\[\Leftrightarrow\forall\varepsilon>0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon) \text{ für fast alle } n\in\N. \]
+\begin{defi}
+	Sei \((a_n)_n\) Folge. \(a\in\R\) Häufungspunkt von \((a_n)_n\), falls \(\forall\varepsilon>0 a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N\) (d. h. \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
+\end{defi}
+\begin{bem}
+	Eine konvergente Folge hat nur einen Häufungspunkt.\\
+	Bild:\\
+	\begin{tikzpicture}[scale = 4]
+		\draw (0,0) -- (1,0);
+		\draw (1/4, 1/16) -- (1/4, -1/16) node[below] {\(a\)};
+		\draw (3/4, 1/16) -- (3/4, -1/16) node[below] {\(\tilde{a}\)};
+		\draw (1/2,0) node {\( )( \)};
+		\draw (0,0) node {\((\)};
+		\draw (1,0) node {\()\)};
+	\end{tikzpicture}
+\end{bem}
+\( H((a_n)_n) = H((a_n)) :=  \) Menge der Häufungspunkte von \((a_n)_n\).
+\begin{lem}
+	\begin{enumerate}
+		\item Ist \((a_n)_n\) beschränkt. So ist \(H((a_n)_n) \neq \emptyset\).
+		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{0\} \).
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	\begin{enumerate}
+		\item Nach Kor. 9.6 hat \((a_n)_n\) konvergente Teilfolge \((a_{n_k})_k, L= \limes{k} a_{n_k} \). Dann ist \( \forall \varepsilon >0  \)
+		\begin{align*}
+			a_{n_k} \in U_\varepsilon(L) \text{ für fast alle }k\in\N\\
+			\Rightarrow a_{n_k} \in U_\varepsilon(L) \text{ für unendlich viele} n\in\N\\
+			\Rightarrow a_n\in U_\varepsilon(L)\\
+			\Rightarrow L \text{ ist Häufungspunkt}.
+		\end{align*}
+		\item Sind \( \tilde{a}>a\) Häufungspunkt, \(a=\limes{n}a_n \quad \varepsilon = \frac{\tilde{a}-a}{2} \)
+		Bild:\\
+		\begin{tikzpicture}[scale = 4]
+			\draw (0,0) -- (1,0);
+			\draw (1/4, 1/16) -- (1/4, -1/16) node[below] {\(a\)};
+			\draw (3/4, 1/16) -- (3/4, -1/16) node[below] {\(\tilde{a}\)};
+			\draw (1/2,0) node {\( )( \)};
+			\draw (0,0) node {\((\)};
+			\draw (1,0) node {\()\)};
+		\end{tikzpicture}\\
+		\( \Rightarrow \) fast alle \(a_n \in U_\varepsilon(a), U_\varepsilon(a) \cap U_\varepsilon(\tilde{a}) = \emptyset \)\\
+		\( \Rightarrow \) nur endl. viele \(a_n\) kann in \(U_\varepsilon(\tilde{a})\) sein.
+	\end{enumerate}
+\end{bew}
+\begin{satz}
+	\[ b\in H((a_n)_n) \Leftrightarrow (a_n)_n \text{ hat Teilfolge } (a_{n_k})_k \text{, die gegen } b \text{ konvergiert}. \]
+\end{satz}
+\begin{bew}
+	\glqq\(\Rightarrow\)\grqq: Ist \(\lim a_{n_k} = b \Leftrightarrow \forall \varepsilon >0 \) ist \( a_{n_k} \in U_\varepsilon(b) \) für fast alle \(k\).\\
+	\( \Rightarrow a_n \in U_\varepsilon(b) \) für unendlich viele \(n\).\\
+	\glqq\(\Leftarrow\)\grqq: Sei \(b \in H((a_n)). \Rightarrow \forall L\in \N \) gibt es \(\infty\)-viele \( a_n \in (b-1/L, b+1/L) (*) \).\\
+	\begin{align*}
+		L = 1 &\overset{*}{\Rightarrow} \exists n_1 \in \N: a_{n1} \in (b-1, b+1)\\
+		L = 2 &\overset{*}{\Rightarrow} \exists n_2 > n_1 \in \N: a_{n2} \in \left(b-\frac{1}{2}, b+\frac{1}{2}\right)\\
+		&\vdots \text{ induktiv}\\
+		L = k &\overset{*}{\Rightarrow} \exists n_k > n_{k-1} \in \N: a_{nk} \in \left(b-\frac{1}{k}, b+\frac{1}{k}\right)\\
+		&\Rightarrow \text{Teilfolge } (a_{nk})_k \text{ mit } b - \frac{1}{k} < a_{nk} < b + \frac{1}{k} \forall k \in \N\\
+		&\overset{\text{Sandwich}}{\Rightarrow} \limes{n} a_{nk} = b
+	\end{align*}
+\end{bew}
+Offensichtliche Frage: Was ist \( \sup H((a_n)_n) \) (größter Häufungspunkt) und \(  \inf H((a_n)_n) \) (kleinster Häufungspunkt)?\\
+Situation: \((a_n)_n\) reelle Folge\\
+Geg. \(n\in\N \quad d_n := \underset{k\geq n}{\sup}a_k \in \R \Leftrightarrow (a_n)_n\) ist nach oben beschränkt. (somit setze \(d_n = \sup a_k = -\infty \).\\
+\( d_{n+1} = \underset{k\geq n+1}{\sup}a_k \leq \underset{k\geq n}{\sup}a_k = d_n \Longrightarrow (d_n)_n \) ist monoton fallend.\\
+\( \Rightarrow \) ist \((d_n)_n\) nach unten beschränkt (\( \Leftarrow (a_n)_n \) ist nach unten beschränkt), dann existiert \( \limes{n} d_n \) (Satz von mon. Konv.)\\
+\[\text{Setzen } \limsup\limits(n\rightarrow\infty) a_n := \limes{n} d_n = \limes{n} \underset{k\geq n}{\sup} a_k. \]
+\[ A\subset B\subset \R \Rightarrow \sup A \leq \sup B \]
+\[ d_n - \underset{k\geq n}{\sup} a_k = \max(a_n, \underbrace{\underset{k\geq n+1}{\sup} a_k)}_{d_{n+1}} \]
+Genauso: \(b_n = \underset{k\geq n}{\inf} a_k \)
+\[ b_{n+1} = \underset{k\geq n+1}{\inf} a_k \geq \underset{k\geq n}{\inf} a_k = b_n \]
+\[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n := \limes{n} \underset{k\geq n}{\inf} a_k = \underset{n\in\N}{\sup} \underset{k\geq n}{\inf} a_k \]
+\[ \limsup a_n = \underset{n\in\N}{\inf} \underset{k\geq n}{\sup} a_k \]
+Haben immer \(b_n \leq d_n\)
+\[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n \leq \limsup\limits_{n\rightarrow\infty} a_n. \]
 \end{document}

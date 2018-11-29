@@ -2093,8 +2093,15 @@ z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+
 \begin{bew}
 	\glqq\(\Rightarrow\)\grqq: Ist \(\lim a_{n_k} = b \Leftrightarrow \forall \varepsilon >0 \) ist \( a_{n_k} \in U_\varepsilon(b) \) für fast alle \(k\).\\
 	\( \Rightarrow a_n \in U_\varepsilon(b) \) für unendlich viele \(n\).\\
-	\glqq\(\Leftarrow\)\grqq: Sei \(b \in H((a_n)). \Rightarrow \forall L\in \N \) gibt es \(\infty\)-viele \( a_n \in (b-1/L, b+1/L) (*) \).
-	%WEITERSCHREIBEN!!!!!!!
+	\glqq\(\Leftarrow\)\grqq: Sei \(b \in H((a_n)). \Rightarrow \forall L\in \N \) gibt es \(\infty\)-viele \( a_n \in (b-1/L, b+1/L) (*) \).\\
+	\begin{align*}
+		L = 1 &\overset{*}{\Rightarrow} \exists n_1 \in \N: a_{n1} \in (b-1, b+1)\\
+		L = 2 &\overset{*}{\Rightarrow} \exists n_2 > n_1 \in \N: a_{n2} \in \left(b-\frac{1}{2}, b+\frac{1}{2}\right)\\
+		&\vdots \text{ induktiv}\\
+		L = k &\overset{*}{\Rightarrow} \exists n_k > n_{k-1} \in \N: a_{nk} \in \left(b-\frac{1}{k}, b+\frac{1}{k}\right)\\
+		&\Rightarrow \text{Teilfolge } (a_{nk})_k \text{ mit } b - \frac{1}{k} < a_{nk} < b + \frac{1}{k} \forall k \in \N\\
+		&\overset{\text{Sandwich}}{\Rightarrow} \limes{n} a_{nk} = b
+	\end{align*}
 \end{bew}
 Offensichtliche Frage: Was ist \( \sup H((a_n)_n) \) (größter Häufungspunkt) und \(  \inf H((a_n)_n) \) (kleinster Häufungspunkt)?\\
 Situation: \((a_n)_n\) reelle Folge\\

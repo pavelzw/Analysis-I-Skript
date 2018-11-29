@@ -1883,7 +1883,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \section{Cauchyfolgen}
 \begin{defi}[Cauchyfolge]
 	Eine Folge \((a_n)_n\) heißt Cauchyfolge (kurz Cauchy), falls
-	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\in K \]
+	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\geq K \]
 \end{defi}
 \begin{bem}
 	Reicht \(m,n\in\N\) mit \( m>n\geq K \) zu betrachten, da Def. symmetrisch in \(m,n\) ist und falls \(m=n \Rightarrow a_m-a_n=0\)
@@ -2061,7 +2061,7 @@ z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+
 \begin{lem}
 	\begin{enumerate}
 		\item Ist \((a_n)_n\) beschränkt. So ist \(H((a_n)_n) \neq \emptyset\).
-		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{0\} \).
+		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{a\} \).
 	\end{enumerate}
 \end{lem}
 \begin{bew}

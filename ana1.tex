@@ -2047,7 +2047,15 @@ z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+
 \end{defi}
 \begin{bem}
 	Eine konvergente Folge hat nur einen Häufungspunkt.\\
-	Bild: %BILD 291101
+	Bild:\\
+	\begin{tikzpicture}[scale = 4]
+		\draw (0,0) -- (1,0);
+		\draw (1/4, 1/16) -- (1/4, -1/16) node[below] {\(a\)};
+		\draw (3/4, 1/16) -- (3/4, -1/16) node[below] {\(\tilde{a}\)};
+		\draw (1/2,0) node {\( )( \)};
+		\draw (0,0) node {\((\)};
+		\draw (1,0) node {\()\)};
+	\end{tikzpicture}
 \end{bem}
 \( H((a_n)_n) = H((a_n)) :=  \) Menge der Häufungspunkte von \((a_n)_n\).
 \begin{lem}
@@ -2066,7 +2074,15 @@ z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+
 			\Rightarrow L \text{ ist Häufungspunkt}.
 		\end{align*}
 		\item Sind \( \tilde{a}>a\) Häufungspunkt, \(a=\limes{n}a_n \quad \varepsilon = \frac{\tilde{a}-a}{2} \)
-		Bild: %BILD 291102\\
+		Bild:\\
+		\begin{tikzpicture}[scale = 4]
+			\draw (0,0) -- (1,0);
+			\draw (1/4, 1/16) -- (1/4, -1/16) node[below] {\(a\)};
+			\draw (3/4, 1/16) -- (3/4, -1/16) node[below] {\(\tilde{a}\)};
+			\draw (1/2,0) node {\( )( \)};
+			\draw (0,0) node {\((\)};
+			\draw (1,0) node {\()\)};
+		\end{tikzpicture}\\
 		\( \Rightarrow \) fast alle \(a_n \in U_\varepsilon(a), U_\varepsilon(a) \cap U_\varepsilon(\tilde{a}) = \emptyset \)\\
 		\( \Rightarrow \) nur endl. viele \(a_n\) kann in \(U_\varepsilon(\tilde{a})\) sein.
 	\end{enumerate}

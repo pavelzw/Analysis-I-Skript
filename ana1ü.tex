@@ -210,5 +210,91 @@
 					Also ist x die einzige Lösung der Gleichung \(x^2 = a\).
 			\end{enumerate}
 		\end{bew}
+		\subsection{Geschwindigkeit der Konvergenz}
+		Definieren relativen Fehler \(f_n\) im n-ten Schritt\\
+		\(x_n = \sqrt{a} \cdot (1+f_a)\)\\
+		Da \((x_n)_n\) monoton fallend ist, gilt \(f_n \geq 0 \forall n \geq 1\)\\
+		Einsetzen in Rekursionsformel:\\
+		\begin{align*}
+			x_{x+1} &= \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\\
+			\Leftrightarrow \sqrt{a}(1+f_{n+1}) &= \frac{1}{2}\left(\sqrt{a}(f_n+1) + \frac{a}{\sqrt{a}(1+f_n)} \right)\\
+			\Leftrightarrow 1 + f_n &= \frac{1}{2}\left(1+f_n+\frac{1}{f_n + 1}\right)\\
+			\Rightarrow f_{n+1} &= \frac{1}{2} \cdot \frac{f_n^2}{1 + f_n}\\
+			\text{Nebenüberlegung:}\\
+			&f_n < f_n^2: f_n > 1: \frac{f_n^2}{1+f_n} < \frac{f_n^2}{f_n} = f_n\\
+			&f_n^2 < f_n: f_n < 1: \frac{f_n^2}{1+f_n} < f_n^2 \\
+			\Rightarrow f_{n+1} &= \frac{1}{2} \cdot \frac{f_n^2}{1+f_n} \leq \frac{1}{2} \cdot min(f_n, f_n^2)
+		\end{align*}
+		Der relative Fehler von \(f_n\) geht sehr schnell gegen Null.
+		\begin{bsp}
+			\(0\leq f_n < 1 \Rightarrow f_1 < \frac{1}{4} < f_2 < \frac{1}{40} < f_3 < \frac{1}{1600} < \ldots < f_6 < 10^{-30}\)
+		\end{bsp}
+		Gilt sowas auch für k-te Wurzeln?
+		\begin{satz}
+			Sei \(k \geq 2 \) eine natürliche Zahl und \(a > 0\) eine positive reelle Zahl, dann konvergiert für jeden Angangswert \(x_0 > 0\) die durch\\
+			\(x_{x+1} := \frac{1}{k} \left((k-1)x_n + \frac{a}{x_n^{k-1}}\right)\)\\
+			rekursiv definierte Folge \((x_n)_n\) gegen die eindeutig bestimmte positive Lösung der Gleichung \(x^k = a\)
+		\end{satz}
+		\begin{bew}
+			Wie Satz 1 zeigt man, dass es nicht mehr als eine Lösung geben kann.\\Wissen also \(0 \leq z_1 < z_2 \Rightarrow z_1^k < z_2^k\)\\
+			Nun zeigen wir, dass der Grenzwert \(x := \limes{n} x_n\) im Fall der Existenz die Gleichung \(x^k = a\) erfüllt.\\
+			Wir multiplizieren die Rekursionsgleichung mit \(k \cdot x_n^{k-1}\)\\
+			\(\Rightarrow k \cdot x_{n+1} \cdot x_n^{k-1} = (k-1)x_n^k + a\)\\
+			Durch Grenzübergang gilt:\\
+			\(k \cdot x^k = (k-1)x^k + a \Rightarrow x^k = a \)\\
+			Es bleibt zu zeigen, dass die Folge \((x_n)_n\) konvergiert.
+			\begin{align*}
+				x_{n+1} &= \frac{1}{k}\left((k-1)x_n + \frac{a}{x_n^{k-1}}\right)\\
+				&= \frac{1}{k} \cdot x_n \left((k-1) + \frac{a}{x_n^{k}}\right)\\
+				&= x_n \left(1 + \frac{1}{k}\left(\frac{a}{x_n^k} - 1\right)\right) \text{ (\(\ast \ast\))}\\
+				x_{n+1}^k &= x_n^k\left(1+\frac{1}{k}\left(\frac{a}{x_n^k} - 1 \right)\right)^k\\
+				&\overset{\text{Bernoulli}}{\Rightarrow} x_n^k\left(1+\frac{1}{k}\left(\frac{a}{x_n^k} - 1 \right)\right)^k\\
+				&\geq x_n^k\left(1+\left(\frac{a}{x_n^k} - 1 \right)\right)^k\\
+				&= x_n^k + a - x_n^k = a\\
+				\text{Also: } x_{n+1}^k &\geq a \Rightarrow \frac{a}{x_{n+1}^k} \leq 1 \forall n \geq 1\\
+			\end{align*}
+			Also \((x_n)_n\) monoton fallend und durch 0 nach unten beschänkt. Also existiert \(x = \limes{n} x_n\) nach Satz 8.2 und x erfüllt nach 2) die Gleichung \(x^k = a\)
+		\end{bew}
+	\end{bsp}
+	\begin{bsp}
+		Es seien \((f_n)_n\) die Folgen der Fibonacci Zahlen, weiter sei \(a_n := \frac{f_{n+1}}{f_n}\) für \(n \in \N\) und \(a := \frac{1}{2}(1 + \sqrt{5}), b := \frac{1}{2}(1 - \sqrt{5})\)\\
+		\begin{enumerate}
+			\item \(\frac{1}{\sqrt{5}}\left(a^n-b^n\right)\)
+			\item \(\limes{n} a_n = a\)
+		\end{enumerate}
+		\begin{bew}
+			\begin{enumerate}
+				\item Aussage:\\
+					Vollständige Induktion:\\
+					(IA):
+					\begin{align*}
+						&n = 0: \; f_0 = \frac{1}{\sqrt{5}} \left(a^0-b^0 \right) = 0\\		
+						&n = 1: \; f_1 = \frac{1}{\sqrt{5}} \left(a^1-b^1 \right) = \frac{1}{\sqrt{5}} \left(\frac{1}{2}(1 + \sqrt{5})-\frac{1}{2}(1 - \sqrt{5}) \right) = \frac{\sqrt{5}}{\sqrt{5}} = 1\\		
+					\end{align*}
+					(IS): \(n \rightarrow n+1\)\\
+					Angenommen es gilt für ein \(n \in \N: f_k = \frac{1}{\sqrt{5}}\left(a^k-b^k\right) \forall k \geq n\)\\
+					Dann folgt:
+					\begin{align*}
+						f_{n+1} &= f_n + f_n = \frac{1}{\sqrt{5}}\left[a^n - b^n +a^{n-1} - b^{n-1}\right]\\
+						&= \frac{1}{\sqrt{5}}\left[a^{n-1}(a+1) - b^{n-1}(b+1)\right]\\
+						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 + \sqrt{5}\right)+1\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 - \sqrt{5}\right)+1\right)\right]\\
+						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 + 2\sqrt{5}\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 - 2\sqrt{5}\right)\right)\right]\\
+						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 + 2\sqrt{5} + 5\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - 2\sqrt{5} + 5\right)\right)\right]\\
+						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1+\sqrt{5}\right)^2\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - \sqrt{5}\right)^2\right)\right]\\
+						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n+1} - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n+1}\right]\\
+						&= \frac{1}{\sqrt{5}}\left[a^{n+1} - b^{n+1}\right]\\
+					\end{align*}
+					Aus dem Induktionsprinzip folgt somit \(f_n = \frac{1}{\sqrt{5}}\left(a^n-b^n\right) \forall n \in \N \)
+				\item Aussage:\\
+				\begin{align*}
+					a_n = \frac{f_{n+1}}{f_n} \overset{\text{1)}}{=} \frac{a^{n+1} - b^{n+1}}{a^n - b^n} = \frac{a - b\left(\frac{b^n}{a^n}\right)}{1 - \left(\frac{b^n}{a^n}\right)} = \frac{a - b\left(\frac{b}{a}\right)^n}{1 - \left(\frac{b}{a}\right)^n}
+				\end{align*}
+				Wissen \(a > |b| \Rightarrow \frac{|b|}{a} < 1 \Rightarrow \left(\frac{b}{a}\right)^n \overset{n \rightarrow \infty}{\rightarrow} 0\)\\
+				Nach Satz 7.1.8 gilt:
+				\begin{align*}
+					\limes{n} a_n = \limes{n} \frac{a - b\left(\frac{b}{a}\right)^n}{1 - \left(\frac{b}{a}\right)^n} = \frac{a}{1} = a
+				\end{align*}
+			\end{enumerate}
+		\end{bew}
 	\end{bsp}
 \end{document}

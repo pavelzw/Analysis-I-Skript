@@ -1469,7 +1469,18 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 	$$b-a = b-a_n + a_n -a \leq \underbrace{|b-a|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}$$
 	Somit muss $a=b$ gelten!
 \end{bew}
-Bild: %BILD A TELEGRAM
+Bild:\\
+\begin{center}
+\begin{tikzpicture}[scale=2]
+	\draw (0,0) -- (3,0);
+	\draw (1,0) node[below=2mm] {\(a\)} (2,0) node[below=2mm] {\(b\)};
+	\draw (1,-1/32) -- (1,1/32);
+	\draw (2,-1/32) -- (2,1/32);
+	\draw[<->] (1.5,1/8) -- (2,1/8);
+	\draw (0.5,0) node {\((\)} (1.5,0) node {\()(\)} (2.5,0) node {\()\)};
+	\draw (1.75, 1/8) node[above] {\(\varepsilon= \frac{b+a}{2} \)};
+\end{tikzpicture}
+\end{center}
 \begin{defi}[$\varepsilon$-Umgebung]
 	Die $\varepsilon$-Umgebung um $a\in\R$ ist die Menge
 	$$U_\varepsilon(a):= \{x\in\R: |x-a| <\varepsilon\} = (a-\varepsilon, a+\varepsilon).$$
@@ -1502,7 +1513,20 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 	$$|b_n| \geq \frac{|b|}{2}.$$
 \end{lem}
 \begin{bew}
-	Bild: \\%BILD B
+	Bild: \\
+	\begin{center}
+	\begin{tikzpicture}
+		\draw (-1,0) -- (5,0);
+		\foreach \x in {0, 2, 3, 4} 
+		{
+			\draw (\x,-1/8) -- (\x,1/8);
+		}
+		\draw (0,0) node[below=2mm] {\(0\)};
+		\draw (2,0) node[below=2mm] {\(\frac{b}{2}\)}; 
+		\draw (3,0) node[below=2mm] {\(b_n\)};
+		\draw (4,0) node[below=2mm] {\(b\)};
+	\end{tikzpicture}
+	\end{center}
 	Setze $\varepsilon := \frac{|b|}{2}>0$. Dann existiert $K\in\N$ mit $$|b_n-b| < \varepsilon = \frac{|b|}{2} \quad\forall n\geq K, n\geq K$$
 	\begin{align*}
 		&\Rightarrow |b| = |b-b_n + b_n| \leq |b-b_n| + |b_n| \overset{n\geq K}{<} \frac{|b|}{2} + |b_n|\\
@@ -1604,9 +1628,23 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 			\item (Sandwichlemma) Ist \(a_n \leq c_n \leq b_n \) für fast alle \(n\) (\((c_n)_n\) weitere reelle Folge) und \(a=b \Rightarrow (c_n)_n\) konvergiert und \( \lim\limits_{b\rightarrow\infty}c_n = a\) (\(=b\)).
 	\end{enumerate}
 \end{satz}
-\begin{bew}
+\begin{bew}. %SCHLECHT FORMATIERT
 	\begin{enumerate}
-		\item Bild: 
+		\item Bild: Ang. \(a>b\)\\
+		\( \varepsilon = \frac{b-a}{2} >0 \)
+		\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\draw (0,0) -- (4,0);
+			\draw (1,-1/8) -- (1,1/8);
+			\draw (1,0) node[below=2mm] {\(b\)};
+			\draw (3,-1/8) -- (3,1/8);
+			\draw (3,0) node[below=2mm] {\(a\)};
+			\draw (2,0) node {\()(\)} (1.5,0) node[below] {\(b_n\)} (2.5,0) node[below] {\(a_n\)};
+			\draw[<->] (2,1/4) -- (3,1/4);
+			\draw (2.5,1/4) node[above] {\(\varepsilon\)};
+		\end{tikzpicture}
+		\( \Rightarrow b_n > a_n \) \Lightning
+		\end{center}
 		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
 		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon\\
@@ -1777,8 +1815,19 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{satz}[Invervallschachtelungsprinzip]
 	Seien \( a_n\leq b_n, I_n := [a_n,b_n] \) abgeschlossene Intervalle und \[I_{n+1} \subset I_n \quad \forall n\in\N\]
 	sowie \( |I_n| := b_n - a_n \overset{n\rightarrow\infty}{\rightarrow} 0 \).\\
-	Dann besteht \(\bigcap_{n\in\N} I_n\) aus genau einem Punkt!
-	Bild: %%BILD DEF TELEGRAM
+	Dann besteht \(\bigcap_{n\in\N} I_n\) aus genau einem Punkt!\\
+	Bild: 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (8,0);
+			\draw (1,0) node {\([\)} node[below=2mm] {\(a_1\)};
+			\draw (1.5,0) node {\([\)} node[below=2mm] {\(a_2\)};
+			\draw (2.5,0) node {\([\)} node[below=2mm] {\(a_3\)};
+			\draw (3,0) node {\(]\)} node[below=2mm] {\(b_1\)} node[above=2mm] {\(I_1\)};
+			\draw (5,0) node {\(]\)} node[below=2mm] {\(b_2\)} node[above=2mm] {\(I_2\)};
+			\draw (6,0) node {\(]\)} node[below=2mm] {\(b_3\)} node[above=2mm] {\(I_3\)};
+		\end{tikzpicture}
+	\end{center}
 \end{satz}
 \begin{bew}
 	\begin{enumerate}
@@ -1788,7 +1837,14 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 		\[ \Rightarrow \bigcap_{n\in\N} I_n = \{ x\in\R| x\in I_n \forall n\in\N \} \subset \{ x\in\R|x\in I_k \quad \forall 1\leq k \leq m \} = \bigcap_{k=1}^m I_k = I_m \]
 		\[ \Rightarrow \{ a,\tilde{a} \} \subset I_m \quad\forall m\in\N. \]
 		\[a,\tilde{a} \in I_m = [a_m,b_m]. \]
-		%%%BILD GHI TELEGRAM
+		\begin{center}
+			\begin{tikzpicture}
+				\draw (0,0) -- (5,0);
+				\draw (1,0) node {\([\)} node[below=2mm] {\(a_m\)};
+				\draw (4,0) node {\(]\)} node[below=2mm] {\(b_m\)};
+				\draw (2,0) node[below] {\(a\)} (3,0) node[below] {\(\tilde{a}\)};
+			\end{tikzpicture}
+		\end{center}
 		\[\Rightarrow 0<\tilde{a}-a \leq b_m - a_m = |I_m| \rightarrow 0 \quad m\rightarrow\infty \]
 		\Lightning für \(m\) groß \(\bigcap_{n\in\N} I_n\) hat höchstens ein Element!
 		\item \( \bigcap_{n\in\N} I_n \neq \emptyset \qquad I_n = [a_n,b_n] \)\\
@@ -1808,7 +1864,20 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\(Z_0 := \lfloor x \rfloor := \min(p\in\Z, p>x) -1 = \max(q\in\Z, q\leq x). \)\\
 	\( 0\leq x-\lfloor c\rfloor <1. \)\\
 	\(\Rightarrow\) o.B.d.A. sei \(0\leq x<1\).
-	%%BILD KLM TELEGRAM
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (8,0);
+			\foreach \x in {0,...,8}
+			\draw (\x, 0.1) -- (\x, -0.1);
+			\draw (3,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 = 3\)};
+			\draw (4,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 + 1 = 4\)};
+			\draw (0,0) node[below = 2mm] {\(0\)};
+			\draw (8,0) node[below = 2mm] {\(1\)};
+			\foreach \x in {1,...,9}
+			\draw (3.\x, 0.05) -- (3.\x, -0.05);
+			\draw (3.5,0) node[below = 2mm] {\(x\)};
+		\end{tikzpicture}
+	\end{center}
 	iteriere diesen Prozess.
 	\(\rightarrow\) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\)\\
 	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
@@ -1817,15 +1886,17 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{bsp}
 	\( p := \lfloor x \rfloor := \max (z\in\Z:z\leq x) \Rightarrow p\leq x < p+1 \Rightarrow \tilde{x} := x - p \in [0,1) \). Also reicht es, \(x\in[0,1)\) zu betrachten!\\
 	Bild: \(k=8\)\\
-	\begin{tikzpicture}
+	\begin{center}
+		\begin{tikzpicture}
 		\draw (0,0) -- (8,0);
 		\foreach \x in {1,...,7}
-			\draw (\x, 0.1) -- (\x, -0.1);
+		\draw (\x, 0.1) -- (\x, -0.1);
 		\draw (3,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 = 3\)} node[below = 1mm] {\(\frac{3}{8}\)};
 		\draw (4,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 + 1 = 4\)} node[below = 1mm] {\(\frac{4}{8}\)};
 		\draw (0,0) node {\([\)} node[below = 2mm] {\(0\)};
 		\draw (8,0) node {\()\)} node[below = 2mm] {\(1\)};
-	\end{tikzpicture}\\
+		\end{tikzpicture}
+	\end{center}
 	\(l_1 = \lfloor kx \rfloor \)
 	\[ \frac{l_1}{k} \leq x < \frac{l_1 + 1}{k} \Rightarrow 0 \leq x - \frac{l_1}{k} < \frac{1}{k} \]
 	\[ \Rightarrow 0 \leq k\left( x - \frac{l_1}{k} \right) < 1 \Leftrightarrow 0 \leq k^2 [x-\frac{l_1}{k}] < k. \]

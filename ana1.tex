@@ -1472,6 +1472,9 @@ Bild:\\
 	\draw[<->] (1.5,1/8) -- (2,1/8);
 	\draw (0.5,0) node {\((\)} (1.5,0) node {\()(\)} (2.5,0) node {\()\)};
 	\draw (1.75, 1/8) node[above] {\(\varepsilon= \frac{b+a}{2} \)};
+	\draw (1.5,-0.5) node {\(a_n\)};
+	\draw[->] (1.5,-0.4) -- (1.75,-0.1);
+	\draw[->] (1.5,-0.4) -- (1.25,-0.1);
 \end{tikzpicture}
 \end{center}
 \begin{defi}[$\varepsilon$-Umgebung]
@@ -1510,13 +1513,14 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 	\begin{center}
 	\begin{tikzpicture}
 		\draw (-1,0) -- (5,0);
-		\foreach \x in {0, 2, 3, 4} 
+		\foreach \x in {0, 2, 4} 
 		{
 			\draw (\x,-1/8) -- (\x,1/8);
 		}
 		\draw (0,0) node[below=2mm] {\(0\)};
 		\draw (2,0) node[below=2mm] {\(\frac{b}{2}\)}; 
-		\draw (3,0) node[below=2mm] {\(b_n\)};
+		\draw (2,-1.5) node {\(b_n\)};
+		\draw[->] (2,-1.2) -- (3,-0.1);
 		\draw (4,0) node[below=2mm] {\(b\)};
 	\end{tikzpicture}
 	\end{center}
@@ -1787,17 +1791,23 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \end{satz}
 \begin{bew}
 	\(e_n = \sum_{k=0}^{n} \frac{1}{k!} \) approximiert \(e\) extrem gut\\
-	\[ 0< e-e_n = \sum_{k=0}^{\infty} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} = \sum_{k=n+1}^{\infty} \frac{1}{k!} \].
-	%%BID ABC BEI TELEGRAM EINFUEGEN
+	\[ 0< e-e_n = \sum_{k=0}^{\infty} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} = \sum_{k=n+1}^{\infty} \frac{1}{k!}. \]
+	\[e-e_n = \limes{n}\left( \sum_{k=0}^{m} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} \right) = \limes{m} \left(\sum_{k=n+1}^{n} \frac{1}{k!} \right) \]
 	\begin{align*}
-		m>n: &\sum_{k=n+1}^{m} \frac{1}{k!} \qquad k \geq n+1\\
-		&\leq \sum_{k=n+1}^{m} \frac{1}{(n+1)!} \left(\frac{1}{2}\right)^{k-(n+1)}\\
+	 	(*)\quad k \geq n+1\\
+		k! &= k(k-1)\dots 3\cdot 2\cdot 1\\
+		&=\underbrace{k(k-1)\dots(n+2)}_{\geq 2^{k-n}}\underbrace{(n+1)n\dots 2\cdot 1}_{=(n+1)!} \geq (n+1)!\\
+		&\geq 2^{k-n}(n+1)!
+	\end{align*}
+	\begin{align*}
+		m>n: &\sum_{k=n+1}^{m} \frac{1}{k!}\\
+		&\overset{(*)}{\leq} \sum_{k=n+1}^{m} \frac{1}{(n+1)!} \left(\frac{1}{2}\right)^{k-(n+1)}\\
 		&\leq \frac{1}{(n+1)!} \sum_{k=n+1}^{m} \left(\frac{1}{2}\right)^{k-(n+1)}\\
 		&= \frac{1}{(n+1)!} \sum_{l=0}^{m-(n+1)} (\frac{1}{2})^l = \frac{1}{(n+1)!} \frac{1-(\frac{1}{2})^{m-(n-1)}}{1-\frac{1}{2}}\\
 		&\leq \frac{1}{(n+1)!} \frac{1}{1-\frac{1}{2}} = \frac{2}{(n+1)!}\\
 		&\Rightarrow 0 < e - e_n \leq \frac{2}{(n+1)!} (*) \qquad\forall n\geq 2.
 	\end{align*}
-	Wäre \(e\) rational, \(\Rightarrow p\in\N,q\in\in:e=\frac{p}{q} \)
+	Wäre \(e\) rational, \(\Rightarrow p\in\N,q\in\N:e=\frac{p}{q} \)
 	\[ \Rightarrow n! e = n! \frac{p}{q} \in\N \forall n\geq q \]
 	Auch: \( n! e_n = n! \sum_{k=0}^{n} \frac{1}{k!} \in\N \)\\
 	\( \Rightarrow n!(e-e_n) \in\N_0 \qquad \forall n \), die groß genug sind
@@ -1835,6 +1845,7 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 				\draw (0,0) -- (5,0);
 				\draw (1,0) node {\([\)} node[below=2mm] {\(a_m\)};
 				\draw (4,0) node {\(]\)} node[below=2mm] {\(b_m\)};
+				\draw (2,-0.1) -- (2,0.1) (3,-0.1) -- (3,0.1);
 				\draw (2,0) node[below] {\(a\)} (3,0) node[below] {\(\tilde{a}\)};
 			\end{tikzpicture}
 		\end{center}

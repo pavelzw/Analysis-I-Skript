@@ -39,7 +39,8 @@
 %Inhaltsverzeichnis
 \tableofcontents
 \newpage
-\section{Was ist Analysis?}
+\setcounter{section}{1}
+\section{Etwas Logik}
 \subsection{Grundbegriffe}
 \begin{satz}
 	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
@@ -51,4 +52,232 @@
 		$\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)$ & de Morgan\\
 	\end{tabular}
 \end{satz}
+\begin{defi}
+	Sei $M$ eine Menge und $A(x)$ Aussagen mit $x\in M$\\
+	$\forall x \in M: A(x)$ ist wahr, falls alle $A(x)$ wahr sind.\\
+	$\exists x\in M:A(x)$ ist wahr, falls mindestens eine Aussage $A(x)$ wahr ist.
+\end{defi}
+\begin{defi}[wichtige Mengen]
+	Seien $M,N$ Mengen.
+	\begin{align*}
+	\emptyset &:= \text{ die Menge ohne Elemente (leere Menge)}\\
+	M \cap N &:= \{x | x \in M \wedge x \in N \} \text{ (Schnitt)}\\
+	M \cup N &:= \{x | x \in M \vee x \in N \} \text{ (Vereinigung)}\\
+	M \setminus N &:= \{x | x \in M \wedge x \notin N \} \text{ (Differenzmenge)}\\
+	\mathcal{P}(M) &:= \{A | A \subset M \} \text{ die Menge aller Teilmengen von } M \text{ (Potenzmenge)}
+	\end{align*}
+	Sei $I$ eine Menge und für $i\in I$ eine Menge $M_i$.
+	\begin{align*}
+	\bigcap\limits_{i\in I} M_i &:= \{x | \forall i \in I:x\in M_i\}.\\	
+	\bigcup\limits_{i\in I} M_i &:= \{x | \exists i \in I:x\in M_i\}.
+	\end{align*}
+	Ist $M\cap N = \emptyset$, so heißen $M$ und $N$ divergent.\\
+	$M\subset N$, falls $\forall x \in M: x \in N$ ($M$ Teilmenge von $N$).\\
+	$M = N$, falls $M$ und $N$ dieselben Elemente haben.\\
+	Insbesondere ist $(M=N) \Leftrightarrow M\subset N \wedge N\subset M$.\\
+	$M \subsetneq N : M \subset N \wedge M \neq N$ ($M$ echte Teilmenge von $N$).
+\end{defi}
+\section{Die reellen Zahlen}
+\subsection{Körperaxiome (engl. field)}
+\begin{defi}[Körperaxiome]
+	In einem Körper gelten diese Axiome:
+	\begin{enumerate}
+		\item Kommutativität: $\forall a,b\in \mathbb{K}: a+b=b+a, a\cdot b=b\cdot a$
+		\item Assoziativität: $\forall a,b,c\in \mathbb{K}: a+(b+c) = (a+b)+c, a\cdot (b\cdot c) = (a\cdot b)\cdot c$
+		\item Existenz des neutralen Elements: \\
+		$\exists 0 \in \mathbb{K}: a + 0 = 0 + a = a \forall a\in \mathbb{K}\\
+		\exists 1 \in \mathbb{K}: a \cdot 1 = 1 \cdot a = a \forall a\in\mathbb{K}$
+		\item Existenz eines inversen Elements:\\
+		$\forall a\in\mathbb{K}\exists -a\in\mathbb{K}:a+ (-a)=0\\
+		\forall a\in\mathbb{K}\setminus\{0\}\exists \frac{1}{a}\in\mathbb{K}:a\cdot\frac{1}{a}=1$\\
+		Es gilt: $0 \neq 1$.
+		\item Distributivgesetz: $\forall a,b,c\in\mathbb{K}:a\cdot(b+c)=a\cdot b + a \cdot c$
+	\end{enumerate}
+\end{defi}
+\begin{defi}
+	Zu $a\in \mathbb{K}$ ist $-a$ das Inverse bzgl. der Addition\\
+	schreibe $a-b := a + (-b)$.\\
+	Zu $a\in\mathbb{K}\setminus\{0\}$ sei $a^{/1}$ das Inverse bzgl. der Multiplikation.\\
+	Ist $b\neq 0$, so schreiben wir $\frac{a}{b} := a\cdot b^{-1} =b^{-1}\cdot a$.\\
+	schreibe $(ab) := a\cdot b$.
+\end{defi}
+\begin{lem}[Rechnen in einem Körper].%FORMATIERUNG SCHLECHT
+	\begin{enumerate}
+		\item Umformen von Gleichungen\\
+		$\forall a,b,c\in\mathbb{K}:$\\
+		aus $a+b=c$ folgt $a=c-b$\\
+		aus $a\cdot b=c$, $b\neq 0$ folgt $a=\frac{c}{b}$
+		\item Allgemeine Rechenregeln\\
+		$\begin{aligned}
+		-(-a) &= a\\
+		(a^{-1})^{-1}&=a\text{, falls }a\neq 0\\
+		-(a+b) &= (-a) + (-b)\\
+		(a\cdot b)^{-1}&=b^{-1}\cdot a^{-1}=a^{-1}\cdot b^{-1}\\
+		a\cdot 0&=0\\
+		a(-b)&=-(ab), (-a)(-b)=ab\\
+		a(b-c) &= ab - ac\\
+		ab &= 0 \Leftrightarrow a = 0 \vee b = 0 \text{ (Nullteilerfreiheit)}\\ 
+		\end{aligned}$
+	\end{enumerate}
+\end{lem}
+\subsection{Die Anordnungsaxiome}
+\begin{defi}
+	Sei $\mathbb{K}$ (genauer $(\mathbb{K},+,\cdot)$) ein Körper. Dann heißt $>$ eine Anordnung falls
+	\begin{enumerate}
+		\item Für jedes $a\in\mathbb{K}$ gilt genau eine der Aussagen $a>0,a=0,-a>0$\\
+		(wenn $a\in\mathbb{K}$, mit $a>0$ positiv)
+		\item Aus $a>0$ und $b>0$ folgt\\
+		$a+b>0$ und $a\cdot b>0$
+	\end{enumerate}
+	Wir nennen $(\mathbb{K},+,\cdot,>)$ einen angeordneten Körper.
+\end{defi}
+\setcounter{satz}{0}%HUNDERTMARK HAT FALSCH GEZÄHLT
+\begin{satz}
+	Sei $(\mathbb{K}, +,\cdot, >)$ ein angeordneter Körper. Dann gilt
+	\begin{enumerate}
+		\item für $a,b\in\mathbb{K}$ gilt genau eine der Relationen $a>b, a=b, a<b$ (Trichotromie)
+		\item Aus $a>b, b>c$ folgt $a>c$ (Transitivität)
+		\item Aus $a>b$ folgt:\\
+		$\begin{cases}
+		a+c>b+c, \forall c\in\mathbb{K}\\
+		ac>bc, \text{ falls } c>0\\
+		ac<bc, \text{ falls } c<0
+		\end{cases}$.
+		\item Aus $a>b$ und $c>d$ folgt:\\
+		$\begin{cases}
+		a+c>b+d\\
+		ac>bd, \text{ falls } b,d>0 %WARUM FALLS b,d>0???
+		\end{cases}$
+		\item Für $a\neq 0$ ist $a^2 >0$.
+		\item Aus $a>0$ folgt $\frac{1}{a}>0$.
+		\item Aus $a>b>0$ folgt $0<\frac{1}{a}<\frac{1}{b}$.
+		\item Aus $a>b, 0<\lambda<1$ folgt $b<\lambda b + (1-\lambda)a<a$.
+	\end{enumerate}
+\end{satz}
+\begin{defi}[Betrag]
+	Sei $(\mathbb{K}, +,\cdot,>)$ ein angeordneter Körper.\\
+	Betrag von $a\in\mathbb{K}$ ist gegeben durch\\
+	$\left| a\right| := 
+	\begin{cases}
+	a, \text{ falls } a\geq 0\\
+	-a, \text{ falls }a<0
+	\end{cases}$\\
+	auch noch $a,b\in \mathbb{K}$\\
+	$\max(a,b) := 
+	\begin{cases}
+	a, \text{ falls } a\geq b\\
+	b, \text{ falls } a < b
+	\end{cases}\\
+	\min(a,b) := 
+	\begin{cases}
+	a, \text{ falls } a\leq b\\
+	b, \text{ falls } a > b
+	\end{cases}$\\
+\end{defi}
+\begin{satz}
+	$(\mathbb{K},+,\cdot,>)$ ang. Körper\\
+	Dann gilt $\forall a,b\in\mathbb{K}:$
+	\begin{enumerate}
+		\item $\left|-a\right| = \left| a\right|$ und $a\leq\left|a\right|$
+		\item $\left| a\right| \geq 0$ und $\left| a\right| = 0 \Leftrightarrow a = 0$
+		\item $\left| ab\right| = \left| a\right| \left| b\right|$
+		\item $\left| a+b\right| \leq \left| a\right| + \left|b\right|$ (Dreiecksungleichung)
+		\item $\left|\left|a\right|-\left|b\right|\right| \leq \left| a-b\right|$ (umgekehrte Dreiecksungleichung)
+	\end{enumerate}
+\end{satz}
+\begin{kor}[\glqq geometrisch-arithmetische Ungleichung\grqq]
+	Sei $(\mathbb{K},+,\cdot,>)$ ein ang. Körper, $a,b\in\mathbb{K}\\
+	\Rightarrow ab \leq \left( \dfrac{a+b}{2}\right)^2$.\\
+	Wenn Gleichheit gilt, so folgt $a=b$.
+\end{kor}
+\subsection{Obere und untere Schranken, Supremum und Infimum}
+\begin{defi}
+	Sei $A\subset \mathbb{K}, A\neq \emptyset$. Dann ist $\gamma\in\mathbb{K}$ die kleinste obere Schranke (oder Supremum), falls $A\leq \gamma$ und aus $A\leq n$ folgt $\gamma \leq n$.\\
+	Schreibe $\gamma = \sup A = \sup(A)$.\\
+	Analog: $\beta$ it die größte untere Schranke von $A$ (Infimum), falls $\beta \leq A$ und aus $\eta \leq A$ folgt $\eta \leq \beta$\\
+	Schreibe $\beta = \inf A = \inf(A)$.
+\end{defi}
+\begin{lem}
+	$A\subset\mathbb{K}, A\neq \emptyset$.
+	\begin{enumerate}
+		\item $\alpha := \sup A \Leftrightarrow \alpha \geq A \wedge \forall \varepsilon > 0 \exists a \in A: \alpha - \varepsilon < a$.
+		\item $\beta := \inf B \Leftrightarrow \beta \leq B \wedge \forall \varepsilon > 0 \exists b \in B: b < \beta + \varepsilon$.
+	\end{enumerate}
+\end{lem}
+\subsection{Das Vollständigkeitsaxiom}
+\begin{defi}
+	Ein angeordneter Körper $(\mathbb{K},+,\cdot,>)$ erfüllt das Vollständigkeitsaxiom, falls\\
+	\begin{center}
+		Jede nichtleere, nach oben beschränkte Teilmenge hat ein Supremum.
+	\end{center}
+	Solch einen Körper nennt man ordnungsvollständig. $\mathbb{R}$, der Körper der reellen Zahlen, ist \underline{der} ordnungsvollständige Körper. (Im Wesentlichen gibt es nur einen!)
+\end{defi}
+\subsection{Die natürlichen Zahlen $\mathbb{N}$}
+\begin{defi}
+	Eine Teilmenge $M\subset \mathbb{R}$ heißt \underline{induktiv}, falls
+	\begin{enumerate}
+		\item $1\in M$
+		\item Aus $x\in M$ folgt $x+1 \in M$
+	\end{enumerate}
+\end{defi}
+\begin{defi}[natürliche Zahlen] .\\ %SCHLECHT FORMATIERT
+	$\mathbb{N} := \{x\in \mathbb{R}: \text{ für jede induktive Teilmenge } M\in\mathbb{R} \text{ gilt } x\in M\} := \underset{M\subset \mathbb{R}\text{ ist induktiv}}{\bigcap} M$
+\end{defi}
+\begin{satz}[Archimedisches Prinzip für $\mathbb{R}$] .%SCHLECHT FORMATIERT
+	\begin{enumerate}
+		\item $\mathbb{N}$ ist (in $\mathbb{R}$) \underline{nicht} nach oben beschränkt!
+		\item $\forall x\in\mathbb{R}$ mit $x>0 \exists n\in \mathbb{N}: \frac{1}{n} < x$.
+	\end{enumerate}
+\end{satz}
+\begin{satz}[Induktionsprinzip]
+	Sei $M\subset \mathbb{N}$ mit 
+	\begin{enumerate}
+		\item $1\in M$
+		\item Ist $x\in M \Rightarrow x+1 \in M$
+	\end{enumerate}
+	Dann ist $M= \mathbb{N}$.
+\end{satz}
+\begin{kor}[Vollständige Induktion]
+	Für $n\in\mathbb{N}$ seien $A(n)$ Aussagen.
+	Es gelte:
+	\begin{enumerate}
+		\item $A(1)$ ist wahr.
+		\item aus $A(n)$ ist wahr folgt $A(n+1)$ ist wahr.
+	\end{enumerate}
+\end{kor}
+\begin{satz}[Bernoullische Ungleichung]
+	$$x\in\mathbb{R}, x\geq -1, n\in\mathbb{N}_0 = \mathbb{N}\cup \{0\}$$
+	gilt $(1+x)^n \geq 1+ n + x (\forall m\in\mathbb{N},x\geq -1)$\\mit \glqq $>$\grqq, falls $n>1, x\neq 0$\\
+	$( \forall n\in\mathbb{N}, x \geq -1(1+x)^n \geq 1 + nx)$
+\end{satz}
+\begin{satz}[geometrische Summe]
+	Sei $x\neq 1$, dann ist $$\sum_{k=0}^{n}x^k = \frac{1-x^{n+1}}{1-x}$$
+\end{satz}
+\begin{satz}[Eigenschaften von $\mathbb{N}$]
+	Es gilt
+	\begin{enumerate}
+		\item $\forall m,n \in \mathbb{N}: n+m \in \mathbb{N}$ imd $n\cdot m \in \mathbb{N}$.
+		\item $\forall n\in\mathbb{N}: n=1$ oder $(n>1$ und demnach $n-1 \in \mathbb{N})$.
+		\item $\forall m,n\in\mathbb{N}:m\leq n:n-m\in\mathbb{N}_0$.
+		\item $\forall n\in\mathbb{N}$ gibt es kein $m\in\mathbb{N}: n<m<n+1$.
+	\end{enumerate}
+\end{satz}
+\section{Funktionen und Abbildungen}
+\subsection{Funktion als Abbildung}
+\begin{defi}
+	Eine Funktion (oder Abbildung) von einer Menge $A$ in eine Menge $B$ ordnet jedem Element $a\in A$ ein \underline{eindeutiges} Element $b \in B$ zu.\\
+	Wir schreiben:
+	\begin{equation*}
+	f: A \rightarrow B, a \mapsto f(a)\quad(=b)
+	\end{equation*}	
+	$A$: Definitionsbereich\\
+	$B:$ Zielbereich (Target(space))\\
+	z.B. $f: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x^2$\\
+	Die Abbildung $f: A \rightarrow B$ ist\\
+	\begin{tabular}{r|l}
+		injektiv&aus $f(a) = f(a'), a, a' \in A$, folgt $a=a'$\\
+		surjektiv&$\forall b\in B \exists a\in A: b=f(a)$\\
+		bijektiv&sie ist injektiv und surjektiv
+	\end{tabular}
+\end{defi}
 \end{document}

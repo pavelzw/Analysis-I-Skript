@@ -1,12 +1,5 @@
 \documentclass[12pt,a4paper,titlepage]{article} %twopage
 
-%Befehle
-
-%Grafik einbinden
-%\centering
-%\includegraphics[width=0.7\textwidth]{Bild.pdf}
-
-
 %\usepackage{german} %deutsches Format
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
@@ -125,66 +118,67 @@ Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn
 \begin{bew} 
 	Vollständige Induktion\\
 	Induktionsanfang:\\
-	$1 = \frac{1(1+1)}{2} \checkmark$\\
+	\(1 = \frac{1(1+1)}{2} \checkmark\)\\
 	Induktionsschluss:\\
-	Wir nehmen an, dass $A(n)$ wahr ist (für $n\in\mathbb{N}$)\\
+	Wir nehmen an, dass \(A(n)\) wahr ist (für \(n\in\mathbb{N}\))\\
 	D. h. Induktionsannahme:\\
-	$1+2+3+\dots+n=\frac{n(n+1)}{2}$\\
+	\(1+2+3+\dots+n=\frac{n(n+1)}{2}\)\\
 	Dann folgt:\\
-	$\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
-	=\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}$
+	\(\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
+	=\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}\)
 \end{bew}
 %18.10.2018
 \begin{bem}
 	Gaußscher Trick:\\
 	1)\\
-	$S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
+	\(S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
 	2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = 
-	\frac{n(n+1)}{2}$.\\
+	\frac{n(n+1)}{2}\).\\
 	2)\\
-	$S_n = 0 + 1 + 2 + \dots + n\\=$ Anzahl der Punkte in\\
+	\(S_n = 0 + 1 + 2 + \dots + n\\=\) Anzahl der Punkte in\\
 	%BILD EINFUEGEN
-	$\approx$ Fläche eines rechtwinkligen Dreiecks $=\frac{1}{2}*n*n$.\\
+	\(\approx\) Fläche eines rechtwinkligen Dreiecks \(=\frac{1}{2}*n*n\).\\
 	Also: Ansatz (\glqq geschicktes Raten\grqq , \glqq scientific guess\grqq , englisch: ansatz):\\
-	$S_n = \underbrace{a_2 n^2 + a_1 n + a_0}_{\text{Polynom 2. Grades in n}}\\
-	a_2 = \frac{1}{2}$\\
-	Wie bekommt man $a_0, a_1, (a_2)$?
-	$n=0: S_0 = 0 = a_2*0^2+a_1*0+a_0 \Rightarrow a_0 = 0$.\\
-	$n=1: S_1 = 1 = a_2*1^2+a_1*1^2 = a_2 + a_1 = \frac{1}{2} + a_1$.\\
-	also: $a_1 = \frac{1}{2}$\\
-	$\Rightarrow$ Raten: $S_n = \frac{1}{2}n^2 + \frac{1}{2} n = \frac{n(n+1)}{2}$.
+	\(S_n = \underbrace{a_2 n^2 + a_1 n + a_0}_{\text{Polynom 2. Grades in n}}\\
+	a_2 = \frac{1}{2}\)\\
+	Wie bekommt man \(a_0, a_1, (a_2)\)?
+	\(n=0: S_0 = 0 = a_2*0^2+a_1*0+a_0 \Rightarrow a_0 = 0\).\\
+	\(n=1: S_1 = 1 = a_2*1^2+a_1*1^2 = a_2 + a_1 = \frac{1}{2} + a_1\).\\
+	also: \(a_1 = \frac{1}{2}\)\\
+	\(\Rightarrow\) Raten: \(S_n = \frac{1}{2}n^2 + \frac{1}{2} n = \frac{n(n+1)}{2}\).
 \end{bem}
 
 \subsection{Grundbegriffe}
 Aussagen: Notation\\
 \begin{tabular}{r|l}
-	$:$ & \glqq so, dass gilt\grqq\\
-	$\exists$ & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq\\
-	$\forall$ & \glqq für alle\grqq\\
-	$\Rightarrow$ & \glqq impliziert\grqq($A \Rightarrow B$ \glqq aus $A$ folgt $B$\grqq)\\
-	$\Leftrightarrow$ & \glqq genau dann, wenn\grqq\\
-	$\neg A$ & nicht $A$\\
-	$A \wedge B$ & $A$ und $B$\\
-	$A \vee B$ & $A$ oder $B$\\
-	$A := B$ & $A$ ist per Definition gleich $B$
+	\(:\) & \glqq so, dass gilt\grqq\\
+	\(\exists\) & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq\\
+	\(\forall\) & \glqq für alle\grqq\\
+	\(\Rightarrow\) & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq)\\
+	\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq\\
+	\(\neg A\) & nicht \(A\)\\
+	\(A \wedge B\) & \(A\) und \(B\)\\
+	\(A \vee B\) & \(A\) oder \(B\)\\
+	\(A := B\) & \(A\) ist per Definition gleich \(B\)
 \end{tabular}
 
 \begin{satz}
 	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
 	\begin{tabular}{rl}
-		$\neg(\neg A) \Leftrightarrow A$ & Gesetz der doppelten Verneinung\\
-		$A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$ & Kontraposition\\
-		$A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))$ & beim Widerspruchsbeweis\\
-		$\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)$ & de Morgan\\
-		$\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)$ & de Morgan\\
+		\(\neg(\neg A) \Leftrightarrow A\) & Gesetz der doppelten Verneinung\\
+		\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\) & Kontraposition\\
+		\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))\) & beim Widerspruchsbeweis\\
+		\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\) & de Morgan\\
+		\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\) & de Morgan\\
 	\end{tabular}
 \end{satz}
 \begin{bem}
-	$A \Rightarrow B \Leftrightarrow B $ ist mindestens so wahr wie $A \Leftrightarrow A$ ist mindestens so falsch wie $B \Leftrightarrow \neg B \Rightarrow \neg A$.\\$(A\Leftrightarrow B) \Leftrightarrow (A \Rightarrow B \wedge B \Rightarrow A)$.
+	\(A\Rightarrow B\Leftrightarrow B\) ist mindestens so wahr wie \(A \Leftrightarrow A\) ist mindestens so falsch wie \(B \Leftrightarrow \neg B \Rightarrow \neg A\).\\
+	\((A\Leftrightarrow B) \Leftrightarrow (A \Rightarrow B \wedge B \Rightarrow A)\).
 \end{bem}
 \begin{bsp}
-	$n \in \mathbb{N}$ ist gerade, falls $k \in \mathbb{N}$ existiert mit $n = 2k$.\\
-	$n\in \mathbb{N}$ ist ungerade, falls $\exists k\in \mathbb{N}_0: \vee n = 2k+1$.\\
+	\(n \in \mathbb{N}\) ist gerade, falls \(k \in \mathbb{N}\) existiert mit \(n = 2k\).\\
+	\(n\in \mathbb{N}\) ist ungerade, falls \(\exists k\in \mathbb{N}_0: \vee n = 2k+1\).\\
 	Dann gilt: $n$ ist gerade $\Leftrightarrow n^2$ ist gerade.
 	\begin{bew}
 		\glqq $\Rightarrow$\grqq : $n$ gerade $\Rightarrow n=2k$, für $k\in \mathbb{N}$\\
@@ -1468,7 +1462,18 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 	$$b-a = b-a_n + a_n -a \leq \underbrace{|b-a|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}$$
 	Somit muss $a=b$ gelten!
 \end{bew}
-Bild: %BILD A TELEGRAM
+Bild:\\
+\begin{center}
+\begin{tikzpicture}[scale=2]
+	\draw (0,0) -- (3,0);
+	\draw (1,0) node[below=2mm] {\(a\)} (2,0) node[below=2mm] {\(b\)};
+	\draw (1,-1/32) -- (1,1/32);
+	\draw (2,-1/32) -- (2,1/32);
+	\draw[<->] (1.5,1/8) -- (2,1/8);
+	\draw (0.5,0) node {\((\)} (1.5,0) node {\()(\)} (2.5,0) node {\()\)};
+	\draw (1.75, 1/8) node[above] {\(\varepsilon= \frac{b+a}{2} \)};
+\end{tikzpicture}
+\end{center}
 \begin{defi}[$\varepsilon$-Umgebung]
 	Die $\varepsilon$-Umgebung um $a\in\R$ ist die Menge
 	$$U_\varepsilon(a):= \{x\in\R: |x-a| <\varepsilon\} = (a-\varepsilon, a+\varepsilon).$$
@@ -1501,7 +1506,20 @@ $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a)
 	$$|b_n| \geq \frac{|b|}{2}.$$
 \end{lem}
 \begin{bew}
-	Bild: \\%BILD B
+	Bild: \\
+	\begin{center}
+	\begin{tikzpicture}
+		\draw (-1,0) -- (5,0);
+		\foreach \x in {0, 2, 3, 4} 
+		{
+			\draw (\x,-1/8) -- (\x,1/8);
+		}
+		\draw (0,0) node[below=2mm] {\(0\)};
+		\draw (2,0) node[below=2mm] {\(\frac{b}{2}\)}; 
+		\draw (3,0) node[below=2mm] {\(b_n\)};
+		\draw (4,0) node[below=2mm] {\(b\)};
+	\end{tikzpicture}
+	\end{center}
 	Setze $\varepsilon := \frac{|b|}{2}>0$. Dann existiert $K\in\N$ mit $$|b_n-b| < \varepsilon = \frac{|b|}{2} \quad\forall n\geq K, n\geq K$$
 	\begin{align*}
 		&\Rightarrow |b| = |b-b_n + b_n| \leq |b-b_n| + |b_n| \overset{n\geq K}{<} \frac{|b|}{2} + |b_n|\\
@@ -1603,9 +1621,23 @@ reelle Folgen \(f = (f_n)_n, g = (g_n)_n  \)\\
 			\item (Sandwichlemma) Ist \(a_n \leq c_n \leq b_n \) für fast alle \(n\) (\((c_n)_n\) weitere reelle Folge) und \(a=b \Rightarrow (c_n)_n\) konvergiert und \( \lim\limits_{b\rightarrow\infty}c_n = a\) (\(=b\)).
 	\end{enumerate}
 \end{satz}
-\begin{bew}
+\begin{bew}. %SCHLECHT FORMATIERT
 	\begin{enumerate}
-		\item Bild: 
+		\item Bild: Ang. \(a>b\)\\
+		\( \varepsilon = \frac{b-a}{2} >0 \)
+		\begin{center}
+		\begin{tikzpicture}[scale=2]
+			\draw (0,0) -- (4,0);
+			\draw (1,-1/8) -- (1,1/8);
+			\draw (1,0) node[below=2mm] {\(b\)};
+			\draw (3,-1/8) -- (3,1/8);
+			\draw (3,0) node[below=2mm] {\(a\)};
+			\draw (2,0) node {\()(\)} (1.5,0) node[below] {\(b_n\)} (2.5,0) node[below] {\(a_n\)};
+			\draw[<->] (2,1/4) -- (3,1/4);
+			\draw (2.5,1/4) node[above] {\(\varepsilon\)};
+		\end{tikzpicture}
+		\( \Rightarrow b_n > a_n \) \Lightning
+		\end{center}
 		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
 		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon\\
@@ -1776,8 +1808,19 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{satz}[Invervallschachtelungsprinzip]
 	Seien \( a_n\leq b_n, I_n := [a_n,b_n] \) abgeschlossene Intervalle und \[I_{n+1} \subset I_n \quad \forall n\in\N\]
 	sowie \( |I_n| := b_n - a_n \overset{n\rightarrow\infty}{\rightarrow} 0 \).\\
-	Dann besteht \(\bigcap_{n\in\N} I_n\) aus genau einem Punkt!
-	Bild: %%BILD DEF TELEGRAM
+	Dann besteht \(\bigcap_{n\in\N} I_n\) aus genau einem Punkt!\\
+	Bild: 
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (8,0);
+			\draw (1,0) node {\([\)} node[below=2mm] {\(a_1\)};
+			\draw (1.5,0) node {\([\)} node[below=2mm] {\(a_2\)};
+			\draw (2.5,0) node {\([\)} node[below=2mm] {\(a_3\)};
+			\draw (3,0) node {\(]\)} node[below=2mm] {\(b_1\)} node[above=2mm] {\(I_1\)};
+			\draw (5,0) node {\(]\)} node[below=2mm] {\(b_2\)} node[above=2mm] {\(I_2\)};
+			\draw (6,0) node {\(]\)} node[below=2mm] {\(b_3\)} node[above=2mm] {\(I_3\)};
+		\end{tikzpicture}
+	\end{center}
 \end{satz}
 \begin{bew}
 	\begin{enumerate}
@@ -1787,7 +1830,14 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 		\[ \Rightarrow \bigcap_{n\in\N} I_n = \{ x\in\R| x\in I_n \forall n\in\N \} \subset \{ x\in\R|x\in I_k \quad \forall 1\leq k \leq m \} = \bigcap_{k=1}^m I_k = I_m \]
 		\[ \Rightarrow \{ a,\tilde{a} \} \subset I_m \quad\forall m\in\N. \]
 		\[a,\tilde{a} \in I_m = [a_m,b_m]. \]
-		%%%BILD GHI TELEGRAM
+		\begin{center}
+			\begin{tikzpicture}
+				\draw (0,0) -- (5,0);
+				\draw (1,0) node {\([\)} node[below=2mm] {\(a_m\)};
+				\draw (4,0) node {\(]\)} node[below=2mm] {\(b_m\)};
+				\draw (2,0) node[below] {\(a\)} (3,0) node[below] {\(\tilde{a}\)};
+			\end{tikzpicture}
+		\end{center}
 		\[\Rightarrow 0<\tilde{a}-a \leq b_m - a_m = |I_m| \rightarrow 0 \quad m\rightarrow\infty \]
 		\Lightning für \(m\) groß \(\bigcap_{n\in\N} I_n\) hat höchstens ein Element!
 		\item \( \bigcap_{n\in\N} I_n \neq \emptyset \qquad I_n = [a_n,b_n] \)\\
@@ -1807,7 +1857,20 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\(Z_0 := \lfloor x \rfloor := \min(p\in\Z, p>x) -1 = \max(q\in\Z, q\leq x). \)\\
 	\( 0\leq x-\lfloor c\rfloor <1. \)\\
 	\(\Rightarrow\) o.B.d.A. sei \(0\leq x<1\).
-	%%BILD KLM TELEGRAM
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (8,0);
+			\foreach \x in {0,...,8}
+			\draw (\x, 0.1) -- (\x, -0.1);
+			\draw (3,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 = 3\)};
+			\draw (4,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 + 1 = 4\)};
+			\draw (0,0) node[below = 2mm] {\(0\)};
+			\draw (8,0) node[below = 2mm] {\(1\)};
+			\foreach \x in {1,...,9}
+			\draw (3.\x, 0.05) -- (3.\x, -0.05);
+			\draw (3.5,0) node[below = 2mm] {\(x\)};
+		\end{tikzpicture}
+	\end{center}
 	iteriere diesen Prozess.
 	\(\rightarrow\) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\)\\
 	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
@@ -1816,15 +1879,17 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 \begin{bsp}
 	\( p := \lfloor x \rfloor := \max (z\in\Z:z\leq x) \Rightarrow p\leq x < p+1 \Rightarrow \tilde{x} := x - p \in [0,1) \). Also reicht es, \(x\in[0,1)\) zu betrachten!\\
 	Bild: \(k=8\)\\
-	\begin{tikzpicture}
+	\begin{center}
+		\begin{tikzpicture}
 		\draw (0,0) -- (8,0);
 		\foreach \x in {1,...,7}
-			\draw (\x, 0.1) -- (\x, -0.1);
+		\draw (\x, 0.1) -- (\x, -0.1);
 		\draw (3,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 = 3\)} node[below = 1mm] {\(\frac{3}{8}\)};
 		\draw (4,0) node[above = 1mm, font=\fontsize{6}{0}] {\(l_1 + 1 = 4\)} node[below = 1mm] {\(\frac{4}{8}\)};
 		\draw (0,0) node {\([\)} node[below = 2mm] {\(0\)};
 		\draw (8,0) node {\()\)} node[below = 2mm] {\(1\)};
-	\end{tikzpicture}\\
+		\end{tikzpicture}
+	\end{center}
 	\(l_1 = \lfloor kx \rfloor \)
 	\[ \frac{l_1}{k} \leq x < \frac{l_1 + 1}{k} \Rightarrow 0 \leq x - \frac{l_1}{k} < \frac{1}{k} \]
 	\[ \Rightarrow 0 \leq k\left( x - \frac{l_1}{k} \right) < 1 \Leftrightarrow 0 \leq k^2 [x-\frac{l_1}{k}] < k. \]
@@ -1879,11 +1944,10 @@ Achtung! \(a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarro
 	\[ A:= \{ x\in[0,1) : \exists l_j \in \{0,1 \}: x = \sum_{j=1}^{\infty} \frac{l_j}{3^j} = \limes{n} \sum_{j=1}^{n}\frac{l_j}{3^j} \}. \]
 	\(A\) hat die gleiche Mächtigkeit wie die Menge der \( \{0,1\} \)-wertigen Folgen. Hat dieselbe Mächtigkeit wie \(\mathcal{P}(\N)\). Diese ist überabzählbar.
 \end{bew}
-\section{}
-\subsection{Cauchyfolgen}
+\section{Cauchyfolgen}
 \begin{defi}[Cauchyfolge]
 	Eine Folge \((a_n)_n\) heißt Cauchyfolge (kurz Cauchy), falls
-	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\in K \]
+	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\geq K \]
 \end{defi}
 \begin{bem}
 	Reicht \(m,n\in\N\) mit \( m>n\geq K \) zu betrachten, da Def. symmetrisch in \(m,n\) ist und falls \(m=n \Rightarrow a_m-a_n=0\)
@@ -2061,7 +2125,7 @@ z. B. \((a_n)_n\) Cauchyfolge. \(\Rightarrow \exists\) Teilfolge mit \(|a_{n_{k+
 \begin{lem}
 	\begin{enumerate}
 		\item Ist \((a_n)_n\) beschränkt. So ist \(H((a_n)_n) \neq \emptyset\).
-		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{0\} \).
+		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{a\} \).
 	\end{enumerate}
 \end{lem}
 \begin{bew}
@@ -2117,4 +2181,131 @@ Genauso: \(b_n = \underset{k\geq n}{\inf} a_k \)
 \[ \limsup a_n = \underset{n\in\N}{\inf} \underset{k\geq n}{\sup} a_k \]
 Haben immer \(b_n \leq d_n\)
 \[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n \leq \limsup\limits_{n\rightarrow\infty} a_n. \]
+%04.12.2018
+\begin{align*}
+	(a_n)_n &b_n = \underset{k\geq n}{\sup} a_k = \sup\{ a_k | k\geq n \}\\
+	&d_n = \underset{k\geq n}{\inf} a_k = \inf\{ a_k | k\geq n \}\\
+	\Rightarrow b_{n+1} \leq b_n, d_{n+1} \geq d_n\\
+	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty\}\\
+	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty\}
+\end{align*}
+(\((a_n)_n\) nach oben beschränkt \(\Leftrightarrow b_, < \infty \)\\\
+\((a_n)_n\) nach unten beschränkt \(\Leftrightarrow d_, > -\infty \))
+\begin{defi}
+	Geg. reelle Folge \((a_n)_n\).\\
+	\begin{align*}
+		\limsup\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\sup} a_k \text{ (}=\inf\underset{k\geq n}{\sup}a_k\text{)}\\
+		\liminf\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\inf} a_k \text{ (}=\sup\underset{k\geq n}{\sup}a_k\text{)}
+	\end{align*}
+\end{defi}
+\begin{lem}
+	\begin{enumerate}
+		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \)
+		\item \((a_n)_n\) beschränkte Folge: Dann gilt \((a_n)_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark
+	\item \glqq\(\Rightarrow \)\grqq: Sei \(a:= \limes{n}a_n\in\R\), d. h. \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
+	\( \Rightarrow \) Sei \(n\geq M\) 
+	\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
+	\[ \underset{k\geq n}{\inf} a_k \leq a-\varepsilon \]
+	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n}leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
+	\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
+	\glqq\(\Leftarrow\)\grqq: Ang. \( \liminf a_n = \limsup a_n =: a \) (d. h. \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
+	d. h. \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
+	\begin{align*}
+		a-\varepsilon < \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M_1\\
+		a-\varepsilon < \underset{k\geq n}{\inf} a_k < a + \varepsilon \quad \forall n\geq M_2
+	\end{align*}
+	Setze \(M := \max(M_1, M_2) \)\\
+	\begin{align*}
+		\Rightarrow a-\varepsilon < \underset{k\geq n}{\inf} a_k \leq a_n \leq \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M\\
+		\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d. h. }a_n\rightarrow a \text{ für } n\rightarrow \infty.
+	\end{align*}
+\end{bew}
+\begin{satz}
+	Sei \((a_n)_n\) beschränkte Folge. Dann gilt:\\
+	\(a^* = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a> a^* \) ist \( \{n\in\N |a_n>a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a<a^* \) gibt es \(\infty\)-viele \(a_n >a\). (d. h. \( \{ n\in\N|a_n>a \} \) ist unendliche Teilmenge von \(\N\)).
+	\end{enumerate}
+	genauso für \( \liminf \):
+	\(a^* = \liminf\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a< a_* \) ist \( \{n\in\N |a_n<a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a>a_* \) gibt es \(\infty\)-viele \(a_n<a\).
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	Nur für \( \limsup a_n \), denn \( \limsup\limits_{n\rightarrow\infty}(-a_n) = -\liminf\limits_{n\rightarrow\infty} a_n \)\\
+	\glqq\( \Rightarrow \)\grqq: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d. h. \( \forall \varepsilon>0\exists <\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \)\\
+	\[ \Rightarrow a_n \leq b_n < a + \varepsilon \quad n\geq M. \]
+	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endl. viele \( a_n >a^* \Rightarrow 1 \)\\
+	Sei \( a< a^*: \varepsilon = a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \)\\
+	\[ \Rightarrow a < \underset{k\geq n}{\sup} a_k \quad \forall n\geq M. \]
+	\(a=a^* - \varepsilon \).
+	Ang.: Fast alle \(a_n \leq a \) (=Negierung von \( \infty \)-viele \(a_n>a\)).\\
+	\[ \Rightarrow b_K = \underset{k\geq K}{\sup} a_k \leq a. \]
+	\[ \Rightarrow L = \max(M,K) \Rightarrow b_n \leq b_K \leq a \quad \forall n\geq L \text{ und } a<b_n=\underset{k\geq n}{\sup}a_k \forall n\geq L \text{\Lightning} \]
+	\( \Rightarrow \) es gibt \(\infty\)-viele \(a_n>a\)!
+	\glqq\( \Leftarrow \)\grqq: Sei \(a>a^* \overset{\text{1.}}{\Rightarrow} a_n \leq a \) für fast alle \(n\in\N\).\\
+	\( \Rightarrow b_n = \underset{k\geq n}{\sup}a_n \leq a \) für fast alle \(n\in\N\).\\
+	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n = \lim b_n \leq a \quad \forall a> a^* \]
+	\[ \limsup\limits_{n\rightarrow\infty} a_n \leq a^*. \]
+	Sei \(a<a^* \overset{\text{2.}}{\Rightarrow} \exists \infty \)-viele \(a_n > a \Rightarrow \underset{k\geq n}{\sup} a_k > a \) für jedes \(n\in\N\) 
+	\[ \Rightarrow \limes{n}\underset{k\geq n}{\sup}a_k \geq a \text{ für jedes }a<a^*) \]
+	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n\geq a^*. \]
+\end{bew}
+\begin{kor}
+	Sei \((a_n)_n\) beschränkte Folge.
+	\[ \Rightarrow H((a_n)_n) \subset [ \liminf\limits_{n\rightarrow\infty}a_n, \limsup\limits_{n\rightarrow\infty}a_n ] \text{ und } \limsup a_n, \liminf a_n \in H((a_n)_n). \]
+\end{kor}
+\begin{bew}
+	Übung
+\end{bew}
+\(a_n \rightarrow a \Leftrightarrow \limsup\limits_{n\rightarrow\infty}|a_n - a| = 0 \)
+\section{Konvergente Reihen, Teil 1}
+hatten: endl. Summen: \[ a_1+a_2+\dots+a_n = \sum_{k=1}^{n}a_k \]
+Ziel: unendl. Summen: \[ a_1+a_2+a_3+\dots = \sum_{k=1}^{\infty}a_k = \sum_{n=1}^{\infty}a_n \]
+Was soll das sein?
+\begin{defi}
+	Dieses Symbol \[ \sum_{n=1}^{\infty}a_n \] steht für die Folge \((S_n)_n\) der Partialsummen: \[S_n := \sum_{k=1}^{n}a_k .\]
+	Die Reihe \( \sum_{k=1}^{\infty}a_k \) konvergiert, falls die Folge ihrer Partialsummen konvergiert. In diesem Fall setzen wir 
+	\[ \sum_{k=1}^{\infty}a_k := \limes{n} \sum_{k=1}^{\infty}a_k = \limes{n} S_n \]
+	Sagen auch die Reihe \( \sum_{n=1}^{\infty}a_n \) konvergiert. Die Reihe \( \sum_{n=1}^{\infty}a_n \) divergiert, falls \( (S_n)_n \) divergiert. Reihe \( \sum_{n=1}^{\infty}a_n \) heißt bestimmt divergent, falls \((S_n)_n\) bestimmt gegen \(+ \infty \) oder \(-\infty\) divergiert. Setzen dann \( \sum_{n=1}^{\infty}a_n =-\infty \), falls \(\limes{n} \sum_{k=1}^{n}a_k = -\infty \). \( \sum_{n=1}^{\infty}a_n = +\infty \), falls \( \limes{n}\sum_{k=1}^{n}a_k=+\infty \)
+\end{defi}
+\begin{bem}
+	Sei \((b_n)_n\) eine Folge. \(a_1 = b_1, a_n = b_n-b_{n-1}, n\geq 2 \Rightarrow \sum_{k=1}^{n}a_k = b_n \).\\
+	Auch Reihen der Form \( \sum_{n=0}^{\infty}a_n \) oder \( \sum_{n=42}^{\infty}a_n\), (\(v\in\Z\)) \(\sum_{n=v}^{\infty}a_n\).
+\end{bem}
+Beobachtung: Sind \(a_n \geq 0 \Rightarrow S_n = \sum_{k=1}^{\infty}a_k \) monoton wachsend in \(n\).\\
+\( \overset{\text{Mon. Konv.}}{\Rightarrow}\)\\
+entweder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n \in [0,\infty) \)\\
+oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\infty \)\\
+\( \Rightarrow \)
+\begin{satz}
+	Sind \(a_n \geq 0, n\in\N \), dann gilt\\
+	entweder ist \(S_n = \sum_{k=1}^{n}a_n\) nach oben beschränkt und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n \in [0,\infty) \]
+	oder \(S_n \rightarrow \infty, n\rightarrow\infty \) und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n = +\infty. \]
+\end{satz}
+\begin{bew}
+	Oben.
+\end{bew}
+\begin{kor}
+	Sind \(a_n \geq 0, n\in \N \), so ist
+	\begin{align*}
+		\text{entweder } &\sum_{n=1}^{\infty}a_n < \infty &\text{in diesem Fall ist die Reihe nach oben beschränkt.}\\
+		\text{oder } &\sum_{n=1}^{\infty}a_n = +\infty &\text{nach oben unbeschränkt.}
+	\end{align*}
+\end{kor}
+\begin{satz}
+	Seien \(a_n \in\R, n\in\N\). Dann gilt: (Cauchy-Kriterium)
+	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{k=n}^{m}a_k|<\varepsilon \quad \forall m>n\geq K.\]
+\end{satz}
+\begin{bew}
+	Reihe konvergiert per Def. genau dann, wenn Folge der Partialsummen \( (S_n)_n, S_n = \sum_{k=1}^{n}a_k \) konvergiert.
+	\[ \overset{Cauchy-Krit. Folgen}{\Longleftrightarrow} \forall \varepsilon > 0 \exists K\in\N: |\underbrace{S_m-S_n}_{=\sum_{k=1}^{n}a_k-\sum_{k=1}^{n}a_k=\sum_{k=n+1}^{m}a_k}|<\varepsilon \quad \forall m>n\geq K. \]
+\end{bew}
 \end{document}

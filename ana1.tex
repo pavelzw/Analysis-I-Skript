@@ -2181,4 +2181,131 @@ Genauso: \(b_n = \underset{k\geq n}{\inf} a_k \)
 \[ \limsup a_n = \underset{n\in\N}{\inf} \underset{k\geq n}{\sup} a_k \]
 Haben immer \(b_n \leq d_n\)
 \[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n \leq \limsup\limits_{n\rightarrow\infty} a_n. \]
+%04.12.2018
+\begin{align*}
+	(a_n)_n &b_n = \underset{k\geq n}{\sup} a_k = \sup\{ a_k | k\geq n \}\\
+	&d_n = \underset{k\geq n}{\inf} a_k = \inf\{ a_k | k\geq n \}\\
+	\Rightarrow b_{n+1} \leq b_n, d_{n+1} \geq d_n\\
+	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty\}\\
+	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty\}
+\end{align*}
+(\((a_n)_n\) nach oben beschränkt \(\Leftrightarrow b_, < \infty \)\\\
+\((a_n)_n\) nach unten beschränkt \(\Leftrightarrow d_, > -\infty \))
+\begin{defi}
+	Geg. reelle Folge \((a_n)_n\).\\
+	\begin{align*}
+		\limsup\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\sup} a_k \text{ (}=\inf\underset{k\geq n}{\sup}a_k\text{)}\\
+		\liminf\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\inf} a_k \text{ (}=\sup\underset{k\geq n}{\sup}a_k\text{)}
+	\end{align*}
+\end{defi}
+\begin{lem}
+	\begin{enumerate}
+		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \)
+		\item \((a_n)_n\) beschränkte Folge: Dann gilt \((a_n)_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark
+	\item \glqq\(\Rightarrow \)\grqq: Sei \(a:= \limes{n}a_n\in\R\), d. h. \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
+	\( \Rightarrow \) Sei \(n\geq M\) 
+	\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
+	\[ \underset{k\geq n}{\inf} a_k \leq a-\varepsilon \]
+	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n}leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
+	\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
+	\glqq\(\Leftarrow\)\grqq: Ang. \( \liminf a_n = \limsup a_n =: a \) (d. h. \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
+	d. h. \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
+	\begin{align*}
+		a-\varepsilon < \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M_1\\
+		a-\varepsilon < \underset{k\geq n}{\inf} a_k < a + \varepsilon \quad \forall n\geq M_2
+	\end{align*}
+	Setze \(M := \max(M_1, M_2) \)\\
+	\begin{align*}
+		\Rightarrow a-\varepsilon < \underset{k\geq n}{\inf} a_k \leq a_n \leq \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M\\
+		\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d. h. }a_n\rightarrow a \text{ für } n\rightarrow \infty.
+	\end{align*}
+\end{bew}
+\begin{satz}
+	Sei \((a_n)_n\) beschränkte Folge. Dann gilt:\\
+	\(a^* = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a> a^* \) ist \( \{n\in\N |a_n>a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a<a^* \) gibt es \(\infty\)-viele \(a_n >a\). (d. h. \( \{ n\in\N|a_n>a \} \) ist unendliche Teilmenge von \(\N\)).
+	\end{enumerate}
+	genauso für \( \liminf \):
+	\(a^* = \liminf\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a< a_* \) ist \( \{n\in\N |a_n<a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a>a_* \) gibt es \(\infty\)-viele \(a_n<a\).
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	Nur für \( \limsup a_n \), denn \( \limsup\limits_{n\rightarrow\infty}(-a_n) = -\liminf\limits_{n\rightarrow\infty} a_n \)\\
+	\glqq\( \Rightarrow \)\grqq: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d. h. \( \forall \varepsilon>0\exists <\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \)\\
+	\[ \Rightarrow a_n \leq b_n < a + \varepsilon \quad n\geq M. \]
+	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endl. viele \( a_n >a^* \Rightarrow 1 \)\\
+	Sei \( a< a^*: \varepsilon = a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \)\\
+	\[ \Rightarrow a < \underset{k\geq n}{\sup} a_k \quad \forall n\geq M. \]
+	\(a=a^* - \varepsilon \).
+	Ang.: Fast alle \(a_n \leq a \) (=Negierung von \( \infty \)-viele \(a_n>a\)).\\
+	\[ \Rightarrow b_K = \underset{k\geq K}{\sup} a_k \leq a. \]
+	\[ \Rightarrow L = \max(M,K) \Rightarrow b_n \leq b_K \leq a \quad \forall n\geq L \text{ und } a<b_n=\underset{k\geq n}{\sup}a_k \forall n\geq L \text{\Lightning} \]
+	\( \Rightarrow \) es gibt \(\infty\)-viele \(a_n>a\)!
+	\glqq\( \Leftarrow \)\grqq: Sei \(a>a^* \overset{\text{1.}}{\Rightarrow} a_n \leq a \) für fast alle \(n\in\N\).\\
+	\( \Rightarrow b_n = \underset{k\geq n}{\sup}a_n \leq a \) für fast alle \(n\in\N\).\\
+	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n = \lim b_n \leq a \quad \forall a> a^* \]
+	\[ \limsup\limits_{n\rightarrow\infty} a_n \leq a^*. \]
+	Sei \(a<a^* \overset{\text{2.}}{\Rightarrow} \exists \infty \)-viele \(a_n > a \Rightarrow \underset{k\geq n}{\sup} a_k > a \) für jedes \(n\in\N\) 
+	\[ \Rightarrow \limes{n}\underset{k\geq n}{\sup}a_k \geq a \text{ für jedes }a<a^*) \]
+	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n\geq a^*. \]
+\end{bew}
+\begin{kor}
+	Sei \((a_n)_n\) beschränkte Folge.
+	\[ \Rightarrow H((a_n)_n) \subset [ \liminf\limits_{n\rightarrow\infty}a_n, \limsup\limits_{n\rightarrow\infty}a_n ] \text{ und } \limsup a_n, \liminf a_n \in H((a_n)_n). \]
+\end{kor}
+\begin{bew}
+	Übung
+\end{bew}
+\(a_n \rightarrow a \Leftrightarrow \limsup\limits_{n\rightarrow\infty}|a_n - a| = 0 \)
+\section{Konvergente Reihen, Teil 1}
+hatten: endl. Summen: \[ a_1+a_2+\dots+a_n = \sum_{k=1}^{n}a_k \]
+Ziel: unendl. Summen: \[ a_1+a_2+a_3+\dots = \sum_{k=1}^{\infty}a_k = \sum_{n=1}^{\infty}a_n \]
+Was soll das sein?
+\begin{defi}
+	Dieses Symbol \[ \sum_{n=1}^{\infty}a_n \] steht für die Folge \((S_n)_n\) der Partialsummen: \[S_n := \sum_{k=1}^{n}a_k .\]
+	Die Reihe \( \sum_{k=1}^{\infty}a_k \) konvergiert, falls die Folge ihrer Partialsummen konvergiert. In diesem Fall setzen wir 
+	\[ \sum_{k=1}^{\infty}a_k := \limes{n} \sum_{k=1}^{\infty}a_k = \limes{n} S_n \]
+	Sagen auch die Reihe \( \sum_{n=1}^{\infty}a_n \) konvergiert. Die Reihe \( \sum_{n=1}^{\infty}a_n \) divergiert, falls \( (S_n)_n \) divergiert. Reihe \( \sum_{n=1}^{\infty}a_n \) heißt bestimmt divergent, falls \((S_n)_n\) bestimmt gegen \(+ \infty \) oder \(-\infty\) divergiert. Setzen dann \( \sum_{n=1}^{\infty}a_n =-\infty \), falls \(\limes{n} \sum_{k=1}^{n}a_k = -\infty \). \( \sum_{n=1}^{\infty}a_n = +\infty \), falls \( \limes{n}\sum_{k=1}^{n}a_k=+\infty \)
+\end{defi}
+\begin{bem}
+	Sei \((b_n)_n\) eine Folge. \(a_1 = b_1, a_n = b_n-b_{n-1}, n\geq 2 \Rightarrow \sum_{k=1}^{n}a_k = b_n \).\\
+	Auch Reihen der Form \( \sum_{n=0}^{\infty}a_n \) oder \( \sum_{n=42}^{\infty}a_n\), (\(v\in\Z\)) \(\sum_{n=v}^{\infty}a_n\).
+\end{bem}
+Beobachtung: Sind \(a_n \geq 0 \Rightarrow S_n = \sum_{k=1}^{\infty}a_k \) monoton wachsend in \(n\).\\
+\( \overset{\text{Mon. Konv.}}{\Rightarrow}\)\\
+entweder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n \in [0,\infty) \)\\
+oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\infty \)\\
+\( \Rightarrow \)
+\begin{satz}
+	Sind \(a_n \geq 0, n\in\N \), dann gilt\\
+	entweder ist \(S_n = \sum_{k=1}^{n}a_n\) nach oben beschränkt und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n \in [0,\infty) \]
+	oder \(S_n \rightarrow \infty, n\rightarrow\infty \) und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n = +\infty. \]
+\end{satz}
+\begin{bew}
+	Oben.
+\end{bew}
+\begin{kor}
+	Sind \(a_n \geq 0, n\in \N \), so ist
+	\begin{align*}
+		\text{entweder } &\sum_{n=1}^{\infty}a_n < \infty &\text{in diesem Fall ist die Reihe nach oben beschränkt.}\\
+		\text{oder } &\sum_{n=1}^{\infty}a_n = +\infty &\text{nach oben unbeschränkt.}
+	\end{align*}
+\end{kor}
+\begin{satz}
+	Seien \(a_n \in\R, n\in\N\). Dann gilt: (Cauchy-Kriterium)
+	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{k=n}^{m}a_k|<\varepsilon \quad \forall m>n\geq K.\]
+\end{satz}
+\begin{bew}
+	Reihe konvergiert per Def. genau dann, wenn Folge der Partialsummen \( (S_n)_n, S_n = \sum_{k=1}^{n}a_k \) konvergiert.
+	\[ \overset{Cauchy-Krit. Folgen}{\Longleftrightarrow} \forall \varepsilon > 0 \exists K\in\N: |\underbrace{S_m-S_n}_{=\sum_{k=1}^{n}a_k-\sum_{k=1}^{n}a_k=\sum_{k=n+1}^{m}a_k}|<\varepsilon \quad \forall m>n\geq K. \]
+\end{bew}
 \end{document}

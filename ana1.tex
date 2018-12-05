@@ -808,7 +808,7 @@ $$c \in\mathbb{R}, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k$$
 \section{Funktionen und Abbildungen}
 \subsection{Funktion als Abbildung}
 \begin{defi}
-	Eine Funktion (oder Abbildung) von einer Menge $A$ in eine Menge $B$ ordnet jedem Element $a\in A$ ein \underline{eindeutiges} Element $b \in B$ zu.\\
+	Eine Funktion (oder Abbildung) von einer Menge $A$ in eine Menge $B$ ordnet jedem Element $a\in A$ ein eindeutiges Element $b \in B$ zu.\\
 	Wir schreiben:
 	\begin{equation*}
 		f: A \rightarrow B, a \mapsto f(a)\quad(=b)
@@ -818,7 +818,7 @@ $$c \in\mathbb{R}, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k$$
 	z.B. $f: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x^2$\\
 	Die Abbildung $f: A \rightarrow B$ ist\\
 	\begin{tabular}{r|l}
-		injektiv&aus $f(a) = f(a'), a, a' \in A$, folgt $a=a'$\\
+		injektiv&aus $f(a) = f(a') \; a, a' \in A$, folgt $a=a'$\\
 		surjektiv&$\forall b\in B \exists a\in A: b=f(a)$\\
 		bijektiv&sie ist injektiv und surjektiv
 	\end{tabular}
@@ -827,7 +827,7 @@ $$c \in\mathbb{R}, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k$$
 	$f: A\rightarrow B$ injektiv $\Leftrightarrow a, a'\in A, a \neq a' \Rightarrow f(a) \neq f(a')$
 \end{bem}
 $f: A\rightarrow B$ ist bijektiv $\Rightarrow \forall b\in B \exists ! a\in A: f(a) = b$.\\
-Definiere $f^{-1}: B\rightarrow A, b\mapsto a, a\in A: f(a) = b$ (inverse Funktion).\\
+Definiere, wenn bijektiv $f^{-1}: B\rightarrow A, b\mapsto a, a\in A: f(a) = b$\\(inverse Funktion).\\
 Ist $f: A\rightarrow B$ nicht bijektiv. (Verallgemeinerte Inverse)\\
 $f^{-1}: P(B)\rightarrow P(A), M \mapsto\{a\in A|f(a)\in M\}$\\
 Verkettung:\\
@@ -838,7 +838,7 @@ $f: A\rightarrow B$ ist bijektiv $\Rightarrow f^{-1}\circ f = \operatorname{id}_
 $\operatorname{id}_A: A\rightarrow A, a\mapsto a.$
 \subsection{Abbildungen als Graph}
 \begin{defi}
-	Seien $A,B$ Mengen. Dann ist $(a,b)$ ein sog. \underline{Tupel}.\\
+	Seien $A,B$ Mengen. Dann ist $(a,b)$ ein sog. Tupel.\\
 	in der Mengenlehre: $(a,b) := \{\{a\}, \{a,b\}\}$.
 \end{defi}
 Beachte: Reihenfolge ist wichtig! im Allg. $(a,b)\neq (b,a)$\\
@@ -846,7 +846,7 @@ Menge $A\times B := \{(a,b)|a\in A, b\in B\}$\\
 heißt kartesisches Produkt (von $A$ und $B$)\\
 z.B. $\mathbb{R}\times\mathbb{R}$\\
 \includegraphics[width=0.3\textwidth]{images/img03.png}\\
-\underline{2. Abbildungen} Projektionen\\
+\textbf{2. Abbildungen Projektionen}\\
 \includegraphics[width=0.3\textwidth]{images/img04.png}\\
 $\Pi_1 = \Pi_A : A\times B \rightarrow A, (a,b)\mapsto a$ (Projektion auf 1. Koordinate)\\
 $\Pi_2 = \Pi_B : A\times B \rightarrow B, (a,b) \mapsto b$ (Projektion auf 2. Koordinate)\\
@@ -855,7 +855,7 @@ $\Pi_B(a,b) = b$\\
 $n$-Tupel: Mengen $A_1,\dots ,A_n, n\in \mathbb{N}.$\\
 $A_1\times A_2$ wie vorhin\\
 $A_1\times\dots\times A_{n+1} := (A_1\times\dots\times A_n)\times A_{n+1}, n\in \mathbb{N}$ (induktiv)\\
-\underline{Beobachtung:}\\
+Beobachtung:\\
 $(A\times B)\times C = A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} = ((a,b),c) = (a,(b,c))$\\
 Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B\times C)$
 
@@ -947,7 +947,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	$\Rightarrow m\leq n \wedge n \leq m \Rightarrow m = n$.
 \end{bew}
 \begin{defi}
-	Eine Menge $M$ ist \underline{endlich}, falls $M=\emptyset$ oder falls $n\in\mathbb{N}_0$ und eine Bijektion $f:{1,\ldots,n}\rightarrow M$ existiert.\\
+	Eine Menge $M$ ist endlich, falls $M=\emptyset$ oder falls $n\in\mathbb{N}_0$ und eine Bijektion $f:{1,\ldots,n}\rightarrow M$ existiert.\\
 	Die Anzahl der Elemente von $M$ ($\#M$) ist dann $\#M:=n$, setzen $\#\emptyset := 0$. Eine Menge ist unendlich, falls sie nicht endlich ist.
 	\begin{bem}
 		Ist $M$ endlich, so ist $\#M$ wohldefiniert. \\
@@ -961,7 +961,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 		$h:= f^{-1}\circ g = [m]\rightarrow[n]$ ist auch bijektiv. $\overset{\text{Korr. 2}}{\Rightarrow} m=n.$
 	\end{bem}
 	Weiter in Definition:\\
-	Zwei Mengen $A,B$ heißen \underline{gleichmächtig}, falls es eine Bijektion $f: A\rightarrow B$ gibt, schreiben $A\sim B$. Eine Menge $A$ heißt \underline{abzählbar}, falls $A$ endlich ist oder es eine Bijektion $f: \mathbb{N}\rightarrow A$ gibt. Ist $A$ abzählbar und unendlich, so heißt $A$ abzählbar unendlich.
+	Zwei Mengen $A,B$ heißen gleichmächtig, falls es eine Bijektion $f: A\rightarrow B$ gibt, schreiben $A\sim B$. Eine Menge $A$ heißt abzählbar, falls $A$ endlich ist oder es eine Bijektion $f: \mathbb{N}\rightarrow A$ gibt. Ist $A$ abzählbar und unendlich, so heißt $A$ abzählbar unendlich.
 \end{defi}
 \begin{bem}
 	Satz von Cantor und Berenstein:\\
@@ -980,12 +980,14 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\end{enumerate}
 \end{bem}
 \begin{satz}
-	\begin{enumerate} . %SCHLECHT FORMATIERT
+	Zwei Aussagen:
+	\begin{enumerate}
 		\item Jede Teilmenge einer abzählbaren Menge ist abzählbar.
 		\item Sind für $j\in\N \quad A_j$ abzählbare Mengen. Dann ist $\bigcup_{j\in\N}$ abzählbar.
 	\end{enumerate}
 \end{satz}
-\begin{bew} . % SCHLECHT FORMATIERT
+\begin{bew}
+	Beweis unterteilen:
 	\begin{enumerate}
 		\item Sei $A$ abzählbar. Ist $A$ endlich, so ist auch jedes $B\subset A$ endlich, und somit abzählbar.\\
 		Sei $A$ abzählbar unendlich. Dann existiert eine Bijektion $f: \N \rightarrow A$ und setzen wir $a_n := f(n)$, so ist
@@ -999,27 +1001,27 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 		\[B_3 := A_3 \setminus \{A_1 \cup A_2\}, \ldots, \quad B_{n+1} := A_{n+1} \setminus \{A_1\cup\ldots\cup A_n\}\]
 		Dann sind \(B_n\) paarweise verschieden und \[\bigcup_{l\in\N} B_l = \bigcup_{l\in\N} A_l.\]
 		Schreiben \(A_l\) als Liste \(A_l = \{a_{1l}, a_{2l}, \ldots\}\)\\
-		Bild: 
+		Bild:\\
 		\begin{tikzpicture}
-		\matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm]{
-			s_{11} & s_{12} & s_{13} & s_{14} & \cdots \\
-			s_{21} & s_{22} & s_{23} & s_{24} & \cdots \\
-			s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
-			s_{41} & s_{42} & s_{43} & \cdots \\
-		};
-		
-		\draw[->]
-		(m-1-1)edge(m-1-2)
-		(m-1-2)edge(m-2-1)
-		(m-2-1)edge(m-3-1)
-		(m-3-1)edge(m-2-2)
-		(m-2-2)edge(m-1-3)
-		(m-1-3)edge(m-1-4)
-		(m-1-4)edge(m-2-3)
-		(m-2-3)edge(m-3-2)
-		(m-3-2)edge(m-4-1);
+			\matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm]{
+				s_{11} & s_{12} & s_{13} & s_{14} & \cdots \\
+				s_{21} & s_{22} & s_{23} & s_{24} & \cdots \\
+				s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
+				s_{41} & s_{42} & s_{43} & \cdots \\
+			};
+			
+			\draw[->]
+			(m-1-1)edge(m-1-2)
+			(m-1-2)edge(m-2-1)
+			(m-2-1)edge(m-3-1)
+			(m-3-1)edge(m-2-2)
+			(m-2-2)edge(m-1-3)
+			(m-1-3)edge(m-1-4)
+			(m-1-4)edge(m-2-3)
+			(m-2-3)edge(m-3-2)
+			(m-3-2)edge(m-4-1);
 		\end{tikzpicture}
-		Jetzt können wir das obige rechteckige Schema diagonal abzählen! Dies liefert uns eine Bijektion von \(\N\) nach \(\bigcup_l\in\N A_l\).
+		\\Jetzt können wir das obige rechteckige Schema diagonal abzählen! Dies liefert uns eine Bijektion von \(\N\) nach \(\bigcup_l\in\N A_l\).
 	\end{enumerate}
 \end{bew}
 \begin{bem}
@@ -1027,7 +1029,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 \end{bem}
 \textbf{Permutationen:}
 \begin{defi}
-	Eine bijektive Abbildung \(\sigma : \{1,\ldots,n\} \rightarrow \{1,\ldots,n\}\) heißt \underline{Permutation}.
+	Eine bijektive Abbildung \(\sigma : \{1,\ldots,n\} \rightarrow \{1,\ldots,n\}\) heißt Permutation.
 	\[n! = \prod_{k=1}^{n}k\]
 \end{defi}
 \begin{satz}
@@ -1040,7 +1042,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Die Menge \(S_{n+1}\) ist die disjunkte Vereinigung der Teilmengen 
 	\[S_{n+1, k} := \{\tau \in S_{n+1} | \tau_k = n+1 \} \quad k = 1,\ldots, n+1.\]
 	z.B.: \[S_{4,2} = \{ (1,4,2,3), (2,4,3,1), (3,4,1,2), (1,4,3,2), (2,4,1,3), (3,4,1,2) \}\]
-	Beobachtung: Jedem \(\tau = (\sigma_1,\ldots,\sigma_n)\in S_n\) können wir die Permutation \( (\sigma_1, \ldots, \sigma_{k-1}, \underbrace{n+1}_{k\text{-te Stelle}}, \sigma_k, \ldots, \sigma_n) \in S_{n,k} \) zuordnen \underline{und} diese Abbildung ist \underline{bijektiv} (nachprüfen).
+	Beobachtung: Jedem \(\tau = (\sigma_1,\ldots,\sigma_n)\in S_n\) können wir die Permutation \( (\sigma_1, \ldots, \sigma_{k-1}, \underbrace{n+1}_{k\text{-te Stelle}}, \sigma_k, \ldots, \sigma_n) \in S_{n,k} \) zuordnen und diese Abbildung ist bijektiv (nachprüfen).
 	\[\Rightarrow \# S_{n+1,k} = \# S_n \]
 	\[ S_{n+1} = \# (\bigcup_{k=1}^{n+1} S_{n+1,k} ) = \sum_{k=1}^{n+1} \underbrace{\# S_{n+1,k}}_{=\#S_n = n!} = \sum_{k=1}^{n+1} n! = (n+1)n! = (n+1)! \]
 \end{bew}
@@ -1061,7 +1063,8 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\end{align*}
 \end{bew}
 \begin{bem}
-	\begin{enumerate}.%SCHLECHT FORMATIERT
+	\begin{enumerate}
+		Pascal Dreieck:\\
 		\item Ist \(\alpha = n\in\N_0\), so können wir \(\binom{n}{k}\) ausrechnen mit dem Dreiecksschema von Blaise Pascal (1623-1662).\\
 		\begin{tabular}{>{$n=}l<{$\hspace{12pt}}*{13}{c}}
 			0 &&&&&&&1&&&&&&\\
@@ -1075,7 +1078,8 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 		\item Ist \( \alpha=n\in\N_0 \), so folgt durch Erweitern mit \((n-k)!\) für \(n \in\N_0, k\in\{0,1,\ldots,n\} \) \[ \binom{n}{k} = \frac{n!}{k!(n-k)!} = \binom{n}{n-k}. \]
 	\end{enumerate}
 \end{bem}
-\begin{satz}[Zahl der Kombinationen]
+\begin{satz} 
+	Zahl der Kombinationen:\\	
 	Sei \( n\in\N_0, k\in\{1,\ldots,n\} \). Dann ist die Anzahl der \(k\)-elementigen Teilmengen von \( \{1,\ldots,n\} \) gleich \( \binom{n}{k} \).
 \end{satz}
 \begin{bew}
@@ -1199,9 +1203,6 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 		\( f\) kann nicht surjektiv sein!
 	\end{enumerate}
 \end{bew}
-
-%FERTIG MACHEN
-
 \newpage
 %09.11.2018
 \section{}
@@ -1371,12 +1372,13 @@ Sei $n\in\N$ und $a>0$. Dann heißt eine Zahl $\alpha$ $n$-te Wurzel von $a$, sc
 	Eine reelle Folge $(a_n)_{n\in\N}$ konvergiert (mit $n\rightarrow\infty)$ gegen ein $a\in\R$, falls 
 	$$\forall \varepsilon > 0 \exists k \in \N: \forall n\geq k \text{ folgt } |a_n - a| < \varepsilon.$$
 	Die Zahl $a$ heißt Grenzwert der Folge, wir schreiben $\limes{n}a_n = a$ oder $a_n\rightarrow a$ (für $n\rightarrow\infty$).\\
-	Eine (reelle) Folge heißt \underline{konvergent}, falls ein $a\in\R$ der Grenzwert der Folge ist, andernfalls heißt die Folge \underline{divergent}.
+	Eine (reelle) Folge heißt konvergent, falls ein $a\in\R$ der Grenzwert der Folge ist, andernfalls heißt die Folge divergent.
 \end{defi}
 \begin{bem}
 	$$\limes{n}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.$$
 \end{bem}
-\begin{bsp}. %SCHLECHT FORMATIERT
+\begin{bsp}
+	Beweis mit \(\varepsilon\)-Methode:
 	\begin{enumerate}
 		\item $a_n := \frac{1}{n}$ konvergiert gegen $0$. Denn zu geg. $\varepsilon>0$ wähle $k\in\N$ mit $k>\frac{1}{\varepsilon}$. Dann gilt für $n\geq k$
 		$$|a_n-a| = |\frac{1}{n} - 0| = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.$$
@@ -1481,10 +1483,10 @@ Bild:\\
 	Die $\varepsilon$-Umgebung um $a\in\R$ ist die Menge
 	$$U_\varepsilon(a):= \{x\in\R: |x-a| <\varepsilon\} = (a-\varepsilon, a+\varepsilon).$$
 \end{defi}
-\underline{Beobachtung:} Sei $(a_n)_{n\in\N}$ konvergent gegen $a\in\R$.
+Beobachtung: Sei $(a_n)_{n\in\N}$ konvergent gegen $a\in\R$.
 $$\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a) \forall n\geq K.$$
 \begin{defi}[Beschränktheit von Folgen]
-	Eine Folge $(a_n)_{n\in\N} \subset \R$ heißt \underline{beschränkt}, wenn für $C\geq 0$ gilt $|a_n|\leq C \quad \forall n\in\N$\\
+	Eine Folge $(a_n)_{n\in\N} \subset \R$ heißt beschränkt, wenn für $C\geq 0$ gilt $|a_n|\leq C \quad \forall n\in\N$\\
 	nach oben beschränkt, wenn es ein $C\in\R$ gibt mit $a_n\leq C \quad \forall n\in\N$\\
 	nach unten beschränkt, wenn es ein $C\in\R$ gibt mit $a_n\geq C \quad \forall n\in\N$.
 \end{defi}

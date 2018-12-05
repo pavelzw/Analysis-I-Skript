@@ -410,7 +410,18 @@
 		\[\alpha = \limes{n} \sum_{j = 1}^{n} \frac{b_j}{b_j} \quad \text{mit } b_j \in \{0,1,\dots,b-1\}\]\\
 		sodass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
 		\(b=3\)\\
-		%Bild
+		\begin{center}
+		\begin{tikzpicture}[scale = 4]
+			\draw (-1/8,0) -- (9/8,0);
+			\draw (0,0) node {\([\)} (1,0) node {\()\)};
+			\draw (0,0) node[below=3mm] {\(0\)};
+			\draw (1,0) node[below=3mm] {\(1\)};
+			\foreach \x in {1,2,4,5,7,8} {
+			\draw (\x/9,-1/32) -- (\x/9,1/32);}
+			\foreach \x in {3,6} {
+			\draw (\x/9,-1/16) -- (\x/9,1/16);}
+		\end{tikzpicture}
+		\end{center}
 		ohne (\(*\)) wäre \(\frac{1}{3} = 0,100000\dots = 0,0222\dots\)
 	\end{bem}
 \end{document}

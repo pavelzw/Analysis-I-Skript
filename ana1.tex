@@ -2313,12 +2313,145 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 		\text{oder } &\sum_{n=1}^{\infty}a_n = +\infty &\text{nach oben unbeschränkt.}
 	\end{align*}
 \end{kor}
-\begin{satz}
-	Seien \(a_n \in\R, n\in\N\). Dann gilt: (Cauchy-Kriterium)
-	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{k=n}^{m}a_k|<\varepsilon \quad \forall m>n\geq K.\]
+\begin{satz}[Cauchy-Kriterium für Reihen]
+	Seien \(a_n \in\R, n\in\N\). Dann gilt: 
+	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{j=n+1}^{m}a_j|<\varepsilon \quad \forall m>n\geq K.\]
 \end{satz}
-\begin{bew}
+\begin{bew}%vom 04.12.2018
 	Reihe konvergiert per Def. genau dann, wenn Folge der Partialsummen \( (S_n)_n, S_n = \sum_{k=1}^{n}a_k \) konvergiert.
 	\[ \overset{Cauchy-Krit. Folgen}{\Longleftrightarrow} \forall \varepsilon > 0 \exists K\in\N: |\underbrace{S_m-S_n}_{=\sum_{k=1}^{n}a_k-\sum_{k=1}^{n}a_k=\sum_{k=n+1}^{m}a_k}|<\varepsilon \quad \forall m>n\geq K. \]
 \end{bew}
+%06.12.2018
+\begin{bew}%vom 06.12.2018
+	Partialsummen \((S_n)_n\)
+	\[ S_n := \sum_{j=1}^{n} a_j \]
+	Cauchy-Kriterium  für Folgen:
+	\[ \Rightarrow (S_n)_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N:|S_m-S_n|<\varepsilon \quad \forall m>n\geq K. \]
+	\[ S_m - S_n = \sum_{j=1}^{m}a_j - \sum_{j=1}^{n} a_j = \sum_{j=n+1}^{m} a_j. \]
+	D. h. \((S_n)_n\) konvergiert \[ \Leftrightarrow \forall \varepsilon > 0 \exists K\in\: |\sum_{j=n+1}^{m}a_j|<\varepsilon \quad \forall m>n\geq K. \]
+\end{bew}
+\begin{bsp}[Geometrische Reihe]
+	Sei \(|q|<1\).
+	\[ \Rightarrow \sum_{n=0}^{\infty} q^n = \frac{1}{1-q} \]
+\end{bsp}
+\begin{bsp}
+	\[S_n = \sum_{j=0}^{n} q^n = \frac{1-q^{n+1}}{1-q} \rightarrow \frac{1}{1-q} \text{ (da } \limes{n}q^{n+1}=0 \text{)} \]
+\end{bsp}
+\begin{bsp}
+	\[\sum_{n=2}^{\infty}\frac{1}{n(n-1)}=1 \text{ (telekopierende Summe)} \]
+\end{bsp}
+\begin{bew}
+	\begin{align*}
+		\frac{1}{n(n-1)} =\frac{1}{n-1} - \frac{1}{n} \quad\forall n\geq 2.\\
+		\Rightarrow S_n &= \sum_{j=2}^{n} \frac{1}{j(j-1)} = \sum_{j=2}^{n} \left( \frac{1}{j-1} - \frac{1}{j} \right)\\
+		&= \sum_{j=2}^{n} \frac{1}{j-1} - \sum_{j=2}^{n} \frac{1}{j} = \sum_{j=1}^{n-1}\frac{1}{j} - \sum_{j=2}^{n}\frac{1}{j}\\
+		&= 1 - \frac{1}{n} \rightarrow 1, n\rightarrow \infty
+	\end{align*}
+\end{bew}
+\begin{bsp}
+	\[ \sum_{n=1}^{\infty} \frac{1}{n^2} \]
+\end{bsp}
+\begin{bew}
+	\begin{align*}
+		S_n = \sum_{j=1}^{n}\frac{1}{j^2} = 1 + \sum_{j=2}^{n} \frac{1}{j^2}\\
+		\frac{1}{j^2} \leq \frac{1}{j(j-1)} \quad \forall j\geq 2.\\
+		\Rightarrow S_n = 1 + \sum_{j=2}^{n} \frac{1}{j^2}.
+	\end{align*}
+	Also folgt aus \( \leq 1 + \sum_{j=2}^{n} \frac{1}{j(j-1)} = 1 + 1 - \frac{1}{n} \).\\
+	Monotone Konvergenz, da \((S_n)_n\) konvergiert, also konvergiert \(\sum_{j=1}^{\infty} \frac{1}{j^2} = 2 - \frac{1}{n} \leq 2 \forall n \).
+\end{bew}
+\begin{kor}
+	Wenn die Reihe \(\sum_{n=1}^{\infty} a_n\) konvergent, so ist \((a_n)_n\) eine Nullfolge.
+\end{kor}
+\begin{bew}
+	Satz 4 \( \Rightarrow \forall \varepsilon >0 \exists K\in\N:|\sum_{j=n+1}^{m}a_j| < \varepsilon \quad \forall m>n\geq K \).\\
+	Setze \[ m=n+1 : \sum_{j=n+1}^{n+1} a_j = a_{n+1} \Rightarrow |a_{n+1}|<\varepsilon \quad \forall n\geq K. \]
+	\[ \Rightarrow \limes{n}a_{n+1}=0=\limes{n}a_n. \]
+\end{bew}
+\begin{bem}
+	Warnung: die Umkehrung gilt nicht!
+\end{bem}
+\begin{bsp}[harmonische Reihe]
+	%BEGIN ALIGN MACHEN TODO
+	\[ \sum_{n=1}^{\infty} \frac{1}{n} \text{ divergiert, obwohl } \frac{1}{n} \rightarrow 0. \]
+	\[ S_n = \sum_{j=1}^{n}\frac{1}{j} \]
+	\[ S_m -S_n \text{ wähle }m=2n \]
+	\[ S_{2n} - S_n = \sum_{j=1}^{2n}\frac{1}{j} - \sum_{j=1}^{n}\frac{1}{j} = \sum_{j=n+1}^{2n}\frac{1}{j} \]
+	\[ = \frac{1}{n+1} + \frac{1}{n+2} + \dots + \frac{1}{2n} \]
+	\[ \leq \frac{1}{2n} + \frac{1}{2n} + \dots + \frac{1}{2n} \]
+	\[ = \frac{1}{2} \]
+	\[ \Rightarrow |S_{2n}-S_n| = S_{2n}-S_n \rightarrow \frac{1}{2} \quad\forall n>1 \]
+	also kann \((S_n)_n\) nicht konvergieren!
+	\[ \Rightarrow \sum_{n=1}^{\infty} \frac{1}{n} = +\infty. \]
+\end{bsp}
+\begin{satz}
+	Gilt \(0\leq a_n \leq b_n \quad \forall n\in\N \), so folgt:
+	\begin{enumerate}
+		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert auch \( \sum_{n=1}^{\infty}a_n \) und \( \sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty}b_n \).
+		\item Divergiert \( \sum_{n=1}^{\infty}a_n \), so divergiert auch \( \sum_{n=1}^{\infty}b_n \) (gegen \(+\infty\)).
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	\begin{align*}
+		S_n = \sum_{j=1}^{n}a_j\\
+		t_n = \sum_{j=1}^{n}b_j\\
+		\Rightarrow S_n \leq t_n \quad \forall n\in\N\\
+		t_{n+1}\geq t_n, S_{n+1}\geq S_n
+	\end{align*}
+	\begin{enumerate}
+		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert \((t_n)_n\).\\
+		\[ t:= \limes{n}t_n\in [0,\infty) \Rightarrow t_n \leq t. \]
+		\[ \Rightarrow S_n \leq t_n \leq t \Rightarrow (S_n)_n \text{ nach oben beschränkt.} \]
+		\[ \overset{\text{Mon. Konv.}}{\Rightarrow} s = \limes{n} S_n \text{ existiert und } \underbrace{S}_{= \sum_{n=1}^{\infty}a_n} \leq t = \sum_{n=1}^{\infty} b_n. \]
+		\item Aus 1. folgt ist \( \sum_{n=1}^{\infty}a_n =\infty \) divergent, so muss auch \( \sum_{n=1}^{\infty}b_n = \infty \).
+	\end{enumerate}
+\end{bew}
+\begin{satz}
+	Sind \( \sum_{n=1}^{\infty}a_n, \sum_{n=1}^{\infty}b_n \) konvergente (reelle Reihen), so konvergiert auch \( \sum_{n=1}^{\infty}(\lambda a_n + \mu b_n) \quad \forall \lambda, \mu \in\R \) und 
+	\[ \sum_{n=1}^{\infty} (\lambda a_n + \mu b_n) = \lambda \sum_{n=1}^{\infty}a_n + \mu \sum_{n=1}^{\infty}b_n. \]
+\end{satz}
+\begin{bew}
+	\[ S_n = \sum_{j=1}^{\infty}a_j, t_n = \sum_{j=1}^{\infty}b_j, S = \limes{n}S_n, t = \limes{n}t_n \]
+	\[ \sum_{j=1}^{\infty}(\lambda a_n + \mu b_n) = \lambda\sum_{j=1}^{\infty}a_j + \mu \sum_{j=1}^{\infty}b_j = \lambda S_n + \mu t_n \rightarrow \lambda S + \mu t, n\rightarrow\infty. \]
+\end{bew}
+\begin{satz}[Cauchys Verdichtungskriterium]
+	Sei \((a_n)_n\) mon. fallende Nullfolge, so gilt:
+	\[ \sum_{n=0}^{\infty} \text{ konvergiert } \Leftrightarrow \text{ die \glqq kondensierte\grqq{} Reihe} \sum_{n=0}^{\infty}2^n a_{2^n} = a_1 + 2a_2 + 4a_4 + 8a_8 + \dots \text{ konvergiert.} \]
+\end{satz}
+\begin{bew}
+	\[ S_n := \sum_{l=0}^{n}a_l, t := \sum_{\nu}^{n} 2^\nu a_{2^\nu} \]
+	Haben: \( a_n\geq a_{n+1} \geq\dots\geq 0 \)\\
+	Ist \(n \leq 2^K \), dann folgt
+	\begin{align*}
+		S_n &= a_0 + a_1 + a_2 + \dots + a_n\\
+		&\leq a_0 + a_1 + a_2 + \dots + (a_{2^{k-1}+1} + \dots + a_{2^k})\\
+		&= a_0 + (a_1 + a_2) + \dots + (a_{2^{k-1}+1} + \dots + a_{2^k})\\
+		&\leq a_0 + 2a_1 + 4a_2 + \dots + \underbrace{(2^k - 2^{k-1})}_{=2^{k-1}}a^{2^{k-1}} = t_{k-1}
+		% vermtl. irrelevant, Hundertmark hat sich verschrieben
+		% &\leq a_0 + 2a_1 + 4a_3 + 8a_7 + \dots + (2^k - 2^{k-1})a_{2^{k-1}+1}\\
+		% &\leq a_0 + 2a_1 + 4a_2
+	\end{align*}
+	\( \Rightarrow \) Für \(n \leq 2^k \) folgt 
+	\[ S_n \leq t_{k-1} \]
+	\( \overset{\text{Mon. Konv.}}{\Rightarrow} S_n \) konv., falls \( (t_k)_k \)  konvergent, d. h. falls \( \sum_{k=0}^{\infty}2^k a_{2^k} \) konvergent.\\
+	Umgekehrt, ist \(n>2^k\)\\
+	\begin{align*}
+		S_n &\geq a_0 + a_1 + a_2 + (a_3 + a_4) + \dots + a_{2^k}\\
+		&= a_0 + a_1 + a_2 + \underbrace{(a_3+a_4)}_{\geq 2a_4} + \dots + \underbrace{(a_{2^{k-1}+1}) + \dots + a_{2^k})}_{\geq (2^k - 2^{k-1})a_{2^k} }\\
+		S_n &\geq a_0 + a_1 + a_2 + 2a_4 + \dots + 2^{k-1}a_{2^k}\\
+		&\geq \frac{1}{2} \underbrace{(a_1 + 2a_2 + 4a_4 + \dots + 2^k a_{2^k})}_{=t_k}\\
+		&\geq \frac{1}{2} t_k\\
+		\Rightarrow \forall n>2^k \text{ folgt } t_k \leq 2 S_n
+	\end{align*}
+	Falls \(S_n \rightarrow S \)
+	\[S_n \leq S_{n+1} \leq \dots \leq S. \]
+	\[ \Rightarrow t_k \leq 2S \quad\forall k \]
+	\[ \overset{\text{Mon. Konv.}}{\Rightarrow} t= \lim t_k \text{ existiert.} \]
+\end{bew}
+Anwendung:\\
+Sei \(\alpha > 0\). \( \sum_{n=1}^{\infty}\frac{1}{n^\alpha} \) konvergent?\\
+\( a_n = \frac{1}{n^\alpha} \) mon. fallende Nullfolge
+\[ \overset{\text{Satz 8}}{\Rightarrow} \sum_{n=1}^{\infty} \frac{1}{n^\alpha} \text{ konvergent} \]
+\[ \Leftrightarrow \sum_{n=0}^{\infty}2^n \frac{1}{(2^n)^\alpha} \text{ konvergent } \Leftrightarrow \sum_{n=0}^{\infty}(2^{1-\alpha})^n \text{ konvergent}. \]
+\[ \sum_{n=1}^{\infty}\frac{1}{n^\alpha} \text{ konvergiert } \Leftrightarrow \alpha >1 \]
 \end{document}

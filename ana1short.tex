@@ -280,4 +280,90 @@
 		bijektiv&sie ist injektiv und surjektiv
 	\end{tabular}
 \end{defi}
+\setcounter{section}{9}
+\section{Häufungspunkte, Limes Superior, Limes Inferior}
+\begin{defi}
+	Sei \((a_n)_n\) Folge. \(a\in\R\) Häufungspunkt von \((a_n)_n\), falls \(\forall\varepsilon>0 a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N\) (d. h. \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
+\end{defi}
+\begin{lem}
+	\begin{enumerate}
+		\item Ist \((a_n)_n\) beschränkt. So ist \(H((a_n)_n) \neq \emptyset\).
+		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{a\} \).
+	\end{enumerate}
+\end{lem}
+\begin{satz}
+	\[ b\in H((a_n)_n) \Leftrightarrow (a_n)_n \text{ hat Teilfolge } (a_{n_k})_k \text{, die gegen } b \text{ konvergiert}. \]
+\end{satz}
+\begin{defi}
+	Geg. reelle Folge \((a_n)_n\).\\
+	\begin{align*}
+	\limsup\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\sup} a_k \text{ (}=\inf\underset{k\geq n}{\sup}a_k\text{)}\\
+	\liminf\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\inf} a_k \text{ (}=\sup\underset{k\geq n}{\sup}a_k\text{)}
+	\end{align*}
+\end{defi}
+\begin{lem}
+	\begin{enumerate}
+		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \)
+		\item \((a_n)_n\) beschränkte Folge: Dann gilt \((a_n)_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
+	\end{enumerate}
+\end{lem}
+\begin{satz}
+	Sei \((a_n)_n\) beschränkte Folge. Dann gilt:\\
+	\(a^* = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a> a^* \) ist \( \{n\in\N |a_n>a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a<a^* \) gibt es \(\infty\)-viele \(a_n >a\). (d. h. \( \{ n\in\N|a_n>a \} \) ist unendliche Teilmenge von \(\N\)).
+	\end{enumerate}
+	genauso für \( \liminf \):
+	\(a_* = \liminf\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
+	\begin{enumerate}
+		\item \(\forall a< a_* \) ist \( \{n\in\N |a_n<a \} \) endliche Teilmenge von \(\N\).
+		\item \( \forall a>a_* \) gibt es \(\infty\)-viele \(a_n<a\).
+	\end{enumerate}
+\end{satz}
+\begin{kor}
+	Sei \((a_n)_n\) beschränkte Folge.
+	\[ \Rightarrow H((a_n)_n) \subset [ \liminf\limits_{n\rightarrow\infty}a_n, \limsup\limits_{n\rightarrow\infty}a_n ] \text{ und } \limsup a_n, \liminf a_n \in H((a_n)_n). \]
+\end{kor}
+\section{Konvergente Reihen, Teil 1}
+\begin{defi}
+	Dieses Symbol \[ \sum_{n=1}^{\infty}a_n \] steht für die Folge \((S_n)_n\) der Partialsummen: \[S_n := \sum_{k=1}^{n}a_k .\]
+	Die Reihe \( \sum_{k=1}^{\infty}a_k \) konvergiert, falls die Folge ihrer Partialsummen konvergiert. In diesem Fall setzen wir 
+	\[ \sum_{k=1}^{\infty}a_k := \limes{n} \sum_{k=1}^{\infty}a_k = \limes{n} S_n \]
+	Sagen auch die Reihe \( \sum_{n=1}^{\infty}a_n \) konvergiert. Die Reihe \( \sum_{n=1}^{\infty}a_n \) divergiert, falls \( (S_n)_n \) divergiert. Reihe \( \sum_{n=1}^{\infty}a_n \) heißt bestimmt divergent, falls \((S_n)_n\) bestimmt gegen \(+ \infty \) oder \(-\infty\) divergiert. Setzen dann \( \sum_{n=1}^{\infty}a_n =-\infty \), falls \(\limes{n} \sum_{k=1}^{n}a_k = -\infty \). \( \sum_{n=1}^{\infty}a_n = +\infty \), falls \( \limes{n}\sum_{k=1}^{n}a_k=+\infty \)
+\end{defi}
+\begin{satz}
+	Sind \(a_n \geq 0, n\in\N \), dann gilt\\
+	entweder ist \(S_n = \sum_{k=1}^{n}a_n\) nach oben beschränkt und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n \in [0,\infty) \]
+	oder \(S_n \rightarrow \infty, n\rightarrow\infty \) und dann ist \[ \sum_{k=1}^{\infty}a_k = \limes{n}S_n = +\infty. \]
+\end{satz}
+\begin{kor}
+	Sind \(a_n \geq 0, n\in \N \), so ist
+	\begin{align*}
+	\text{entweder } &\sum_{n=1}^{\infty}a_n < \infty &\text{in diesem Fall ist die Reihe nach oben beschränkt.}\\
+	\text{oder } &\sum_{n=1}^{\infty}a_n = +\infty &\text{nach oben unbeschränkt.}
+	\end{align*}
+\end{kor}
+\begin{satz}[Cauchy-Kriterium für Reihen]
+	Seien \(a_n \in\R, n\in\N\). Dann gilt: 
+	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{j=n+1}^{m}a_j|<\varepsilon \quad \forall m>n\geq K.\]
+\end{satz}
+\begin{kor}
+	Wenn die Reihe \(\sum_{n=1}^{\infty} a_n\) konvergent, so ist \((a_n)_n\) eine Nullfolge.
+\end{kor}
+\begin{satz}
+	Gilt \(0\leq a_n \leq b_n \quad \forall n\in\N \), so folgt:
+	\begin{enumerate}
+		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert auch \( \sum_{n=1}^{\infty}a_n \) und \( \sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty}b_n \).
+		\item Divergiert \( \sum_{n=1}^{\infty}a_n \), so divergiert auch \( \sum_{n=1}^{\infty}b_n \) (gegen \(+\infty\)).
+	\end{enumerate}
+\end{satz}
+\begin{satz}
+	Sind \( \sum_{n=1}^{\infty}a_n, \sum_{n=1}^{\infty}b_n \) konvergente (reelle Reihen), so konvergiert auch \( \sum_{n=1}^{\infty}(\lambda a_n + \mu b_n) \quad \forall \lambda, \mu \in\R \) und 
+	\[ \sum_{n=1}^{\infty} (\lambda a_n + \mu b_n) = \lambda \sum_{n=1}^{\infty}a_n + \mu \sum_{n=1}^{\infty}b_n. \]
+\end{satz}
+\begin{satz}[Cauchys Verdichtungskriterium]
+	Sei \((a_n)_n\) mon. fallende Nullfolge, so gilt:
+	\[ \sum_{n=0}^{\infty} \text{ konvergiert } \Leftrightarrow \text{ die \glqq kondensierte\grqq{} Reihe} \sum_{n=0}^{\infty}2^n a_{2^n} = a_1 + 2a_2 + 4a_4 + 8a_8 + \dots \text{ konvergiert.} \]
+\end{satz}
 \end{document}

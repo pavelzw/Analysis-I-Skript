@@ -323,7 +323,7 @@
 	\begin{defi}
 		Sei \(b \in \N\) größer als 1\\
 		Eine b-adische Darstellung (eine Darstellung zur Basis b) einer natürlichen Zahl \(n\) ist eine Liste \(a_m, \dots, a_0\) von natürlichen Zahlen aus der Menge\\
-		\(\{0, \dots, b-1\}\), sodass \(a_m > 0\) und \(n = \sum_{i=0}^{m} a_ib^i\)
+		\(\{0, \dots, b-1\}\), so dass \(a_m > 0\) und \(n = \sum_{i=0}^{m} a_ib^i\)
 	\end{defi}
 	\begin{bsp}
 		Ternärdarstellung (\(b = 3\)) für die natürlichen Zahlen \(\leq 10\)\\
@@ -351,8 +351,8 @@
 	\begin{bem} %bessere Struktur?
 		Wie findet man eine Darstellung:\\
 		Finde größten Index \(m\), so dass \(b^m \leq n\).\\
-		Der Koeffizient \(a_m\) ist das größte multiplikative vielfache von \(b^m\), sodass \(n - a_m \cdot b^m \geq 0\).\\
-		Dann setzt man \(k=n-a_m \cdot b^m\) und dann setzt man den größten Index \(\tilde{m}\), sodass \(b^{\tilde{m}} \leq k\)
+		Der Koeffizient \(a_m\) ist das größte multiplikative vielfache von \(b^m\), so dass \(n - a_m \cdot b^m \geq 0\).\\
+		Dann setzt man \(k=n-a_m \cdot b^m\) und dann setzt man den größten Index \(\tilde{m}\), so dass \(b^{\tilde{m}} \leq k\)
 	\end{bem}
 	\begin{bsp}
 		4-adische Darstellung von 354\\
@@ -363,7 +363,7 @@
 			&\Rightarrow 354 -1 \cdot 4^4 > 0 \text{ und } 354 - 2 \cdot 4^4 < 0\\
 			&\Rightarrow a_4 = 1
 		\end{align*}
-		Finde Index \(\tilde{m}\), sodass \(4^{\tilde{m}} \leq 98\)			
+		Finde Index \(\tilde{m}\), so dass \(4^{\tilde{m}} \leq 98\)			
 		\begin{align*}			
 			&4^3 = 64 \rightarrow \tilde{m} = 3\\
 			&98 - 64 = 34 < 64 \Rightarrow a_3 = 1\\
@@ -391,7 +391,7 @@
 		Dies funktioniert, das aus der geometrischen Summenformel folgt:\\
 		\[n-1 = \sum_{j=0}^{m} (b-1)b^j = (b-1) \cdot \sum_{j=0}^{m}b^j = (b-1) \cdot \frac{1- b^{m+1}}{1-b} = \frac{-(1-b)(1-b^{m+1})}{1-b} = b^{m+1}-1\]\\
 		Ist dies nicht der Fall, muss also mindestens ein Koeffizient in der Darstellung von \(n-1\) kleiner als \(b-1\) sein.\\
-		Sei \(\varepsilon\) der kleinste Index, sodass \(a_{\varepsilon} < b-1\).\\
+		Sei \(\varepsilon\) der kleinste Index, so dass \(a_{\varepsilon} < b-1\).\\
 		Wir definieren uns \(c_0, \dots, c_m\) durch:\\
 		\(c_j = a_j \quad \text{für } j > \varepsilon\)\\
 		\(c_t = a_{t+1}\)\\
@@ -410,7 +410,7 @@
 	\begin{bem}
 		Sei \(b \in \N, b \geq 2, a \in [0, 1)\)\\
 		\[\alpha = \limes{n} \sum_{j = 1}^{n} \frac{b_j}{b_j} \quad \text{mit } b_j \in \{0,1,\dots,b-1\}\]\\
-		sodass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
+		so dass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
 		\(b=3\)\\
 		\begin{center}
 		\begin{tikzpicture}[scale = 4]
@@ -508,4 +508,73 @@
 		Aus 1. und 2. folgt direkt
 		\[\limessup{n} a_n = sup(H((a_n)_n))\]
 	\end{bew}
+	\begin{lem}
+		Sei \((a_n)_n\) eine reelle beschränkte Folge.\\
+		Es gilt: 
+		\begin{enumerate}
+			\item 
+				die Folge \(((\underset{k \geq n}{sup}(a_k))\) ist monoton fallend und beschränkt. Weiter gilt:
+				\[\limessup{n} a_n = \limes{n} \underset{k \geq n}{sup} (a_k) = \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+			\item 
+				die Folge \((\underset{k \geq n}{inf} (a_k))\) ist monoton wachsend und beschränkt. Weiter gilt:
+				\[\limesinf{n} a_n = \limes{n} \underset{k \geq n}{inf} (a_k) = \underset{n \in \N}{sup} \; \underset{k \geq n}{inf} (a_k)\]
+		\end{enumerate}		
+	\end{lem}
+	\begin{bew}
+		Monotonie und Beschränktheit (erledigt)\\
+		\[\limes{n} \underset{k \geq n}{sup} (a_k) = \limessup{n} a_n\]
+		\[\limessup{n} a_n \leq \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+		(siehe Beweise vorher)\\
+		Bleibt zu zeigen:
+		\[\limessup{n} a_n \geq \limes{n} \underset{k \geq n}{sup} (a_k)\]
+		Wir definieren: \(s_n := \underset{k \geq n}{sup} (a_k)\) und \(s := \limes{n} s_n\)\\
+		Wir wollen zeigen: \(s \leq \limessup{n} a_n + \varepsilon \; \forall \varepsilon > 0\)\\
+		Sei \(\varepsilon > 0\)\\
+		Nach Satz 1 existiert \(N \in \N\) mit \(a_k \leq \limessup{n} a_n + \varepsilon\) für \(k \geq N\)\\
+		Insbesondere gilt:\\
+		\(s_n = sup\{a_k: k \geq N\} \leq \limessup{n} a_n + \varepsilon\)\\
+		Also auch \(s = \limes{n} s_n \leq s_n \leq \limessup{n} a_n + \varepsilon\)\\
+	\end{bew}	
+	\begin{bsp}
+		Bestimmung von Limes superior und Limes inferior:\\
+		\(a_n := (-1)^n \cdot (1 + \frac{1}{n})\) für alle \(n \in \N\)\\
+		Beh.: \(\limessup{n} a_n = 1\), \(\limesinf{n} a_n = -1\)\\
+		\begin{bew}
+			Wir haben:
+			\[\underset{k \geq n}{sup} (a_k) =\begin{cases}
+			1 + \frac{1}{n} & \text{n gerade}\\
+			1 + \frac{1}{n + 1} & \text{n ungerade}
+			\end{cases} \]
+			\(\Rightarrow \limes{n} \underset{k \geq n}{sup} (a_k) = 1\)\\
+			Weiter gilt:
+			\[\underset{k \geq n}{inf} (a_k) =\begin{cases}
+			-(1 + \frac{1}{n} )& \text{n ungerade}\\
+			-(1 + \frac{1}{n + 1}) & \text{n gerade}
+			\end{cases} \]
+			\(\Rightarrow \limes{n} \underset{k \geq n}{inf} (a_k) = -1\)\\
+		\end{bew}
+	\end{bsp}
+	\begin{bsp}
+		\(b_n := (1 + (-1)^n) \cdot (-1)^{\frac{n(n+1)}{2}} \)\\
+		Beh.: \(\limessup{n} b_n = 2\), \(\limesinf{n} b_n = -2\)\\
+		Zunächst gilt für \(n \in \N\)\\
+		\(n = 4k, k \in \N \Rightarrow \frac{n(n+1)}{2} = 2k(4k+1)\) ist gerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+		\(n = 4k - 1, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-1)2k\) ist gerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+		\(n = 4k - 2, k \in \N \Rightarrow \frac{n(n+1)}{2} = (2k-1)(4k-1)\) ist ungerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+		\(n = 4k - 3, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-3)(2k-1)\) ist ungerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+		Betrachten wir die Teilfolgen \((b_{4k})_k, (b_{4k-1})_k, (b_{4k-2})_k, (b_{4k-3})_k\)\\
+		\(b_{4k} = (1 + (-1)^{4k}) \cdot 1 = 2 \overset{k \rightarrow \infty}{\rightarrow} 2\)\\
+		\(b_{4k-1} = (1 + (-1)^{4k-1}) \cdot 1 = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+		\(b_{4k-2} = (1 + (-1)^{4k-2}) \cdot (-1) = -2 \overset{k \rightarrow \infty}{\rightarrow} -2\)\\
+		\(b_{4k-3} = (1 + (-1)^{4k-3}) \cdot (-1) = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+		Nach Aufgabe \(31\) von Zettel \(7\) gilt, dass
+		\[H((b_n)_n) = \{-2,0,2\}\]
+		Somit gilt nach heutiger Übung\\
+		\[\limessup{n} b_n = 2\]
+		\[\limesinf{n} b_n = -2\]
+	\end{bsp}
 \end{document}

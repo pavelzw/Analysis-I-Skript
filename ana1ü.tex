@@ -40,6 +40,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
+\newcommand{\limessup}[1]{\limsup \limits_{#1\rightarrow\infty}}
+\newcommand{\limesinf}[1]{\liminf \limits_{#1\rightarrow\infty}}
 
 \begin{document}
 	\title{Analysis I Übung (WS 18/19)}
@@ -321,7 +323,7 @@
 	\begin{defi}
 		Sei \(b \in \N\) größer als 1\\
 		Eine b-adische Darstellung (eine Darstellung zur Basis b) einer natürlichen Zahl \(n\) ist eine Liste \(a_m, \dots, a_0\) von natürlichen Zahlen aus der Menge\\
-		\(\{0, \dots, b-1\}\), sodass \(a_m > 0\) und \(n = \sum_{i=0}^{m} a_ib^i\)
+		\(\{0, \dots, b-1\}\), so dass \(a_m > 0\) und \(n = \sum_{i=0}^{m} a_ib^i\)
 	\end{defi}
 	\begin{bsp}
 		Ternärdarstellung (\(b = 3\)) für die natürlichen Zahlen \(\leq 10\)\\
@@ -349,8 +351,8 @@
 	\begin{bem} %bessere Struktur?
 		Wie findet man eine Darstellung:\\
 		Finde größten Index \(m\), so dass \(b^m \leq n\).\\
-		Der Koeffizient \(a_m\) ist das größte multiplikative vielfache von \(b^m\), sodass \(n - a_m \cdot b^m \geq 0\).\\
-		Dann setzt man \(k=n-a_m \cdot b^m\) und dann setzt man den größten Index \(\tilde{m}\), sodass \(b^{\tilde{m}} \leq k\)
+		Der Koeffizient \(a_m\) ist das größte multiplikative vielfache von \(b^m\), so dass \(n - a_m \cdot b^m \geq 0\).\\
+		Dann setzt man \(k=n-a_m \cdot b^m\) und dann setzt man den größten Index \(\tilde{m}\), so dass \(b^{\tilde{m}} \leq k\)
 	\end{bem}
 	\begin{bsp}
 		4-adische Darstellung von 354\\
@@ -361,7 +363,7 @@
 			&\Rightarrow 354 -1 \cdot 4^4 > 0 \text{ und } 354 - 2 \cdot 4^4 < 0\\
 			&\Rightarrow a_4 = 1
 		\end{align*}
-		Finde Index \(\tilde{m}\), sodass \(4^{\tilde{m}} \leq 98\)			
+		Finde Index \(\tilde{m}\), so dass \(4^{\tilde{m}} \leq 98\)			
 		\begin{align*}			
 			&4^3 = 64 \rightarrow \tilde{m} = 3\\
 			&98 - 64 = 34 < 64 \Rightarrow a_3 = 1\\
@@ -389,7 +391,7 @@
 		Dies funktioniert, das aus der geometrischen Summenformel folgt:\\
 		\[n-1 = \sum_{j=0}^{m} (b-1)b^j = (b-1) \cdot \sum_{j=0}^{m}b^j = (b-1) \cdot \frac{1- b^{m+1}}{1-b} = \frac{-(1-b)(1-b^{m+1})}{1-b} = b^{m+1}-1\]\\
 		Ist dies nicht der Fall, muss also mindestens ein Koeffizient in der Darstellung von \(n-1\) kleiner als \(b-1\) sein.\\
-		Sei \(\varepsilon\) der kleinste Index, sodass \(a_{\varepsilon} < b-1\).\\
+		Sei \(\varepsilon\) der kleinste Index, so dass \(a_{\varepsilon} < b-1\).\\
 		Wir definieren uns \(c_0, \dots, c_m\) durch:\\
 		\(c_j = a_j \quad \text{für } j > \varepsilon\)\\
 		\(c_t = a_{t+1}\)\\
@@ -408,7 +410,7 @@
 	\begin{bem}
 		Sei \(b \in \N, b \geq 2, a \in [0, 1)\)\\
 		\[\alpha = \limes{n} \sum_{j = 1}^{n} \frac{b_j}{b_j} \quad \text{mit } b_j \in \{0,1,\dots,b-1\}\]\\
-		sodass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
+		so dass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
 		\(b=3\)\\
 		\begin{center}
 		\begin{tikzpicture}[scale = 4]
@@ -424,4 +426,155 @@
 		\end{center}
 		ohne (\(*\)) wäre \(\frac{1}{3} = 0,100000\dots = 0,0222\dots\)
 	\end{bem}
+	\section{Limes Superior und Limes Inferior (7.12.18)}
+	\begin{defi}
+		Sei \(a_n\) eine reelle Folge\\
+		\[\limessup{n} a_n = \limes{n} (\underset{k \geq n}{sup(a_k)}) \]\\
+		\[\limesinf{n} a_n = \limes{n} (\underset{k \geq n}{inf(a_k)}) \]
+	\end{defi}
+	\begin{satz}
+		Charakterisierung des Limes superior\\
+		Sei \(a_n\) eine reelle Folge und \(a \in \R\)\\
+		Genau dann gilt:\\
+		\[\limessup{n} a_n = a\]\\
+		Wenn für \(\varepsilon > 0\) die folgenden Bedingungen erfüllt sind.\\
+		\begin{enumerate}
+			\item Für fast alle Indizes \(n \in \N\) (d.h für alle bis auf endlich viele) gilt: \(a_n < a+ \varepsilon\)
+			\item Es gibt unendlich viele Indizes \(m \in \N\) mit \(a_m > a - \varepsilon\)
+		\end{enumerate}
+	\end{satz}
+	\begin{bew}
+		Wir definieren:\\
+		\(s_n := \underset{k \geq n}{sup(a_k)}\)\\
+		Für alle \(n \in \N\) gilt: \(\{k \in \N: k \geq n+1\} \subset \{k \in \N: k \geq n\}\) also ist\\
+		\(s_{n+1} = sup\{a_k: k \in \N, k \geq n+1\} \subseteq sup\{a_k: k \in \N, k \geq n\} = s_n\)\\
+		und damit ist \((s_n)_n\) monoton fallend.\\
+		\(\Rightarrow\): Sei \(\limes{n} a_n = a\), d.h. \(\limes{n} s_n = a\)\\
+		Weiter \(\varepsilon \geq 0\)\\
+		Da \((s_n)_n\) monoton fallend ist, ist \(s_n \geq a \; \forall n \in \N\)\\
+		Somit ist Bedingung 2. erfüllt. Weiter muss es ein \(N \in \N\) geben, so dass \(s_n < a + \varepsilon\) für \(n \geq N\)\\
+		d.h. \(a_n < a + \varepsilon\) für \(n \geq N\) Also gilt auch 1.\\
+		\(\Leftarrow\): seinen Bedingungen 1. und 2. erfüllt.\\
+		Aus 2. folgt, \(s_n > a - \varepsilon\) für alle \(n \in \N\) und alle \(\varepsilon > 0\), also \(\limes{n} s_n \geq a\).\\
+		Wegen 1. gibt es zu jedem \(\varepsilon > 0\) ein \(N \in \N\), so dass \(a_n < a + \varepsilon\) für alle \(n \geq N\).\\
+		Woraus folgt:\\
+		\[s_n \leq a + \varepsilon \text{ für alle } n \geq N\]\\
+		Insgesamt gilt also: \(\limes{n} s_n = a\)\\
+	\end{bew}
+	\begin{bem}
+		Der Limes inferior kann analog definiert werden.\\
+		sei \((a_n)_n\) eine reelle Folge und \(a \in \R\)\\
+		Dann gilt: \(\limesinf{n} a_n = a\) genau dann,wenn für jedes \(\varepsilon > 0\) gilt:
+		\begin{enumerate}
+			\item \(a_n > a - \varepsilon\) für fast alle \(n \in \N\)
+			\item \(a_n < a + \varepsilon\) für unendlich viele \(n \in \N\)
+		\end{enumerate}
+	\end{bem}
+	\begin{bem}
+		Da \(\underset{k \geq n}{(sup(a_k))_n}\) monoton fallend und \(\underset{k \geq n}{(inf(a_k))_n}\) monoton wachsend ist, existieren \(\limsup a_n \) und \(\liminf a_n\) immer eigentlich oder uneigentlich, d.h. sie sind entweder reelle Zahlen oder es gibt \(\limessup{n} a_n = \pm \infty \) bzw. \(\limesinf{n} a_n = \pm \infty \) 
+	\end{bem}
+	\begin{lem}
+		Sei \((a_n)_n\) eine beschränkte Folge reeller Zahlen und \(H((a_n)_n)\) die Menge der Häufungspunkte der Folge \((a_n)_n\). Es gilt:\\
+		\[\limessup{n} a_n = sup(H((a_n)_n))\]
+		\[\limesinf{n} a_n = inf(H((a_n)_n))\]
+	\end{lem}
+	\begin{bew}
+		Wir beweisen \(\limessup{n} a_n = sup(H((a_n)_n))\), die andere Aussage folgt analog.\\
+		Wir definieren:\\
+		\(s_n := \underset{k \geq n}{sup(a_k)}\)\\
+		\((s_n)_n\) ist monoton fallend.\\
+		Da \((a_n)_n\) beschränkt ist, gilt \(\underset{k \in \N}{inf}(a_k) \leq s_n \leq \underset{k \in \N}{sup}(a_k) \; \forall \in \N\)\\
+		Also ist \((s_n)_n\) beschränkt und \(s_n \in \R\).\\
+		Nach dem Monotoniekriterium konvergiert \((s_n)_n\)\\
+		\[s := \limes{n} s_n = \underset{n \rightarrow \infty}{inf}(s_n)_n = \underset{n \in \N}{inf}\underset{k \geq n}{sup}(a_k)_n \in \R\]\\
+		Wir beweisen jetzt:
+		\begin{enumerate}
+			\item \(s \in H((a_n)_n)\)
+			\item \(a \leq s \; \forall a \in H((a_n)_n)\)
+		\end{enumerate}
+		Beweis von 1.:\\
+		\(H((a_n)_n)\) ist die Menge aller Grenzwerte von konvergenten Teilfolgen der Folge \((a_n)_n\) somit genügt es zu zeigen, dass zu jedem \(N \in \N\) und \(\varepsilon > 0\) ein \(n \in \N\) existiert, so dass \((a_n - s) < \varepsilon\)\\
+		Da \(s = \limes{n} s_n\), finden wir ein \(m \geq N\), so dass 
+		\[|s_m - s| < \frac{\varepsilon}{2}\]
+		Nach Definition \(s_m\) gilt es \(n \geq m\), so dass
+		\[|a_n - s_m| < \frac{\varepsilon}{2}\]
+		Daraus folgt \(n \geq N\) und \(|a_n - s| < \varepsilon\) was 1. zeigt.\\
+		Beweis 2.:\\
+		sei \(a \in H((a_n)_n)\), dann ist a Grenzwert einer konvergenten Teilfolge \(({a_n}_k)_{k \in \N}\) von \((a_n)_n\)\\
+		Per Definition gilt: \({s_n}_k \geq {a_n}_k\)\\
+		Dann folgt:
+		\[s = \limes{n} s_n = \limes{k} {s_n}_k \geq \limes{k} {a_n}_k = a\]
+		Dies zeigt Bedingung 2.\\
+		Aus 1. und 2. folgt direkt
+		\[\limessup{n} a_n = sup(H((a_n)_n))\]
+	\end{bew}
+	\begin{lem}
+		Sei \((a_n)_n\) eine reelle beschränkte Folge.\\
+		Es gilt: 
+		\begin{enumerate}
+			\item 
+				die Folge \(((\underset{k \geq n}{sup}(a_k))\) ist monoton fallend und beschränkt. Weiter gilt:
+				\[\limessup{n} a_n = \limes{n} \underset{k \geq n}{sup} (a_k) = \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+			\item 
+				die Folge \((\underset{k \geq n}{inf} (a_k))\) ist monoton wachsend und beschränkt. Weiter gilt:
+				\[\limesinf{n} a_n = \limes{n} \underset{k \geq n}{inf} (a_k) = \underset{n \in \N}{sup} \; \underset{k \geq n}{inf} (a_k)\]
+		\end{enumerate}		
+	\end{lem}
+	\begin{bew}
+		Monotonie und Beschränktheit (erledigt)\\
+		\[\limes{n} \underset{k \geq n}{sup} (a_k) = \limessup{n} a_n\]
+		\[\limessup{n} a_n \leq \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+		(siehe Beweise vorher)\\
+		Bleibt zu zeigen:
+		\[\limessup{n} a_n \geq \limes{n} \underset{k \geq n}{sup} (a_k)\]
+		Wir definieren: \(s_n := \underset{k \geq n}{sup} (a_k)\) und \(s := \limes{n} s_n\)\\
+		Wir wollen zeigen: \(s \leq \limessup{n} a_n + \varepsilon \; \forall \varepsilon > 0\)\\
+		Sei \(\varepsilon > 0\)\\
+		Nach Satz 1 existiert \(N \in \N\) mit \(a_k \leq \limessup{n} a_n + \varepsilon\) für \(k \geq N\)\\
+		Insbesondere gilt:\\
+		\(s_n = sup\{a_k: k \geq N\} \leq \limessup{n} a_n + \varepsilon\)\\
+		Also auch \(s = \limes{n} s_n \leq s_n \leq \limessup{n} a_n + \varepsilon\)\\
+	\end{bew}	
+	\begin{bsp}
+		Bestimmung von Limes superior und Limes inferior:\\
+		\(a_n := (-1)^n \cdot (1 + \frac{1}{n})\) für alle \(n \in \N\)\\
+		Beh.: \(\limessup{n} a_n = 1\), \(\limesinf{n} a_n = -1\)\\
+		\begin{bew}
+			Wir haben:
+			\[\underset{k \geq n}{sup} (a_k) =\begin{cases}
+			1 + \frac{1}{n} & \text{n gerade}\\
+			1 + \frac{1}{n + 1} & \text{n ungerade}
+			\end{cases} \]
+			\(\Rightarrow \limes{n} \underset{k \geq n}{sup} (a_k) = 1\)\\
+			Weiter gilt:
+			\[\underset{k \geq n}{inf} (a_k) =\begin{cases}
+			-(1 + \frac{1}{n} )& \text{n ungerade}\\
+			-(1 + \frac{1}{n + 1}) & \text{n gerade}
+			\end{cases} \]
+			\(\Rightarrow \limes{n} \underset{k \geq n}{inf} (a_k) = -1\)\\
+		\end{bew}
+	\end{bsp}
+	\begin{bsp}
+		\(b_n := (1 + (-1)^n) \cdot (-1)^{\frac{n(n+1)}{2}} \)\\
+		Beh.: \(\limessup{n} b_n = 2\), \(\limesinf{n} b_n = -2\)\\
+		Zunächst gilt für \(n \in \N\)\\
+		\(n = 4k, k \in \N \Rightarrow \frac{n(n+1)}{2} = 2k(4k+1)\) ist gerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+		\(n = 4k - 1, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-1)2k\) ist gerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+		\(n = 4k - 2, k \in \N \Rightarrow \frac{n(n+1)}{2} = (2k-1)(4k-1)\) ist ungerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+		\(n = 4k - 3, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-3)(2k-1)\) ist ungerade\\
+		\(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+		Betrachten wir die Teilfolgen \((b_{4k})_k, (b_{4k-1})_k, (b_{4k-2})_k, (b_{4k-3})_k\)\\
+		\(b_{4k} = (1 + (-1)^{4k}) \cdot 1 = 2 \overset{k \rightarrow \infty}{\rightarrow} 2\)\\
+		\(b_{4k-1} = (1 + (-1)^{4k-1}) \cdot 1 = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+		\(b_{4k-2} = (1 + (-1)^{4k-2}) \cdot (-1) = -2 \overset{k \rightarrow \infty}{\rightarrow} -2\)\\
+		\(b_{4k-3} = (1 + (-1)^{4k-3}) \cdot (-1) = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+		Nach Aufgabe \(31\) von Zettel \(7\) gilt, dass
+		\[H((b_n)_n) = \{-2,0,2\}\]
+		Somit gilt nach heutiger Übung\\
+		\[\limessup{n} b_n = 2\]
+		\[\limesinf{n} b_n = -2\]
+	\end{bsp}
 \end{document}

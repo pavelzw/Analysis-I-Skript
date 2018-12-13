@@ -35,6 +35,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
 
@@ -2552,4 +2553,138 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\[ a_n = \frac{1}{n^p} \quad \frac{a_{n+1}}{a_n} = \frac{1}{(n+1)^p} \frac{n^p}{1} = \left(\frac{n}{n+1}\right)^p = \left(1 - \frac{1}{n+1}\right)^p \rightarrow 1, n\rightarrow\infty \]
 	\[ \Rightarrow \limsup\limits{n\rightarrow\infty} \frac{a_{n+1}}{a_n} = \limes{n} \frac{a_{n+1}}{a_n} = 1. \]
 \end{bem}
+\begin{satz}[Wurzelkriterium]
+	\( \sum_{n}a_n \) Reihe mit \[ (**) \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \sqrt[n]{|a_n|} < 1 \Rightarrow \sum_n a_n \text{ konv. abs.}.\]
+\end{satz}
+\begin{bem}
+	\( \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} \leq \limsup\limits_{n\rightarrow\infty} \frac{|a_{n+1}|}{|a_n|}, a_n \neq 0, \text{ für fast alle } n \). (H. A.)
+\end{bem}
+\begin{bew}
+	\( (**) \Rightarrow \exists 0<q<1. K\in\N \) mit \[ |a_n|^{\frac{1}{n}} \leq q \quad\forall n\geq K. \]
+	%WEITERMACHEN
+	Damit haben wir konv. Majorante \( \sum_n q^n \).
+\end{bew}
+\begin{satz}[\glqq Mutter aller Konvergenzkriterien\grqq]
+	Sei \( \sum_n a_n \) Reihe mit \(a_n \neq 0 \) für fast alle \(n\). Dann gilt:
+	\[ \sum_n a_n \text{ konv. abs. } \Leftrightarrow \exists c_n > 0, \sum_n c_n < \infty \text{ und } \frac{|a_{n+1}|}{|a_n|} \leq \frac{c_{n+1}}{c_n} \text{ für fast alle }n. \]
+\end{satz}
+\begin{bew}Übung.
+	Scharfes Hinschauen auf Beweis des Quotientenkriteriums.
+\end{bew}
+\begin{kor}
+	\( \sum_n a_n \) und \( p>1: \frac{|a_{n+1}|}{|a_n|} \leq 1 - \frac{p}{n+1} \) für fast alle \(n \Rightarrow \sum_n a_n \) konv. abs. (Übung).
+\end{kor}
+\begin{bem}
+	Ist \( \liminf\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} > 1 \Rightarrow a_n \) divergent.\\
+	Ist \( \liminf\limits_{n\rightarrow\infty} \frac{|a_{n+1}|}{|a_n|} > 1 \Rightarrow \sum_n a_n \) divergent.\\
+	Ist \( \liminf\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limes{n}(\underset{k\geq n}{\inf} |a_n|^{\frac{1}{k}}) > 1 \Rightarrow \exists q>1: k \in\N.\)
+	\[ |a_n|^{1/n} \geq \underset{k\geq n}{inf} |a_k|^{1/k} \geq q > 1 \quad\forall n\geq K. \]
+	\[ \Rightarrow |a_n| > q^n \rightarrow \infty, n\rightarrow\infty \Rightarrow a_n \text{ keine Nullfolge } \Rightarrow \sum_n a_n \text{ divergent}. \]
+\end{bem}
+\begin{bsp}[Exponentialreihe]
+	\[ x\in\R,\qquad \sum_{n=0}^{\infty} \underbrace{\frac{x^n}{n!}}_{=a_n} =: \exp x. \]
+	\begin{align*}
+		|\frac{a_{n+1}}{a_n}| = |\frac{x^{n+1}}{(n+1)!} \frac{n!}{x^n}| = \frac{|x|}{n+1} \rightarrow 0, n\rightarrow\infty\\
+		\Rightarrow \frac{|a_{n+1}}{a_n} \leq 1/2 \text{ für fast alle } n.\\
+		\Rightarrow \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + 1/2 x^2 + 1/6 x^3 + \dots \text{ konv. absolut.}
+	\end{align*}
+\end{bsp}
+\begin{bem}
+	\begin{align*}
+		S_n(x):= \sum_{j=1}^{n} \frac{x^j}{j!} = 1 + x + 1/2x^2 + \dots + \frac{x^n}{n!}\\
+		S'_n(x) = 1 + x + 1/2x^2 + \dots + \frac{x^{n-1}}{(n-1)!} = S_{n-1}(x)\\
+		\Rightarrow S'_n(x) = S_{n-1}(x) = S_n(x) - \frac{x^n}{n!}
+	\end{align*}
+	Falls gilt: \( S'(x) = ( \limes{n}S_n(x) )' = \limes{n}(S'_n(x)) = \limes{n}S_{n-1}(x) = S(x) \)
+	\( \Rightarrow \exp'x = \exp x? \) (im Allg. falsch, aber für Potenzreihen wahr)
+\end{bem}
+\section{Der Euklidische Raum \( \R^d \), komplexe Zahlen \( \C \) (und \(\C^d \))}
+Grundlagen: \( \R^d := \R \times \dots \times \R = \{ (x_1, \dots, x_d) | x_j \in\R, j\in\{1,\dots, d \} \)\\
+%WEITERMACHEN
+%BILD
+\( \R^d \) ist ein (reeller) \(d\)-dim. Vektorraum.\\
+Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
+\begin{defi}[Euklidische Länge und Skalarprodukt]
+	\[ x,y \in\R^d, x\cdot y = <x,y> := \sum_{j=1}^{d}x_j y_j \]
+	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = <x,x>^{1/2} = \sqrt{<x,x>}. \]
+\end{defi}
+\begin{bem}
+	Euklidisches Skalarprodukt erfüllt die Axiome eines allg. Skalarprodukts (auf reellen VR.).\\
+	(S1) \( <x,y> = <y,x> \quad\forall x,y\in R^d \) (Symmetrie)\\
+	(S2) \( <x, \lambda y + \mu z> = \lambda <x,y> + \mu<x,z> \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
+	(S3) \( <x,x> \geq 0 \) und \( <x,x> = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
+\end{bem}
+\begin{bem}
+	(S1) und (S2) \( \Rightarrow <\lambda x + \mu y, z> = \lambda <x,z> + \mu <y,z> \).
+\end{bem}
+\begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
+	\[ \forall x,y\in\R^d: |<x,y>|\leq |x||y|\]
+	und \glqq\(=\)\grqq{} gilt, \( \Leftrightarrow x,y \) sind linear abhängig.
+\end{satz}
+\begin{bew}
+	Haben immer \( x,y\in\R^d, t\in\R. \)
+	\begin{align*}
+		0\leq |x+ty|^2 = <x+ty, x+ty>\\
+		\overset{\text{(S2)}}{=} <x+ty,x> + t<x+ty,y>\\
+		\overset{\text{(S1)(S2)}}{=} <x,x> + t<y,x> + t<x,y> + t^2<y,y>\\
+		= |x^2| + 2t<x,y> + t^2|y|^2 =: g(t).\\
+		g(t) = at^2 + 2bt + c
+	\end{align*}
+	Ang. \(|y| > 0, a = |y|^2 > 0 \)
+	\begin{align*}
+		g(t) = at^2 + 2bt + c\\
+		= a(t^2 + 2b/a t + c/a + (b/a)^2 - (b/a)^2) a((t+b/a)^2 + c/a - b^2/a^2)\\
+		= a(t+b/a)^2 + c - b^2/a \geq 0 \quad\forall t\in\R.
+	\end{align*}
+	\begin{align*}
+		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
+		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**) \Rightarrow |<x,y>|\leq |x||y|.
+	\end{align*}
+	Haben \( a=|y|^2, c=|x|^2 \)
+	%WEITERMACHEN
+\end{bew}
+\begin{defi}
+	Eine Funktion \( ||\cdot || : \R^d \rightarrow \R \) heißt Norm (auf \( \R^d \)), falls \( \forall x,y\in\R^d, \lambda\in\R: \)
+	\begin{enumerate}
+		\item \( ||x||\geq 0, ||x|| = 0 \Rightarrow x = 0 \)
+		\item \( ||\lambda x|| = |\lambda|\cdot||x|| \)
+		\item \( ||x+y|| \leq ||x|| + ||y|| \) (Dreiecksungl.)
+	\end{enumerate}
+\end{defi}
+\begin{satz}
+	\[ |x| := \sqrt{<x,x>} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
+\end{satz}
+\begin{bew}
+	Eigenschaften 1. und 2. sind einfach nachzurechnen.\\
+	Zu 3.:
+	\begin{align*}
+		|x+y|^2 = <x+y,x+y>=<x+y,x>+<x+y,y>\\
+		= <x,x> + <y,x> + <x,y> + <y,y>\\
+		=|x|^2 + 2<x,y> + |y|^2\\
+		\leq |x|^2 + 2|<x,y>| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
+	\end{align*}
+	\[ \Rightarrow |x+y| \leq |x| + |y| \]
+\end{bew}
+\begin{bem}
+	Auch:
+	%WEITERMACHEN
+\end{bem}
+Komplexe Zahlen:\\
+\( z=x+iy \quad\forall x,y\in\R \) und \( i^2 = -1 \).\\
+\( z_1 = x_1 + i y_1, z_2 = x_2 + i y_2 \)
+\[ z_1 + z_2 := (x_1 + x_2) + i(y_1 + y_2). \]
+\[ z_1 \cdot z_2 := (x_1 + i y_1)(x_2 + i y_2) = x_1x_2 - y_1y_2 + i(x_1y_2 + x_2y_1) \]
+Rigoros: \( \R^2, z\in\R^2, z=(x,y) \).\\
+Addition als addieren von Vektoren: \[ z_1 + z_2 = (x_1 + x_2, y_1 + y_2) \]
+neue Multiplikation: \[ z_1 \cdot z_2 = (x_1 x_2 - y_1y_2, x_1y_2 + x_2y_1) \]
+\( z = x+i 0 = (x,0) \)\\
+\( (x_1,0) + (x_2,0) = (x_1+x_2,0) \)\\
+\( (x_1,0)\cdot(x_2,0) = (x_1x_2,0) \)\\
+\( z=(x,y) = (x,0) + (0,y) = x(1,0) + y(0,1) = x e_1 + y e_2 \)
+%BILD
+\( \R^2 \) mit obiger Addition und \glqq komplexen \grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( e_2 e_2 = (0,1)(0,1) = (0-1,0 + 0) = (-1,0) = -(1,0) = -e_1 \)\\
+\(e_1 = 1\cdot e_1 = (1,0) \)\\
+\( e_2^2 = -e_1 = -1 (1,0) + 0(0,1) \)
+\[ z = (x,y) = x e_1 + y e_2 = x \cdot 1 + y \cdot i = x + i y. \]
 \end{document}

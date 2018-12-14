@@ -38,6 +38,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
+\newcommand{\limessup}[1]{\limsup \limits_{#1\rightarrow\infty}}
+\newcommand{\limesinf}[1]{\liminf \limits_{#1\rightarrow\infty}}
 
 \begin{document}
 \title{Analysis I (WS 18/19)}
@@ -797,7 +799,7 @@ $$c \in\mathbb{R}, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k$$
 			\item $n=1 \Rightarrow n+1-m=(n+1)-1=n\in\mathbb{N}.\checkmark\\
 			\Rightarrow n+1\in C.$
 			\item $n > 1$ (und $m \leq n+1$)\\
-			$\overset{\text{2.}}{\Rightarrow} m-1\in \mathbb{N}$ und $m-1 \leq (n+1)-1 = n$\\%b) unter Implikationspfeil
+			$\overset{\text{b)}}{\Rightarrow} m-1\in \mathbb{N}$ und $m-1 \leq (n+1)-1 = n$\\
 			Da $n\in C, m-1\in\mathbb{N}, m-1\leq n \Rightarrow \underbrace{n-(m-1)}_{=(n+1)-m} \in \mathbb{N}_0\\
 			\Rightarrow n+1\in C$.
 		\end{itemize}
@@ -2565,7 +2567,12 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 \end{bem}
 \begin{bew}
 	\( (**) \Rightarrow \exists 0<q<1. K\in\N \) mit \[ |a_n|^{\frac{1}{n}} \leq q \quad\forall n\geq K. \]
-	%WEITERMACHEN
+	\[\left(\tilde{q} = \limessup{n} |a_n|^{\frac{1}{n}} = \limes{n} \underbrace{\sup |a_k|^{\frac{1}{n}}}_{\rightarrow \tilde{q} < 1 (n \rightarrow \infty)}< 1\right)\]\\
+	\(\forall \varepsilon > 0 \exists k \in \N: \underset{k \geq n}{\sup} |a_k|^{\frac{1}{k}} < \tilde{q} + \varepsilon \quad \forall n \geq K \)\\
+	d.h.\\
+	\[\underset{k \geq n}{\sup} |a_k|^{\frac{1}{k}} < \tilde{q} + \varepsilon = q \; (< 1)\]
+	\(\tilde{q} < 1\) wähle \(s > 0: q = \tilde{q} + s < 1\)\\
+	\[\Rightarrow |a_n| \leq q^n \quad \forall n \geq K \]
 	Damit haben wir konv. Majorante \( \sum_n q^n \).
 \end{bew}
 \begin{satz}[\glqq Mutter aller Konvergenzkriterien\grqq]
@@ -2604,9 +2611,13 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 \end{bem}
 \section{Der Euklidische Raum \( \R^d \), komplexe Zahlen \( \C \) (und \(\C^d \))}
 Grundlagen: \( \R^d := \R \times \dots \times \R = \{ (x_1, \dots, x_d) | x_j \in\R, j\in\{1,\dots, d \} \)\\
-%WEITERMACHEN
-%BILD
+Addition:
+\[x, y \in \R^d: x + y := (x_1, \dots , x_d) + (y_1, \dots, y_d) = (x_1 + y_1, \dots, x_d + y_d) \]
+Skalare Multiplikation:
+\[\lambda \in \R: \lambda x := \lambda(x_1, \dots , x_d) = (\lambda x_1, \dots, \lambda x_d) \]
 \( \R^d \) ist ein (reeller) \(d\)-dim. Vektorraum.\\
+z.B. \(\R^2\): \(x = (x_1, x_2) \in \R^2\)\\
+\textbf{Bild}\\%BILD
 Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 \begin{defi}[Euklidische Länge und Skalarprodukt]
 	\[ x,y \in\R^d, x\cdot y = <x,y> := \sum_{j=1}^{d}x_j y_j \]
@@ -2642,10 +2653,14 @@ Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 	\end{align*}
 	\begin{align*}
 		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
-		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**) \Rightarrow |<x,y>|\leq |x||y|.
+		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**)\\
+		\text{Haben }  a=|y|^2, c=|x|^2\\
+		\Rightarrow |<x,y>|\leq |x||y|.
 	\end{align*}
-	Haben \( a=|y|^2, c=|x|^2 \)
-	%WEITERMACHEN
+	Fall 1: \(|y| = 0 \Leftrightarrow y = 0_v = (0, 0)\)
+	\[<x, 0_v> = <x, 0 \cdot 0_v> = 0 \cdot <x, 0_v> = 0\]
+	Fall 2: \(|<x, y>| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
+	\[\Leftrightarrow x + ty \neq 0 \quad \forall t \in \R \Leftrightarrow x, y \text{ linear unabhängig} \]
 \end{bew}
 \begin{defi}
 	Eine Funktion \( ||\cdot || : \R^d \rightarrow \R \) heißt Norm (auf \( \R^d \)), falls \( \forall x,y\in\R^d, \lambda\in\R: \)
@@ -2671,7 +2686,17 @@ Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 \end{bew}
 \begin{bem}
 	Auch:
-	%WEITERMACHEN
+	\begin{align*}
+		&|x - y| \geq 0 \text{ und } |x - y| = 0 \Leftrightarrow x = y\\
+		&|x - y| = |y - x|\\
+		&|x - y| = |x-z + z-y| \leq |x - z| + |y - z| \quad \forall z \in \R^d\\
+		&||x| + |y|| \leq |x - y|
+	\end{align*}
+	 \[\]
+	 \[\]
+	 \[ \]
+	 \[\]
+	 %Bild
 \end{bem}
 Komplexe Zahlen:\\
 \( z=x+iy \quad\forall x,y\in\R \) und \( i^2 = -1 \).\\

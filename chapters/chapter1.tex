@@ -3,26 +3,41 @@
 \begin{document}
 
 \section{Was ist Analysis?}
-\textbf{Mathematik:} Streng logisches Herleiten neuer Aussagen (aus möglichst wenigen Grundannahmen, sog. Axiomen).\\
-\textbf{Analysis:} Aus dem altgriech. \glqq Auflösen\grqq. Analysis hat ihre Grundlage in der \glqq Infinitisemalrechnung\grqq  \; von Leibnitz und Newton.\\
-\textbf{Zentrale Begriffe:} Grenzwerte von Folgen und Reihen, Funktionen, stetig, differenzierbar, integrieren, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume
-\begin{bsp}
-	\(S = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^n} + \dots\\
-	2S = 1 + \frac{1}{2} + \dots + \nicefrac{1}{2} + \dots\\
-	2S = 1 + S\)\\
-	\(S\) entspricht der Wahrscheinlichkeit, dass irgendwann mal Kopf in einem Münzwurf kommt.\\
-	Vorsicht!\\
-	\(S = 1 + 2 + 4 + \dots\\
-	2S = 2 + 4 + 8 + \dots = -1 + 1 + 2 + 4 + \dots = -1 + S\\
-	S = -1\)\\
-	Natürlich Quatsch!\\
-	Formales Rechnen kann gefährlich sein!
-
-	\begin{itemize}
-		\item Was sind mathematische Aussagen?
-		\item Wie macht man Beweise, wie findet man sie? (learning by doing)
-		\item logische Zusammenhänge
-		\item Was sind Zahlen?
-	\end{itemize}
+\begin{description}
+	\item[Mathematik]
+		Streng logisches Herleiten neuer Aussagen (aus möglichst wenigen Grundannahmen, sogenannten Axiomen).
+	\item[Analysis]
+		Aus dem altgriechischen \glqq Auflösen\grqq. Analysis hat ihre Grundlage in der \glqq Infinitesimalrechnung\grqq\: von Leibnitz und Newton.
+	\item[Zentrale Begriffe]
+		Grenzwerte von Folgen und Reihen, Funktionen, Stetigkeit, Differenzierbarkeit, Integrierbarkeit, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume.
+\end{description}
+\begin{bsp}\leavevmode
+	\begin{enumerate}[(a)]
+		\item
+			\begin{alignat*}{3}
+							   &&             S &= \frac{1}{2} + \frac{1}{4} + \cdots + \frac{1}{2^{n}} + \cdots \\
+				\Longrightarrow&\quad& 		 2S &= 1 + \frac{1}{2} + \cdots + \frac{1}{2^{n-1}} + \cdots \\
+				\Longrightarrow&\quad& 	     2S &= 1 + S \\
+				\Longrightarrow&&             S &= 1
+			\end{alignat*}
+			\(S\) entspricht der Wahrscheinlichkeit, dass bei wiederholtem Werfen \\
+			einer Münze irgendwann Kopf vorkommt.\\
+		\item Vorsicht!
+			\begin{alignat*}{3}
+							   &&       S &= 1 + 2 + 4 + \cdots\\
+				\Longrightarrow&\quad& 2S &= 2 + 4 + 8 + \cdots = S - 1\\
+				\Longrightarrow&\quad&  S &= -1
+			\end{alignat*}
+			Natürlich Quatsch! Formales Rechnen kann gefährlich sein!
+	\end{enumerate}
 \end{bsp}
+\begin{description}
+	\item[Fragestellungen in dieser Vorlesung]\leavevmode
+		\begin{itemize}
+			\item Was sind mathematische Aussagen?
+			\item Wie macht man Beweise, wie findet man sie? (learning by doing)
+			\item logische Zusammenhänge
+			\item Was sind Zahlen?
+		\end{itemize} 
+\end{description}
 \end{document}

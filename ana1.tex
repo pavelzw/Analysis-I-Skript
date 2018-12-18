@@ -13,6 +13,7 @@
 \usetikzlibrary{matrix}
 \usepackage{hyperref} %Hyperlinks in pdf
 \usepackage{subfiles}
+\usepackage[shortlabels]{enumitem}
 
 %Metadaten
 \hypersetup{
@@ -63,24 +64,33 @@
 
 \setcounter{section}{-1}
 \section{Organisatorisches}
-\textbf{Dozent}\\
-Prof.\ Dr.\ Dirk Hundertmark (20.30, 2.028)\\
-\href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}\\
-\textbf{Übungsleiter}\\
-Dr.\ Markus Lange (20.30, 2.030)\\
-\href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}\\
-\textbf{Übungszettel}\\
-Ausgabe:\\
-donnerstags unter \href{http://www.math.kit.edu/iana1/lehre/ana12018w/}{\texttt{www.math.kit.edu/iana1/lehre/ana12018w/}}\\
-Abgabe:\\
-bis mittwochs um 19:00 in den Abgabekästen des Foyers des Mathematikgebäudes (20.30)\\
-getackert, mit Namen, Matrikelnummer, Tutoriennummer und Deckblatt (optional) in das Fach mit der richtigen Kennzeichnung legen\\
-Zettel dürfen zu zweit abgegeben werden\\
-\textbf{Übungsschein}\\
-Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\% der Punkte aller K-Aufgaben erzielt.\\
-\textbf{Klausur}\\
-Die Anmeldung findet über das Online-Portal statt. Die Klausur findet am 26.03.2019 von 08:00 bis 10:00 statt. Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
-
+\begin{description}[style=nextline]
+	\item[Dozent]
+		Prof.\ Dr.\ Dirk Hundertmark (Gebäude 20.30, Raum 2.028)\\
+		\href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}
+	\item[Übungsleiter]
+		Dr.\ Markus Lange (Gebäude 20.30, Raum 2.030)\\
+		\href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}
+	\item[Übungsaufgaben]
+		\begin{description}
+			\item[]
+			\begin{enumerate}
+			\item[]
+			\item[Ausgabe:] Die Übungsblätter werden jeden Donnerstag veröffentlicht unter\\
+						    \href{http://www.math.kit.edu/iana1/lehre/ana12018w/}{\texttt{www.math.kit.edu/iana1/lehre/ana12018w/}}.
+			\item[Abgabe:] Die bearbeiteten Übungsblätter können bis mittwochs um 19:00 Uhr in den Abgabekästen im Foyer\\
+			    		   des Mathebaus (Gebäude 20.30) abgegeben werden.\\ 
+						   Die Abgaben werden getackert sowie mit Namen, Matrikelnummer und Tutoriennummer beschriftet in das Fach mit
+						   der richtigen Kennzeichnung geworfen.\\
+						   Übungsaufgaben dürfen zu zweit abgegeben werden.\\
+			\end{enumerate}
+		\end{description}
+	\item[Übungsschein]
+		Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\% der Punkte aller K-Aufgaben erzielt.
+	\item[Klausur]
+		Die Anmeldung findet über das Online-Portal statt. Die Klausur findet am 26.03.2019 von 08:00 bis 10:00 statt.
+		Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
+\end{description}
 \newpage
 \foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex} }
 \end{document}

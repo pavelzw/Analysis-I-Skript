@@ -1,3 +1,6 @@
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+
 %09.11.2018
 \section{Induktion}
 \subsection{Starke Induktion und das Wohlordnungsprinzip}
@@ -29,9 +32,9 @@
 	\begin{enumerate}
 		\item $A(1)$ ist wahr, denn ist $B\subset \mathbb{N}$ mit $1\in B$, so folgt $\forall k \in B: l\geq 1$. Also ist $1$ kleinstes Element in $B$.
 		\item Angenommen für $n\in\mathbb{N}$ sind $A(1),\ldots,A(n)$ wahr. Sei $B\subset \mathbb{N}$ mit $n+1\in B$.\\
-		\underline{1. Fall:} $\{1,\ldots,n\}\cap B = \emptyset \Rightarrow n+1$ ist kleinstes Element in $B$.\\
-		\underline{2. Fall:} $\{1,\ldots,n\} \cap B \neq \emptyset \Rightarrow \exists k\in \{1,\ldots,n\}$ mit $k\in B$.\\
-		Aus der Induktionsannahme folgt also $A(k)$ ist wahr. $\Rightarrow B$ hat ein kleinstes Element.
+		      \underline{1. Fall:} $\{1,\ldots,n\}\cap B = \emptyset \Rightarrow n+1$ ist kleinstes Element in $B$.\\
+		      \underline{2. Fall:} $\{1,\ldots,n\} \cap B \neq \emptyset \Rightarrow \exists k\in \{1,\ldots,n\}$ mit $k\in B$.\\
+		      Aus der Induktionsannahme folgt also $A(k)$ ist wahr. $\Rightarrow B$ hat ein kleinstes Element.
 	\end{enumerate}
 	In beiden Fällen hat $B$ ein kleinstes Element, also ist $A(n+1)$ wahr.\\
 	$\overset{\text{Satz 1}}{\Rightarrow} \forall n\in \mathbb{N} A(n)$ wahr.
@@ -40,12 +43,12 @@ Notation:\\
 Ganze Zahlen $\mathbb{Z} := (-\mathbb{N})\cup \mathbb{N}_0 = \{0, \pm 1, \pm 2, \ldots\} = \{\ldots, -2,-1,0,1,2,\ldots\}$.\\
 Rationale Zahlen: $\mathbb{Q} := \{ \frac{m}{n} \vert n\in\mathbb{N}, m\in\mathbb{Z}\}$.
 \begin{kor}
-	Jede nichtleere, nach unten beschränkte Teilmenge in $\mathbb{Z}$ hat ein kleinstes Element. 
+	Jede nichtleere, nach unten beschränkte Teilmenge in $\mathbb{Z}$ hat ein kleinstes Element.
 \end{kor}
 \begin{bew}
 	Sei $A\subsetneq \mathbb{Z}, A\neq \emptyset, A\geq \beta$ für $B\in\mathbb{Z}$\\
 	Setze $B:= A+\beta +1 =\{\alpha+|\beta|+1\vert \alpha\in A\}\subsetneq \mathbb{N}, B\neq \emptyset\\
-	\overset{\text{Satz 2}}{\Rightarrow} \exists n_0:= \min B \Rightarrow z_0 := n_0 - |\beta|-1\in\mathbb{Z}$ ist kleinstes Element von $A$.
+		\overset{\text{Satz 2}}{\Rightarrow} \exists n_0:= \min B \Rightarrow z_0 := n_0 - |\beta|-1\in\mathbb{Z}$ ist kleinstes Element von $A$.
 \end{bew}
 \subsection{Anwendungen}
 \begin{lem}
@@ -80,11 +83,11 @@ Beh.: $\sqrt{2}\in\mathbb{R}\setminus \mathbb{Q}.$
 	Sei $r^2=2$ mit $r = \frac{m}{n}, n\in\mathbb{N}, m\in\mathbb{Z}$.\\
 	Wir definieren $$A:= \{n\in\mathbb{N}|\exists m\in\mathbb{Z} \frac{m^2}{n^2}= 2\} \neq \emptyset$$
 	$$\overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \mathbb{N}$$
-	Also existiert $m\in\mathbb{Z}_+$ mit 
+	Also existiert $m\in\mathbb{Z}_+$ mit
 	$$m^2 = 2\cdot m_*^2 \Rightarrow m>n_*$$
-	Außerdem gilt 
+	Außerdem gilt
 	$$m=\sqrt{2}n_* \overset{\sqrt{2}>1}{\Leftrightarrow} 0< \underbrace{m-n_*}_{\in\mathbb{N}} = \underbrace{\overbrace{(\sqrt{2} - 1)}}^{>0}_{<1} n_* < n_*$$
-	Nun gilt: $$\sqrt{2} = \frac{m}{n_*} = \frac{m(m-n_*)}{n_*(m-n_*)} \overset{m^2=2n_*^2}{=} \frac{2n_*^2-mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*}$$ 
+	Nun gilt: $$\sqrt{2} = \frac{m}{n_*} = \frac{m(m-n_*)}{n_*(m-n_*)} \overset{m^2=2n_*^2}{=} \frac{2n_*^2-mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*}$$
 	\Lightning $2n_* -m \in \mathbb{Z}, m-n_* < n_*$, aber $n_* = \min A$\\
 	Somit kann kein $m\in\mathbb{Z}$ existieren, sodass $\frac{m^2}{n^2} = 2$ für beliebiges $n\in\mathbb{N}.$\\
 	Also ist $\sqrt{2}$ per Definition der rationalen Zahlen in $\mathbb{R}\setminus\mathbb{Q}$.
@@ -96,7 +99,7 @@ Beh.: $\sqrt{2}\in\mathbb{R}\setminus \mathbb{Q}.$
 	Sei $k\in\mathbb{N}$ und $\sqrt{k} \notin \mathbb{N}$.\\
 	Angenommen $\sqrt{k}\in\mathbb{Q}$, also $\sqrt{k} = \frac{m}{n}, m\in\mathbb{Z},n\in\mathbb{N}$\\
 	$A:=\{n\in\mathbb{N}|\exists m\in\mathbb{Z} \frac{m^2}{n^2} = k\}$
-	$$\overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N$$ 
+	$$\overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N$$
 	Sei $\frac{m}{n_*} = \sqrt{k}$, dann gilt
 	$$m-n_* = \underbrace{(\sqrt{k}-1)}_{<1} n_*$$ %DURCHGESTRICHEN
 	Aber wähle $q\in\N: q\leq \sqrt{k} < q+1$\\
@@ -105,5 +108,7 @@ Beh.: $\sqrt{2}\in\mathbb{R}\setminus \mathbb{Q}.$
 	$$0\overset{q<\sqrt{k}}{<} \underbrace{m-qn_*}_{\in\mathbb{N}} = (\underbrace{\sqrt{k}-q}_{<1})n_* < n_*$$
 	Somit $$\sqrt{k} = \frac{m}{n_*} = \frac{m(m-qn_*)}{n_*(m-qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m-qn_*)}=\frac{kn_*-mq}{m-qn_*}$$
 	\Lightning $n_* = \min A, m-qn_* < n_*$\\
-	Somit muss $\sqrt{k}\in\R\setminus\Q$ sein. 
+	Somit muss $\sqrt{k}\in\R\setminus\Q$ sein.
 \end{bew}
+
+\end{document}

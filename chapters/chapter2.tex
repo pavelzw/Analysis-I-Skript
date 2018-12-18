@@ -1,26 +1,29 @@
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+
 \section{Etwas Logik}
 Eine (mathematische) Aussage ist ein Ausdruck, der wahr oder falsch ist.\\
 z.B.
 \begin{enumerate}
-  \item \(A :\) \gqq{\(1+1=2\).}  (auch \gqq{\(1+1=3\)}, \gqq{\(1+1=0\)})
-  \item \(B :\) \gqq{Es gibt unendlich viele Primzahlen.}
-  \item \(C :\) \gqq{Es gibt unendlich viele Primzahlen \(p\), für die \(p + 2\) auch eine Primzahl ist.} (Primzahlzwillingsvermutung)
-  \item \(D :\) \gqq{Die Gleichung \(m \ddot{x} = F\) hat, gegeben \(\dot{x}(0) = v_0, x(0) = x_0\), immer genau eine Lösung.} (Lösung der Newtonschen Gleichung)
-  \item \(E :\) \gqq{Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.} (Goldbachsche Vermutung)
-  \item \(F :\) \gqq{Morgen ist das Wetter schön.}
-  \item \(G :\) \gqq{Ein einzelnes Atom im Vakuum mit der Kernladungszahl \(Z\) kann höchstens \(Z+1\) Elektronen binden.} (Ionisierungsvermutung, es ist noch nicht einmal bekannt, ob es eine Zahl \(Z\) gibt, sodass höchstens \(Z+1\) Elektronen gebunden werden.)
-  \item \(H(k,m,n) :\) \gqq{Es gilt: \(k^2 + m^2 = n^2\).} (z. B. \(H(3,4,5)\) ist wahr.)
+	\item \(A :\) \gqq{\(1+1=2\).}  (auch \gqq{\(1+1=3\)}, \gqq{\(1+1=0\)})
+	\item \(B :\) \gqq{Es gibt unendlich viele Primzahlen.}
+	\item \(C :\) \gqq{Es gibt unendlich viele Primzahlen \(p\), für die \(p + 2\) auch eine Primzahl ist.} (Primzahlzwillingsvermutung)
+	\item \(D :\) \gqq{Die Gleichung \(m \ddot{x} = F\) hat, gegeben \(\dot{x}(0) = v_0, x(0) = x_0\), immer genau eine Lösung.} (Lösung der Newtonschen Gleichung)
+	\item \(E :\) \gqq{Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.} (Goldbachsche Vermutung)
+	\item \(F :\) \gqq{Morgen ist das Wetter schön.}
+	\item \(G :\) \gqq{Ein einzelnes Atom im Vakuum mit der Kernladungszahl \(Z\) kann höchstens \(Z+1\) Elektronen binden.} (Ionisierungsvermutung, es ist noch nicht einmal bekannt, ob es eine Zahl \(Z\) gibt, sodass höchstens \(Z+1\) Elektronen gebunden werden.)
+	\item \(H(k,m,n) :\) \gqq{Es gilt: \(k^2 + m^2 = n^2\).} (z. B. \(H(3,4,5)\) ist wahr.)
 \end{enumerate}
 Sei  \(A(n)\) eine Aussage für jede natürliche Zahl \(n\). Dann gilt:\\
-Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn 
+Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn
 \begin{enumerate}
-  \item \(A(1)\) ist wahr.
-  \item Unter der Annahme, dass \(A(n)\) wahr ist, folgt, dass \(A(n+1)\) wahr ist.
+	\item \(A(1)\) ist wahr.
+	\item Unter der Annahme, dass \(A(n)\) wahr ist, folgt, dass \(A(n+1)\) wahr ist.
 \end{enumerate}
 \begin{bsp}
 	\(A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}\).
 \end{bsp}
-\begin{bew} 
+\begin{bew}
 	Vollständige Induktion\\
 	Induktionsanfang:\\
 	\(1 = \frac{1(1+1)}{2} \checkmark\)\\
@@ -37,7 +40,7 @@ Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn
 	Gaußscher Trick:\\
 	1)\\
 	\(S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
-	2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S = 
+	2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S =
 	\frac{n(n+1)}{2}\).\\
 	2)\\
 	\(S_n = 0 + 1 + 2 + \dots + n\\=\) Anzahl der Punkte in\\
@@ -56,25 +59,25 @@ Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn
 \subsection{Grundbegriffe}
 Aussagen: Notation\\
 \begin{tabular}{r|l}
-	\(:\) & \glqq so, dass gilt\grqq\\
-	\(\exists\) & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq\\
-	\(\forall\) & \glqq für alle\grqq\\
-	\(\Rightarrow\) & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq)\\
-	\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq\\
-	\(\neg A\) & nicht \(A\)\\
-	\(A \wedge B\) & \(A\) und \(B\)\\
-	\(A \vee B\) & \(A\) oder \(B\)\\
-	\(A := B\) & \(A\) ist per Definition gleich \(B\)
+	\(:\)               & \glqq so, dass gilt\grqq                                                    \\
+	\(\exists\)         & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq                 \\
+	\(\forall\)         & \glqq für alle\grqq                                                         \\
+	\(\Rightarrow\)     & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq) \\
+	\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq                                                 \\
+	\(\neg A\)          & nicht \(A\)                                                                 \\
+	\(A \wedge B\)      & \(A\) und \(B\)                                                             \\
+	\(A \vee B\)        & \(A\) oder \(B\)                                                            \\
+	\(A := B\)          & \(A\) ist per Definition gleich \(B\)
 \end{tabular}
 
 \begin{satz}
 	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
 	\begin{tabular}{rl}
-		\(\neg(\neg A) \Leftrightarrow A\) & Gesetz der doppelten Verneinung\\
-		\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\) & Kontraposition\\
-		\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))\) & beim Widerspruchsbeweis\\
-		\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\) & de Morgan\\
-		\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\) & de Morgan\\
+		\(\neg(\neg A) \Leftrightarrow A\)                            & Gesetz der doppelten Verneinung \\
+		\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\) & Kontraposition                  \\
+		\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))\)  & beim Widerspruchsbeweis         \\
+		\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\)     & de Morgan                       \\
+		\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\)     & de Morgan                       \\
 	\end{tabular}
 \end{satz}
 \begin{bem}
@@ -91,9 +94,9 @@ Aussagen: Notation\\
 		Umgekehrt müssen wir zeigen:\\
 		\glqq $\Leftarrow$\grqq : $n^2$ gerade $\Rightarrow n$ gerade\\
 		Kontraposition: $n$ ungerade $\Rightarrow$ $n^2$ ungerade\\
-		Also sei $n = 2k+1, k \in \mathbb{N}_0 \Rightarrow n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = \underbrace{2(2k^2 + 2k)}_{\text{gerade}} + 1 \Rightarrow n^2$ ist ungerade. 
+		Also sei $n = 2k+1, k \in \mathbb{N}_0 \Rightarrow n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = \underbrace{2(2k^2 + 2k)}_{\text{gerade}} + 1 \Rightarrow n^2$ ist ungerade.
 	\end{bew}
-\end{bsp} 
+\end{bsp}
 \textbf{Mengen} (nach Cantor)\\
 informell: Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.\\
 Vorsicht: Russels Paradox\\
@@ -102,12 +105,12 @@ $a\in M: a$ ist Element von $M$\\
 $a \notin M: a$ ist kein Element von $M$\\
 z.B.:\\
 $M = \{1, 4\}\\1\in M\\5 \notin M$\\
-Angabe von Mengen durch 
+Angabe von Mengen durch
 \begin{itemize}
 	\item Auflistung\\
-	$M = \{x_1, x_2, x_3, \dots, x_{17} \}$
+	      $M = \{x_1, x_2, x_3, \dots, x_{17} \}$
 	\item Eigenschaft\\
-	$M = \{a | a \text{ hat Eigenschaft } E\}$
+	      $M = \{a | a \text{ hat Eigenschaft } E\}$
 \end{itemize}
 z.B.:
 \begin{itemize}
@@ -133,16 +136,16 @@ $\neg (\exists x \in M : A(x)) \\ \Leftrightarrow \forall x \in M : \neg A(x)$
 \begin{defi}[wichtige Mengen]
 	Seien $M,N$ Mengen.
 	\begin{align*}
-		\emptyset &:= \text{ die Menge ohne Elemente (leere Menge)}\\
-		M \cap N &:= \{x | x \in M \wedge x \in N \} \text{ (Schnitt)}\\
-		M \cup N &:= \{x | x \in M \vee x \in N \} \text{ (Vereinigung)}\\
-		M \setminus N &:= \{x | x \in M \wedge x \notin N \} \text{ (Differenzmenge)}\\
-		\mathcal{P}(M) &:= \{A | A \subset M \} \text{ die Menge aller Teilmengen von } M \text{ (Potenzmenge)}
+		\emptyset      & := \text{ die Menge ohne Elemente (leere Menge)}                                        \\
+		M \cap N       & := \{x | x \in M \wedge x \in N \} \text{ (Schnitt)}                                    \\
+		M \cup N       & := \{x | x \in M \vee x \in N \} \text{ (Vereinigung)}                                  \\
+		M \setminus N  & := \{x | x \in M \wedge x \notin N \} \text{ (Differenzmenge)}                          \\
+		\mathcal{P}(M) & := \{A | A \subset M \} \text{ die Menge aller Teilmengen von } M \text{ (Potenzmenge)}
 	\end{align*}
 	Sei $I$ eine Menge und für $i\in I$ eine Menge $M_i$.
 	\begin{align*}
-		\bigcap\limits_{i\in I} M_i &:= \{x | \forall i \in I:x\in M_i\}.\\	
-		\bigcup\limits_{i\in I} M_i &:= \{x | \exists i \in I:x\in M_i\}.
+		\bigcap\limits_{i\in I} M_i & := \{x | \forall i \in I:x\in M_i\}. \\
+		\bigcup\limits_{i\in I} M_i & := \{x | \exists i \in I:x\in M_i\}.
 	\end{align*}
 	Ist $M\cap N = \emptyset$, so heißen $M$ und $N$ divergent.\\
 	$M\subset N$, falls $\forall x \in M: x \in N$ ($M$ Teilmenge von $N$).\\
@@ -151,30 +154,32 @@ $\neg (\exists x \in M : A(x)) \\ \Leftrightarrow \forall x \in M : \neg A(x)$
 	$M \subsetneq N : M \subset N \wedge M \neq N$ ($M$ echte Teilmenge von $N$).
 \end{defi}
 \begin{bsp}
-$\emptyset \subset M$\\
-$M = \{1,2\} \Rightarrow \mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+	$\emptyset \subset M$\\
+	$M = \{1,2\} \Rightarrow \mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
 \end{bsp}
 \begin{enumerate}
 	\item Eigenschaften von \glqq $\subset$\grqq
-	\begin{enumerate}
-		\item $\emptyset \subset M$
-		\item $M\subset M$
-		\item $M=N \Leftrightarrow M\subset N \wedge N\subset M$
-		\item $A\subset B \wedge B \subset C \Leftrightarrow A \subset C$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item $\emptyset \subset M$
+		      \item $M\subset M$
+		      \item $M=N \Leftrightarrow M\subset N \wedge N\subset M$
+		      \item $A\subset B \wedge B \subset C \Leftrightarrow A \subset C$
+	      \end{enumerate}
 	\item Assoziativität
-	\begin{enumerate}
-		\item $(A\cup B) \cup C = A \cup (B \cup C)$
-		\item $(A\cap B) \cap C = A \cap (B \cap C)$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item $(A\cup B) \cup C = A \cup (B \cup C)$
+		      \item $(A\cap B) \cap C = A \cap (B \cap C)$
+	      \end{enumerate}
 	\item Kommutativität
-	\begin{enumerate}
-		\item $A\cup B = B \cup A$
-		\item $A\cap B = B \cap A$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item $A\cup B = B \cup A$
+		      \item $A\cap B = B \cap A$
+	      \end{enumerate}
 	\item Distributivgesetz
-	\begin{enumerate}
-		\item $A \cap (B\cup C) = (A\cap B) \cup (A\cap C)$
-		\item $A \cup (B\cap C) = (A\cup B) \cap (A\cup C)$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item $A \cap (B\cup C) = (A\cap B) \cup (A\cap C)$
+		      \item $A \cup (B\cap C) = (A\cup B) \cap (A\cup C)$
+	      \end{enumerate}
 \end{enumerate}
+
+\end{document}

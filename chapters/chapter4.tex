@@ -1,4 +1,7 @@
 %02.11.2018
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+
 \section{Funktionen und Abbildungen}
 \subsection{Funktion als Abbildung}
 \begin{defi}
@@ -6,15 +9,15 @@
 	Wir schreiben:
 	\begin{equation*}
 		f: A \rightarrow B, a \mapsto f(a)\quad(=b)
-	\end{equation*}	
+	\end{equation*}
 	$A$: Definitionsbereich\\
 	$B:$ Zielbereich (Target(space))\\
 	z.B. $f: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x^2$\\
 	Die Abbildung $f: A \rightarrow B$ ist\\
 	\begin{tabular}{r|l}
-		injektiv&aus $f(a) = f(a') \; a, a' \in A$, folgt $a=a'$\\
-		surjektiv&$\forall b\in B \exists a\in A: b=f(a)$\\
-		bijektiv&sie ist injektiv und surjektiv
+		injektiv  & aus $f(a) = f(a') \; a, a' \in A$, folgt $a=a'$ \\
+		surjektiv & $\forall b\in B \exists a\in A: b=f(a)$         \\
+		bijektiv  & sie ist injektiv und surjektiv
 	\end{tabular}
 \end{defi}
 \begin{bem}
@@ -87,7 +90,7 @@ Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B
 	Ist $f: A\rightarrow B$ bijektiv\\
 	$b=f(a),\quad f^{-1}(b)=a$\\
 	Dann gilt: $\Gamma_f^{-1} = \{(b, f^{-1}(b)) | b\in B\}\\
-	= \{(f(a),a):a\in A\} = S(\Gamma_f), S: A\times B \rightarrow B\times A$ (swap), $(a,b)\mapsto(b,a)$.\\
+		= \{(f(a),a):a\in A\} = S(\Gamma_f), S: A\times B \rightarrow B\times A$ (swap), $(a,b)\mapsto(b,a)$.\\
 	\includegraphics[width=0.3\textwidth]{images/img08.png} \quad
 	\includegraphics[width=0.3\textwidth]{images/img09.png}\\
 	$\Gamma_{f^{-1}} = $ Spiegeln von $\Gamma_f$ an Winkelhalbierenden.
@@ -112,8 +115,8 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\begin{enumerate}
 		\item Ang. $m=1 \Rightarrow m=1\leq n+1\checkmark$
 		\item Ang. $m>1, m\in\mathbb{N} \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\mathbb{N}$\\
-		$(*)$ Beh.: $\exists$ inj. $\tilde{f}: \{1,\ldots,m-1\}\rightarrow\{1,\ldots,n\}$.\\
-		$$\overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}.$$		
+		      $(*)$ Beh.: $\exists$ inj. $\tilde{f}: \{1,\ldots,m-1\}\rightarrow\{1,\ldots,n\}$.\\
+		      $$\overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}.$$
 	\end{enumerate}
 	Beweis von $(*)$:\\
 	Angenommen, $\exists f: [m]\rightarrow[n+1]$ inj.\\
@@ -121,16 +124,16 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Fallunterscheidung:
 	\begin{itemize}
 		\item Ang. $f(k)\in [n] \forall 1\leq k \leq m-1$. Dann setze $\tilde{f}(k) := f\vert_{[m-1]}\\
-		\tilde{f}(k) := f(k), 1\leq k\leq m-1$\\
-		(Nachrechnen $\tilde{f}$ ist injektiv.)
+			      \tilde{f}(k) := f(k), 1\leq k\leq m-1$\\
+		      (Nachrechnen $\tilde{f}$ ist injektiv.)
 		\item $\exists j\in\mathbb{N}, 1\leq j\leq m-1$ mit $f(j) = n+1$.\\
-		Dann def. $\tilde{f}: [m-1]\rightarrow [n]$
-		$$\tilde{f}(k) :=
-		\begin{cases}
-			f(k), 1 \leq k \leq m-1, k\neq j\\
-			f(m), k=j
-		\end{cases}$$
-		Man prüfe nach $\tilde{f}: [m-1]\rightarrow [n]$ injektiv!
+		      Dann def. $\tilde{f}: [m-1]\rightarrow [n]$
+		      $$\tilde{f}(k) :=
+			      \begin{cases}
+				      f(k), 1 \leq k \leq m-1, k\neq j \\
+				      f(m), k=j
+			      \end{cases}$$
+		      Man prüfe nach $\tilde{f}: [m-1]\rightarrow [n]$ injektiv!
 	\end{itemize}
 \end{bew}
 \begin{kor}
@@ -145,12 +148,12 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Die Anzahl der Elemente von $M$ ($\#M$) ist dann $\#M:=n$, setzen $\#\emptyset := 0$. Eine Menge ist unendlich, falls sie nicht endlich ist.
 	\begin{bem}
 		Ist $M$ endlich, so ist $\#M$ wohldefiniert. \\
-		Angenommen: 
+		Angenommen:
 		$$\begin{array}{lr}
-		f:[n]\rightarrow M\\
-		g:[m]\rightarrow M
-		\end{array}
-		\text{ beide bijektiv.}$$
+				f:[n]\rightarrow M \\
+				g:[m]\rightarrow M
+			\end{array}
+			\text{ beide bijektiv.}$$
 		$$[n]\overset{f}{\longrightarrow} M \overset{g}{\longleftarrow} [m]$$
 		$h:= f^{-1}\circ g = [m]\rightarrow[n]$ ist auch bijektiv. $\overset{\text{Korr. 2}}{\Rightarrow} m=n.$
 	\end{bem}
@@ -184,38 +187,38 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Beweis unterteilen:
 	\begin{enumerate}
 		\item Sei $A$ abzählbar. Ist $A$ endlich, so ist auch jedes $B\subset A$ endlich, und somit abzählbar.\\
-		Sei $A$ abzählbar unendlich. Dann existiert eine Bijektion $f: \N \rightarrow A$ und setzen wir $a_n := f(n)$, so ist
-		$$A = \bigcup_{n\in\N} \{a_n\} = \{a_1, a_2,\ldots\}.$$
-		Ist $B\subset A$, so existieren $n_j \in\N, 1\leq n_1<n_2<\ldots$ mit $$B = \{a_{n_1}, a_{n_2}, \ldots\}.$$
-		Gibt es nur endlich viele $n_j$, so ist $B$ endlich, andernfalls ist $h: \N \rightarrow B, g \mapsto h(j) := a_{n_j}$
-		eine Bijektion.
+		      Sei $A$ abzählbar unendlich. Dann existiert eine Bijektion $f: \N \rightarrow A$ und setzen wir $a_n := f(n)$, so ist
+		      $$A = \bigcup_{n\in\N} \{a_n\} = \{a_1, a_2,\ldots\}.$$
+		      Ist $B\subset A$, so existieren $n_j \in\N, 1\leq n_1<n_2<\ldots$ mit $$B = \{a_{n_1}, a_{n_2}, \ldots\}.$$
+		      Gibt es nur endlich viele $n_j$, so ist $B$ endlich, andernfalls ist $h: \N \rightarrow B, g \mapsto h(j) := a_{n_j}$
+		      eine Bijektion.
 		\item o.B.d.A. sind alle $A_j$ paarweise verschieden, $A_l \cap A_m \neq \emptyset$ für \(l\neq m\).
-		Wenn nicht, betrachte 
-		\[B_1 := A_1, \quad B_2 := A_2 \setminus A_1,\]
-		\[B_3 := A_3 \setminus \{A_1 \cup A_2\}, \ldots, \quad B_{n+1} := A_{n+1} \setminus \{A_1\cup\ldots\cup A_n\}\]
-		Dann sind \(B_n\) paarweise verschieden und \[\bigcup_{l\in\N} B_l = \bigcup_{l\in\N} A_l.\]
-		Schreiben \(A_l\) als Liste \(A_l = \{a_{1l}, a_{2l}, \ldots\}\)\\
-		Bild:\\
-		\begin{tikzpicture}
-			\matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm]{
-				s_{11} & s_{12} & s_{13} & s_{14} & \cdots \\
-				s_{21} & s_{22} & s_{23} & s_{24} & \cdots \\
-				s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
-				s_{41} & s_{42} & s_{43} & \cdots \\
-			};
-			
-			\draw[->]
-			(m-1-1)edge(m-1-2)
-			(m-1-2)edge(m-2-1)
-			(m-2-1)edge(m-3-1)
-			(m-3-1)edge(m-2-2)
-			(m-2-2)edge(m-1-3)
-			(m-1-3)edge(m-1-4)
-			(m-1-4)edge(m-2-3)
-			(m-2-3)edge(m-3-2)
-			(m-3-2)edge(m-4-1);
-		\end{tikzpicture}
-		\\Jetzt können wir das obige rechteckige Schema diagonal abzählen! Dies liefert uns eine Bijektion von \(\N\) nach \(\bigcup_l\in\N A_l\).
+		      Wenn nicht, betrachte
+		      \[B_1 := A_1, \quad B_2 := A_2 \setminus A_1,\]
+		      \[B_3 := A_3 \setminus \{A_1 \cup A_2\}, \ldots, \quad B_{n+1} := A_{n+1} \setminus \{A_1\cup\ldots\cup A_n\}\]
+		      Dann sind \(B_n\) paarweise verschieden und \[\bigcup_{l\in\N} B_l = \bigcup_{l\in\N} A_l.\]
+		      Schreiben \(A_l\) als Liste \(A_l = \{a_{1l}, a_{2l}, \ldots\}\)\\
+		      Bild:\\
+		      \begin{tikzpicture}
+			      \matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm]{
+				      s_{11}  & s_{12}  & s_{13}  & s_{14}  & \cdots \\
+				      s_{21}  & s_{22} & s_{23} & s_{24} & \cdots \\
+				      s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
+				      s_{41} & s_{42} & s_{43} & \cdots                                  \\
+			      };
+
+			      \draw[->]
+			      (m-1-1)edge(m-1-2)
+			      (m-1-2)edge(m-2-1)
+			      (m-2-1)edge(m-3-1)
+			      (m-3-1)edge(m-2-2)
+			      (m-2-2)edge(m-1-3)
+			      (m-1-3)edge(m-1-4)
+			      (m-1-4)edge(m-2-3)
+			      (m-2-3)edge(m-3-2)
+			      (m-3-2)edge(m-4-1);
+		      \end{tikzpicture}
+		      \\Jetzt können wir das obige rechteckige Schema diagonal abzählen! Dies liefert uns eine Bijektion von \(\N\) nach \(\bigcup_l\in\N A_l\).
 	\end{enumerate}
 \end{bew}
 \begin{bem}
@@ -233,7 +236,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\(n = 1\) ist klar.
 	Beobachtung: Permutation \(\sigma \in S_n\) identifizieren mit \(n\)-Tupel \( (\sigma(1), \sigma(2), \ldots, \sigma(n))\)\\
 	Induktionsannahme: \(\# S_n = n!\) für ein \(n\in\N\)\\
-	Die Menge \(S_{n+1}\) ist die disjunkte Vereinigung der Teilmengen 
+	Die Menge \(S_{n+1}\) ist die disjunkte Vereinigung der Teilmengen
 	\[S_{n+1, k} := \{\tau \in S_{n+1} | \tau_k = n+1 \} \quad k = 1,\ldots, n+1.\]
 	z.B.: \[S_{4,2} = \{ (1,4,2,3), (2,4,3,1), (3,4,1,2), (1,4,3,2), (2,4,1,3), (3,4,1,2) \}\]
 	Beobachtung: Jedem \(\tau = (\sigma_1,\ldots,\sigma_n)\in S_n\) können wir die Permutation \( (\sigma_1, \ldots, \sigma_{k-1}, \underbrace{n+1}_{k\text{-te Stelle}}, \sigma_k, \ldots, \sigma_n) \in S_{n,k} \) zuordnen und diese Abbildung ist bijektiv (nachprüfen).
@@ -248,32 +251,32 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Für \( \alpha\in\R, k\in\N \) gilt \[ \binom{\alpha + 1}{k} = \binom{\alpha}{k} + \binom{\alpha}{k-1}. \]
 \end{lem}
 \begin{bew}
-	Für \(k=1\) ist dies einfach zu sehen. Für \(k\geq 2\) gilt 
+	Für \(k=1\) ist dies einfach zu sehen. Für \(k\geq 2\) gilt
 	\begin{align*}
-		&\binom{\alpha}{k} + \binom{\alpha}{k-1} \\
-		&= \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+1)}{1\cdot2\cdot\ldots\cdot k} + \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+2)}{1\cdot2\cdot\ldots\cdot (k-1)}\\
-		&= \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+2)(\alpha-k+1+k)}{1\cdot2\cdot\ldots\cdot k}\\
-		&= \frac{(\alpha + 1)\alpha (\alpha-1)\cdot\ldots\cdot((\alpha-1)-k+1)}{1\cdot2\cdot\ldots\cdot k} = \binom{\alpha + 1}{k}
+		 & \binom{\alpha}{k} + \binom{\alpha}{k-1}                                                                                                                                 \\
+		 & = \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+1)}{1\cdot2\cdot\ldots\cdot k} + \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+2)}{1\cdot2\cdot\ldots\cdot (k-1)} \\
+		 & = \frac{\alpha (\alpha-1)\cdot\ldots\cdot(\alpha-k+2)(\alpha-k+1+k)}{1\cdot2\cdot\ldots\cdot k}                                                                         \\
+		 & = \frac{(\alpha + 1)\alpha (\alpha-1)\cdot\ldots\cdot((\alpha-1)-k+1)}{1\cdot2\cdot\ldots\cdot k} = \binom{\alpha + 1}{k}
 	\end{align*}
 \end{bew}
 \begin{bem}
 	\begin{enumerate}
 		Pascal Dreieck:\\
 		\item Ist \(\alpha = n\in\N_0\), so können wir \(\binom{n}{k}\) ausrechnen mit dem Dreiecksschema von Blaise Pascal (1623-1662).\\
-		\begin{tabular}{>{$n=}l<{$\hspace{12pt}}*{13}{c}}
-			0 &&&&&&&1&&&&&&\\
-			1 &&&&&&1&&1&&&&&\\
-			2 &&&&&1&&2&&1&&&&\\
-			3 &&&&1&&3&&3&&1&&&\\
-			4 &&&1&&4&&6&&4&&1&&\\
-			5 &&1&&5&&10&&10&&5&&1&\\
-			6 &1&&6&&15&&20&&15&&6&&1
-		\end{tabular}
+		      \begin{tabular}{>{$n=}l<{$\hspace{12pt}}*{13}{c}}
+			      0 &   &   &   &   &    &    & 1  &    &    &   &   &   &   \\
+			      1 &   &   &   &   &    & 1  &    & 1  &    &   &   &   &   \\
+			      2 &   &   &   &   & 1  &    & 2  &    & 1  &   &   &   &   \\
+			      3 &   &   &   & 1 &    & 3  &    & 3  &    & 1 &   &   &   \\
+			      4 &   &   & 1 &   & 4  &    & 6  &    & 4  &   & 1 &   &   \\
+			      5 &   & 1 &   & 5 &    & 10 &    & 10 &    & 5 &   & 1 &   \\
+			      6 & 1 &   & 6 &   & 15 &    & 20 &    & 15 &   & 6 &   & 1
+		      \end{tabular}
 		\item Ist \( \alpha=n\in\N_0 \), so folgt durch Erweitern mit \((n-k)!\) für \(n \in\N_0, k\in\{0,1,\ldots,n\} \) \[ \binom{n}{k} = \frac{n!}{k!(n-k)!} = \binom{n}{n-k}. \]
 	\end{enumerate}
 \end{bem}
-\begin{satz} 
-	Zahl der Kombinationen:\\	
+\begin{satz}
+	Zahl der Kombinationen:\\
 	Sei \( n\in\N_0, k\in\{1,\ldots,n\} \). Dann ist die Anzahl der \(k\)-elementigen Teilmengen von \( \{1,\ldots,n\} \) gleich \( \binom{n}{k} \).
 \end{satz}
 \begin{bew}
@@ -289,9 +292,9 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	Die Mengen der 2. Klasse erhält man aus den \((k-1)\)-elementigen Teilmengen von \(\{1,\ldots,n\}\) durch Vereinigung mit \(\{n+1\}\).\\
 	Also ist nach Induktionsannahme
 	\begin{align*}
-		&\#\{k\text{-elementige Teilmengen von } \{1,\ldots,n+1\} \}\\
-		&=\#\{k\text{-elementige Teilmengen von } \{1,\ldots,n\} \} \\&+ \#\{(k-1)\text{-elementige Teilmengen von } \{1,\ldots,n\} \} \\
-		&\overset{\text{IV}}{=} \binom{n}{k} + \binom{n}{k-1} \overset{\text{Lem. 8}}{=} \binom{n+1}{k}.
+		 & \#\{k\text{-elementige Teilmengen von } \{1,\ldots,n+1\} \}                                     \\
+		 & =\#\{k\text{-elementige Teilmengen von } \{1,\ldots,n\} \}                                      \\&+ \#\{(k-1)\text{-elementige Teilmengen von } \{1,\ldots,n\} \} \\
+		 & \overset{\text{IV}}{=} \binom{n}{k} + \binom{n}{k-1} \overset{\text{Lem. 8}}{=} \binom{n+1}{k}.
 	\end{align*}
 \end{bew}
 \begin{satz}[Binomische Formel]
@@ -299,23 +302,23 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 \end{satz}
 \begin{bem}
 	\begin{align}
-		(a+b)^1 &= a+b\\
-		(a+b)^2 &= a^2 + 2ab + b^2\\
-		(a+b)^3 &= a^3 +3a^2b + 3ab^2 +b^3
+		(a+b)^1 & = a+b                     \\
+		(a+b)^2 & = a^2 + 2ab + b^2         \\
+		(a+b)^3 & = a^3 +3a^2b + 3ab^2 +b^3
 	\end{align}
 \end{bem}
 \begin{bew} Induktion
 	\[n=1: (a+b)^1 = a+b = \sum_{k=0}^{1}\binom{1}{k} a^kb^{1-k} \checkmark \]
-	Induktionsvoraussetzung: für ein beliebiges, aber festes \(n \in\N\) gilt: 
+	Induktionsvoraussetzung: für ein beliebiges, aber festes \(n \in\N\) gilt:
 	\[(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^kb^{n-k}. \]
-	Induktionsschritt: 
+	Induktionsschritt:
 	\begin{align*}
-		(a+b)^{n+1} &= (a+b) (a+b)^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^kb^{n-k}\\
-		&= \sum_{k=1}^{n+1} \binom{n}{k-1} a^kb^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^kb^{n+1-k}\\
-		&= \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^kb^{n+1-k} + \sum_{k=1}^{n} \binom{n}{k} a^kb^{n+1-k} + \binom{n}{0} b^{n+1}\\
-		&= \binom{n+1}{n+1} a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^kb^{n+1-k} + \binom{n+1}{0} b^{n+1}\\
-		&= \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n+1-k}\\
-		&= \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n+1-k}.
+		(a+b)^{n+1} & = (a+b) (a+b)^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^kb^{n-k}                                                                                              \\
+		            & = \sum_{k=1}^{n+1} \binom{n}{k-1} a^kb^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^kb^{n+1-k}                                                                 \\
+		            & = \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^kb^{n+1-k} + \sum_{k=1}^{n} \binom{n}{k} a^kb^{n+1-k} + \binom{n}{0} b^{n+1}                       \\
+		            & = \binom{n+1}{n+1} a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^kb^{n+1-k} + \binom{n+1}{0} b^{n+1} \\
+		            & = \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n+1-k}                                                                                                              \\
+		            & = \sum_{k=0}^{n+1} \binom{n+1}{k} a^kb^{n+1-k}.
 	\end{align*}
 \end{bew}
 \textbf{Notation:} Geg. Menge \(A\), sei \[ \{0,1\}^A := \{ \text{Funktion }f:A\rightarrow \{0,1\} \} \] \(= \) Menge aller \(\{0,1\}\)-wertigen Funktionen mit Definitionsbereich \(A\).\\
@@ -332,7 +335,7 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 	f_1(1) = 0 \quad f_2(1) = 1 \)\\
 	Formel stimmt für \(n=1\).
 	Ang. Formel stimmt für \(n\geq 1\). Fkt. \(f: \{1,\ldots, n+1\} \rightarrow \{0,1\} \)\\
-	2 Klassen: 
+	2 Klassen:
 	\begin{enumerate}
 		\item \(S_0 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 0 \}\)
 		\item \(S_1 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 1 \}\)
@@ -355,26 +358,26 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 \end{lem}
 \begin{bew}
 	Brauchen \(\varphi : \mathcal{P}(A) \rightarrow \{0,1\}^A \).\\
-	Sei \(B \subseteq A \), Indikatorfunktion \[ \mathds{1}_B(x) := \begin{cases} 
-	1, &x\in B\\
-	0, &x\in A\setminus B
-	\end{cases}
-	, \mathds{1}_B : A \rightarrow \{0,1\}. \]
+	Sei \(B \subseteq A \), Indikatorfunktion \[ \mathds{1}_B(x) := \begin{cases}
+			1, & x\in B            \\
+			0, & x\in A\setminus B
+		\end{cases}
+		, \mathds{1}_B : A \rightarrow \{0,1\}. \]
 	Beachte: \(B = \{x\in A | \mathds{1}_B(x) = 1 \} \).\\
 	Definiere \( \varphi : \mathcal{P}(A) \rightarrow \{0,1\}^A, B \mapsto \mathds{1}_B \).\\
 	Beh.: \(\varphi\) ist bijektiv.
 	\begin{enumerate}
 		\item \( \varphi \) ist surjektiv.\\
-		Sei \(f: A\rightarrow \{0,1\}\)
-		\[ B_f := f^{-1} (\{1\}) = \{a \in A| f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f\text{ (nachrechnen)}.\]
+		      Sei \(f: A\rightarrow \{0,1\}\)
+		      \[ B_f := f^{-1} (\{1\}) = \{a \in A| f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f\text{ (nachrechnen)}.\]
 		\item \( \varphi \) ist injektiv.\\
-		Seien \( B_1,B_2\subseteq A, B_1 \neq B_2 \).
-		\begin{align*}
-			B_1\setminus B_2 \neq \emptyset \vee B_2\setminus B_1 \neq \emptyset\\
-			\text{o.B.d.A. } B_1 \setminus B_2 \neq \emptyset \Rightarrow \exists x \in B_2 \setminus B_1 \subset A\\
-			\mathds{1}_{B_1}(x) = 0 \neq 1 = \mathds{1}_{B_2}(x)\\
-			\Rightarrow \varphi(B_1) = \mathds{1}_{B_1} \neq \mathds{1}_{B_2} = \varphi(B_2).
-		\end{align*}
+		      Seien \( B_1,B_2\subseteq A, B_1 \neq B_2 \).
+		      \begin{align*}
+			      B_1\setminus B_2 \neq \emptyset \vee B_2\setminus B_1 \neq \emptyset                                    \\
+			      \text{o.B.d.A. } B_1 \setminus B_2 \neq \emptyset \Rightarrow \exists x \in B_2 \setminus B_1 \subset A \\
+			      \mathds{1}_{B_1}(x) = 0 \neq 1 = \mathds{1}_{B_2}(x)                                                    \\
+			      \Rightarrow \varphi(B_1) = \mathds{1}_{B_1} \neq \mathds{1}_{B_2} = \varphi(B_2).
+		      \end{align*}
 	\end{enumerate}
 \end{bew}
 \begin{lem}
@@ -394,6 +397,8 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 	\begin{enumerate}
 		\item \(a\in R\) \[ a\in f(a = R = \{x\in A| x\notin f(x)\}) \text{\Lightning} \]
 		\item \(a \notin R = f(a) \Rightarrow a \notin f(a) \Rightarrow a\in R \) \Lightning\\
-		\( f\) kann nicht surjektiv sein!
+		      \( f\) kann nicht surjektiv sein!
 	\end{enumerate}
 \end{bew}
+
+\end{document}

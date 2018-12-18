@@ -12,6 +12,7 @@
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 \usepackage{hyperref} %Hyperlinks in pdf
+\usepackage{subfiles}
 
 %Metadaten
 \hypersetup{
@@ -72,17 +73,5 @@ Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\%
 Die Anmeldung findet über das Online-Portal statt. Die Klausur findet am 26.03.2019 von 08:00 bis 10:00 statt. Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 
 \newpage
-\include{chapter1}
-\include{chapter2}
-\include{chapter3}
-\newpage
-\include{chapter4}
-\include{chapter5}
-\include{chapter6}
-\include{chapter7}
-\include{chapter8}
-\include{chapter9}
-\include{chapter10}
-\include{chapter11}
-\include{chapter12}
+\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex} }
 \end{document}

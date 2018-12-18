@@ -42,9 +42,9 @@ Beachte: Reihenfolge ist wichtig! im Allg. $(a,b)\neq (b,a)$\\
 Menge $A\times B := \{(a,b)|a\in A, b\in B\}$\\
 heißt kartesisches Produkt (von $A$ und $B$)\\
 z.B. $\mathbb{R}\times\mathbb{R}$\\
-\includegraphics[width=0.3\textwidth]{images/img03.png}\\
+\subgraphic{0.3}{img03.pdf}\\
 \textbf{2. Abbildungen Projektionen}\\
-\includegraphics[width=0.3\textwidth]{images/img04.png}\\
+\subgraphic{0.3}{img04.pdf}\\
 $\Pi_1 = \Pi_A : A\times B \rightarrow A, (a,b)\mapsto a$ (Projektion auf 1. Koordinate)\\
 $\Pi_2 = \Pi_B : A\times B \rightarrow B, (a,b) \mapsto b$ (Projektion auf 2. Koordinate)\\
 $\Pi_A(a,b) = a$\\
@@ -59,9 +59,9 @@ Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B
 \begin{defi}[Graph einer Abbildung]
 	Geg: $f: A \rightarrow B$ Funktion\\
 	$\Gamma := \Gamma_f := \{(a,b) \in A\times B : b = f(a)\} \subset A\times B$\\
-	\includegraphics[width=0.3\textwidth]{images/img05.png}
+	\subgraphic{0.3}{img05.pdf}
 	\quad
-	\includegraphics[width=0.3\textwidth]{images/img06.png}\\
+	\subgraphic{0.3}{img06.pdf}\\
 	$P\subset A\times B$ ist der Graph einer Funktion genau dann, wenn aus $(a_1,b_1), (a_2,b_2) \in \Gamma$ folgt $b_1 = b_2$. (und $\forall a\in A \exists b\in B:(a,b)\in\Gamma$)
 \end{defi}
 \begin{satz}
@@ -80,7 +80,7 @@ Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B
 	$\Rightarrow$ zu $a\in A \exists ! b\in B, (a,b) \in \Gamma$.\\
 	Da $b=\Pi_B(a,b) = \Pi_B((\Pi_A\vert_\Gamma)^{-1}(a))$\\
 	Definiere $f:= \Pi_B \circ (\Pi_A\vert_\Gamma)^{-1}:A\rightarrow B$ ist Funktion\\
-	\includegraphics[width=0.3\textwidth]{images/img07.png}\\
+	\subgraphic{0.3}{img07.pdf}\\
 	nachrechnen $\Gamma = \Gamma_f$
 \end{bew}
 \begin{bem}
@@ -91,8 +91,8 @@ Genauer: $\exists$ Bijektion $\Phi : (A\times B) \times C \rightarrow A\times (B
 	$b=f(a),\quad f^{-1}(b)=a$\\
 	Dann gilt: $\Gamma_f^{-1} = \{(b, f^{-1}(b)) | b\in B\}\\
 		= \{(f(a),a):a\in A\} = S(\Gamma_f), S: A\times B \rightarrow B\times A$ (swap), $(a,b)\mapsto(b,a)$.\\
-	\includegraphics[width=0.3\textwidth]{images/img08.png} \quad
-	\includegraphics[width=0.3\textwidth]{images/img09.png}\\
+	\subgraphic{0.3}{img08.pdf} \quad
+	\subgraphic{0.3}{img09.pdf}\\
 	$\Gamma_{f^{-1}} = $ Spiegeln von $\Gamma_f$ an Winkelhalbierenden.
 \end{bsp}
 \subsection{Schubfachprinzip und endliche Mengen}

@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,titlepage]{article} %twopage
+\documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
 
 %\usepackage{german} %deutsches Format
 \usepackage[ngerman]{babel}
@@ -39,10 +39,19 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
-\newcommand{\limessup}[1]{\limsup \limits_{#1\rightarrow\infty}}
-\newcommand{\limesinf}[1]{\liminf \limits_{#1\rightarrow\infty}}
+\newcommand{\limessup}[1]{\limsup\limits_{#1\rightarrow\infty}}
+\newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+\newcommand{\subgraphic}[2]{
+	\onlyinsubfile{\includegraphics[width=#1\textwidth]{images/#2}}
+		\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
+}
 
 \begin{document}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+
 \title{Analysis I (WS 18/19)}
 \date{\today}
 \author{Pavel Zwerschke, Daniel Augustin}
@@ -55,10 +64,10 @@
 \setcounter{section}{-1}
 \section{Organisatorisches}
 \textbf{Dozent}\\
-Prof. Dr. Dirk Hundertmark (20.30, 2.028)\\
+Prof.\ Dr.\ Dirk Hundertmark (20.30, 2.028)\\
 \href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}\\
 \textbf{Übungsleiter}\\
-Dr. Markus Lange (20.30, 2.030)\\
+Dr.\ Markus Lange (20.30, 2.030)\\
 \href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}\\
 \textbf{Übungszettel}\\
 Ausgabe:\\

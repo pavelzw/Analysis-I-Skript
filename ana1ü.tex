@@ -275,17 +275,16 @@
 					\end{align*}
 					(IS): \(n \rightarrow n+1\)\\
 					Angenommen es gilt für ein \(n \in \N: f_k = \frac{1}{\sqrt{5}}\left(a^k-b^k\right) \forall k \geq n\)\\
-					Dann folgt:
-					\begin{align*}
-						f_{n+1} &= f_n + f_n = \frac{1}{\sqrt{5}}\left[a^n - b^n +a^{n-1} - b^{n-1}\right]\\
-						&= \frac{1}{\sqrt{5}}\left[a^{n-1}(a+1) - b^{n-1}(b+1)\right]\\
-						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 + \sqrt{5}\right)+1\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 - \sqrt{5}\right)+1\right)\right]\\
-						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 + 2\sqrt{5}\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 - 2\sqrt{5}\right)\right)\right]\\
-						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 + 2\sqrt{5} + 5\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - 2\sqrt{5} + 5\right)\right)\right]\\
-						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1+\sqrt{5}\right)^2\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - \sqrt{5}\right)^2\right)\right]\\
-						&= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n+1} - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n+1}\right]\\
-						&= \frac{1}{\sqrt{5}}\left[a^{n+1} - b^{n+1}\right]\\
-					\end{align*}
+					Dann folgt:\\
+					\(f_{n+1} = f_n + f_n\)\\
+					\(= \frac{1}{\sqrt{5}}\left[a^n - b^n +a^{n-1} - b^{n-1}\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[a^{n-1}(a+1) - b^{n-1}(b+1)\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1} \cdot\left(\frac{1}{2}\left(1 + \sqrt{5}\right)+1\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 - \sqrt{5}\right)+1\right)\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 + 2\sqrt{5}\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 - 2\sqrt{5}\right)\right)\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 + 2\sqrt{5} + 5\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - 2\sqrt{5} + 5\right)\right)\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1+\sqrt{5}\right)^2\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - \sqrt{5}\right)^2\right)\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n+1} - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n+1}\right]\)\\
+					\(= \frac{1}{\sqrt{5}}\left[a^{n+1} - b^{n+1}\right]\)\\
 					Aus dem Induktionsprinzip folgt somit \(f_n = \frac{1}{\sqrt{5}}\left(a^n-b^n\right) \forall n \in \N \)
 				\item Aussage:\\
 				\begin{align*}
@@ -426,7 +425,7 @@
 		\end{center}
 		ohne (\(*\)) wäre \(\frac{1}{3} = 0,100000\dots = 0,0222\dots\)
 	\end{bem}
-	\section{Limes Superior und Limes Inferior (7.12.18)}
+	\section{Limes Superior und Limes Inferior (07.12.18)}
 	\begin{defi}
 		Sei \(a_n\) eine reelle Folge\\
 		\[\limessup{n} a_n = \limes{n} (\underset{k \geq n}{sup(a_k)}) \]\\

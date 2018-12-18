@@ -1,0 +1,103 @@
+\section{Der Euklidische Raum \( \R^d \), komplexe Zahlen \( \C \) (und \(\C^d \))}
+Grundlagen: \( \R^d := \R \times \dots \times \R = \{ (x_1, \dots, x_d) | x_j \in\R, j\in\{1,\dots, d \} \)\\
+Addition:
+\[x, y \in \R^d: x + y := (x_1, \dots , x_d) + (y_1, \dots, y_d) = (x_1 + y_1, \dots, x_d + y_d) \]
+Skalare Multiplikation:
+\[\lambda \in \R: \lambda x := \lambda(x_1, \dots , x_d) = (\lambda x_1, \dots, \lambda x_d) \]
+\( \R^d \) ist ein (reeller) \(d\)-dim. Vektorraum.\\
+z.B. \(\R^2\): \(x = (x_1, x_2) \in \R^2\)\\
+\textbf{Bild}\\%BILD
+Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
+\begin{defi}[Euklidische Länge und Skalarprodukt]
+	\[ x,y \in\R^d, x\cdot y = <x,y> := \sum_{j=1}^{d}x_j y_j \]
+	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = <x,x>^{1/2} = \sqrt{<x,x>}. \]
+\end{defi}
+\begin{bem}
+	Euklidisches Skalarprodukt erfüllt die Axiome eines allg. Skalarprodukts (auf reellen VR.).\\
+	(S1) \( <x,y> = <y,x> \quad\forall x,y\in R^d \) (Symmetrie)\\
+	(S2) \( <x, \lambda y + \mu z> = \lambda <x,y> + \mu<x,z> \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
+	(S3) \( <x,x> \geq 0 \) und \( <x,x> = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
+\end{bem}
+\begin{bem}
+	(S1) und (S2) \( \Rightarrow <\lambda x + \mu y, z> = \lambda <x,z> + \mu <y,z> \).
+\end{bem}
+\begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
+	\[ \forall x,y\in\R^d: |<x,y>|\leq |x||y|\]
+	und \glqq\(=\)\grqq{} gilt, \( \Leftrightarrow x,y \) sind linear abhängig.
+\end{satz}
+\begin{bew}
+	Haben immer \( x,y\in\R^d, t\in\R. \)
+	\begin{align*}
+		0\leq |x+ty|^2 = <x+ty, x+ty>\\
+		\overset{\text{(S2)}}{=} <x+ty,x> + t<x+ty,y>\\
+		\overset{\text{(S1)(S2)}}{=} <x,x> + t<y,x> + t<x,y> + t^2<y,y>\\
+		= |x^2| + 2t<x,y> + t^2|y|^2 =: g(t).\\
+		g(t) = at^2 + 2bt + c
+	\end{align*}
+	Ang. \(|y| > 0, a = |y|^2 > 0 \)
+	\begin{align*}
+		g(t) = at^2 + 2bt + c\\
+		= a(t^2 + 2b/a t + c/a + (b/a)^2 - (b/a)^2) a((t+b/a)^2 + c/a - b^2/a^2)\\
+		= a(t+b/a)^2 + c - b^2/a \geq 0 \quad\forall t\in\R.
+	\end{align*}
+	\begin{align*}
+		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
+		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**)\\
+		\text{Haben }  a=|y|^2, c=|x|^2\\
+		\Rightarrow |<x,y>|\leq |x||y|.
+	\end{align*}
+	Fall 1: \(|y| = 0 \Leftrightarrow y = 0_v = (0, 0)\)
+	\[<x, 0_v> = <x, 0 \cdot 0_v> = 0 \cdot <x, 0_v> = 0\]
+	Fall 2: \(|<x, y>| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
+	\[\Leftrightarrow x + ty \neq 0 \quad \forall t \in \R \Leftrightarrow x, y \text{ linear unabhängig} \]
+\end{bew}
+\begin{defi}
+	Eine Funktion \( ||\cdot || : \R^d \rightarrow \R \) heißt Norm (auf \( \R^d \)), falls \( \forall x,y\in\R^d, \lambda\in\R: \)
+	\begin{enumerate}
+		\item \( ||x||\geq 0, ||x|| = 0 \Rightarrow x = 0 \)
+		\item \( ||\lambda x|| = |\lambda|\cdot||x|| \)
+		\item \( ||x+y|| \leq ||x|| + ||y|| \) (Dreiecksungl.)
+	\end{enumerate}
+\end{defi}
+\begin{satz}
+	\[ |x| := \sqrt{<x,x>} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
+\end{satz}
+\begin{bew}
+	Eigenschaften 1. und 2. sind einfach nachzurechnen.\\
+	Zu 3.:
+	\begin{align*}
+		|x+y|^2 = <x+y,x+y>=<x+y,x>+<x+y,y>\\
+		= <x,x> + <y,x> + <x,y> + <y,y>\\
+		=|x|^2 + 2<x,y> + |y|^2\\
+		\leq |x|^2 + 2|<x,y>| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
+	\end{align*}
+	\[ \Rightarrow |x+y| \leq |x| + |y| \]
+\end{bew}
+\begin{bem}
+	Auch:
+	\begin{align*}
+		&|x - y| \geq 0 \text{ und } |x - y| = 0 \Leftrightarrow x = y\\
+		&|x - y| = |y - x|\\
+		&|x - y| = |x-z + z-y| \leq |x - z| + |y - z| \quad \forall z \in \R^d\\
+		&||x| + |y|| \leq |x - y|
+	\end{align*}
+	 %Bild
+\end{bem}
+Komplexe Zahlen:\\
+\( z=x+iy \quad\forall x,y\in\R \) und \( i^2 = -1 \).\\
+\( z_1 = x_1 + i y_1, z_2 = x_2 + i y_2 \)
+\[ z_1 + z_2 := (x_1 + x_2) + i(y_1 + y_2). \]
+\[ z_1 \cdot z_2 := (x_1 + i y_1)(x_2 + i y_2) = x_1x_2 - y_1y_2 + i(x_1y_2 + x_2y_1) \]
+Rigoros: \( \R^2, z\in\R^2, z=(x,y) \).\\
+Addition als addieren von Vektoren: \[ z_1 + z_2 = (x_1 + x_2, y_1 + y_2) \]
+neue Multiplikation: \[ z_1 \cdot z_2 = (x_1 x_2 - y_1y_2, x_1y_2 + x_2y_1) \]
+\( z = x+i 0 = (x,0) \)\\
+\( (x_1,0) + (x_2,0) = (x_1+x_2,0) \)\\
+\( (x_1,0)\cdot(x_2,0) = (x_1x_2,0) \)\\
+\( z=(x,y) = (x,0) + (0,y) = x(1,0) + y(0,1) = x e_1 + y e_2 \)
+%BILD
+\( \R^2 \) mit obiger Addition und \glqq komplexen \grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( e_2 e_2 = (0,1)(0,1) = (0-1,0 + 0) = (-1,0) = -(1,0) = -e_1 \)\\
+\(e_1 = 1\cdot e_1 = (1,0) \)\\
+\( e_2^2 = -e_1 = -1 (1,0) + 0(0,1) \)
+\[ z = (x,y) = x e_1 + y e_2 = x \cdot 1 + y \cdot i = x + i y. \]

@@ -29,9 +29,9 @@
 \newtheorem*{beh}{Behauptung}
 
 \theoremstyle{remark}
-\newtheorem*{bem}{Bemerkung}
-\newtheorem*{bsp}{Beispiel}
-\newtheorem*{bspe}{Beispiele}
+\newtheorem{bem}[satz]{Bemerkung}
+\newtheorem{bsp}{Beispiel}[section]
+\newtheorem{bspe}[bsp]{Beispiele}
 
 \newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
 \newcommand{\N}{\mathbb{N}}

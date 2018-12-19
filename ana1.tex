@@ -1,5 +1,7 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
-\usepackage{skript}
+\IfFileExists{skript.sty}{\usepackage{skript}}{%
+  \usepackage{../skript}
+}
 
 \begin{document}
 	\renewcommand{\onlyinsubfile}[1]{}

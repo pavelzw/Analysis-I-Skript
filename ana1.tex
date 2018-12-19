@@ -1,19 +1,19 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
-
+  
 %\usepackage{german} %deutsches Format
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
 \usepackage{graphicx} %Grafiken einbinden
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{nicefrac}
+\usepackage{nicefrac} 
 \usepackage{marvosym}[Lightning]
 \usepackage{array}
 \usepackage{dsfont} %statt \mathbb{1}
-\usepackage{tikz}
+\usepackage{tikz} 
 \usetikzlibrary{matrix}
 \usepackage{hyperref} %Hyperlinks in pdf
 \usepackage{subfiles}
-\usepackage[shortlabels]{enumitem}
+\usepackage[shortlabels]{enumitem} 
 
 %Metadaten
 \hypersetup{
@@ -80,7 +80,7 @@
 			\item[Ausgabe:] Die Übungsblätter werden jeden Donnerstag veröffentlicht unter\\
 						    \href{http://www.math.kit.edu/iana1/lehre/ana12018w/}{\texttt{www.math.kit.edu/iana1/lehre/ana12018w/}}.
 			\item[Abgabe:] Die bearbeiteten Übungsblätter können bis mittwochs um 19:00 Uhr in den Abgabekästen im Foyer\\
-			    		   des Mathebaus (Gebäude 20.30) abgegeben werden.\\ 
+			    		   des Mathebaus (Gebäude 20.30) abgegeben werden.\\
 						   Die Abgaben werden getackert sowie mit Namen, Matrikelnummer und Tutoriennummer beschriftet in das Fach mit
 						   der richtigen Kennzeichnung geworfen.\\
 						   Übungsaufgaben dürfen zu zweit abgegeben werden.\\
@@ -93,5 +93,5 @@
 		Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 \end{description}
 \newpage
-\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex} }
+\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex}}
 \end{document}

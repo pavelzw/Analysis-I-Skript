@@ -1,8 +1,0 @@
-Auch:
-\begin{align*}
-&|x - y| \geq 0 \text{ und } |x - y| = 0 \Leftrightarrow x = y\\
-&|x - y| = |y - x|\\
-&|x - y| = |x-z + z-y| \leq |x - z| + |y - z| \quad \forall z \in \R^d\\
-&||x| + |y|| \leq |x - y|
-\end{align*}
- %Bild

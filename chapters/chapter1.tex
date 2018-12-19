@@ -1,0 +1,43 @@
+%17.10.2018
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+
+\section{Was ist Analysis?}
+\begin{description}
+	\item[Mathematik]
+		Streng logisches Herleiten neuer Aussagen (aus möglichst wenigen Grundannahmen, sogenannten Axiomen).
+	\item[Analysis]
+		Aus dem altgriechischen \glqq Auflösen\grqq. Analysis hat ihre Grundlage in der \glqq Infinitesimalrechnung\grqq\: von Leibnitz und Newton.
+	\item[Zentrale Begriffe]
+		Grenzwerte von Folgen und Reihen, Funktionen, Stetigkeit, Differenzierbarkeit, Integrierbarkeit, Differential- und Integralrechnung, Differentialgleichungen (Newton, Maxwell, Schrödinger), unendlich dimensionale Räume.
+\end{description}
+\begin{bspe}\leavevmode
+	\begin{enumerate}[(a)]
+		\item Summe über den Kehrwert von Zweierpotenzen.
+			\begin{alignat*}{3}
+							   &&             S &= \frac{1}{2} + \frac{1}{4} + \cdots + \frac{1}{2^{n}} + \cdots \\
+				\Longrightarrow&\quad& 		 2S &= 1 + \frac{1}{2} + \cdots + \frac{1}{2^{n-1}} + \cdots \\
+				\Longrightarrow&\quad& 	     2S &= 1 + S \\
+				\Longrightarrow&&             S &= 1
+			\end{alignat*}
+			\(S\) entspricht der Wahrscheinlichkeit, dass bei wiederholtem Werfen \\
+			einer Münze irgendwann Kopf vorkommt.\\
+		\item Vorsicht!
+			\begin{alignat*}{3}
+							   &&       S &= 1 + 2 + 4 + \cdots\\
+				\Longrightarrow&\quad& 2S &= 2 + 4 + 8 + \cdots = S - 1\\
+				\Longrightarrow&\quad&  S &= -1
+			\end{alignat*}
+			Natürlich Quatsch! Formales Rechnen kann gefährlich sein!
+	\end{enumerate}
+\end{bspe}
+\begin{description}
+	\item[Fragestellungen in dieser Vorlesung]\leavevmode
+		\begin{itemize}
+			\item Was sind mathematische Aussagen?
+			\item Wie macht man Beweise, wie findet man sie? (learning by doing)
+			\item logische Zusammenhänge
+			\item Was sind Zahlen?
+		\end{itemize} 
+\end{description}
+\end{document}

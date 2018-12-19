@@ -1,19 +1,19 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
-
+  
 %\usepackage{german} %deutsches Format
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc} %Umlaute
 \usepackage{graphicx} %Grafiken einbinden
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{nicefrac}
+\usepackage{nicefrac} 
 \usepackage{marvosym}[Lightning]
 \usepackage{array}
 \usepackage{dsfont} %statt \mathbb{1}
-\usepackage{tikz}
+\usepackage{tikz} 
 \usetikzlibrary{matrix}
 \usepackage{hyperref} %Hyperlinks in pdf
 \usepackage{subfiles}
-\usepackage[shortlabels]{enumitem}
+\usepackage[shortlabels]{enumitem} 
 
 %Metadaten
 \hypersetup{
@@ -93,5 +93,5 @@
 		Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 \end{description}
 \newpage
-\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex} }
+\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex}}
 \end{document}

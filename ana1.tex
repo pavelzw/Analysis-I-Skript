@@ -14,6 +14,8 @@
 \usepackage{hyperref} %Hyperlinks in pdf
 \usepackage{subfiles}
 \usepackage[shortlabels]{enumitem}
+\usepackage{versions}
+\usepackage{etoolbox}
 
 %Metadaten
 \hypersetup{
@@ -26,6 +28,7 @@
 \newtheorem{lem}[satz]{Lemma}
 
 \newtheorem{defi}[satz]{Definition}
+\newtheorem*{defi*}{Definition} %Für Sachen, die Definitionen sind aber keine Nummer haben
 \newtheorem*{beh}{Behauptung}
 \newtheorem{bem}{Bemerkung}[satz]
 
@@ -34,6 +37,7 @@
 \newtheorem{bspe}[bem]{Beispiele}
 
 \newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
+\newenvironment{prosa}{}{}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -50,6 +54,24 @@
 		\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
 }
 
+\newtoggle{short}
+\togglefalse{short}
+%\toggletrue{short}
+
+\iftoggle{short}{
+	\includeversion{satz}
+	\includeversion{kor}
+	\includeversion{lem}
+	\includeversion{defi}
+	\includeversion{defi*}
+	\excludeversion{beh}
+	\excludeversion{bem}
+	\excludeversion{bsp}
+	\excludeversion{bspe}
+	\excludeversion{bew}
+	\excludeversion{prosa}
+}{}
+
 \begin{document}
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
@@ -59,11 +81,18 @@
 \author{Pavel Zwerschke, Daniel Augustin}
 \maketitle
 
+%Itemize   [-]
+%Enumerate [(a)]
+
 %Inhaltsverzeichnis
-\tableofcontents
-\newpage
+\iftoggle{short}{}{
+	\tableofcontents
+	\newpage
+}
 
 \setcounter{section}{-1}
+
+\begin{prosa}
 \section{Organisatorisches}
 \begin{description}[style=nextline]
 	\item[Dozent]
@@ -92,6 +121,10 @@
 		Die Anmeldung findet über das Online-Portal statt. Die Klausur findet am 26.03.2019 von 08:00 bis 10:00 statt.
 		Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
 \end{description}
-\newpage
-\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex} }
+\end{prosa}
+\iftoggle{short}{\refstepcounter{section}}{}
+\newpage 
+\subfile{chapters/chapter1.tex}
+\iftoggle{short}{\refstepcounter{section}}{}
+\foreach \c in {2,...,12}{\subfile{chapters/chapter\c.tex} }
 \end{document}

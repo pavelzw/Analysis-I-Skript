@@ -12,17 +12,17 @@ z.B. \(\R^2\): \(x = (x_1, x_2) \in \R^2\)\\
 \textbf{Bild}\\%BILD
 Länge von \(x = |x| = {(x_1^2 + x_2^2)^{1/2}}\)
 \begin{defi}[Euklidische Länge und Skalarprodukt]
-	\[ x,y \in\R^d, x\cdot y = <x,y> := \sum_{j=1}^{d}x_j y_j \]
-	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = <x,x>^{1/2} = \sqrt{<x,x>}. \]
+	\[ x,y \in\R^d, x\cdot y = \langle x,y\rangle := \sum_{j=1}^{d}x_j y_j \]
+	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = \langle x,x\rangle^{1/2} = \sqrt{\langle x,x\rangle}. \]
 \end{defi}
 \begin{bem}
 	Euklidisches Skalarprodukt erfüllt die Axiome eines allg. Skalarprodukts (auf reellen VR.).\\
-	(S1) \( <x,y> = <y,x> \quad\forall x,y\in R^d \) (Symmetrie)\\
-	(S2) \( <x, \lambda y + \mu z> = \lambda <x,y> + \mu<x,z> \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
-	(S3) \( <x,x> \geq 0 \) und \( <x,x> = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
+	(S1) \( \langle x,y\rangle = \langle y,x\rangle \quad\forall x,y\in R^d \) (Symmetrie)\\
+	(S2) \( \langle x, \lambda y + \mu z\rangle = \lambda <x,y\rangle + \mu\langle x,z\rangle \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
+	(S3) \( \langle x,x\rangle \geq 0 \) und \( \langle x,x\rangle = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
 \end{bem}
 \begin{bem}
-	(S1) und (S2) \( \Rightarrow <\lambda x + \mu y, z> = \lambda <x,z> + \mu <y,z> \).
+	(S1) und (S2) \( \Rightarrow \langle\lambda x + \mu y, z\rangle = \lambda <x,z\rangle + \mu <y,z\rangle \).
 \end{bem}
 \begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
 	\[ \forall x,y\in\R^d: |<x,y>|\leq |x||y|\]
@@ -31,10 +31,10 @@ Länge von \(x = |x| = {(x_1^2 + x_2^2)^{1/2}}\)
 \begin{bew}
 	Haben immer \( x,y\in\R^d, t\in\R. \)
 	\begin{align*}
-		0\leq |x+ty|^2 = <x+ty, x+ty>\\
-		\overset{\text{(S2)}}{=} <x+ty,x> + t<x+ty,y>\\
-		\overset{\text{(S1)(S2)}}{=} <x,x> + t<y,x> + t<x,y> + t^2<y,y>\\
-		= |x^2| + 2t<x,y> + t^2|y|^2 =: g(t).\\
+		0\leq |x+ty|^2 = \langle x+ty, x+ty\rangle\\
+		\overset{\text{(S2)}}{=} \langle x+ty,x\rangle + t\langle x+ty,y\rangle\\
+		\overset{\text{(S1)(S2)}}{=} \langle x,x\rangle + t \langle y,x\rangle + t\langle x,y\rangle + t^2\langle y,y\rangle\\
+		= |x^2| + 2t\langle x,y\rangle + t^2|y|^2 =: g(t).\\
 		g(t) = at^2 + 2bt + c
 	\end{align*}
 	Ang. \(|y| > 0, a = |y|^2 > 0 \)
@@ -47,11 +47,11 @@ Länge von \(x = |x| = {(x_1^2 + x_2^2)^{1/2}}\)
 		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
 		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**)\\
 		\text{Haben }  a=|y|^2, c=|x|^2\\
-		\Rightarrow |<x,y>|\leq |x||y|.
+		\Rightarrow |\langle x,y\rangle|\leq |x||y|.
 	\end{align*}
 	Fall 1: \(|y| = 0 \Leftrightarrow y = 0_v = (0, 0)\)
-	\[<x, 0_v> = <x, 0 \cdot 0_v> = 0 \cdot <x, 0_v> = 0\]
-	Fall 2: \(|<x, y>| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
+	\[\langle x, 0_v\rangle = \langle x, 0 \cdot 0_v\rangle = 0 \cdot \langle x, 0_v\rangle = 0\]
+	Fall 2: \(|\langle x, y\rangle| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
 	\[\Leftrightarrow x + ty \neq 0 \quad \forall t \in \R \Leftrightarrow x, y \text{ linear unabhängig} \]
 \end{bew}
 \begin{defi}
@@ -63,16 +63,16 @@ Länge von \(x = |x| = {(x_1^2 + x_2^2)^{1/2}}\)
 	\end{enumerate}
 \end{defi}
 \begin{satz}
-	\[ |x| := \sqrt{<x,x>} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
+	\[ |x| := \sqrt{\langle x,x\rangle} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
 \end{satz}
 \begin{bew}
 	Eigenschaften 1. und 2. sind einfach nachzurechnen.\\
 	Zu 3.:
 	\begin{align*}
-		|x+y|^2 = <x+y,x+y>=<x+y,x>+<x+y,y>\\
-		= <x,x> + <y,x> + <x,y> + <y,y>\\
-		=|x|^2 + 2<x,y> + |y|^2\\
-		\leq |x|^2 + 2|<x,y>| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
+		|x+y|^2 = \langle x+y,x+y\rangle=\langle x+y,x\rangle+\langle x+y,y\rangle\\
+		= \langle x,x\rangle + \langle y,x\rangle + \langle x,y\rangle + \langle y,y\rangle\\
+		=|x|^2 + 2\langle x,y\rangle + |y|^2\\
+		\leq |x|^2 + 2|\langle x,y\rangle| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
 	\end{align*}
 	\[ \Rightarrow |x+y| \leq |x| + |y| \]
 \end{bew}
@@ -246,7 +246,7 @@ Kovergenz im \(\R^d \Leftrightarrow\) Konvergenz zugehöriger Koordinatenfolgen.
 	\[ |x_{n_\nu} - a_\nu| < \varepsilon' := \frac{\varepsilon}{\sqrt{d}} \text{ für alle } n\geq N_\nu. \]
 	Für alle \(n\geq N := \max\{N_1,\dots,N_d\}\) gilt dann
 	\begin{align*}
-		|x_n - a| &= \left( \sum_{\nu=1}^{d} (x_{n_\nu} - a_\nu)^d \right)^{1/2}\\
+		|x_n - a| &= {\left( \sum_{\nu=1}^{d} (x_{n_\nu} - a_\nu)^d \right)}^{1/2}\\
 		&\overset{\text{Bem.}}{\leq} \sqrt{d} \cdot \underset{1\leq \nu\leq d}{\max} |x_{n_\nu} -a_\nu|\\
 		&< \sqrt{d} \cdot \varepsilon'\\
 		&= \varepsilon

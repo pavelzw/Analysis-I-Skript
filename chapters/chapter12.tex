@@ -99,12 +99,117 @@ neue Multiplikation: \[ z_1 \cdot z_2 = (x_1 x_2 - y_1y_2, x_1y_2 + x_2y_1) \]
 \( (x_1,0)\cdot(x_2,0) = (x_1x_2,0) \)\\
 \( z=(x,y) = (x,0) + (0,y) = x(1,0) + y(0,1) = x e_1 + y e_2 \)
 %BILD
-\( \R^2 \) mit obiger Addition und \glqq komplexen \grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( \R^2 \) mit obiger Addition und \glqq komplexen\grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( (\R^2, +, \cdot) \) ist ein Körper (Körperaxiome nachrechnen). Nullelement ist \( (0,0) \), Einselement \((1,0)\), Inverse von \(  (x,y) \neq (0,0): (x,y)^{-1} = (\frac{x}{x^2+y^2}, \frac{y}{x^2+y^2}) \).
 \( e_2 e_2 = (0,1)(0,1) = (0-1,0 + 0) = (-1,0) = -(1,0) = -e_1 \)\\
 \(e_1 = 1\cdot e_1 = (1,0) \)\\
 \( e_2^2 = -e_1 = -1 (1,0) + 0(0,1) \)
+D. h. \(e_2\) löst die Gleichung \( z^2+1=0 \). Wir definieren \(i:= e_2\) und nennen \(i\) die imaginäre Einheit. Somit gilt \( i^2 = -1 \). Mithilfe von \(i\) können wir die gebräuchliche Schreibweise für \( \C\ni z = (x,y), \quad x,y\in\R \) hinschreiben.
 \[ z = (x,y) = x e_1 + y e_2 = x \cdot 1 + y \cdot i = x + i y. \]
-%HIER FEHLT NOCH WAS?
+%18.12.2018
+Wir nennen diesen Körper den Körper der komplexen Zahlen, Bezeichnung: \( \C \).
+\begin{defi}[Realteil und Imaginärteil]
+	Sei \( z=x+iy\in\C \). Wir definieren Real- und Imaginärteil wie folgt:
+	\[ \Re(z) := x \qquad \Im(z):=y \]
+\end{defi}
+\begin{bem}
+	Zwei komplexe Zahlen \( z,z' \) sind genau dann gleich, wenn
+	\[ \Re(z)=\Re(z') \text{ und } \Im(z) = \Im(z') \]
+\end{bem}
+\begin{defi}[komplexe Konjugation]
+	Für eine komplexe Zahl \( z=x+iy, \quad x,y\in\R \) definiert man die konjugierte komplexe Zahl durch
+	\[ \bar{z} := x - iy \]
+	(Spiegelung an der reellen Achse)
+	%Bild
+	Offensichtlich gilt \( z=\bar{z} \) genau dann, wenn \( z\in\R\subseteq \C \).
+\end{defi}
+\begin{lem}
+	Es gelten die Beziehung für \( z\in\C \)
+	\begin{enumerate}
+		\item \(\Re(z) = \frac{1}{2} (z+\bar{z}) \)
+		\item \(\Im(z) = \frac{1}{2i} (z-\bar{z}) \)
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	Sei \( z=x+iy\in\C \).
+	\[ \frac{1}{2}(z+\bar{z}) = \frac{1}{2}(x+iy + x-iy) + \frac{1}{2}(2x) = x = \Re(x) \]
+	\[ \frac{1}{2i}(z-\bar{z}) = \frac{1}{2i}(x+iy - (x-iy)) = \frac{1}{2i}(2iy) = y = \Im(z). \]
+\end{bew}
+\begin{lem}
+	Für \( z,w\in\C \) gilt
+	\begin{enumerate}
+		\item \( \bar{\bar{z}} = z \)
+		\item \( \bar{z+w} = \bar{z} + \bar{w} \)
+		\item \( \bar{z\cdot w} = \bar{z} \cdot \bar{w} \)
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	\begin{enumerate}
+		\item Sei \( z= x+iy \in\C \) mit \(x,y \in\R \). Dann gilt
+		\[ \bar{z} = \bar{(x+iy)} = x-iy \]
+		\[ \Rightarrow \bar{\bar{z}} = \bar{\bar{x+iy}} = \bar{(x-iy)} = x+iy = z \]
+		\item auf Übungszettel 10
+		\item auf Übungszettel 10
+	\end{enumerate}
+\end{bew}
+Der Betrag einer komplexen Zahl:\\
+Sei \( z=x+iy \). Wir berechnen
+\[ z\cdot \bar{z} = (x+iy)(x-iy)=x^2-ixy +ixy - i^2y^2 = x^2 + y^2 \]
+Dies ist eine nicht-negative reelle Zahl.
+\begin{defi}
+	Der Betrag einer komplexen Zahl ist
+	\[ |z| = \sqrt{z \bar{z}}\in\{x\in\R | x\geq 0 \}. \]
+\end{defi}
+\begin{bem}.%schlecht formatiert
+	\begin{enumerate}
+		\item Für \( z\in\R_+ \) gilt: \( |z| = z \quad |z| = \sqrt{z\bar{z}} = \sqrt{z^2} = z \)
+		\item Für \( z\in\C \) gilt: \( |z| = |\bar{z}| \) (Übungszettel 10)
+	\end{enumerate}
+\end{bem}
+\begin{satz}
+	Der Betrag in \(\C\) hat die folgenden Eigenschaften:
+	\begin{enumerate}
+		\item Es ist \( |z|\geq 0 \quad \forall z\in\C \) und \( |z|=0 \Leftrightarrow z=0 \)
+		\item (Multiplikativität) \( |z_1 \cdot z_2| = |z_1|\cdot|z_2| \quad \forall z_1,z_2\in\C \)
+		\item (Dreiecksungleichung) \( |z_1+z_2| \leq |z_1| + |z_2| \)
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	\begin{enumerate}
+		\item trivial
+		\item Seien \( z_1,z_2 \in\C \). Wir verwenden Def. 9.
+		\[ |z_1z_2|^2 = (z_1z_2)(\bar{z_1z_2}) \overset{\text{Lem. 8}}{=}z_1z_2 \bar{z_1} \bar{z_2} = (z_1\bar{z_1})(z_2\bar{z_2}) \overset{\text{Def. 9}}{=} |z_1|^2|z_2|^2 \]
+		Durch Wurzelziehen erhält man
+		\[ |z_1z_2| = |z_1||z_2| \]
+		\item Sei \( z_1,z_2 \in\C \). Für jede komplexe Zahl gilt \( \Re(z) \leq |z| \). Somit gilt
+		\[ \Re(z_1\bar{z_2}) \leq |z_1\bar{z_2}| \overset{2.}{=}|z_1||\bar{z_2}| = |z_1||z_2| \quad(*) \]
+		Damit folgt \[ |z_1 + z_2|^2 \overset{\text{Def. 9}}{=} (z_1 + z_2)(\bar{z_1+z_2}) \overset{\text{Lem. 8}}{=} (z_1 + z_2)(\bar{z_1} + \bar{z_2}) \]
+		\[ z_1 \bar{z_1} + z_1 \bar{z_2} + z_2 \bar{z_1} + z_2 \bar{z_2} \overset{\text{Lem. 7}}{=} |z_1|^2 + 2\Re(z_1\bar{z_2}) + |z_2|^2 \overset{(*)}{\leq} |z_1|^2 + 2|z_1||z_2| + |z_2|^2 = (|z_1| + |z_2|)^2. \]
+		Also folgt: \( |z_1+z_2| \leq |z_1| + |z_2|. \)
+	\end{enumerate}
+\end{bew}
+\textbf{Rechnen mit komplexen Zahlen}:
+\[ z = \frac{(-1 + 4i)^2}{5-2i}. \] Wir wollen \( \Re(z), \Im(z), |z| \) bestimmen.
+Wir schreiben \(z\) in die Form \(x+iy\).
+\begin{align*}
+	z = \frac{(-1 + 4i)^2}{5-2i} = \frac{(-1 + 4i)^2(5+2i)}{(5-2i)(5+2i)}\\
+	= \frac{(-1 + 4i)^2(5+2i)}{29} = \frac{(-15-8i)(5+2i)}{29} = -\frac{59}{29} - \frac{70}{29}i
+\end{align*}
+\[ \Rightarrow \Re(z) = -\frac{59}{29},\quad \Im(z) = -\frac{70}{29},\quad |z| = \sqrt{ \left(-\frac{59}{29}\right)^2 + \left(-\frac{70}{29}\right)^2 } = \frac{17}{\sqrt{29}} \]
+\textbf{Folgen und Konvergenz in \(\R^d\)}
+\begin{defi}
+	\( B_R(x) := \{ y\in\R^d : |x-y| < R \} \) (offene Kugel im \(\R^d\) um \( x\in\R^d \))
+	\\%Bild
+	%Hier itemize?
+	Eine Folge in \( \R^d \) ist eine Funktion \( f: \N \rightarrow \R^d \). Setzen \(x_n := f(n)\in\R^d \), schreiben \( (x_n)_n \) bzw. \((x_n)_{n\in\N}\).\\
+	Eine Menge \( A\subset \R^d \) ist beschränkt, falls es ein \(R > 0\) so, dass \( A\subset B_R(0) \Leftrightarrow \exists 0<R<\infty:\forall x\in A: |x|\leq R \).\\
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) ist beschränkt, falls \(A := \{ x_n | n\in\N \}\) eine beschränkte Menge in \( \R^d \) ist (\( \Leftrightarrow \exists 0\leq R < \infty: |x_n| \leq R \quad \forall n\in\N \)).\\
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) konvergiert gegen \( x\in\R^d \) für \( n\rightarrow \infty (x=\limes{n} x_n) \), falls 
+	\[ \limsup\limits_{n\rightarrow\infty} |x-x_n| = 0 \quad \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N: |x-x_n| < \varepsilon \quad \forall n\geq K. \]
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) heißt Cauchyfolge, falls 
+	\[ \forall \varepsilon>0 \exists K\in\N: |x_n - x_m| < \varepsilon \quad \forall n,m\geq K \]
+	\[ \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N: |x_n-x_m| < \varepsilon \quad \forall m>n\geq K. \]
+\end{defi}
 %20.12.2018
 \begin{bem}
 	Die Maximumsnorm ist gegeben für \(x\in\R^d\),
@@ -124,7 +229,7 @@ neue Multiplikation: \[ z_1 \cdot z_2 = (x_1 x_2 - y_1y_2, x_1y_2 + x_2y_1) \]
 	\[ ||x||_\infty \leq |x| \leq \sqrt{d} \cdot ||x||_\infty \]
 \end{bew}
 Kovergenz im \(\R^d \Leftrightarrow\) Konvergenz zugehöriger Koordinatenfolgen.
-\begin{satz}%Eigentlich Satz 12!!!!!
+\begin{satz}
 	Sei \((x_n)_n\) eine Folge in \(\R^d\) mit \(x_n = x_{n1},x_{n2},\dots,x_{nd}\).\\
 	Die Folge \((x_n)_n\) konvergiert genau dann gegen den Punkt \(a = (a_1,\dots,a_d)\in\R^d\), wenn für \(\nu = 1,\dots,d\) gilt:
 	\[ \limes{n} x_{n+1} = a_\nu. \]

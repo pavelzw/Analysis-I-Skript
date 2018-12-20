@@ -2,7 +2,7 @@
 \begin{document}
 
 \section{Der Euklidische Raum \( \R^d \), komplexe Zahlen \( \C \) (und \(\C^d \))}
-Grundlagen: \( \R^d := \R \times \dots \times \R = \{ (x_1, \dots, x_d) | x_j \in\R, j\in\{1,\dots, d \} \)\\
+Grundlagen: \( \R^d := \R \times \cdots \times \R = \{ (x_1, \dots, x_d) | x_j \in\R, j\in \{1,\dots, d \} \)\\
 Addition:
 \[x, y \in \R^d: x + y := (x_1, \dots , x_d) + (y_1, \dots, y_d) = (x_1 + y_1, \dots, x_d + y_d) \]
 Skalare Multiplikation:
@@ -10,19 +10,19 @@ Skalare Multiplikation:
 \( \R^d \) ist ein (reeller) \(d\)-dim. Vektorraum.\\
 z.B. \(\R^2\): \(x = (x_1, x_2) \in \R^2\)\\
 \textbf{Bild}\\%BILD
-Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
+Länge von \(x = |x| = {(x_1^2 + x_2^2)^{1/2}}\)
 \begin{defi}[Euklidische Länge und Skalarprodukt]
-	\[ x,y \in\R^d, x\cdot y = <x,y> := \sum_{j=1}^{d}x_j y_j \]
-	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = <x,x>^{1/2} = \sqrt{<x,x>}. \]
+	\[ x,y \in\R^d, x\cdot y = \langle x,y\rangle := \sum_{j=1}^{d}x_j y_j \]
+	\[ |x| = ||x||_2 := (\sum_{j=1}^{d} x_j^2 )^{1/2} = \langle x,x\rangle^{1/2} = \sqrt{\langle x,x\rangle}. \]
 \end{defi}
 \begin{bem}
 	Euklidisches Skalarprodukt erfüllt die Axiome eines allg. Skalarprodukts (auf reellen VR.).\\
-	(S1) \( <x,y> = <y,x> \quad\forall x,y\in R^d \) (Symmetrie)\\
-	(S2) \( <x, \lambda y + \mu z> = \lambda <x,y> + \mu<x,z> \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
-	(S3) \( <x,x> \geq 0 \) und \( <x,x> = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
+	(S1) \( \langle x,y\rangle = \langle y,x\rangle \quad\forall x,y\in R^d \) (Symmetrie)\\
+	(S2) \( \langle x, \lambda y + \mu z\rangle = \lambda <x,y\rangle + \mu\langle x,z\rangle \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
+	(S3) \( \langle x,x\rangle \geq 0 \) und \( \langle x,x\rangle = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
 \end{bem}
 \begin{bem}
-	(S1) und (S2) \( \Rightarrow <\lambda x + \mu y, z> = \lambda <x,z> + \mu <y,z> \).
+	(S1) und (S2) \( \Rightarrow \langle\lambda x + \mu y, z\rangle = \lambda <x,z\rangle + \mu <y,z\rangle \).
 \end{bem}
 \begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
 	\[ \forall x,y\in\R^d: |<x,y>|\leq |x||y|\]
@@ -31,10 +31,10 @@ Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 \begin{bew}
 	Haben immer \( x,y\in\R^d, t\in\R. \)
 	\begin{align*}
-		0\leq |x+ty|^2 = <x+ty, x+ty>\\
-		\overset{\text{(S2)}}{=} <x+ty,x> + t<x+ty,y>\\
-		\overset{\text{(S1)(S2)}}{=} <x,x> + t<y,x> + t<x,y> + t^2<y,y>\\
-		= |x^2| + 2t<x,y> + t^2|y|^2 =: g(t).\\
+		0\leq |x+ty|^2 = \langle x+ty, x+ty\rangle\\
+		\overset{\text{(S2)}}{=} \langle x+ty,x\rangle + t\langle x+ty,y\rangle\\
+		\overset{\text{(S1)(S2)}}{=} \langle x,x\rangle + t \langle y,x\rangle + t\langle x,y\rangle + t^2\langle y,y\rangle\\
+		= |x^2| + 2t\langle x,y\rangle + t^2|y|^2 =: g(t).\\
 		g(t) = at^2 + 2bt + c
 	\end{align*}
 	Ang. \(|y| > 0, a = |y|^2 > 0 \)
@@ -47,11 +47,11 @@ Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
 		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**)\\
 		\text{Haben }  a=|y|^2, c=|x|^2\\
-		\Rightarrow |<x,y>|\leq |x||y|.
+		\Rightarrow |\langle x,y\rangle|\leq |x||y|.
 	\end{align*}
 	Fall 1: \(|y| = 0 \Leftrightarrow y = 0_v = (0, 0)\)
-	\[<x, 0_v> = <x, 0 \cdot 0_v> = 0 \cdot <x, 0_v> = 0\]
-	Fall 2: \(|<x, y>| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
+	\[\langle x, 0_v\rangle = \langle x, 0 \cdot 0_v\rangle = 0 \cdot \langle x, 0_v\rangle = 0\]
+	Fall 2: \(|\langle x, y\rangle| < |x||y| \Leftrightarrow b^2 < ac \Leftrightarrow g(t) > 0 \quad \forall t \in \R\)\\
 	\[\Leftrightarrow x + ty \neq 0 \quad \forall t \in \R \Leftrightarrow x, y \text{ linear unabhängig} \]
 \end{bew}
 \begin{defi}
@@ -63,16 +63,16 @@ Länge von \(x = |x| = (x_1^2 + x_2^2)^{1/2}\)
 	\end{enumerate}
 \end{defi}
 \begin{satz}
-	\[ |x| := \sqrt{<x,x>} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
+	\[ |x| := \sqrt{\langle x,x\rangle} = \left(\sum_{j=1}^{d} x_j^2\right)^{1/2} \text{ ist eine Norm}. \]
 \end{satz}
 \begin{bew}
 	Eigenschaften 1. und 2. sind einfach nachzurechnen.\\
 	Zu 3.:
 	\begin{align*}
-		|x+y|^2 = <x+y,x+y>=<x+y,x>+<x+y,y>\\
-		= <x,x> + <y,x> + <x,y> + <y,y>\\
-		=|x|^2 + 2<x,y> + |y|^2\\
-		\leq |x|^2 + 2|<x,y>| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
+		|x+y|^2 = \langle x+y,x+y\rangle=\langle x+y,x\rangle+\langle x+y,y\rangle\\
+		= \langle x,x\rangle + \langle y,x\rangle + \langle x,y\rangle + \langle y,y\rangle\\
+		=|x|^2 + 2\langle x,y\rangle + |y|^2\\
+		\leq |x|^2 + 2|\langle x,y\rangle| + |y|^2 \overset{12.0.2}{\leq} |x^2| + 2|x||y| + |y|^2 = (|x|+|y|)^2
 	\end{align*}
 	\[ \Rightarrow |x+y| \leq |x| + |y| \]
 \end{bew}
@@ -99,9 +99,238 @@ neue Multiplikation: \[ z_1 \cdot z_2 = (x_1 x_2 - y_1y_2, x_1y_2 + x_2y_1) \]
 \( (x_1,0)\cdot(x_2,0) = (x_1x_2,0) \)\\
 \( z=(x,y) = (x,0) + (0,y) = x(1,0) + y(0,1) = x e_1 + y e_2 \)
 %BILD
-\( \R^2 \) mit obiger Addition und \glqq komplexen \grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( \R^2 \) mit obiger Addition und \glqq komplexen\grqq{} Multiplikation erfüllt alle Körperaxiome.\\
+\( (\R^2, +, \cdot) \) ist ein Körper (Körperaxiome nachrechnen). Nullelement ist \( (0,0) \), Einselement \((1,0)\), Inverse von \(  (x,y) \neq (0,0): (x,y)^{-1} = (\frac{x}{x^2+y^2}, \frac{y}{x^2+y^2}) \).
 \( e_2 e_2 = (0,1)(0,1) = (0-1,0 + 0) = (-1,0) = -(1,0) = -e_1 \)\\
 \(e_1 = 1\cdot e_1 = (1,0) \)\\
 \( e_2^2 = -e_1 = -1 (1,0) + 0(0,1) \)
+D. h. \(e_2\) löst die Gleichung \( z^2+1=0 \). Wir definieren \(i:= e_2\) und nennen \(i\) die imaginäre Einheit. Somit gilt \( i^2 = -1 \). Mithilfe von \(i\) können wir die gebräuchliche Schreibweise für \( \C\ni z = (x,y), \quad x,y\in\R \) hinschreiben.
 \[ z = (x,y) = x e_1 + y e_2 = x \cdot 1 + y \cdot i = x + i y. \]
+%18.12.2018
+Wir nennen diesen Körper den Körper der komplexen Zahlen, Bezeichnung: \( \C \).
+\begin{defi}[Realteil und Imaginärteil]
+	Sei \( z=x+iy\in\C \). Wir definieren Real- und Imaginärteil wie folgt:
+	\[ \Re(z) := x \qquad \Im(z):=y \]
+\end{defi}
+\begin{bem}
+	Zwei komplexe Zahlen \( z,z' \) sind genau dann gleich, wenn
+	\[ \Re(z)=\Re(z') \text{ und } \Im(z) = \Im(z') \]
+\end{bem}
+\begin{defi}[komplexe Konjugation]
+	Für eine komplexe Zahl \( z=x+iy, \quad x,y\in\R \) definiert man die konjugierte komplexe Zahl durch
+	\[ \bar{z} := x - iy \]
+	(Spiegelung an der reellen Achse)
+	%Bild
+	Offensichtlich gilt \( z=\bar{z} \) genau dann, wenn \( z\in\R\subseteq \C \).
+\end{defi}
+\begin{lem}
+	Es gelten die Beziehung für \( z\in\C \)
+	\begin{enumerate}
+		\item \(\Re(z) = \frac{1}{2} (z+\bar{z}) \)
+		\item \(\Im(z) = \frac{1}{2i} (z-\bar{z}) \)
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	Sei \( z=x+iy\in\C \).
+	\[ \frac{1}{2}(z+\bar{z}) = \frac{1}{2}(x+iy + x-iy) + \frac{1}{2}(2x) = x = \Re(x) \]
+	\[ \frac{1}{2i}(z-\bar{z}) = \frac{1}{2i}(x+iy - (x-iy)) = \frac{1}{2i}(2iy) = y = \Im(z). \]
+\end{bew}
+\begin{lem}
+	Für \( z,w\in\C \) gilt
+	\begin{enumerate}
+		\item \( \bar{\bar{z}} = z \)
+		\item \( \bar{z+w} = \bar{z} + \bar{w} \)
+		\item \( \bar{z\cdot w} = \bar{z} \cdot \bar{w} \)
+	\end{enumerate}
+\end{lem}
+\begin{bew}
+	\begin{enumerate}
+		\item Sei \( z= x+iy \in\C \) mit \(x,y \in\R \). Dann gilt
+		\[ \bar{z} = \bar{(x+iy)} = x-iy \]
+		\[ \Rightarrow \bar{\bar{z}} = \bar{\bar{x+iy}} = \bar{(x-iy)} = x+iy = z \]
+		\item auf Übungszettel 10
+		\item auf Übungszettel 10
+	\end{enumerate}
+\end{bew}
+Der Betrag einer komplexen Zahl:\\
+Sei \( z=x+iy \). Wir berechnen
+\[ z\cdot \bar{z} = (x+iy)(x-iy)=x^2-ixy +ixy - i^2y^2 = x^2 + y^2 \]
+Dies ist eine nicht-negative reelle Zahl.
+\begin{defi}
+	Der Betrag einer komplexen Zahl ist
+	\[ |z| = \sqrt{z \bar{z}}\in\{x\in\R | x\geq 0 \}. \]
+\end{defi}
+\begin{bem}.%schlecht formatiert
+	\begin{enumerate}
+		\item Für \( z\in\R_+ \) gilt: \( |z| = z \quad |z| = \sqrt{z\bar{z}} = \sqrt{z^2} = z \)
+		\item Für \( z\in\C \) gilt: \( |z| = |\bar{z}| \) (Übungszettel 10)
+	\end{enumerate}
+\end{bem}
+\begin{satz}
+	Der Betrag in \(\C\) hat die folgenden Eigenschaften:
+	\begin{enumerate}
+		\item Es ist \( |z|\geq 0 \quad \forall z\in\C \) und \( |z|=0 \Leftrightarrow z=0 \)
+		\item (Multiplikativität) \( |z_1 \cdot z_2| = |z_1|\cdot|z_2| \quad \forall z_1,z_2\in\C \)
+		\item (Dreiecksungleichung) \( |z_1+z_2| \leq |z_1| + |z_2| \)
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	\begin{enumerate}
+		\item trivial
+		\item Seien \( z_1,z_2 \in\C \). Wir verwenden Def. 9.
+		\[ |z_1z_2|^2 = (z_1z_2)(\bar{z_1z_2}) \overset{\text{Lem. 8}}{=}z_1z_2 \bar{z_1} \bar{z_2} = (z_1\bar{z_1})(z_2\bar{z_2}) \overset{\text{Def. 9}}{=} |z_1|^2|z_2|^2 \]
+		Durch Wurzelziehen erhält man
+		\[ |z_1z_2| = |z_1||z_2| \]
+		\item Sei \( z_1,z_2 \in\C \). Für jede komplexe Zahl gilt \( \Re(z) \leq |z| \). Somit gilt
+		\[ \Re(z_1\bar{z_2}) \leq |z_1\bar{z_2}| \overset{2.}{=}|z_1||\bar{z_2}| = |z_1||z_2| \quad(*) \]
+		Damit folgt \[ |z_1 + z_2|^2 \overset{\text{Def. 9}}{=} (z_1 + z_2)(\bar{z_1+z_2}) \overset{\text{Lem. 8}}{=} (z_1 + z_2)(\bar{z_1} + \bar{z_2}) \]
+		\[ z_1 \bar{z_1} + z_1 \bar{z_2} + z_2 \bar{z_1} + z_2 \bar{z_2} \overset{\text{Lem. 7}}{=} |z_1|^2 + 2\Re(z_1\bar{z_2}) + |z_2|^2 \overset{(*)}{\leq} |z_1|^2 + 2|z_1||z_2| + |z_2|^2 = (|z_1| + |z_2|)^2. \]
+		Also folgt: \( |z_1+z_2| \leq |z_1| + |z_2|. \)
+	\end{enumerate}
+\end{bew}
+\textbf{Rechnen mit komplexen Zahlen}:
+\[ z = \frac{(-1 + 4i)^2}{5-2i}. \] Wir wollen \( \Re(z), \Im(z), |z| \) bestimmen.
+Wir schreiben \(z\) in die Form \(x+iy\).
+\begin{align*}
+	z = \frac{(-1 + 4i)^2}{5-2i} = \frac{(-1 + 4i)^2(5+2i)}{(5-2i)(5+2i)}\\
+	= \frac{(-1 + 4i)^2(5+2i)}{29} = \frac{(-15-8i)(5+2i)}{29} = -\frac{59}{29} - \frac{70}{29}i
+\end{align*}
+\[ \Rightarrow \Re(z) = -\frac{59}{29},\quad \Im(z) = -\frac{70}{29},\quad |z| = \sqrt{ \left(-\frac{59}{29}\right)^2 + \left(-\frac{70}{29}\right)^2 } = \frac{17}{\sqrt{29}} \]
+\textbf{Folgen und Konvergenz in \(\R^d\)}
+\begin{defi}
+	\( B_R(x) := \{ y\in\R^d : |x-y| < R \} \) (offene Kugel im \(\R^d\) um \( x\in\R^d \))
+	\\%Bild
+	%Hier itemize?
+	Eine Folge in \( \R^d \) ist eine Funktion \( f: \N \rightarrow \R^d \). Setzen \(x_n := f(n)\in\R^d \), schreiben \( (x_n)_n \) bzw. \((x_n)_{n\in\N}\).\\
+	Eine Menge \( A\subset \R^d \) ist beschränkt, falls es ein \(R > 0\) so, dass \( A\subset B_R(0) \Leftrightarrow \exists 0<R<\infty:\forall x\in A: |x|\leq R \).\\
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) ist beschränkt, falls \(A := \{ x_n | n\in\N \}\) eine beschränkte Menge in \( \R^d \) ist (\( \Leftrightarrow \exists 0\leq R < \infty: |x_n| \leq R \quad \forall n\in\N \)).\\
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) konvergiert gegen \( x\in\R^d \) für \( n\rightarrow \infty (x=\limes{n} x_n) \), falls 
+	\[ \limsup\limits_{n\rightarrow\infty} |x-x_n| = 0 \quad \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N: |x-x_n| < \varepsilon \quad \forall n\geq K. \]
+	Eine Folge \( (x_n)_n, x_n\in\R^d \) heißt Cauchyfolge, falls 
+	\[ \forall \varepsilon>0 \exists K\in\N: |x_n - x_m| < \varepsilon \quad \forall n,m\geq K \]
+	\[ \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N: |x_n-x_m| < \varepsilon \quad \forall m>n\geq K. \]
+\end{defi}
+%20.12.2018
+\begin{bem}
+	Die Maximumsnorm ist gegeben für \(x\in\R^d\),
+	\[ ||x||_\infty := \underset{1\leq j\leq d}{\max} |x_j| \]
+	Zwischen der \( ||\cdot||_\infty \) und \( |\cdot| \) besteht die folgende Beziehung:
+	\[ ||x||_\infty \leq |x| \leq \sqrt{d} \cdot ||x||_\infty, x\in\R^d \]
+\end{bem}
+\begin{bew}
+	Sei \(x\in\R^d\).
+	\begin{align*}
+		||x||_\infty^2 = ( \underset{1\leq j\leq d}{\max} |x_j| )^2 &= \underset{1\leq j\leq d}{\max} x_j^2\\
+		&\leq x_1^2 + \dots + d_d^2\\
+		&\leq d \cdot \underset{1\leq j\leq d}{\max} x_j^2
+		&= d \cdot ||x||_\infty
+	\end{align*}
+	Nach Wurzelziehen gilt also
+	\[ ||x||_\infty \leq |x| \leq \sqrt{d} \cdot ||x||_\infty \]
+\end{bew}
+Kovergenz im \(\R^d \Leftrightarrow\) Konvergenz zugehöriger Koordinatenfolgen.
+\begin{satz}
+	Sei \((x_n)_n\) eine Folge in \(\R^d\) mit \(x_n = x_{n1},x_{n2},\dots,x_{nd}\).\\
+	Die Folge \((x_n)_n\) konvergiert genau dann gegen den Punkt \(a = (a_1,\dots,a_d)\in\R^d\), wenn für \(\nu = 1,\dots,d\) gilt:
+	\[ \limes{n} x_{n+1} = a_\nu. \]
+\end{satz}
+\begin{bew}
+	\glqq\(\Rightarrow\)\grqq: Es gilt \( \limes{n}x_n = a \).\\
+	Dann gibt es zu \(\varepsilon>0\) ein \(N\in\N\), sodass
+	\[ |x_n - a| < \varepsilon \text{ für alle } n\geq N. \]
+	Somit folgt für \(\nu = 1,\dots,d\):
+	\[ \underset{1\leq j\leq d}{\max} |x_{n_\nu} - a_\nu| = ||x_n - a||_\infty \overset{\text{Bem.}}{\leq} |x_n - a| < \varepsilon \text{ für }n\geq N. \]
+	Also \(\limes{n}x_{n_\nu} = a_\nu\) für alle \(\nu = 1,\dots,d\).\\
+	\glqq\(\Leftarrow\)\grqq: Sei nun \( \limes{n}x_{n_\nu} = a_\nu \) für \(\nu = 1,\dots,d\).\\
+	Damit gibt es zu jedem \(\varepsilon>0\) ein \(N_\nu \in\N\), sodass
+	\[ |x_{n_\nu} - a_\nu| < \varepsilon' := \frac{\varepsilon}{\sqrt{d}} \text{ für alle } n\geq N_\nu. \]
+	Für alle \(n\geq N := \max\{N_1,\dots,N_d\}\) gilt dann
+	\begin{align*}
+		|x_n - a| &= {\left( \sum_{\nu=1}^{d} (x_{n_\nu} - a_\nu)^d \right)}^{1/2}\\
+		&\overset{\text{Bem.}}{\leq} \sqrt{d} \cdot \underset{1\leq \nu\leq d}{\max} |x_{n_\nu} -a_\nu|\\
+		&< \sqrt{d} \cdot \varepsilon'\\
+		&= \varepsilon
+	\end{align*}
+	\[ \limes{n} x_n = a. \]
+\end{bew}
+\begin{kor}
+	Sei \((c_n)_n\) eine Folge komplexer Zahlen. Die Folge konvergiert genau dann, wenn die bei den reellen Folgen \((\Re(c_n))_n\) und \( (\Im(c_n))_n \) konvergieren. Dann gilt:
+	\[ \limes{n} c_n = \limes{n} \Re(c_n) + i \limes{n} \Im(c_n). \]
+\end{kor}
+\begin{bew}
+	Folgt direkt aus Satz 12 mit \(d=2\).
+\end{bew}
+\begin{kor}
+	Sei \((c_n)_n\) eine konvergente Folge komplexer Zahlen. Dann konvergiert auch die komplex konjugierte Folge \((\bar{c_n})_n\) und es gilt
+	\[ \limes{n} \bar{c_n} = \overline{ \limes{n}c_n } \]
+\end{kor}
+\begin{bew}
+	Folgt aus: \( \Re(\bar{c_n}) = \Re(c_n) \) und \( \Im(\bar{c_n}) = -\Im(c_n) \).
+\end{bew}
+\begin{satz}[Bolzano-Weierstraß]
+	Jede beschränkte Folge in \(\R^d\) enthält eine konvergente Teilfolge.
+\end{satz}
+Erinnerung: A27 (Zettel 6): Sei \((a_n)_n\) eine reelle Folge. Dann besitzt \((a_n)_n\) eine monotone Teilfolge.
+\begin{bew} .\\ %SCHLECHT FORMATIERT
+	\(d=1: \) Korollar 9.6 \checkmark\\
+	\(d=2: \) Sei \((x_n)_n, x_n\in\R^2\) beschränkte Folge. Dann ist \(x_n = (x_1,x_2)\in\R^2\) und Folge \((x_{n1})_n\) der ersten Koordinate ist eine beschränkte reelle Folge.\\
+	Somit besitzt \( (x_{n1})_n \) eine monotone Teilfolge \( (x_{n_k 1})_k \). Aus Satz 8.2 folgt, dass \( (x_{n_k 1})_k \) ist konvergent.\\
+	Betrachten nun \( (x_{n_k 2})_k \). Auch dies ist eine beschränkte reelle Folge da \((x_n)_n\) beschränkt ist. Sie besitzt also auch eine monotone Teilfolge. Sei diese gegeben durch \( (x_{n_{k_q}2})_q \).\\
+	Nach Satz 8.2 konvergiert \((x_{n_{k_q}2})_q\).\\
+	Da \((x_{n_k{q}1})_q\) gegen denselben Grenzwert wie \( (x_{n_k 1})_k \) konvergiert, folgt also, dass
+	\[ (x_{n_{k_q}})_q = ((x_{n_{k_q}1}, x_{n_{k_q}2}))_q \]
+	eine konvergente Teilfolge von \((x_n)_n\) ist.\\
+	Sei nun \( d\geq 2 \) beliebig, aber endlich. Dann folgt die Aussage wie im Fall \(d=2\), indem man induktiv für jede weitere Koordinate eine konvergente Teilfolge der bereits konstruierten Teilfolge findet. Diese Teilfolge ist immernoch Teilfolge der ursprünglichen Folge, aber nun konvergieren alle Koordinatenfolgen und somit auch die ursprüngliche Folge.
+\end{bew}
+\begin{lem}
+	Eine Cauchyfolge in \(\R^d\) konvergiert genau dann, wenn sie eine konvergente Teilfolge hat.
+\end{lem}
+\begin{bew}
+	\glqq\(\Rightarrow\)\grqq: Sei \((a_n)_n\) eine Cauchyfolge in \(\R^d\)
+	\[(*) \forall\varepsilon>0\exists N\in\N: |a_n - a_m|<\varepsilon \quad \forall n,m\geq N. \]
+	Wir werden zeigen, dass jede Cauchyfolge beschränkt ist, dann folgt aus Satz 15, dass eine konvergente Teilfolge existiert.
+	Nehme \(\varepsilon = 1 \Rightarrow \exists K_0\in\N: |a_n - a_m|<1 \quad \forall n,m\geq K_0\).\\
+	Für \(n\geq K_0\) folgt somit \[|a_n| = |a_n - a_{K_0} + a_{K_0}| \leq |a_n - a_{K_0}| + |a_{K_0}| < 1 + |a_{K_0}|.\]
+	Setze \(C:= \max \{|a_1|,|a_2|,\dots,|a_{K_0}|,1+|a_{K_0}|\}<\infty \). Dann ist \(|a_n| \leq C \quad \forall n\in\N\). Somit ist \({(a_n)_n}\) beschränkt.\\
+	\glqq\(\Leftarrow\)\grqq: Sei \((a_{n_k})_k\) eine konvergente Teilfolge der Cauchyfolge \((a_n)_n\). Das heißt, es existiert ein \(\alpha \in\R^d\) mit
+	\[ \limes{k} a_{n_k} = \alpha. \]
+	Sei \(\varepsilon>0\) und \(N\) entsprechend zu \((*)\). Weiter \(n>N\) und \(k>n\). Dann ist \(n_k > n\) und \(m = n_k > n\).
+	Da \((a_n)_n\) Cauchyfolge ist, gilt:
+	\begin{align*}
+		|a_{n_k} - a_n| < \varepsilon \quad \forall k>n\\
+		\Rightarrow |\alpha - a_n| = \limes{k} |a_{n_k} - a_n| \leq \varepsilon.
+	\end{align*}
+	Das heißt \(|\alpha - a_n| \leq \varepsilon \quad \forall n\geq N\), also ist \(\alpha\) der Grenzwert der Folge \((a_n)_n\).
+\end{bew}
+\begin{satz}
+	Im \(\R^d\) konvergiert jede Cauchyfolge.
+\end{satz}
+\begin{bew}
+	1. Möglichkeit: Sei \((a_n)_n\) eine Cauchyfolge im \(\R^d\).\\
+	\( \overset{\text{Bewlem 16}}{\Longrightarrow} (a_n)_n \) ist beschränkt.\\
+	\( \overset{\text{Satz 15}}{\Longrightarrow} (a_n)_n\) hat konvergente Teilfolge.\\
+	\( \overset{\text{Lem. 16}}{\Longrightarrow} (a_n)_n\) konvergiert.\\
+	2. Möglichkeit: \((x_n)_n = ((x_{n1},x_{n2},\dots,x_{nd}))_n, n\in\N\) eine Cauchyfolge in \(\R^d\). Dann gilt
+	\[ || x_{n\nu} - x_{m\nu} ||_\infty \overset{\text{Bem}}{\leq} |x_n - x_m| \text{ für } n,m\in\N. \]
+	Also ist für jede \(\nu = 1,\dots,d\) die Folge \((x_{n\nu})_n\) eine Cauchyfolge in \(\R\).
+	Wir wissen bereits, dass \(\R\) vollständig ist. Also konvergiert \((x_{n\nu})_n\) für alle \(\nu=1,\dots,d\).
+	Nach Satz 12 konvergiert auch \((x_n)_n\) in \(\R^d\).
+\end{bew}
+Somit ist der \(\R^d\) vollständig.
+\begin{lem}
+	Jede konvergente Folge in \(\R^d\) ist eine Cauchyfolge.
+\end{lem}
+\begin{bew}
+	Sei \((x_n)_n, x_n\in\R^d\) konvergente Folge mit Grenzwert \(x\in\R^d\), das heißt \(\limes{n} x_n = x\). Aus Definition 11 folgt:
+	\[\forall \varepsilon>0 \exists N\in\N: |x_n - x| < \varepsilon \quad\forall n\geq N.\]
+	Wir wählen \(N\), sodass \(|x_n - x| < \frac{\varepsilon}{2} \quad\forall n\geq N. (*)\)
+	Nach Satz 4 ist \(|\cdot|\) eine Norm, somit gilt die Dreiecksungleichung. Es folgt für alle \(m,n\geq N\):
+	\begin{align*}
+		|x_n - x_m| &= |x_n - x + x - x_m|\\
+		&\leq |x_n - x| + |x  - x_m|\\
+		&\overset{(*)}{<} \frac{\varepsilon}{2} + \frac{\varepsilon}{2}\\
+		&= \varepsilon
+	\end{align*}
+	Das heißt \((x_n)_n\) ist eine Cauchyfolge.
+\end{bew}
 \end{document}

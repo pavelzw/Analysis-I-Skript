@@ -2,187 +2,216 @@
 \begin{document}
 
 \section{Etwas Logik}
-\begin{prosa}
-	Eine (mathematische) Aussage ist ein Ausdruck, der wahr oder falsch ist.
-\end{prosa}
+\begin{defi*}
+	Eine (mathematische) Aussage ist ein Ausdruck, der entweder wahr oder falsch ist.
+\end{defi*}
+
 \begin{bspe}\leavevmode
 	\begin{enumerate}[(a)]
-		\item \(A :\) \gqq{\(1+1=2\).}  (auch \gqq{\(1+1=3\)}, \gqq{\(1+1=0\)})
-		\item \(B :\) \gqq{Es gibt unendlich viele Primzahlen.}
-		\item \(C :\) \gqq{Es gibt unendlich viele Primzahlen \(p\), für die \(p + 2\) auch eine Primzahl ist.} (Primzahlzwillingsvermutung)
-		\item \(D :\) \gqq{Die Gleichung \(m \ddot{x} = F\) hat, gegeben \(\dot{x}(0) = v_0, x(0) = x_0\), immer genau eine Lösung.} (Lösung der Newtonschen Gleichung)
-		\item \(E :\) \gqq{Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.} (Goldbachsche Vermutung)
-		\item \(F :\) \gqq{Morgen ist das Wetter schön.}
-		\item \(G :\) \gqq{Ein einzelnes Atom im Vakuum mit der Kernladungszahl \(Z\) kann höchstens \(Z+1\) Elektronen binden.} (Ionisierungsvermutung, es ist noch nicht einmal bekannt, ob es eine Zahl \(Z\) gibt, sodass höchstens \(Z+1\) Elektronen gebunden werden.)
-		\item \(H(k,m,n) :\) \gqq{Es gilt: \(k^2 + m^2 = n^2\).} (z. B. \(H(3,4,5)\) ist wahr.)
+		\item \(A\): \gqq{\(1+1=2\).}  (auch \gqq{\(1+1=3\)}, \gqq{\(1+1=0\)})
+		\item \(B\): \gqq{Es gibt unendlich viele Primzahlen.}
+		\item \(C\): \gqq{Es gibt unendlich viele Primzahlen \(p\), für die \(p + 2\) auch eine Primzahl ist.} (Primzahlzwillingsvermutung)
+		\item \(D\): \gqq{Die Gleichung \(m \ddot{x} = F\) hat, gegeben \(\dot{x}(0) = v_0, x(0) = x_0\), immer genau eine Lösung.} (Lösung der Newtonschen Gleichung)
+		\item \(E\): \gqq{Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.} (Goldbach Vermutung)
+		\item \(F\): \gqq{Morgen ist das Wetter schön.}
+		\item \(G\): \gqq{Ein einzelnes Atom im Vakuum mit der Kernladungszahl \(Z\) kann höchstens \(Z+1\) Elektronen binden.} (Ionisierungsvermutung, es ist noch nicht einmal bekannt, ob es eine Zahl \(Z\) gibt, sodass höchstens \(Z+1\) Elektronen gebunden werden.)
+		\item \(H(k,m,n)\): \gqq{Es gilt: \(k^2 + m^2 = n^2\).} (z.B. \(H(3,4,5)\) ist wahr.)
 	\end{enumerate}
 \end{bspe}
-Sei  \(A(n)\) eine Aussage für jede natürliche Zahl \(n\). Dann gilt:\\
-Für jede nat. Zahl \(n\) ist \(A(n)\) wahr, genau dann, wenn
-\begin{enumerate}
-	\item \(A(1)\) ist wahr.
-	\item Unter der Annahme, dass \(A(n)\) wahr ist, folgt, dass \(A(n+1)\) wahr ist.
-\end{enumerate}
-\begin{bsp}
-	\(A(n): 1+2+3+\dots+n=\frac{n(n+1)}{2}\).
-\end{bsp}
-\begin{bew}
-	Vollständige Induktion\\
-	Induktionsanfang:\\
-	\(1 = \frac{1(1+1)}{2} \checkmark\)\\
-	Induktionsschluss:\\
-	Wir nehmen an, dass \(A(n)\) wahr ist (für \(n\in\mathbb{N}\))\\
-	D. h. Induktionsannahme:\\
-	\(1+2+3+\dots+n=\frac{n(n+1)}{2}\)\\
-	Dann folgt:\\
-	\(\underbrace{1+2+\dots+n}_{=\frac{n(n+1)}{2}}+(n+1)=\frac{n(n+1)}{2}+(n+1) \\
-	=\frac{n(n+1) + 2(n+1)}{2} = \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}\)
-\end{bew}
-%18.10.2018
+
 \begin{bem}
-	Gaußscher Trick:\\
-	1)\\
-	\(S=1+2+3+\dots+n=n+(n-1)+(n-2)+\dots+2+1\\
-	2S = \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}} \Leftrightarrow S =
-	\frac{n(n+1)}{2}\).\\
-	2)\\
-	\(S_n = 0 + 1 + 2 + \dots + n\\=\) Anzahl der Punkte in\\
-	%BILD EINFUEGEN
-	\(\approx\) Fläche eines rechtwinkligen Dreiecks \(=\frac{1}{2}*n*n\).\\
-	Also: Ansatz (\glqq geschicktes Raten\grqq , \glqq scientific guess\grqq , englisch: ansatz):\\
-	\(S_n = \underbrace{a_2 n^2 + a_1 n + a_0}_{\text{Polynom 2. Grades in n}}\\
-	a_2 = \frac{1}{2}\)\\
-	Wie bekommt man \(a_0, a_1, (a_2)\)?
-	\(n=0: S_0 = 0 = a_2*0^2+a_1*0+a_0 \Rightarrow a_0 = 0\).\\
-	\(n=1: S_1 = 1 = a_2*1^2+a_1*1^2 = a_2 + a_1 = \frac{1}{2} + a_1\).\\
-	also: \(a_1 = \frac{1}{2}\)\\
-	\(\Rightarrow\) Raten: \(S_n = \frac{1}{2}n^2 + \frac{1}{2} n = \frac{n(n+1)}{2}\).
+	Sei  \(A(n)\) eine Aussage für jede natürliche Zahl \(n\in \N\). Dann gilt, dass
+	\(A(n)\) für jedes \(n\) wahr ist, genau dann, wenn gilt
+	\begin{enumerate}[(i)]
+		\item \(A(1)\) ist wahr.
+		\item \(A(n)\) wahr \(\implies A(n+1)\) ist wahr.
+	\end{enumerate}
+\end{bem}
+
+\begin{bsp}
+	\(A(n): 1+2+3+\cdots+n = \frac{n(n+1)}{2}\).
+	\begin{bew}(Durch vollständige Induktion)
+		\induktion{
+			\(1 = \frac{1(1+1)}{2}\).
+		}{
+			\(A(n)\) gelte für ein \(n\in\mathbb{N}\).
+		}{
+			\(\begin{aligned}[t]
+				\underbrace{1+2+\cdots+n}_{=\frac{n(n+1)}{2}\IV} + (n+1) &= \frac{n(n+1)}{2}+(n+1)
+				=\frac{n(n+1) + 2(n+1)}{2}\\
+				&= \frac{(n+1)(n+2)}{2} = \frac{(n+1)((n+1)+1)}{2}.
+			\end{aligned}\)
+			\newline\qedhere
+		}
+	\end{bew}
+\end{bsp}
+%18.10.2018
+\begin{bem}[Gaußsche Summenformel]\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(\begin{aligned}[t]
+				&	         		 & S &= 1 + 2 + 3 + \cdots + n = n + (n-1)+ (n-2) + \cdots + 2 + 1\\
+				&\implies 		     &2S &= \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}}\\
+				&\Longleftrightarrow & S &= \frac{n(n+1)}{2}.
+			  \end{aligned}\)
+		\item \( S_{n} \coloneqq 0 + 1 + 2 + \cdots + n = \) entspricht der Anzahl der Punkte in einem 
+			  rechtwinkligen Dreieck mit dem Flächeninhalt \(\frac{1}{2}\cdot n \cdot n\).\newline
+			  Ansatz (\glqq geschicktes Raten\grqq , \glqq scientific guess\grqq , englisch: ansatz):
+			  \[S_{n} = \underbrace{a_{2}n^{2} + a_{1}n + a_{0}\text{,}}_{\text{Polynom }2\text{. Grades in }n}\quad a_{2} = \frac{1}{2}\]
+			  Wie bekommt man die Werte von \(a_0, a_1,\) und \(a_2\)?
+			  \[\begin{aligned}[t]
+				n=0\colon& S_{0} = 0 = a_{2}0^{2} + a_{1}0 + a_{0}               &\implies& a_{0} = 0.\\ 
+				n=1\colon& S_{1} = 1 = a_{2}1^{2} + a_{1}1 = \frac{1}{2} + a_{1} &\implies& a_{1} = \frac{1}{2}.
+			  \end{aligned}\]
+			  \(\implies S_{2} = \frac{1}{2}n^{2} + \frac{1}{2}n = \frac{n(n+1)}{2}\).
+	\end{enumerate}
 \end{bem}
 
 \subsection{Grundbegriffe}
-Aussagen: Notation\\
-\begin{tabular}{r|l}
-	\(:\)               & \glqq so, dass gilt\grqq                                                    \\
-	\(\exists\)         & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq                 \\
-	\(\forall\)         & \glqq für alle\grqq                                                         \\
-	\(\Rightarrow\)     & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq) \\
-	\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq                                                 \\
-	\(\neg A\)          & nicht \(A\)                                                                 \\
-	\(A \wedge B\)      & \(A\) und \(B\)                                                             \\
-	\(A \vee B\)        & \(A\) oder \(B\)                                                            \\
-	\(A := B\)          & \(A\) ist per Definition gleich \(B\)
-\end{tabular}
+\begin{notation}\leavevmode
+	\begin{center}
+		\begin{tabular}{r|l}
+			\(\colon\)               & \glqq so, dass gilt\grqq                                                    \\
+			\(\exists\)         & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq                 \\
+			\(\forall\)         & \glqq für alle\grqq                                                         \\
+			\(\Rightarrow\)     & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq) \\
+			\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq                                                 \\
+			\(\neg A\)          & nicht \(A\)                                                                 \\
+			\(A \wedge B\)      & \(A\) und \(B\)                                                             \\
+			\(A \vee B\)        & \(A\) oder \(B\)                                                            \\
+			\(A \coloneqq B\)          & \(A\) ist per Definition gleich \(B\)
+		\end{tabular}
+	\end{center}
+\end{notation}
 
 \begin{satz}
 	Folgende Aussagen sind allein aus logischen Gründen immer wahr.
-	\begin{tabular}{rl}
-		\(\neg(\neg A) \Leftrightarrow A\)                            & Gesetz der doppelten Verneinung \\
-		\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\) & Kontraposition                  \\
-		\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))\)  & beim Widerspruchsbeweis         \\
-		\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\)     & de Morgan                       \\
-		\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\)     & de Morgan                       \\
-	\end{tabular}
+	\begin{center}
+		\begin{tabular}{rl}
+			\(\neg(\neg A) \Leftrightarrow A\)                            & Gesetz der doppelten Verneinung \\
+			\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\) & Kontraposition                  \\
+			\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B))\)  & beim Widerspruchsbeweis         \\
+			\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\)     & de Morgan                       \\
+			\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\)     & de Morgan                       \\
+		\end{tabular}
+	\end{center}
 \end{satz}
-\begin{bem}
-	\(A\Rightarrow B\Leftrightarrow B\) ist mindestens so wahr wie \(A \Leftrightarrow A\) ist mindestens so falsch wie \(B \Leftrightarrow \neg B \Rightarrow \neg A\).\\
-	\((A\Leftrightarrow B) \Leftrightarrow (A \Rightarrow B \wedge B \Rightarrow A)\).
+
+\begin{bem}\leavevmode
+	\begin{flalign*}
+		(A \Rightarrow B) 	  &\Leftrightarrow B \text{ ist mindestens so wahr wie } A&&\\
+						 	  &\Leftrightarrow A \text{ ist mindestens so falsch wie } B&&\\
+					 	 	  &\Leftrightarrow \neg B \Rightarrow \neg A.&&\\
+		\\
+		(A \Leftrightarrow B) &\Leftrightarrow ((A \Rightarrow B) \wedge (B \Rightarrow A)).&&
+	\end{flalign*}
 \end{bem}
+\begin{defi*}
+	Sein \(n \in \N\), dann definiere:
+	\begin{enumerate}[(a)]
+		\item \(n\) ist gerade \(\longeq \exists k \in \N \colon n = 2k\).
+		\item \(n\) ist ungerade \(\longeq \exists k \in \N_{0} \colon n = 2k + 1\).
+	\end{enumerate}
+\end{defi*}
 \begin{bsp}
-	\(n \in \mathbb{N}\) ist gerade, falls \(k \in \mathbb{N}\) existiert mit \(n = 2k\).\\
-	\(n\in \mathbb{N}\) ist ungerade, falls \(\exists k\in \mathbb{N}_0: \vee n = 2k+1\).\\
-	Dann gilt: $n$ ist gerade $\Leftrightarrow n^2$ ist gerade.
+	Es gilt $n$ ist gerade \(\iff n^2\) ist gerade.
 	\begin{bew}
-		\glqq $\Rightarrow$\grqq : $n$ gerade $\Rightarrow n=2k$, für $k\in \mathbb{N}$\\
-		$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$ ist gerade.\\
-		Umgekehrt müssen wir zeigen:\\
-		\glqq $\Leftarrow$\grqq : $n^2$ gerade $\Rightarrow n$ gerade\\
-		Kontraposition: $n$ ungerade $\Rightarrow$ $n^2$ ungerade\\
-		Also sei $n = 2k+1, k \in \mathbb{N}_0 \Rightarrow n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = \underbrace{2(2k^2 + 2k)}_{\text{gerade}} + 1 \Rightarrow n^2$ ist ungerade.
+		\equirl{
+			\(n\) gerade \(\implies n=2k\) für ein \(k \in \N\).\\
+			\(\implies n^{2} = (2k)^{2} = 4k^{2} = 2(2k^{2})\) ist gerade.
+		}{
+			(Durch Kontraposition) \(n\) ungerade \(\implies n=2k + 1\) für ein \(k \in \N_{0}\).\\
+			\(\implies n^{2} = (2k+1)^{2} = 4k^{2} + 4k + 1 = \underbrace{2(2k^{2} + 2k)}_{\text{gerade}} + 1\) ist ungerade.
+		}
 	\end{bew}
 \end{bsp}
-\textbf{Mengen} (nach Cantor)\\
-informell: Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.\\
-Vorsicht: Russels Paradox\\
-genaue Definition von Zermelo-Fraenkel Axiome ($\rightarrow$ Logik Mengenlehre)\\
-$a\in M: a$ ist Element von $M$\\
-$a \notin M: a$ ist kein Element von $M$\\
-z.B.:\\
-$M = \{1, 4\}\\1\in M\\5 \notin M$\\
-Angabe von Mengen durch
-\begin{itemize}
-	\item Auflistung\\
-	      $M = \{x_1, x_2, x_3, \dots, x_{17} \}$
-	\item Eigenschaft\\
-	      $M = \{a | a \text{ hat Eigenschaft } E\}$
-\end{itemize}
-z.B.:
-\begin{itemize}
-	\item $\mathbb{N} := \{1,2,3,\dots\}$
-	\item $\mathbb{Z} := \{x | x \in \mathbb{N} \vee x \in -\mathbb{N} \vee x = 0 \}$
-	\item $-\mathbb{N} := \{-n|n\in\mathbb{N}\}$
-\end{itemize}
+
+\begin{defi*}[Informelle Mengendefinition nach Cantor]\leavevmode\\
+	Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.
+\end{defi*}
+
+\begin{notation}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(a\) ist ein Element von \(M \longeq a \in M\).\\
+			  \(a\) ist kein Element von \(M \longeq a \notin M\).
+		\item Beschreibung durch Auflisten: \(M = \set{x_{1} \ko x_{2} \ko x_{3} \ko \ldots \ko x_{17}}\).\\
+			  Beschreibung durch Eigenschaften: \(M = \set{a \; \vert \; a \text{ hat Eigenschaft } E}\).
+	\end{enumerate}
+\end{notation}
+
+\begin{bspe}\leavevmode
+	\begin{enumerate}[(1)]
+		\item \(\N \coloneqq \set{1 \ko 2 \ko 3 \ko \ldots}\)
+		\item \(-\N \coloneqq \set{-n \; \vert \; n \in \N}\)
+		\item \(\Z \coloneqq \set{x \; \vert \; x \in \N \; \vee \; x \in -\N \; \vee \; x = 0 }\)
+	\end{enumerate}
+\end{bspe}
+
 \begin{defi}
-	Sei $M$ eine Menge und $A(x)$ Aussagen mit $x\in M$\\
-	$\forall x \in M: A(x)$ ist wahr, falls alle $A(x)$ wahr sind.\\
-	$\exists x\in M:A(x)$ ist wahr, falls mindestens eine Aussage $A(x)$ wahr ist.
+	Sei $M$ eine Menge und $A(x)$ Aussagen mit $x\in M$.
+	\begin{enumerate}[(a)]
+		\item \(\forall x \in M \colon A(x)\) ist wahr, falls alle \(A(x)\) wahr sind.
+		\item \(\exists x \in M \colon A(x)\) ist wahr, falls mindestens eine Aussage \(A(x)\) wahr ist.
+	\end{enumerate}
+	Achtung: Reihenfolge der Quantoren ist wichtig!
 \end{defi}
-Achtung: Zusammensetzen: Reihenfolge ist wichtig!
+
 \begin{bsp}
-	Töpfe $:=$ Menge der Töpfe\\
-	Deckel $:=$ Menge der Deckel\\
-	$A: \forall T \in \text{Töpfe } \exists D\in \text{Deckel}: D \text{ passt auf } T$\\(Für jeden Topf gibt es einen Deckel, der passt)\\
-	$B: \exists D \in \text{Deckel } \forall T \in \text{Töpfe}: D \text{ passt auf } T$\\(Es existiert mindestens ein Deckel, der auf alle Töpfe passt)
+	Töpfe \(\coloneqq\) Menge der Töpfe, Deckel \(\coloneqq\) Menge der Deckel.\\
+	\(\forall T \in \text{Töpfe} \quad \exists D \in \text{Deckel} \colon D \text{ passt auf } T\)\\
+	\(\iff\) Für jeden Topf gibt es mindestens einen Deckel, der passt.
+	\(\exists D \in \text{Deckel} \quad \forall T \in \text{Töpfe} \colon  D \text{ passt auf } T\)\\
+	\(\iff\) Es existiert mindestens ein Deckel, der auf alle Töpfe passt.
 \end{bsp}
-Negation:\\
-$\neg (\forall x \in M : A(x)) \\ \Leftrightarrow \exists x \in M : \neg A(x)$\\
-$\neg (\exists x \in M : A(x)) \\ \Leftrightarrow \forall x \in M : \neg A(x)$
-\begin{defi}[wichtige Mengen]
-	Seien $M,N$ Mengen.
-	\begin{align*}
-		\emptyset      & := \text{ die Menge ohne Elemente (leere Menge)}                                        \\
-		M \cap N       & := \{x | x \in M \wedge x \in N \} \text{ (Schnitt)}                                    \\
-		M \cup N       & := \{x | x \in M \vee x \in N \} \text{ (Vereinigung)}                                  \\
-		M \setminus N  & := \{x | x \in M \wedge x \notin N \} \text{ (Differenzmenge)}                          \\
-		\mathcal{P}(M) & := \{A | A \subset M \} \text{ die Menge aller Teilmengen von } M \text{ (Potenzmenge)}
-	\end{align*}
-	Sei $I$ eine Menge und für $i\in I$ eine Menge $M_i$.
-	\begin{align*}
-		\bigcap\limits_{i\in I} M_i & := \{x | \forall i \in I:x\in M_i\}. \\
-		\bigcup\limits_{i\in I} M_i & := \{x | \exists i \in I:x\in M_i\}.
-	\end{align*}
-	Ist $M\cap N = \emptyset$, so heißen $M$ und $N$ divergent.\\
-	$M\subset N$, falls $\forall x \in M: x \in N$ ($M$ Teilmenge von $N$).\\
-	$M = N$, falls $M$ und $N$ dieselben Elemente haben.\\
-	Insbesondere ist $(M=N) \Leftrightarrow M\subset N \wedge N\subset M$.\\
-	$M \subsetneq N : M \subset N \wedge M \neq N$ ($M$ echte Teilmenge von $N$).
+
+\begin{bem}[Negation von quantifizierten Aussagen]
+	\begin{flalign*}
+		\neg (\forall x \in M \colon A(x)) &\Longleftrightarrow \exists x \in M \colon \neg A(x).&&\\
+		\neg (\exists x \in M \colon A(x)) &\Longleftrightarrow \forall x \in M \colon \neg A(X).&&
+	\end{flalign*}
+\end{bem}
+
+\begin{defi}[Mengenoperationen]
+	Seien \(M,N,I\) Mengen und für \(i \in I\) sei \(M_{i}\) eine Menge.
+	\begin{enumerate}[(a)]
+		\item \(\emptyset\) ist die Menge ohne Elemente (leere Menge).
+		\item \(M \subseteq N \longeq \forall x \in M \colon x \in N\). M ist Teilmenge von N.
+		\item \(M \subsetneq N \longeq M \subseteq N \vee M \neq N\). M ist echte Teilmenge von N. 
+		\item \(M \cap N \coloneqq \set{x \; \vert \; x \in M \wedge x \in N}\) heißt Schnitt von \(M\) und \(N\).
+		\item \(M \cup N \coloneqq \set{x \; \vert \; x \in M \vee x \in N}\) heißt Vereinigung von \(M\) und \(N\).
+		\item \(M \setminus N \coloneqq \set{x \; \vert \; x \in M \wedge x \notin N}\) heißt Differenz von \(M\) und \(N\).
+		\item \(\PO(M) \coloneqq \set{A \; \vert \; A \subset M}\) heißt Potenzmenge von \(M\).
+		\item \(\bigcap\limits_{i \in I} M_{i} \coloneqq \set{x \; \vert \; \forall i\in I \colon x \in M_{i}}\).
+		\item \(\bigcup\limits_{i \in I} M_{i} \coloneqq \set{x \; \vert \; \exists i\in I \colon x \in M_{i}}\).
+	\end{enumerate}
+	Ist \(M \cap N = \emptyset\) so heißen \(M\) und \(N\) disjunkt.
 \end{defi}
+
 \begin{bsp}
-	$\emptyset \subset M$\\
-	$M = \{1,2\} \Rightarrow \mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+	\begin{enumerate}[(1)]
+		\item Es gilt immer \(\emptyset \subseteq M\), für jede Menge \(M\).
+		\item \(M = \set{1\ko2} \implies \PO(M) = \set{\emptyset\ko\set{1}\ko\set{2}\ko\set{1\ko2}}\)
+	\end{enumerate}
 \end{bsp}
-\begin{enumerate}
-	\item Eigenschaften von \glqq $\subset$\grqq
-	      \begin{enumerate}
-		      \item $\emptyset \subset M$
-		      \item $M\subset M$
-		      \item $M=N \Leftrightarrow M\subset N \wedge N\subset M$
-		      \item $A\subset B \wedge B \subset C \Leftrightarrow A \subset C$
-	      \end{enumerate}
-	\item Assoziativität
-	      \begin{enumerate}
-		      \item $(A\cup B) \cup C = A \cup (B \cup C)$
-		      \item $(A\cap B) \cap C = A \cap (B \cap C)$
-	      \end{enumerate}
-	\item Kommutativität
-	      \begin{enumerate}
-		      \item $A\cup B = B \cup A$
-		      \item $A\cap B = B \cap A$
-	      \end{enumerate}
-	\item Distributivgesetz
-	      \begin{enumerate}
-		      \item $A \cap (B\cup C) = (A\cap B) \cup (A\cap C)$
-		      \item $A \cup (B\cap C) = (A\cup B) \cap (A\cup C)$
-	      \end{enumerate}
-\end{enumerate}
+
+\begin{bem}[Eigenschaften von \(\subseteq\)] Seien \(M\ko N\ko A\ko B\ko C\) Mengen. Dann gilt:
+	\begin{enumerate}[(a)]
+		\item \(emptyset \subseteq M\).
+		\item \(M \subseteq M\).
+		\item \(M = N \iff M \subseteq N \vee N \subseteq M\).
+		\item \(A\subset B \wedge B \subset C \iff A \subset C\).
+		\item \(\begin{rcases*}
+				(A\cup B) \cup C = A \cup (B \cup C)\;\\
+				(A\cap B) \cap C = A \cap (B \cap C)\;
+			  \end{rcases*}\) Assoziativität.
+		\item \(\begin{rcases*}
+			    A\cup B = B \cup A\;\\
+		        A\cap B = B \cap A\;
+			  \end{rcases*}\) Kommutativität.
+		\item \(\begin{rcases*}
+			    A \cap (B\cup C) = (A\cap B) \cup (A\cap C)\;\\
+			    A \cup (B\cap C) = (A\cup B) \cap (A\cup C)\;
+			  \end{rcases*}\) Distributivgesetze.
+	\end{enumerate}
+\end{bem}
 
 \end{document}

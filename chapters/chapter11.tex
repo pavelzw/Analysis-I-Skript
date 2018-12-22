@@ -276,11 +276,11 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\[ \Rightarrow \limsup\limits{n\rightarrow\infty} \frac{a_{n+1}}{a_n} = \limes{n} \frac{a_{n+1}}{a_n} = 1. \]
 \end{bem}
 \begin{satz}[Wurzelkriterium]
-	\( \sum_{n}a_n \) Reihe mit \[ (**) \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \sqrt[n]{|a_n|} < 1 \Rightarrow \sum_n a_n \text{ konv. abs.}.\]
-	Ist \( \limsup\limits_{n\rightarrow\infty} > 1 \), so ist die Reihe divergent. (ohne Bew.) 
+	\( \sum_{n}a_n \) Reihe mit \[ (**) \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limsup\limits_{n\rightarrow\infty} \sqrt[n]{|a_n|} < 1 \Rightarrow \sum_n a_n \text{ konv. abs.}.\]
+	Ist \( \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} > 1 \), so ist die Reihe divergent. (ohne Bew.) 
 \end{satz}
 \begin{bem}
-	Bei \( \limsup\limits_{n\rightarrow\infty} = 1 \) ist keine Aussage möglich.
+	Bei \( \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = 1 \) ist keine Aussage möglich.
 \end{bem}
 \begin{bem}
 	\( \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} \leq \limsup\limits_{n\rightarrow\infty} \frac{|a_{n+1}|}{|a_n|}, a_n \neq 0, \text{ für fast alle } n \). (H. A.)
@@ -329,5 +329,4 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	Falls gilt: \( S'(x) = ( \limes{n}S_n(x) )' = \limes{n}(S'_n(x)) = \limes{n}S_{n-1}(x) = S(x) \)
 	\( \Rightarrow \exp'x = \exp x? \) (im Allg. falsch, aber für Potenzreihen wahr)
 \end{bem}
-
 \end{document}

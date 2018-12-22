@@ -9,4 +9,4 @@
 *.pdf
 *.fls
 *.fdb_latexmk
-/images/*.url
+*.url

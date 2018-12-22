@@ -1,101 +1,38 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
-  
-%\usepackage{german} %deutsches Format
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc} %Umlaute
-\usepackage{graphicx} %Grafiken einbinden
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{nicefrac} 
-\usepackage{marvosym}[Lightning]
-\usepackage{array}
-\usepackage{dsfont} %statt \mathbb{1}
-\usepackage{tikz} 
-\usetikzlibrary{matrix}
-\usepackage{hyperref} %Hyperlinks in pdf
-\usepackage{subfiles}
-\usepackage[shortlabels]{enumitem} 
 
-%Metadaten
-\hypersetup{
-	pdftitle = {Analysis I Skript (WS 18/19)},
-	pdfauthor = {Pavel Zwerschke, Daniel Augustin}}
-
-\theoremstyle{definition}
-\newtheorem{satz}{Satz}[subsection]
-\newtheorem{kor}[satz]{Korollar}
-\newtheorem{lem}[satz]{Lemma}
-
-\newtheorem{defi}[satz]{Definition}
-\newtheorem*{beh}{Behauptung}
-\newtheorem{bem}{Bemerkung}[satz]
-
-\theoremstyle{remark}
-\newtheorem{bsp}[bem]{Beispiel}
-\newtheorem{bspe}[bem]{Beispiele}
-
-\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
-\newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
-\newcommand{\limessup}[1]{\limsup\limits_{#1\rightarrow\infty}}
-\newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
-\newcommand{\onlyinsubfile}[1]{#1}
-\newcommand{\notinsubfile}[1]{}
-\newcommand{\subgraphic}[2]{
-	\onlyinsubfile{\includegraphics[width=#1\textwidth]{images/#2}}
-		\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
+\IfFileExists{skript.sty}{\usepackage{skript}}{%
+  \usepackage{../skript}
 }
 
 \begin{document}
-\renewcommand{\onlyinsubfile}[1]{}
-\renewcommand{\notinsubfile}[1]{#1}
+	\renewcommand{\onlyinsubfile}[1]{}
+	\renewcommand{\notinsubfile}[1]{#1}
 
-\title{Analysis I (WS 18/19)}
-\date{\today}
-\author{Pavel Zwerschke, Daniel Augustin}
-\maketitle
+	\title{Analysis I (WS 18/19)}
+	\date{\today}
+	\author{Pavel Zwerschke, Daniel Augustin}
+	\maketitle
+	
+	%Listenstil
+	%Itemize   [-]
+	%Enumerate [(a)] Für Sätze und Bemerkungen
+	%		   [(1)] Für Beispiele
+	%		   [(i)] Für Voraussetzungen in Bemerkungen/Sätzen die nummeriert sind. Zusammengehörige aussagen die aus mehreren teilaussagen bestehen
 
-%Inhaltsverzeichnis
-\tableofcontents
-\newpage
+	%Inhaltsverzeichnis
+	\iftoggle{short}{}{
+		\tableofcontents
+		\newpage
+	}
 
-\setcounter{section}{-1}
-\section{Organisatorisches}
-\begin{description}[style=nextline]
-	\item[Dozent]
-		Prof.\ Dr.\ Dirk Hundertmark (Gebäude 20.30, Raum 2.028)\\
-		\href{mailto:dirk.hundertmark@kit.edu}{dirk.hundertmark@kit.edu}
-	\item[Übungsleiter]
-		Dr.\ Markus Lange (Gebäude 20.30, Raum 2.030)\\
-		\href{mailto:markus.lange@kit.edu}{markus.lange@kit.edu}
-	\item[Übungsaufgaben]
-		\begin{description}
-			\item[]
-			\begin{enumerate}
-			\item[]
-			\item[Ausgabe:] Die Übungsblätter werden jeden Donnerstag veröffentlicht unter\\
-						    \href{http://www.math.kit.edu/iana1/lehre/ana12018w/}{\texttt{www.math.kit.edu/iana1/lehre/ana12018w/}}.
-			\item[Abgabe:] Die bearbeiteten Übungsblätter können bis mittwochs um 19:00 Uhr in den Abgabekästen im Foyer\\
-			    		   des Mathebaus (Gebäude 20.30) abgegeben werden.\\
-						   Die Abgaben werden getackert sowie mit Namen, Matrikelnummer und Tutoriennummer beschriftet in das Fach mit
-						   der richtigen Kennzeichnung geworfen.\\
-						   Übungsaufgaben dürfen zu zweit abgegeben werden.\\
-			\end{enumerate}
-		\end{description}
-	\item[Übungsschein]
-		Jede K-Aufgabe wird mit 4 Punkten bewertet. Einen Übungsschein erhält wer 50\% der Punkte aller K-Aufgaben erzielt.
-	\item[Klausur]
-		Die Anmeldung findet über das Online-Portal statt. Die Klausur findet am 26.03.2019 von 08:00 bis 10:00 statt.
-		Der Übungsschein ist Voraussetzung für die Teilnahme an der Klausur.
-	\item[Proseminar] 
-		\href{http://www.math.kit.edu/lehre/seite/prosemanmeld/}{\texttt{www.math.kit.edu/lehre/seite/prosemanmeld/}} 
-\end{description}
-\newpage
-\foreach \c in {1,...,12}{\subfile{chapters/chapter\c.tex}}
+	\setcounter{section}{-1}
+	\iftoggle{short}{
+		\refstepcounter{section}
+		\refstepcounter{section}
+	}{
+		\subfile{chapters/chapter0.tex}
+		\newpage 
+		\subfile{chapters/chapter1.tex}
+	}
+	\foreach \c in {2,...,12}{\subfile{chapters/chapter\c.tex} }
 \end{document}

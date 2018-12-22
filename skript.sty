@@ -1,0 +1,96 @@
+\ProvidesPackage{skript}
+
+%\usepackage{german} %deutsches Format
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} %Umlaute
+\usepackage{graphicx} %Grafiken einbinden
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{nicefrac}
+\usepackage{marvosym}[Lightning]
+\usepackage{array}
+\usepackage{dsfont} %statt \mathbb{1}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{hyperref} %Hyperlinks in pdf
+\usepackage{subfiles}
+\usepackage[shortlabels]{enumitem}
+\usepackage{versions}
+\usepackage{etoolbox}
+\usepackage{mathtools}
+
+%Metadaten
+\hypersetup{
+	pdftitle = {Analysis I Skript (WS 18/19)},
+	pdfauthor = {Pavel Zwerschke, Daniel Augustin}}
+
+\theoremstyle{definition}
+\newtheorem{satz}{Satz}[subsection]
+\newtheorem{kor}[satz]{Korollar}
+\newtheorem{lem}[satz]{Lemma}
+
+\newtheorem{defi}[satz]{Definition}
+\newtheorem*{notation}{Notation}
+\newtheorem*{defi*}{Definition} %Für Sachen, die Definitionen sind aber keine Nummer haben
+\newtheorem*{beh}{Behauptung}
+\newtheorem{bem}{Bemerkung}[satz]
+
+\theoremstyle{remark}
+\newtheorem{bsp}[bem]{Beispiel}
+\newtheorem{bspe}[bem]{Beispiele}
+
+\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
+\newenvironment{prosa}{}{}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\PO}{\mathcal{P}}
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+\newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
+\newcommand{\limessup}[1]{\limsup\limits_{#1\rightarrow\infty}}
+\newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+\newcommand{\subgraphic}[2]{
+	\onlyinsubfile{\includegraphics[width=#1\textwidth]{images/#2}}
+		\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
+}
+\newcommand{\induktion}[3]{
+	\begin{enumerate}
+		\item[IA:]#1
+		\item[IV:]#2
+		\item[IS:]#3
+	\end{enumerate}
+}
+\newcommand{\equilr}[2]{
+	\glqq \ensuremath{\Leftarrow} \grqq \ensuremath{\colon}#1\newline
+	\glqq \ensuremath{\Rightarrow} \grqq \ensuremath{\colon}#2
+}
+\newcommand{\equirl}[2]{
+	\glqq \ensuremath{\Rightarrow} \grqq \ensuremath{\colon}#1\newline
+	\glqq \ensuremath{\Leftarrow} \grqq \ensuremath{\colon}#2
+}
+\newcommand\longeq{\mathrel{\vcentcolon\Longleftrightarrow}}
+\newcommand{\set}[1]{\{#1\}}
+\DeclareMathOperator{\ko}{,}
+\DeclareMathOperator{\IV}{(IV)}
+
+\newtoggle{short}
+\togglefalse{short}
+%\toggletrue{short}
+
+\iftoggle{short}{
+	\includeversion{satz}
+	\includeversion{kor}
+	\includeversion{lem}
+	\includeversion{defi}
+	\includeversion{defi*}
+	\excludeversion{notation}
+	\excludeversion{beh}
+	\excludeversion{bem}
+	\excludeversion{bsp}
+	\excludeversion{bspe}
+	\excludeversion{bew}
+	\excludeversion{prosa}
+}{}

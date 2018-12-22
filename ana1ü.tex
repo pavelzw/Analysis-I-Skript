@@ -80,8 +80,8 @@
 		\begin{tabular}{c | c}			
 			A & \(\neg A\) \\ 
 			\hline
-			true & false \\
-			false & true
+			\textbf{t} & \textbf{f} \\
+			\textbf{f} & \textbf{t}
 		\end{tabular}
 		\caption{Negation}
 	\end{table}	
@@ -90,10 +90,10 @@
 		\begin{tabular}{c | c | c | c | c | c}			
 			A & B & \(A \wedge B\) & \(A \vee B\) & \(A \rightarrow B\) & \(A \Leftrightarrow B\) \\
 			\hline
-			w & w & w & w & w & w \\
-			w & f & f & w & f & f \\
-			f & w & f & w & w & f \\
-			f & f & f & f & w & w
+			\textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} \\
+			\textbf{w} & \textbf{f} & \textbf{f} & \textbf{w} & \textbf{f} & \textbf{f} \\
+			\textbf{f} & \textbf{w} & \textbf{f} & \textbf{w} & \textbf{w} & \textbf{f} \\
+			\textbf{f} & \textbf{f} & \textbf{f} & \textbf{f} & \textbf{w} & \textbf{w}
 			
 		\end{tabular}
 		\caption{Konjunktion, Disjunktion, Implikation, Äquivalenz}
@@ -103,6 +103,46 @@
 		\item Konstanten und Variablen sind Ausdrücke
 		\item Sind A und B Variablen, so sind auch (siehe Wahrheitstabelle) Ausdrücke
 	\end{enumerate}
+	\subsection{Grundgesetze der Aussagenlogik}
+	\begin{enumerate}
+		\item Assoziativgesetz:
+		\[(A \wedge B) \wedge C \Leftrightarrow A \wedge (B \wedge C)\]
+		\[(A \vee B) \vee C \Leftrightarrow A \vee (B \vee C)\]
+		\item Kommutativgesetz:
+		\[(A \wedge B) \Leftrightarrow (B \wedge A)\]
+		\[(A \vee B) \Leftrightarrow (B \vee A)\]
+		\item Distributivgesetz:
+		\[(A \wedge B) \vee C \Leftrightarrow (A \vee C) \wedge (B \vee C)\]
+		\[(A \vee B) \wedge C \Leftrightarrow (A \wedge C) \vee (B \wedge C)\]
+		\item Absorptionsgesetz:
+		\[A \wedge (A \vee B) \Leftrightarrow A\]
+		\[A \vee (A \wedge B) \Leftrightarrow A\]
+		\item Idempotenzgesetze:
+		\[A \wedge A \Leftrightarrow A\]
+		\[A \vee A \Leftrightarrow A\]
+		\item ausgeschlossene Dritte:
+		\[A \wedge \neg A \Leftrightarrow \textbf{f}\]
+		\[A \vee \neg A \Leftrightarrow \textbf{t}\]
+		\item de Morgan'sche Gesetze:
+		\[\neg (A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\]
+		\[\neg (A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\]
+		\item Gesetz für true und false:
+		\[A \wedge \textbf{t} \Leftrightarrow A\]
+		\[A \wedge \textbf{f} \Leftrightarrow \textbf{f}\]
+		\[A \vee \textbf{t} \Leftrightarrow \textbf{t}\]
+		\[A \vee \textbf{f} \Leftrightarrow A\]
+		\[\neg \textbf{f} \Leftrightarrow \textbf{t}\]
+		\[\neg \textbf{t} \Leftrightarrow \textbf{f}\]
+		\item doppelte Verneinung:
+		\[\neg (\neg A) \Leftrightarrow A\]
+		\item Gesetz für das Konditional:
+		\[A \Rightarrow B \Leftrightarrow (\neg A \vee B)\]
+		\[A \Rightarrow B \Leftrightarrow \neg (A \wedge \neg B)\]
+		\[A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\]
+		\item Gesetz der Komplementarität:
+		\[A \vee \neg A \Leftrightarrow \textbf{t}\]
+		\[A \wedge \neg A \Leftrightarrow \textbf{f}\]
+	\end{enumerate}	
 	\begin{defi}
 		Zwei Aussagenlogische Ausdrücke heißen logisch äquivalent oder wertgleich (A = B), wenn sie die gleichen Wahrheitswerte besitzen.
 	\end{defi}
@@ -139,50 +179,10 @@
 			(\neg (\neg A \vee B) \vee (B \vee \neg A)) &\wedge (\neg (B \vee \neg A) \vee (\neg A \vee B))\\
 			((A \wedge \neg B) \vee (\neg A \vee B)) &\wedge ((A \wedge \neg B) \vee (\neg A \vee B))\\
 			((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B))) &\wedge ((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B)))\\
-			true &\wedge true\\
-			&true
+			\textbf{t} &\wedge \textbf{t}\\
+			&\textbf{t}
 		\end{align*}
 	\end{bsp}
-	\subsection{Grundgesetze der Aussagenlogik}
-	\begin{enumerate}
-		\item Assoziativgesetz:
-		\[(A \wedge B) \wedge C \Leftrightarrow A \wedge (B \wedge C)\]
-		\[(A \vee B) \vee C \Leftrightarrow A \vee (B \vee C)\]
-		\item Kommutativgesetz:
-		\[(A \wedge B) \Leftrightarrow (B \wedge A)\]
-		\[(A \vee B) \Leftrightarrow (B \vee A)\]
-		\item Distributivgesetz:
-		\[(A \wedge B) \vee C \Leftrightarrow (A \vee C) \wedge (B \vee C)\]
-		\[(A \vee B) \wedge C \Leftrightarrow (A \wedge C) \vee (B \wedge C)\]
-		\item Absorptionsgesetz:
-		\[A \wedge (A \vee B) \Leftrightarrow A\]
-		\[A \vee (A \wedge B) \Leftrightarrow A\]
-		\item Idempotenzgesetze:
-		\[A \wedge A \Leftrightarrow A\]
-		\[A \vee A \Leftrightarrow A\]
-		\item ausgeschlossene Dritte:
-		\[A \wedge \neg A \Leftrightarrow \text{false}\]
-		\[A \vee \neg A \Leftrightarrow \text{true}\]
-		\item de Morgan'sche Gesetze:
-		\[\neg (A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\]
-		\[\neg (A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\]
-		\item Gesetz für true und false:
-		\[A \wedge \text{true} \Leftrightarrow A\]
-		\[A \wedge \text{false} \Leftrightarrow \text{false}\]
-		\[A \vee \text{true} \Leftrightarrow \text{true}\]
-		\[A \vee \text{false} \Leftrightarrow A\]
-		\[\neg \text{false} \Leftrightarrow \text{true}\]
-		\[\neg \text{true} \Leftrightarrow \text{false}\]
-		\item doppelte Verneinung:
-		\[\neg (\neg A) \Leftrightarrow A\]
-		\item Gesetz für das Konditional:
-		\[A \Rightarrow B \Leftrightarrow (\neg A \vee B)\]
-		\[A \Rightarrow B \Leftrightarrow \neg (A \wedge \neg B)\]
-		\[A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\]
-		\item Gesetz der Komplementarität:
-		\[A \vee \neg A \Leftrightarrow \text{true}\]
-		\[A \wedge \neg A \Leftrightarrow \text{false}\]
-	\end{enumerate}	
 	\section{Folgenkonvergenz 23.11.18}
 	\begin{bsp}
 		Quadratwurzel\\

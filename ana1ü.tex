@@ -183,7 +183,43 @@
 			&\textbf{t}
 		\end{align*}
 	\end{bsp}
-	\section{Folgenkonvergenz 23.11.18}
+	\section{Infimum und Supremum (26.10.18)}
+	\begin{satz}
+		Seien \(A, B \subseteq \R\) nicht leer und beschränkt.
+		\begin{defi}
+			\[A + B := \{a + b \; | \; a \in A, b \in B\}\]
+			\[A - B := \{a - b \; | \; a \in A, b \in B\}\]
+		\end{defi}
+		Dann gilt:
+		\begin{enumerate}
+			\item \(\sup(A + B) = \sup(A) + \sup(B)\)
+			\item \(\inf(A + B) = \inf(A) + \sup(B)\)
+			\item \(\sup(A - B) = \sup(A) - \inf(B)\)
+			\item \(\inf(A - B) = \inf(A) - \sup(B)\)
+		\end{enumerate}
+		Weil \(A \neq \emptyset\) und \(B \neq \emptyset\) gibt es \(a \in A\) und \(b \in B\).\\
+		Dann gilt per Definition \(a+b \in A+B \neq \emptyset\) und \(a-b \in A-B \neq \emptyset\)
+	\end{satz}
+	\begin{bew}
+		Sei \(z \in A + B\) dann existiert ein \(a \in A \wedge b \in B\) , so dass \(a + b = z\) und folgt:
+		\[a + b \leq \sup(A) + sup(B)\]	
+		also ist \(\sup(A+B) \leq \sup(A) + \sup(B)\) (obere Schranke)\\
+		wir nehmen an:
+		\[\sup(A+B) < \sup(A) + \sup(B)\]
+		dann existiert ein \(\varepsilon > 0\):
+		\[\sup(A+B) + \varepsilon = \sup(A) + \sup(B)\]
+		nach Lemma 3.3.2 gibt es \(a_0 \in A, b_0 \in B\):
+		\[a_0 > \sup(A) - \frac{\varepsilon}{2} \text{ und } b_0 > \sup(B) - \frac{\varepsilon}{2}\]
+		per Definition ist \(a_0 + b_0 \in A + B\)\\
+		somit gilt:
+		\[a_0 + b_0 > \sup(A) - \frac{\varepsilon}{2} + \sup(B) - \frac{\varepsilon}{2} = \sup(A) + \sup(B) - \varepsilon = \sup(A+B) \text{ (Widerspruch)}\]\\
+		Sei \(z \in A - B, a \in A, b \in B, z = a - b\)\\
+		\(c \in C = \{d \in \R \; | \; d = -b, b \in B\} = -B\)\\
+		\(z = a + c = a + (-b) = a - b\) 
+		\[\sup(a-B) = \sup(A + (-B)) = \sup(A + C) = \sup(A) + \sup(C)\]
+		\[= \sup(A) + \sup(-B) = \sup(A) - \inf(B)\] (siehe Vorlesung)
+	\end{bew}
+	\section{Folgenkonvergenz (23.11.18)}
 	\begin{bsp}
 		Quadratwurzel\\
 		\(a > 0, a \in \R\), wir wollen\(\sqrt{a}\) bestimmen.\\

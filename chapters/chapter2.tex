@@ -1,5 +1,6 @@
 \documentclass[../ana1.tex]{subfiles}
 \begin{document}
+\setcounter{section}{1}
 
 \section{Etwas Logik}
 \begin{defi*}
@@ -7,7 +8,7 @@
 \end{defi*}
 
 \begin{bspe}\leavevmode
-	\begin{enumerate}[(a)]
+	\begin{enumerate}[(1)]
 		\item \(A\): \gqq{\(1+1=2\).}  (auch \gqq{\(1+1=3\)}, \gqq{\(1+1=0\)})
 		\item \(B\): \gqq{Es gibt unendlich viele Primzahlen.}
 		\item \(C\): \gqq{Es gibt unendlich viele Primzahlen \(p\), für die \(p + 2\) auch eine Primzahl ist.} (Primzahlzwillingsvermutung)
@@ -97,13 +98,16 @@
 \end{satz}
 
 \begin{bem}\leavevmode
-	\begin{flalign*}
-		(A \Rightarrow B) 	  &\Leftrightarrow B \text{ ist mindestens so wahr wie } A&&\\
-						 	  &\Leftrightarrow A \text{ ist mindestens so falsch wie } B&&\\
-					 	 	  &\Leftrightarrow \neg B \Rightarrow \neg A.&&\\
-		\\
-		(A \Leftrightarrow B) &\Leftrightarrow ((A \Rightarrow B) \wedge (B \Rightarrow A)).&&
-	\end{flalign*}
+	\begin{enumerate}[(a)]
+		\item \(\begin{aligned}[t]
+					(A \Rightarrow B) &\Leftrightarrow B \text{ ist mindestens so wahr wie } A\\
+									&\Leftrightarrow A \text{ ist mindestens so falsch wie } B\\
+									&\Leftrightarrow \neg B \Rightarrow \neg A.
+			    \end{aligned}\)
+		\item \(\begin{aligned}[t]
+			    	(A \Leftrightarrow B) &\Leftrightarrow ((A \Rightarrow B) \wedge (B \Rightarrow A)).
+			    \end{aligned}\)
+	\end{enumerate}
 \end{bem}
 \begin{defi*}
 	Sein \(n \in \N\), dann definiere:

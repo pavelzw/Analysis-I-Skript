@@ -31,7 +31,7 @@
 
 \begin{bsp}
 	\(A(n): 1+2+3+\cdots+n = \frac{n(n+1)}{2}\).
-	\begin{bew}(Durch vollständige Induktion)
+	\begin{bew} (Durch vollständige Induktion)
 		\induktion{
 			\(1 = \frac{1(1+1)}{2}\).
 		}{
@@ -51,12 +51,12 @@
 	\begin{enumerate}[(a)]
 		\item \(\begin{aligned}[t]
 				&	         		 & S &= 1 + 2 + 3 + \cdots + n = n + (n-1)+ (n-2) + \cdots + 2 + 1\\
-				&\implies 		     &2S &= \underbrace{(n+1)+(n+1)+\dots+(n+1)}_{n\text{-mal}}\\
+				&\implies 		     &2S &= \underbrace{(n+1)+(n+1)+\cdots+(n+1)}_{n\text{-mal}}\\
 				&\Longleftrightarrow & S &= \frac{n(n+1)}{2}.
 			  \end{aligned}\)
 		\item \( S_{n} \coloneqq 0 + 1 + 2 + \cdots + n = \) entspricht der Anzahl der Punkte in einem 
 			  rechtwinkligen Dreieck mit dem Flächeninhalt \(\frac{1}{2}\cdot n \cdot n\).\newline
-			  Ansatz (\glqq geschicktes Raten\grqq , \glqq scientific guess\grqq , englisch: ansatz):
+			  Ansatz (\glqq{}geschicktes Raten\grqq, \glqq{}scientific guess\grqq, englisch: ansatz):
 			  \[S_{n} = \underbrace{a_{2}n^{2} + a_{1}n + a_{0}\text{,}}_{\text{Polynom }2\text{. Grades in }n}\quad a_{2} = \frac{1}{2}\]
 			  Wie bekommt man die Werte von \(a_0, a_1,\) und \(a_2\)?
 			  \[\begin{aligned}[t]
@@ -71,15 +71,15 @@
 \begin{notation}\leavevmode
 	\begin{center}
 		\begin{tabular}{r|l}
-			\(\colon\)               & \glqq so, dass gilt\grqq                                                    \\
-			\(\exists\)         & \glqq es gibt mindestens ein\grqq , \glqq es existiert\grqq                 \\
-			\(\forall\)         & \glqq für alle\grqq                                                         \\
-			\(\Rightarrow\)     & \glqq impliziert\grqq(\(A \Rightarrow B\) \glqq aus \(A\) folgt \(B\)\grqq) \\
-			\(\Leftrightarrow\) & \glqq genau dann, wenn\grqq                                                 \\
-			\(\neg A\)          & nicht \(A\)                                                                 \\
-			\(A \wedge B\)      & \(A\) und \(B\)                                                             \\
-			\(A \vee B\)        & \(A\) oder \(B\)                                                            \\
-			\(A \coloneqq B\)          & \(A\) ist per Definition gleich \(B\)
+			\(\colon\) & \glqq{}so, dass gilt\grqq\\
+			\(\exists\) & \glqq{}es gibt mindestens ein\grqq{}, \glqq{}es existiert\grqq\\
+			\(\forall\) & \glqq{}für alle\grqq\\
+			\(\Rightarrow\) & \glqq{}impliziert\grqq(\(A \Rightarrow B\) \glqq{}aus \(A\) folgt \(B\)\grqq)\\
+			\(\Leftrightarrow\) & \glqq{}genau dann, wenn\grqq\\
+			\(\neg A\) & nicht \(A\)\\
+			\(A \wedge B\) & \(A\) und \(B\)\\
+			\(A \vee B\) & \(A\) oder \(B\)\\
+			\(A \coloneqq B\) & \(A\) ist per Definition gleich \(B\)
 		\end{tabular}
 	\end{center}
 \end{notation}
@@ -117,7 +117,7 @@
 	\end{enumerate}
 \end{defi*}
 \begin{bsp}
-	Es gilt $n$ ist gerade \(\iff n^2\) ist gerade.
+	Es gilt \(n\) ist gerade \(\iff n^2\) ist gerade.
 	\begin{bew}
 		\equirl{
 			\(n\) gerade \(\implies n=2k\) für ein \(k \in \N\).\\
@@ -151,7 +151,7 @@
 \end{bspe}
 
 \begin{defi}
-	Sei $M$ eine Menge und $A(x)$ Aussagen mit $x\in M$.
+	Sei \(M\) eine Menge und \(A(x)\) Aussagen mit \(x\in M\).
 	\begin{enumerate}[(a)]
 		\item \(\forall x \in M \colon A(x)\) ist wahr, falls alle \(A(x)\) wahr sind.
 		\item \(\exists x \in M \colon A(x)\) ist wahr, falls mindestens eine Aussage \(A(x)\) wahr ist.

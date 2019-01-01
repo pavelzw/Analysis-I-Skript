@@ -3,8 +3,8 @@
 \setcounter{section}{2}
 
 \section{Die reellen Zahlen}
-\subsection{Körperaxiome (engl. field)}
-\(\mathbb{K:}\) Menge mit zwei Operationen \glqq{}\(+\)\grqq{} und \glqq{}\(\cdot\)\grqq{}.\\
+\subsection{Körperaxiome (engl.\ field)}
+\(\mathbb{K:}\) Menge mit zwei Operationen \glqq{}\(+\)\grqq{} und \glqq{}\(\cdot \)\grqq{}.\\
 \(\forall a,b \in \mathbb{K}\) ist \(a+b\in \mathbb{K} \wedge a\cdot b \in \mathbb{K}\) erklärt sollen kompatibel sein.
 \begin{defi}[Körperaxiome]
 	In einem Körper gelten diese Axiome:
@@ -16,7 +16,7 @@
 			      \exists 1 \in \mathbb{K}: a \cdot 1 = 1 \cdot a = a \forall a\in\mathbb{K}\)
 		\item Existenz eines inversen Elements:\\
 		      \(\forall a\in\mathbb{K}\exists -a\in\mathbb{K}:a+ (-a)=0\\
-			      \forall a\in\mathbb{K}\setminus\{0\}\exists \frac{1}{a}\in\mathbb{K}:a\cdot\frac{1}{a}=1\)\\
+			      \forall a\in\mathbb{K} \setminus \{0\} \exists \frac{1}{a}\in\mathbb{K}:a\cdot\frac{1}{a}=1\) \\
 		      Es gilt: \(0\neq1\).
 		\item Distributivgesetz: \(\forall a,b,c\in\mathbb{K}:a\cdot(b+c)=a\cdot b + a \cdot c\)
 	\end{enumerate}
@@ -41,7 +41,7 @@
 \end{bsp}
 \begin{bem}
 	\begin{enumerate}\leavevmode
-		\item Somit ist ein Körper \(\mathbb{K}\) mit \glqq\(+\)\grqq{} eine kommutative Gruppe und \(\mathbb{K} \setminus \{0\}\) mit \glqq{}\(\cdot\)\grqq{} auch eine kommutative Gruppe.
+		\item Somit ist ein Körper \(\mathbb{K}\) mit \glqq{}\(+\)\grqq{} eine kommutative Gruppe und \(\mathbb{K} \setminus \{0\} \) mit \glqq{}\( \cdot \)\grqq{} auch eine kommutative Gruppe.
 		\item Die neutralen Elemente sind eindeutig bestimmt.\\
 		      z.B.: angenommen, \(0_1\) und \(0_2\) sind neutrale Elemente mit \glqq{}\(+\)\grqq{}. \\
 		      \(\Rightarrow 0_1 \overset{(3)}{=} 0_1 + 0_2 \overset{(1)}{=} 0_2 + 0_1 \overset{(2)}{=} 0_2\) \\
@@ -49,9 +49,9 @@
 	\end{enumerate}
 \end{bem}
 \begin{defi}
-	Zu \(a\in \mathbb{K}\) ist \(-a\) das Inverse bzgl. der Addition\\
+	Zu \(a\in \mathbb{K}\) ist \(-a\) das Inverse bzgl.\ der Addition\\
 	schreibe \(a-b := a + (-b)\).\\
-	Zu \(a\in\mathbb{K}\setminus\{0\}\) sei \( a^{-1} \) das Inverse bzgl. der Multiplikation.\\
+	Zu \(a\in\mathbb{K}\setminus \{0\} \) sei \( a^{-1} \) das Inverse bzgl.\ der Multiplikation.\\
 	Ist \(b\neq 0\), so schreiben wir \(\frac{a}{b} := a\cdot b^{-1} =b^{-1}\cdot a\).\\
 	schreibe \((ab) := a\cdot b\).
 \end{defi}
@@ -85,7 +85,7 @@
 	Ferner \(a\cdot 0 = a\cdot(0+0)=a\cdot 0 + a\cdot 0 = a\cdot 0 + 0 \\
 		\Rightarrow a\cdot 0 = a\cdot 0 - a\cdot 0 = 0 \\
 		\Rightarrow a\cdot b + a\cdot (-b) = a\cdot (b+(-b)) = a\cdot 0=0 \\
-		\overset{\text{Eind. d. Inv.}}{\Rightarrow} -ab=a(-b)\) \\
+		\overset{\text{Eind.\ d.\ Inv.}}{\Rightarrow} -ab=a(-b)\) \\
 	Somit auch \((-a)(-b) = -((-a)b) = -(b(-a)) = (-ba) = -(-ab) = ab\) \\
 	und \(a(b-c) = a(b+(-c))=ab+a(-c)=ab+(-ac)=ab-ac\). \\
 	ist \(ab = 0\) und \(a\neq 0 \Rightarrow 0=(ab)\frac{1}{a}=\frac{1}{a}\cdot (ab)=(\frac{1}{a}\cdot a)b = 1b = b\) \\
@@ -109,7 +109,7 @@
 \end{bsp}
 \subsection{Die Anordnungsaxiome}
 \begin{defi} %EIGENTLICH DEF 3.2.0
-	Sei \(\mathbb{K}\) (genauer \((\mathbb{K},+,\cdot)\) ein Körper. Dann heißt \(>\) eine Anordnung, falls
+	Sei \(\mathbb{K}\) (genauer \((\mathbb{K},+,\cdot)\)) ein Körper. Dann heißt \(>\) eine Anordnung, falls
 	\begin{enumerate}
 		\item Für jedes \(a\in\mathbb{K}\) gilt genau eine der Aussagen \(a>0,a=0,-a>0\) \\
 		      (wenn \(a\in\mathbb{K}\), mit \(a>0\) positiv)
@@ -156,7 +156,7 @@
 \end{bem}
 \begin{bew}
 	\begin{enumerate}\leavevmode %WARUM IST 1. und 2. uebereinander?
-		\item Direkt aus (A.1) und Def. von \(a>b\).
+		\item Direkt aus (A.1) und Def.\ von \(a>b\).
 		\item \(a-c = \underbrace{(a-b)}_{>0}+\underbrace{(b-c)}_{>0} \overset{\text{(A.2)}}{>} 0\).
 		\item \((a+c)-(b+c)=a-b>0\\
 			ac-bc=\underbrace{(a-b)}_{>0}\cdot c \overset{\text{(A.2)}}{>}0\), falls \(c>0\) \\
@@ -241,7 +241,7 @@
 			= \begin{cases}
 				0, a \geq 0 \\
 				-(a+a), a<0
-			\end{cases} \geq 0.\]\\
+			\end{cases} \geq 0.\] \\
 		alternativ: \(a \leq \max(a, -a) = \left|a\right|\).
 		\item
 		\item Hier ändern sich die linke und rechte Seite \underline{nicht}, wenn man \(a\) bzw. \(b\) durch \(-a\) bzw. \(-b\) ersetzt.\\
@@ -254,8 +254,8 @@
 			\overset{\text{H.A.}}{\Rightarrow}|a+b| \leq |a|+|b|\).\\
 			H.A. aus \(|c|^2 \leq |d|^2\) folgt \(|c| \leq |d|\) (Kontraposition).
 		\item \(|a| = |a-b+b| = |(a-b) + b| \overset{\text{(4)}}{\leq} |a-b| + |b|\\
-			|a|-|b|\leq |a-b| \,\forall\, a,b\in\mathbb{K}\). \\
-			Jetzt: Symmetrieargument. (Vertausch von \(a\) und \(b\) \\
+			|a|-|b|\leq |a-b| \, \forall \, a,b\in \mathbb{K} \).\\
+			Jetzt: Symmetrieargument. (Vertausch von \(a\) und \(b\)) \\
 			\(\Rightarrow |b| - |a| \leq |b-a| = |{(-b-a)}| = |a-b|\) \\
 			also \(|b|-|a| \leq |a-b|\\
 			|a|-|b| \leq |a-b|\\
@@ -287,7 +287,7 @@
 \begin{prosa}
 	Notation: \(a\) ist nicht negativ, falls \(a\geq 0\).\\
 	natürlich \(a=b\Leftrightarrow a\leq b \wedge a \geq b\).\\
-	Im Folgenden ist \(\mathbb{K}\) immer ein angeordneter Körper. \(A,B \subset \mathbb{K}, A,B\neq \emptyset \) und \( \gamma \in \mathbb{K}\), so bedeutet \(A\leq \gamma: \forall a\in A: a \leq \gamma \) (\( \gamma \) ist obere Schranke für \(A\).\\
+	Im Folgenden ist \(\mathbb{K}\) immer ein angeordneter Körper. \(A,B \subset \mathbb{K}, A,B\neq \emptyset \) und \( \gamma \in \mathbb{K}\), so bedeutet \(A\leq \gamma: \forall a\in A: a \leq \gamma \) (\( \gamma \) ist obere Schranke für \(A\)).\\
 	\(B\geq \beta: \forall b\in B: b\geq \beta \) (\( \beta \) ist untere Schranke für \(B\).\\
 	Analog sind \(a<\gamma, A>\gamma, A<B, \) usw.\ definiert.\\
 	Hat \(A\) eine obere Schranke, so heißt \(A\) nach oben beschränkt. Hat \(B\) eine untere Schranke, so ist \(B\) nach unten beschränkt. \(A\) ist beschränkt, falls es nach oben und unten beschränkt ist.\\
@@ -299,7 +299,7 @@
 \begin{defi}
 	Sei \(A\subset \mathbb{K}, A\neq \emptyset \). Dann ist \( \gamma\in\mathbb{K}\) die kleinste obere Schranke (oder Supremum), falls \(A\leq \gamma \) und aus \(A\leq n\) folgt \( \gamma \leq n\).\\
 	Schreibe \( \gamma = \sup A = \sup(A)\).\\
-	Analog: \( \beta \) ist die größte untere Schranke von \(A\) (Infimum), falls \( \beta \leq A\) und aus \( \eta \leq A\) folgt \( \eta \leq \beta\) \\
+	Analog: \( \beta \) ist die größte untere Schranke von \(A\) (Infimum), falls \( \beta \leq A\) und aus \( \eta \leq A\) folgt \( \eta \leq \beta \) \\
 	Schreibe \( \beta = \inf A = \inf(A)\).
 \end{defi}
 \begin{bsp}
@@ -352,7 +352,7 @@ Notation:
 \((a,b] := \{x\in\mathbb{R}|a<x\leq b\} \) nach links halboffenes Intervall\\
 Intervalllänge: \(b-a\) \\
 unbeschränkte Intervalle:\\
-\((-\infty, a] := \{x\in\mathbb{R}|x\leq a\}\) \\
+\((-\infty, a] := \{x\in\mathbb{R}|x\leq a\} \) \\
 \([a,\infty) := \{x\in\mathbb{R}|x\geq a\} \) \\
 \((-\infty, a) := \{x\in\mathbb{R}|x<a\} \) \\
 \((a, \infty) := \{x\in\mathbb{R}|x>a\} \).
@@ -444,9 +444,9 @@ Rechenregeln gelten z.B. \[ \sum_{k=1}^{n} (a_k+b_k) = \sum_{k=1}^{n} a_k + \sum
 \[c \in\R, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k\]
 \begin{satz}[Bernoullische Ungleichung]
 	\[x\in\R, x\geq -1, n\in\N_0 = \N\cup \{0\} \]
-	gilt \((1+x)^n \geq 1+ n + x (\forall m\in\N,x\geq -1)\) \\
+	gilt \({(1+x)}^n \geq 1+ n + x (\forall m\in\N,x\geq -1)\) \\
 	mit \glqq{}\(>\)\grqq, falls \(n>1, x\neq 0\) \\
-	\((\forall n\in\N, x \geq -1(1+x)^n \geq 1 + nx)\)
+	\((\forall n\in\N, x \geq -1{(1+x)}^n \geq 1 + nx)\)
 \end{satz}
 \begin{bew}
 	Vollständige Induktion:\\
@@ -454,7 +454,7 @@ Rechenregeln gelten z.B. \[ \sum_{k=1}^{n} (a_k+b_k) = \sum_{k=1}^{n} a_k + \sum
 	\[n=0: {(1+x)}^0=1=1+0x \checkmark \]
 	\[n=1: {(1+x)}^1=1+x=1+1x \checkmark \]
 	Induktionsschritt:
-	Induktionsvoraussetzung: es gelte für ein festes, aber beliebiges \(n\in\N\):
+	Induktionsvoraussetzung: es gelte für ein festes, aber beliebiges \(n\in\N \):
 	\begin{equation*}
 		\begin{aligned}
 			{(1+x)}^n     & \geq 1+nx \\%LINEBREAK KLAPT NICHT
@@ -530,7 +530,7 @@ Rechenregeln gelten z.B. \[ \sum_{k=1}^{n} (a_k+b_k) = \sum_{k=1}^{n} a_k + \sum
 					Fallunterscheidung:
 					\begin{itemize}
 						\item \(n=1 \Rightarrow n+1-m=(n+1)-1=n\in\N.\checkmark \\
-							\Rightarrow n+1\in C.\)
+							\Rightarrow n+1\in C\).
 						\item \(n > 1\) (und \(m \leq n+1\))\\
 							\(\overset{\text{b)}}{\Rightarrow} m-1\in \N \) und \(m-1 \leq (n+1)-1 = n\) \\
 							Da \(n\in C, m-1\in\N, m-1\leq n \Rightarrow \underbrace{n-(m-1)}_{=(n+1)-m} \in \N_0\\

@@ -1,24 +1,25 @@
 \documentclass[../ana1.tex]{subfiles}
 \begin{document}
+\setcounter{section}{10}
 
 \section{Konvergente Reihen, Teil 1}
-hatten: endl. Summen: \[ a_1+a_2+\dots+a_n = \sum_{k=1}^{n}a_k \]
-Ziel: unendl. Summen: \[ a_1+a_2+a_3+\dots = \sum_{k=1}^{\infty}a_k = \sum_{n=1}^{\infty}a_n \]
+hatten: endl. Summen: \[ a_1+a_2+\cdots+a_n = \sum_{k=1}^{n}a_k \]
+Ziel: unendl. Summen: \[ a_1+a_2+a_3+\cdots = \sum_{k=1}^{\infty}a_k = \sum_{n=1}^{\infty}a_n \]
 Was soll das sein?
 \begin{defi}
-	Dieses Symbol \[ \sum_{n=1}^{\infty}a_n \] steht für die Folge \((S_n)_n\) der Partialsummen: \[S_n := \sum_{k=1}^{n}a_k .\]
+	Dieses Symbol \[ \sum_{n=1}^{\infty}a_n \] steht für die Folge \({(S_n)}_n\) der Partialsummen: \[S_n := \sum_{k=1}^{n}a_k .\]
 	Die Reihe \( \sum_{k=1}^{\infty}a_k \) konvergiert, falls die Folge ihrer Partialsummen konvergiert. In diesem Fall setzen wir 
 	\[ \sum_{k=1}^{\infty}a_k := \limes{n} \sum_{k=1}^{\infty}a_k = \limes{n} S_n \]
-	Sagen auch die Reihe \( \sum_{n=1}^{\infty}a_n \) konvergiert. Die Reihe \( \sum_{n=1}^{\infty}a_n \) divergiert, falls \( (S_n)_n \) divergiert. Reihe \( \sum_{n=1}^{\infty}a_n \) heißt bestimmt divergent, falls \((S_n)_n\) bestimmt gegen \(+ \infty \) oder \(-\infty\) divergiert. Setzen dann \( \sum_{n=1}^{\infty}a_n =-\infty \), falls \(\limes{n} \sum_{k=1}^{n}a_k = -\infty \). \( \sum_{n=1}^{\infty}a_n = +\infty \), falls \( \limes{n}\sum_{k=1}^{n}a_k=+\infty \)
+	Sagen auch die Reihe \( \sum_{n=1}^{\infty}a_n \) konvergiert. Die Reihe \( \sum_{n=1}^{\infty}a_n \) divergiert, falls \( {(S_n)}_n \) divergiert. Reihe \( \sum_{n=1}^{\infty}a_n \) heißt bestimmt divergent, falls \({(S_n)}_n\) bestimmt gegen \(+ \infty \) oder \(-\infty \) divergiert. Setzen dann \( \sum_{n=1}^{\infty}a_n =-\infty \), falls \(\limes{n} \sum_{k=1}^{n}a_k = -\infty \). \( \sum_{n=1}^{\infty}a_n = +\infty \), falls \( \limes{n}\sum_{k=1}^{n}a_k=+\infty \)
 \end{defi}
 \begin{bem}
-	Sei \((b_n)_n\) eine Folge. \(a_1 = b_1, a_n = b_n-b_{n-1}, n\geq 2 \Rightarrow \sum_{k=1}^{n}a_k = b_n \).\\
-	Auch Reihen der Form \( \sum_{n=0}^{\infty}a_n \) oder \( \sum_{n=42}^{\infty}a_n\), (\(v\in\Z\)) \(\sum_{n=v}^{\infty}a_n\).
+	Sei \({(b_n)}_n\) eine Folge. \(a_1 = b_1, a_n = b_n-b_{n-1}, n\geq 2 \Rightarrow \sum_{k=1}^{n}a_k = b_n \).\\
+	Auch Reihen der Form \( \sum_{n=0}^{\infty}a_n \) oder \( \sum_{n=42}^{\infty}a_n\), (\(v\in\Z \)) \(\sum_{n=v}^{\infty}a_n\).
 \end{bem}
 Beobachtung: Sind \(a_n \geq 0 \Rightarrow S_n = \sum_{k=1}^{\infty}a_k \) monoton wachsend in \(n\).\\
-\( \overset{\text{Mon. Konv.}}{\Rightarrow}\)\\
-entweder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n \in [0,\infty) \)\\
-oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\infty \)\\
+\( \overset{\text{Mon. Konv.}}{\Rightarrow}\) \\
+entweder \({(S_n)}_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n \in [0,\infty) \) \\
+oder \({(S_n)}_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\infty \) \\
 \( \Rightarrow \)
 \begin{satz}
 	Sind \(a_n \geq 0, n\in\N \), dann gilt\\
@@ -36,21 +37,21 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\end{align*}
 \end{kor}
 \begin{satz}[Cauchy-Kriterium für Reihen]
-	Seien \(a_n \in\R, n\in\N\). Dann gilt: 
+	Seien \(a_n \in\R, n\in\N \). Dann gilt: 
 	\[ \sum_{n=1}^{\infty} a_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon >0 \exists K \in \N : | \sum_{j=n+1}^{m}a_j|<\varepsilon \quad \forall m>n\geq K.\]
 \end{satz}
-\begin{bew}%vom 04.12.2018
-	Reihe konvergiert per Def. genau dann, wenn Folge der Partialsummen \( (S_n)_n, S_n = \sum_{k=1}^{n}a_k \) konvergiert.
-	\[ \overset{\text{Cauchy-Krit. Folgen}}{\Longleftrightarrow} \forall \varepsilon > 0 \exists K\in\N: |\underbrace{S_m-S_n}_{=\sum_{k=1}^{m}a_k-\sum_{k=1}^{n}a_k=\sum_{k=n+1}^{m}a_k}|<\varepsilon \quad \forall m>n\geq K. \]
+\begin{bew}
+	Reihe konvergiert per Def.\ genau dann, wenn Folge der Partialsummen \( {(S_n)}_n, S_n = \sum_{k=1}^{n}a_k \) konvergiert.
+	\[ \overset{\text{Cauchy-Krit.\ Folgen}}{\Longleftrightarrow} \forall \varepsilon > 0 \exists K\in\N: |\underbrace{S_m-S_n}_{=\sum_{k=1}^{m}a_k-\sum_{k=1}^{n}a_k=\sum_{k=n+1}^{m}a_k}|<\varepsilon \quad \forall m>n\geq K. \]
 \end{bew}
 %06.12.2018
-\begin{bew}%vom 06.12.2018
-	Partialsummen \((S_n)_n\)
+\begin{bew}
+	Partialsummen \({(S_n)}_n\)
 	\[ S_n := \sum_{j=1}^{n} a_j \]
 	Cauchy-Kriterium  für Folgen:
-	\[ \Rightarrow (S_n)_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N:|S_m-S_n|<\varepsilon \quad \forall m>n\geq K. \]
+	\[ \Rightarrow {(S_n)}_n \text{ konvergiert } \Leftrightarrow \forall \varepsilon > 0 \exists K\in\N:|S_m-S_n|<\varepsilon \quad \forall m>n\geq K. \]
 	\[ S_m - S_n = \sum_{j=1}^{m}a_j - \sum_{j=1}^{n} a_j = \sum_{j=n+1}^{m} a_j. \]
-	D. h. \((S_n)_n\) konvergiert \[ \Leftrightarrow \forall \varepsilon > 0 \exists K\in\: |\sum_{j=n+1}^{m}a_j|<\varepsilon \quad \forall m>n\geq K. \]
+	D. h. \({(S_n)}_n\) konvergiert \[ \Leftrightarrow \forall \varepsilon > 0 \exists K\in \: \left|\sum_{j=n+1}^{m}a_j\right|<\varepsilon \quad \forall m>n\geq K. \]
 \end{bew}
 \begin{bsp}[Geometrische Reihe]
 	Sei \(|q|<1\).
@@ -80,10 +81,10 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 		\Rightarrow S_n = 1 + \sum_{j=2}^{n} \frac{1}{j^2}.
 	\end{align*}
 	Also folgt aus \( \leq 1 + \sum_{j=2}^{n} \frac{1}{j(j-1)} = 1 + 1 - \frac{1}{n} \).\\
-	Monotone Konvergenz, da \((S_n)_n\) konvergiert, also konvergiert \(\sum_{j=1}^{\infty} \frac{1}{j^2} = 2 - \frac{1}{n} \leq 2 \quad\forall n \).
+	Monotone Konvergenz, da \({(S_n)}_n\) konvergiert, also konvergiert \(\sum_{j=1}^{\infty} \frac{1}{j^2} = 2 - \frac{1}{n} \leq 2 \quad\forall n \).
 \end{bew}
 \begin{kor}
-	Wenn die Reihe \(\sum_{n=1}^{\infty} a_n\) konvergent, so ist \((a_n)_n\) eine Nullfolge.
+	Wenn die Reihe \(\sum_{n=1}^{\infty} a_n\) konvergent, so ist \({(a_n)}_n\) eine Nullfolge.
 \end{kor}
 \begin{bew}
 	Satz 4 \( \Rightarrow \forall \varepsilon >0 \exists K\in\N:|\sum_{j=n+1}^{m}a_j| < \varepsilon \quad \forall m>n\geq K \).\\
@@ -99,33 +100,33 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\[ S_n = \sum_{j=1}^{n}\frac{1}{j} \]
 	\[ S_m -S_n \text{ wähle }m=2n \]
 	\[ S_{2n} - S_n = \sum_{j=1}^{2n}\frac{1}{j} - \sum_{j=1}^{n}\frac{1}{j} = \sum_{j=n+1}^{2n}\frac{1}{j} \]
-	\[ = \frac{1}{n+1} + \frac{1}{n+2} + \dots + \frac{1}{2n} \]
-	\[ \leq \frac{1}{2n} + \frac{1}{2n} + \dots + \frac{1}{2n} \]
+	\[ = \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} \]
+	\[ \leq \frac{1}{2n} + \frac{1}{2n} + \cdots + \frac{1}{2n} \]
 	\[ = \frac{1}{2} \]
 	\[ \Rightarrow |S_{2n}-S_n| = S_{2n}-S_n \rightarrow \frac{1}{2} \quad\forall n>1 \]
-	also kann \((S_n)_n\) nicht konvergieren!
+	also kann \({(S_n)}_n\) nicht konvergieren!
 	\[ \Rightarrow \sum_{n=1}^{\infty} \frac{1}{n} = +\infty. \]
 \end{bsp}
 \begin{satz}
 	Gilt \(0\leq a_n \leq b_n \quad \forall n\in\N \), so folgt:
 	\begin{enumerate}
 		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert auch \( \sum_{n=1}^{\infty}a_n \) und \( \sum_{n=1}^{\infty} a_n \leq \sum_{n=1}^{\infty}b_n \).
-		\item Divergiert \( \sum_{n=1}^{\infty}a_n \), so divergiert auch \( \sum_{n=1}^{\infty}b_n \) (gegen \(+\infty\)).
+		\item Divergiert \( \sum_{n=1}^{\infty}a_n \), so divergiert auch \( \sum_{n=1}^{\infty}b_n \) (gegen \(+\infty \)).
 	\end{enumerate}
 \end{satz}
 \begin{bew}
 	\begin{align*}
 		S_n = \sum_{j=1}^{n}a_j\\
 		t_n = \sum_{j=1}^{n}b_j\\
-		\Rightarrow S_n \leq t_n \quad \forall n\in\N\\
+		\Rightarrow S_n \leq t_n \quad \forall n\in\N \\
 		t_{n+1}\geq t_n, S_{n+1}\geq S_n
 	\end{align*}
 	\begin{enumerate}
-		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert \((t_n)_n\).\\
+		\item Ist \( \sum_{n=1}^{\infty}b_n \) konvergent, so konvergiert \({(t_n)}_n\).\\
 		\[ t:= \limes{n}t_n\in [0,\infty) \Rightarrow t_n \leq t. \]
-		\[ \Rightarrow S_n \leq t_n \leq t \Rightarrow (S_n)_n \text{ nach oben beschränkt.} \]
+		\[ \Rightarrow S_n \leq t_n \leq t \Rightarrow {(S_n)}_n \text{ nach oben beschränkt.} \]
 		\[ \overset{\text{Mon. Konv.}}{\Rightarrow} s = \limes{n} S_n \text{ existiert und } \underbrace{S}_{= \sum_{n=1}^{\infty}a_n} \leq t = \sum_{n=1}^{\infty} b_n. \]
-		\item Aus 1. folgt ist \( \sum_{n=1}^{\infty}a_n =\infty \) divergent, so muss auch \( \sum_{n=1}^{\infty}b_n = \infty \).
+		\item Aus 1.\ folgt ist \( \sum_{n=1}^{\infty}a_n =\infty \) divergent, so muss auch \( \sum_{n=1}^{\infty}b_n = \infty \).
 	\end{enumerate}
 \end{bew}
 \begin{satz}
@@ -138,27 +139,27 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 \end{bew}
 %11.12.2018
 \begin{satz}[Cauchyscher Verdichtungssatz]
-	Sei \((a_n)_n\) monoton fallende Nullfolge. Dann gilt
+	Sei \({(a_n)}_n\) monoton fallende Nullfolge. Dann gilt
 	\[\sum_{n=1}^{\infty} a_n \text{ konvergiert }\]
-	\[\Leftrightarrow \text{ die \glqq verdichtete\grqq{} Reihe } \sum_{n=0}^{\infty}2^n a_{2^n} = a_1 + 2a_2 + 4a_4 + 8 a_8 + \dots \text{ konvergiert}.\]
+	\[\Leftrightarrow \text{ die \glqq{}verdichtete\grqq{} Reihe } \sum_{n=0}^{\infty}2^n a_{2^n} = a_1 + 2a_2 + 4a_4 + 8 a_8 + \dots \text{ konvergiert}.\]
 \end{satz}
 \begin{bew}
 	\( a_{n+1} \leq a_n \quad\forall n, a_n\rightarrow0 \quad n \rightarrow\infty \Rightarrow a_n \geq 0 \quad\forall n\in\N \).
-	\[ S_n := \sum_{j=1}^{n}a_j, t_n := \sum_{j=0}^{K}2^j a_{2^j} \text{ sind mon. wachsende Folgen.} \]
-	\glqq\(\Leftarrow\)\grqq{}: Beobachtung: Jedes \(n\in\N\) ist in genau einem \glqq dyadischen\grqq{} Intervall. \( I_l := \{ 2^l, 2^l + 1, \dots, 2^{l+1} - 1 \} \)
+	\[ S_n := \sum_{j=1}^{n}a_j, t_n := \sum_{j=0}^{K}2^j a_{2^j} \text{ sind mon.\ wachsende Folgen.} \]
+	\glqq{}\(\Leftarrow{}\)\grqq{}: Beobachtung: Jedes \(n\in\N \) ist in genau einem \glqq{}dyadischen\grqq{} Intervall. \( I_l := \{ 2^l, 2^l + 1, \dots, 2^{l+1} - 1 \} \)
 	\[ I_0 = \{1\}, I_1 = \{2,3\}, I_3 = \{4,5,6,7\}, \#I_l = 2^{l+1} - 2^l = 2^l \]
 	Ang., \(n<2^k\). 
 	\[ S_n = \sum_{j=1}^{n}a_j \leq \sum_{j=1}^{2^k - 1}a_j = \sum_{l=0}^{k}\sum_{j\in I_l} \underbrace{a_j}_{\leq a_{2^l}} \]
-	Bemerkung: \(I_l \cap I_m = \emptyset \; l \neq m, \quad \bigcup_{l=0}^{k} I_l = \{n \in \N | n \leq 2^k -1\}\)
+	Bemerkung: \(I_l \cap I_m = \emptyset \; l \neq m, \quad \bigcup_{l=0}^{k} I_l = \{n \in \N | n \leq 2^k -1\} \)
 	\[\leq \sum_{l=0}^{k} \#I_l \cdot a_{2^l} = \sum_{l=0}^{k} 2^l \cdot a_{2^l} = t_k\]
 	\[ \Rightarrow S_n \leq t_k, \text{ falls } n\leq 2^k - 1 \]
 	Annahme: \( t = \lim t_k \) existiert. \( \Rightarrow t_k \leq t \quad\forall k \).
 	\[ \Rightarrow S_n \leq \limes{k}t_k = t. \]
 	\[S_n \leq t \quad\forall n\in\N.\]
-	\( \overset{\text{Mon. Konv.}}{\Rightarrow} \limes{n} S_n \) existiert. \checkmark\\
-	\glqq\( \Rightarrow \)\grqq{}: Beachte: Jedes \(n \in\N, n\geq 2 \) ist in genau einem Block.
+	\( \overset{\text{Mon. Konv.}}{\Rightarrow} \limes{n} S_n \) existiert. \checkmark{}\\
+	\glqq{}\(\Rightarrow \)\grqq{}: Beachte: Jedes \(n \in\N, n\geq 2 \) ist in genau einem Block.
 	\[ \tilde{I}_l = \{ 2^{l-1} + 1, 2^{l-1} + 2, \dots, 2^l \}, l\in\N. \]
-	Sei \(n \geq 2^k \Rightarrow\)
+	Sei \(n \geq 2^k \Rightarrow \)
 	\begin{align*}
 		S_n = \sum_{j=1}^{n}a_j \geq \sum_{j=1}^{2^k}a_j = a_1 + \sum_{j=2}^{2^k} a_j\\
 		= a_1 + \sum_{l=1}^{k}\sum_{j\in\tilde{I}_l} a_j \geq a_1 + \sum_{l=1}^{k} \underbrace{\# \tilde{I}_l}_{=2^{l-1}} a_{2^l}
@@ -171,7 +172,7 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\end{align*}
 	\[ \Rightarrow t_k \leq 2S_n \quad\forall n\geq 2^k. \]
 	Wir nehmen an, dass \( \limes{n}S_n = S \) existiert.
-	\[ S_n \leq S_{n+1} \leq \dots \leq S \]
+	\[ S_n \leq S_{n+1} \leq \cdots \leq S \]
 	Halte \( k\in\N \) fest.
 	\begin{align*}
 		&\Rightarrow t_k \leq 2S_n \text{ für fast alle } n.\\
@@ -185,41 +186,41 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 \end{bsp}
 \begin{bew}
 	Verdichtete Reihe ist 
-	\[ \sum_{l=0}^{\infty}2^l \frac{1}{(2^l)^p} = \sum_{l=0}^{\infty} (2^{1-p})^l. \]
-	geometrische Reihe, sie konv. genau dann, wenn \( 2^{1-p} < 1 \Leftrightarrow p>1. \)
+	\[ \sum_{l=0}^{\infty}2^l \frac{1}{{(2^l)}^p} = \sum_{l=0}^{\infty} {(2^{1-p})}^l. \]
+	geometrische Reihe, sie konvergiert genau dann, wenn \( 2^{1-p} < 1 \Leftrightarrow p>1. \)
 \end{bew}
 \begin{bsp}
-	\[ \sum_{n=1}^{\infty} \frac{1}{n(1+\ln_2 n )^p}.\]
+	\[ \sum_{n=1}^{\infty} \frac{1}{n{(1+\ln_2 n )}^p}.\]
 \end{bsp}
 \begin{satz}[Leibniz]
-	Ist \( (a_n)_n \) eine mon. fallende Nullfolge, so konvergiert die alternierende Reihe
-	\[ a_1 - a_2 + a_3 - a_4 + \dots = \sum_{n=1}^{\infty} (-1)^{n+1} a_n \]
+	Ist \( {(a_n)}_n \) eine monoton fallende Nullfolge, so konvergiert die alternierende Reihe
+	\[ a_1 - a_2 + a_3 - a_4 + \cdots = \sum_{n=1}^{\infty} {(-1)}^{n+1} a_n \]
 \end{satz}
 \begin{bsp}
-	\[ 1 - 1/2 + 1/3 - 1/4 + \dots = \sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{n} \text{ konv. } (=\log 2). \]
-	\[ 1 - 1/3 + 1/5 - 1/7 + \dots = \sum_{n=0}^{\infty}(-1)^n \frac{1}{2n+1} \text{ konv. } (=\frac{\pi}{4}) \]
+	\[ 1 - 1/2 + 1/3 - 1/4 + \cdots = \sum_{n=1}^{\infty}{(-1)}^{n+1}\frac{1}{n} \text{ konv. } (=\log 2). \]
+	\[ 1 - 1/3 + 1/5 - 1/7 + \cdots = \sum_{n=0}^{\infty}{(-1)}^n \frac{1}{2n+1} \text{ konv. } (=\frac{\pi}{4}) \]
 	Beachte: \( \sum_{n=1}^{\infty}\frac{1}{n} = +\infty \).
 \end{bsp}
 \begin{bew}
 	Aus \( a_{n+1} \leq a_n, a_n \rightarrow 0 \Rightarrow a_n \geq 0 \quad\forall n\in\N. \)
-	\[ S_k := \sum_{j=1}^{k} (-1)^{j+1} a_j \quad k\in\N. \]
-	\[S_{2n} = a_1 - a_2 + a_3 - a_4 + \dots + a_{2n-1} - a_{2n} = \underbrace{(a_1 - a_2)}_{\geq 0} + \underbrace{(a_3 - a_4)}_{\geq 0} + \dots + \underbrace{(a_{2n-1} - a_{2n})}_{\geq 0} \]
+	\[ S_k := \sum_{j=1}^{k} {(-1)}^{j+1} a_j \quad k\in\N. \]
+	\[S_{2n} = a_1 - a_2 + a_3 - a_4 + \cdots + a_{2n-1} - a_{2n} = \underbrace{(a_1 - a_2)}_{\geq 0} + \underbrace{(a_3 - a_4)}_{\geq 0} + \cdots + \underbrace{(a_{2n-1} - a_{2n})}_{\geq 0} \]
 	\begin{align*}
-		S_{2n+1} = \sum_{j=1}^{2n+1}(-1)^{j+1}a_j &= a_1 - a_2 + a_3 - \dots - a_{2n} + a_{2n+1}\\
-		&= a_1 - \underbrace{a_2 - a_3}_{\geq 0} - \dots - \underbrace{(a_{2n} - a_{2n+1})}_{\geq 0}\\
+		S_{2n+1} = \sum_{j=1}^{2n+1}{(-1)}^{j+1}a_j &= a_1 - a_2 + a_3 - \cdots - a_{2n} + a_{2n+1}\\
+		&= a_1 - \underbrace{a_2 - a_3}_{\geq 0} - \cdots - \underbrace{(a_{2n} - a_{2n+1})}_{\geq 0}\\
 		\Rightarrow S_{2(n+1)} = S_{2n+2} = S_{2n} + (a_{2n+1} - a_{2n+2}) \geq S_{2n}.\\
 		S_{2(n+1)+1} = s_{2n+3} = S_{2n+1} - (a_{2n+2} - a_{2n+3}) \leq S_{2n+1}
 	\end{align*}
-	\[ \text{und } 0 \leq S_{2n} = \sum_{j=1}^{2n} (-1)^{j+1} a_j = S_{2n+1} - (-1)^{2n+2} \cdot a_{2n+1} = S_{2n+1} - a_{2n+1} \leq S_{2n+1}\]
+	\[ \text{und } 0 \leq S_{2n} = \sum_{j=1}^{2n} {(-1)}^{j+1} a_j = S_{2n+1} - {(-1)}^{2n+2} \cdot a_{2n+1} = S_{2n+1} - a_{2n+1} \leq S_{2n+1}\]
 	\[\Rightarrow S_{2n} \leq S_{2n+2}, \quad S_{2n+1} \geq S_{2n+3} \text{ und } 0 \leq S_{2n} \leq S_{2n+1} - a_{2n+1} \leq S_{2n+1} \leq a_n\]
 	\( \overset{\text{Mon. Konv.}}{\Rightarrow} S_1 = \limes{n}S_{2n} \) und \( S_2 = \limes{n}S_{2n+1} \) existieren.\\	
 	und: 
 	\[ \underbrace{S_{2n} - S_{2n+1}}_{S_1 - S_2} = a_{2n+1} \rightarrow \quad n\rightarrow \infty \]
 	\[ \Rightarrow S_1 - S_2 = \limes{n}(S_{2n} - S_{2n+1}) = \limes{n}a_{2n+1} = 0 \]
-	\[ \Rightarrow S_1 = S_2 \Rightarrow (S_n)_n \text{ konvergiert auch gegen } S_1 (=S_2). \]
+	\[ \Rightarrow S_1 = S_2 \Rightarrow {(S_n)}_n \text{ konvergiert auch gegen } S_1 (=S_2). \]
 \end{bew}
 \begin{defi}
-	Eine Reihe \( \sum_{n=1}^{\infty} a_n \) heißt absolut konvergent, falls \( \sum_{n=1}^{\infty}|a_n| \) konvergiert, d. h. \( \sum_{n=1}^{\infty}|a_n|<\infty \).
+	Eine Reihe \( \sum_{n=1}^{\infty} a_n \) heißt absolut konvergent, falls \( \sum_{n=1}^{\infty}|a_n| \) konvergiert, d.\ h.\  \(\sum_{n=1}^{\infty}|a_n|<\infty \).
 \end{defi}
 \begin{satz}
 	Eine absolut konvergente Reihe \( \sum_{n=1}^{\infty}a_n, a_n \in\R \) ist konvergent, und
@@ -239,7 +240,7 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\[ \Rightarrow \left|\sum_{n=1}^{\infty}a_n \right| = |S| = |\limes{m}S_m| = \limes{m}|S_m| \leq \sum_{n=1}^{\infty}|a_n|. \]
 \end{bew}
 \begin{bem}
-	Warnung: Umkehrung von Satz 11 ist falsch! (Bsp. alternierende harm. Reihe)
+	Warnung: Umkehrung von Satz 11 ist falsch! (Bsp.\ alternierende harmonische Reihe)
 \end{bem}
 \begin{defi}
 	Wir nennen eine Reihe \( \sum_{n=0}^{\infty}c_n \) eine Majorante, von \( \sum_{n=0}^{\infty}a_n, a_n\in\R \), falls \( |a_n| \leq c_n \) für fast alle \(n\).
@@ -263,19 +264,19 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 	\[ (*)\Rightarrow\exists n_0 \in\N: \frac{|a_{n+1}|}{|a_n|} \leq q \quad\forall n\geq n_0. \]
 	\[ p\in\N_0, n=n_0 + p \]
 	\begin{align*}
-		\Rightarrow |a_{n+1}| \leq q |a_n| \leq q^2|a_{n-1}| \leq \dots\leq q^{p+1}|a_{n_0}|\\
+		\Rightarrow |a_{n+1}| \leq q |a_n| \leq q^2|a_{n-1}| \leq \cdots\leq q^{p+1}|a_{n_0}|\\
 		\Rightarrow |a_n| \leq q^p |a_{n_0}| = q^n \underbrace{q^{-n_0}|a_{n_0}|}_{=M} \leq M q^n =: c_n
 	\end{align*}
-	d. h. \( \sum_{n=0}^{\infty}a_n \) hat \( \sum_{n=0}^{\infty}M q^n \) (geom. Reihe, sie konvergiert, da \( 0<q<1 \)) als Majorante.
+	d.\ h.\  \( \sum_{n=0}^{\infty}a_n \) hat \( \sum_{n=0}^{\infty}M q^n \) (geom. Reihe, sie konvergiert, da \( 0<q<1 \)) als Majorante.
 \end{bew}
 \begin{bem}
 	\( a_n = M q^n \)
 	\[ \Rightarrow \left| \frac{a_{n+1}}{a_n} \right| = \frac{M q^{n+1}}{M q^n} = q \]
-	\[ a_n = \frac{1}{n^p} \quad \frac{a_{n+1}}{a_n} = \frac{1}{(n+1)^p} \frac{n^p}{1} = \left(\frac{n}{n+1}\right)^p = \left(1 - \frac{1}{n+1}\right)^p \rightarrow 1, n\rightarrow\infty \]
+	\[ a_n = \frac{1}{n^p} \quad \frac{a_{n+1}}{a_n} = \frac{1}{{(n+1)}^p} \frac{n^p}{1} = {\left(\frac{n}{n+1}\right)}^p = {\left(1 - \frac{1}{n+1}\right)}^p \rightarrow 1, n\rightarrow\infty \]
 	\[ \Rightarrow \limsup\limits{n\rightarrow\infty} \frac{a_{n+1}}{a_n} = \limes{n} \frac{a_{n+1}}{a_n} = 1. \]
 \end{bem}
 \begin{satz}[Wurzelkriterium]
-	\( \sum_{n}a_n \) Reihe mit \[ (**) \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limsup\limits_{n\rightarrow\infty} \sqrt[n]{|a_n|} < 1 \Rightarrow \sum_n a_n \text{ konv. abs.}.\]
+	\( \sum_{n}a_n \) Reihe mit \[ (**) \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limsup\limits_{n\rightarrow\infty} \sqrt[n]{|a_n|} < 1 \Rightarrow \sum_n a_n \text{ konv.\ abs.}.\]
 	Ist \( \limsup\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} > 1 \), so ist die Reihe divergent. (ohne Bew.) 
 \end{satz}
 \begin{bem}
@@ -286,46 +287,46 @@ oder \((S_n)_n\) ist nach oben beschränkt \( \Rightarrow \limes{n} S_n  = +\inf
 \end{bem}
 \begin{bew}
 	\( (**) \Rightarrow \exists 0<q<1. K\in\N \) mit \[ |a_n|^{\frac{1}{n}} \leq q \quad\forall n\geq K. \]
-	\[\left(\tilde{q} = \limessup{n} |a_n|^{\frac{1}{n}} = \limes{n} \underbrace{\sup |a_k|^{\frac{1}{n}}}_{\rightarrow \tilde{q} < 1 (n \rightarrow \infty)}< 1\right)\]\\
-	\(\forall \varepsilon > 0 \exists k \in \N: \underset{k \geq n}{\sup} |a_k|^{\frac{1}{k}} < \tilde{q} + \varepsilon \quad \forall n \geq K \)\\
+	\[\left(\tilde{q} = \limessup{n} |a_n|^{\frac{1}{n}} = \limes{n} \underbrace{\sup |a_k|^{\frac{1}{n}}}_{\rightarrow \tilde{q} < 1 (n \rightarrow \infty)}< 1\right)\] \\
+	\(\forall \varepsilon > 0 \exists k \in \N: \underset{k \geq n}{\sup} |a_k|^{\frac{1}{k}} < \tilde{q} + \varepsilon \quad \forall n \geq K \) \\
 	d.h.\\
 	\[\underset{k \geq n}{\sup} |a_k|^{\frac{1}{k}} < \tilde{q} + \varepsilon = q \; (< 1)\]
-	\(\tilde{q} < 1\) wähle \(s > 0: q = \tilde{q} + s < 1\)\\
+	\(\tilde{q} < 1\) wähle \(s > 0: q = \tilde{q} + s < 1\) \\
 	\[\Rightarrow |a_n| \leq q^n \quad \forall n \geq K \]
 	Damit haben wir konv. Majorante \( \sum_n q^n \).
 \end{bew}
-\begin{satz}[\glqq Mutter aller Konvergenzkriterien\grqq]
+\begin{satz}[\glqq{}Mutter aller Konvergenzkriterien\grqq{}]
 	Sei \( \sum_n a_n \) Reihe mit \(a_n \neq 0 \) für fast alle \(n\). Dann gilt:
-	\[ \sum_n a_n \text{ konv. abs. } \Leftrightarrow \exists c_n > 0, \sum_n c_n < \infty \text{ und } \frac{|a_{n+1}|}{|a_n|} \leq \frac{c_{n+1}}{c_n} \text{ für fast alle }n. \]
+	\[ \sum_n a_n \text{ konv.\ abs.\ } \Leftrightarrow \exists c_n > 0, \sum_n c_n < \infty \text{ und } \frac{|a_{n+1}|}{|a_n|} \leq \frac{c_{n+1}}{c_n} \text{ für fast alle }n. \]
 \end{satz}
 \begin{bew}Übung.
 	Scharfes Hinschauen auf Beweis des Quotientenkriteriums.
 \end{bew}
 \begin{kor}
-	\( \sum_n a_n \) und \( p>1: \frac{|a_{n+1}|}{|a_n|} \leq 1 - \frac{p}{n+1} \) für fast alle \(n \Rightarrow \sum_n a_n \) konv. abs. (Übung).
+	\( \sum_n a_n \) und \( p>1: \frac{|a_{n+1}|}{|a_n|} \leq 1 - \frac{p}{n+1} \) für fast alle \(n \Rightarrow \sum_n a_n \) konv.\ abs.\ (Übung).
 \end{kor}
 \begin{bem}
 	Ist \( \liminf\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} > 1 \Rightarrow a_n \) divergent.\\
 	Ist \( \liminf\limits_{n\rightarrow\infty} \frac{|a_{n+1}|}{|a_n|} > 1 \Rightarrow \sum_n a_n \) divergent.\\
-	Ist \( \liminf\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limes{n}(\underset{k\geq n}{\inf} |a_n|^{\frac{1}{k}}) > 1 \Rightarrow \exists q>1: k \in\N.\)
-	\[ |a_n|^{1/n} \geq \underset{k\geq n}{inf} |a_k|^{1/k} \geq q > 1 \quad\forall n\geq K. \]
+	Ist \( \liminf\limits_{n\rightarrow\infty} |a_n|^{\frac{1}{n}} = \limes{n}(\underset{k\geq n}{\inf} |a_n|^{\frac{1}{k}}) > 1 \Rightarrow \exists q>1: k \in\N \).
+	\[ |a_n|^{1/n} \geq \underset{k\geq n}{\inf} |a_k|^{1/k} \geq q > 1 \quad\forall n\geq K. \]
 	\[ \Rightarrow |a_n| > q^n \rightarrow \infty, n\rightarrow\infty \Rightarrow a_n \text{ keine Nullfolge } \Rightarrow \sum_n a_n \text{ divergent}. \]
 \end{bem}
 \begin{bsp}[Exponentialreihe]
 	\[ x\in\R,\qquad \sum_{n=0}^{\infty} \underbrace{\frac{x^n}{n!}}_{=a_n} =: \exp x. \]
 	\begin{align*}
-		|\frac{a_{n+1}}{a_n}| = |\frac{x^{n+1}}{(n+1)!} \frac{n!}{x^n}| = \frac{|x|}{n+1} \rightarrow 0, n\rightarrow\infty\\
+		|\frac{a_{n+1}}{a_n}| = |\frac{x^{n+1}}{(n+1)!} \frac{n!}{x^n}| = \frac{|x|}{n+1} \rightarrow 0, n\rightarrow\infty \\
 		\Rightarrow \frac{|a_{n+1}}{a_n} \leq 1/2 \text{ für fast alle } n.\\
-		\Rightarrow \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + 1/2 x^2 + 1/6 x^3 + \dots \text{ konv. absolut.}
+		\Rightarrow \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + 1/2 x^2 + 1/6 x^3 + \dots \text{ konv.\ absolut.}
 	\end{align*}
 \end{bsp}
 \begin{bem}
 	\begin{align*}
-		S_n(x):= \sum_{j=1}^{n} \frac{x^j}{j!} = 1 + x + 1/2x^2 + \dots + \frac{x^n}{n!}\\
-		S'_n(x) = 1 + x + 1/2x^2 + \dots + \frac{x^{n-1}}{(n-1)!} = S_{n-1}(x)\\
+		S_n(x):= \sum_{j=1}^{n} \frac{x^j}{j!} = 1 + x + 1/2x^2 + \cdots + \frac{x^n}{n!}\\
+		S'_n(x) = 1 + x + 1/2x^2 + \cdots + \frac{x^{n-1}}{(n-1)!} = S_{n-1}(x)\\
 		\Rightarrow S'_n(x) = S_{n-1}(x) = S_n(x) - \frac{x^n}{n!}
 	\end{align*}
 	Falls gilt: \( S'(x) = ( \limes{n}S_n(x) )' = \limes{n}(S'_n(x)) = \limes{n}S_{n-1}(x) = S(x) \)
-	\( \Rightarrow \exp'x = \exp x? \) (im Allg. falsch, aber für Potenzreihen wahr)
+	\( \Rightarrow \exp'x = \exp x? \) (im Allg.\ falsch, aber für Potenzreihen wahr)
 \end{bem}
 \end{document}

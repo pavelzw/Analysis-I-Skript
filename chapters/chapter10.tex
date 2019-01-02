@@ -1,11 +1,12 @@
 \documentclass[../ana1.tex]{subfiles}
 \begin{document}
+\setcounter{section}{9}
 
 \section{Häufungspunkte, Limes Superior, Limes Inferior}
-\( (a_n)_n \) konvergente Folge \(a= \limes{n} a_n \)
+\( {(a_n)}_n \) konvergente Folge \(a= \limes{n} a_n \)
 \[\Leftrightarrow\forall\varepsilon>0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon) \text{ für fast alle } n\in\N. \]
 \begin{defi}
-	Sei \((a_n)_n\) Folge. \(a\in\R\) Häufungspunkt von \((a_n)_n\), falls \(\forall\varepsilon>0 a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N\) (d. h. \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
+	Sei \({(a_n)}_n\) Folge. \(a\in\R \) Häufungspunkt von \({(a_n)}_n\), falls \(\forall\varepsilon>0 a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N \) (d.\ h.\  \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
 \end{defi}
 \begin{bem}
 	Eine konvergente Folge hat nur einen Häufungspunkt.\\
@@ -19,19 +20,19 @@
 		\draw (1,0) node {\()\)};
 	\end{tikzpicture}
 \end{bem}
-\( H((a_n)_n) = H((a_n)) :=  \) Menge der Häufungspunkte von \((a_n)_n\).
+\( H({(a_n)}_n) = H((a_n)) :=  \) Menge der Häufungspunkte von \({(a_n)}_n\).
 \begin{lem}
 	\begin{enumerate}
-		\item Ist \((a_n)_n\) beschränkt. So ist \(H((a_n)_n) \neq \emptyset\).
-		\item Konvergiert \((a_n)_n\) gegen \(a\), so ist \(H((a_n)_n) = \{a\} \).
+		\item Ist \({(a_n)}_n\) beschränkt. So ist \(H({(a_n)}_n) \neq \emptyset \).
+		\item Konvergiert \({(a_n)}_n\) gegen \(a\), so ist \(H({(a_n)}_n) = \{a\} \).
 	\end{enumerate}
 \end{lem}
 \begin{bew}
 	\begin{enumerate}
-		\item Nach Kor. 9.6 hat \((a_n)_n\) konvergente Teilfolge \((a_{n_k})_k, L= \limes{k} a_{n_k} \). Dann ist \( \forall \varepsilon >0  \)
+		\item Nach Kor. 9.6 hat \({(a_n)}_n\) konvergente Teilfolge \({(a_{n_k})}_k, L= \limes{k} a_{n_k} \). Dann ist \( \forall \varepsilon >0  \)
 		\begin{align*}
-			a_{n_k} \in U_\varepsilon(L) \text{ für fast alle }k\in\N\\
-			\Rightarrow a_{n_k} \in U_\varepsilon(L) \text{ für unendlich viele} n\in\N\\
+			a_{n_k} \in U_\varepsilon(L) \text{ für fast alle }k\in\N \\
+			\Rightarrow a_{n_k} \in U_\varepsilon(L) \text{ für unendlich viele} n\in\N \\
 			\Rightarrow a_n\in U_\varepsilon(L)\\
 			\Rightarrow L \text{ ist Häufungspunkt}.
 		\end{align*}
@@ -44,35 +45,36 @@
 			\draw (1/2,0) node {\( )( \)};
 			\draw (0,0) node {\((\)};
 			\draw (1,0) node {\()\)};
-		\end{tikzpicture}\\
-		\( \Rightarrow \) fast alle \(a_n \in U_\varepsilon(a), U_\varepsilon(a) \cap U_\varepsilon(\tilde{a}) = \emptyset \)\\
-		\( \Rightarrow \) nur endl. viele \(a_n\) kann in \(U_\varepsilon(\tilde{a})\) sein.
+		\end{tikzpicture}
+		\\
+		\( \Rightarrow \) fast alle \(a_n \in U_\varepsilon(a), U_\varepsilon(a) \cap U_\varepsilon(\tilde{a}) = \emptyset \) \\
+		\( \Rightarrow \) nur endlich viele \(a_n\) kann in \(U_\varepsilon(\tilde{a})\) sein.
 	\end{enumerate}
 \end{bew}
 \begin{satz}
-	\[ b\in H((a_n)_n) \Leftrightarrow (a_n)_n \text{ hat Teilfolge } (a_{n_k})_k \text{, die gegen } b \text{ konvergiert}. \]
+	\[ b\in H({(a_n)}_n) \Leftrightarrow {(a_n)}_n \text{ hat Teilfolge } {(a_{n_k})}_k \text{, die gegen } b \text{ konvergiert}. \]
 \end{satz}
 \begin{bew}
-	\glqq\(\Rightarrow\)\grqq: Ist \(\lim a_{n_k} = b \Leftrightarrow \forall \varepsilon >0 \) ist \( a_{n_k} \in U_\varepsilon(b) \) für fast alle \(k\).\\
+	\glqq{}\(\Rightarrow \)\grqq{}: Ist \(\lim a_{n_k} = b \Leftrightarrow \forall \varepsilon >0 \) ist \( a_{n_k} \in U_\varepsilon(b) \) für fast alle \(k\).\\
 	\( \Rightarrow a_n \in U_\varepsilon(b) \) für unendlich viele \(n\).\\
-	\glqq\(\Leftarrow\)\grqq: Sei \(b \in H((a_n)). \Rightarrow \forall L\in \N \) gibt es \(\infty\)-viele \( a_n \in (b-1/L, b+1/L) (*) \).\\
+	\glqq{}\(\Leftarrow \)\grqq{}: Sei \(b \in H((a_n)). \Rightarrow \forall L\in \N \) gibt es \(\infty \)-viele \( a_n \in (b-1/L, b+1/L) (*) \).\\
 	\begin{align*}
 		L = 1 &\overset{*}{\Rightarrow} \exists n_1 \in \N: a_{n1} \in (b-1, b+1)\\
 		L = 2 &\overset{*}{\Rightarrow} \exists n_2 > n_1 \in \N: a_{n2} \in \left(b-\frac{1}{2}, b+\frac{1}{2}\right)\\
 		&\vdots \text{ induktiv}\\
 		L = k &\overset{*}{\Rightarrow} \exists n_k > n_{k-1} \in \N: a_{nk} \in \left(b-\frac{1}{k}, b+\frac{1}{k}\right)\\
-		&\Rightarrow \text{Teilfolge } (a_{nk})_k \text{ mit } b - \frac{1}{k} < a_{nk} < b + \frac{1}{k} \forall k \in \N\\
+		&\Rightarrow \text{Teilfolge } {(a_{nk})}_k \text{ mit } b - \frac{1}{k} < a_{nk} < b + \frac{1}{k} \forall k \in \N \\
 		&\overset{\text{Sandwich}}{\Rightarrow} \limes{n} a_{nk} = b
 	\end{align*}
 \end{bew}
-Offensichtliche Frage: Was ist \( \sup H((a_n)_n) \) (größter Häufungspunkt) und \(  \inf H((a_n)_n) \) (kleinster Häufungspunkt)?\\
-Situation: \((a_n)_n\) reelle Folge\\
-Geg. \(n\in\N \quad d_n := \underset{k\geq n}{\sup}a_k \in \R \Leftrightarrow (a_n)_n\) ist nach oben beschränkt. (somit setze \(d_n = \sup a_k = -\infty \).\\
-\( d_{n+1} = \underset{k\geq n+1}{\sup}a_k \leq \underset{k\geq n}{\sup}a_k = d_n \Longrightarrow (d_n)_n \) ist monoton fallend.\\
-\( \Rightarrow \) ist \((d_n)_n\) nach unten beschränkt (\( \Leftarrow (a_n)_n \) ist nach unten beschränkt), dann existiert \( \limes{n} d_n \) (Satz von mon. Konv.)\\
+Offensichtliche Frage: Was ist \( \sup H({(a_n)}_n) \) (größter Häufungspunkt) und \(  \inf H({(a_n)}_n) \) (kleinster Häufungspunkt)?\\
+Situation: \({(a_n)}_n\) reelle Folge\\
+Geg. \(n\in\N \quad d_n := \underset{k\geq n}{\sup}a_k \in \R \Leftrightarrow {(a_n)}_n\) ist nach oben beschränkt. (somit setze \(d_n = \sup a_k = -\infty \).\\
+\( d_{n+1} = \underset{k\geq n+1}{\sup}a_k \leq \underset{k\geq n}{\sup}a_k = d_n \Longrightarrow {(d_n)}_n \) ist monoton fallend.\\
+\( \Rightarrow \) ist \({(d_n)}_n\) nach unten beschränkt (\( \Leftarrow {(a_n)}_n \) ist nach unten beschränkt), dann existiert \( \limes{n} d_n \) (Satz von mon. Konv.)\\
 \[\text{Setzen } \limsup\limits(n\rightarrow\infty) a_n := \limes{n} d_n = \limes{n} \underset{k\geq n}{\sup} a_k. \]
 \[ A\subset B\subset \R \Rightarrow \sup A \leq \sup B \]
-\[ d_n - \underset{k\geq n}{\sup} a_k = \max(a_n, \underbrace{\underset{k\geq n+1}{\sup} a_k)}_{d_{n+1}} \]
+\[ d_n - \underset{k\geq n}{\sup} a_k = \max(a_n, \underbrace{\underset{k\geq n+1}{\sup} a_k}_{d_{n+1}}) \]
 Genauso: \(b_n = \underset{k\geq n}{\inf} a_k \)
 \[ b_{n+1} = \underset{k\geq n+1}{\inf} a_k \geq \underset{k\geq n}{\inf} a_k = b_n \]
 \[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n := \limes{n} \underset{k\geq n}{\inf} a_k = \underset{n\in\N}{\sup} \underset{k\geq n}{\inf} a_k \]
@@ -81,84 +83,84 @@ Haben immer \(b_n \leq d_n\)
 \[ \Rightarrow \liminf\limits_{n\rightarrow\infty} a_n \leq \limsup\limits_{n\rightarrow\infty} a_n. \]
 %04.12.2018
 \begin{align*}
-	(a_n)_n &b_n = \underset{k\geq n}{\sup} a_k = \sup\{ a_k | k\geq n \}\\
-	&d_n = \underset{k\geq n}{\inf} a_k = \inf\{ a_k | k\geq n \}\\
+	{(a_n)}_n &b_n = \underset{k\geq n}{\sup} a_k = \sup \{ a_k | k\geq n \} \\
+	&d_n = \underset{k\geq n}{\inf} a_k = \inf \{ a_k | k\geq n \} \\
 	\Rightarrow b_{n+1} \leq b_n, d_{n+1} \geq d_n\\
-	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty\}\\
-	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty\}
+	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
+	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty \}
 \end{align*}
-(\((a_n)_n\) nach oben beschränkt \(\Leftrightarrow b_, < \infty \)\\\
-\((a_n)_n\) nach unten beschränkt \(\Leftrightarrow d_, > -\infty \))
+(\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow b_, < \infty \) \\
+\({(a_n)}_n\) nach unten beschränkt \(\Leftrightarrow d_, > -\infty \))
 \begin{defi}
-	Geg. reelle Folge \((a_n)_n\).\\
+	Geg.\ reelle Folge \({(a_n)}_n\).\\
 	\begin{align*}
-		\limsup\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\sup} a_k \text{ (}=\inf\underset{k\geq n}{\sup}a_k\text{)}\\
-		\liminf\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\inf} a_k \text{ (}=\sup\underset{k\geq n}{\sup}a_k\text{)}
+		\limsup\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\sup} a_k \text{ (}=\inf\underset{k\geq{}n}{\sup}a_k \text{)}\\
+		\liminf\limits_{n\rightarrow\infty} a_n := \limes{n}\underset{k\geq n}{\inf} a_k \text{ (}=\sup\underset{k\geq{}n}{\sup}a_k \text{)}
 	\end{align*}
 \end{defi}
 \begin{lem}
 	\begin{enumerate}
 		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \)
-		\item \((a_n)_n\) beschränkte Folge: Dann gilt \((a_n)_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
+		\item \({(a_n)}_n\) beschränkte Folge: Dann gilt \({(a_n)}_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
 	\end{enumerate}
 \end{lem}
 \begin{bew}
-	\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark
-	\item \glqq\(\Rightarrow \)\grqq: Sei \(a:= \limes{n}a_n\in\R\), d. h. \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
+	\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark{}
+	\item \glqq{}\(\Rightarrow \)\grqq{}: Sei \(a:= \limes{n}a_n\in\R \), d.\ h.\  \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
 	\( \Rightarrow \) Sei \(n\geq M\) 
 	\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
 	\[ \underset{k\geq n}{\inf} a_k \leq a-\varepsilon \]
 	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n}leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
 	\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
-	\glqq\(\Leftarrow\)\grqq: Ang. \( \liminf a_n = \limsup a_n =: a \) (d. h. \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
-	d. h. \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
+	\glqq{}\(\Leftarrow \)\grqq{}: Ang.\  \( \liminf a_n = \limsup a_n =: a \) (d.\ h.\  \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
+	d.\ h.\  \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
 	\begin{align*}
 		a-\varepsilon < \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M_1\\
 		a-\varepsilon < \underset{k\geq n}{\inf} a_k < a + \varepsilon \quad \forall n\geq M_2
 	\end{align*}
-	Setze \(M := \max(M_1, M_2) \)\\
+	Setze \(M := \max(M_1, M_2) \) \\
 	\begin{align*}
 		\Rightarrow a-\varepsilon < \underset{k\geq n}{\inf} a_k \leq a_n \leq \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M\\
-		\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d. h. }a_n\rightarrow a \text{ für } n\rightarrow \infty.
+		\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d.\ h.\ }a_n\rightarrow a \text{ für } n\rightarrow \infty.
 	\end{align*}
 \end{bew}
 \begin{satz}
-	Sei \((a_n)_n\) beschränkte Folge. Dann gilt:\\
+	Sei \({(a_n)}_n\) beschränkte Folge. Dann gilt:\\
 	\(a^* = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
 	\begin{enumerate}
-		\item \(\forall a> a^* \) ist \( \{n\in\N |a_n>a \} \) endliche Teilmenge von \(\N\).
-		\item \( \forall a<a^* \) gibt es \(\infty\)-viele \(a_n >a\). (d. h. \( \{ n\in\N|a_n>a \} \) ist unendliche Teilmenge von \(\N\)).
+		\item \(\forall a> a^* \) ist \( \{n\in\N |a_n>a \} \) endliche Teilmenge von \(\N \).
+		\item \( \forall a<a^* \) gibt es \(\infty \)-viele \(a_n >a\). (d.\ h.\  \( \{ n\in\N|a_n>a \} \) ist unendliche Teilmenge von \(\N \)).
 	\end{enumerate}
 	genauso für \( \liminf \):
 	\(a_* = \liminf\limits_{n\rightarrow\infty}a_n \Leftrightarrow \)
 	\begin{enumerate}
-		\item \(\forall a< a_* \) ist \( \{n\in\N |a_n<a \} \) endliche Teilmenge von \(\N\).
-		\item \( \forall a>a_* \) gibt es \(\infty\)-viele \(a_n<a\).
+		\item \(\forall a< a_* \) ist \( \{n\in\N |a_n<a \} \) endliche Teilmenge von \(\N \).
+		\item \( \forall a>a_* \) gibt es \(\infty \)-viele \(a_n<a\).
 	\end{enumerate}
 \end{satz}
 \begin{bew}
-	Nur für \( \limsup a_n \), denn \( \limsup\limits_{n\rightarrow\infty}(-a_n) = -\liminf\limits_{n\rightarrow\infty} a_n \)\\
-	\glqq\( \Rightarrow \)\grqq: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d. h. \( \forall \varepsilon>0\exists <\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \)\\
+	Nur für \( \limsup a_n \), denn \( \limsup\limits_{n\rightarrow\infty}(-a_n) = -\liminf\limits_{n\rightarrow\infty} a_n \) \\
+	\glqq{}\(\Rightarrow \)\grqq{}: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d.\ h.\  \(\forall \varepsilon>0\exists <\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \) \\
 	\[ \Rightarrow a_n \leq b_n < a + \varepsilon \quad n\geq M. \]
-	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endl. viele \( a_n >a^* \Rightarrow 1 \)\\
-	Sei \( a< a^*: \varepsilon = a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \)\\
+	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endlich viele \( a_n >a^* \Rightarrow 1 \) \\
+	Sei \( a< a^*: \varepsilon = a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \) \\
 	\[ \Rightarrow a < \underset{k\geq n}{\sup} a_k \quad \forall n\geq M. \]
 	\(a=a^* - \varepsilon \).
 	Ang.: Fast alle \(a_n \leq a \) (=Negierung von \( \infty \)-viele \(a_n>a\)).\\
 	\[ \Rightarrow b_K = \underset{k\geq K}{\sup} a_k \leq a. \]
 	\[ \Rightarrow L = \max(M,K) \Rightarrow b_n \leq b_K \leq a \quad \forall n\geq L \text{ und } a<b_n=\underset{k\geq n}{\sup}a_k \forall n\geq L \text{\Lightning} \]
-	\( \Rightarrow \) es gibt \(\infty\)-viele \(a_n>a\)!
-	\glqq\( \Leftarrow \)\grqq: Sei \(a>a^* \overset{\text{1.}}{\Rightarrow} a_n \leq a \) für fast alle \(n\in\N\).\\
-	\( \Rightarrow b_n = \underset{k\geq n}{\sup}a_n \leq a \) für fast alle \(n\in\N\).\\
+	\( \Rightarrow \) es gibt \(\infty \)-viele \(a_n>a\)!
+	\glqq{}\(\Leftarrow \)\grqq{}: Sei \(a>a^* \overset{\text{1.}}{\Rightarrow} a_n \leq a \) für fast alle \(n\in\N \). \\
+	\( \Rightarrow b_n = \underset{k\geq n}{\sup}a_n \leq a \) für fast alle \(n\in\N \). \\
 	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n = \lim b_n \leq a \quad \forall a> a^* \]
 	\[ \limsup\limits_{n\rightarrow\infty} a_n \leq a^*. \]
-	Sei \(a<a^* \overset{\text{2.}}{\Rightarrow} \exists \infty \)-viele \(a_n > a \Rightarrow \underset{k\geq n}{\sup} a_k > a \) für jedes \(n\in\N\) 
+	Sei \(a<a^* \overset{\text{2.}}{\Rightarrow} \exists \infty \)-viele \(a_n > a \Rightarrow \underset{k\geq n}{\sup} a_k > a \) für jedes \(n\in\N \) 
 	\[ \Rightarrow \limes{n}\underset{k\geq n}{\sup}a_k \geq a \text{ für jedes }a<a^*) \]
 	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n\geq a^*. \]
 \end{bew}
 \begin{kor}
-	Sei \((a_n)_n\) beschränkte Folge.
-	\[ \Rightarrow H((a_n)_n) \subset [ \liminf\limits_{n\rightarrow\infty}a_n, \limsup\limits_{n\rightarrow\infty}a_n ] \text{ und } \limsup a_n, \liminf a_n \in H((a_n)_n). \]
+	Sei \({(a_n)}_n\) beschränkte Folge.
+	\[ \Rightarrow H({(a_n)}_n) \subset [ \liminf\limits_{n\rightarrow\infty}a_n, \limsup\limits_{n\rightarrow\infty}a_n ] \text{ und } \limsup a_n, \liminf a_n \in H({(a_n)}_n). \]
 \end{kor}
 \begin{bew}
 	Übung

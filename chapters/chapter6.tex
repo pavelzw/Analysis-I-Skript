@@ -1,52 +1,53 @@
 \documentclass[../ana1.tex]{subfiles}
 \begin{document}
-\setcounter{section}{6}
+\setcounter{section}{5}
 
-\section{Existenz von Wurzeln (in \(\R \)}
-Sei \( n\in\N \) und \(a>0\). Dann heißt eine Zahl \(\alpha\) \(n\)-te Wurzel von \(a\), schreiben \(\alpha = a^{\frac{1}{n}}\) oder \(\sqrt[n]{a}\), falls \(a^n = a\).
+\section{Existenz von Wurzeln (in \(\R \))}
+Sei \( n\in\N \) und \(a>0\). Dann heißt eine Zahl \(\alpha \) \(n\)-te Wurzel von \(a\), schreiben \(\alpha = a^{\frac{1}{n}}\) oder \(\sqrt[n]{a}\), falls \(a^n = a\).
 \begin{satz}
-	Sei $\alpha \in\R, a>0$ und $n\in\N$. Dann existiert die $n$-te Wurzel von $a$ als reelle Zahl. D.h. $\exists ! \alpha\in\R$ mit $\alpha>0$ und $\alpha^n = a$.
+	Sei \(\alpha \in\R, a>0\) und \(n\in\N \). Dann existiert die \(n\)-te Wurzel von \(a\) als reelle Zahl. D.\ h.\  \(\exists ! \alpha\in\R \) mit \(\alpha>0\) und \(\alpha^n = a\).
 \end{satz}
 \begin{bem}
 	Für die rationalen Zahlen ist dies falsch!
 \end{bem}
 \begin{bew}
-	Angenommen, die Beh. gilt für $a\geq 1$. Sei $0<b<1$. Setze $a :=\frac{1}{b}>1\Rightarrow \exists !\alpha>0:\alpha^n = a = \frac{1}{b}$. Setze $\beta := \frac{1}{\alpha}$.\\
-	Dann gilt also $$\beta^n = \left(\frac{1}{\alpha}\right)^n = \frac{1}{\alpha^n} = \frac{1}{a} = b.$$
-	Also nehme an $a\geq 1$. Ist $a=1$, so ist $\alpha = 1$ die einzige Lösung von $\alpha^n = 1$. Außerdem können wir $n\in\N$ mit $n>1$ wählen. Also sei $a>1,n\in\N,n>1$. Setze
-	$$A := \{x\in\R|0<x, x^n<a\}$$
-	Dann ist $1\in A$ und somit $A\neq\emptyset$. Außerdem ist $A$ nach oben beschränkt, denn ist $y \geq a$, so folgt
-	$$y^n \geq a^n = \underbrace{a \cdot a \ldots \cdot a}_{n\text{-mal}} > \underbrace{1 \cdot 1 \ldots \cdot 1}_{n\text{-mal}} \cdot a = a$$
-	Also ist $A \leq a$.
-	$$\overset{\text{Vollst.axiom}}{\Rightarrow} \alpha := \sup A \in\R \text{ existiert}.$$
-	Da $1\in A \Rightarrow \alpha \geq 1 > 0$.\\
-	$\alpha^n$ ist eine reelle Zahl für die gilt nach Anordnungsaxiom entweder $\alpha^n <a, \alpha^n >a$ oder $\alpha^n = a$.\\
-	1. Fall: Annahme: $\alpha^n <a$.\\
-	Sei $0<\delta\leq 1$. Dann gilt (binom. Formel)
+	Angenommen, die Beh.\ gilt für \(a\geq 1\). Sei \(0 < b < 1\). Setze \(a :=\frac{1}{b}>1\Rightarrow \exists !\alpha>0:\alpha^n = a = \frac{1}{b}\). Setze \(\beta := \frac{1}{\alpha}\).\\
+	Dann gilt also 
+	\[ \beta^n = {\left(\frac{1}{\alpha}\right)}^n = \frac{1}{\alpha^n} = \frac{1}{a} = b.\]
+	Also nehme an \(a\geq 1\). Ist \(a=1\), so ist \(\alpha = 1\) die einzige Lösung von \(\alpha^n = 1\). Außerdem können wir \(n\in\N \) mit \(n>1\) wählen. Also sei \(a>1,n\in\N,n>1\). Setze
+	\[ A := \{x\in\R|0<x, x^n<a\} \]
+	Dann ist \(1\in A\) und somit \(A\neq\emptyset \). Außerdem ist \(A\) nach oben beschränkt, denn ist \(y \geq a\), so folgt
+	\[ y^n \geq a^n = \underbrace{a \cdot a \ldots \cdot a}_{n\text{-mal}} > \underbrace{1 \cdot 1 \ldots \cdot 1}_{n\text{-mal}} \cdot a = a \]
+	Also ist \(A \leq a\).
+	\[ \overset{\text{Vollst.axiom}}{\Rightarrow} \alpha := \sup A \in\R \text{ existiert}.\]
+	Da \(1\in A \Rightarrow \alpha \geq 1 > 0\).\\
+	\(\alpha^n\) ist eine reelle Zahl für die gilt nach Anordnungsaxiom entweder \(\alpha^n <a, \alpha^n >a\) oder \(\alpha^n = a\).\\
+	1. Fall: Annahme: \(\alpha^n <a\).\\
+	Sei \(0<\delta\leq 1\). Dann gilt (binomische Formel)
 	\begin{align*}
-		(\alpha + \delta)^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^k\delta^{n-k}                                                                                                            \\
-		                    & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k} \alpha^k\delta^{n-k}                                                                                               \\
-		                    & = \alpha^n + \sum_{k=1}^{n-1} \binom{n}{k-1} \underbrace{\alpha^{k-1}}_{\leq a^{k-1}}\underbrace{\delta^{n+1-k}}_{\leq \delta \cdot \delta^{n-k} \leq \delta} \\
-		                    & \leq \alpha^n \delta \sum_{k=1}^{n-1} \binom{n}{k-1} \alpha^{k-1}                                                                                             \\
-		                    & \leq \alpha^n \delta \sum_{k=0}^{n} \binom{n}{k} \alpha^{k}                                                                                                   \\
-		                    & = \alpha^n + \delta(a+1)^n (*)
+		{(\alpha + \delta)}^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^k\delta^{n-k}                                                                                                            \\
+		                      & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k} \alpha^k\delta^{n-k}                                                                                               \\
+		                      & = \alpha^n + \sum_{k=1}^{n-1} \binom{n}{k-1} \underbrace{\alpha^{k-1}}_{\leq a^{k-1}}\underbrace{\delta^{n+1-k}}_{\leq \delta \cdot \delta^{n-k} \leq \delta} \\
+		                      & \leq \alpha^n \delta \sum_{k=1}^{n-1} \binom{n}{k-1} \alpha^{k-1}                                                                                             \\
+		                      & \leq \alpha^n \delta \sum_{k=0}^{n} \binom{n}{k} \alpha^{k}                                                                                                   \\
+		                      & = \alpha^n + \delta {(a+1)}^n (*)
 	\end{align*}
-	$\alpha^n <a$ nach Annahme und $\delta := \frac{1}{2} \min\left(1, \frac{a-\alpha^n}{(a+1)^n}\right)$\\
-	Dann gilt $0<\delta\leq 1$ und $(*)$
-	$$(\alpha + \delta)^n \leq \alpha^n + \delta(a+1)^n \leq \alpha^n + \frac{1}{2} (a-\alpha^n) = \frac{1}{2} (\alpha^n+a) < \frac{1}{2} (a+a) =a$$
-	Somit ist $\alpha < \alpha + \delta$ \Lightning $\alpha$ ist $\sup A$.\\
-	2. Fall: Annahme: $\alpha^n > a, 0<\delta \leq 1$
+	\(\alpha^n <a\) nach Annahme und \(\delta := \frac{1}{2} \min{\left(1, \frac{a-\alpha^n}{{(a+1)}^n}\right)}\) \\
+	Dann gilt \(0<\delta\leq 1\) und \((*)\)
+	\[ {(\alpha + \delta)}^n \leq \alpha^n + \delta {(a+1)}^n \leq \alpha^n + \frac{1}{2} (a-\alpha^n) = \frac{1}{2} (\alpha^n+a) < \frac{1}{2} (a+a) =a \]
+	Somit ist \(\alpha < \alpha + \delta \) \Lightning{} \(\alpha \) ist \(\sup A\).\\
+	2.\ Fall: Annahme: \(\alpha^n > a, 0<\delta \leq 1\)
 	\begin{align*}
-		\Rightarrow (\alpha - \delta)^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} (-\delta)^k = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} (-1)^k\delta^k \\
-		                                & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} (-1)^{k+1}\delta^{k+1}                               \\
-		                                & = \alpha^n - \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} (-1)^{k} \delta^k                                    \\
-		                                & \geq \alpha^n - \delta \sum_{k=0}^{n-1} \binom{n}{k+1} a^{n-k+1}                                                 \\
-		                                & = \alpha^n - \delta \sum_{k=1}^{n} \binom{n}{k} a^k                                                              \\
-		                                & \geq \alpha^n - \delta (a+1)^n (**)
+		\Rightarrow {(\alpha - \delta)}^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-\delta)}^k = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-1)}^k\delta^k \\
+		                                  & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k+1}\delta^{k+1}                                 \\
+		                                  & = \alpha^n - \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k} \delta^k                                      \\
+		                                  & \geq \alpha^n - \delta \sum_{k=0}^{n-1} \binom{n}{k+1} a^{n-k+1}                                                     \\
+		                                  & = \alpha^n - \delta \sum_{k=1}^{n} \binom{n}{k} a^k                                                                  \\
+		                                  & \geq \alpha^n - \delta {(a+1)}^n (**)
 	\end{align*}
-	Setze $\delta := \frac{1}{2} \min \left(1, \frac{\alpha^n-a}{(a+1)^n} \right)$. Dann gilt $0\leq\delta\leq \frac{1}{2}<1$.
-	$$(\alpha -\delta)^n \geq \alpha^n - \frac{1}{2} (\alpha^n + a) = \frac{1}{2} (\alpha^n + a) > \frac{1}{2} (a + a) \geq a.$$
-	Somit $\alpha - \delta$ eine obere Schranke für $A$. Da $\alpha - \delta<\alpha$, ist das ein Widerspruch zu $\alpha = \sup A$. Somit bleibt nur $\alpha^n = a$.
+	Setze \( \delta := \frac{1}{2} \min \left(1, \frac{\alpha^n-a}{{(a+1)}^n} \right) \). Dann gilt \(0\leq\delta\leq \frac{1}{2}<1\).
+	\[ {(\alpha -\delta)}^n \geq \alpha^n - \frac{1}{2} (\alpha^n + a) = \frac{1}{2} (\alpha^n + a) > \frac{1}{2} (a + a) \geq a.\]
+	Somit \( \alpha - \delta \) eine obere Schranke für \(A\). Da \(\alpha - \delta<\alpha \), ist das ein Widerspruch zu \(\alpha = \sup A\). Somit bleibt nur \(\alpha^n = a\).
 \end{bew}
 
 \end{document}

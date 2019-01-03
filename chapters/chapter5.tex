@@ -5,110 +5,117 @@
 \section{Induktion}
 \subsection{Starke Induktion und das Wohlordnungsprinzip}
 \begin{satz}[starke Induktion]
-	Seien $A(n)$ Aussagen für $n\in\mathbb{N}$. Dann gilt
+	Seien \(A(n)\) Aussagen für \(n\in\N \). Dann gilt
 	\begin{enumerate}
-		\item $A(1)$ ist wahr
-		\item $\forall n\in\mathbb{N}: A(1), \ldots, A(n)$ wahr $\Rightarrow A(n+1)$ ist wahr
+		\item \(A(1)\) ist wahr
+		\item \(\forall n\in\N: A(1), \ldots, A(n)\) wahr \(\Rightarrow A(n+1)\) ist wahr
 	\end{enumerate}
-	$\Rightarrow \forall n\in\mathbb{N}$ ist $A(n)$ wahr
+	\(\Rightarrow \forall n\in\N \) ist \(A(n)\) wahr
 \end{satz}
 \begin{bew}
-	Definiere die Aussage $B(n) := \{$alle $A(k)$ mit $k\leq n$ sind wahr$\}\Rightarrow$
+	Definiere die Aussage \(B(n) := \{ \)alle \(A(k)\) mit \(k\leq n\) sind wahr\( \}\Rightarrow \)
 	\begin{enumerate}
-		\item $B(1)$ ist wahr
-		\item Ist $B(n)$ wahr für ein $n\in\mathbb{N}$, so ist $B(n+1)$ wahr
+		\item \(B(1)\) ist wahr
+		\item Ist \(B(n)\) wahr für ein \(n\in\N \), so ist \(B(n+1)\) wahr
 	\end{enumerate}
-	$\Rightarrow B(n)$ ist wahr für alle $n\in\mathbb{N}$.
+	\(\Rightarrow B(n)\) ist wahr für alle \(n\in\N \).
 \end{bew}
 \begin{bem}
-	$(\forall n\in\mathbb{N}:A(k) \forall k<n \Rightarrow A(n)) \Leftrightarrow \forall n\in\mathbb{N} A(n)$.
+	\((\forall n\in\N:A(k) \forall k<n \Rightarrow A(n)) \Leftrightarrow \forall n\in\N A(n)\).
 \end{bem}
-\begin{satz}[Wohlordnungsprinzip für $\mathbb{N}$]
-	Jede nichtleere Teilmenge der natürlichen Zahlen $\mathbb{N}$ hat ein kleinstes Element.
+\begin{satz}[Wohlordnungsprinzip für \(\N \)]
+	Jede nichtleere Teilmenge der natürlichen Zahlen \(\N \) hat ein kleinstes Element.
 \end{satz}
 \begin{bew}
-	Sei $A(n):= \{$Jede Teilmenge $b\subset\mathbb{N}$ mit $m\in B$ hat ein kleinstes Element$\}$.\\
-	Müssen zeigen: $A(n)$ ist wahr für alle $n\in\mathbb{N}$.
+	Sei \(A(n):= \{ \)Jede Teilmenge \(b\subset\N \) mit \(m\in B\) hat ein kleinstes Element\( \} \).\\
+	Müssen zeigen: \(A(n)\) ist wahr für alle \(n\in\N \).
 	\begin{enumerate}
-		\item $A(1)$ ist wahr, denn ist $B\subset \mathbb{N}$ mit $1\in B$, so folgt $\forall k \in B: l\geq 1$. Also ist $1$ kleinstes Element in $B$.
-		\item Angenommen für $n\in\mathbb{N}$ sind $A(1),\ldots,A(n)$ wahr. Sei $B\subset \mathbb{N}$ mit $n+1\in B$.\\
-		      \underline{1. Fall:} $\{1,\ldots,n\}\cap B = \emptyset \Rightarrow n+1$ ist kleinstes Element in $B$.\\
-		      \underline{2. Fall:} $\{1,\ldots,n\} \cap B \neq \emptyset \Rightarrow \exists k\in \{1,\ldots,n\}$ mit $k\in B$.\\
-		      Aus der Induktionsannahme folgt also $A(k)$ ist wahr. $\Rightarrow B$ hat ein kleinstes Element.
+		\item \(A(1)\) ist wahr, denn ist \(B\subset \N \) mit \(1\in B\), so folgt \(\forall k \in B: l\geq 1\). Also ist \(1\) kleinstes Element in \(B\).
+		\item Angenommen für \(n\in\N \) sind \(A(1),\ldots,A(n)\) wahr. Sei \(B\subset \N \) mit \(n+1\in B\).\\
+		      \underline{1. Fall:} \( \{1,\ldots,n\}\cap B = \emptyset \Rightarrow n+1\) ist kleinstes Element in \(B\).\\
+		      \underline{2. Fall:} \( \{1,\ldots,n\} \cap B \neq \emptyset \Rightarrow \exists k\in \{1,\ldots,n\} \) mit \(k\in B\).\\
+		      Aus der Induktionsannahme folgt also \(A(k)\) ist wahr. \(\Rightarrow B\) hat ein kleinstes Element.
 	\end{enumerate}
-	In beiden Fällen hat $B$ ein kleinstes Element, also ist $A(n+1)$ wahr.\\
-	$\overset{\text{Satz 1}}{\Rightarrow} \forall n\in \mathbb{N} A(n)$ wahr.
+	In beiden Fällen hat \(B\) ein kleinstes Element, also ist \(A(n+1)\) wahr.\\
+	\(\overset{\text{Satz 1}}{\Rightarrow} \forall n\in \N A(n)\) wahr.
 \end{bew}
 Notation:\\
-Ganze Zahlen $\mathbb{Z} := (-\mathbb{N})\cup \mathbb{N}_0 = \{0, \pm 1, \pm 2, \ldots\} = \{\ldots, -2,-1,0,1,2,\ldots\}$.\\
-Rationale Zahlen: $\mathbb{Q} := \{ \frac{m}{n} \vert n\in\mathbb{N}, m\in\mathbb{Z}\}$.
+Ganze Zahlen \(\Z := (-\N)\cup \N_0 = \{0, \pm 1, \pm 2, \ldots \} = \{\ldots, -2,-1,0,1,2,\ldots \} \).\\
+Rationale Zahlen: \(\Q := \{ \frac{m}{n} \vert n\in\N, m\in\Z \} \).
 \begin{kor}
-	Jede nichtleere, nach unten beschränkte Teilmenge in $\mathbb{Z}$ hat ein kleinstes Element.
+	Jede nichtleere, nach unten beschränkte Teilmenge in \(\Z \) hat ein kleinstes Element.
 \end{kor}
 \begin{bew}
-	Sei $A\subsetneq \mathbb{Z}, A\neq \emptyset, A\geq \beta$ für $B\in\mathbb{Z}$\\
-	Setze $B:= A+\beta +1 =\{\alpha+|\beta|+1\vert \alpha\in A\}\subsetneq \mathbb{N}, B\neq \emptyset\\
-		\overset{\text{Satz 2}}{\Rightarrow} \exists n_0:= \min B \Rightarrow z_0 := n_0 - |\beta|-1\in\mathbb{Z}$ ist kleinstes Element von $A$.
+	Sei \(A\subsetneq \Z, A\neq \emptyset, A\geq \beta \) für \(B\in\Z \) \\
+	Setze \(B:= A+\beta +1 =\{\alpha+|\beta|+1\vert \alpha\in A\}\subsetneq \N, B\neq \emptyset \\
+		\overset{\text{Satz 2}}{\Rightarrow} \exists n_0:= \min B \Rightarrow z_0 := n_0 - |\beta|-1\in\Z \) ist kleinstes Element von \(A\).
 \end{bew}
 \subsection{Anwendungen}
 \begin{lem}
-	Sei $a\in\mathbb{R}$ mit $a>0$. Dann existiert $q\in\mathbb{N}_0$ mit $q\leq a<q+1$
+	Sei \( a\in\R \) mit \( a > 0 \). Dann existiert \(q\in\N_0\) mit \(q\leq a<q+1\)
 \end{lem}
 \begin{bew}
-	Ist $0<a<1$, so nehme $q = 0$.\\
-	Also $a\geq 1$ und setze $B:=\{n\in\mathbb{N}|a<n\}$.\\
-	Da $\mathbb{N}$ nicht nach oben beschränkt ist (archim. Prinzip), gilt $B\neq \emptyset$.\\
-	$\overset{\text{Satz 2}}{\Rightarrow} m:=\min B$ existiert. Da $m\in B$, ist $m> a \geq 1$.\\
-	Somit gilt nach Satz 3.5.8, dass $q:= m-1\in\mathbb{N}$.\\
-	Da $m$ die kleinste natürliche Zahl mit $m<a$ ist, folgt $q = m-1 \leq a < m = q+1$.
+	Ist \( 0 < a < 1 \), so nehme \( q = 0 \).\\
+	Also \(a\geq 1\) und setze \(B := \{ n\in\N | a < n \} \).\\
+	Da \( \N \) nicht nach oben beschränkt ist (archim. Prinzip), gilt \(B\neq \emptyset \).\\
+	\(\overset{\text{Satz 2}}{\Rightarrow} m:=\min B\) existiert. Da \(m\in B\), ist \(m> a \geq 1\).\\
+	Somit gilt nach Satz 3.5.8, dass \(q:= m-1\in\N \).\\
+	Da \( m \) die kleinste natürliche Zahl mit \(m<a\) ist, folgt \(q = m-1 \leq a < m = q+1\).
 \end{bew}
 \begin{bem}
-	Dieselbe Beweisidee zeigt auch $$\forall a\in\mathbb{R}\exists q\in\mathbb{Z} \text{ mit } q\leq a<q+1.$$
+	Dieselbe Beweisidee zeigt auch 
+	\[ \forall a\in\R\exists q\in\Z \text{ mit } q\leq a<q+1.\]
 \end{bem}
-\begin{satz}[$\mathbb{Q}$ ist dicht in $\mathbb{R}$]
-	Seien $a,b\in\mathbb{R}, a<b$. Dann existiert $r\in\mathbb{Q}$ mit $a<r<b$.
+\begin{satz}[\( \Q \) ist dicht in \( \R \)]
+	Seien \( a,b\in\R, a<b \). Dann existiert \( r\in\Q \) mit \(a<r<b\).
 \end{satz}
 \begin{bew}
-	O.B.d.A. $b\geq 0$, ansonsten betrachte $a'=-a, b'=-b$.\\
-	Weiter können wir $a\geq 0$ annehmen, sonst nehme $r=0$.
-	Also sei $0\leq a <b \overset{\text{Archimedes}}{\Rightarrow} \exists n\in\mathbb{N}: n(b-a)>1$.\\
-	Setze $B:=\{l\in\mathbb{N}|l>na\} \subset \mathbb{N}$.
-	$$\overset{\text{Satz 5.1.2}}{\Rightarrow} m = \min B \text{ existiert}.$$
-	Da $m=\min B$ ist, gilt $$m -a\leq na<m,$$ somit gilt auch $$na<m=\underbrace{m-1}_{<na}+\underbrace{1}_{<n(b-a)}=nb$$
-	$$\Rightarrow na<m,nb \Leftrightarrow a<\frac{m}{n}<b.$$
+	O.\ B.\ d.\ A.\  \(b\geq 0\), ansonsten betrachte \( a' = -a, b' = -b \).\\
+	Weiter können wir \(a\geq 0\) annehmen, sonst nehme \(r=0\).
+	Also sei \(0\leq a <b \overset{\text{Archimedes}}{\Rightarrow} \exists n\in\N: n(b-a)>1\).\\
+	Setze \( B := \{ l\in\N | l > na \} \subset \N \).
+	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow} m = \min B \text{ existiert}.\]
+	Da \(m=\min B\) ist, gilt 
+	\[m -a\leq na<m,\] 
+	somit gilt auch 
+	\[ na<m=\underbrace{m-1}_{<na}+\underbrace{1}_{<n(b-a)}=nb \]
+	\[ \Rightarrow na<m,nb \Leftrightarrow a<\frac{m}{n}<b.\]
 \end{bew}
 \textbf{Exkurs}\\
-Beh.: $\sqrt{2}\in\mathbb{R}\setminus \mathbb{Q}.$
+Beh.: \( \sqrt{2}\in\R\setminus \Q \).
 \begin{bew}[Beweis durch Widerspruch]
-	Sei $r^2=2$ mit $r = \frac{m}{n}, n\in\mathbb{N}, m\in\mathbb{Z}$.\\
-	Wir definieren $$A:= \{n\in\mathbb{N}|\exists m\in\mathbb{Z} \frac{m^2}{n^2}= 2\} \neq \emptyset$$
-	$$\overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \mathbb{N}$$
-	Also existiert $m\in\mathbb{Z}_+$ mit
-	$$m^2 = 2\cdot m_*^2 \Rightarrow m>n_*$$
+	Sei \( r^2 = 2 \) mit \( r = \frac{m}{n}, n\in\N, m\in\Z \).\\
+	Wir definieren 
+	\[ A:= \{n\in\N|\exists m\in\Z \frac{m^2}{n^2}= 2\} \neq \emptyset \]
+	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \N \]
+	Also existiert \( m\in\Z_+ \) mit
+	\[ m^2 = 2\cdot m_*^2 \Rightarrow m>n_* \]
 	Außerdem gilt
-	$$m=\sqrt{2}n_* \overset{\sqrt{2}>1}{\Leftrightarrow} 0< \underbrace{m-n_*}_{\in\mathbb{N}} = \underbrace{\overbrace{(\sqrt{2} - 1)}}^{>0}_{<1} n_* < n_*$$
-	Nun gilt: $$\sqrt{2} = \frac{m}{n_*} = \frac{m(m-n_*)}{n_*(m-n_*)} \overset{m^2=2n_*^2}{=} \frac{2n_*^2-mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*}$$
-	\Lightning $2n_* -m \in \mathbb{Z}, m-n_* < n_*$, aber $n_* = \min A$\\
-	Somit kann kein $m\in\mathbb{Z}$ existieren, sodass $\frac{m^2}{n^2} = 2$ für beliebiges $n\in\mathbb{N}.$\\
-	Also ist $\sqrt{2}$ per Definition der rationalen Zahlen in $\mathbb{R}\setminus\mathbb{Q}$.
+	\[ m=\sqrt{2}n_* \overset{\sqrt{2}>1}{\Leftrightarrow} 0< \underbrace{m-n_*}_{\in\N} = \underbrace{\overbrace{(\sqrt{2} - 1)}}^{>0}_{<1} n_* < n_* \]
+	Nun gilt: 
+	\[ \sqrt{2} = \frac{m}{n_*} = \frac{m(m-n_*)}{n_*(m-n_*)} \overset{m^2=2n_*^2}{=} \frac{2n_*^2-mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*} \]
+	\Lightning{} \(2n_* -m \in \Z, m-n_* < n_* \), aber \(n_* = \min A\) \\
+	Somit kann kein \(m\in\Z \) existieren, sodass \(\frac{m^2}{n^2} = 2\) für beliebiges \(n\in\N \).\\
+	Also ist \(\sqrt{2}\) per Definition der rationalen Zahlen in \(\R\setminus\Q \).
 \end{bew}
 \begin{satz}
-	Sei $k\in\mathbb{N}$, dann gilt entweder $\sqrt{k}\in\mathbb{N}$ oder $\sqrt{k}\in\mathbb{R}\setminus\mathbb{Q}$.
+	Sei \(k\in\N \), dann gilt entweder \(\sqrt{k}\in\N \) oder \(\sqrt{k}\in\R\setminus\Q \).
 \end{satz}
 \begin{bew}
-	Sei $k\in\mathbb{N}$ und $\sqrt{k} \notin \mathbb{N}$.\\
-	Angenommen $\sqrt{k}\in\mathbb{Q}$, also $\sqrt{k} = \frac{m}{n}, m\in\mathbb{Z},n\in\mathbb{N}$\\
-	$A:=\{n\in\mathbb{N}|\exists m\in\mathbb{Z} \frac{m^2}{n^2} = k\}$
-	$$\overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N$$
-	Sei $\frac{m}{n_*} = \sqrt{k}$, dann gilt
-	$$m-n_* = \underbrace{(\sqrt{k}-1)}_{<1} n_*$$ %DURCHGESTRICHEN
-	Aber wähle $q\in\N: q\leq \sqrt{k} < q+1$\\
-	Existiert nach Lemma 5.2.1. Da $\sqrt{k} \notin \N$ gilt $q<\sqrt{k}<q+1$.\\
+	Sei \(k\in\N \) und \(\sqrt{k} \notin \N \).\\
+	Angenommen \(\sqrt{k}\in\Q \), also \(\sqrt{k} = \frac{m}{n}, m\in\Z,n\in\N \) \\
+	\(A:=\{n\in\N|\exists m\in\Z \frac{m^2}{n^2} = k\} \)
+	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N \]
+	Sei \(\frac{m}{n_*} = \sqrt{k}\), dann gilt
+	\[ m-n_* = \underbrace{(\sqrt{k}-1)}_{<1} n_* \] %DURCHGESTRICHEN
+	Aber wähle \(q\in\N: q\leq \sqrt{k} < q+1\) \\
+	Existiert nach Lemma 5.2.1. Da \(\sqrt{k} \notin \N \) gilt \(q<\sqrt{k}<q+1\).\\
 	Also gilt:
-	$$0\overset{q<\sqrt{k}}{<} \underbrace{m-qn_*}_{\in\mathbb{N}} = (\underbrace{\sqrt{k}-q}_{<1})n_* < n_*$$
-	Somit $$\sqrt{k} = \frac{m}{n_*} = \frac{m(m-qn_*)}{n_*(m-qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m-qn_*)}=\frac{kn_*-mq}{m-qn_*}$$
-	\Lightning $n_* = \min A, m-qn_* < n_*$\\
-	Somit muss $\sqrt{k}\in\R\setminus\Q$ sein.
+	\[ 0\overset{q<\sqrt{k}}{<} \underbrace{m-qn_*}_{\in\N} = (\underbrace{\sqrt{k}-q}_{<1})n_* < n_* \]
+	Somit 
+	\[ \sqrt{k} = \frac{m}{n_*} = \frac{m(m-qn_*)}{n_*(m-qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m-qn_*)}=\frac{kn_*-mq}{m-qn_*}\]
+	\Lightning{} \(n_* = \min A, m-qn_* < n_*\) \\
+	Somit muss \(\sqrt{k}\in\R\setminus\Q \) sein.
 \end{bew}
 
 \end{document}

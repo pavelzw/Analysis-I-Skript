@@ -1,4 +1,6 @@
-\documentclass[12pt,a4paper,titlepage,draft]{article} %twopage
+\documentclass[12pt,a4paper,titlepage,draft]{article}
+%draft rauslöschen, für releases (Sonst wird an manchen Stellen schwarze Balken gerendert und
+%Bilder laden nicht)
 
 \IfFileExists{skript.sty}{\usepackage{skript}}{%
   \usepackage{../skript}
@@ -30,7 +32,7 @@
 		\subfile{chapters/chapter1.tex}
 	}
 	\foreach \c in {2,...,12}{
-		\subfile{chapters/chapter\c.tex} 
+		\subfile{chapters/chapter\c.tex}
 		\newpage
 	}
 \end{document}

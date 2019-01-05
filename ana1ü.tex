@@ -292,7 +292,9 @@
 	\end{bew}
 	\section{Mehr zu Wurzeln (09.11.18)}
 	\begin{bsp} [Exkurs]
-		Beh.: \(\sqrt{2} \in \R \setminus \Q\)
+		\begin{beh}
+			\(\sqrt{2} \in \R \setminus \Q\)
+		\end{beh}
 		\begin{bew}
 			Beweis durch Widerspruch:
 			\[\exists r \in \Q \text{ mit } r^2 = 2\]
@@ -327,6 +329,117 @@
 			weil \(n_* = \min A\) und \(m - qn_* < n_*\)
 		\end{bew}
 	\end{bsp}
+	\section{Anwendung Satz 7.1.8 und Cesaro-Mittel (16.11.18)}
+	\begin{bsp}
+		Sei \((a_n)_n\) reelle Folge definiert durch
+		\[a_n = \frac{3n^2+13n}{n^2+2}\]
+		\begin{beh}
+			\((a_n)_n\) konvergiert gegen \(3\)
+		\end{beh}
+		\begin{bew}
+			\[a_n = \frac{3n^2+13n}{n^2+2} = \frac{3 + 13n^{-1}}{1 + 2n^{-2}}\]
+			Wir wissen: \(\limes{n} \frac{1}{n} = 0\) somit \(\limes{n} \frac{1}{n^2} = 0\), da Satz 7.1.8 b) gilt\\
+			\(\limes{n} \frac{1}{n} \cdot \frac{1}{n} = \limes{n} \frac{1}{n} \cdot \limes{n} \frac{1}{n} = 0\)\\
+			somit folgt:
+			\[\limes{n} \left(3+\frac{13}{n}\right) = 3 + \limes{n} \frac{13}{n} = 3 + 13 \cdot \limes{n} \frac{1}{n} = 3\]
+			\[\limes{n} \left(1 + \frac{2}{n^2}\right) = 1 + 2 \cdot \limes{n} \frac{1}{n} = 1\]
+			Nach Satz 7.1.8 c) gilt also:
+			\[\limes{n} \frac{3 + 13n^{-1}}{1 + 2n^{-2}} = \frac{\limes{n} \left(3+\frac{13}{n}\right)}{\limes{n} \left(1 + \frac{2}{n^2}\right)} = \frac{3}{1} = 3\]
+			Damit hat die Folge \((a_n)_n\) den Grenzwert 3.
+		\end{bew}
+	\end{bsp}
+	\begin{bsp} [Iterativ definierte Folgen]
+		Seien \(a, b \in \R\). Wir definieren Folge \((a_n)_n\) durch \(a_0 = a, a_1 = b, a_{n+2} = \frac{1}{2}\left(a_{n-1} + a_{n-2}\right)\)\\
+		\begin{beh}
+			Die Folge \((a_n)_n\) konvergiert gegen den Grenzwert \(\limes{n} a_n = \frac{1}{3}\left(2b - a\right)\)
+		\end{beh}
+		\begin{bew}
+			Für alle \(k \in \N\) gilt
+			\[a_{k+1} - a_k = \frac{1}{2}\left(a_{k} + a_{k-1}\right) - a_k = -\frac{1}{2} \cdot (a_k - a_{k-1})\]
+			Durch vollständige Induktion folgt:\\
+			(IV): \(a_{k+1} - a_k =  (-\frac{1}{2})^k \cdot (b - a) \quad \forall k \in \N\)\\
+			Also gilt:
+			\[a_n = a_0 + (a_1 - a_0) + (a_2 - a_1) + \dots + (a_n - a_{n-1}) = a + \sum_{k=0}^{n-1}(a_{k+1} - a_k) \overset{\text{(IV)}}{=} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right)\]
+			Betrachten wir erstmal \(b_m = \sum_{k=0}^{m} (-\frac{1}{2})^k\) für \(m \geq 0\)\\
+			Aus Satz 3.5.7 folgt
+			\[\sum_{k=0}^{m} (-\frac{1}{2})^k = \frac{1-(-\frac{1}{2})^{m+1}}{1-(-\frac{1}{2})}\]
+			Wir wissen auch schon, dass \(q^n = 0\) für \(0 < |q| < 1\)\\
+			somit gilt:
+			\[\limes{m} b_m = \limes{m} \sum_{k=0}^{m} (-\frac{1}{2})^k = \limes{m} \frac{1-(-\frac{1}{2})^{m+1}}{1-(-\frac{1}{2})} = \frac{1}{1 + \frac{1}{2}} = \frac{2}{3}\]
+			Nach Satz 7.1.8 a), b) folgt nun
+			\[\limes{n} a_n = \limes{n} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right) = a + \limes{n} \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right)\]
+			\[= a + \frac{2}{3}(b - a) = \frac{1}{3}(2b + a)\]
+		\end{bew}
+	\end{bsp}
+	\begin{defi}
+		Fibanacci-Folge\\
+		Die Folge \((f_n)_n\) gegeben durch \(f_0 := 0, f_1 := 1, f_{n+2} := (f_{n-1} + f_{n-2})\)\\
+		Die Folgenglieder \((f_n) = (0, 1, 1, 2, 3, 5, 8, \dots)\) werden Fibonacci-Zahlen genannt.
+	\end{defi}
+	\begin{beh}[1]
+		\[f_{n+1} \cdot f_n^2 = (-1)^n \quad \forall n \geq 1\]
+		Beweis durch vollständige Induktion
+	\end{beh}
+	\begin{beh}[2]
+		\[\limes{n} \frac{f_{n+1} \cdot f_{n-1}}{f_n^2} = 1\]
+	\end{beh}
+	\begin{bew}
+		Sei \(n \geq 4\), dann gilt
+		\[\left|\frac{f_{n+1} \cdot f_{n-1}}{f_n^2} - 1\right| = \left|\frac{f_{n+1} \cdot f_{n-1} - f_n^2}{f_n^2}\right| = \left|\frac{(-1)^n}{f_n^2}\right| < \frac{1}{n^2} \overset{n \rightarrow \infty}{\rightarrow} 0\]
+	\end{bew}
+	\begin{defi}
+		Eine Folge \((a_n)_n\) heißt Nullfolge, wenn für alle \(\varepsilon > 0\) ein \(k \in \N\) existiert, so dass für alle \(n \geq k\) gilt \(|a_n| < \varepsilon\)
+	\end{defi}
+	\begin{defi}
+		Modifikation von Definition 7.1.2\\
+		Sei \(\varepsilon > 0\) und es existiert \(n_0 \in \N\), so dass \(\forall n \geq n_0\) gilt:
+		\[|a_n^2 + 2a_n| < \varepsilon\]
+		\((a_n)_n\) ist dann keine Nullfolge.
+	\end{defi}
+	\begin{bsp}
+		\(a_n = -(1 + (-1)^n)\), es gilt \(a_n \in \{-2, 0\} \quad \forall n \in \N\)
+		\[|a_n^2 + 2a_n| = |a_n| \cdot |a_n + 2| = 0 < \varepsilon\]
+		obwohl \((a_n)_n\) offensichtlich divergent ist.\\
+		Selbes Setup:
+		\begin{beh}
+			\[|a_n| < \varepsilon^2 + \varepsilon + 3\sqrt{\varepsilon} \Rightarrow (a_n)_n \text{ ist Nullfolge}\]
+		\end{beh}
+		\begin{bew}
+			Sei \(\varepsilon > 0\) beliebig\\
+			\begin{enumerate}
+				\item Fall 1: \(\varepsilon \geq 1\)\\
+					Dann gilt \(\sqrt[k]{\varepsilon} < \varepsilon\) zu \(\delta = \frac{\sqrt{\varepsilon}}{16}\) existiert nach Voraussetzung ein \(n \in \N\) mit \(|a_n| < \delta^2 + \delta + 3\sqrt{\delta}\)\\
+					Dann folgt:
+					\[|a_n| < \frac{\varepsilon}{16^2} + \frac{\sqrt{\varepsilon}}{16} + 3 \cdot \frac{\sqrt[4]{\varepsilon}}{4} \leq \varepsilon\left(\frac{1}{16^2} + \frac{1}{16} + \frac{3}{4}\right) < \varepsilon\]
+				\item Fall 2: \(\varepsilon < 1\)\\
+					dann ist \(\varepsilon^2, \varepsilon^4 < \varepsilon\) zu \(\delta = \frac{\varepsilon^2}{16}\) gibt es nach Voraussetzung ein \(n \in \N\), so dass \(|a_n| < \delta^2 + \delta + 3\sqrt{\delta}\)\\
+					Dies bedeutet:
+					\[|a_n| < \frac{\varepsilon^4}{16^2} + \frac{\varepsilon^2}{16} + 3 \cdot \frac{\varepsilon}{4} < \varepsilon\left(\frac{1}{16^2} + \frac{1}{16} + \frac{3}{4}\right) < \varepsilon\]
+			\end{enumerate}
+		\end{bew}
+		Ein weiteres Beispiel:\\
+		\(|a_n| < n\varepsilon \not \Rightarrow (a_n)_n\) ist Nullfolge (Probieren Sie es mit \(a_n = 42\))
+	\end{bsp}
+	\subsection{Cesaro-Mittel}
+	zu einer Folge \((a_n)_n\) ist die Folge der Cesaro-Mittel gegeben durch:
+	\[c_n := \frac{1}{n} \sum_{k=1}^{n} a_k, n\in \N\]
+	\begin{beh}
+		Konvergiert \((a_n)_n\) gegen \(a \in \R\), so konvergiert auch \((a_n)_n\) gegen \(a\).
+	\end{beh}
+	\begin{bew}
+		Sei \(\varepsilon > 0\)\\
+		Da \(\limes{n} a_n = a\) gibt es zu \(\frac{\varepsilon}{2} > 0\) ein \(N \in \N\) mit \(|a_n -a| < \frac{\varepsilon}{2}\) für alle \(n \geq N\)\\
+		Der Abstand der übrigen Folgenglieder zu \(a\) lässt sich nach oben abschätzen durch
+		\[C = \max\{|a_1-a|,|a_2-a|, \dots, |a_n-a|\}\]
+		Wähle \(n_0 \in \N\) so, dass \(n_0 > N\) und \(\frac{N \cdot C}{n_0} < \frac{\varepsilon}{2}\)\\
+		Dann gilt
+		\[\frac{(N-1) \cdot C}{n} < \frac{N \cdot C}{n_0} \leq \frac{\varepsilon}{2} \quad \forall n \geq n_0\]
+		Sei \(n > n_0\): Es gilt
+		\[a = \frac{n}{n}a = \frac{1}{n} \sum_{k=1}^{n} a\]
+		und
+		\[\left|\frac{1}{n} \sum_{k=1}^{n} a_k-a\right| = \frac{1}{n} \sum_{k=0}^{n} |a_k-a| \leq \frac{1}{n} \sum_{k=1}^{n} |a_k-a| = \frac{1}{n} \sum_{k=1}^{N-1} |a_k-a| + \frac{1}{n} \sum_{k=N}^{n} |a_k-a|\]
+		\[\leq \frac{1}{n} \sum_{k=1}^{N-1} C + \frac{1}{n} \sum_{k=N}^{n} \frac{\varepsilon}{2} = \frac{(N-1)C}{n} + \frac{n}{n} \cdot \frac{\varepsilon}{2} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \]
+	\end{bew}
 	\section{Folgenkonvergenz (23.11.18)}
 	\begin{bsp}
 		Quadratwurzel\\

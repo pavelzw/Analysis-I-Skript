@@ -290,6 +290,43 @@
 		\[2\left|a\varepsilon \cdot \frac{1}{\varepsilon}b\right| = \tilde{a^2} + \tilde{b^2}\]
 		\[2|\tilde{a} \cdot \tilde{b}| \leq a^2\varepsilon^2 + \frac{1}{\varepsilon^2}\] 
 	\end{bew}
+	\section{Mehr zu Wurzeln (09.11.18)}
+	\begin{bsp} [Exkurs]
+		Beh.: \(\sqrt{2} \in \R \setminus \Q\)
+		\begin{bew}
+			Beweis durch Widerspruch:
+			\[\exists r \in \Q \text{ mit } r^2 = 2\]
+			Sei \(r^2 = 2\) mit \(r = \frac{m}{n}\), \(n \in \N\, m \in \Z\)\\
+			Wir definieren:
+			\[A := \{n \in \N: \exists m \in \Z: \frac{m^2}{n^2} = 2\} \neq \emptyset\]
+			\[\overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \N \text{ also existiert } m \in \Z_+ \text{ mit}\]
+			\[m^2 = 2n_*^2 \Rightarrow m > n_* \]
+			Außerdem gilt:
+			\[m = \sqrt{2}n_* \overset{\sqrt{2} > 1}{\Leftrightarrow} 0 < \underset{\in \N}{m - n_*} = \underset{> 0 \text{ und } < 1}{(\sqrt{2} - 1)}n_* < n_*\]
+			\[\sqrt{2} = \frac{m}{n_*} = \frac{m(m - n_*)}{n_*(m - n_*)} = \frac{m^2 - mn_*}{mn_* - n_*^2} = \frac{2n_*^2 - mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*} \text{ \Lightning}\]
+			weil:\\
+			\(2n_* - m \in \Z\)\\
+			\(m - n_* < n_*\) aber\\
+			\(n_* = \min A\)\\
+			Somit kann kein \(m \in \Z\) existieren, dass \(\frac{m^2}{n^2} = 2\) für beliebiges \(n \in \N\). Also ist \(\sqrt{2}\) per Definition der rationalen Zahlen in \(\R \setminus \Q\).
+		\end{bew}
+		\begin{satz}
+			Sei \(k \in \N\), dann gilt entweder \(\sqrt{k} \in \N\) oder \(\sqrt{k} \in \R \setminus \Q\).
+		\end{satz}
+		\begin{bew}
+			Sei \(k \in \N\) und \(\sqrt{k} \not\in \N\)\\
+			Angenommen: \(\sqrt{k} \in \Q\), also \(\sqrt{k} = \frac{m}{n}n m \in \Z, n \in \N\)\\
+			\[A := \{n \in \N: \exists m \in \Z: \frac{m^2}{n^2} = k\} \neq \emptyset\]
+			\[\overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \N\]
+			sei \(\frac{m}{n_*} = \sqrt{k}\), dann gilt \(m - n_* = \underbrace{(\sqrt{k}-1)}_{<1}n_*\)\\
+			Aber wähle \(q \in \N: q \leq \sqrt{k} < q + 1\) existiert nach Lemma 5.2.1\\
+			Da \(\sqrt{k} \not \in \N\) gilt \(q < \sqrt{k} < q + 1\)\\
+			Also gilt: \(0 < m - qn_* = \underbrace{(\sqrt{k}-q)}_{<1}n_*\)\\
+			Somit
+			\[\sqrt{k} = \frac{m}{n_*} = \frac{m(m - qn_*)}{n_*(m - qn_*)} = \frac{kn_*^2 - qmn_*}{n_*(m-qn_*)} = \frac{kn_* - mq}{m - qn_*} \text{ \Lightning}\]
+			weil \(n_* = \min A\) und \(m - qn_* < n_*\)
+		\end{bew}
+	\end{bsp}
 	\section{Folgenkonvergenz (23.11.18)}
 	\begin{bsp}
 		Quadratwurzel\\

@@ -17,11 +17,15 @@
 \usepackage{versions}
 \usepackage{etoolbox}
 \usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{zref-xr}
+\usepackage{thmtools}
 
 %Metadaten
 \hypersetup{
 	pdftitle = {Analysis I Skript (WS 18/19)},
-	pdfauthor = {Pavel Zwerschke, Daniel Augustin}}
+	pdfauthor = {Pavel Zwerschke, Daniel Augustin}
+}
 
 \theoremstyle{definition}
 \newtheorem{satz}{Satz}[subsection]
@@ -38,25 +42,43 @@
 \newtheorem{bsp}[bem]{Beispiel}
 \newtheorem{bspe}[bem]{Beispiele}
 
-\newenvironment{bew}{\begin{proof}[Beweis]}{\end{proof}}
+\declaretheoremstyle[%
+  spaceabove=-6pt,%
+  spacebelow=6pt,%
+  headfont=\normalfont\itshape,%
+  postheadspace=1em,%
+  qed=\qedsymbol%
+]{bewstyle} 
+\declaretheorem[name={Beweis},style=bewstyle,unnumbered,
+]{bew}
+
 \newenvironment{prosa}{}{}
+\newenvironment{alignenum}[2]{\provideFormat{#1}\begin{enumerate}[#2]}{\end{enumerate}}
+\newenvironment{lrcases}{\left\{\!\begin{aligned}}{\end{aligned}\right\}}
+\newenvironment{aitem}{\item \(\begin{aligned}[t]}{\end{aligned}\)}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
 \newcommand{\PO}{\mathcal{P}}
+\newcommand{\minus}{\scalebox{0.75}[1.0]{\(-\)}}
+\newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
 \newcommand{\limessup}[1]{\limsup\limits_{#1\rightarrow\infty}}
 \newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
+\newcommand{\existse}{\exists!}
+\newcommand{\inverse}[1]{{#1}^{\minus 1}}
 \newcommand{\onlyinsubfile}[1]{#1}
 \newcommand{\notinsubfile}[1]{}
 \newcommand{\subgraphic}[2]{
 	\onlyinsubfile{\includegraphics[width=#1\textwidth]{images/#2}}
-		\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
+	\notinsubfile{\includegraphics[width=#1\textwidth]{chapters/images/#2}}
 }
-\newcommand{\induktion}[3]{
+\newcommand{\induktion}[3]{%
 	\begin{enumerate}
 		\item[IA:]#1
 		\item[IV:]#2
@@ -73,8 +95,15 @@
 }
 \newcommand\longeq{\mathrel{\vcentcolon\Longleftrightarrow}}
 \newcommand{\set}[1]{\{#1\}}
+\newcommand{\provideFormat}[1]{\def\Format##1{\makebox[\widthof{\ensuremath{#1}}][r]{\ensuremath{##1}}}}
+\newcommand{\case}[2]{\begin{tabular}{rl}#1: #2\end{tabular}}
+
 \DeclareMathOperator{\ko}{,}
 \DeclareMathOperator{\IV}{(IV)}
+\DeclareMathOperator{\injektiv}{injektiv}
+\DeclareMathOperator{\surjektiv}{surjektiv}
+\DeclareMathOperator{\bijektiv}{bijektiv}
+\DeclareMathOperator{\id}{id}
 
 \newtoggle{short}
 \togglefalse{short}

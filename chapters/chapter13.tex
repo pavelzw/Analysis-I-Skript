@@ -1,0 +1,134 @@
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+\setcounter{section}{12}
+
+\section{Konvergente Reihen, Teil 2}
+Situation: \( {(a_n)}_n \) Folge in \( \R^d \) oder \( \C \).\\
+Reihe \( \sum_{n=1}^\infty a_n \): geg.\ Folge Partialsummen:
+\[ S_n := \sum_{j=1}^n a_j \]
+Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \limes{n} S_n = \limes{n} \sum_{j=1}^n a_j. \)
+\begin{satz}[Cauchykriterium]
+    Eine Reihe \( \sum_{n=1}^\infty a_n \) in \( \R^d \) oder \( \C \) konvergiert
+    \[ \Leftrightarrow \, \forall \, \varepsilon > 0 \,\exists \, K\in\N: \left| \sum_{j=n+1}^m a_j \right| < \varepsilon \,\forall \, m>n\geq K. \]
+    \[ \Leftrightarrow \, \forall \, \varepsilon > 0 \,\exists \, K\in\N: \left| \sum_{j=n+1}^{n+p} a_j \right| < \varepsilon \,\forall \, n\geq K, p\in\N. \]
+\end{satz}
+\begin{bew}
+    \[ \sum_{n=1}^\infty a_n \text{ konv. } \Leftrightarrow S_n := \sum_{j=1}^n a_j, {(S_n)}_n \text{ konvergiert.} \]
+    \[ \overset{\text{Cauchy Folgen}}{\Leftrightarrow} {(S_n)}_n \text{ ist Cauchyfolge.} \]
+    \[ \Leftrightarrow \,\forall \, \varepsilon > 0 \,\exists \, K\in\N: |\underbrace{S_m - S_n}_{=\sum_{j=n+1}^m a_j}| < \varepsilon \,\forall \, m>n\geq K \]
+    \[ \Leftrightarrow \,\forall \, \varepsilon > 0 \,\exists \, K\in\N: \left| \sum_{j=n+1}^m a_j \right| < \varepsilon \,\forall \, m>n\geq K. \]
+\end{bew}
+\begin{bem}
+    \[ \sum_n a_n \text{ konvergiert } \Rightarrow {(a_n)}_n \text{ ist Nullfolge. } a_n \rightarrow 0 \quad n\rightarrow \infty. \]
+\end{bem}
+\begin{defi}
+    Eine Reihe \( \sum_{n=1}^\infty a_n, a_n\in\R^d \) heißt absolut konvergent, falls
+    \[ \sum_{n=1}^\infty |a_n| \text{ konvergiert, d.\ h.\ } \sum_{n=1}^n\infty |a_n| < \infty. \]
+\end{defi}
+\begin{satz}[absolute Konvergenz \(\Rightarrow \) Konvergenz]
+    Falls \( \sum_n a_n, a_n\in\R^d,\C \), absolut konvergent ist, dann konvergiert sie und
+    \[ \left| \sum_{n=1}^\infty a_n \right| \leq \sum_{n=1}^\infty |a_j|. \]
+\end{satz}
+\begin{bew}
+    \( \sum_n a_n \) absolut konvergent \( \Leftrightarrow \sum_n |a_n| \) konvergiert.
+    \[ \overset{\text{Satz 1}}{\Leftrightarrow} \,\forall \, \varepsilon > 0 \,\exists \, K\in\N: \sum_{j=n+1}^m |a_j| < \varepsilon \,\forall \, m>n\geq K. \]
+    \[ \Rightarrow \left| \sum_{j=n+1}^m a_j \right| \leq \sum_{j=n+1}^m |a_j| < \varepsilon \,\forall \, m>n\geq K \]
+    \[ \Rightarrow \sum_n a_n \text{ konvergiert.} \]
+    Sei \( L \in\N \). 
+    \[ \left| \sum_{n=1}^L a_n \right| \leq \sum_{n=1}^L |a_n| \leq \sum_{n=1}^\infty |a_n| < \infty \]
+    %NOCH WEITERSCHREIBEN
+\end{bew}
+\begin{defi}[Umordnung]
+    Seien \( \sum_{n=1}^\infty a_n, \sum_{b=1}^\infty b_n \) Reihen in \( \R^d \). \( \sum_{n=1}^\infty b_n \) ist eine Umordnung von \( \sum_{n=1}^\infty a_n \), falls eine bijektive Abbildung \( \sigma:\N\rightarrow\N \) existiert mit
+    \[ b_n = a_{\sigma(n)} \,\forall \, n\in\N. \]
+\end{defi}
+\begin{bem}
+    Analog für \( \sum_{n=0}^\infty a_n, \sum_{n=0}^\infty b_n. \sigma: \N_0 \rightarrow \N_0 \) bijektiv.
+\end{bem}
+\begin{satz}[Umordnungssatz]
+    Sei \( \sum_n a_n \) eine absolut konvergente Reihe. Dann konvergiert jede Umordnung gegen denselben Wert.
+\end{satz}
+\begin{bew}
+    Sei \( \sigma : \N\rightarrow\N \) bijektiv. \( b_n := a_{\sigma(n)} \).
+    \[ S_n = \sum_{j=1}^n a_j, \quad t_n := \sum_{j=1}^n b_j = \sum_{j=1}^n a_{\sigma(j)}. \]
+    Wissen: \( \sum_{j=1}^\infty |a_j| < \infty, S = \limes{n} S_n \) existiert.
+    Müssen zeigen: \( \limes{n} t_n = S \) (es reicht \( S_n - t_n \rightarrow 0, n\rightarrow\infty \).)
+    Cauchykriterium: 
+    \[ \forall \, \varepsilon > 0 \, \exists K\in\N: \sum_{j=n+1}^{n+p} |a_j| < \varepsilon \,\forall \, n\geq K, p\in\N. (*) \]
+    \[ S_n - t_n = \sum_{j=1}^n a_j - \sum_{j=1}^n a_{\sigma(j)} \]
+    \( \sigma : \N\rightarrow\N \) ist bijektiv. Wähle \( N\in\N, N\geq K \) so, dass
+    \[ \{ a_1, a_2, \ldots, a_K \} \subset \{ a_{\sigma(1)}, a_{\sigma(2)}, \ldots, a_{\sigma(N)} \} \]
+    \( \Rightarrow \) ist \( n\geq K \):
+    \[ S_n - t_n = \sum_{j=1}^n a_j - \sum_{j=1}^n a_{\sigma(j)} = \sum_{1\leq j \leq n} a_{\sigma(j)} \text{ (mit } \sigma(j) > K\text{)} \]
+    \[ |S_n - t_n| = \left| \sum_{1\leq j \leq n} a_{\sigma(j)} \right| \leq \sum_{1\leq j \leq n} | a_{\sigma(j)} | \leq \sum_{l>K} |a_l| \overset{(*)}{\leq}\varepsilon \]
+    und somit auch \( S - t_n = (S-S_n) + (S_n - t_n) \rightarrow 0 + 0 = 0 \Rightarrow t_n \rightarrow S \).
+\end{bew}
+\begin{bem}
+    Eine Reihe \( \sum_n a_n \) heißt unbedingt konvergent, falls wenn jede Umordnung \( \sum_n b_n \) ebenfalls fonvergiert und denselben Grenzwert besitzt. Andernfalls heißt \( \sum_n a_n \) bedingt konvergent.
+\end{bem}
+\begin{satz}[Dirichlet 1837]%UNNUMMERIERT
+    \[ \sum_n a_n, a_n \in\R^d \text{ ist unbedingt konvergent } \Leftrightarrow \sum_n a_n \text{ ist absolut konvergent.} \]
+\end{satz}
+\begin{bew}
+    Hildebrandt: Analysis 1.
+\end{bew}
+\begin{satz}[Riemann]%UNNUMMERTIERT
+    Sei \( \sum_n a_n, a_n \in\R \) eine bedingt konvergente Reihe. Dann existiert zu jeder Zahl \( c\in\R \) eine Umordnung \( \sum_n b_n \) von \( \sum_n a_n \) mit \( \sum_{n=1}^\infty b_n = c \)
+\end{satz}
+\begin{bspe}\leavevmode \\
+    Mangold/Knopp: Einführung in die höhere Mathematik Band 2.\\
+    Courent: \gqq{Vorlesungen} S. 328/329
+    \[ \sum_{n=1}^\infty {(-1)}^{n+1} \frac{1}{n}. \]
+\end{bspe}
+\begin{bem}
+    \( a\in\R, a_+ := \max(a,0) \geq 0, a_- := -\min(a,0)\geq 0 \).\\
+    \( a = a_+ - a_- \quad |a| = a_+ + a_- \).
+    \[ \sum_n |a_n| = \sum_n \left( {(a_n)}_+ + {(a_n)}_- \right) = \sum_n {(a_n)}_+ + \sum_n {(a_n)}_- \]
+    \[ \Rightarrow \sum_n a_n \text{ bedingt konvergent} \Rightarrow \sum_n {(a_n)}_+ = +\infty = \sum_n {(a_n)}_- \]
+\end{bem}
+\begin{satz}[Test für absolute Konvergenz]
+    Gilt eine der folgenden Bedingungen, so ist \( \sum_n a_n \) absolut konvergent.
+    \begin{enumerate}
+        \item Majorantenkriterium: \( |a_n| \leq c_n \) für fast alle \(n\) und \( \sum_n c_n < \infty \)
+        \item Quotientenkriterium: \( exists\, \theta \in [0,1) \) mit \( \frac{|a_{n+1}|}{|a_n|} \leq \theta \) für fast alle \(n\), \(a_n \neq 0\) für fast alle \(n\)
+        \item Wurzelkriterium: \( \exists \, \theta \in [0,1) \sqrt[n]{|a_n|} \leq \theta \) für fast alle \(n\)
+    \end{enumerate}
+    Umgekehrt ist \( \sum_n a_n \) divergent, falls \( \frac{|a_{n+1}|}{|a_n|} \geq 1 \) für fast alle \(n\) oder \( \sqrt[n]{|a_n|} \geq 1 \) für fast alle \(n\)
+\end{satz}
+\begin{bew}\leavevmode
+    \begin{enumerate}
+        \item \( 0 \leq c_n, |a_n| \leq c_n \) für fast alle \( n, n\geq K\)
+        \[ \Rightarrow \sum_{n=K}^{\infty} |a_n| \leq \sum_{n=K}^\infty c_n < \infty \Rightarrow \sum_{n=0}^\infty a_n \text{ absolut konvergent.} \]
+        \item \( \exists \, K\in\N: \frac{|a_{n+1}|}{|a_n|} \leq \theta < 1 \, n\geq K. \)
+        \[ |a_n| \leq \theta |a_{n-1}| \overset{\text{induktiv}}{\leq} \cdots \leq \theta^{n-K}|a_K| =: c_n. \]
+        \[ \text{geom. Reihe: } \sum_{n=K}^\infty c_n = \sum_{n=K}^\infty \theta^{n-K}|a_K| = |a_K| \sum_{n=0}^\infty \theta^n = \frac{|a_K|}{1-\theta} < \infty. \]
+        \( \Rightarrow \) 1.\ ist anwendbar. 
+        \item \[ \sqrt[n]{|a_n|} \leq G \;\forall \; n\geq K \Rightarrow |a_n| \leq \theta^n \;\forall \; n\geq K \Rightarrow c_n = \theta^n \Rightarrow \sum_n c_n < \infty \]
+        \( 0 \leq \theta < 1 \Rightarrow \) 1.\ anwendbar.\\
+        Umgekehrt ist \( \frac{|a_{n+1}|}{|a_n|} \geq 1 \;\forall \; n\geq K \) \\
+        \( \Rightarrow |a_n| \geq |a_{n-1}| \geq \cdots \geq |a_K| \) \\
+        \( a_n \) ist keine Nullfolge \( \Rightarrow \sum_n a_n \) divergent.\\
+        Ähnlich bei \( \sqrt[n]{|a_n|} \geq 1 \Rightarrow |a_n| \geq 1^n = 1 \)
+    \end{enumerate}
+\end{bew}
+\begin{satz}[Cauchyprodukt]
+    \( a_n, b_n \in\C \). Die Reihen \( \sum_{n=0}^\infty a_n, \sum_{n=0}^\infty b_n \) seien absolut konvergent.\\
+    Dann ist auch \( \sum_{n=0}^\infty c_n \) mit 
+    \[ c_n := \sum_{k+l=n} a_k b_l = \sum_{k=0}^n a_k b_{n-k} \]
+    absolut konvergent und \( \sum_n c_n = ( \sum_{k=0} a_k )( \sum_{l=0} b_l ) \) \\
+    Bild:\\
+    \begin{center}
+        \begin{tikzpicture}
+            \foreach \x in {0,...,5}
+            \foreach \y in {0,...,5}
+            \draw[fill=black] (\x,\y) circle (0.03);
+            \foreach \x in {1,...,5}
+            \foreach \y in {1,...,\x}
+            \draw (5.1 - \x, \y - 0.1) -- (5.9 - \x, \y - 0.9);
+            \draw (-0.4,0) node{\( l \uparrow \)};
+            \draw (0.3,-0.4) node{\(k \rightarrow \)};
+            \draw (5,-0.4) node{\(n\)};
+        \end{tikzpicture}
+    \end{center}
+\end{satz}
+\end{document}

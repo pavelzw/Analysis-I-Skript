@@ -119,12 +119,16 @@ Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \
     Bild:\\
     \begin{center}
         \begin{tikzpicture}
-            \foreach \x in {0,...,5}
-            \foreach \y in {0,...,5}
-            \draw[fill=black] (\x,\y) circle (0.03);
-            \foreach \x in {1,...,5}
-            \foreach \y in {1,...,\x}
-            \draw (5.1 - \x, \y - 0.1) -- (5.9 - \x, \y - 0.9);
+            \foreach \x in {0,...,5} {
+                \foreach \y in {0,...,5} {
+                    \draw[fill=black] (\x,\y) circle (0.03);
+                }
+            }
+            \foreach \x in {1,...,5} {
+                \foreach \y in {1,...,\x} {
+                    \draw (5.1 - \x, \y - 0.1) -- (5.9 - \x, \y - 0.9);
+                }
+            }
             \draw (-0.4,0) node{\( l \uparrow \)};
             \draw (0.3,-0.4) node{\(k \rightarrow \)};
             \draw (5,-0.4) node{\(n\)};

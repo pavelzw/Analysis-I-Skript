@@ -3,541 +3,686 @@
 \setcounter{section}{2}
 
 \section{Die reellen Zahlen}
-\subsection{Körperaxiome (engl.\ field)}
-\(\mathbb{K:}\) Menge mit zwei Operationen \glqq{}\(+\)\grqq{} und \glqq{}\(\cdot \)\grqq{}.\\
-\(\forall a,b \in \mathbb{K}\) ist \(a+b\in \mathbb{K} \wedge a\cdot b \in \mathbb{K}\) erklärt sollen kompatibel sein.
+
+\subsection{Körperaxiome}
+\begin{prosa}
+	In diesem Kapitel sei immer \(\K\) eine Menge mit zwei Operationen \gqq{\(+\)}\, und 
+	\gqq{\(\cdot\)},\, für die gilt:
+	\[a + b \in \K \ko \; a \cdot b \in \K \quad \forall a \ko b \in \K\]
+\end{prosa}
+
 \begin{defi}[Körperaxiome]
-	In einem Körper gelten diese Axiome:
-	\begin{enumerate}
-		\item Kommutativität: \(\forall a,b\in \mathbb{K}: a+b=b+a, a\cdot b=b\cdot a\)
-		\item Assoziativität: \(\forall a,b,c\in \mathbb{K}: a+(b+c) = (a+b)+c, a\cdot (b\cdot c) = (a\cdot b)\cdot c\)
-		\item Existenz des neutralen Elements: \\
-		      \(\exists 0 \in \mathbb{K}: a + 0 = 0 + a = a \forall a\in \mathbb{K}\\
-			      \exists 1 \in \mathbb{K}: a \cdot 1 = 1 \cdot a = a \forall a\in\mathbb{K}\)
-		\item Existenz eines inversen Elements:\\
-		      \(\forall a\in\mathbb{K}\exists -a\in\mathbb{K}:a+ (-a)=0\\
-			      \forall a\in\mathbb{K} \setminus \{0\} \exists \frac{1}{a}\in\mathbb{K}:a\cdot\frac{1}{a}=1\) \\
-		      Es gilt: \(0\neq1\).
-		\item Distributivgesetz: \(\forall a,b,c\in\mathbb{K}:a\cdot(b+c)=a\cdot b + a \cdot c\)
+	\((\K \ko + \ko \cdot)\) heißt Körper, wenn folgende Axiome erfüllt sind:
+	\begin{enumerate}[label= (K\arabic*)]
+		\item\label{ax:K1}Kommutativgesetze:\\
+			  \(\forall a \ko b \in \K \; \colon a+b=b+a \ko \; a \cdot b = b \cdot a\).
+		\item\label{ax:K2}Assoziativgesetze:\\
+			  \(\forall a \ko b \ko c \in \K \; \colon a+(b+c) = (a+b)+c \ko \; a \cdot (b \cdot c) = (a \cdot b)\cdot c\).
+		\item\label{ax:K3}Distributivgesetz:\\
+			  \(\forall a \ko b \ko c \in \K \; \colon a \cdot (b+c) = a \cdot b + a \cdot c\)
+		\item\label{ax:K4}Existenz von neutralen Elementen:\\
+			  \(\exists 0 \in \K \; \colon a + 0 = 0 + a = a \quad \forall a \in \K.\\
+				\exists 1 \in \K \; \colon a \cdot 1 = 1 \cdot a = a \quad \forall a \in \K\).\\
+			  Wobei \(0 \neq 1\) gilt. 
+		\item\label{ax:K5}Existenz der inversen Elemente:\\
+		      \(\forall a \in \K \enspace \exists \; \minus a \in \K \; \colon a + (\minus a) = 0.\\
+			    \forall a \in \K \setminus \set{0} \enspace \exists \; a^{\minus 1} \in \K \; \colon a \cdot a^{\minus 1} = 1\).\\
 	\end{enumerate}
 \end{defi}
+
 %23.10.2018
-\begin{bsp}
-	\(\mathbb{Q} = \frac{m}{n}, n \in \mathbb{N}, m\in\mathbb{Z}\) ist ein Körper.\\
-	\(\mathbb{F}_2\):
-	\begin{tabular}{c|cc}
-		\(+\) & \(0\) & \(1\) \\
-		\hline
-		\(0\) & \(0\) & \(1\) \\
-		\(1\) & \(1\) & \(0\)
-	\end{tabular}
-	\begin{tabular}{c|cc}
-		\(\cdot \) & \(0\) & \(1\) \\
-		\hline
-		\(0\)     & \(0\) & \(0\) \\
-		\(1\)     & \(0\) & \(1\)
-	\end{tabular}
-	ist ein Körper.
-\end{bsp}
-\begin{bem}
-	\begin{enumerate}\leavevmode
-		\item Somit ist ein Körper \(\mathbb{K}\) mit \glqq{}\(+\)\grqq{} eine kommutative Gruppe und \(\mathbb{K} \setminus \{0\} \) mit \glqq{}\( \cdot \)\grqq{} auch eine kommutative Gruppe.
-		\item Die neutralen Elemente sind eindeutig bestimmt.\\
-		      z.B.: angenommen, \(0_1\) und \(0_2\) sind neutrale Elemente mit \glqq{}\(+\)\grqq{}. \\
-		      \(\Rightarrow 0_1 \overset{(3)}{=} 0_1 + 0_2 \overset{(1)}{=} 0_2 + 0_1 \overset{(2)}{=} 0_2\) \\
-		      analog für Multiplikation
+\begin{bspe}\leavevmode
+	\begin{enumerate}[(1)]
+		\item \(\Q \coloneqq \set{\frac{m}{n} \; \vert \; m \in \Z \ko \; n \in \N}\) ist ein Körper.
+		\item \(\F_{2} \coloneqq \set{0 \ko 1}\) wird mit folgenden Rechenregeln zu einem Körper:
+			  \begin{center}
+				\begin{tabular}{c|cc}
+					\(+\) & \(0\) & \(1\)\\
+					\midrule
+					\(0\) & \(0\) & \(1\)\\
+					\(1\) & \(1\) & \(0\)
+				\end{tabular}
+				\qquad
+				\begin{tabular}{c|cc}
+					\(\cdot\) & \(0\) & \(1\)\\
+					\midrule
+					\(0\)     & \(0\) & \(0\)\\
+					\(1\)     & \(0\) & \(0\)
+				\end{tabular}
+			   \end{center}
+	\end{enumerate}
+\end{bspe}
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{bem}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \((\K \ko +)\) und \((\K \ko \cdot)\) sind kommutative Gruppen.
+		\item Die neutralen Elemente \(0\) und \(1\) sind eindeutig bestimmt.
 	\end{enumerate}
 \end{bem}
+\begin{bew}
+	\begin{enumerate}[(b)]
+		\item Seien \(0_{1}\) und \(0_{2}\) neutrale Elemente von \(\K\).\\
+			  \(\implies 0_{1} \overset{ \hyperref[ax:K4]{(K4)} }{=} 0_{1} + 0_{2} \overset{ \hyperref[ax:K1]{(K1)} }{=} 0_{2} + 0_{1} \overset{ \hyperref[ax:K4]{(K4)} }{=} 0_{2}\).\\
+			  (Der Beweis geht analog für \(1_{1} \ko 1_{2}\) und \gqq{\(\cdot\)})\qedhere
+	\end{enumerate}
+\end{bew}
+
 \begin{defi}
-	Zu \(a\in \mathbb{K}\) ist \(-a\) das Inverse bzgl.\ der Addition\\
-	schreibe \(a-b := a + (-b)\).\\
-	Zu \(a\in\mathbb{K}\setminus \{0\} \) sei \( a^{-1} \) das Inverse bzgl.\ der Multiplikation.\\
-	Ist \(b\neq 0\), so schreiben wir \(\frac{a}{b} := a\cdot b^{-1} =b^{-1}\cdot a\).\\
-	schreibe \((ab) := a\cdot b\).
+	Seien \(a \ko b \in \K\).
+	\begin{enumerate}[(a)]
+		\item \(a - b \coloneqq a + (\minus b)\).
+		\item \(\frac{a}{b} \coloneqq a \cdot b^{\minus 1}\) für \(b \neq 0\).
+		\item \(ab \coloneqq a \cdot b\).
+	\end{enumerate}
 \end{defi}
-\begin{lem}[Rechnen in einem Körper]\leavevmode
-	\begin{enumerate}
-		\item Umformen von Gleichungen\\
-		      \(\forall a,b,c\in\mathbb{K}\):\\
-		      aus \(a+b=c\) folgt \(a=c-b\) \\
-		      aus \(a\cdot b=c\), \(b\neq 0\) folgt \(a=\frac{c}{b}\)
-		\item Allgemeine Rechenregeln\\
-			\(\begin{aligned}
-				-(-a)             & = a                                                               \\
-				{(a^{-1})}^{-1}   & =a\text{, falls } a \neq 0                                        \\
-				-(a+b)            & = (-a) + (-b)                                                     \\
-				{(a\cdot b)}^{-1} & =b^{-1}\cdot a^{-1} = a^{-1}\cdot b^{-1}                          \\
-				a\cdot 0          & =0                                                                \\
-				a(-b)             & =-(ab), (-a)(-b)=ab                                               \\
-				a(b-c)            & = ab - ac                                                         \\
-				ab                & = 0 \Leftrightarrow a = 0 \vee b = 0 \text{ (Nullteilerfreiheit)} \\
-			\end{aligned}\)
+
+\begin{lem}[Rechnen in einem Körper]\label{satz:krechenregeln} Seien \(a \ko b \ko c \in \K\).
+	\begin{enumerate}[(a)]
+		\item Umformen von Gleichungen:
+			\begin{enumerate}[(i)]
+				\item \(a + b = c \implies a = b - c\).
+				\item \(a \cdot b = c\) und \(b \neq 0 \implies a = \frac{c}{b}\).
+			\end{enumerate}
+		\item Allgemeine Rechenregeln:
+			\begin{alignenum}{a(b-c)}{(i)}
+				\begin{aitem}
+					\Format{\minus (\minus a)} & = a\\
+				\end{aitem}\begin{aitem}
+					\Format{(a^{\minus 1})^{\minus 1}} & = a \text{, falls } a \neq 0\\
+				\end{aitem}\begin{aitem}
+					\Format{\minus (a+b)} & = (\minus a) + (\minus b)\\
+				\end{aitem}\begin{aitem}
+					\Format{(a\cdot b)^{\minus 1}} & = b^{\minus 1} \cdot a^{\minus 1}=a^{\minus 1} \cdot b^{\minus 1}\\
+				\end{aitem}\begin{aitem}
+					\Format{a \cdot 0} & = 0\\
+				\end{aitem}\begin{aitem}
+					\Format{a(\minus b)} & = \minus (ab) \ko (\minus a)(\minus b) = ab\\
+				\end{aitem}\begin{aitem}
+					\Format{a(b - c)} & = ab - ac\\
+				\end{aitem}\begin{aitem}
+					\Format{ab} & = 0 \iff a = 0 \vee b = 0 \text{ (Nullteilerfreiheit)}\\
+				\end{aitem}
+			\end{alignenum}
 	\end{enumerate}
 \end{lem}
-\begin{bew}
-	\(0 = a + (-a) = (-a) + a \\
-	\Rightarrow -(-a) = a \\
-	(a+b) + ((-a)+(-b)) = (a+(-a))+(b+(-b))=0+0=0 \\
-	\Rightarrow -(a+b)=(-a)+(-b)\) \\
-	benutzen wir auch Eindeutigkeit des inversen Elements\\
-	analog zeigt man \({(a^{-1})}^{-1} = a\) und \({(ab)}^{-1} = b^{-1}a^{-1}=a^{-1}b^{-1}\) \\
-	z.B.: \((ab)\cdot (b^{-1}a^{-1})=a(b\cdot b^{-1}) a^{-1} = (a\cdot 1)a^{-1} = a\cdot b^{-1}=1\) \\
-	Ferner \(a\cdot 0 = a\cdot(0+0)=a\cdot 0 + a\cdot 0 = a\cdot 0 + 0 \\
-		\Rightarrow a\cdot 0 = a\cdot 0 - a\cdot 0 = 0 \\
-		\Rightarrow a\cdot b + a\cdot (-b) = a\cdot (b+(-b)) = a\cdot 0=0 \\
-		\overset{\text{Eind.\ d.\ Inv.}}{\Rightarrow} -ab=a(-b)\) \\
-	Somit auch \((-a)(-b) = -((-a)b) = -(b(-a)) = (-ba) = -(-ab) = ab\) \\
-	und \(a(b-c) = a(b+(-c))=ab+a(-c)=ab+(-ac)=ab-ac\). \\
-	ist \(ab = 0\) und \(a\neq 0 \Rightarrow 0=(ab)\frac{1}{a}=\frac{1}{a}\cdot (ab)=(\frac{1}{a}\cdot a)b = 1b = b\) \\
-	also ist \(b=0\).
+\begin{bew}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \begin{enumerate}
+				\item[(i)] \(0 = a + (\minus a) = (\minus a) + a \implies \minus(\minus a) = a\).
+				\item[(iii)] \((a+b) + ((\minus a)+(\minus b)) = (a + (\minus a)) + (b + (\minus b)) = 0 + 0 = 0\\
+							 \implies \minus(a+b) = (\minus a) + (\minus b)\).
+				\item[(ii, iv)] Analog zu (i) und (iii).
+				\item[(v)] \(a\cdot 0 = a \cdot (0+0) =a \cdot 0 + a \cdot 0 = a \cdot 0 + 0\\
+						   \implies a \cdot 0 = a \cdot 0 - a \cdot 0 = 0\).
+				\item[(vi)] \(a \cdot b + a \cdot (\minus b) = a \cdot (b + (\minus b)) = a \cdot 0= 0\\
+							\overset{\text{Eind. d. Inv.}}{\implies} \minus ab = a(\minus b)\).\\
+							Somit auch \((\minus a)(\minus b) = \minus((\minus a)b) = \minus(b(\minus a)) = (\minus ba) = \minus(\minus ab) = ab\).
+				\item[(vii)] \(a(b - c) = a(b + (\minus c)) = ab + a(\minus c)= ab + (\minus ac)= ab - ac\).
+				\item[(viii)] Ist \(ab = 0\) und \(a \neq 0 \implies 0 = (ab)\frac{1}{a} = \frac{1}{a} \cdot (ab) = (\frac{1}{a} \cdot a)b = 1b = b\).
+							  Also ist \(b = 0\).\qedhere
+			  \end{enumerate}
+	\end{enumerate}
 \end{bew}
-\begin{satz}[Bruchrechnen]
-	\(a,b,c,d\in\mathbb{K}, c\neq 0, d\neq 0\). \\
-	Dann gilt
-	\begin{enumerate}
-		\item \(\frac{a}{c}+\frac{b}{d}=\frac{ad+bc}{cd}\)
-		\item \(\frac{a}{c}\cdot\frac{b}{d}=\frac{ab}{cd}\)
+
+\begin{satz}[Bruchrechnen]\label{satz:bruchrechnen}
+	Seien \(a \ko b \ko c \ko d \in \K\) mit \(c\neq 0 \ko d\neq 0\). Dann gilt
+	\begin{enumerate}[(a)]
+		\item \(\frac{a}{c} + \frac{b}{d} = \frac{ad + bc}{cd}\).
+		\item \(\frac{a}{c} \cdot \frac{b}{d} = \frac{ab}{cd}\).
 		\item \(\frac{\nicefrac{a}{c}}{\nicefrac{b}{d}} = \frac{ad}{bc}\), falls auch \(b\neq 0\) ist.
 	\end{enumerate}
 \end{satz}
 \begin{bew}
-	Übung
+	Übung.\phantom{\qedhere}
 \end{bew}
-\begin{bsp}
-	rationale Zahlen sind ein Körper\\
-	schreiben \((\mathbb{K},+,\cdot)\) für einen Körper
-\end{bsp}
+
+
 \subsection{Die Anordnungsaxiome}
-\begin{defi} %EIGENTLICH DEF 3.2.0
-	Sei \(\mathbb{K}\) (genauer \((\mathbb{K},+,\cdot)\)) ein Körper. Dann heißt \(>\) eine Anordnung, falls
-	\begin{enumerate}
-		\item Für jedes \(a\in\mathbb{K}\) gilt genau eine der Aussagen \(a>0,a=0,-a>0\) \\
-		      (wenn \(a\in\mathbb{K}\), mit \(a>0\) positiv)
-		\item Aus \(a>0\) und \(b>0\) folgt\\
-		      \(a+b>0\) und \(a\cdot b>0\)
+\setcounter{satz}{-1} %%Bedingt durch Nummerierung in der Vorlesung
+
+\begin{defi}
+	Sei \((\K \ko + \ko \cdot)\) ein Körper.
+	Dann heißt \(>\) eine Anordnung falls folgende Axiome erfüllt sind:
+	\begin{enumerate}[label=(A\arabic*)]
+		\item\label{ax:A1}Für jedes \(a\in\mathbb{K}\) gilt genau eine der Aussagen \(a > 0 \ko a = 0 \ko \minus a > 0\).\\
+		      Ist \(a \in \K\) mit \(a > 0\), so heißt a positiv.
+		\item\label{ax:A2}Aus \(a>0\) und \(b>0\) folgt \(a + b > 0\) und \(a \cdot b > 0\).
 	\end{enumerate}
-	Wir nennen \((\mathbb{K},+,\cdot,>)\) einen angeordneten Körper.
+	Wir nennen \((\K \ko + \ko \cdot \ko >)\) einen angeordneten Körper.
 \end{defi}
-\begin{bem}
-	Statt \(-a>0\) schreiben wir \(a<0\) \\
-	Statt \(a-b>0\) schreiben wir \(a>b\) \\
-	Bild:
-	\begin{center}
-		\subgraphic{0.4}{img02.pdf}
-	\end{center}
-	Statt \(a-b<0\) schreiben wir \(a<b\).\\
-	\(a \geq b\), falls \(a>b \vee a=b\) \\
-	\(a \leq b\), falls \(a<b \vee a=b\).
-\end{bem}
-\begin{satz}
-	Sei \((\mathbb{K}, +,\cdot, >)\) ein angeordneter Körper. Dann gilt
-	\begin{enumerate}
-		\item für \(a,b\in\mathbb{K}\) gilt genau eine der Relationen \(a>b, a=b, a<b\) (Trichotromie)
-		\item Aus \(a>b, b>c\) folgt \(a>c\) (Transitivität)
-		\item Aus \(a>b\) folgt:
-			\[\begin{cases}
-				a+c>b+c, \forall c\in\mathbb{K} \\
-				ac>bc, \text{ falls } c>0       \\
-				ac<bc, \text{ falls } c<0
-			\end{cases}\]
-		\item Aus \(a>b\) und \(c>d\) folgt:\\
-			\[\begin{cases}
-				a+c>b+d \\
-				ac>bd, \text{ falls } b,d>0 %WARUM FALLS b,d>0???
-			\end{cases}\]
-		\item Für \(a\neq 0\) ist \(a^2 >0\).
-		\item Aus \(a>0\) folgt \(\frac{1}{a}>0\).
-		\item Aus \(a>b>0\) folgt \(0<\frac{1}{a}<\frac{1}{b}\).
-		\item Aus \(a>b, 0<\lambda<1\) folgt \(b<\lambda b + (1-\lambda)a<a\).
+
+\begin{notation}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(a < 0 \longeq \minus a > 0\).
+		\item \(a > b \longeq a - b > 0\). \qquad \qquad \quad \raisebox{-0.8em}{\subgraphic{0.4}{img02.pdf}}
+		\item \(a < b \longeq a - b < 0\).
+		\item \(a \geq b \longeq a > b \; \vee \;  a = b\).
+		\item \(a \leq b \longeq a < b \; \vee \;  a = b\).
+	\end{enumerate}
+\end{notation}
+
+\begin{satz}\label{satz:arechenregeln}
+	Sei \((\K \ko + \ko \cdot \ko >)\) ein angeordneter Körper. Dann gilt
+	\begin{enumerate}[(a)]
+		\item \(a \ko b \in \K\) erfüllen genau eine der Relationen \(a > b \ko \; a = b \ko \; a < b\).\\
+			  (Trichotomie)
+		\item aus \(a > b \ko \; b > c\) folgt \(a > c\). (Transitivität)
+		\item aus \(a > b\) folgt
+		      \(\begin{lrcases}
+					&a + c > b + c \ko & \forall c \in \K\\
+				    &ac > bc \ko 	   & c > 0\\
+				    &ac < bc \ko 	   & c < 0
+			    \end{lrcases}\).
+		\item aus \(a > b\) und \(c>d\) folgt
+		      \(\begin{lrcases}
+				      &a + c > b + d \\
+					  &ac > bd \ko \text{ falls } c \ko d > 0
+			      \end{lrcases}\).
+		\item für \(a\neq 0\) ist \(a^{2} > 0\).
+		\item aus \(a > 0\) folgt \(\frac{1}{a} > 0\).
+		\item aus \(a > b > 0\) folgt \(0 < \frac{1}{a} < \frac{1}{b}\).
+		\item aus \(a > b \ko \; 0 < \lambda < 1\) folgt \(b < \lambda b + (1 - \lambda)a < a\).
+		\item \(a \geq b\) und \(a \leq b \iff a = b\).
 	\end{enumerate}
 \end{satz}
-\begin{bem}
-	Auf \(\mathbb{F}_2\) kann es keine Anordnung geben!
-\end{bem}
-\begin{bew}
-	\begin{enumerate}\leavevmode %WARUM IST 1. und 2. uebereinander?
-		\item Direkt aus (A.1) und Def.\ von \(a>b\).
-		\item \(a-c = \underbrace{(a-b)}_{>0}+\underbrace{(b-c)}_{>0} \overset{\text{(A.2)}}{>} 0\).
-		\item \((a+c)-(b+c)=a-b>0\\
-			ac-bc=\underbrace{(a-b)}_{>0}\cdot c \overset{\text{(A.2)}}{>}0\), falls \(c>0\) \\
-			Ist \(c<0\), so ist \(-c>0\\
-			\Rightarrow bc-ac=\underbrace{(a-b)}_{>0}\cdot\underbrace{(-c)}_{>0} \overset{\text{(A.2)}}{>} 0\) \\
-			\(ac-bd=ac-bc+bc-bd=\underbrace{(a-b)}_{>0} \cdot \underbrace{c}_{>0} + \underbrace{b}_{>0} \cdot \underbrace{(c-d)}_{>0} \overset{\text{(A.2)}}{>}0\).
-		\item \((a+c)-(b+d) = (a-b)+(c-d)>0\) nach (A.2)\\
-			\(ac-bd = ac-bc + bc-bd = (a-b)c + b(c-d)\) \\
-			Ist \(b=0 \Rightarrow a> b = 0 \Rightarrow ac > 0 = bd\) \\
-			Ist \(b<0 \Rightarrow (-b)d > 0 \Rightarrow -bd > 0 \Rightarrow bd < 0 \Rightarrow ac<-bd \Rightarrow \underbrace{ac}_{>0} + \underbrace{(-bd)}_{>0} \overset{\text{(A.2)}}{>} 0\).
-		\item  Fallunterscheidung:\\
-			ist \(a>0\Rightarrow a^2 = a\cdot a > 0\) (A.2)\\
-			ist \(a<0\Rightarrow a^2 = (-a)\cdot(-a) > 0\) (A.2)
-		\item sei \(a>0\): \\
-			\(\overset{\text{5.}}{\Rightarrow} \left(\frac{1}{a}\right) > 0 \Rightarrow \frac{1}{a} = \underbrace{{\left(\frac{1}{a}\right)}^2}_{>0} \cdot \underbrace{a}_{>0} > 0\).
-		\item aus \(a>b>0\\
-			\Rightarrow \frac{1}{b} - \frac{1}{a} = \frac{1}{b}(a-b)\frac{1}{a}>0\).
-		\item \(a>b, 0>\lambda>1 \Rightarrow \lambda > 0 \wedge 1-\lambda > 0\\
-			b=\lambda b + \underbrace{(1-\lambda)b}_{<(1-\lambda)a}\\
-			<\lambda b + (1-\lambda) a < \lambda a + (1-\lambda)a = a\\
-			\Rightarrow b<\lambda b + (1-\lambda)a =a\).\\
-			Insbesondere \(\lambda = \nicefrac{1}{2}\Rightarrow b< \nicefrac{1}{2} b + \nicefrac{1}{2}a = \frac{a+b}{2} < a\).
+\begin{bew}\leavevmode
+	\begin{enumerate}[(a)]
+		\item Folgt direkt aus (A1) und der Definition von \(a > b\).
+		\item \(a - c = \underbrace{(a - b)}_{> 0} + \underbrace{(b - c)}_{> 0} \overset{\text{(A2)}}{>} 0\).
+		\item Im allgemeinen gilt \((a + c) - (b + c) = a - b > 0\).\\
+			  Fall \gqq{\(c > 0\)}: \(ac - bc = \underbrace{(a - b)}_{> 0} \cdot c \overset{\text{(A2)}}{>}0\).\\
+			  Fall \gqq{\(c < 0\)}: Es gilt \(\minus c > 0 \implies bc - ac = \underbrace{(a - b)}_{> 0} \cdot \underbrace{(\minus c)}_{> 0} \overset{\text{(A2)}}{>} 0\).
+		\item \((a+c)-(b+d) = (a-b)+(c-d)>0\) nach (A2).\\
+		      \(ac-bd=ac-bc+bc-bd=\underbrace{(a-b)}_{>0} \cdot \underbrace{\phantom{(}c\phantom{)}}_{>0} + \underbrace{\phantom{(}b\phantom{)}}_{>0} \cdot \underbrace{(c-d)}_{>0} \overset{\text{(A.2)}}{>}0\).
+		\item Fall \gqq{\(a > 0\)}: \(a^2 = a\cdot a > 0\) (A2).\\
+			  Fall \gqq{\(a < 0\)}: \(a^2 = (-a)\cdot(-a) > 0\) (A2).
+		\item \(\frac{1}{a} > 0 \iff \frac{1}{a} = \underbrace{\left(\frac{1}{a}\right)^2}_{>0} \cdot \underbrace{a}_{>0} > 0\).
+		\item \(\frac{1}{b} - \frac{1}{a} = \frac{1}{b}(a - b)\frac{1}{a} > 0\).
+		\item \(a > b\ko \; 0 > \lambda > 1 \implies \lambda > 0 \wedge 1 - \lambda > 0\\
+			  \implies b = \lambda b + \underbrace{(1 - \lambda)b}_{< (1 - \lambda)a} < \lambda b + (1 - \lambda) a < \lambda a + (1 - \lambda)a = a\\
+			  \implies b < \lambda b + (1 - \lambda)a = a\).\\
+			  Insbesondere gilt mit \(\lambda = \frac{1}{2} \Rightarrow b < \frac{1}{2} b + \frac{1}{2}a = \frac{a + b}{2} < a\).
+		\item Leichte Übung.\qedhere
 	\end{enumerate}
 \end{bew}
+
+\begin{bem}
+	Auf \(\F_2\) existiert keine Anordnung.
+\end{bem}
+
 \begin{defi}[Betrag]
-	Sei \((\mathbb{K}, +,\cdot,>)\) ein angeordneter Körper.\\
-	Betrag von \(a\in\mathbb{K}\) ist gegeben durch
-	\[|a| :=
+	Sei \((\K \ko + \ko \cdot \ko >)\) ein angeordneter Körper. Der Betrag von 
+	\(a \in \K\) ist gegeben durch
+	\[\abs{a} \coloneqq
+		\begin{lrcases}
+			&a \ko  &\text{ falls } a \geq 0 \\
+			&\minus a \ko &\text{ falls } a < 0
+		\end{lrcases}.\]
+	Für \(a \ko b \in \K\) definieren
+	\[\max(a \ko b) \coloneqq
 		\begin{cases}
-			a, \text{ falls } a\geq 0 \\
-			-a, \text{ falls }a<0
-		\end{cases}\] \\
-	auch noch \(a,b\in \mathbb{K}\) \\
-	\[\max(a,b) :=
-	\begin{cases}
-		a, \text{ falls } a\geq b \\
-		b, \text{ falls } a < b
-	\end{cases}\]
-	\[\min(a,b) :=
-	\begin{cases}
-		a, \text{ falls } a\leq b \\
-		b, \text{ falls } a > b
-	\end{cases}\] \\
+			a \ko &\text{ falls } a \geq b \\
+			b \ko &\text{ falls } a < b
+		\end{cases}
+		\qquad
+	  \min(a \ko b) \coloneqq
+		\begin{cases}
+			a \ko &\text{ falls } a \leq b \\
+			b \ko &\text{ falls } a > b
+		\end{cases}\]
+	das Maximum und das Minimum von \(a\) und \(b\).
 \end{defi}
-\begin{bem}\leavevmode
-	\begin{enumerate}
-		\item \(a,b\in \mathbb{K}\\
-			|a-b| = \) Abstand von \(a\) zu \(b\).\\
-			\(|a| = |a-0| = \) Abstand von \(a\) zu \(0\).
-		\item \(|a| = \max(a, -a)\).
+
+\begin{bem}\label{bem:abstand}
+	Seien \(a \ko b \in \K\)
+	\begin{enumerate}[(a)]
+		\item \(\abs{a - b}\) ist der Abstand von \(a\) zu \(b\).\\
+		      \(\abs{a} = \abs{a - 0}\) ist der Abstand von \(a\) zu \(0\).
+		\item \(\abs{a} = \max(a \ko \minus a)\).
 	\end{enumerate}
 \end{bem}
-\begin{satz}
-	\((\mathbb{K},+,\cdot,>)\) ang. Körper\\
-	Dann gilt \(\forall a,b\in\mathbb{K}\):
-	\begin{enumerate}
-		\item \(|-a| = |a|\) und \(a\leq|a|\)
-		\item \(|a| \geq 0\) und \(|a| = 0 \Leftrightarrow a = 0\)
-		\item \(|ab| = |a| |b|\)
-		\item \(|a+b| \leq |a| + |b|\) (Dreiecksungleichung)
-		\item \(\left||a|-|b|\right| \leq |a-b|\) (umgekehrte Dreiecksungleichung)
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{satz}\label{satz:bgleichungen}
+	Sei \((\K \ko + \ko \cdot \ko >)\) ein angeordneter Körper und seien \(a \ko b \in \K\). Dann gilt
+	\begin{enumerate}[(a)]
+		\item \(\abs{\minus a} = \abs{a}\) und \(a \leq \abs{a}\).
+		\item \(\abs{a} \geq 0\) und \(\abs{a} = 0 \iff a = 0\).
+		\item \(\abs{ab} = \abs{a}\abs{b}\).
+		\item \(\abs{a + b} \leq \abs{a} + \abs{b}\). (Dreiecksungleichung)
+		\item \(\abs{\abs{a} - \abs{b}} \leq \abs{a - b}\). (umgekehrte Dreiecksungleichung)
 	\end{enumerate}
 \end{satz}
 \begin{bew}\leavevmode
 	\begin{enumerate}
-		\item 
-		\[|-a| =
-		\begin{cases}
-			-a, -a \geq 0 \\
-			-(-a), -a \leq 0
-		\end{cases}
-		= \begin{cases}
-			-a, a \leq 0 \\
-			a, a \geq 0
-		\end{cases}
-		= |a|\]
-		\[|a| - a =
-			\begin{cases}
-				a-a,a\geq 0 \\
-				-a-a, a<0
-			\end{cases}
-			= \begin{cases}
-				0, a \geq 0 \\
-				-(a+a), a<0
-			\end{cases} \geq 0.\] \\
-		alternativ: \(a \leq \max(a, -a) = \left|a\right|\).
-		\item
-		\item Hier ändern sich die linke und rechte Seite \underline{nicht}, wenn man \(a\) bzw. \(b\) durch \(-a\) bzw. \(-b\) ersetzt.\\
-		      Also, o.B.d.A. können wir annehmen, dass \(a,b \geq 0\).\\
-		      \(\Rightarrow |ab| = ab = |a||b|\).
-		\item \(\overset{\text{Satz 1 (5)}}{\Rightarrow} |a+b|^2 = {(a+b)}^2=a^2+2ab+b^2=|a|^2 + 2\underbrace{ab}_{\leq |ab|} + |b|^2\\
-			\overset{\text{(2)}}{\leq} |a|^2 + 2|ab| + |b|^2\\
-			\overset{\text{(3)}}{|a|^2 + 2|a||b| + |b|^2}\).\\
-			Also \({(a+b)}^2 \leq {(|a| + | b|)}^2\\
-			\overset{\text{H.A.}}{\Rightarrow}|a+b| \leq |a|+|b|\).\\
-			H.A. aus \(|c|^2 \leq |d|^2\) folgt \(|c| \leq |d|\) (Kontraposition).
-		\item \(|a| = |a-b+b| = |(a-b) + b| \overset{\text{(4)}}{\leq} |a-b| + |b|\\
-			|a|-|b|\leq |a-b| \, \forall \, a,b\in \mathbb{K} \).\\
-			Jetzt: Symmetrieargument. (Vertausch von \(a\) und \(b\)) \\
-			\(\Rightarrow |b| - |a| \leq |b-a| = |{(-b-a)}| = |a-b|\) \\
-			also \(|b|-|a| \leq |a-b|\\
-			|a|-|b| \leq |a-b|\\
-			\left| |a|-|b|\right| = \max(|a|-|b|, - (|a|-|b|)) =\max(|a|-|b|, |b|-|a|) \leq |a-b|\).
+		\item[(a)] \(\abs{\minus a} =
+			       \begin{lrcases}
+				      &\minus a \ko & \minus a \geq 0 \\
+				      &\minus(\minus a) \ko & \minus a \leq 0
+			       \end{lrcases}
+			       = \begin{lrcases}
+				      &\minus a & \ko a \leq 0 \\
+				      &a \ko  & a \geq 0
+			       \end{lrcases}
+			       = \abs{a}\\
+				   \abs{a} - a = 
+				   \begin{lrcases}
+				      &a - a \ko & a \geq 0 \\
+				      &\minus a - a \ko & a < 0
+			       \end{lrcases} =
+			       \begin{lrcases}
+				      &0 \ko & a \geq 0 \\
+				      &\minus(a + a) \ko & a < 0
+			       \end{lrcases} \geq 0\).\\
+		      	   Alternativ: \(a \leq \max(a \ko \minus a) = \abs{a}\). %Bis hierher formatiert
+		\item[(c)] o.B.d.A \(a \ko b \geq 0\), da \(\minus a \cdot \minus b = a \cdot b\).
+		      	   \(\implies \abs{ab} = ab = \abs{a}\abs{b}\).
+		\item[(d)] Nach \autoref{satz:arechenregeln} gilt \( \abs{a + b}^{2} = (a+b)^{2} = a^{2} + 2ab + b^{2}\\
+				   = \abs{a}^{2} + 2ab + \abs{b}^{2} \leq \abs{a}^{2} 2\abs{ab} + \abs{b}^{2}\).\\
+				   \(\implies \abs{a + b}^{2} \leq (\abs{a} + \abs{b})^{2}\)
+			       \(\overset{\text{Übung}}{\Rightarrow} \abs{a + b} \leq \abs{a} + \abs{b}\).\\
+		     	   Übung: Aus \(\abs{c}^{2} \leq \abs{d}^{2}\) folgt \(\abs{c} \leq \abs{d}\) (Kontraposition).
+		\item[(e)] \(\abs{a} = \abs{a - b + b} = \abs{(a - b) + b} \overset{\text{(d)}}{\leq} \abs{a - b} + \abs{b}\\
+			       \implies \abs{a} - \abs{b} \leq \abs{a - b}\).\\
+				   Durch vertauschen von \(a\) und \(b\) folgt\\
+				   \(\abs{b} - \abs{a} \leq \abs{b - a} = \abs{\minus b - a} = \abs{a - b}\).\\
+				   Also \(\abs{b} - \abs{a} \leq \abs{a - b}\) und \(\abs{a} - \abs{b} \leq \abs{a - b}.\\
+				   \begin{aligned}
+					\implies &\abs{\abs{a} - \abs{b}} = \max(\abs{a} - \abs{b} \ko  \minus(\abs{a} - \abs{b}))\\
+					         &= \max(\abs{a} - \abs{b} \ko \abs{b} - \abs{a}) \leq \abs{a - b}.
+				   \end{aligned}\)
 	\end{enumerate}
 \end{bew}
+
 \begin{bsp}
-	Sei \(a,b\in\mathbb{K}\) ein angeordneter Körper. Aus \(|b-a|\leq \nicefrac{b}{2}, 2 = 1+1\) folgt \(a \geq \nicefrac{b}{2}\)
-	Bild: %BILD EINFUEGEN\\
-	\begin{bew}
-		\(b-a \leq |b-a| \leq \nicefrac{b}{2} \Rightarrow a \geq b - \nicefrac{b}{2} = \nicefrac{b}{2}\).
-	\end{bew}
+	Seien \(a \ko b \in \K\) und \(\K\) ein angeordneter Körper.\\
+	Aus \(\abs{b - a} \leq \frac{b}{2}\) folgt \(a \geq \frac{b}{2}\).
+	%%Bild: %BILD EINFUEGEN\\
 \end{bsp}
-\begin{kor}[\glqq{}geometrisch-arithmetische Ungleichung\grqq]
-	Sei \((\mathbb{K},+,\cdot,>)\) ein ang. Körper, \(a,b\in\mathbb{K}\\
-	\Rightarrow ab \leq {\left( \dfrac{a+b}{2}\right)}^2\).\\
+\begin{bew}
+	\(b-a \leq \abs{b-a} \leq \frac{b}{2} \implies a \geq b - \frac{b}{2} = \frac{b}{2}\).
+\end{bew}
+
+\begin{kor}[Geometrisch-Arithmetische Ungleichung]\label{kor:gaungl}\leavevmode\\
+	Seien \((\K \ko + \ko \cdot \ko >)\) ein angeordneter Körper und \(a \ko b \in \K\). Dann gilt\\
+		\[ab \leq \left( \frac{a + b}{2}\right)^{2}.\]\\
 	Wenn Gleichheit gilt, so folgt \(a=b\).
 \end{kor}
 \begin{bew}
-	In Übung
+	Übung.\phantom{\qedhere}
 \end{bew}
-\textbf{Fakt:}
-\begin{itemize}
-	\item In jedem angeordneten Körper gilt \(0<1\)!
-	\item Es gibt keine Anordnung, die \(\mathbb{F}_2\) zu einem angeordneten Körper macht. (H.A.)
-\end{itemize}
 
-\subsection{Obere und untere Schranken, Supremum und Infimum}
+\begin{bem}
+	In jedem angeordneten Körper gilt \(0 < 1\).
+\end{bem}
+\begin{bew}
+	Übung.\phantom{\qedhere}
+\end{bew}
+
+
+\subsection{Obere/Untere Schranken, Supremum/Infimum}
 \begin{prosa}
-	Notation: \(a\) ist nicht negativ, falls \(a\geq 0\).\\
-	natürlich \(a=b\Leftrightarrow a\leq b \wedge a \geq b\).\\
-	Im Folgenden ist \(\mathbb{K}\) immer ein angeordneter Körper. \(A,B \subset \mathbb{K}, A,B\neq \emptyset \) und \( \gamma \in \mathbb{K}\), so bedeutet \(A\leq \gamma: \forall a\in A: a \leq \gamma \) (\( \gamma \) ist obere Schranke für \(A\)).\\
-	\(B\geq \beta: \forall b\in B: b\geq \beta \) (\( \beta \) ist untere Schranke für \(B\).\\
-	Analog sind \(a<\gamma, A>\gamma, A<B, \) usw.\ definiert.\\
-	Hat \(A\) eine obere Schranke, so heißt \(A\) nach oben beschränkt. Hat \(B\) eine untere Schranke, so ist \(B\) nach unten beschränkt. \(A\) ist beschränkt, falls es nach oben und unten beschränkt ist.\\
-	Ist \(A\leq \alpha \) und \( \alpha\in A\), so heißt \( \alpha \) größtes (maximales) Element von \(A\), schreibe \( \alpha = \max A\) (Maximum).\\
-	Ist \(B\geq \beta \) und \( \beta\in B\), so heißt \(B\) kleinstes (minimales) Element von \(B\), schreibe \( \beta = \min B\) (Minimum).\\
-	Man zeige, dass \( \max \) und \( \min \) eindeutig sind, sofern sie existieren.\\
-	\( [0,1) := \{x\in\mathbb{K}|0\leq x\leq 1\} \) hat kein Maximum bzw.\ kein maximales Element.
+	Im folgenden sei \(\K\) immer ein angeordneter Körper. Weiter seien \(A \ko B \subset \K\) Teilmengen mit \(A \ko B \neq \emptyset\) und
+	\(\gamma \in \K\).
 \end{prosa}
-\begin{defi}
-	Sei \(A\subset \mathbb{K}, A\neq \emptyset \). Dann ist \( \gamma\in\mathbb{K}\) die kleinste obere Schranke (oder Supremum), falls \(A\leq \gamma \) und aus \(A\leq n\) folgt \( \gamma \leq n\).\\
-	Schreibe \( \gamma = \sup A = \sup(A)\).\\
-	Analog: \( \beta \) ist die größte untere Schranke von \(A\) (Infimum), falls \( \beta \leq A\) und aus \( \eta \leq A\) folgt \( \eta \leq \beta \) \\
-	Schreibe \( \beta = \inf A = \inf(A)\).
-\end{defi}
+
+\begin{notation}
+	Sei \(a \in \K\). Dann heißt \(a\) nicht negativ, falls \(a \geq 0\) ist.
+\end{notation}
+
+\begin{defi*}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(\gamma\) heißt \(\begin{lrcases}
+									\text{obere}\\
+									\text{untere}
+								 \end{lrcases}\) Schranke von \(\begin{lrcases}A\\B\end{lrcases}\)
+			  \(\longeq \begin{lrcases}
+							\forall a \in A \colon \; a \leq \gamma\\
+							\forall b \in B \colon \; b \geq \gamma  
+						\end{lrcases}\).\\
+			  Schreibe auch \(\begin{lrcases}
+								 A \leq \gamma\\ 
+								 B \geq \gamma 
+							  \end{lrcases}\)
+			  und definiere \(A < \gamma \ko \; B > \gamma\) analog.\\
+			  Besitzt \(A\) eine \(\begin{lrcases}
+									  \text{obere}\\
+									  \text{untere}
+								   \end{lrcases}\) Schranke,
+			  so heißt \(A\) nach \(\begin{lrcases}
+									  \text{oben}\\
+									  \text{unten}
+								   \end{lrcases}\) beschränkt.\\
+			  A heißt beschränkt \(\longeq\) A ist nach oben und unten beschränkt.
+		\item Ist \(\begin{lrcases}
+						A \leq \alpha \text{ mit } \alpha \in A\\
+						B \geq \beta \text{ mit } \beta \in B
+					\end{lrcases}\) so definiere
+			  \(\begin{lrcases}
+					\alpha \coloneqq \max(A)\\
+					\beta \coloneqq \min(B)
+				\end{lrcases}\).
+	\end{enumerate}
+\end{defi*}
+
+\begin{bem}
+	\(\max(A)\) und \(\min(A)\) sind eindeutig, falls sie existieren.
+\end{bem}
+\begin{bew}
+	Übung.\phantom{\qedhere}
+\end{bew}
+
 \begin{bsp}
-	\(P := \{x\in\mathbb{K}|x>0\} \Rightarrow \)
-	\begin{enumerate}
+	\([0\ko1) \coloneqq \set{x \; \vert \; 0 \leq x < 1}\) besitzt kein Maximum, aber ein Minimum, nämlich \(\min[0\ko1) = 0\).
+\end{bsp}
+
+\begin{defi}\leavevmode\\
+	\(\gamma\) ist die \(\begin{lrcases}
+							\text{kleinste obere Schranke oder Supremum von } A\\
+							\text{größte untere Schranke oder Infimum von } B
+						\end{lrcases}\)\\
+	\(\longeq 
+	\begin{lrcases}
+		A \leq \gamma \text{ und aus } A \leq \tilde{\gamma} \text{ folgt } \gamma \leq \tilde{\gamma}\\
+		B \geq \gamma \text{ und asu } B \geq \tilde{\gamma} \text{ folgt } \tilde{\gamma} \leq \gamma	 
+	\end{lrcases}\).\\
+	Schreibe \(\begin{lrcases}
+				   \gamma &\eqqcolon \sup A &\eqqcolon \sup(A)\\
+				   \gamma &\eqqcolon \inf B &\eqqcolon \inf(B)
+			   \end{lrcases}\).
+\end{defi}
+
+\begin{bsp}
+	Für \(P := \set{x \in \K \; \vert \; x > 0 }\) gilt
+	\begin{enumerate}[(i)]
 		\item \(P\) ist nicht nach oben beschränkt.
-		\item \(P\) hat kein Minimum, aber \( \inf P = 0\).
+		\item \(P\) hat kein Minimum, aber \(\inf P = 0\).
 	\end{enumerate}
 \end{bsp}
+
 \begin{bew}\leavevmode
-	\begin{enumerate}
-		\item Ang. \( \gamma \) ist obere Schranke für \(P\). D.h. \( \forall x \in P\) folgt \(0<x\leq\gamma\Rightarrow\gamma >0\Rightarrow \gamma \in P \Rightarrow 0 < \gamma = \gamma + 0 < \gamma + 1 \in P\Rightarrow\gamma + 1\in P\) und \( \gamma +1>\gamma \gamma \) ist nicht obere Schranke für \(P\) (Widerspruch!)\ \Lightning{}
-		\item \(2:= 1+1 > 1>0\) \\
-			Ang. \( \min P := \eta \) existiert. \( \Rightarrow \eta \in P, \eta > 0, \tilde{x} := \frac{\eta}{2} = \frac{0 + \eta}{2} < \eta \).\\
-			Es gilt \(0 = \inf P\).\\
-			Sicherlich \(0<P\), also ist \(0\) eine untere Schranke für \(P\).\\
-			\(0\) ist die größte untere Schranke, denn nach obigem Argument ist jede Zahl \(>0\) keine untere Schranke für \(P\)!
+	\begin{enumerate}[(i)]
+		\item Angenommen \(\gamma\) ist obere Schranke für \(P\). Also \(\forall x \in P\) folgt \( 0 < x \leq \gamma\)\\
+			  \(\implies \gamma > 0 \implies \gamma \in P \implies 0 < \gamma = \gamma + 0 < \gamma + 1 \in P\)\\
+			  \(\implies \gamma + 1 \in P\) und \(\gamma + 1 > \gamma\).\\
+			  Also ist \(\gamma\) keine obere Schranke für \(P\) \Lightning.
+		\item Angenommen \(\min P \coloneqq \eta\) existiert. Dann folgt \( \eta \in P \ko \; \eta > 0\) und
+		      \(0 < \tilde{x} \coloneqq \frac{\eta}{2} < \eta\) ist ein weiteres Minimum \Lightning. Also kann kein Minimum existieren.\\
+			  Offensichtlich gilt \(0 < P\), also ist \(0\) eine untere Schranke für \(P\).\\
+			  \(0\) ist außerdem die größte untere Schranke, denn nach obigem Argument ist jede Zahl \(\eta > 0\) keine untere Schranke für \(P\).\\
+			  Also ist \(\inf P = 0\). \qedhere
 	\end{enumerate}
 \end{bew}
-\begin{lem}
-	\(A\subset\mathbb{K}, A\neq \emptyset \).
-	\begin{enumerate}
-		\item \( \alpha := \sup A \Leftrightarrow \alpha \geq A \wedge \forall \varepsilon > 0 \exists a \in A: \alpha - \varepsilon < a\).
-		\item \( \beta := \inf B \Leftrightarrow \beta \leq B \wedge \forall \varepsilon > 0 \exists b \in B: b < \beta + \varepsilon \).
-	\end{enumerate}
+
+\begin{lem}\label{satz:epskrit_inf_sup}\leavevmode
+		\begin{alignenum}{\alpha = \sup A}{(a)}
+			\begin{aitem}
+				\Format{\alpha = \sup A} &\iff \alpha \geq A \; \wedge \; \forall \varepsilon > 0 \; \exists a \in A \colon \; \alpha - \varepsilon < a.
+			\end{aitem}\begin{aitem}
+				\Format{\beta  = \inf B} &\iff \beta  \leq B \; \wedge \; \forall \varepsilon > 0 \; \exists b \in B \colon \; b < \beta + \varepsilon.
+			\end{aitem}
+		\end{alignenum}
 \end{lem}
 \begin{bew}\leavevmode
-	\begin{enumerate}
-		\item \glqq{}\( \Rightarrow \)\grqq: Sei \( \alpha = \sup A\). Also \( \alpha \) ist die kleinste obere Schranke für \(A\). D.h. \( \alpha \geq A\) und \( \forall \, \varepsilon > 0\) ist \( \varepsilon>0<\alpha \), also ist \( \alpha-\varepsilon \) keine obere Schranke für \(A\). D.h. \( \exists \, a\in A:\alpha - \varepsilon <a\).\\
-			\glqq{}\( \Leftarrow \)\grqq: Sei \( \alpha \geq A \wedge \forall \, \varepsilon > 0 \, \exists \, a \in A: \alpha - \varepsilon < a\). Also ist \( \alpha \) eine obere Schranke für \(A\). Sei \( \tilde{\alpha}<\alpha \).\\
-			Setze \( \varepsilon:= \alpha -\tilde{\alpha} > 0 \Rightarrow \exists a \in A: \tilde{\alpha} = \alpha - \varepsilon < a \Rightarrow \tilde{\alpha}\) ist keine obere Schranke für \(a\). \( \Rightarrow\alpha \) ist die kleinste obere Schranke.
-		\item \( A:= -B = \{-b|b \in B\} \). Beachte: \(\sup A = \sup(-B) = -\inf B\).
+	\begin{enumerate}[(a)]
+		\item \equirl{
+				Sei \(\alpha = \sup A\) und \(\varepsilon > 0\). \(\implies \alpha - \varepsilon\) ist keine obere Schranke für 
+				\(A \implies \exists a \in A \colon \; x > \alpha - \epsilon\).
+			  }{
+				Es gelte \(\alpha \geq A \; \wedge \; \forall \varepsilon > 0 \; \exists a \in A \colon \; \alpha - \varepsilon < a\).
+				Also ist \(\alpha\) eine obere Schranke für \(A\). Sei nun \(\tilde{\alpha} < \alpha\).\\
+				Setze \(\varepsilon \coloneqq \alpha - \tilde{\alpha} > 0\). \(\implies \exists a \in A \colon \; \tilde{\alpha} = \alpha - \varepsilon < a\).
+				\(\implies \tilde{\alpha}\) ist keine obere Schranke für \(A\). Also ist \(\alpha\) die kleinste obere Schranke.
+			  }
+		\item \(A \coloneqq \minus B = \set{\minus b \;\vert \;b \in B}\). Mit der Identität
+			  \(\sup A = \sup(\minus B) = \minus \inf B\) folgt die Behauptung.\qedhere
 	\end{enumerate}
 \end{bew}
+
+
 %30.10.2018
 \subsection{Das Vollständigkeitsaxiom}
+
 \begin{defi}
-	Ein angeordneter Körper \( (\mathbb{K},+,\cdot,>)\) erfüllt das Vollständigkeitsaxiom, falls
-	\begin{center}
-		Jede nichtleere, nach oben beschränkte Teilmenge hat ein Supremum.
-	\end{center}
-	Solch einen Körper nennt man ordnungsvollständig. \(\mathbb{R}\), der Körper der reellen Zahlen, ist der ordnungsvollständige Körper. (Im Wesentlichen gibt es nur einen!)
-\end{defi}
-\( \mathbb{Q}; A:= \{r\in\mathbb{Q}|r^2 < 2\} \) \\
-Notation: 
-\(a,b\in\mathbb{R} \quad a<b\) \\
-\([a,b] := \{x\in\mathbb{R}|a\leq x\leq b\} \) abgeschlossenes Intervall\\
-\((a,b) := \{x\in\mathbb{R} | a<x<b\} \) offenes Intervall\\
-\([a,b) := \{x\in\mathbb{R}|a\leq x<b\} \) nach rechts halboffenes Intervall\\
-\((a,b] := \{x\in\mathbb{R}|a<x\leq b\} \) nach links halboffenes Intervall\\
-Intervalllänge: \(b-a\) \\
-unbeschränkte Intervalle:\\
-\((-\infty, a] := \{x\in\mathbb{R}|x\leq a\} \) \\
-\([a,\infty) := \{x\in\mathbb{R}|x\geq a\} \) \\
-\((-\infty, a) := \{x\in\mathbb{R}|x<a\} \) \\
-\((a, \infty) := \{x\in\mathbb{R}|x>a\} \).
-\subsection{Die natürlichen Zahlen \( \mathbb{N}\)}
-(als Teilmenge von \( \mathbb{R}\))\\
-\(n\) natürliche Zahl, \(n=\underbrace{1+1+\cdots + 1}_{n\text{-mal}}\) (zirkulär \Lightning)
-\begin{defi}
-	Eine Teilmenge \(M\subset \mathbb{R}\) heißt induktiv, falls
+	Ein angeordneter Körper \((\K \ko + \ko \cdot \ko >)\) erfüllt das Voll\-ständig\-keits\-axiom, falls gilt:
 	\begin{enumerate}
-		\item \(1\in M\)
-		\item Aus \(x\in M\) folgt \(x+1 \in M\)
+		\item[(V)]\label{ax:V}Jede nichtleere, nach oben beschränkte Teilmenge von \(\K\) hat ein Supremum.
+	\end{enumerate}
+	Solch einen Körper nennt man ordnungsvollständig. \(\R\), der Körper der reellen Zahlen, ist \underline{der} ordnungsvollständige Körper. (Im Wesentlichen gibt es nur einen!)
+\end{defi}
+
+%%$\mathbb{Q}; A:= \{r\in\mathbb{Q}|r^2 < 2\}$ Kontext??
+
+\begin{notation}
+	Seien \(a \ko b \in \R\) mit \(a \leq b\). Dann heißt
+	\providecommand{\Format}{}%
+	\renewcommand*{\Format}[1]{\makebox[\widthof{\((\minus \infty \ko a]\)}][r]{\(#1\)}}
+	\begin{enumerate}[ ]
+		\item \(\Format{[a \ko b]} \coloneqq \set{x \in \R \; \vert \; a \leq x \leq b}\) abgeschlossenes Intervall.
+		\item \(\Format{(a \ko b)} \coloneqq \set{x \in \R \; \vert \; a < x < b}\) offenes Intervall.
+		\item \(\Format{[a \ko b)} \coloneqq \set{x \in \R \; \vert \; a < x < b}\) nach rechts halboffenes Intervall.
+		\item \(\Format{(a \ko b]} \coloneqq \set{x \in \R \; \vert \; a < x < b}\) nach links halboffenes Intervall.
+		\item \(\begin{rcases}
+					\Format{(\minus \infty \ko a]} \coloneqq \set{x \in \R \; \vert \; x \leq a}\\
+					\Format{(\minus \infty \ko a)} \coloneqq \set{x \in \R \; \vert \; x < a}\\
+					\Format{[a \ko \infty)} \coloneqq \set{x \in \R \; \vert \; a \leq x}\\
+					\Format{(a \ko \infty)} \coloneqq \set{x \in \R \; \vert \; a < x}
+			    \end{rcases}\) unbeschränktes Intervall.
+	\end{enumerate}
+	Dabei ist die Intervalllänge in den ersten vier Fällen gegeben durch \(b - a\).
+\end{notation}
+
+
+\subsection{Die natürlichen Zahlen \(\N\)}
+
+\begin{prosa}
+	Wir wollen eine definition der natürlichen Zahlen geben. Definitionen wie \(\N \coloneqq \set{1 \ko 2 \ko 3 \ko \ldots}\) sind jedoch
+	sehr vage und informell. Ferner wäre eine Definition der folgenden Art ein zirkulärer Schluss:
+	\[ n = \underbrace{1 + 1 + \cdots + 1}_{n \text{-mal}}\]
+	Stattdessen wollen wir eine Definition geben. welche die Induktiven Eigenschaften der natürlichen Zahlen ausnutzt, die bereits in den vorangegangen
+	Kapitel behandelt wurde.
+\end{prosa}
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{defi}
+	Eine Teilmenge \(M \subseteq \R\) heißt \underline{induktiv}, falls gilt:
+	\begin{enumerate}[label= (I\arabic*)]
+		\item\label{ax:I1} \(1 \in M\).
+		\item\label{ax:I2} Aus \(n \in M\) folgt \(n + 1 \in M\).
 	\end{enumerate}
 \end{defi}
-\begin{bsp}
-	\([1,\infty)\) ist induktiv.\\
-	\( \mathbb{R}\) ist induktiv.\\
-	\((1,\infty)\) ist nicht induktiv.\\
-	\( \{1\} \cup [1+1,\infty)\) ist induktiv.
-\end{bsp}
-\textbf{Beobachtung:} Ein beliebiger Schnitt induktiver Mengen ist wieder induktiv.\\
-\(J\): Indexmenge \(A_0\) induktiv \( \forall j\in J\) \\
-\( \Rightarrow \forall i\in J: 1\in A_j \Rightarrow 1\in \underset{j\in J}{\bigcap} A_j\) \\
-Ist \(x\in \underset{j\in J}{\bigcap} A_j\Rightarrow \forall j \in J: x\in A_j \Rightarrow x+1 \in A_j \Rightarrow x+1 \in \underset{j\in J}{\bigcap} A_j\).
-\begin{defi}[natürliche Zahlen]
-	\[\N := \{x\in \R: \text{ für jede ind. Teilmenge } M\subset\R \text{ gilt } x\in M\} := \underset{M\subset \R\text{ induktiv}}{\bigcap} M\]
-\end{defi}
+
+\begin{bspe}\leavevmode
+	\begin{enumerate}[(1)]
+		\item \([1 \ko \infty)\) ist induktiv.
+		\item \(\R\) ist induktiv.
+		\item \((1 \ko \infty)\) ist nicht induktiv.
+		\item \(\set{1} \cup [1+1 \ko \infty)\) ist induktiv.
+	\end{enumerate}
+\end{bspe}
+
 \begin{bem}
-	\( \N \) ist induktiv und \( \N \) ist die kleinste induktive Teilmenge von \( \R \).
+	Ein beliebiger Schnitt induktiver Mengen ist wieder induktiv.
 \end{bem}
-\begin{satz}[Archimedisches Prinzip für \( \R \)]\leavevmode
-	\begin{enumerate}
-		\item \( \N \) ist (in \( \R \)) nicht nach oben beschränkt!
-		\item \(\forall x\in\R \) mit \(x>0 \,\exists n\in \N: \frac{1}{n} < x\).
+\begin{bew}
+	Sei \(J\) eine beliebige Indexmenge und für alle \(j \in J\) sei \(A_{j} \subseteq \R\) induktiv.\\
+	\(\implies \forall j \in J \colon \; 1 \in A_{j} \Rightarrow 1 \in \underset{j \in J}{\bigcap}A_{j}\).\\
+	\(\implies n \in \underset{j \in J}{\bigcap}A_{j} \Rightarrow \forall j \in J \colon \; x + 1 \in A_{j} \Rightarrow x + 1 \in \underset{j \in J}{\bigcap}A_{j}\).
+\end{bew}
+
+\begin{defi}[Natürliche Zahlen]
+	\[\N \coloneqq \set{x \in \R \; \vert \; \forall \; M \subseteq \R \text{ induktiv } \colon \; x \in M} = \smashoperator{\bigcap_{M \subseteq \R \text{ induktiv}}} M\]
+	definiert die natürlichen Zahlen.
+\end{defi}
+
+\begin{bem}
+	\(\N\) ist die kleinste induktive Teilmenge von \(\R\).
+\end{bem}
+
+\begin{satz}[Archimedisches Prinzip für \(\R\)]\label{satz:arch_prinz}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(\N\) ist (in \(\R\)) \underline{nicht} nach oben beschränkt.
+		\item \(\forall x \in \R\) mit \(x > 0 \colon \; \exists \; n \in \N \colon \; \frac{1}{n} < x\).
 	\end{enumerate}
 \end{satz}
 \begin{bew}\leavevmode
-	\begin{enumerate}
-		\item Angenommen, \( \N\subset\R \) ist nach oben beschränkt.\\
-			\( \N \neq \emptyset \) (da \(1\in\N \) \\
-			Vollständigkeitsaxiom \( \Rightarrow \alpha := \sup \N \in \R \).\\
-			Setze \( \varepsilon = 1\) in Lemma 3.3.2\\ %NOCH VERKNÜPFUNG EINFÜGEN
-			\( \alpha -1\) ist nicht obere Schranke für \( \N \).\\
-			\( \exists n\in \N: n>\alpha-1\\
-			\Rightarrow n+1 > \alpha \in \N \) \Lightning{} zu \( \alpha \) ist obere Schranke von \( \N \).
-		\item Sei \(x>0 \overset{\text{Satz 3.2.1 (6)}}{\Rightarrow} \frac{1}{x} > 0\Rightarrow \exists n\in \N: n > \frac{1}{x}\underset{\text{Satz 3.2.1 (7)}}{\Rightarrow} x = \dfrac{1}{\nicefrac{1}{x}} > \frac{1}{n}\). %VERLINKUNGEN ZU SÄTZEN
+	\begin{enumerate}[(a)]
+		\item Angenommen, \(\N \subseteq \R\) ist nach oben beschränkt durch \(\alpha\).\\
+		      Es gilt \(\N \neq \emptyset\) da \(1 \in \N\) nach \autoref{ax:I1}.\\
+		      Nach \hyperref[ax:V]{Vollständigkeitsaxiom} gilt \(\alpha = \sup \N \in \R\).\\
+		      Setze \(\varepsilon = 1\) in \autoref{satz:epskrit_inf_sup}, dann gilt \(\alpha - 1\) ist keine obere Schranke für \(\N\).
+		      und \(\exists n \in \N \colon n > \alpha - 1\).
+			  \(\implies n+1 > \alpha \in \N\) \Lightning.
+		\item Sei \(x > 0 \overset{\autoref{satz:arechenregeln}{(f)}}{\implies} \frac{1}{x} > 0 \implies \exists n \in \N \colon \; n > \frac{1}{x}\\
+		      \underset{\autoref{satz:arechenregeln}{(g)}}{\implies} x = \frac{1}{\frac{1}{x}} > \frac{1}{n}\).\qedhere
 	\end{enumerate}
 \end{bew}
-\begin{satz}[Induktionsprinzip]
-	Sei \(M\subset \N \) mit
-	\begin{enumerate}
-		\item \(1\in M\)
-		\item Ist \(x\in M \Rightarrow x+1 \in M\)
+
+\begin{satz}[Induktionsprinzip]\label{satz:ind_prinz}
+	Sei \(M \subseteq \N\) mit
+	\begin{enumerate}[(i)]
+		\item \(1\in M\).
+		\item \(x \in M \implies x + 1 \in M\).
 	\end{enumerate}
-	Dann ist \(M= \N \).
+	Dann ist \(M = \N\).
 \end{satz}
 \begin{bew}
-	\( \Rightarrow M\) ist induktiv. \( \N \) kleinste induktive Teilmenge von \( \R \) \\
-	\( \Rightarrow \N \subset M\) \\
-	\(M\subset \N \wedge \N \subset M \Leftrightarrow M = \N \).
+	\(M\) ist induktiv. Da \(\N\) die kleinste induktive Teilmenge von \(\R\) ist gilt \(\N \subseteq M\).
+	Da \(M \subseteq \N\) folgt \(M = \N\).
 \end{bew}
-\begin{kor}[Vollständige Induktion]
-	Für \(n\in\N \) seien \(A(n)\) Aussagen.
-	Es gelte:
-	\begin{enumerate}
+
+\begin{kor}[Vollständige Induktion]\label{satz:vollst_ind}\leavevmode\\
+	Für \(n \in \N\) seien \(A(n)\) Aussagen. Es gelte:
+	\begin{enumerate}[(i)]
 		\item \(A(1)\) ist wahr.
-		\item aus \(A(n)\) ist wahr folgt \(A(n+1)\) ist wahr.
+		\item Aus \(A(n)\) ist wahr folgt \(A(n+1)\) ist wahr.
 	\end{enumerate}
+	Dann sind alle \(A(n)\) wahr.
 \end{kor}
 \begin{bew}
-	Definiere \(M := \{n\in \N| A(n) \text{ ist wahr}\} \subset \N \).
-	\begin{enumerate}
-		\item \( \Rightarrow 1\in M\), da \(A(1)\) wahr ist
-		\item \( \Rightarrow \) sei \(n\in M\), d.h. \(A(n)\) ist wahr \( \Rightarrow A(n+1)\) ist wahr, d.h. \(n+1\in M\).
+	Definiere \(M \coloneqq \set{n \in \N \; \vert \; A(n) \text{ ist wahr}} \subset \N\). Dann gilt:
+	\begin{enumerate}[(i)]
+		\item \(1\in M\), da \(A(1)\) wahr ist.
+		\item Für \(n\in M\) gilt \(n + 1 \in M\), da wenn \(A(n)\) wahr ist auch \(A(n + 1)\) wahr ist.
 	\end{enumerate}
-	\( \overset{\text{Ind.prinzip Satz 4}}{\Rightarrow} M = \N \), also sind alle \(A(n)\) wahr! %LINK ZU SATZ 4!
+	\(\overset{\hyperref[satz:ind_prinz]{Induktives Prinzip}}{\implies} M = \N\), also sind alle \(A(n)\) wahr.
 \end{bew}
-Notation: Induktive Definition von Summen und Produkten.\\
-\(a_1+a_2+\cdots + a_n\) vage \dots \\
-\textbf{Summe:} \[\sum_{k=1}^{1} a_k := a_1, (n = 1), \sum_{k=1}^{n+1} a_k := \left( \sum_{k=1}^{n} a_k\right) + a_{n+1}, n\in\N \]
-Allgemein: untere Grenze \(k=m\), obere Grenze \(k=n\), Laufindex kann verschoben werden.\\
-z.B.: \(k= j+1\)
-\[\sum_{k=m}^{n}a_k = \sum_{j=m-1}^{n-1}a_{j+1} = \cdots = \sum_{l = 0}^{n-m}a_{l+m}\]
-Ist \(m>n\), definieren \( \sum_{k=m}^{n-m}a_k := 0\) (leere Summe)\\
-\textbf{Produkt:} \[ \prod_{k=1}^{1}a_k := a_1, \prod_{k=1}^{n+1}a_k := \left( \prod_{k=1}^{n}a_k\right) \cdot a_{n+1}, n\in\N \]
-Ähnlich \( \prod_{k=m}^{n}a_n\), setzen für \(m>n \prod_{k=m}^n a_k := 1\) (leeres Produkt)\\
-z.B. \[a\in\R, a^n = \prod_{k=1}^n a \text{, d.h. } a^1=a, a^{n+1} = a^n \cdot a, n\in\N \text{ (induktive Definition)}\]
-Rechenregeln gelten z.B. \[ \sum_{k=1}^{n} (a_k+b_k) = \sum_{k=1}^{n} a_k + \sum_{k=1}^{n} b_k\]
-\[a_j, b_j \in\mathbb{R}, j=1,\ldots, n\]
-\[c \in\R, \sum_{n}^{k=1} (c\cdot a_k) = c\cdot \sum_{k=1}^{n} a_k\]
-\begin{satz}[Bernoullische Ungleichung]
-	\[x\in\R, x\geq -1, n\in\N_0 = \N\cup \{0\} \]
-	gilt \({(1+x)}^n \geq 1+ n + x (\forall m\in\N,x\geq -1)\) \\
-	mit \glqq{}\(>\)\grqq, falls \(n>1, x\neq 0\) \\
-	\((\forall n\in\N, x \geq -1{(1+x)}^n \geq 1 + nx)\)
+
+\begin{defi*}[Summen]Seien \(n \ko m \in \N\) und für alle \(k \in \N\) sein \(a_{k} \in \R\).
+	\[\sum_{k = 1}^{1} a_{k} \coloneqq a_{1} \ko \quad \sum_{k = 1}^{n + 1} \coloneqq \left(\sum_{k = 1}^{n} a_{k} \right) + a_{n + 1}\]
+	Der Laufindex kann auch verschoben werden:
+	\[\sum_{k = m}^{n} a_{k} = \sum_{j = m - 1}^{n - 1} a_{j + 1} = \ldots = \sum_{l = 0}^{n - m} a_{l + m}\]
+	Falls \(m > n\) so definiere \(\sum_{k = m}^{n} a_{k} \coloneqq 0\) als die leere Summe.
+\end{defi*}
+
+\begin{defi*}[Produkte]Seien \(n \ko m \in \N\) und für alle \(k \in \N\) sein \(a_{k} \in \R\), sowie \(a \in \R\).
+	\[\prod_{k = 1}^{1} a_{k} \coloneqq a_{1} \ko \quad \prod_{k = 1}^{n + 1} \coloneqq \left(\prod_{k = 1}^{n} a_{k} \right) \cdot a_{n + 1}\]
+	Falls \(m > n\) so definiere \(\prod_{k = m}^{n} a_{k} \coloneqq 1\) als das leere Produkt.\\
+	Ferner sei \(a^{n} \coloneqq \prod_{k = 1}^{n} a\), also \(a^{0} = 0 \ko \; a^{1} = 1 \ko \; a^{n + 1} = a^{n} \cdot a\).
+\end{defi*}
+
+\begin{bem}[Rechenregeln für Summen und Produkte]\leavevmode\\
+	Seien \(a_{j} \ko b_{j} \ko c \in \R\) für \(j = 1 \ko \ldots \ko n \ko \; n \in \N\).
+	\begin{enumerate}[(a)]
+		\item \(\sum_{k = 1}^{n} (a_{k} + b_{k}) = \sum_{k = 1}^{n} a_{k} + \sum_{k = 1}^{n} b_{k}.\)
+		\item \(\prod_{k = 1}^{n} (a_{k} \cdot b_{k}) = \prod_{k = 1}^{n} a_{k} \cdot \prod_{k = 1}^{n} b_{k}.\)
+		\item \(\sum_{k = 1}^{n} c \cdot a_{k} = c \cdot \sum_{k = 1}^{n} a_{k}.\)
+		\item \(\prod_{k = 1}^{n} c \cdot a_{k} = c \cdot \prod_{k = 1}^{n} a_{k}.\)
+	\end{enumerate}
+\end{bem}
+
+\begin{satz}[Bernoullische Ungleichung]\label{satz:bern_ungl}
+	Sei \(x \in \R \ko \; x \geq \minus 1 \ko \; n \in \N_{0} \coloneqq \N \cup \set{0}\). Dann gilt
+	\[{(1 + x)}^{n} \geq 1 + nx.\]
+	Es gilt \gqq{\(>\)}, falls \(n>1 \ko \; x \neq 0\).
 \end{satz}
-\begin{bew}
-	Vollständige Induktion:\\
-	Induktionsanfang:
-	\[n=0: {(1+x)}^0=1=1+0x \checkmark \]
-	\[n=1: {(1+x)}^1=1+x=1+1x \checkmark \]
-	Induktionsschritt:
-	Induktionsvoraussetzung: es gelte für ein festes, aber beliebiges \(n\in\N \):
-	\begin{equation*}
-		\begin{aligned}
-			{(1+x)}^n     & \geq 1+nx \\%LINEBREAK KLAPT NICHT
-			{(1+x)}^{n+1} & = \underbrace{{(1+x)}^{n}}_{\geq 1+nx} \cdot \underbrace{(1+x)}_{> 0} \geq (1+nx)(1+x) = 1+(n+1)x + nx^2 \\
-			              & =\begin{cases}
-							\geq 1+(n+1)x, x>-1 \\
-							> 1+(n+1)x, x>-1, x\neq 0
-							\end{cases}
-		\end{aligned}
-	\end{equation*}
+\begin{bew} (Durch vollständige Induktion)
+	\induktion{
+		\((1 + x)^{0} = 1 = 1 + 0x\).
+	}{
+		Es gelte \({(1 + x)}^{n} \geq 1 + nx\) für ein \(n \in \N_{0}\).
+	}{  
+		\[\begin{aligned}
+			 &(1 + x)^{n + 1} = \underbrace{(1 + x)^{n}}_{\geq 1 + nx} \cdot \underbrace{(1 + x)}_{\geq 0} \geq (1 + nx)(1 + x)\\
+			 &= 1 + (n + 1)x + {nx}^{2}
+			 \begin{cases}
+				\geq 1 + (n+1)x \ko & x > \minus 1 \\
+				> 1+(n+1)x\ko       & x > \minus 1 \ko \; x \neq 0
+			 \end{cases}.
+		  \end{aligned}\]\qedhere
+	}
 \end{bew}
-\begin{satz}[geometrische Summe]
-	Sei \(x\neq 1\), dann ist \[\sum_{k=0}^{n}x^k = \frac{1-x^{n+1}}{1-x}.\]
+
+\begin{satz}[Geometrische Summe]\label{satz:geom_sum}
+	Sei \(x\neq 1\), dann ist 
+	\[\sum_{k = 0}^{n}{x}^{k} = \frac{1 - x^{n + 1}}{1 - x.}\]
 \end{satz}
-\begin{bew}
-	Vollständige Induktion:\\
-	Induktionsanfang:
-	\begin{equation*}
-		\begin{aligned}
-			n=0: & \sum_{k=0}^{0} x^k = x^0 = 1 = \frac{1-0}{1+0}\checkmark \\
-			n=1: & \sum_{n=0}^{1} x^k = 1+x = \frac{1-x}{1-x} (1+x) = \frac{1-x^2}{1-x}\checkmark
-		\end{aligned}
-	\end{equation*}
-	Induktionsschritt:\\
-	Induktionsvoraussetzung: Es gelte für ein festes, aber beliebiges \(n\in\N \): 
-	\[ \sum_{k=0}^{n} x^k = \frac{1-x^{n+1}}{1-x}\]
-	\begin{equation}
-		\begin{aligned}
-			\Rightarrow \sum_{k=0}^{n} x^k + x^{n+1} \overset{\text{IV}}{=} \frac{1-x^{n+1}}{1-x} + x^{n+1} \\
-			= \frac{1-x^{n+1} + (1-x)x^{n+1}}{1-x} = \frac{1-x^{n+2}}{1-x}.
-		\end{aligned}
-	\end{equation}
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{bew} (Durch vollständige Induktion)
+	\induktion{
+		\(\sum_{k = 0}^{0} x^{k} = x^{0} = 1 = \frac{1 - 0}{1 + 0}\).
+	}{
+		Für ein \(n \in \N\) gelte \(\sum_{k = 0}^{n} x^k = \frac{1 - x^{n + 1}}{1 - x}\).
+	}{
+		\[\begin{aligned}
+			&\sum_{k = 0}^{n} x^k + x^{n + 1} \overset{\text{IV}}{=} \frac{1 - x^{n + 1}}{1 - x} + x^{n + 1} \\
+			&= \frac{1 - x^{n + 1} + (1 - x)x^{n + 1}}{1 - x} = \frac{1 - x^{n + 2}}{1 - x}.
+		  \end{aligned}\]\qedhere
+	}
 \end{bew}
-\begin{bew} ohne vollständige Induktion:
-	\[\begin{aligned}
-		S_n                  & := \sum_{k=0}^{n} x^k                                                                 \\
-		x\cdot S_n           & = \sum_{k=0}^{n} x^k = \sum_{k=0}^{n} x^{k+1} = \sum_{j=1}^{n+1} x^j,                 \\
-		\Rightarrow (1-x)S_n & = S_n - x S_n = \sum_{k=0}^{n} x^k - \sum_{k=1}^{n+1} x^k = x^0 - x^{n+1} = 1-x^{n+1} \\
-		\Rightarrow S_n      & = \frac{1-x^{n+1}}{1-x}
-	\end{aligned}\]
+\begin{bew} (Ohne vollständige Induktion)\leavevmode\\
+	\[\begin{aligned}[t]
+			&        & S_n         & \coloneqq \sum_{k = 0}^{n} x^k\\
+			&\implies& x \cdot S_n & = \sum_{k = 0}^{n} x^k = \sum_{k = 0}^{n} x^{k + 1} = \sum_{j = 1}^{n + 1} x^j\\
+			&\implies& (1 - x)S_n  & = S_n - x S_n = \sum_{k = 0}^{n} x^k - \sum_{k = 1}^{n + 1} x^k = x^0 - x^{n + 1} = 1 - x^{n + 1}\\
+			&\implies& S_n         & = \frac{1 - x^{n + 1}}{1 - x}
+	  \end{aligned}\]
 \end{bew}
-\begin{satz}[Eigenschaften von \(\N \)]
-	Es gilt
-	\begin{enumerate}
-		\item \( \forall m,n \in \N: n+m \in \N \) und \(n\cdot m \in \N \).
-		\item \( \forall n\in\N: n=1\) oder \((n>1\) und demnach \(n-1 \in \N)\).
-		\item \( \forall m,n\in\N:m\leq n:n-m\in\N_0\).
-		\item \( \forall n\in\N \) gibt es kein \(m\in\N: n<m<n+1\).
+
+\begin{satz}[Eigenschaften von \(\N\)]
+	Es seien \(m \ko n \in \N\). Dann gilt
+	\begin{enumerate}[(a)]
+		\item \(n + m \in \N\) und \(n \cdot m \in \N\).
+		\item \(n = 1\) oder \(n - 1 \in \N\).
+		\item \(m \leq n \implies n - m \in \N_{0}\).
+		\item es gibt kein \(k \in \N\) mit \(n < k < n + 1\).
 	\end{enumerate}
 \end{satz}
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
 \begin{bew}\leavevmode
-	\begin{enumerate}
-		\item Gegeben \(m\in\N: A :=\{n\in \N | n+m\in \N \} \subset \N \) \\
-			\begin{enumerate}
-				\item \(1\in A\), denn \(m\in\N: 1+m = m+1\in\N \).
-				\item Angenommen, \(n\in A \Rightarrow (n+1) + m = \underbrace{n+m}_{\in\N} + 1 \in\N \\
-					\Rightarrow n+1\in A\)
-			\end{enumerate} somit ist \(A\) induktiv, also \( \N\subset A \Rightarrow A = \N \).
-		\item Definiere \(B:= \{n\in \N |n=1 \vee (n-1\in\N\wedge n-1\geq 1)\} \subset \N \) \\
-			Dann ist \(B\) induktiv, denn
-			\begin{enumerate}
-				\item \(1\in B, 2=1+1\in B\)
-				\item Sei \(1\neq n\in B\), so folgt \(1\leq n-1\) und somit \(n=(\underbrace{n-1}_{\in\N}) +1\in\N \) \\
-					\( \Rightarrow n+1\in\N \) und \((n+1)-1=n\geq 1+1>1\).
-					Somit ist \(n+1\in B\).
-			\end{enumerate}
-		\item \(C:= \{n\in \N | \forall m \in \N \) mit \(m\leq n\) ist \(n-m\in \N_0\}\Rightarrow \)
-			\begin{enumerate}
-				\item \(1\in C\), denn ist \(m\in \N \) und \(m=1\).\\
-					folgt nach b): \(m=1\) \\
-					\(\Rightarrow n - m = 1 - 1 = 0\in \N_0\).
-				\item ang. \(n\in C\) und \(m\in\N \) mit \(m\leq n+1\).\\
-					Fallunterscheidung:
-					\begin{itemize}
-						\item \(n=1 \Rightarrow n+1-m=(n+1)-1=n\in\N.\checkmark \\
-							\Rightarrow n+1\in C\).
-						\item \(n > 1\) (und \(m \leq n+1\))\\
-							\(\overset{\text{b)}}{\Rightarrow} m-1\in \N \) und \(m-1 \leq (n+1)-1 = n\) \\
-							Da \(n\in C, m-1\in\N, m-1\leq n \Rightarrow \underbrace{n-(m-1)}_{=(n+1)-m} \in \N_0\\
-							\Rightarrow n+1\in C\).
-					\end{itemize}
-			\end{enumerate}
-		\item H.A.
+	\begin{enumerate}[(a)]
+		\item Sei \(m \in \N\) und definiere \(A \coloneqq \set{n \in \N \; \vert \; n + m \in \N} \subseteq \N\). Es gilt:
+			  \begin{enumerate}[(i)]
+				\item \(1 \in A\), denn aus \(m \in \N\) folgt \(m + 1 \in \N\).
+				\item Ist \(n \in A\), so ist \((n + 1) + m = \underbrace{\in \N}{n + m} + 1 \in \N\).
+					  Also auch \(n + 1 \in A\).
+			  \end{enumerate}
+			  \(\overset{\autoref{satz:ind_prinz}}{\implies} A = \N\).
+		\item Definiere \(B \coloneqq \set{n \in \N \; \vert \; n = 1 \; \vee \; n - 1 \in \N}\). Es gilt:
+			  \begin{enumerate}[(i)]
+				\item \(1 \in B\).
+				\item Ist \(n \in B\), so ist \(n = (n + 1) - 1 \in \N\), also \(n + 1 \in B\).
+			  \end{enumerate}
+			  \(\overset{\autoref{satz:ind_prinz}}{\implies} B = \N\).
+		\item Definiere \(C \coloneqq \set{n \in \N \; \vert \; \forall m \in \N \text{ mit } m \leq n \text{ ist } n - m \in \N_{0}}\). Es gilt:
+			  \begin{enumerate}[(i)]
+				\item \(1 \in C\), denn ist \(n = 1 \in \N\), so folgt mit (b), dass auch \(m = 1\) ist und somit
+					  \(n - m = 1 - 1 = 0 \in \N_{0}\).
+				\item Ist \(n \in C\) und \(m \in \N\) mit \(m \leq n + 1\) so gilt:\\
+					  \case{Fall \(n = 1\)}{&\(n + 1 - m = (n + 1) - 1 = n \in \N\).}\\
+					  \case{Fall \(n > 1\)}{& \(m - 1 \in \N\) und \(m - 1 \leq (n + 1) - 1 = n\).\\
+					  						& Da \(n \in C\) folgt \(n - (m - 1) \in \N_{0}\)\\
+					  						& \(\implies n + 1 \in C\).}
+			  \end{enumerate}
+		\item Übung.\qedhere
 	\end{enumerate}
 \end{bew}
 

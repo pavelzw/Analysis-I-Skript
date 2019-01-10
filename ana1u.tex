@@ -2,6 +2,16 @@
 % draft rauslöschen, für releases (Sonst wird an manchen Stellen schwarze Balken gerendert und
 % Bilder laden nicht)
 
+% Vorlage für chapter[x]u.tex:
+%
+% \documentclass[../ana1.tex]{subfiles}
+% \begin{document}
+% \setcounter{section}{[x - 1]}
+% \chapter{[chaptername]}
+% ...
+% \end{document}
+
+
 \IfFileExists{skript.sty}{\usepackage{skript}}{%
   \usepackage{../skript}
 }

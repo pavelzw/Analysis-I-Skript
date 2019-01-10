@@ -6,42 +6,49 @@
   \usepackage{../skript}
 }
 
+%Metadaten
+\hypersetup{
+	pdftitle = {Analysis I Vorlesungsmitschrieb (WS 18/19)},
+	pdfauthor = {Pavel Zwerschke}
+}
+
 \begin{document}
-	\renewcommand{\onlyinsubfile}[1]{}
-	\renewcommand{\notinsubfile}[1]{#1}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
 
-	\title{Analysis I (WS 18/19)\\ {\normalsize Vorlesungsmitschrieb}}
-	\date{\today}
-	\maketitle
+\title{Analysis I (WS 18/19)\\ {\normalsize Vorlesungsmitschrieb}}
+\date{\today}
+\maketitle
 
-	\section*{Disclaimer} 
-	Bei diesem Skript handelt es sich um einen inoffiziellen Mitschrieb 
-	\gqq{Analysis~I} von Prof.\ Dr.\ Dirk Hundertmark im Wintersemester 
-	2018/2019 an dem Karlsruher Institut für Technologie (KIT).	Die 
-	Mitschriebe der Vorlesung wurden mit ausdrücklicher
-	Genehmigung der Dozenten von Pavel Zwerschke erstellt und veröffentlicht.
-	Weder Prof.\ Hundertmark noch Dr.\ Lange sind für den Inhalt 
-	verantwortlich.
+\section*{Disclaimer} 
+Bei diesem Skript handelt es sich um einen inoffiziellen Mitschrieb 
+\gqq{Analysis~I} von Prof.\ Dr.\ Dirk Hundertmark im Wintersemester 
+2018/2019 an dem Karlsruher Institut für Technologie (KIT).	Die 
+Mitschriebe der Vorlesung wurden mit ausdrücklicher
+Genehmigung der Dozenten von Pavel Zwerschke erstellt und veröffentlicht.
+Weder Prof.\ Hundertmark noch Dr.\ Lange sind für den Inhalt 
+verantwortlich.
+\newpage
+
+%Listenstil
+%Itemize   [-]
+%Enumerate [(a)] Für Sätze und Bemerkungen
+%		   [(1)] Für Beispiele
+%		   [(i)] Für Voraussetzungen in Bemerkungen/Sätzen die nummeriert sind. Zusammengehörige
+%                Aussagen die aus mehreren teilaussagen bestehen
+
+\iftoggle{short}{}{
+	%Inhaltsverzeichnis
+	\tableofcontents
 	\newpage
 
-	%Listenstil
-	%Itemize   [-]
-	%Enumerate [(a)] Für Sätze und Bemerkungen
-	%		   [(1)] Für Beispiele
-	%		   [(i)] Für Voraussetzungen in Bemerkungen/Sätzen die nummeriert sind. Zusammengehörige
-	%                Aussagen die aus mehreren teilaussagen bestehen
+	\subfile{chapters/chapter0.tex}
+	\newpage
+	\subfile{chapters/chapter1.tex}
+}
+\foreach \c in {2,...,14}{
+	\subfile{chapters/chapter\c.tex}
+	\newpage
+}
 
-	\iftoggle{short}{}{
-		%Inhaltsverzeichnis
-		\tableofcontents
-		\newpage
-
-		\subfile{chapters/chapter0.tex}
-		\newpage
-		\subfile{chapters/chapter1.tex}
-	}
-	\foreach \c in {2,...,14}{
-		\subfile{chapters/chapter\c.tex}
-		\newpage
-	}
 \end{document}

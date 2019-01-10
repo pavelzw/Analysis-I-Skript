@@ -42,6 +42,10 @@
 \begin{bew}
     \[ z\in\C, a_n = \frac{ z^n }{ n! }, b_n = \frac{ w^n }{ n! } \]
     \[ \Rightarrow \exp(z)\exp(w) = \left( \sum_{k=0}^\infty a_k \right) \left( \sum_{l=0}^\infty b_l \right) \overset{\text{Cauchyprod.}}{=} \sum_{n=0}^\infty c_n \]
-    \[ c_n = \sum_{k+l=n} a_k b_l = \sum_{k+l=n} \frac{z^k}{k!} \frac{w^l}{l!} = \sum_{n=0}^\infty \frac{1}{n!} {(z+w)}^n = \sum_{k=0}^n \frac{z^k w^{n-k}}{ k! (n-k)! } z^k w^{n-k} \]
+    \[ c_n = \sum_{k+l=n} a_k b_l = \sum_{k+l=n} \frac{z^k}{k!} \frac{w^l}{l!} = \sum_{k=0}^n \frac{ z^k w^{n-k} }{ k!(n-k)! } \]
+    \[ = \frac{1}{n!} \sum_{k=0}^n \frac{ n! }{ k!(n-k)! } z^k w^{n-k} = \frac{1}{n!} \underbrace{ \sum_{k=0}^n \binom{n}{k} z^k w^{n-k} }_{\text{binom. Formel } {(z+w)}^n} = \sum_{n=0}^\infty \frac{1}{n!} {(z+w)}^n \]
+    \[ = \exp(z+w) \]
+    Insbesondere ist \( \exp(z)\exp(-z) = \exp(z-z) = \exp(0) = 1 \) \\
+    \( \Rightarrow \exp(z) \neq 0 \,\forall \, z\in\C \) und \( {(\exp(z))}^{-1} = \exp(-z) \).
 \end{bew}
 \end{document}

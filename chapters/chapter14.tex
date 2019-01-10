@@ -1,0 +1,51 @@
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+\setcounter{section}{13}
+\section{Potenzreihen}
+
+\begin{prosa}
+    Eine Potenzreihe ist eine Reihe der Form
+    \[ \sum_{n=0}^\infty a_n z^n, a_n \in\C, z \in\C \] 
+    %unter a_n pfeil mit Koeffizienten und unter z Pfeil mit Variable
+    Partialsummen \( S_n(z) = \sum_{j=0}^n a_j z^j \) (Polynome).\\
+    Frage nach der Konvergenz?\\
+    Definiere \( R:= \sup \{ \abs{z} \;\vert \; z\in\C, \sum_{n=0}^\infty a_n z^n \text{ konvergent} \} \)
+    (Konvergenzradius). (\( R = 0, \infty \) sind erlaubt.)
+\end{prosa}
+\begin{lem}
+    Die Potenzreihe \( \sum_{n=0}^\infty a_n z^n \) konvergiert absolut für jedes \( z\in\C \) mit \( \abs{z} < R \) (d.\ h.\  \( z\in B_R(0) \)) und divergiert für jedes \( \abs{z} > R \).
+\end{lem}
+\begin{bew}
+    Sei \( z_1 \neq 0, \sum_{n=0}^\infty a_n z_1^n \) konvergent.
+    \( \Rightarrow a_n z_1^n \) ist eine Nullfolge.
+    \( \Rightarrow \, \exists \, K \geq 0 \; \colon \; \abs{a_n z_1^n} \leq K \,\forall \, n \) \\
+    Nehme \( 0<r < \abs{z_1}, \abs{z} \leq r \)
+    \[ \Rightarrow \abs{a_n z^n} = \abs{a_n} \abs{z}^n = \abs{a_n} { \left( \frac{\abs{z}}{\abs{z_1}} \right) }^n \abs{z_1}^n \]
+    \[ \leq \abs{a_n}\abs{z_1}^n {\left( \underbrace{\frac{r}{\abs{z_1}}}_{=: \theta} \right)}^n = \abs{a_n z_1^n} \cdot theta^n \leq K theta^n, \theta = \frac{r}{\abs{z_1}} < 1 \]
+    \( \Rightarrow \) konvergente Majorante \( K \theta^n \) \\
+    \[ \abs{ \sum_{n=0}^\infty a_n z^n } \leq \sum_{n=0}^\infty \abs{ a_n z^n } \leq K \sum_{n=0}^\infty \theta^n = \frac{K}{1 - \theta} \leq \infty \]
+    \[ \Rightarrow \sum_{n=0}^\infty a_n z^n \text{ konvergiert absolut für alle } \abs{z} < \abs{z_1}. \]
+    Angenommen \( \exists z\in\C \) mit \( \abs{z} > R \) und \( \sum_{n=0}^\infty a_n z^n \) konvergiert.
+    \( \Rightarrow \) Konvergenzradius \(geq \abs{z} > R \) \Lightning{} Def.\ von \(R\).
+\end{bew}
+\begin{bsp}
+    Definiere
+    \[ \exp(z) := \sum_{n=0}^\infty \frac{z^n}{n!} =: \sum_{n=0}^\infty b_n \]
+    Quotientenkriterium:
+    \[ \frac{\abs{b_{n+1}}}{\abs{b_n}} = \frac{ \abs{ \frac{ z^{n+1} }{ (n+1)! } } }{ \abs{ \frac{ z^n }{ n! } } } = \abs{ \frac{ z^{n+1} }{ z^n } } \cdot \frac{ n! }{ (n+1)! } = \frac{\abs{z}}{n+1} \rightarrow 0, n\rightarrow\infty. \]
+    \[ \Rightarrow \sum_{n=0}^\infty \frac{z^n}{n!} \text{ konvergiert absolut } \forall z\in\C. \]
+\end{bsp}
+\begin{satz}[Additionstherem]
+    \[ \forall \, z,w\in\C : \exp(z) \exp(w) = \exp(z+w) \]
+    Insbesondere ist \( \exp(z) \neq 0 \,\forall \, z\in\C \) und \( \exp(x)>0 \,\forall \, c\in\R \).
+\end{satz}
+\begin{bew}
+    \[ z\in\C, a_n = \frac{ z^n }{ n! }, b_n = \frac{ w^n }{ n! } \]
+    \[ \Rightarrow \exp(z)\exp(w) = \left( \sum_{k=0}^\infty a_k \right) \left( \sum_{l=0}^\infty b_l \right) \overset{\text{Cauchyprod.}}{=} \sum_{n=0}^\infty c_n \]
+    \[ c_n = \sum_{k+l=n} a_k b_l = \sum_{k+l=n} \frac{z^k}{k!} \frac{w^l}{l!} = \sum_{k=0}^n \frac{ z^k w^{n-k} }{ k!(n-k)! } \]
+    \[ = \frac{1}{n!} \sum_{k=0}^n \frac{ n! }{ k!(n-k)! } z^k w^{n-k} = \frac{1}{n!} \underbrace{ \sum_{k=0}^n \binom{n}{k} z^k w^{n-k} }_{\text{binom. Formel } {(z+w)}^n} = \sum_{n=0}^\infty \frac{1}{n!} {(z+w)}^n \]
+    \[ = \exp(z+w) \]
+    Insbesondere ist \( \exp(z)\exp(-z) = \exp(z-z) = \exp(0) = 1 \) \\
+    \( \Rightarrow \exp(z) \neq 0 \,\forall \, z\in\C \) und \( {(\exp(z))}^{-1} = \exp(-z) \).
+\end{bew}
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{5}
+
+\section{k-adische Brüche (30.11.18)}
+\begin{bsp}
+    sei \(b \in \N \quad b \geq 2\)\\
+    unter einem b-adischen Bruch verstehen wir:\\
+    \[\pm \limes{n} \sum_{j=-k}^{n} a_j \cdot b^{-j}\]\\
+    Dabei ist \(k \geq 0\) und \(a_j\) sind natürliche Zahlen mit \(0 \leq a_j \leq b\)\\
+    Sei die Basis b festgelegt.\\
+    \[\pm a_{-k}, \pm a_{-k+1}, \dots ,\pm a_{-1}, \pm a_0, \pm a_1, \pm a_2, \dots\]\\
+    Für \(b = 10\) spricht man von Dezimalbrüchen, \(b = 2\) von dyadischen Brüchen, \(b = 3\) von ternären Brüchen.\\
+    In der Vorlesung wurde die b-adische Darstellung von \(0 < \alpha < 1\) eingeführt. \\
+    Wir können jede positive Zahl \(x \in \R, x > 0\) schreiben als:\\
+    \[x = {\lfloor x \rfloor}_{\in \N} + \alpha_{\in [0, 1]} \]
+\end{bsp}
+\begin{defi}
+    Abrundungsfunktion:\\
+    Für jede reelle Zahl \(x\) ist \(\lfloor x \rfloor\) die größte ganze Zahl, die kleiner oder gleich \(x\) ist.\\
+    \[\lfloor x \rfloor = max\{k \in \Z | k \leq x\}\]\\
+    \begin{bsp}
+        \(x = 25,7365\) dann ist \(\lfloor x \rfloor = 25\) und \(\alpha = 0,7365\)\\
+    \end{bsp}
+\end{defi}
+\begin{defi}
+    Sei \(b \in \N\) größer als 1\\
+    Eine b-adische Darstellung (eine Darstellung zur Basis b) einer natürlichen Zahl \(n\) ist eine Liste \(a_m, \dots, a_0\) von natürlichen Zahlen aus der Menge\\
+    \(\{0, \dots, b-1\}\), so dass \(a_m > 0\) und \(n = \sum_{i=0}^{m} a_ib^i\)
+\end{defi}
+\begin{bsp}
+    Ternärdarstellung (\(b = 3\)) für die natürlichen Zahlen \(\leq 10\)\\
+    \begin{align*}
+        &n = 1 = \textbf{0} \cdot 3^2 + \textbf{0} \cdot 3^1 + \textbf{1} \cdot 3^0 &= 1_{(3)}\\
+        &n = 2 = \textbf{0} \cdot 3^2 + \textbf{0} \cdot 3^1 + \textbf{2} \cdot 3^0 &= 2_{(3)}\\
+        &n = 3 = \textbf{0} \cdot 3^2 + \textbf{1} \cdot 3^1 + \textbf{0} \cdot 3^0 &= 10_{(3)}\\
+        &n = 4 = \textbf{0} \cdot 3^2 + \textbf{1} \cdot 3^1 + \textbf{1} \cdot 3^0 &= 11_{(3)}\\
+        &n = 5 = \textbf{0} \cdot 3^2 + \textbf{1} \cdot 3^1 + \textbf{2} \cdot 3^0 &= 12_{(3)}\\
+        &n = 6 = \textbf{0} \cdot 3^2 + \textbf{2} \cdot 3^1 + \textbf{0} \cdot 3^0 &= 20_{(3)}\\
+        &n = 7 = \textbf{0} \cdot 3^2 + \textbf{2} \cdot 3^1 + \textbf{1} \cdot 3^0 &= 21_{(3)}\\
+        &n = 8 = \textbf{0} \cdot 3^2 + \textbf{2} \cdot 3^1 + \textbf{2} \cdot 3^0 &= 22_{(3)}\\
+        &n = 9 = \textbf{1} \cdot 3^2 + \textbf{0} \cdot 3^1 + \textbf{0} \cdot 3^0 &= 100_{(3)}\\
+        &n = 10 = \textbf{1} \cdot 3^2 + \textbf{0} \cdot 3^1 + \textbf{1} \cdot 3^0 &= 101_{(3)}\\
+    \end{align*}
+\end{bsp}
+\begin{bsp}
+    Basis 10 ist am bekanntesten:\\
+    \(354 = \textbf{3} \cdot 10^2 + \textbf{5} \cdot 10^1 + \textbf{4} \cdot 10^0\)\\
+    als Darstellung zur Basis \(10\): \(a_2 = 3, a_1 = 5, a_0 = 4\)\\
+    \(\Rightarrow 354_{(10)} = 354\)\\
+    Wenn \(b = 5\), dann ist\\
+    \(354 = \textbf{2} \cdot 5^3 + \textbf{4} \cdot 5^2 + \textbf{0} \cdot 5^1 + \textbf{4} \cdot 5^0 = 2404_{(5)}\)
+\end{bsp}
+\begin{bem} %bessere Struktur?
+    Wie findet man eine Darstellung:\\
+    Finde größten Index \(m\), so dass \(b^m \leq n\).\\
+    Der Koeffizient \(a_m\) ist das größte multiplikative vielfache von \(b^m\), so dass \(n - a_m \cdot b^m \geq 0\).\\
+    Dann setzt man \(k=n-a_m \cdot b^m\) und dann setzt man den größten Index \(\tilde{m}\), so dass \(b^{\tilde{m}} \leq k\)
+\end{bem}
+\begin{bsp}
+    4-adische Darstellung von 354\\
+    \begin{align*}			
+        &4^5 = 1024 > 354\\
+        &4^4 = 256 < 354\\
+        &354 - 256 = 98\\
+        &\Rightarrow 354 -1 \cdot 4^4 > 0 \text{ und } 354 - 2 \cdot 4^4 < 0\\
+        &\Rightarrow a_4 = 1
+    \end{align*}
+    Finde Index \(\tilde{m}\), so dass \(4^{\tilde{m}} \leq 98\)			
+    \begin{align*}			
+        &4^3 = 64 \rightarrow \tilde{m} = 3\\
+        &98 - 64 = 34 < 64 \Rightarrow a_3 = 1\\
+        &4^2 = 16 < 34, 2 \cdot 16 = 32 < 34 \Rightarrow a_2 = 2\\
+        &34 - 2 \cdot 16 = 2 < 4 = 4^1 \Rightarrow a_1 = 0\\
+        &\Rightarrow a_0 = 2
+    \end{align*}
+    Somit ist die 4-adische Darstellung von \(354\) gegeben durch \(11202_{(4)}\).\\
+    \(354 = 111010_{(3)} = 101100010_{(2)} = 542_{(8)}\)\\
+    Bleibt zu klären, ob das immer geht.
+\end{bsp}
+\begin{satz}
+    Sei \(b\) eine natürliche Zahl größer als 1.\\
+    Jede Zahl hat eine eindeutige Darstellung zur Basis b.
+\end{satz}
+\begin{bew}
+    Konstruiere b-adische Darstellung durch vollständige Induktion nach n.\\
+    (IA):\\
+    \(n = 0\) hat die Darstellung \(a_0 = 1\)\\
+    (IS): \(n - 1 \rightarrow n\): sei \(n > 1\)\\
+    Wir nehmen an, dass wir bereits ein b-adische Darstellung für \(n = 1\) konstruiert haben.\\
+    \[n-1 = \sum_{j=0}^{m} a_jb^j \quad \text{mit } a_m \neq 0\]\\
+    Wenn \(a_m = a_{m-1} = \dots = a_0 = b-1\), dann stellen wir n als\\
+    \(a_{m+1} = 1, a_j = 0\) für \(j \leq m\)\\
+    Dies funktioniert, das aus der geometrischen Summenformel folgt:\\
+    \[n-1 = \sum_{j=0}^{m} (b-1)b^j = (b-1) \cdot \sum_{j=0}^{m}b^j = (b-1) \cdot \frac{1- b^{m+1}}{1-b} = \frac{-(1-b)(1-b^{m+1})}{1-b} = b^{m+1}-1\]\\
+    Ist dies nicht der Fall, muss also mindestens ein Koeffizient in der Darstellung von \(n-1\) kleiner als \(b-1\) sein.\\
+    Sei \(\varepsilon\) der kleinste Index, so dass \(a_{\varepsilon} < b-1\).\\
+    Wir definieren uns \(c_0, \dots, c_m\) durch:\\
+    \(c_j = a_j \quad \text{für } j > \varepsilon\)\\
+    \(c_t = a_{t+1}\)\\
+    \(c_j = 0 \quad \text{für } j < t\)\\
+    Da \(a_j = b-1\) für alle \(j<\varepsilon\) erhalten wir\\
+    \[\sum_{j=0}^{m} c_jb^j = \underbrace{\sum_{j=0}^{t-1} c_jb^j}_{=0} + \underbrace{c_tb^t}_{=a_{t+1}b^t} + \underbrace{\sum_{j=t+1}^{m} a_jb^j}_{=\sum_{j=t+1}^{m} a_jb^j}\]\\
+    Also:
+    \[\sum_{j=0}^{t-1} a_jb^j = b^t-1\]\\
+    \[= 1+\sum_{j=0}^{t-1} a_jb^j + a_tb^t + \sum_{t+1}^{m}a_jb^j = 1+\sum_{j=0}^{m} a_jb^j = n\]\\
+    Nach dem Induktionsprinzip gilt dies somit für alle \(n \in \N\). Wir müssen noch Eindeutigkeit zeigen.\\
+    Sei \(a_v,\dots, a_0\) und \(c_s,\dots, c_0\) verschiedene Darstellungen von \(n \in \N\). Wenn \(v \neq s\), können o.B.d.A annehmen, dass \(v > s\). Nun ist die durch \(a_v,\dots, a_0\) dargestellt Zahl mindestens \(b^v\).\\
+    Aber die Zahl, die durch \(c_s,\dots, c_0\) dargestellt wird, ist maximal\\
+    \[\sum_{j=0}^{v-1}(b-1)b^j = b^v - 1\]\\
+    Somit kann der Fall nicht einsetzen. Sei also \(v=s\). Wir wissen, dass \(a_v\) und \(c_s\) ungleich Null sind. Somit gilt: \(a_v - 1 \geq 0, c_s - 1 \geq 0\) und wir erhalten somit verschiedene Darstellungen von Basis \(b\) der kleineren Zahl \(n-b^v\). Dies können wir fortsetzen und sind entweder irgendwann in dem Fall, dass die Indizes nicht übereinstimmen (was nicht sein kann) oder die Darstellungen sind schon gleich.
+\end{bew}
+\begin{bem}
+    Sei \(b \in \N, b \geq 2, a \in [0, 1)\)\\
+    \[\alpha = \limes{n} \sum_{j = 1}^{n} \frac{b_j}{b_j} \quad \text{mit } b_j \in \{0,1,\dots,b-1\}\]\\
+    so dass \(l_{n+1} := \lfloor b^{n+1}(x-\sum_{j=1}^{n} \frac{b_j}{b_j})\rfloor\) (\(*\))\\
+    \(b=3\)\\
+    \begin{center}
+    \begin{tikzpicture}[scale = 4]
+        \draw (-1/8,0) -- (9/8,0);
+        \draw (0,0) node {\([\)} (1,0) node {\()\)};
+        \draw (0,0) node[below=3mm] {\(0\)};
+        \draw (1,0) node[below=3mm] {\(1\)};
+        \foreach \x in {1,2,4,5,7,8} {
+        \draw (\x/9,-1/32) -- (\x/9,1/32);}
+        \foreach \x in {3,6} {
+        \draw (\x/9,-1/16) -- (\x/9,1/16);}
+    \end{tikzpicture}
+    \end{center}
+    ohne (\(*\)) wäre \(\frac{1}{3} = 0,100000\dots = 0,0222\dots\)
+\end{bem}
+
+\end{document}

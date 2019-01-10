@@ -20,12 +20,8 @@
 \usepackage{booktabs}
 \usepackage{zref-xr}
 \usepackage{thmtools}
-
-%Metadaten
-\hypersetup{
-	pdftitle = {Analysis I Skript (WS 18/19)},
-	pdfauthor = {Pavel Zwerschke, Daniel Augustin}
-}
+\usepackage{float}
+\restylefloat{table}
 
 \theoremstyle{definition}
 \newtheorem{satz}{Satz}[subsection]
@@ -35,7 +31,7 @@
 
 \newtheorem{defi}[satz]{Definition}
 \newtheorem*{notation}{Notation}
-\newtheorem*{defi*}{Definition} %Für Sachen, die Definitionen sind aber keine Nummer haben
+\newtheorem*{defi*}{Definition} % Für Sachen, die Definitionen sind, aber keine Nummer haben
 \newtheorem*{beh}{Behauptung}
 \newtheorem{bem}{Bemerkung}[satz]
 
@@ -112,6 +108,7 @@
 
 \iftoggle{short}{
 	\includeversion{satz}
+	\includeversion{satz*}
 	\includeversion{kor}
 	\includeversion{lem}
 	\includeversion{defi}

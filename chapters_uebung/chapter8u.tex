@@ -1,0 +1,102 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{7}
+
+\section{Reihenkonvergenz (14.12.18)}
+\begin{bsp}
+    Grenzwert von:
+    \[\sum_{n=1}^{\infty} \frac{1}{4n^2 - 1}\]
+    Für \(n \geq 1\) haben wir folgende Zerlegung:
+    \[\frac{2}{4n^2 - 1} = \frac{2}{(2n - 1)(2n + 1)} = \frac{1}{2n-1} - \frac{1}{2n+1}\]
+    \[s_k = \sum_{n=1}^{k} \frac{1}{4n^2-1} = \frac{1}{2}\left(\sum_{n=1}^{k} \frac{1}{2n-1} - \sum_{n=1}^{k} \frac{1}{2n+1} \right) = \frac{1}{2}\left(\sum_{n=0}^{k-1} \frac{1}{2n+1} - \sum_{n=1}^{k} \frac{1}{2n+1} \right)\]
+    \[= \frac{1}{2}\left(1 - \frac{1}{2k+1}\right)\]
+    Somit gilt:
+    \[\sum_{n=1}^{\infty} \frac{1}{4n^2 - 1} = \limes{k} s_k = \limes{k} \frac{1}{2}\left(1 - \frac{1}{2k+1}\right) = \frac{1}{2} \]
+\end{bsp}
+\begin{bsp}
+    Konvergenz von:
+    \[\sum_{n=1}^{\infty} \frac{1}{n^2+1} \left(= \frac{1}{2}(1 + \pi \coth(\pi)) \right)\]
+    Wir können den Grenzwert noch nicht berechnen, aber wir können feststellen, ob die Reihe konvergiert oder nicht. Mittel dafür ist das Majorantenkriterium.\\
+    Sei \(\sum_{n=0}^{\infty}c_n \) eine konvergente Reihe mit den nicht-negativen Reihengliedern und \((a_n)_n\) eine Folge mit
+    \[|a_n| < c_n \forall n \in \N \Rightarrow \sum_{n=0}^{\infty} a_n \text{ absolut konvergent}\]
+    \[\left|\frac{1}{n^2+1}\right| < \frac{1}{n^2}\]
+    \(\Rightarrow \sum_{n=1}^{\infty} \frac{1}{n^2}\) konvergiert absolut, da \(\sum_{n=1}^{\infty} \frac{1}{n^2}\) nach Volesung konvergent ist.
+\end{bsp}
+\begin{bsp}
+    Konvergenz von:\[\sum_{n=1}^{\infty} (-1)^n \cdot \binom{2n}{n}\]
+    \((a_n)_n\) mit \(a_n = (-1)^n \cdot \binom{2n}{n} \quad \forall n\). Dann gilt
+    \[|a_n| = \frac{(2n)!}{(n!)^2} = \frac{(n+1)(n+2) \cdot \hdots \cdot (n+n)}{1 \cdot 2 \cdot \hdots \cdot n} \geq 1\]
+    Somit und da \((a_n)_n\) keine Nullfolge ist, kann die Reihe \(\sum_{n=1}^{\infty} (-1)^n \cdot \binom{2n}{n}\) nicht konvergieren.
+\end{bsp}
+\begin{bsp}
+    Konvergenz von:\\
+    Wir definieren \((a_n)_n\) mit \(a_n = \frac{1}{n\sqrt{n}} \quad \forall n \in \N\)\\
+    \[\sqrt{n} < \sqrt{n+1} \text{ und } n < n+1 \Rightarrow \frac{1}{n\sqrt{n}} > \frac{1}{(n+1)\sqrt{n+1}}\]
+    somit ist \((a_n)_n\) monoton fallend. Aus dem Cauchy'schen Verdichtungskriterium folgt, dass \(\sum_{n=1}^{\infty} \frac{1}{n\sqrt{n}}\) genau dann konvergiert, wenn die verdichtete Reihe
+    \[\sum_{n=1}^{\infty} 2^n a_{2n} = \sum_{n=1}^{\infty} 2^n \frac{1}{2^n\sqrt{2^n}} = \sum_{n=1}^{\infty} \frac{1}{\sqrt{2^n}}\]
+    Die Konvergenz von \(\sum_{n=1}^{\infty} \frac{1}{\sqrt{2^n}}\) folgt aus dem Quotientenkriterium
+    \[\frac{\left|\frac{1}{\sqrt{2^{n+1}}}\right|}{\left|\frac{1}{\sqrt{2^n}}\right|} = \frac{\sqrt{2^n}}{\sqrt{2^{n+1}}} = \frac{1}{\sqrt{2^n}} < 1\]
+    Da \(a_n > 0\) für alle \(n \in \N\) folgt somit, dass \(\sum_{n=1}^{\infty} \frac{1}{n\sqrt{n}}\) absolut konvergiert.
+\end{bsp}
+\begin{satz}[Quotientenkriterium]
+    Sei \(\sum_{n=0}^{\infty} a_n\) eine Reihe mit \(a_n \neq 0\) für alle \(n \in \N: n \geq n_0\).\\
+    Es gebe eine reelle Zahl \(\varphi\) mit \(0 \leq \varphi < 1\), sodass \(\left|\frac{a_{n+1}}{a_n}\right| \leq \varphi \quad \forall n \geq n_0\)\\
+    Dann konvergiert die Reihe \(\sum_{n=0}^{\infty} a_n\) absolut.\\
+    \textbf{Wichtig:}\\
+    Die Bedingung im Quotientenkriterium lautet nicht 
+    \[\left|\frac{a_{n+1}}{a_n}\right| \leq 1 \quad \forall n \geq n_0\]
+    sondern
+    \[\left|\frac{a_{n+1}}{a_n}\right| \leq \varphi \quad \forall n \geq n_0\]
+    für \(\varphi < 1\) unabhängig von \(n\).\\
+    Dass die erste Bedingung nicht ausreicht, kann man anhand von \(\sum_{n=0}^{\infty} \frac{1}{n}\) leicht sehen.\\
+    Mit \(a_n = \frac{1}{n}\) gilt: 
+    \[\left|\frac{a_{n+1}}{a_n}\right| = \frac{n}{\underbrace{n+1}_{\rightarrow \infty \; (n \rightarrow \infty)}} < 1 \quad \forall n \geq 1\]
+    Auch bei bekannten konvergenten Reihen ist das Quotientenkriterium unter Umständen nicht anwendbar.
+    \[\sum_{n=0}^{\infty} \frac{1}{n^2}; \quad \left|\frac{a_{n+1}}{a_n}\right| = \frac{n^2}{(n+1)^2} < 1 \quad \forall n \geq 1\]
+    Somit ist das Quotientenkriterium nur eine hinreichende, aber keine notwendige Bedingung für die Konvergenz von Reihen.
+\end{satz}
+\begin{lem}
+    Sei \((a_n)_n\) eine reelle Folge mit \(a_n \neq 0\) für \(n \in \N\). Dann sind die folgenden Aussagen äquivalent:
+    \begin{enumerate}
+        \item 
+            Die Reihe \(\sum_{n=0}^{\infty} a_n\) konvergiert absolut
+        \item
+            Es gibt eine Folge \((c_n)_n\) mit \(c_n > 0 \quad \forall n \in \N\), so dass die Reihe \(\sum_{n=0}^{\infty} c_n\) konvergiert und	\(\frac{|a_{n+1}|}{|a_n|} \leq \frac{c_{n+1}}{c_n}\) gilt für fast alle \(n \in \N\).
+    \end{enumerate}
+\end{lem}
+\begin{bew}
+    (1) \(\Rightarrow\) (2):\\
+    Die Reihe \(\sum_{n=1}^{\infty} a_n\) konvergiert absolut. Wähle \(c_n = |a_n|\) für fast alle \(n \in \N\), d.h. es gilt (2).\\
+    (2) \(\Rightarrow\) (1):\\
+    Es existiert eine Folge \((c_n)_n\) mit \(c_n > 0\) für fast alle \(n \in \N\).\\
+    \(\sum_{n=1}^{\infty} c_n\) konvergiert und \(\left|\frac{a_{n+1}}{a_n}\right| \leq \frac{c_{n+1}}{c_n}\) für alle \(n \geq n_0\)\\
+    Für alle \(m \geq n_0\) folgt:
+    \[\left|\frac{a_{m}}{a_n}\right| = \prod_{n=n_0}^{m-1} \frac{c_{n+1}}{c_n} = \frac{c_{m}}{c_n}\]
+    Dann gilt für alle \(m \geq n_0\)
+    \[|a_m| \leq \frac{|a_{n_0}|}{\underbrace{c_{n_0}}_{c \in \R}} \cdot c_m \]
+\end{bew}
+\begin{bem}
+    \(\sum_{n=1}^{\infty} |a_n| \leq c \cdot \sum_{n=1}^{\infty} c_n \leq \tilde{c} \in \R\)\\
+    Somit erhalten wir die absolute Konvergenz der Reihe \(\sum_{n=1}^{\infty} a_n\) mit dem Majorantenkriterium.
+\end{bem}
+\begin{bem}
+    Quotientenkriterium\\
+    Das Quotientenkriterium ist nicht anwendbar, wenn \(\limes{n} \left|\frac{a_{n+1}}{a_n}\right| = 1\)\\
+    Aber es gibt eine Verschärfung bzw. Abschwächung der Bedingung aus dem Quotientenkriterium.
+\end{bem}
+\begin{kor}
+    Sei \((a_n)_n\) eine reelle Folge mit \(a_n \neq 0 \quad \forall n \in \N\), dann gilt:
+    \[\left|\frac{a_{n+1}}{a_n}\right| \leq 1 - \frac{p}{n} \text{ für } p > 1 \text{ und fast alle } n \in \N\]
+    so ist die Reihe \(\sum_{n=1}^{\infty} a_n\) absolut konvergent.
+\end{kor}
+\begin{bew}
+    Wir definieren die Folge \((c_n)_n\) durch \(c_1 := 1\) und \(c_{n+1} := \frac{1}{n^p} \quad \forall n \in \N\).\\
+    Aus der Vorlesung ist bekannt, dass \(\sum_{n=1}^{\infty} c_n\) genau dann konvergiert, wenn \(p > 1\) ist.\\
+    Weiter gilt für \(n \geq 2\):
+    \[\frac{c_{n+1}}{c_n} = \frac{(n-1)^p}{n^p} = \left(\frac{n-1}{n}\right)^p \overset{\text{Bernoulli}}{\geq} 1 - \frac{p}{n}\]
+    Nach Voraussetzung gilt somit:
+    \[\left|\frac{a_{n+1}}{a_n}\right| \leq 1 - \frac{p}{n} \leq \frac{c_{n+1}}{c_n} \text{ für fast alle } n \in \N\]
+    Nach dem Lemma ist die Reihe \(\sum_{n=1}^{\infty} a_n\) somit absolut konvergent.
+\end{bew}
+
+\end{document}

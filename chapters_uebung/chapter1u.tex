@@ -1,0 +1,137 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{0}
+
+\section{Aussagenlogik (19.10.18)}
+\begin{defi}
+    Eine Aussage ist die gedankliche Widerspiegelung eines Sachverhalts in Form eines Satzes in einer natürlichen oder künstlichen Sprache.
+    \vspace{5mm}\\
+    Jede Aussage ist entweder wahr oder falsch.
+\end{defi}
+\begin{bsp}
+    Aussagen:
+    \begin{enumerate}
+        \item Wenn es regnet, dann ist die Straße nass.
+        \item Vögel können fliegen
+    \end{enumerate}
+\end{bsp}
+\textbf{Aussagen verknüpfen:}
+\begin{align*}
+    \neg &A\\
+    A &\wedge B\\
+    A &\vee B\\
+    A &\rightarrow B\\
+    A &\Leftrightarrow B
+\end{align*}
+\textbf{Wahrheitstafel:}
+Seien A und B Variablen die entweder wahr oder falsch sind.	
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c}			
+        A & \(\neg A\) \\ 
+        \hline
+        \textbf{t} & \textbf{f} \\
+        \textbf{f} & \textbf{t}
+    \end{tabular}
+    \caption{Negation}
+\end{table}	
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c | c | c | c | c | c}			
+        A & B & \(A \wedge B\) & \(A \vee B\) & \(A \rightarrow B\) & \(A \Leftrightarrow B\) \\
+        \hline
+        \textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} & \textbf{w} \\
+        \textbf{w} & \textbf{f} & \textbf{f} & \textbf{w} & \textbf{f} & \textbf{f} \\
+        \textbf{f} & \textbf{w} & \textbf{f} & \textbf{w} & \textbf{w} & \textbf{f} \\
+        \textbf{f} & \textbf{f} & \textbf{f} & \textbf{f} & \textbf{w} & \textbf{w}
+        
+    \end{tabular}
+    \caption{Konjunktion, Disjunktion, Implikation, Äquivalenz}
+\end{table}
+\textbf{Ausdrücken der Aussagenlogik:}
+\begin{enumerate}
+    \item Konstanten und Variablen sind Ausdrücke
+    \item Sind A und B Variablen, so sind auch (siehe Wahrheitstabelle) Ausdrücke
+\end{enumerate}
+\subsection{Grundgesetze der Aussagenlogik}
+\begin{enumerate}
+    \item Assoziativgesetz:
+    \[(A \wedge B) \wedge C \Leftrightarrow A \wedge (B \wedge C)\]
+    \[(A \vee B) \vee C \Leftrightarrow A \vee (B \vee C)\]
+    \item Kommutativgesetz:
+    \[(A \wedge B) \Leftrightarrow (B \wedge A)\]
+    \[(A \vee B) \Leftrightarrow (B \vee A)\]
+    \item Distributivgesetz:
+    \[(A \wedge B) \vee C \Leftrightarrow (A \vee C) \wedge (B \vee C)\]
+    \[(A \vee B) \wedge C \Leftrightarrow (A \wedge C) \vee (B \wedge C)\]
+    \item Absorptionsgesetz:
+    \[A \wedge (A \vee B) \Leftrightarrow A\]
+    \[A \vee (A \wedge B) \Leftrightarrow A\]
+    \item Idempotenzgesetze:
+    \[A \wedge A \Leftrightarrow A\]
+    \[A \vee A \Leftrightarrow A\]
+    \item ausgeschlossene Dritte:
+    \[A \wedge \neg A \Leftrightarrow \textbf{f}\]
+    \[A \vee \neg A \Leftrightarrow \textbf{t}\]
+    \item de Morgan'sche Gesetze:
+    \[\neg (A \wedge B) \Leftrightarrow (\neg A \vee \neg B)\]
+    \[\neg (A \vee B) \Leftrightarrow (\neg A \wedge \neg B)\]
+    \item Gesetz für true und false:
+    \[A \wedge \textbf{t} \Leftrightarrow A\]
+    \[A \wedge \textbf{f} \Leftrightarrow \textbf{f}\]
+    \[A \vee \textbf{t} \Leftrightarrow \textbf{t}\]
+    \[A \vee \textbf{f} \Leftrightarrow A\]
+    \[\neg \textbf{f} \Leftrightarrow \textbf{t}\]
+    \[\neg \textbf{t} \Leftrightarrow \textbf{f}\]
+    \item doppelte Verneinung:
+    \[\neg (\neg A) \Leftrightarrow A\]
+    \item Gesetz für das Konditional:
+    \[A \Rightarrow B \Leftrightarrow (\neg A \vee B)\]
+    \[A \Rightarrow B \Leftrightarrow \neg (A \wedge \neg B)\]
+    \[A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A\]
+    \item Gesetz der Komplementarität:
+    \[A \vee \neg A \Leftrightarrow \textbf{t}\]
+    \[A \wedge \neg A \Leftrightarrow \textbf{f}\]
+\end{enumerate}	
+\begin{defi}
+    Zwei Aussagenlogische Ausdrücke heißen logisch äquivalent oder wertgleich (A = B), wenn sie die gleichen Wahrheitswerte besitzen.
+\end{defi}
+\begin{bsp}
+    \begin{align*}
+        (A \wedge B) \vee C &= (A \vee C) \wedge (B \vee C)\\
+        \Leftrightarrow (A \wedge B) \vee C &= (B \wedge (A \vee C)) \vee (C \wedge (A \vee C)))\\
+        \Leftrightarrow (A \wedge B) \vee C &=  (B \wedge A) \vee ((B \wedge C) \vee C)\\
+        \Leftrightarrow (A \wedge B) \vee C &= (A \wedge B) \vee C
+    \end{align*}		
+\end{bsp}
+\begin{bsp}
+    \begin{align*}
+        \neg(A \wedge B) &= (\neg A \vee \neg B)\\
+        (\neg A \vee \neg B) &= (\neg A \vee \neg B)
+    \end{align*}
+    Somit sind \(\neg(A \wedge B)\) und \((\neg A \vee \neg B)\) logisch äquivalent und es gilt:
+    \begin{align*}
+        \neg(A \wedge B) = (\neg A \vee \neg B)
+    \end{align*}
+\end{bsp}
+\subsection{Tautologie}
+\begin{defi}
+    Ein Aussagenlogischer Ausdruck heißt allgemeingültig oder Tautologie, wenn die Wahrheitsfunktion identisch true ist.
+\end{defi}	
+\begin{bsp}
+    Kontraposition:\\
+    \begin{align*}
+        A \rightarrow B \Leftrightarrow \neg B \rightarrow \neg A
+    \end{align*}
+    \begin{align*}
+        ((A \rightarrow B) \rightarrow (\neg B \rightarrow \neg A)) &\wedge ((\neg B \rightarrow \neg A) \rightarrow (A \rightarrow B))\\
+        ((\neg A \vee B) \rightarrow (B \vee \neg A)) &\wedge ((B \vee \neg A) \rightarrow (\neg A \vee B))\\
+        (\neg (\neg A \vee B) \vee (B \vee \neg A)) &\wedge (\neg (B \vee \neg A) \vee (\neg A \vee B))\\
+        ((A \wedge \neg B) \vee (\neg A \vee B)) &\wedge ((A \wedge \neg B) \vee (\neg A \vee B))\\
+        ((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B))) &\wedge ((A \vee (\neg A \vee B)) \wedge (\neg B \vee (\neg A \vee B)))\\
+        \textbf{t} &\wedge \textbf{t}\\
+        &\textbf{t}
+    \end{align*}
+\end{bsp}
+
+\end{document}

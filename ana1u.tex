@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper,titlepage,draft]{article}
+% draft rauslöschen, für releases (Sonst wird an manchen Stellen schwarze Balken gerendert und
+% Bilder laden nicht)
+
+\IfFileExists{skript.sty}{\usepackage{skript}}{%
+  \usepackage{../skript}
+}
+
+%Metadaten
+\hypersetup{
+	pdftitle = {Analysis I Übungs Skript (WS 18/19)},
+	pdfauthor = {Daniel Augustin}
+}
+
+\begin{document}
+\title{Analysis I (WS 18/19)\\ {\normalsize Übungsmitschrieb}}
+\date{\today}
+\maketitle
+
+\section*{Disclaimer}
+Bei diesem Skript handelt es sich um einen inoffiziellen Mitschrieb 
+\gqq{Analysis~I} von Prof.\ Dr.\ Dirk Hundertmark im Wintersemester 
+2018/2019 an dem Karlsruher Institut für Technologie (KIT).	Die 
+Mitschriebe der Übung wurden mit ausdrücklicher	Genehmigung der 
+Dozenten von Daniel Augustin erstellt und veröffentlicht.
+Weder Prof.\ Hundertmark noch Dr.\ Lange sind für den Inhalt 
+verantwortlich.
+\newpage
+
+%Inhaltsverzeichnis
+\tableofcontents
+\newpage	
+
+\foreach \c in {1,...,8}{
+	\subfile{chapters_uebung/chapter\c u.tex}
+	\newpage
+}
+
+\end{document}

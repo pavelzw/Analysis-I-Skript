@@ -1,0 +1,157 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{6}
+
+\section{Limes Superior und Limes Inferior (07.12.18)}
+\begin{defi}
+    Sei \(a_n\) eine reelle Folge\\
+    \[\limessup{n} a_n = \limes{n} (\underset{k \geq n}{sup(a_k)}) \]\\
+    \[\limesinf{n} a_n = \limes{n} (\underset{k \geq n}{inf(a_k)}) \]
+\end{defi}
+\begin{satz}
+    Charakterisierung des Limes superior\\
+    Sei \(a_n\) eine reelle Folge und \(a \in \R\)\\
+    Genau dann gilt:\\
+    \[\limessup{n} a_n = a\]\\
+    Wenn für \(\varepsilon > 0\) die folgenden Bedingungen erfüllt sind.\\
+    \begin{enumerate}
+        \item Für fast alle Indizes \(n \in \N\) (d.h für alle bis auf endlich viele) gilt: \(a_n < a+ \varepsilon\)
+        \item Es gibt unendlich viele Indizes \(m \in \N\) mit \(a_m > a - \varepsilon\)
+    \end{enumerate}
+\end{satz}
+\begin{bew}
+    Wir definieren:\\
+    \(s_n := \underset{k \geq n}{sup(a_k)}\)\\
+    Für alle \(n \in \N\) gilt: \(\{k \in \N: k \geq n+1\} \subset \{k \in \N: k \geq n\}\) also ist\\
+    \(s_{n+1} = sup\{a_k: k \in \N, k \geq n+1\} \subseteq sup\{a_k: k \in \N, k \geq n\} = s_n\)\\
+    und damit ist \((s_n)_n\) monoton fallend.\\
+    \(\Rightarrow\): Sei \(\limes{n} a_n = a\), d.h. \(\limes{n} s_n = a\)\\
+    Weiter \(\varepsilon \geq 0\)\\
+    Da \((s_n)_n\) monoton fallend ist, ist \(s_n \geq a \; \forall n \in \N\)\\
+    Somit ist Bedingung 2. erfüllt. Weiter muss es ein \(N \in \N\) geben, so dass \(s_n < a + \varepsilon\) für \(n \geq N\)\\
+    d.h. \(a_n < a + \varepsilon\) für \(n \geq N\) Also gilt auch 1.\\
+    \(\Leftarrow\): seinen Bedingungen 1. und 2. erfüllt.\\
+    Aus 2. folgt, \(s_n > a - \varepsilon\) für alle \(n \in \N\) und alle \(\varepsilon > 0\), also \(\limes{n} s_n \geq a\).\\
+    Wegen 1. gibt es zu jedem \(\varepsilon > 0\) ein \(N \in \N\), so dass \(a_n < a + \varepsilon\) für alle \(n \geq N\).\\
+    Woraus folgt:\\
+    \[s_n \leq a + \varepsilon \text{ für alle } n \geq N\]\\
+    Insgesamt gilt also: \(\limes{n} s_n = a\)\\
+\end{bew}
+\begin{bem}
+    Der Limes inferior kann analog definiert werden.\\
+    sei \((a_n)_n\) eine reelle Folge und \(a \in \R\)\\
+    Dann gilt: \(\limesinf{n} a_n = a\) genau dann,wenn für jedes \(\varepsilon > 0\) gilt:
+    \begin{enumerate}
+        \item \(a_n > a - \varepsilon\) für fast alle \(n \in \N\)
+        \item \(a_n < a + \varepsilon\) für unendlich viele \(n \in \N\)
+    \end{enumerate}
+\end{bem}
+\begin{bem}
+    Da \(\underset{k \geq n}{(sup(a_k))_n}\) monoton fallend und \(\underset{k \geq n}{(inf(a_k))_n}\) monoton wachsend ist, existieren \(\limsup a_n \) und \(\liminf a_n\) immer eigentlich oder uneigentlich, d.h. sie sind entweder reelle Zahlen oder es gibt \(\limessup{n} a_n = \pm \infty \) bzw. \(\limesinf{n} a_n = \pm \infty \) 
+\end{bem}
+\begin{lem}
+    Sei \((a_n)_n\) eine beschränkte Folge reeller Zahlen und \(H((a_n)_n)\) die Menge der Häufungspunkte der Folge \((a_n)_n\). Es gilt:\\
+    \[\limessup{n} a_n = sup(H((a_n)_n))\]
+    \[\limesinf{n} a_n = inf(H((a_n)_n))\]
+\end{lem}
+\begin{bew}
+    Wir beweisen \(\limessup{n} a_n = sup(H((a_n)_n))\), die andere Aussage folgt analog.\\
+    Wir definieren:\\
+    \(s_n := \underset{k \geq n}{sup(a_k)}\)\\
+    \((s_n)_n\) ist monoton fallend.\\
+    Da \((a_n)_n\) beschränkt ist, gilt \(\underset{k \in \N}{inf}(a_k) \leq s_n \leq \underset{k \in \N}{sup}(a_k) \; \forall \in \N\)\\
+    Also ist \((s_n)_n\) beschränkt und \(s_n \in \R\).\\
+    Nach dem Monotoniekriterium konvergiert \((s_n)_n\)\\
+    \[s := \limes{n} s_n = \underset{n \rightarrow \infty}{inf}(s_n)_n = \underset{n \in \N}{inf}\underset{k \geq n}{sup}(a_k)_n \in \R\]\\
+    Wir beweisen jetzt:
+    \begin{enumerate}
+        \item \(s \in H((a_n)_n)\)
+        \item \(a \leq s \; \forall a \in H((a_n)_n)\)
+    \end{enumerate}
+    Beweis von 1.:\\
+    \(H((a_n)_n)\) ist die Menge aller Grenzwerte von konvergenten Teilfolgen der Folge \((a_n)_n\) somit genügt es zu zeigen, dass zu jedem \(N \in \N\) und \(\varepsilon > 0\) ein \(n \in \N\) existiert, so dass \((a_n - s) < \varepsilon\)\\
+    Da \(s = \limes{n} s_n\), finden wir ein \(m \geq N\), so dass 
+    \[|s_m - s| < \frac{\varepsilon}{2}\]
+    Nach Definition \(s_m\) gilt es \(n \geq m\), so dass
+    \[|a_n - s_m| < \frac{\varepsilon}{2}\]
+    Daraus folgt \(n \geq N\) und \(|a_n - s| < \varepsilon\) was 1. zeigt.\\
+    Beweis 2.:\\
+    sei \(a \in H((a_n)_n)\), dann ist a Grenzwert einer konvergenten Teilfolge \(({a_n}_k)_{k \in \N}\) von \((a_n)_n\)\\
+    Per Definition gilt: \({s_n}_k \geq {a_n}_k\)\\
+    Dann folgt:
+    \[s = \limes{n} s_n = \limes{k} {s_n}_k \geq \limes{k} {a_n}_k = a\]
+    Dies zeigt Bedingung 2.\\
+    Aus 1. und 2. folgt direkt
+    \[\limessup{n} a_n = sup(H((a_n)_n))\]
+\end{bew}
+\begin{lem}
+    Sei \((a_n)_n\) eine reelle beschränkte Folge.\\
+    Es gilt: 
+    \begin{enumerate}
+        \item 
+            die Folge \(((\underset{k \geq n}{sup}(a_k))\) ist monoton fallend und beschränkt. Weiter gilt:
+            \[\limessup{n} a_n = \limes{n} \underset{k \geq n}{sup} (a_k) = \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+        \item 
+            die Folge \((\underset{k \geq n}{inf} (a_k))\) ist monoton wachsend und beschränkt. Weiter gilt:
+            \[\limesinf{n} a_n = \limes{n} \underset{k \geq n}{inf} (a_k) = \underset{n \in \N}{sup} \; \underset{k \geq n}{inf} (a_k)\]
+    \end{enumerate}		
+\end{lem}
+\begin{bew}
+    Monotonie und Beschränktheit (erledigt)\\
+    \[\limes{n} \underset{k \geq n}{sup} (a_k) = \limessup{n} a_n\]
+    \[\limessup{n} a_n \leq \underset{n \in \N}{inf} \; \underset{k \geq n}{sup} (a_k)\]
+    (siehe Beweise vorher)\\
+    Bleibt zu zeigen:
+    \[\limessup{n} a_n \geq \limes{n} \underset{k \geq n}{sup} (a_k)\]
+    Wir definieren: \(s_n := \underset{k \geq n}{sup} (a_k)\) und \(s := \limes{n} s_n\)\\
+    Wir wollen zeigen: \(s \leq \limessup{n} a_n + \varepsilon \; \forall \varepsilon > 0\)\\
+    Sei \(\varepsilon > 0\)\\
+    Nach Satz 1 existiert \(N \in \N\) mit \(a_k \leq \limessup{n} a_n + \varepsilon\) für \(k \geq N\)\\
+    Insbesondere gilt:\\
+    \(s_n = sup\{a_k: k \geq N\} \leq \limessup{n} a_n + \varepsilon\)\\
+    Also auch \(s = \limes{n} s_n \leq s_n \leq \limessup{n} a_n + \varepsilon\)\\
+\end{bew}	
+\begin{bsp}
+    Bestimmung von Limes superior und Limes inferior:\\
+    \(a_n := (-1)^n \cdot (1 + \frac{1}{n})\) für alle \(n \in \N\)\\
+    Beh.: \(\limessup{n} a_n = 1\), \(\limesinf{n} a_n = -1\)\\
+    \begin{bew}
+        Wir haben:
+        \[\underset{k \geq n}{sup} (a_k) =\begin{cases}
+        1 + \frac{1}{n} & \text{n gerade}\\
+        1 + \frac{1}{n + 1} & \text{n ungerade}
+        \end{cases} \]
+        \(\Rightarrow \limes{n} \underset{k \geq n}{sup} (a_k) = 1\)\\
+        Weiter gilt:
+        \[\underset{k \geq n}{inf} (a_k) =\begin{cases}
+        -(1 + \frac{1}{n} )& \text{n ungerade}\\
+        -(1 + \frac{1}{n + 1}) & \text{n gerade}
+        \end{cases} \]
+        \(\Rightarrow \limes{n} \underset{k \geq n}{inf} (a_k) = -1\)\\
+    \end{bew}
+\end{bsp}
+\begin{bsp}
+    \(b_n := (1 + (-1)^n) \cdot (-1)^{\frac{n(n+1)}{2}} \)\\
+    Beh.: \(\limessup{n} b_n = 2\), \(\limesinf{n} b_n = -2\)\\
+    Zunächst gilt für \(n \in \N\)\\
+    \(n = 4k, k \in \N \Rightarrow \frac{n(n+1)}{2} = 2k(4k+1)\) ist gerade\\
+    \(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+    \(n = 4k - 1, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-1)2k\) ist gerade\\
+    \(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = 1\)\\
+    \(n = 4k - 2, k \in \N \Rightarrow \frac{n(n+1)}{2} = (2k-1)(4k-1)\) ist ungerade\\
+    \(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+    \(n = 4k - 3, k \in \N \Rightarrow \frac{n(n+1)}{2} = (4k-3)(2k-1)\) ist ungerade\\
+    \(\Rightarrow (-1)^{\frac{n(n+1)}{2}} = -1\)\\
+    Betrachten wir die Teilfolgen \((b_{4k})_k, (b_{4k-1})_k, (b_{4k-2})_k, (b_{4k-3})_k\)\\
+    \(b_{4k} = (1 + (-1)^{4k}) \cdot 1 = 2 \overset{k \rightarrow \infty}{\rightarrow} 2\)\\
+    \(b_{4k-1} = (1 + (-1)^{4k-1}) \cdot 1 = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+    \(b_{4k-2} = (1 + (-1)^{4k-2}) \cdot (-1) = -2 \overset{k \rightarrow \infty}{\rightarrow} -2\)\\
+    \(b_{4k-3} = (1 + (-1)^{4k-3}) \cdot (-1) = 0 \overset{k \rightarrow \infty}{\rightarrow} 0\)\\
+    Nach Aufgabe \(31\) von Zettel \(7\) gilt, dass
+    \[H((b_n)_n) = \{-2,0,2\}\]
+    Somit gilt nach heutiger Übung\\
+    \[\limessup{n} b_n = 2\]
+    \[\limesinf{n} b_n = -2\]
+\end{bsp}
+
+\end{document}

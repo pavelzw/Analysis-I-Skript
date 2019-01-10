@@ -1,0 +1,112 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{1}
+
+\section{Infimum und Supremum (26.10.18)}
+\begin{satz}
+    Seien \(A, B \subseteq \R\) nicht leer und beschränkt.
+    \begin{defi}
+        \[A + B := \{a + b \; | \; a \in A, b \in B\}\]
+        \[A - B := \{a - b \; | \; a \in A, b \in B\}\]
+    \end{defi}
+    Dann gilt:
+    \begin{enumerate}
+        \item \(\sup(A + B) = \sup(A) + \sup(B)\)
+        \item \(\inf(A + B) = \inf(A) + \sup(B)\)
+        \item \(\sup(A - B) = \sup(A) - \inf(B)\)
+        \item \(\inf(A - B) = \inf(A) - \sup(B)\)
+    \end{enumerate}
+    Weil \(A \neq \emptyset\) und \(B \neq \emptyset\) gibt es \(a \in A\) und \(b \in B\).\\
+    Dann gilt per Definition \(a+b \in A+B \neq \emptyset\) und \(a-b \in A-B \neq \emptyset\)
+\end{satz}
+\begin{bew}
+    Sei \(z \in A + B\) dann existiert ein \(a \in A \wedge b \in B\) , so dass \(a + b = z\) und folgt:
+    \[a + b \leq \sup(A) + sup(B)\]	
+    also ist \(\sup(A+B) \leq \sup(A) + \sup(B)\) (obere Schranke)\\
+    wir nehmen an:
+    \[\sup(A+B) < \sup(A) + \sup(B)\]
+    dann existiert ein \(\varepsilon > 0\):
+    \[\sup(A+B) + \varepsilon = \sup(A) + \sup(B)\]
+    nach Lemma 3.3.2 gibt es \(a_0 \in A, b_0 \in B\):
+    \[a_0 > \sup(A) - \frac{\varepsilon}{2} \text{ und } b_0 > \sup(B) - \frac{\varepsilon}{2}\]
+    per Definition ist \(a_0 + b_0 \in A + B\)\\
+    somit gilt:
+    \[a_0 + b_0 > \sup(A) - \frac{\varepsilon}{2} + \sup(B) - \frac{\varepsilon}{2} = \sup(A) + \sup(B) - \varepsilon = \sup(A+B) \text{ (Widerspruch)}\]\\
+    Sei \(z \in A - B, a \in A, b \in B, z = a - b\)\\
+    \(c \in C = \{d \in \R \; | \; d = -b, b \in B\} = -B\)\\
+    \(z = a + c = a + (-b) = a - b\) 
+    \[\sup(a-B) = \sup(A + (-B)) = \sup(A + C) = \sup(A) + \sup(C)\]
+    \[= \sup(A) + \sup(-B) = \sup(A) - \inf(B)\] (siehe Vorlesung)
+\end{bew}
+\subsection{Körper}
+\begin{satz}
+    Sei \((\K,+,\cdot, >)\) ein angeordneter Körper und seien \(a,b,c,d \in \K\)\\
+    Wenn \(b > 0, d > 0\) und \(\frac{a}{b} < \frac{c}{d}\), dann gilt:
+    \[\frac{a}{b} < \frac{a+c}{b + d} < \frac{c}{d}\]
+\end{satz}
+\begin{bew}
+    \(b > 0 \Rightarrow \frac{1}{b} > 0\)\\
+    \(d > 0 \Rightarrow \frac{1}{d} > 0\)\\
+    \(b > 0, d > 0: b+d > 0 \Rightarrow \frac{1}{b+d} > 0\)\\
+    Per Annahme gilt \(\frac{a}{b} < \frac{c}{d} \Rightarrow ad = \frac{a}{b} \cdot bd < \frac{c}{d} \cdot bd = cb\)
+    \begin{align*}
+        &\Leftrightarrow ad + ab < cb + ab\\
+        &\Leftrightarrow a(d+b) < b(c+a)\\
+        &\Leftrightarrow a(d+b) \cdot \frac{1}{b} \cdot \frac{1}{b+c} < b(c+a) \cdot \frac{1}{b} \cdot \frac{1}{b+c}\\
+        &\Leftrightarrow \frac{a}{b} < \frac{c+a}{d+b}
+    \end{align*}
+    Andererseits:
+    \begin{align*}
+        ad < cb &\Leftrightarrow ad + cd < cb + cd\\
+        &\Leftrightarrow d(a+c) < c(b+d)\\
+        &\Leftrightarrow \frac{c}{d} > \frac{a+c}{b+d}
+    \end{align*}
+    Mit Transitivität folgt: \(\frac{a}{b} < \frac{a+c}{b + d} < \frac{c}{d}\)
+\end{bew}
+\begin{satz}
+    Seien \(a,b \in \K\)
+    \[a^2 < b^2 \Leftrightarrow |a| < |b|\]
+\end{satz}
+\begin{bew}
+    "\(\Leftarrow\)":\\
+    sei \(0 \leq |a| < |b|\) dann gilt \(|b| > 0 \Leftrightarrow b^2 > 0\)\\
+    \[a^2 = a \cdot a \leq |a| \cdot |a| \leq |a| \cdot |b| < |b| \cdot |b| = |b \cdot b| = |b^2| = b^2\]
+    somit ist \(a^2 < b^2\)\\
+    "\(\Rightarrow\)":\\
+    \[a^2 < b^2 \Rightarrow |a| < |b| \Leftrightarrow |b| \leq |a| \Rightarrow b^2 \leq a^2\]
+    Sei also \(0 \leq |b| \leq |a|\)\\
+    \[b^2 = b \cdot b \leq |b| \cdot |b| \leq |a| \cdot |b| < |a| \cdot |a| = |a \cdot a| = |a^2| = a^2\]
+    wenn \(b^2 \leq a^2 \Leftarrow |b| \leq |a|\), dann gilt auch \(|a| < |b| \Leftarrow a^2 < b^2\)
+\end{bew}
+\begin{kor}
+    \[ab \leq \left(\frac{a+b}{2}\right)^2\]
+    und bei Gleichheit gilt \(a = b\)
+\end{kor}
+\begin{bew}
+    (\(\ast\)) \((0 \leq (a-b)^2\) und \(0 = (a-b)^2\) folgt \(a = b\)\\
+    Also ist:
+    \[0 \leq (a-b)^2 = a^2 - 2ab + b^2 \Leftrightarrow 4ab \leq a^2 +2ab + b^2 = (a+b)^2\]
+    \[ab \leq \left(\frac{a+b}{2}\right)^2\]
+    Nun sei
+    \[ab = \left(\frac{a+b}{2}\right)^2 \Leftrightarrow 0 = (a-b)^2 \overset{(\ast)}{\Rightarrow} a = b\]
+\end{bew}
+\begin{satz}
+    \[\forall \varepsilon > 0: 2 \cdot |ab| \leq \varepsilon^2 \cdot a^2 + \frac{1}{\varepsilon^2} \cdot b^2 \quad \forall a,b \in \R\]
+\end{satz}
+\begin{bew}
+    mit \(\varepsilon = 1\):\\
+    \begin{align*}
+        2|ab| &\leq a^2 + b^2\\
+        0 &\leq (|a| - |b|)^2 = |a|^2 - 2|a||b| + |b|^2\\
+        4|a||b| &\leq a^2 + 2|a||b| + b^2\\
+        2|a||b| &\leq a^2 + b^2
+    \end{align*}
+    \(\varepsilon > 0\) deshalb existiert \(\frac{1}{\varepsilon}\)\\
+    somit 
+    \[2|a||b| = 2|a \cdot 1 \cdot b| = 2|a \cdot \varepsilon \cdot \frac{1}{\varepsilon} \cdot b| = 2|(a \cdot \varepsilon)(b \cdot \frac{1}{\varepsilon})|\]
+    Sei \(\tilde{a} = a\varepsilon\) und \(\tilde{b} = \frac{1}{\varepsilon}b\)
+    \[2\left|a\varepsilon \cdot \frac{1}{\varepsilon}b\right| = \tilde{a^2} + \tilde{b^2}\]
+    \[2|\tilde{a} \cdot \tilde{b}| \leq a^2\varepsilon^2 + \frac{1}{\varepsilon^2}\] 
+\end{bew}
+
+\end{document}

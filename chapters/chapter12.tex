@@ -19,14 +19,14 @@ Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 \begin{bem}
 	Euklidisches Skalarprodukt erfüllt die Axiome eines allg. Skalarprodukts (auf reellen VR.).\\
 	(S1) \( \langle x,y\rangle = \langle y,x\rangle \quad\forall x,y\in R^d \) (Symmetrie)\\
-	(S2) \( \langle x, \lambda y + \mu z\rangle = \lambda <x,y\rangle + \mu\langle x,z\rangle \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
+	(S2) \( \langle x, \lambda y + \mu z\rangle = \lambda \langle x,y\rangle + \mu\langle x,z\rangle \quad \forall x,y,z\in\R^d, \lambda, \mu \in\R \) (Bilinearität)\\
 	(S3) \( \langle x,x\rangle \geq 0 \) und \( \langle x,x\rangle = 0 \Rightarrow x=0 = (0,\dots,0) \in\R^d \)
 \end{bem}
 \begin{bem}
-	(S1) und (S2) \( \Rightarrow \langle\lambda x + \mu y, z\rangle = \lambda <x,z\rangle + \mu <y,z\rangle \).
+	(S1) und (S2) \( \Rightarrow \langle\lambda x + \mu y, z\rangle = \lambda  \langle x,z\rangle + \mu \langle y,z\rangle \).
 \end{bem}
 \begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
-	\[ \forall x,y\in\R^d: |<x,y>|\leq |x||y|\]
+	\[ \forall x,y\in\R^d: |\langle x,y\rangle|\leq |x||y|\]
 	und \glqq{}\(=\)\grqq{} gilt, \( \Leftrightarrow x,y \) sind linear abhängig.
 \end{satz}
 \begin{bew}
@@ -45,7 +45,7 @@ Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 		= a{(t+b/a)}^2 + c - b^2/a \geq 0 \quad\forall t\in\R.
 	\end{align*}
 	\begin{align*}
-		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow <x,y>^2 \leq |x|^2|y|^2\\
+		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow \langle x,y\rangle^2 \leq |x|^2|y|^2\\
 		\text{und }g(t) > 0 \quad\forall t \Leftrightarrow b^2 < ac (**)\\
 		\text{Haben }  a=|y|^2, c=|x|^2\\
 		\Rightarrow |\langle x,y\rangle|\leq |x||y|.

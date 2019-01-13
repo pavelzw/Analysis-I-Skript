@@ -23,7 +23,7 @@ Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \
 \end{bem}
 \begin{defi}
     Eine Reihe \( \sum_{n=1}^\infty a_n, a_n\in\R^d \) heißt absolut konvergent, falls
-    \[ \sum_{n=1}^\infty |a_n| \text{ konvergiert, d.\ h.\ } \sum_{n=1}^n |a_n| < \infty. \]
+    \[ \sum_{n=1}^\infty |a_n| \text{ konvergiert, d.\ h.\ } \sum_{n=1}^{\infty} |a_n| < \infty. \]
 \end{defi}
 \begin{satz}[absolute Konvergenz \(\Rightarrow \) Konvergenz]
     Falls \( \sum_n a_n, a_n\in\R^d,\C \), absolut konvergent ist, dann konvergiert sie und
@@ -153,8 +153,12 @@ Bild:\\
     Schritt 2:
     \[ S_n = \sum_{k=0}^n a_k \rightarrow S = \sum_{k=0}^\infty a_k, t_n := \sum_{l=0}^n b_l \rightarrow t = \sum_{l=0}^\infty b_l \]
     \[ S_n t_n - \sum_{j=0}^n c_j = \sum_{k=0}^n a_k \sum_{l=0}^n b_l - \sum_{j=0}^n c_j \]
-    \[ = \sum_{\substack{0\leq k \\ l\leq n}} a_k b_l - \sum_{j=0}^n c_j = \sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n}} a_k b_l - \underbrace{\sum_{j=0}^n \sum_{k+l=j} a_k b_l}_{=\sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n \\ k+l\leq n}} a_k b_l} \]
-    \[ = \sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n \\ k+l>n}} a_k b_l \Rightarrow \abs{ S_n t_n - \sum_{j=0}^n c_j } \leq \sum_{\substack{0\leq k\leq n \\ 0\leq l \leq n \\ k+l>n}} \abs{a_k}\abs{b_l} \]
+    \[ = \sum_{\substack{0\leq k \\ l\leq n}} a_k b_l - \sum_{j=0}^n c_j = \sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n}} a_k b_l - \sum_{j=0}^n \sum_{k+l=j} a_k b_l\]
+    Man beachte:
+    \[\sum_{j=0}^n \sum_{k+l=j} a_k b_l = \sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n \\ k+l\leq n}} a_k b_l\]
+    also:
+    \[\sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n}} a_k b_l - \sum_{j=0}^n \sum_{k+l=j} a_k b_l = \sum_{\substack{0\leq k \leq n \\ 0\leq l \leq n \\ k+l>n}} a_k b_l \]
+    \[\Rightarrow \abs{ S_n t_n - \sum_{j=0}^n c_j } \leq \sum_{\substack{0\leq k\leq n \\ 0\leq l \leq n \\ k+l>n}} \abs{a_k}\abs{b_l}\]
     %Einschub
     Beachte: \( k,l \leq \frac{n}{2} \Rightarrow k + l \leq n \Rightarrow k + l > n \Rightarrow \max(k,l) > \frac{n}{2} \)
     \[ \leq \sum_{\substack{0\leq k\leq n \\ 0\leq l \leq n \\ \max(k,l) > \frac{n}{2}}} \abs{a_k b_l} \leq \sum_{\substack{0\leq k\leq n \\ 0\leq l \leq n \\ k > \frac{n}{2}}} \abs{a_k b_l} + \sum_{\substack{0\leq k\leq n \\ 0\leq l \leq n \\ l>\frac{n}{2}}} \abs{a_k b_l} \]

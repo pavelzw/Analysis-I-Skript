@@ -18,7 +18,7 @@
 \begin{bew}
     Sei \( z_1 \neq 0, \sum_{n=0}^\infty a_n z_1^n \) konvergent.
     \( \Rightarrow a_n z_1^n \) ist eine Nullfolge.
-    \( \Rightarrow \, \exists \, K \geq 0 \; \colon \; \abs{a_n z_1^n} \leq K \,\forall \, n \) \\
+    \( \Rightarrow \, \exists \, K \geq 0 \; \colon \; \abs{a_n z_1^n} \leq K \quad \forall \, n \) \\
     Nehme \( 0<r < \abs{z_1}, \abs{z} \leq r \)
     \[ \Rightarrow \abs{a_n z^n} = \abs{a_n} \abs{z}^n = \abs{a_n} { \left( \frac{\abs{z}}{\abs{z_1}} \right) }^n \abs{z_1}^n \]
     \[ \leq \abs{a_n}\abs{z_1}^n {\left( \underbrace{\frac{r}{\abs{z_1}}}_{=: \theta} \right)}^n = \abs{a_n z_1^n} \cdot \theta^n \leq K \theta^n, \theta = \frac{r}{\abs{z_1}} < 1 \]
@@ -37,7 +37,7 @@
 \end{bsp}
 \begin{satz}[Additionstherem]
     \[ \forall \, z,w\in\C : \exp(z) \exp(w) = \exp(z+w) \]
-    Insbesondere ist \( \exp(z) \neq 0 \,\forall \, z\in\C \) und \( \exp(x)>0 \,\forall \, c\in\R \).
+    Insbesondere ist \( \exp(z) \neq 0 \;\forall \, z\in\C \) und \( \exp(x)>0 \,\forall \, x\in\R \).
 \end{satz}
 \begin{bew}
     \[ z\in\C, a_n = \frac{ z^n }{ n! }, b_n = \frac{ w^n }{ n! } \]
@@ -46,27 +46,27 @@
     \[ = \frac{1}{n!} \sum_{k=0}^n \frac{ n! }{ k!(n-k)! } z^k w^{n-k} = \frac{1}{n!} \underbrace{ \sum_{k=0}^n \binom{n}{k} z^k w^{n-k} }_{\text{binom. Formel } {(z+w)}^n} = \sum_{n=0}^\infty \frac{1}{n!} {(z+w)}^n \]
     \[ = \exp(z+w) \]
     Insbesondere ist \( \exp(z) \exp(-z) = \exp(z-z) = \exp(0) = 1 \) \\
-    \( \Rightarrow \exp(z) \neq 0 \,\forall \, z\in\C \) und \( \inverse{(\exp(z))} = \exp(-z) \).
+    \( \Rightarrow \exp(z) \neq 0 \;\forall \, z\in\C \) und \( \inverse{(\exp(z))} = \exp(-z) \).
 \end{bew}
 \subsection*{Sinus, Cosinus und Eulersche Formel}
 Man ersetzt \( z \) durch \( iz \) in \( e^z \).
-\[ e^{iz} = \sum_{n=0}\infty \frac{{(iz)}^n}{n!} = \sum_{n=0}\infty i^n \frac{z^n}{n!} \]
+\[ e^{iz} = \sum_{n=0}^{\infty} \frac{{(iz)}^n}{n!} = \sum_{n=0}^{\infty} i^n \frac{z^n}{n!} \]
 Beachte \( \N_0 \ni n \mapsto i^n \) hat Periode \( 4 \).
 \[ n = 2k, k\in\N_0 \Rightarrow i^n = i^{2k} = {(i^2)}^k = {(-1)}^k \]
-\[ n = 2k+1, k\in\N_0 \Rightarrow i^n = i^{2k+1} = i^(2k) i = {(-1)}^k i \]
+\[ n = 2k+1, k\in\N_0 \Rightarrow i^n = i^{2k+1} = i^{(2k)} \cdot i = {(-1)}^k \cdot i \]
 \[ \Rightarrow e^{iz} = \limes{L} \sum_{n=0}^L i^n \frac{z^n}{n!} = \limes{L} \left( \sum_{\substack{0\leq n \leq L\\ n\text{ gerade}}} i^n \frac{z^n}{n!} + \sum_{\substack{0\leq n \leq L\\ n\text{ ungerade}}} i^n \frac{z^n}{n!} \right) \]
-\[ = \limes{L} \left( \sum_{\substack{0\leq 2k \leq L\\ k\in\N_0}} {(-1)}^k \frac{z^{2k}}{(2k)!} + i \sum_{\substack{0\leq 2k+1 \leq L\\ k\in\N_0 }} {(-1)}^k \frac{z^{2k+1}}{(2k+1)!} \right) (*) \]
+\[ = \limes{L} \left( \sum_{\substack{0\leq 2k \leq L\\ k\in\N_0}} {(-1)}^k \frac{z^{2k}}{(2k)!} + i \cdot \sum_{\substack{0\leq 2k+1 \leq L\\ k\in\N_0 }} {(-1)}^k \frac{z^{2k+1}}{(2k+1)!} \right) (*) \]
 und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
 (Nachrechnen mit Quotientenkriterium, dass beide Reihen in \( (*) \) für alle \( z\in\C \) konvergieren. (HA))
 \begin{defi}
     Wir setzen für \( z\in\C \)
     \[ \cos z := \sum_{n=0}^\infty {(-1)}^n \frac{z^{2n}}{2n!} \qquad \sin z  := \sum_{n=0}^\infty {(-1)}^n \frac{z^{2n+1}}{(2n+1)!}. \]
     Dann gilt
-    \[ e^{iz} = \cos z + i \sin z \,\forall \, z\in\C. \]
+    \[ e^{iz} = \cos z + i \sin z \quad \forall z\in\C. \]
 \end{defi}
 \begin{prosa}
-    Beachte: wenn \( z=t\in\R \), so sind \( \cos t, \sin t \in\R \) und es gilt
-    \[ e^{it} = \cos t + i \sin t, t\in\R \text{(Eulersche Formel)} \]
+    Beachte: wenn \( z=t\in\R \), so sind \( \cos t,\, \sin t \in\R \) und es gilt
+    \[ e^{it} = \cos t + i \sin t \quad \forall t\in\R \text{ (Eulersche Formel)} \]
     Die Eulersche Formel gibt eine Darstellung der komplexen Zahl
     \[ e^{it} = \exp(it) \]
     in Real- und Imaginärteil
@@ -76,8 +76,8 @@ und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
     \end{align*}
     \[ \text{Sei } \exp_n (z) = \sum_{n=0}^n \frac{z^k}{k!} = 1 + z + \frac{z^2}{2} + \cdots + \frac{z^n}{n!} \]
     \[ \Rightarrow \overline{\exp_n(z)} = 1 + \overline{z} + \frac{ \overline{z}^2 }{2} + \cdots + \frac{ \overline{z}^n }{n!} = \exp_n (\overline{z}) \rightarrow \exp(\overline{z}) \]
-    \[ \Rightarrow \overline{\exp(z)} = \exp(\overline{z}) \,\forall \, z\in\C. \]
-    Somit folgt: \( \overline{e^{it}} = \overline{\exp(it)} = \exp(\overline{it}) = \exp(\minus it) = e^{\minus i t} \,\forall \, t\in\R \).\\
+    \[ \Rightarrow \overline{\exp(z)} = \exp(\overline{z}) \quad \forall \, z\in\C. \]
+    Somit folgt: \( \overline{e^{it}} = \overline{\exp(it)} = \exp(\overline{it}) = \exp(\minus it) = e^{\minus i t} \quad \forall \, t\in\R \).\\
     Daher 
     \begin{align*}
         \cos t = \Re(e^{it}) = \frac{1}{2} \left( e^{it} + e^{\minus it} \right) \\
@@ -113,7 +113,7 @@ und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
     Schritt 1: 
     \begin{enumerate}[(a)]
         \item \( r_0 = \infty (\Leftrightarrow \limessup{n} \sqrt[n]{ \abs{a_n} } = 0) \) \\
-        Dann konvergiert (wegen \( (*) \)) \( \sum_{n=0}^\infty a_n z^n \,\forall \, z\in\C \)
+        Dann konvergiert (wegen \( (*) \)) \( \sum_{n=0}^\infty a_n z^n \quad \forall \, z\in\C \)
         \[ \Rightarrow R = \infty. \]
         \item Ist \( 0 < r_0 < \infty \), so konvergiert \( \sum_{n=0}^\infty a_n z^n \) für \( \abs{z} \leq r_0 \ (\leadsto (*) ) \) \\
         Also ist \( R \geq r_0 \) falls \( 0 < r_0 < \infty \).
@@ -133,39 +133,39 @@ und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
     Die Potenzreihen \( \sum_{n=0}^\infty a_n z^n \) und \( \sum_{n=1}^\infty n \cdot a_n z^{n-1} \) haben denselben Konvergenzradius.
 \end{kor}
 \begin{bew}
-    Da \( n^{1/n} \rightarrow 1 \) für \( n\rightarrow \infty \)
+    Da \( n^{\frac{1}{n}} \rightarrow 1 \) für \( n\rightarrow \infty \)
     \[ \limessup{n} \sqrt[n]{\abs{a_n}} = \limessup{n} \sqrt[n]{n \cdot \abs{a_{n-1}}}. \]
 \end{bew}
 \begin{lem}
-    Konvergiert \( \sum_{n=0}^\infty a_n z^n \) für einen \( z = z_1 \neq 0 \), 
+    Konvergiert \( \sum_{n=0}^\infty a_n z^n \) für ein \( z = z_1 \neq 0 \), 
     so ist sie auf der Kreisscheibe \( \overline{B_r (0)}  = \{ z\in\C \;\vert \; \abs{z}\leq r \} \)
     beschränkt für jedes \( 0 < r < \abs{z_1} \).\\
     D.\ h.\  \( \exists \, M(r) \geq 0 \), sodass
-    \[ \abs{ \sum_{n=0}^\infty a_n z^n } \leq M(r) \,\forall \, \abs{z} < r. \]
+    \[ \abs{ \sum_{n=0}^\infty a_n z^n } \leq M(r) \quad \forall \, \abs{z} < r. \]
 \end{lem}
 \begin{bew}
     Ist \( \abs{z} \leq r < \abs{z_1} \), so ist
-    \[ \abs{a_n z^n} = \abs{a_n} \abs{z^n} = \abs{a_n} \underbrace{ {\left( \frac{\abs{z}}{\abs{z_1}} \right)}^n }_{\leq \frac{r}{\abs{z_1}} = \theta < 1} \abs{z_1}^n \].
+    \[ \abs{a_n z^n} = \abs{a_n} \abs{z^n} = \abs{a_n} \underbrace{ {\left( \frac{\abs{z}}{\abs{z_1}} \right)}^n }_{\leq \frac{r}{\abs{z_1}} = \theta < 1} \abs{z_1}^n \]
     Da \( \sum_{n=0}^\infty a_n z^n \) konvergent ist, ist \( a_n z^n \) eine Nullfolge und somit insbesondere beschränkt.
     \[\text{D.\ h.\ } \exists \, 0 \leq K < \infty \,\colon \, \abs{a_n z^n} \leq K \]
-    \[ \Rightarrow \abs{a_n z^n} \leq K \theta^n \,\forall \, \abs{z}\leq r, \theta := \frac{r}{\abs{z_1}} < 1 \]
+    \[ \Rightarrow \abs{a_n z^n} \leq K \theta^n \quad \forall \, \abs{z}\leq r, \quad \theta := \frac{r}{\abs{z_1}} < 1 \]
     \[ \Rightarrow \abs{ \sum_{n=0}^\infty a_n z^n } \leq \sum_{n=0}^\infty \abs{a_n z^n} \leq K \cdot \sum_{n=0}^\infty \theta^n = K \frac{1}{1 - \theta} \]
     \[ = \frac{K}{1 - \frac{r}{\abs{z_1}}} = \frac{ K \abs{z_1} }{\abs{z_1} - r} =: M(r). \]
     Dann gilt also
-    \[ \abs{ \sum_{n=0}^\infty a_n z^n } \leq M(r) \,\forall \, \abs{z} \leq r. \]
+    \[ \abs{ \sum_{n=0}^\infty a_n z^n } \leq M(r) \quad \forall \, \abs{z} \leq r. \]
 \end{bew}
 \begin{kor}
     Ang.\  \( \sum_{n=0}^\infty a_n z^n \) konvergiert für ein \( z = z_1 \neq 0 \). Dann gibt es zu jedem
-    \[ 0 < r < \abs{z_1}, k\in\N_0 \]
+    \[ 0 < r < \abs{z_1} \text{ und } k\in\N_0\]
     ein \( M(r,k) > 0 \) mit
-    \[ \abs{ \sum_{n=1}^\infty a_n z^n } \leq < M(r,k) \abs{z}^{k+1} \, \forall \, \abs{z}\leq r \]
+    \[ \abs{ \sum_{n=1}^\infty a_n z^n } \leq M(r,k) \abs{z}^{k+1} \quad \forall \, \abs{z}\leq r \]
 \end{kor}
 \begin{bew}
     Da \( \sum_{n=0}^\infty a_n z_1^n \) konvergiert, konvergiert somit
-    \[ z_1^{\minus(k+1)} \sum_{n=0}^\infty a_n z_1^n = \sum_{n=k+1}^\infty a_n z_1^{n-(k+1)} = \sum_{n=0}^\infty a_{n+k+1} z_1^n. \]
+    \[ z_1^{\minus(k+1)} \sum_{n=0}^\infty a_n z_1^n = \sum_{n=k+1}^\infty a_n z_1^{n-(k+1)} = \sum_{n=0}^\infty a_{n+k+1} z_1^n \]
     \[ \overset{\text{Lem.\ 1}}{\Rightarrow} \text{der Konvergenzradius } R \text{ von } \sum_{n=0}^\infty a_{n+k+1} z^n \geq \abs{z_1} \]
     \[ \overset{\text{Lem.\ 8}}{\Rightarrow} \text{für jede } 0 < r < \abs{z_1} \text{ gibt es ein } M = M(k,r) \text{, sodass} \]
-    \[ \abs{ \sum_{n=0}^\infty a_n z^{n-(k+1)} } = \abs{ \sum_{n=0}^\infty a_{n+k+1} \abs{z}^n } \leq M(k,r) \,\forall \, \abs{z} \leq r \]
-    \[ \Rightarrow \abs{ \sum_{n=k+1}^\infty a_n z^n } = \abs{z}^{k+1} \abs{ \sum_{n=k+1}^\infty a_n z^{n-(k+1)} } \leq \abs{z}^{k+1} M(k,r) \,\forall \, \abs{z} < r. \]
+    \[ \abs{ \sum_{n=0}^\infty a_n z^{n-(k+1)} } = \abs{ \sum_{n=0}^\infty a_{n+k+1} \abs{z}^n } \leq M(k,r) \quad \forall \, \abs{z} \leq r \]
+    \[ \Rightarrow \abs{ \sum_{n=k+1}^\infty a_n z^n } = \abs{z}^{k+1} \abs{ \sum_{n=k+1}^\infty a_n z^{n-(k+1)} } \leq \abs{z}^{k+1} M(k,r) \quad \forall \, \abs{z} < r. \]
 \end{bew}
 \end{document}

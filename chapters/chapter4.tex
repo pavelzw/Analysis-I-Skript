@@ -27,7 +27,7 @@
 	Sei \(f \colon A \longrightarrow B\) eine Funktion.
 	\begin{enumerate}[(a)]
 		\item \(f \injektiv \iff a \ko a^\prime \in A \ko \; a \neq a^\prime \Rightarrow f(a) \neq f(a^\prime)\)
-		\item \(f \bijektiv \iff \forall b \in B \; \existse a \in A \colon \; f(a) = b\)
+		\item \(f \bijektiv \iff \forall \, b \in B \, \existse \,a \in A \colon \; f(a) = b\)
 	\end{enumerate}
 \end{bem}
 
@@ -60,14 +60,13 @@
 \subsection{Abbildungen als Graph}
 
 \begin{defi}
-	Seien \(A \ko B\) Mengen. Dann ist $(a,b)$ ein sog. Tupel.\\
-	in der Mengenlehre: $(a,b) := \{\{a\}, \{a,b\}\}$.
+	Seien \(A \ko B\) Mengen. Dann ist \((a,b)\) ein sog. Tupel.\\
+	in der Mengenlehre: \((a,b) := \{ \{a\}, \{a,b\} \} \).
 \end{defi}
-
-Beachte: Reihenfolge ist wichtig! im Allg. $(a,b)\neq (b,a)$\\
-Menge $A\times B := \{(a,b)|a\in A, b\in B\}$\\
-heißt kartesisches Produkt (von $A$ und $B$)\\
-z.B. $\mathbb{R}\times\mathbb{R}$\\
+Beachte: Reihenfolge ist wichtig! im Allgemeinen \( (a,b)\neq (b,a) \) \\
+Menge \(A\times B := \{(a,b)|a\in A, b\in B\} \) \\
+heißt kartesisches Produkt (von \(A\) und \(B\) \\
+z.B. \( \R\times\R \) \\
 \subgraphic{0.3}{img03.pdf}\\
 \textbf{2. Abbildungen Projektionen}\\
 \subgraphic{0.3}{img04.pdf}\\
@@ -79,7 +78,13 @@ z.B. $\mathbb{R}\times\mathbb{R}$\\
 \(A_1\times A_2\) wie vorhin\\
 \(A_1\times\cdots\times A_{n+1} := (A_1\times\cdots\times A_n)\times A_{n+1}, n\in \N \) (induktiv)\\
 Beobachtung:\\
-\[ (A\times B)\times C = A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} = ((a,b),c) = (a,(b,c))\] \\
+\begin{align*}
+	&(A\times B)\times C\\
+	=& A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} \\
+	=& ((a,b),c)\\
+	=& (a,(b,c))
+\end{align*}
+\[ \] \\
 Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\times (B\times C)\)
 
 \begin{defi}[Graph einer Abbildung]
@@ -88,17 +93,21 @@ Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\tim
 	\subgraphic{0.3}{img05.pdf}
 	\quad
 	\subgraphic{0.3}{img06.pdf}\\
-	\(P\subset A\times B\) ist der Graph einer Funktion genau dann, wenn aus \((a_1,b_1), (a_2,b_2) \in \Gamma \) folgt \(b_1 = b_2\). (und \(\forall a\in A \exists b\in B:(a,b)\in\Gamma \))
+	\(P\subset A\times B\) ist der Graph einer Funktion genau dann, 
+	wenn \(b_1 = b_2\) aus \((a_1,b_1), (a_2,b_2) \in \Gamma \) folgt. 
+	(und \(\forall a\in A \,\exists \, b\in B:(a,b)\in\Gamma \))
 \end{defi}
-
 \begin{satz}
-	\(\Gamma \subset A\times B\) ist genau dann Graph einer Abbildung \(f: A\rightarrow B\), wenn die Projektion \(\Pi_A \vert_\Gamma : \Gamma \rightarrow A\) bijektiv ist.\\
-	Notation: \(g: D \rightarrow E, X\subset D\) \\
-	\(g\vert_X: X\rightarrow E, x\mapsto g(x)\) \\
+	\(\Gamma \subset A\times B\) ist genau dann Graph einer Abbildung 
+	\(f: A\rightarrow B\), wenn die Projektion \(\Pi_A \vert_\Gamma : 
+	\Gamma \rightarrow A\) bijektiv ist.\\
+	Notation:\\
+	\[ g: D \rightarrow E, X\subset D \]
+	\[ g\vert_X: X\rightarrow E, x\mapsto g(x) \]
 \end{satz}
 \begin{bew}
 	Sei \(\Gamma = \Gamma_f \) mit \(f: A\rightarrow B\) Funktion\\
-	\(\overset{(a,b)\in \Gamma_f \Leftrightarrow b = f(a)}{\Rightarrow} \forall a\in A\) existiert genau ein \(b\in B\) mit \(f(a) = b\).\\
+	\( \overunderset{ (a,b)\in \Gamma_f }{ \Leftrightarrow b = f(a) }{\Rightarrow} \forall \, a\in A\) existiert genau ein \(b\in B\) mit \(f(a) = b\).\\
 	\(\Rightarrow \Pi_A \vert_\Gamma \) ist bijektiv.\\
 	Umgekehrt: Sei \(\Pi_A \vert_\Gamma \rightarrow A\) bijektiv.\\
 	D.\ h.\ ist \( (a_j, b_j) \in \Gamma, j \in \{1,2\} \) \\
@@ -110,11 +119,9 @@ Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\tim
 	\subgraphic{0.3}{img07.pdf}\\
 	nachrechnen \( \Gamma = \Gamma_f \)
 \end{bew}
-
 \begin{bem}
 	In Satz 3 gilt \(f = \Pi_B \circ {(\Pi_A\vert_\Gamma)}^{-1} \) %ENTSPRICHT 4.2
 \end{bem}
-
 \begin{bsp}
 	Ist \(f: A\rightarrow B\) bijektiv\\
 	\(b=f(a),\quad f^{-1}(b)=a\) \\
@@ -124,14 +131,11 @@ Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\tim
 	\subgraphic{0.3}{img09.pdf}\\
 	\(\Gamma_{f^{-1}} = \) Spiegeln von \( \Gamma_f \) an Winkelhalbierenden.
 \end{bsp}
-
-
 \subsection{Schubfachprinzip und endliche Mengen}
-
-Notation: Sei $n\in\mathbb{N}. [n] := \{1,\ldots,n\}$ ist gegeben durch:
-$$[1] = \{1,\ldots,1\} = \{1\}$$
-$$[n+1] = \{1,\ldots,n,n+1\} = [n] \cup \{n+1\}\text{ induktive Def.} n\in\mathbb{N}$$
-$$[2]=\{1,2\}, [3]=\{1,2,3\}$$
+Notation: Sei \( n\in\N \). \([n] := \{1,\ldots,n\} \) ist gegeben durch:
+\[ [1] = \{1,\ldots,1\} = \{1\} \]
+\[ [n+1] = \{1,\ldots,n,n+1\} = [n] \cup \{n+1\}\text{ induktive Def.} n\in\N \]
+\[ [2]=\{1,2\}, [3]=\{1,2,3\} \]
 
 \begin{satz}[Schubfachprinzip]
 	Ist \(f:[m]\rightarrow [n] (m,n\in\N) \) injektiv, dann ist \(m\leq n\).
@@ -139,7 +143,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 \begin{bew}
 	Fassen obige Aussage als \(A(n)\) auf, die für alle \(m\in\N \) zu zeigen ist.\\
 	Induktionsanfang:
-	\[ n=1: f:[m] \rightarrow \{1\} \text{ injektiv} \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}.\]
+	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}.\]
 	Induktionsschritt:\\
 	Induktionsvoraussetzung: \(A(n)\) ist wahr für \(n\in\N \).\\
 	Zu zeigen: \(A(n+1)\) ist wahr.\\
@@ -180,8 +184,8 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 \end{bew}
 
 \begin{defi}
-	Eine Menge $M$ ist endlich, falls $M=\emptyset$ oder falls $n\in\mathbb{N}_0$ und eine Bijektion $f:{1,\ldots,n}\rightarrow M$ existiert.\\
-	Die Anzahl der Elemente von $M$ ($\#M$) ist dann $\#M:=n$, setzen $\#\emptyset := 0$. Eine Menge ist unendlich, falls sie nicht endlich ist.
+	Eine Menge \(M\) ist endlich, falls \( M=\emptyset \) oder falls \( n\in\N_0 \) und eine Bijektion \( f:{1,\ldots,n}\rightarrow M \) existiert.\\
+	Die Anzahl der Elemente von \(M\) (\( \#M \)) ist dann \( \#M:=n \), setzen \( \#\emptyset := 0 \). Eine Menge ist unendlich, falls sie nicht endlich ist.
 	
 	\begin{bem}
 		Ist \(M\) endlich, so ist \( \#M\) wohldefiniert. \\
@@ -248,7 +252,6 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 				      s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
 				      s_{41} & s_{42} & s_{43} & \cdots                                  \\
 			      };
-
 			      \draw[->]
 			      (m-1-1)edge(m-1-2)
 			      (m-1-2)edge(m-2-1)
@@ -365,12 +368,13 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 	\[ {(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}. \]
 	Induktionsschritt:
 	\begin{align*}
-		{(a+b)}^{n+1} & = (a+b) {(a+b)}^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}                                                                                            \\
-		              & = \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k}                                                                \\
-		              & = \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} + \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1}                      \\
-		              & = \binom{n+1}{n+1} a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + \binom{n+1}{0} b^{n+1} \\
-		              & = \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}                                                                                                              \\
-		              & = \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}.
+		 &{(a+b)}^{n+1} \\
+		=& (a+b) {(a+b)}^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} \\
+		=& \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k} \\
+		=& \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} + \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1} \\
+		=& \binom{n+1}{n+1} a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + \binom{n+1}{0} b^{n+1} \\
+		=& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k} \\
+		=& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}.
 	\end{align*}
 \end{bew}
 
@@ -425,8 +429,8 @@ Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
 	Beh.: \(\varphi \) ist bijektiv.
 	\begin{enumerate}
 		\item \( \varphi \) ist surjektiv.\\
-		      Sei \(f: A\rightarrow \{0,1\} \)
-		      \[ B_f := f^{-1} (\{1\}) = \{a \in A| f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f\text{ (nachrechnen)}.\]
+		      Sei \(f: A\rightarrow \{0,1\} \) (nachrechnen)
+			  \[ B_f := f^{-1} (\{1\}) = \{a \in A \; \vert \; f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f.\]
 		\item \( \varphi \) ist injektiv.\\
 		      Seien \( B_1,B_2\subseteq A, B_1 \neq B_2 \).
 		      \begin{align*}

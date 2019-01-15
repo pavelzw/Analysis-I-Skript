@@ -90,7 +90,7 @@ z.\ B.\
             } \abs{x-x_0}
         \end{align*}
         Zu \( \varepsilon > 0 \) und \( x_0 \in\R \) wähle
-        \[ \delta := \min(1, \frac{\varepsilon}{1 + 2\abs{x_0}})
+        \[ \delta := \min \left(1, \frac{\varepsilon}{1 + 2\abs{x_0}} \right)
         = \delta(\varepsilon, x_0) > 0 \]
         \begin{align*}
             \Rightarrow &\abs{ f(x) - f(x_0) }\\
@@ -128,7 +128,7 @@ z.\ B.\
         {\left( \sum_{j=1}^d \abs{x_j}^2 \right)}^{\nicefrac{1}{2}} \]
         \( f:\R^d \rightarrow \R, x\mapsto \abs{x} \) ist stetig, denn
         \[ \abs{ f(x) - f(x_0) } = \abs{ \abs{x} - \abs{x_0} } 
-        \overset{\text{Umgekehrte Dreiecksungl.}}{\leq} \abs{x - x_0}. \]
+        \overunderset{\text{Umgekehrte}}{\text{Dreiecksungl.}}{\leq} \abs{x - x_0}. \]
     \end{enumerate}
 \end{bspe}
 \begin{satz}[Folgenkriterium für Stetigkeit]

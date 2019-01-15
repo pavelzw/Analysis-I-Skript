@@ -168,4 +168,18 @@ und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
     \[ \abs{ \sum_{n=0}^\infty a_n z^{n-(k+1)} } = \abs{ \sum_{n=0}^\infty a_{n+k+1} \abs{z}^n } \leq M(k,r) \quad \forall \, \abs{z} \leq r \]
     \[ \Rightarrow \abs{ \sum_{n=k+1}^\infty a_n z^n } = \abs{z}^{k+1} \abs{ \sum_{n=k+1}^\infty a_n z^{n-(k+1)} } \leq \abs{z}^{k+1} M(k,r) \quad \forall \, \abs{z} < r. \]
 \end{bew}
+\begin{satz}
+    Es gebe eine Folge \( {(z_k)}_j, z_j \in\C, z_j \neq 0 \) mit \( z_j \rightarrow 0 \), sodass \( \sum_{n=0}^\infty a_n z_j^n = 0 \quad \,\forall \, j\in\N \).
+    \[ \Rightarrow a_n = 0 \quad \forall n\in\N_0. \]
+\end{satz}
+\begin{bew}
+    Angenommen, die Behauptung ist falsch. \\
+    \( \Rightarrow \exists \) kleinstes \( k\in\N_0 \) mit \(a_k \neq 0 \) und \( a_0 = a_1 = \cdots = a_{k-1} = 0 \)
+    \[ 0 = \sum_{n=0}^\infty a_n z_j^n = a_k z_j^k + \sum_{n=k+1}^\infty a_n z_j^n. \]
+    Sei \( 0 < r < \abs{z_1} \). Dann folgt aus Korollar 9 für \( j\in\N \) mit \( \abs{z_j} \leq r \)
+    \[ \abs{a_k} \abs{z_j}^k = \abs{ \sum_{n=k+1}^\infty a_n z_j^n } \overset{\text{Kor.\ 9}}{\leq} M(k,r) \abs{z_j}^{k+1}. \]
+    Da \( z_j\rightarrow 0 \) folgt für fast alle \( j \)
+    \( \abs{ a_k } \leq M(k,r) \abs{z_j} \rightarrow 0 \) \Lightning{} \(a_k \neq 0\)
+    \[ \Rightarrow \text{alle } a_n = 0. \]
+\end{bew}
 \end{document}

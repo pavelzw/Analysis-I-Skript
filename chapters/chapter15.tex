@@ -14,15 +14,30 @@ z.\ B.\
     \begin{enumerate}
         \item horizontaler Wurf aus der Höhe \( h \) mit 
         Geschwindigkeit \(v\) \\
-        Bild:\\
-        %BILD
+        Bild:
+        \begin{center}
+            \begin{tikzpicture}[scale=3]
+                \draw[->] (0,-0.1) -- (0,1) node[above] {\(z\)};
+                \draw[->] (-0.1,0) -- (1,0) node[right] {\(x\)};
+                \draw (0.05,0.75) -- (-0.05,0.75) node[left] {\(h\)};
+                \draw[thin,domain=0:0.866,smooth,variable=\t,black] plot ({\t},{0.75 - 1/2 * 2 * \t * \t});
+            \end{tikzpicture}
+        \end{center}
         \( c: \left[0, \sqrt{\frac{2 h}{g}} \right] \Rightarrow 
         \R^3, c(t) = (vt, 0, h - \frac{1}{2} g t^2) \)
         \item Abstand zu einer Menge \( E \subset \R^n \):\\
-        \( dist_E : \R^n \rightarrow \R, dist_E(x) 
+        \( \mathrm{dist}_E : \R^n \rightarrow \R, \mathrm{dist}_E(x) 
         := \inf \{ \abs{x-y} \;\vert \; y\in E \} \)
-        %dist beide Male als Math Operator
-        %BILD
+        \begin{center}
+            \begin{tikzpicture}
+                \draw (0,0) node[above] {\(E\)} circle (1);
+                \draw[fill=black] (-1.5,-1.5) node[below] {\(x\)} circle (0.03);
+                \draw (-1.5 + 0.05,-1.5 + 0.05) -- (-0.707, -0.707)
+                node[midway, left] {\tiny\( \mathrm{dist}_E(x) \)};
+                \draw[fill=black] (0,-0.4) node[below] {\(y\)} circle (0.03);
+                \draw (0,-0.2) node {\tiny\( \mathrm{dist}_E(y) = 0 \)};
+            \end{tikzpicture}
+        \end{center}
     \end{enumerate}
 \end{bspe}
 \begin{defi}[Stetigkeit]

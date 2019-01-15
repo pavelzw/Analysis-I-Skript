@@ -47,7 +47,7 @@
 					\(\cdot \) & \(0 \) & \(1 \) \\
 					\midrule
 					\(0 \)     & \(0 \) & \(0 \) \\
-					\(1 \)     & \(0 \) & \(0 \)
+					\(1 \)     & \(0 \) & \(1 \)
 				\end{tabular}
 			   \end{center}
 	\end{enumerate}
@@ -117,7 +117,7 @@
 				\item[(v)] \(a\cdot 0 = a \cdot (0+0) =a \cdot 0 + a \cdot 0 = a \cdot 0 + 0 \\
 						   \implies a \cdot 0 = a \cdot 0 - a \cdot 0 = 0 \).
 				\item[(vi)] \(a \cdot b + a \cdot (\minus b) = a \cdot (b + (\minus b)) = a \cdot 0= 0 \\
-							\overset{\text{Eind.\ d.\ Inv.}}{\implies} \minus ab = a(\minus b) \). \\
+							\overunderset{\text{Eind.}}{\text{d.\ Inv.}}{\implies} \minus ab = a(\minus b) \). \\
 							Somit auch \((\minus a)(\minus b) = \minus((\minus a)b) = \minus(b(\minus a)) = (\minus ba) = \minus(\minus ab) = ab \).
 				\item[(vii)] \(a(b - c) = a(b + (\minus c)) = ab + a(\minus c)= ab + (\minus ac)= ab - ac \).
 				\item[(viii)] Ist \(ab = 0 \) und \(a \neq 0 \implies 0 = (ab)\frac{1}{a} = \frac{1}{a} \cdot (ab) = (\frac{1}{a} \cdot a)b = 1b = b \).
@@ -278,7 +278,7 @@
 				      &\minus(a + a) \ko & a < 0
 			       \end{lrcases} \geq 0 \). \\
 		      	   Alternativ: \(a \leq \max(a \ko \minus a) = \abs{a} \). %Bis hierher formatiert
-		\item[(c)] o.B.d.A \(a \ko b \geq 0 \), da \(\minus a \cdot \minus b = a \cdot b \).
+		\item[(c)] o.\ B.\ d.\ A.\  \(a \ko b \geq 0 \), da \(\minus a \cdot \minus b = a \cdot b \).
 		      	   \(\implies \abs{ab} = ab = \abs{a}\abs{b} \).
 		\item[(d)] Nach \autoref{satz:arechenregeln} gilt \( \abs{a + b}^{2} = {(a+b)}^{2} = a^{2} + 2ab + b^{2} \\
 				   = \abs{a}^{2} + 2ab + \abs{b}^{2} \leq \abs{a}^{2} 2\abs{ab} + \abs{b}^{2} \). \\
@@ -569,7 +569,7 @@
 		\item \(1\in M \), da \(A(1) \) wahr ist.
 		\item Für \(n\in M \) gilt \(n + 1 \in M \), da wenn \(A(n) \) wahr ist auch \(A(n + 1) \) wahr ist.
 	\end{enumerate}
-	\(\overset{\hyperref[satz:ind_prinz]{Induktives Prinzip}}{\implies} M = \N \), also sind alle \(A(n) \) wahr.
+	\(\overunderset{\hyperref[satz:ind_prinz]{\text{Induktions-}}}{\hyperref[satz:ind_prinz]{\text{prinzip}}}{\implies} M = \N \), also sind alle \(A(n) \) wahr.
 \end{bew}
 
 \begin{defi*}[Summen]Seien \(n \ko m \in \N \) und für alle \(k \in \N \) sein \(a_{k} \in \R \).

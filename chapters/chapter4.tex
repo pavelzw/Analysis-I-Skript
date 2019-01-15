@@ -27,7 +27,7 @@
 	Sei \(f \colon A \longrightarrow B\) eine Funktion.
 	\begin{enumerate}[(a)]
 		\item \(f \injektiv \iff a \ko a^\prime \in A \ko \; a \neq a^\prime \Rightarrow f(a) \neq f(a^\prime)\)
-		\item \(f \bijektiv \iff \forall b \in B \; \existse a \in A \colon \; f(a) = b\)
+		\item \(f \bijektiv \iff \forall \, b \in B \, \existse \,a \in A \colon \; f(a) = b\)
 	\end{enumerate}
 \end{bem}
 
@@ -79,7 +79,13 @@ z.B. $\mathbb{R}\times\mathbb{R}$\\
 \(A_1\times A_2\) wie vorhin\\
 \(A_1\times\cdots\times A_{n+1} := (A_1\times\cdots\times A_n)\times A_{n+1}, n\in \N \) (induktiv)\\
 Beobachtung:\\
-\[ (A\times B)\times C = A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} = ((a,b),c) = (a,(b,c))\] \\
+\begin{align*}
+	&(A\times B)\times C\\
+	=& A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} \\
+	=& ((a,b),c)\\
+	=& (a,(b,c))
+\end{align*}
+\[ \] \\
 Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\times (B\times C)\)
 
 \begin{defi}[Graph einer Abbildung]
@@ -98,7 +104,7 @@ Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\tim
 \end{satz}
 \begin{bew}
 	Sei \(\Gamma = \Gamma_f \) mit \(f: A\rightarrow B\) Funktion\\
-	\(\overset{(a,b)\in \Gamma_f \Leftrightarrow b = f(a)}{\Rightarrow} \forall a\in A\) existiert genau ein \(b\in B\) mit \(f(a) = b\).\\
+	\( \overunderset{ (a,b)\in \Gamma_f }{ \Leftrightarrow b = f(a) }{\Rightarrow} \forall \, a\in A\) existiert genau ein \(b\in B\) mit \(f(a) = b\).\\
 	\(\Rightarrow \Pi_A \vert_\Gamma \) ist bijektiv.\\
 	Umgekehrt: Sei \(\Pi_A \vert_\Gamma \rightarrow A\) bijektiv.\\
 	D.\ h.\ ist \( (a_j, b_j) \in \Gamma, j \in \{1,2\} \) \\
@@ -128,10 +134,10 @@ Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\tim
 
 \subsection{Schubfachprinzip und endliche Mengen}
 
-Notation: Sei $n\in\mathbb{N}. [n] := \{1,\ldots,n\}$ ist gegeben durch:
-$$[1] = \{1,\ldots,1\} = \{1\}$$
-$$[n+1] = \{1,\ldots,n,n+1\} = [n] \cup \{n+1\}\text{ induktive Def.} n\in\mathbb{N}$$
-$$[2]=\{1,2\}, [3]=\{1,2,3\}$$
+Notation: Sei \( n\in\N \). \([n] := \{1,\ldots,n\} \) ist gegeben durch:
+\[ [1] = \{1,\ldots,1\} = \{1\} \]
+\[ [n+1] = \{1,\ldots,n,n+1\} = [n] \cup \{n+1\}\text{ induktive Def.} n\in\N \]
+\[ [2]=\{1,2\}, [3]=\{1,2,3\} \]
 
 \begin{satz}[Schubfachprinzip]
 	Ist \(f:[m]\rightarrow [n] (m,n\in\N) \) injektiv, dann ist \(m\leq n\).
@@ -139,7 +145,7 @@ $$[2]=\{1,2\}, [3]=\{1,2,3\}$$
 \begin{bew}
 	Fassen obige Aussage als \(A(n)\) auf, die für alle \(m\in\N \) zu zeigen ist.\\
 	Induktionsanfang:
-	\[ n=1: f:[m] \rightarrow \{1\} \text{ injektiv} \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}.\]
+	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}.\]
 	Induktionsschritt:\\
 	Induktionsvoraussetzung: \(A(n)\) ist wahr für \(n\in\N \).\\
 	Zu zeigen: \(A(n+1)\) ist wahr.\\

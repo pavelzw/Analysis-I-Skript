@@ -11,9 +11,11 @@
 % ...
 % \end{document}
 
-\IfFileExists{skript.sty}{\usepackage{skript}}{%
-  \usepackage{../skript}
-}
+\IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
+
+%%%%%%%%%%%%%%%
+%<*tag-skript>%
+%%%%%%%%%%%%%%%
 
 %Metadaten
 \hypersetup{
@@ -22,6 +24,7 @@
 }
 
 \begin{document}
+
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
 
@@ -55,9 +58,12 @@ verantwortlich.
 	\newpage
 	\subfile{chapters/chapter1.tex}
 }
-\foreach \c in {2,...,14}{
+\foreach\c in {2,...,14}{
 	\subfile{chapters/chapter\c.tex}
-	\newpage
+	\iftoggle{short}{}{\newpage}
 }
 
 \end{document}
+%%%%%%%%%%%%%%%
+%</tag-skript>%
+%%%%%%%%%%%%%%%

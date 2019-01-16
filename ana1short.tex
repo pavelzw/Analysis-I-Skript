@@ -1,8 +1,4 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article}
-\usepackage{skript}
-\usepackage{standalone}
-\toggletrue{short}
-
-\begin{document}
-	\input{ana1.tex}
-\end{document}
+\IfFileExists{skript.sty}{\usepackage[short]{skript}}{\usepackage[short]{../skript}}
+\usepackage{catchfilebetweentags}
+\ExecuteMetaData[ana1.tex]{tag-skript}

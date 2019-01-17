@@ -13,10 +13,6 @@
 
 \IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
 
-%%%%%%%%%%%%%%%
-%<*tag-skript>%
-%%%%%%%%%%%%%%%
-
 %Metadaten
 \hypersetup{
 	pdftitle = {Analysis I Vorlesungsmitschrieb (WS 18/19)},
@@ -24,6 +20,10 @@
 }
 
 \begin{document}
+
+%%%%%%%%%%%%%%%
+%<*tag-skript>%
+%%%%%%%%%%%%%%%
 
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
@@ -63,7 +63,8 @@ verantwortlich.
 	\iftoggle{short}{}{\newpage}
 }
 
-\end{document}
 %%%%%%%%%%%%%%%
 %</tag-skript>%
 %%%%%%%%%%%%%%%
+
+\end{document}

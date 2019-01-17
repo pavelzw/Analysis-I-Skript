@@ -1,25 +1,24 @@
 \ProvidesPackage{skript}
 
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc} %Umlaute
-\usepackage{graphicx} %Grafiken einbinden
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{nicefrac}
-\usepackage{marvosym}[Lightning]
-\usepackage{array}
-\usepackage{dsfont} %statt \mathbb{1}
-\usepackage{tikz}
+\RequirePackage[ngerman]{babel}
+\RequirePackage[utf8]{inputenc} %Umlaute
+\RequirePackage{graphicx} %Grafiken einbinden
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{nicefrac}
+\RequirePackage{marvosym}[Lightning]
+\RequirePackage{array}
+\RequirePackage{dsfont} %statt \mathbb{1}
+\RequirePackage{tikz}
+
 \usetikzlibrary{matrix}
-\usepackage{hyperref} %Hyperlinks in pdf
-\usepackage{subfiles}
-\usepackage[shortlabels]{enumitem}
-\usepackage{versions}
-\usepackage{etoolbox}
-\usepackage{mathtools}
-\usepackage{booktabs}
-\usepackage{zref-xr}
-\usepackage{thmtools}
-\usepackage{float}
+\RequirePackage{hyperref} %Hyperlinks in pdf
+\RequirePackage{subfiles}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{zref-xr}
+\RequirePackage{thmtools}
+\RequirePackage{float}
 \restylefloat{table}
 
 \theoremstyle{definition}
@@ -49,6 +48,31 @@
 ]{bew}
 
 \newenvironment{prosa}{}{}
+
+\RequirePackage{etoolbox}
+\RequirePackage{versions}
+
+\newtoggle{short}
+
+\DeclareOption{short}{
+	\excludeversion{notation}
+	\excludeversion{beh}
+	\excludeversion{bem}
+	\excludeversion{bsp}
+	\excludeversion{bspe}
+	\excludeversion{bew}
+	\excludeversion{prosa}
+
+	\toggletrue{short}
+}
+
+\DeclareOption{long}{
+	\togglefalse{short}
+}
+
+\ExecuteOptions{long}
+\ProcessOptions
+
 \newenvironment{alignenum}[2]{\provideFormat{#1}\begin{enumerate}[#2]}{\end{enumerate}}
 \newenvironment{lrcases}{\left\{\!\begin{aligned}}{\end{aligned}\right\}}
 \newenvironment{aitem}{\item \(\begin{aligned}[t]}{\end{aligned}\)}
@@ -105,22 +129,4 @@
 \DeclareMathOperator{\bijektiv}{bijektiv}
 \DeclareMathOperator{\id}{id}
 
-\newtoggle{short}
-\togglefalse{short}
-%\toggletrue{short}
-
-\iftoggle{short}{
-	\includeversion{satz}
-	\includeversion{satz*}
-	\includeversion{kor}
-	\includeversion{lem}
-	\includeversion{defi}
-	\includeversion{defi*}
-	\excludeversion{notation}
-	\excludeversion{beh}
-	\excludeversion{bem}
-	\excludeversion{bsp}
-	\excludeversion{bspe}
-	\excludeversion{bew}
-	\excludeversion{prosa}
-}{}
+\endinput

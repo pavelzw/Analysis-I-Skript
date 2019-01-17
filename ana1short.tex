@@ -1,24 +1,5 @@
 \documentclass[12pt,a4paper,titlepage,draft]{article}
-\usepackage{skript}
-\usepackage{standalone}
-\toggletrue{short}
 
-\iftoggle{short}{
-	\includeversion{satz}
-	\includeversion{satz*}
-	\includeversion{kor}
-	\includeversion{lem}
-	\includeversion{defi}
-	\includeversion{defi*}
-	\excludeversion{notation}
-	\excludeversion{beh}
-	\excludeversion{bem}
-	\excludeversion{bsp}
-	\excludeversion{bspe}
-	\excludeversion{bew}
-	\excludeversion{prosa}
-}{}
-
-\begin{document}
-	\input{ana1.tex}
-\end{document}
+\IfFileExists{skript.sty}{\usepackage[short]{skript}}{\usepackage[short]{../skript}}
+\usepackage{catchfilebetweentags}
+\ExecuteMetaData[ana1.tex]{tag-skript}

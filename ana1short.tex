@@ -3,6 +3,22 @@
 \usepackage{standalone}
 \toggletrue{short}
 
+\iftoggle{short}{
+	\includeversion{satz}
+	\includeversion{satz*}
+	\includeversion{kor}
+	\includeversion{lem}
+	\includeversion{defi}
+	\includeversion{defi*}
+	\excludeversion{notation}
+	\excludeversion{beh}
+	\excludeversion{bem}
+	\excludeversion{bsp}
+	\excludeversion{bspe}
+	\excludeversion{bew}
+	\excludeversion{prosa}
+}{}
+
 \begin{document}
 	\input{ana1.tex}
 \end{document}

@@ -179,4 +179,96 @@ z.\ B.\
     \[ \overset{\text{Satz 2}}{\Rightarrow} g\circ f 
     \text{ ist stetig in } x_0. \]
 \end{bew}
+\begin{bsp}
+    Sei \( f,g : D\rightarrow \R \) stetig. Dann sind auch
+    \[ \abs{f} : D \rightarrow \R, x\mapsto \abs{f(x)} \]
+    und
+    \[ \max(f,g) = \frac{1}{2} (f+g + \abs{f-g}) \text{ und } \min(f,g) = \frac{1}{2} (f+g - \abs{f-g} ) \]
+    stetig.
+\end{bsp}
+\begin{lem}
+    Eine Funktion \[ f: D\rightarrow \R^d, x\mapsto f(x) = (f_1(x), f_2(x), \dots , f_d(x)) \]
+    ist stetig in  \(x_0 \in D\).\\
+    \( \Leftrightarrow \) Alle \gqq{Koordinaten-Funktionen} \( f_j : D \rightarrow \R, x\mapsto f_j(x) \) sind stetig in \( x_0 \).
+\end{lem}
+\begin{bew}
+    Nach einem Satz der Vorlesung
+    \[ y_j = (y_{j1}, y_{j2}, \dots, y_{jd}) \in \R^d \text{ gegen } y_0  = (y_{01}, \dots,y_{0d}). \]
+    \( y_{j\nu} \) konvergiert gegen \( y_{0\nu} \,\forall \, \nu = 1,\dots,d \).
+    \( \Rightarrow \) die Behauptung aus Satz 2.
+\end{bew}
+\begin{satz}[Stetigkeitsregeln]\leavevmode
+    \begin{enumerate}
+        \item Seien \( f,g : D \rightarrow \R^d \) stetig in \( x_0 \in D \).\\
+        Dann ist \( \lambda f + \mu g \) stetig in \( x_0 \) für alle 
+        \( \lambda, \mu \in \R \).
+        (Bem.: Dasselbe gilt für \( f,g:D\rightarrow \C, 
+        \lambda, \mu \in \C \) (und auch für \( \R^d \)))
+        Sind \( f,g: D\rightarrow \C \) stetig in \( x_0 \), so folgt:
+        \item \( f \cdot g \) ist stetig in \( x_0 \).
+        \item Ist \( g(x_0) \neq 0 \), so ist \( \frac{f}{g} : 
+        B_\delta(x_0) \cap D \rightarrow \C \) für hinreichend kleine 
+        \( \delta > 0 \) definiert und stetig in \( x_0 \).
+    \end{enumerate}
+\end{satz}
+\begin{bew}
+    Die Funktionen sind punktweise definiert.
+    \begin{align*}
+        (\lambda f + \mu g)(x) = &\lambda f(x) + \mu g(f) \\
+        (f g)(x) = &f(x) g(x) \\
+        \frac{f}{g}(x) = &\frac{f(x)}{g(x)} \text{ für } g(x) \neq 0.
+    \end{align*}
+    \begin{enumerate}
+        \item Ist \( x_0 \in D, x_n \in D, x_n \rightarrow x_0 \), 
+        so folgt \( f(x_n) \rightarrow f(x_0), g(x_n) \rightarrow g(x_0) \)
+        und aus dem Konvergenzsatz für Folgen erhalten wir
+        \[ \lambda f(x_n) + \mu g(x_n) \rightarrow 
+        \lambda f(x_0) + \mu g(x_0) \]
+        und da die Folge \( {(x_n)}_n \subset D \) beliebig war 
+        bis \( (x_n \rightarrow x_0) \) erhalten wir 
+        \( (\lambda f + \mu g) \) ist stetig in \( x_0 \).
+        \item Folgt genauso wie 1.\ aus den Grenzwertsätzen 
+        für Produkte von Folgen.
+        \item Ist \( g(x) \neq 0 \) für \( x\in B_\delta(x_0) \cap D \),
+        so ist \( \frac{f(x)}{g(x)} \) definiert und der Grenzwertsatz
+        für Folgen liefert
+        \[ \frac{f(x_n)}{g(x_n)} \rightarrow \frac{f(x_0)}{g(x_0)} \]
+        für jede Folge \( {(x_n)}_n \) mit \( x_n \in B_\delta(x_0) 
+        \cap D, x_n \rightarrow x_0 \). Somit ist 
+        \[ B_\delta(x_0) \cap D \ni x \mapsto \frac{f(x)}{g(x)} 
+        \text{ stetig in } x_0. \]
+        Dass so ein \( \delta > 0 \) existiert mit \( g(x) \neq 0 
+        \,\forall \, x \in B_\delta(x) \cap D \) unter der Annahme, 
+        dass \( g(x_0) \neq 0 \) und \(g\) stetig in \( x_0 \), 
+        folgt aus dem folgenden Lemma.
+    \end{enumerate}
+\end{bew}
+\begin{lem}
+    Ist \( g: D\rightarrow \R^d \) stetig in \( x_0 \) mit 
+    \( g(x_0) \neq 0 \), dann existiert \( \delta > 0 \) mit 
+    \[ g(x) \neq 0 \,\forall \, \underbrace{x\in B_\delta \cap D
+    }_{ \set{x\in D \;\colon \; \abs{x-x_0} < \delta } }. \]
+\end{lem}
+\begin{bew}
+    Da \( g \) stetig ist in \( x_0 \), existiert \( \delta > 0 \) mit 
+    \[ \abs{ g(x) - g(x_0) } \leq \frac{1}{2} \abs{g(x_0)} \neq 0. \]
+    \[ \Rightarrow \abs{ g(x) } = \abs{ g(x_0) + g(x) - g(x_0) } \geq 
+    \abs{g(x_0)} - \frac{1}{2} \abs{g(x_0)} = \frac{1}{2} \abs{ g(x_0) }. \]
+    andererseits 
+    \begin{align*}
+        \abs{g(x)} &= \abs{ g(x_0) + g(x) - g(x_0) } \\
+        &\leq \abs{g(x)} + \abs{ g(x) - g(x_0) } \\
+        &\leq \frac{3}{2} \abs{ g(x_0) }
+    \end{align*}
+    \[ \Rightarrow \forall \, x\in B_\delta(x_0) \cap D : 
+    \abs{g(x)} \in [ \frac{1}{2} g(x_0), \frac{3}{2} g(x_0) ]. \]
+\end{bew}
+\begin{bem}
+    Aus Satz 5 folgt, dass der Raum aller stetigen Funktionen 
+    \( f: D\rightarrow \R^d \) ein Untervektorraum des Raumes
+    aller Funktionen \( f: D \rightarrow \R^d \) mit punktweiser 
+    Addition und skalarer Multiplikation ist.
+    \[ \mathcal{C}^0 (D, \R^d) = \set{ \text{VR der stetigen Funktionen } 
+    f: D \rightarrow \R^d }. \]
+\end{bem}
 \end{document}

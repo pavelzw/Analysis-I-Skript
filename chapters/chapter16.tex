@@ -1,0 +1,95 @@
+\documentclass[../ana1.tex]{subfiles}
+\begin{document}
+\setcounter{section}{15}
+\section{Grenzwerte für Funktionen}
+\begin{defi}
+    Für \( x_0 \in \R^n, \delta > 0 \) ist
+    \[ \dot{B}_\delta(x_0) = \set{ x \in \R^n \;\colon \; 
+    0 < \abs{x-x_0} < \delta } = B_\delta (x_0) \setminus 
+    \set{x_0} \]
+    der punktierte \( \delta \)-Ball um \( x_0 \).\\
+    Gegeben \( D \subset \R^n, x_0 \in \R^n \) heißt 
+    Häufungswert (von \( D \)), falls 
+    \[ \forall \, \delta > 0 : \underbrace{ 
+    \dot{B}_\delta(x_0) \cap D}_{ = \set{ x\in D \;\colon \;
+    0 < \abs{ x - x_0 } < \delta } } \neq \emptyset. \]
+    Die Funktion \( f: D\rightarrow \R^m \) konvergiert für 
+    \( x\rightarrow x_0 \) gegen \( \alpha \in \R^m \), falls
+    \[ \forall \,\varepsilon > 0 \,\exists \, \delta > 0 
+    \;\colon \; \abs{ f(x) - \alpha } < \varepsilon \,\forall \, 
+    x \in D\text{ mit } 0 < \abs{x-x_0} < \delta. \]
+\end{defi}
+\begin{notation}
+    \[ \limesx{x}{x_0} f(x) = \alpha \text{ oder } f(x) 
+    \rightarrow \alpha \text{ für } x\rightarrow x_0 \]
+\end{notation}
+\begin{bem}
+    \begin{enumerate}
+        \item \( x_0 \) ist der Häufungswert von \( D \) (Berührpunkt)
+        \[ \Leftrightarrow \exists \text{ Folge } {(x_n)}_n \subset D, 
+        x_n \neq x_0, x_n \rightarrow x_0. \text{ (HA)} \]
+        \item Für die Existenz und den Wert von \( \limesx{x}{x_0} f(x) \)
+        ist es egal, ob die Funktion in \( x_0 \) definiert ist oder welchen 
+        Wert sie dort hat.
+
+    \end{enumerate}
+\end{bem}
+\begin{lem}[Stetigkeit und Grenzwert]
+    Sei \( D \subset \R^n, f : D \rightarrow \R^, x_0 \in D \) 
+    Häufungspunkt von \(D\). Dann sind äquivalent
+    \begin{enumerate}
+        \item \( \limesx{x}{x_0} f(x) = f(x_0) \)
+        \item \( f \) ist stetig in \( x_0 \).
+    \end{enumerate}
+\end{lem}
+\begin{bew}
+    In FOrmeln lauten die beiden Aussagen 
+    \begin{enumerate}
+        \item \( \forall \, \varepsilon > 0 \,\exists \, \delta > 0
+        \; \colon \; \abs{ f(x) - f(x_0) } < \varepsilon \;\forall \;
+        x \in D \) mit \( 0 < \abs{x-x_0} < \delta \).
+        \item \( \forall \, \varepsilon > 0 \,\exists \, \delta > 0
+        \; \colon \; \abs{ f(x) - f(x_0) } < \varepsilon \;\forall \;
+        x \in D \) mit \( \abs{x-x_0} < \delta \).
+    \end{enumerate}
+    Da sowieso \( \abs{f(x) -f(x_0)} = 0 \) für \( x=x_0 \), sind 1.\ und
+    2.\ äquivalent.\\
+    Ist \( D\subset \R \) nach oebn oder nach unten unbeschränkt, so 
+    kann man Grenzwerte \( x \rightarrow \pm \infty \) studieren.
+\end{bew}
+\begin{defi}[Grenzwert bei \( \pm \infty \)]
+    Sei \( D \subset \R \) nach oben unbeschränkt und 
+    \( f:D\rightarrow \R^m \). Dann gilt 
+    \[ \limes{x} f(x) = \alpha \in \R^m, \]
+    falls
+    \[ \forall \,\varepsilon > 0 \,\exists \, K\in\R \text{ mit } 
+    \abs{f(x) - \alpha} < \varepsilon \,\forall \, x \in D 
+    \text{ mit } x > K. \]
+    Analog: \( \limesx{x}{-\infty} f(x). \)
+\end{defi}
+\begin{defi}[Einseitiger Grenzwert]
+    Ist \( D \subset \R, f : D\rightarrow \R^m \) und \( x_0 \in D \)
+    mit \( (x_0, x_0 + \delta) \cap D \neq \emptyset \) für alle 
+    \( \delta > 0 \). Dann ist \( \limesx{x}{x_0+} f(x) = \alpha \) 
+    (rechtsseitiger Grenzwert), falls
+    \[ \forall \,\varepsilon > 0 \,\exists \, \delta > 0 \;\colon \;
+    \abs{ f(x) - \alpha } \,\forall \, \underbrace{ x\in D \cap 
+    (x_0, x_0 + \delta) }_{ \text{oder: } x\in D \text{ mit } 
+    x_0 < x < x_0 + \delta }. \]
+    Ist \( (x_0 - \delta, x_0) \cap D \neq \emptyset \,\forall \, 
+    \delta > 0 \), so ist \( \limesx{x}{x_0-} f(x) = \alpha \), falls
+    \[ \forall \, \varepsilon > 0 \,\exists \, \delta > 0 \;\colon \; 
+    \abs{f(x) - \alpha} < \varepsilon \,\forall \, x \in D \cap 
+    (x_0 - \delta, x_0). \]
+\end{defi}
+\begin{bsp}
+    \[ x\in\R, \mathrm{sgn}(x) := 
+    \begin{cases}
+        1,  &x>0\\
+        0,  &x=0\\
+        -1, &x<0
+    \end{cases} \]
+    \[ \Rightarrow \limesx{x}{0+} \mathrm{sgn}(x) = 1 \quad \limesx{x}{0-} \mathrm{sgn}(x) = -1 \]
+    und \( \limesx{x}{0} \mathrm{sgn}(x) \) existiert nicht.
+\end{bsp}
+\end{document}

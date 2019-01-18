@@ -19,6 +19,8 @@
 \RequirePackage{zref-xr}
 \RequirePackage{thmtools}
 \RequirePackage{float}
+\RequirePackage{mwe}
+\RequirePackage{subfig}
 \restylefloat{table}
 
 \theoremstyle{definition}
@@ -87,6 +89,7 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{{Re}}}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{\(-\)}}
+\newcommand{\shortminus}{\scalebox{0.5}[1.0]{\(-\)}}
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
 \newcommand{\limes}[1]{\lim\limits_{#1\rightarrow\infty}}
@@ -121,6 +124,12 @@
 \newcommand{\set}[1]{\{#1\}}
 \newcommand{\provideFormat}[1]{\def\Format##1{\makebox[\widthof{\ensuremath{#1}}][r]{\ensuremath{##1}}}}
 \newcommand{\case}[2]{\begin{tabular}{rl}#1: #2\end{tabular}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+}}
 
 \DeclareMathOperator{\ko}{,}
 \DeclareMathOperator{\IV}{(IV)}

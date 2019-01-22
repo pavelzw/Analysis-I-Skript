@@ -25,7 +25,25 @@
         Man sieht, dass das benutzte \( \delta \) umso
         kleiner wird, je mehr man sich dem linken Rand
         von \( (0,1] \) annähert.\\
-        %BILD
+        \begin{center}
+            \begin{tikzpicture}[scale = 3]
+                \draw[->] (0,-0.1) -- (0,1) node[above] {\(z\)};
+                \draw[->] (-0.1,0) -- (1,0) node[right] {\(x\)};
+                \draw[thin,domain=0.1:0.9,smooth,variable=\x,black] plot ({\x},{1 / (10 * \x)});
+                \draw[dotted] (0,0.9) -- (0.111,0.9) -- (0.111,0);
+                \draw[dotted] (0,0.5) -- (0.2,0.5) -- (0.2,0);
+                \draw (0,0.7) -- (0.1429,0.7) -- (0.1429,0);
+                \draw[<->] (-0.1,0.5) -- (-0.1,0.9) node[midway, left] {\( \varepsilon \)};
+                \draw[<->] (0.111,-0.1) -- (0.2,-0.1) node[midway, below] {\(\sigma \)};
+
+                \draw[dotted] (0,0.3) -- (0.333,0.3) -- (0.333,0);
+                \draw[dotted] (0,0.2) -- (0.5,0.2) -- (0.5,0);
+                \draw (0,0.25) -- (0.4,0.25) -- (0.4,0);
+                \draw[<->] (-0.1,0.2) -- (-0.1,0.3) node[midway, left] {\( \varepsilon \)};
+                \draw[<->] (0.333,-0.1) -- (0.5,-0.1) node[midway, below] {\(\sigma \)};
+
+            \end{tikzpicture}
+        \end{center}
         \( f \) ist nicht gleichmäßig stetig in \( (0,1] \),
         da man \( \delta \) nicht unabhängig von \(x\) wählen
         kann.\\

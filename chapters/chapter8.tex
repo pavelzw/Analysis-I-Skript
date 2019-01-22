@@ -41,7 +41,7 @@
 \begin{bew}
 	Beh. 1:
 	\begin{align*}
-		f_n = {(1+\frac{1}{n})}^n  &= \sum_{k=0}^{n} \binom{n}{k} {\left( \frac{1}{n} \right)}^k\\
+		f_n = {\left(1+\frac{1}{n}\right)}^n  &= \sum_{k=0}^{n} \binom{n}{k} {\left( \frac{1}{n} \right)}^k\\
 		&= \sum_{k=0}^{n} \underbrace{\frac{n!}{k!(n-k)!}}_{=\frac{n(n-1)\ldots (n-k+1)}{k!}} \\
 		&= \sum_{k=0}^{n} \frac{1}{k!} \frac{n}{n} \underbrace{\frac{n-1}{n}}_{<1} \underbrace{\frac{n-k+1}{n}}_{<1}\\
 		&\leq \sum_{k=0}^{n} \frac{1}{k!} =: e_n, \quad f_n \leq e_n \forall n\in\N \\
@@ -52,7 +52,7 @@
 	Also ist \(n\geq3\).
 	\begin{align*}
 		e_n = \sum_{k=0}^{n} \frac{1}{k!} = 1+1 + \sum_{k=2}^{n} \frac{1}{k!} \overset{(*)}{\leq} 2 + \sum_{k=2}^{n} \frac{1}{2 \cdot 3^{k-2}}\\
-		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} {(\frac{1}{3})}^l}_{=1 - {(\frac{1}{3})}^{n-1}}\\
+		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} {\left(\frac{1}{3}\right)}^l}_{=1 - {\left(\frac{1}{3}\right)}^{n-1}}\\
 		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} = 2 + \frac{3}{4} = 2,75.\\
 		\Rightarrow e_n \leq 2,75 \forall n\geq 2.
 	\end{align*}
@@ -62,8 +62,8 @@
 	\( \Rightarrow {(f_n)}_n \) ist auch oben beschränkt.
 	Beh. 2:\\
 	\begin{align*}
-		\frac{f_n}{f_{n-1}} &= \frac{{(1+\frac{1}{n})}^n}{{(1+\frac{1}{n})}^{n-1}} \qquad n\geq 2\\
-		&= \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n-1}} = \frac{n}{n-1} \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n}} \frac{n}{n-1} {\left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)}^n\\
+		\frac{f_n}{f_{n-1}} &= \frac{{(1+\frac{1}{n})}^n}{{(1+\frac{1}{n-1})}^{n-1}} \qquad n\geq 2\\
+		&= \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n-1}} = \frac{n}{n-1} \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n}} = \frac{n}{n-1} {\left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)}^n\\
 		&= \frac{n}{n-1} {\left( \frac{n^2-1}{n^2} \right)}^n = \frac{n}{n-1} \underbrace{{\left( 1-\frac{1}{n^2} \right)}^n}_{\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
 		&\geq \frac{n}{n-1} (1-n \frac{1}{n^2}) = \frac{n}{n-1} (1-\frac{1}{n}) = 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
 	\end{align*}

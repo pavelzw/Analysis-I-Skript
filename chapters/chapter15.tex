@@ -78,7 +78,7 @@ z.\ B.\
         \ (a=0 \text{ ist erlaubt}) \]
         \[ \Rightarrow \abs{f(x) - f(x_0)} = \abs{a}
         \abs{x-x_0} < \abs{a} \frac{\varepsilon}{1+\abs{a}}
-        < \varepsilon \quad \forall \abs{x-x_0} \leq \delta. \]
+        < \varepsilon \quad \forall \abs{x-x_0} < \delta. \]
         Somit ist \(f\) stetig in \(x_0\).
         \item \( f:\R\rightarrow\R, x\mapsto x^2 \)
         ist stetig, denn
@@ -197,10 +197,10 @@ z.\ B.\
     \( y_{j\nu} \) konvergiert gegen \( y_{0\nu} \,\forall \, \nu = 1,\dots,d \).
     \( \Rightarrow \) die Behauptung aus Satz 2.
 \end{bew}
-\begin{satz}[Stetigkeitsregeln]\leavevmode
+\begin{satz}[Stetigkeitsregeln]
     \begin{enumerate}
-        \item Seien \( f,g : D \rightarrow \R^d \) stetig in \( x_0 \in D \).\\
-        Dann ist \( \lambda f + \mu g \) stetig in \( x_0 \) für alle 
+        Seien \( f,g : D \rightarrow \R^d \) stetig in \( x_0 \in D \).
+        \item Dann ist \( \lambda f + \mu g \) stetig in \( x_0 \) für alle 
         \( \lambda, \mu \in \R \).
         (Bem.: Dasselbe gilt für \( f,g:D\rightarrow \C, 
         \lambda, \mu \in \C \) (und auch für \( \R^d \)))

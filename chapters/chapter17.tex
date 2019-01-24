@@ -360,13 +360,21 @@ Für den Beweis benötigt man das folgende Lemma.
     \( f: [a,b] \rightarrow \R \) stetig und 
     \( c \in [a,b] \) mit \( f(c) > 0 \). Dann existiert 
     ein \( \delta > 0 \), sodass 
-    \[ \forall \, x\in [a,b] \cap \bar{B_\delta(c)} : 
+    \[ \forall \, x\in [a,b] \cap \overline{B_\delta(c)} : 
     f(x) \geq \frac{f(c)}{2} \]
 \end{lem}
 \begin{bew}
-    Wegen \( \varepsilon \)-\(\delta \)-Char.\ der Stetigkeit
-    folgt \( \varepsilon := \frac{f(c)}{2} > 0 \) die 
-    Existenz von \( \delta > 0 \)
-    \[ \forall \, x\in [a,b] \cap  \]%NOCH FERTIGMACHEN
+    Wegen \( \varepsilon \)-\(\delta \)-Charakteristik der 
+    Stetigkeit folgt \( \varepsilon := \frac{f(c)}{2} > 0 \) 
+    die Existenz von \( \delta > 0 \)
+    \[ \forall \, x\in [a,b] \cap B_\delta(c) : 
+    \abs{f(x) - f(c)} \leq \varepsilon = \frac{f(c)}{2} \]
+    Daraus folgt
+    \begin{align*}
+        f(x) &= f(c) + f(x) - f(c) \\
+        &\geq f(c) + \abs{f(x) - f(c)} \\
+        &\geq f(c) - \frac{f(c)}{2} \\
+        &= \frac{f(c)}{2}.
+    \end{align*}
 \end{bew}
 \end{document}

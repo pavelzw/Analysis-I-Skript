@@ -23,7 +23,7 @@
     \[ \limesx{x}{x_0} f(x) = \alpha \text{ oder } f(x) 
     \rightarrow \alpha \text{ für } x\rightarrow x_0 \]
 \end{notation}
-\begin{bem}
+\begin{bem}\leavevmode
     \begin{enumerate}
         \item \( x_0 \) ist der Häufungswert von \( D \) (Berührpunkt)
         \[ \Leftrightarrow \exists \text{ Folge } {(x_n)}_n \subset D, 
@@ -35,7 +35,7 @@
     \end{enumerate}
 \end{bem}
 \begin{lem}[Stetigkeit und Grenzwert]
-    Sei \( D \subset \R^n, f : D \rightarrow \R^, x_0 \in D \) 
+    Sei \( D \subset \R^n, f : D \rightarrow \R^m, x_0 \in D \) 
     Häufungspunkt von \(D\). Dann sind äquivalent
     \begin{enumerate}
         \item \( \limesx{x}{x_0} f(x) = f(x_0) \)
@@ -92,4 +92,136 @@
     \[ \Rightarrow \limesx{x}{0+} \mathrm{sgn}(x) = 1 \quad \limesx{x}{0-} \mathrm{sgn}(x) = -1 \]
     und \( \limesx{x}{0} \mathrm{sgn}(x) \) existiert nicht.
 \end{bsp}
+\begin{bem}
+    Ist \( f: D \rightarrow \R^m, D \leq \R \) und \( x_0 \in D \),\\
+    \( D \cap (x_0, x_0 + \delta) \neq \emptyset \,\forall \, 
+    \delta > 0 \). Dann gilt: 
+    \[ \limesx{x}{x_0} f(x) = a \Leftrightarrow \limesx{x}{x_0} 
+    \limesx{x}{x_0-} f(x) = a \text{ und } \limesx{x}{x_0+} 
+    f(x) = a. \]
+\end{bem}
+\begin{bew}
+    HA
+\end{bew}
+Um Grenzwerte von Funktionen zu bestimmen, kann man auch 
+mit Folgen arbeiten.
+\begin{satz}[\( \limesx{x}{x_0} f(x) \) mit Folge]
+    Sei \( D \subseteq \R^n \), \(x_0 \) Häufungspunkt von 
+    \( D \), \( f: D \rightarrow \R^m \). Für \( a\in \R^m \) 
+    sind äquivalent:
+    \begin{enumerate}
+        \item \( f(x) \rightarrow a \) für \( x\rightarrow x_0 \)
+        \item \( \limes{k} f(x_k) = a \,\forall \, {(x_k)}_k 
+        \subseteq D \setminus \{x_a\} \) mit \( x_k \rightarrow x_0 \).
+    \end{enumerate}
+\end{satz}
+\begin{bew}
+    Analog zu Satz 15.0.4
+    \( 1 \Rightarrow 2 \): Sei \( \varepsilon > 0 \). Dann 
+    existiert \( \delta > 0 \) mit 
+    \[ (*) \abs{f(x) - a} < \varepsilon \,\forall \, x\in D 
+    \text{ mit } 0 < \abs{x-x_0} < \delta. \]
+    Sei \( {(x_k)}_k \subseteq D \setminus \{x_0\} \) mit 
+    \( x_k \rightarrow x_0 \).\\
+    Da \( \abs{x-x_0} < \delta \) für fast alle \(k\) gilt, 
+    ist wegen \( (*) \)
+    \[ \abs{f(x_k) - a} < \varepsilon \text{ für fast alle } k\in\N. \]
+    \( \Rightarrow \limes{k} f(x_k) = a \).\\
+    \( 2 \Rightarrow 1\): Wir zeigen 
+    \( \neg 2 \Rightarrow \neg 1\).
+    Ist \( 1 \) falsch, so existiert \( \varepsilon > 0 \), sodass
+    gilt: 
+    \[ \forall \, \delta > 0 \,\exists \, x \in D \text{ mit } 0 < 
+    \abs{f(x_k) - a} \geq \varepsilon. \]
+    Wähle \( \delta = \frac{1}{k}, k\in\N \Rightarrow \exists \, x_k 
+    \in D\setminus \{ x_0 \} : \abs{x_k - x} < \frac{1}{k} \) und 
+    \( \abs{f(x_k) - a} \geq \varepsilon \).\\
+    \( \Rightarrow f(x_k) \) konvergiert nicht gegen \(a\). 
+    \( \Rightarrow \neq 2 \) ist wahr.
+\end{bew}
+\begin{satz}[Rechenregel für Grenzwerte]
+    Sei \( x_0 \in D \subset \R^n \) Häufungspunkt von \( D \). 
+    Dann gilt:
+    \begin{enumerate}
+        \item Sind \( f, g: D \rightarrow \R^m, f(x) \rightarrow a, 
+        g(x) \rightarrow b \) für \( x \rightarrow x_0 \).
+        \[ \lambda f(x) + \mu g(x) \rightarrow \lambda a + \mu b
+        \text{ für } x \rightarrow x_0. \]
+        \item Sind \( f, g: D \rightarrow \C, f(x) \rightarrow a,
+        g(x) \rightarrow b \) für \( x\rightarrow x_0 \).\\
+        \[ \Rightarrow f(x) g(x) \rightarrow a b \text{ für } 
+        x\rightarrow x_0. \]
+        Ist \( b\neq 0 \), so ist \( \forall \, x\in 
+        D \cap B_\delta(x_0) : g(x) \neq 0 \) und 
+        \[ \frac{f(x)}{g(x)} \rightarrow \frac{a}{b} \text{ für } 
+        x\rightarrow x_0. \]
+        \item Sind \( f: D \rightarrow \R^m, f(D) \subseteq E 
+        \subseteq \R^m, g : E \rightarrow \R^l \), gilt 
+        \( f(x) \rightarrow y_0 \) für \( x\rightarrow x_0 \) und
+        ist \(g\) stetig in \( y_0 \), so folgt
+        \[ (g\circ f)(x) = g(f(x)) \rightarrow g(y_0) \text{ für }
+        x \rightarrow x_0. \]
+        \item Ist \( f: D\rightarrow \R, f(x) \rightarrow a \) für 
+        \( x \rightarrow x_0 \) und \( f(x) \geq 0 \,\forall \, 
+        x \in D \cap B_\delta(x_0) \\ 
+        \Rightarrow a \geq 0 \).
+        \item Ist \( f : D \rightarrow (0, \infty) \), so ist 
+        \( \limesx{x}{x_0} f(x) = 0 \) äquivalent zu 
+        \( \limesx{x}{x_0} \frac{1}{f(x)} = \infty \).
+    \end{enumerate}
+\end{satz}
+\begin{bew}
+    Man überlege sich dies in Ruhe selbst.
+\end{bew}
+\begin{bspe}
+    \begin{align*}
+        f : \R \rightarrow \R, x \mapsto ax \text{ ist stetig für } a \in \R \\
+        \Rightarrow x \mapsto x^2 = x \cdot x \text{ ist stetig.}\\
+        \Rightarrow x \mapsto x^3 = x \cdot x^2 \text{ ist stetig.}\\
+        \Rightarrow \text{Induktion, } x \mapsto x^n, n\in \N \text{ ist stetig.}\\
+    \end{align*}
+    \( \Rightarrow \) Summe. Sind \( n\in\N, a_0, \ldots,a_n \in \R \),
+    dann ist 
+    \[ p : \R \rightarrow \R, x\mapsto p(x) 
+    = a_0 + a_1 x + \cdots + a_n x^n 
+    \text{ stetig. (reelles Polynom)} \]
+    Genauso: \( \R^2 \ni (x,y) \mapsto x + iy \) ist stetig und 
+    \( (x,y) \mapsto z^n = {(x + iy)}^n \) ist für alle \( n\in\N \)
+    stetig und \( z \mapsto \sum_{l=0}^n a_l z^l = a_0 + a_1 z^1 
+    + \cdots + a_n z^n \) ist stetig. (komplexes Polynom)
+\end{bspe}
+\begin{satz}[Stetigkeit von Potenzreihen]
+    Sei \( f(z) := \sum_{n=0}^\infty a_n z^n \) eine 
+    Potenzreihe mit Konvergenzradius \( \rho > 0 \). 
+    Dann ist \( f: B_\rho(0) \rightarrow \C \) stetig.
+\end{satz}
+\begin{bew}
+    Sei \( z_0 \in B_\rho(0) \) (d.\ h.\  \( \abs{z_0} < \rho \)),
+    \( \rho > 0 \), sodass \( \abs{z_0} + \delta < \rho \) und
+    \[ {(z_n)}_n \subseteq B_\rho(0) \text{ mit } z_n 
+    \rightarrow z_0. \]
+    Dann gilt: \( \abs{z_n} \leq \abs{z_0} + \delta := \eta \) 
+    für fast alle \(n\in\N \).\\
+    Sei nun \( L\in\N \) so groß, dass \( \abs{z_n} \leq \eta 
+    \,\forall \, n \geq L + 1 \).\\
+    Dann gilt:
+    \begin{align*}
+        \abs{f(z_n) - f(z_0)} &= \abs{ \sum_{k=0}^\infty a_k z_n^k - \sum_{k=0}^\infty a_k z_0^k }\\
+        &= \abs{ \sum_{k=0}^L a_k(z_n^k - z_0^k) + \sum_{k=L+1}^\infty a_k(z_n^k - z_0^k) }\\
+        &\leq \sum_{k=0}^L \abs{a_k} \abs{(z_n^k - z_0^k)} + \sum_{k=L+1} \abs{a_k} \underbrace{( \abs{z_n}^k + \abs{z_0}^k )}_{\leq 2 \eta^k}\\
+        &\leq \sum_{k=0}^L \abs{a_k} \underbrace{\abs{ z_n^k - z_0^k }}_{\rightarrow 0} + 2 \sum_{k=L+1}^\infty \abs{a_k} \eta^k
+    \end{align*}
+    Somit ist \( \limessup{n} \abs{f(z_n) 
+    - f(z_0)} \leq \sum_{k=0}^L \abs{a_k} 
+    \underbrace{\limessup{n} \abs{z_n^k - z_0}}_{=0} 
+    + 2 \underbrace{\sum_{k=L+1}^\infty \abs{a_k} \eta^k}_{
+        \rightarrow 0 (L\rightarrow \infty)} \) \\
+    D.\ h.\  \(f\) ist stetig in \( z_0 \in B_\rho(0) \).\\
+    Da \( z_0 \in B_\rho(0) \) beliebig war, 
+    folgt die Behauptung.
+\end{bew}
+\begin{kor}
+    Die Funktionen \( \exp, \sin, \cos : 
+    \C \rightarrow \C \) sind stetig.
+\end{kor}
 \end{document}

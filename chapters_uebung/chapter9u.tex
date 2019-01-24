@@ -1,0 +1,87 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{8}
+
+\section{Reihenkonvergenz (14.12.18)}
+
+\begin{bem}
+	Ist \(f: D \rightarrow \R^m, D \subset \R \) und \(x_0 \in D\)\\
+	\(D \cap (x_0, x_0 + \delta) \neq \emptyset, D \cap (x_0 - \delta, x_0) \neq \emptyset \; \forall \, \delta > 0 \)\\
+	Dann gilt:
+	\[\limesx{x}{x_0} f(x) \Leftrightarrow \limesx{x}{x_0-} f(x) = a \text{ und } \limesx{x}{x_0+} f(x) = a \]
+\end{bem}
+
+Um Grenzwerte von Funktionen zu bestimmen, kann man auch mit Folgen arbeiten.
+\begin{satz}
+	(\(\limesx{x}{x_0} f(x) \) mit Folge)\\
+	Sei \(D \subset \R^m, x_0 \) Häufungspunkt von \(D\) und \(f: D \rightarrow \R^m\)\\
+	Für \(a \in \R^m\) sind äquivalent:
+	\begin{enumerate}
+		\item \(f(x) \rightarrow a \) für \(x \rightarrow x_0\)
+		\item \(\limes{k} f(x_k) = a \forall (x_k)_k \subset D \setminus \{x_0\} \) mit \(x_k \rightarrow x_0\)
+	\end{enumerate}
+\end{satz}
+\begin{bew}
+	analog zu Satz 15.2\\
+	\((1) \Rightarrow (2)\):\\
+	Sei \(\varepsilon > 0\) dann existiert \(\delta > 0\) mit\\
+	(*) \(|f(x) - a| < \varepsilon \; \forall \, x \in D\) mit \(0 < |x - x_0| < \delta\)\\
+	Sei \((x_k)_k \subset D \setminus \{x_0\}\) mit \(x_k \rightarrow x_0\)\\
+	Da \(|x_k - x_0| < \delta\) für fast alle k gilt wegen (*).\\
+	\(|f(x_k) - a| < \varepsilon\) für fast alle \(k \in \N\)\\
+	\(\Rightarrow \limes{k} f(x_k) = a\)\\
+	\((2) \Rightarrow (1)\): zeigen \(\lnot (1) \Rightarrow \lnot (2) \)\\
+	Ist \((1)\) falsch, so existiert ein \(\varepsilon > 0\), sodass\\
+	\(\forall \, \delta > 0: \exists \, x \in D, 0 < |x - x_0| < \delta \) und \(|f(x) - a| > \varepsilon\)\\
+	wähle \(\delta = \frac{1}{k}, k \in \N \Rightarrow \exists \, x_k \in D \setminus \{x_0\}, |x_k - x_0| < \frac{1}{k}\) und \(|f(x_k) - a| \geq \varepsilon\)\\
+	\(\Rightarrow f(x_k)\) konvergiert nicht gegen \(a\).\\
+	\(\Rightarrow \lnot (2)\) ist wahr.
+\end{bew}
+\begin{satz}[Rechenregeln für Grenzwert]
+	Sei \(x_0 \in D \subset \R^m \) Häufungspunkt von \(D\).\\
+	Dann gilt:\\
+	\begin{enumerate}
+		\item 
+			Sind \(f, g: D \rightarrow \R^m, f(x) \rightarrow a, g(x) \rightarrow b\)\\
+			für \(x \rightarrow x_0\)\\
+			\(\Rightarrow \lambda f(x) + \mu g(x) \rightarrow \lambda a + \mu b \) für \(x \rightarrow x_0\)\\
+		\item 
+			Sind \(f,g: D \rightarrow \C, f(x) \rightarrow a, g(x) \rightarrow b \)\\
+			\(\Rightarrow f(x) \cdot g(x) \rightarrow a \cdot b\) für \(x \rightarrow x_0\)\\
+			Ist \(b \neq 0\), so ist \(g(x) \neq 0 \; \forall \, x \in D \cap B_\delta(x_0) \)\\
+			und \(\frac{f(x)}{g(x)} \rightarrow \frac{a}{b} \) für \(x \rightarrow x_0\)
+		\item 
+			Sind \(f: D \rightarrow \R^m, f(D) \subset E \subset \R^m, g: E \rightarrow \R^l\) gilt:\\
+			\(f(x) \rightarrow y_0\) für \(x \rightarrow x_0\) und ist \(g\) stetig in \(y_0\), so folgt:\\
+			\((g \circ f)(x) = g(f(x)) \rightarrow g(y_0) \) für \(x \rightarrow x_0\)
+		\item 
+			Ist \(f: D \rightarrow \R, f(x) \rightarrow a\) für \(x \rightarrow x_0\) und \(f(x) \geq 0 \; \forall \, x \in \dot{B}_\delta(x_0) \cap D \Rightarrow a \geq 0 \)
+		\item 
+			Ist \(f: D \rightarrow (0, \infty)\) so ist \(\limesx{x}{x_0} f(x) = 0\) äquivalent zu \(\limesx{x}{x_0} \frac{1}{f(x_0)} = \infty\)
+	\end{enumerate}	
+\end{satz}
+\begin{bew}
+	Man überlege sich dies in Ruhe selbst.
+\end{bew}
+\begin{bsp}
+	\(f: \R \rightarrow \R; x \mapsto ax \) ist stetig für \(a \in \R\) (6.1)\\
+	\(\Rightarrow x \mapsto x^2 = x \cdot x\) ist stetig (6.2)\\
+	\(\Rightarrow x \mapsto x^3 = x \cdot x^2 \) ist stetig (6.2)\\
+	\(\Rightarrow \) Induktion: \(x \mapsto x^n, n \in \N \) ist stetig\\
+	\(\Rightarrow  \) Summe: sind \(n \in \N \; a_0, \dots, a_n \in \R\), dann ist\\
+	\(\phi: \R \rightarrow \R; x \mapsto \phi(x) = a_0 + a_1 \cdot x + \dots + a_n \cdot x^n \) stetig (reelles Polynom)\\
+	genauso:\\
+	\(\R^2 \ni (x, y) \mapsto x + i \cdot y \) ist stetig und \((x, y) \mapsto z^n = (x + iy)^n \) ist stetig \(\forall \, n \in \N\)\
+	und \(z \mapsto \sum_{l=0}^{n} a_l \cdot z^l = a_0 + a_1 z^1 + \dots + a_n z^n \) ist stetig (komplexe Polynome)
+\end{bsp}
+\begin{satz}[Stetigkeit von Potenzreihen]
+	Sei \(f(z) = \sum_{n=0}^{\infty} a_n z^n \) eine Potenzreihe mit Konvergenzradius \(\phi > 0\). Dann ist \(f: B_\delta(0) \rightarrow \C \) stetig\\
+\end{satz}
+\begin{bew}
+	Sei \(z_0 \in B_\delta(0)\) (d.h \(|z_0| < \phi, \delta > 0\), sodass \(|z_0| + \delta < \phi\) und \((z_n)_n \subset D_\delta(0)\) mit \(z_n \rightarrow z_0\))\\
+	Dann ist \(|z_n| \leq |z_0| + \delta := \eta < \phi\) für fast alle \(n \in \N\)\\
+	sei nun \(L \in \N \) so groß, dass \(|z_n| \leq \eta \; \forall n \geq L \)\\
+	Dann gilt:\\
+	\(|l(z_n) - f(z_0)| = |\sum_{k=0}^{\infty} a_k z_n^k - \sum_{k=0}^{\infty} a_k z_0^k|\)
+\end{bew}
+\end{document}

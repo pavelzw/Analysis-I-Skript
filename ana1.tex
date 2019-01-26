@@ -13,10 +13,6 @@
 
 \IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
 
-%%%%%%%%%%%%%%%
-%<*tag-skript>%
-%%%%%%%%%%%%%%%
-
 %Metadaten
 \hypersetup{
 	pdftitle = {Analysis I Vorlesungsmitschrieb (WS 18/19)},
@@ -24,6 +20,10 @@
 }
 
 \begin{document}
+
+%%%%%%%%%%%%%%%
+%<*tag-skript>%
+%%%%%%%%%%%%%%%
 
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
@@ -70,12 +70,13 @@ verantwortlich.
 \renewtheorem{defi}[satz]{Definition}
 \renewtheorem{bem}{Bemerkung}[satz]
 
-\foreach \c in {7,...,16}{
+\foreach \c in {7,...,17}{
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }
 
-\end{document}
 %%%%%%%%%%%%%%%
 %</tag-skript>%
 %%%%%%%%%%%%%%%
+
+\end{document}

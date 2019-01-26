@@ -171,12 +171,13 @@
 
 \begin{satz*}[Schubfachprinzip]\label{satz:schubfach}\leavevmode \\
 	Ist \(f \colon [m] \longrightarrow [n] \) eine Funktion mit \(m > n \), so existiert ein \(k \in [n]\) mit 
-	\(\#\inverse{f}(\set{k}) \geq 2\).
+	\(\inverse{f}(\set{k}) \subseteq \set{m_1 \ko m_2} \) wobei \(m_1 \neq m_2 \) ist.
 \end{satz*}
 \begin{bew}
-	Angenommen für alle \(k \in [n] \) gilt \(\#\inverse{f}(\set{k}) < 2 \). Es gilt also für alle \(k \)\\
-	\(\inverse{f}(\set{k}) = \set{j_k} \) für ein \(j_k \in [m]\). Ferner gilt \(\#[n] = n\).\\
-	Somit folgt, dass \(\#\inverse{f}([n]) = n < m \). \Lightning{ zu \(m > n\).}
+	Angenommen für alle \(k \in [n] \) gilt \(\inverse{f}(\set{k}) \subseteq \set{j_k} \) für ein \(k_j \in [m] \).
+	Ferner gilt \(\#[n] = n \). Da durch \(f \) jedem Element in \([m] \) genau ein Element in \([n] \) zugeordnet wird
+	sind die \(j_k \), falls existent, alle unterschiedlich.
+	Somit folgt, dass \(\inverse{f}([n]) \subseteq \set{j_1 \ko \ldots \ko j_n} \) für \(j_k \) paarweise verschieden. \Lightning{ zu \(m > n\).}
 \end{bew}
 
 \begin{kor}\label{satz:schubfach:kor}\leavevmode \\
@@ -226,8 +227,8 @@
 %%%\end{bew}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{kor} \leavevmode \\
-	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv \(\implies m = n \).
+\begin{kor}\label{satz:schubfach:kor_2}\leavevmode \\
+	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv, so gilt \(m = n \).
 \end{kor}
 \begin{bew}
 	Nach Voraussetzung sind sowohl \(f \) als auch \(\inverse{f} \) injektiv. \\
@@ -235,28 +236,34 @@
 \end{bew}
 
 \begin{defi}
-	Eine Menge \(M \) ist endlich, falls \( M=\emptyset \) oder falls \( n\in\N_0 \) und eine Bijektion \( f:{1,\ldots,n}\rightarrow M \) existiert. \\
-	%Die Anzahl der Elemente von \(M \) (\( \#M \)) ist dann \( \#M\coloneqqn \), setzen \( \#\emptyset \coloneqq 0 \). Eine Menge ist unendlich, falls sie nicht endlich ist.
-	
-	\begin{bem}
-		Ist \(M \) endlich, so ist \( \#M \) wohldefiniert. \\
-		Angenommen:
-		\[ \begin{array}{lr}
-				f:[n]\rightarrow M \\
-				g:[m]\rightarrow M
-			\end{array}
-			\text{ beide bijektiv.} \]
-		\[ [n]\overset{f}{\longrightarrow} M \overset{g}{\longleftarrow} [m] \]
-		\( h\coloneqq f^{-1}\circ g = [m]\rightarrow[n] \) ist auch bijektiv. \(\overset{\text{Korr. 2}}{\Rightarrow} m=n \).
-	\end{bem}
-
-	Weiter in Definition: \\
-	Zwei Mengen \(A,B \) heißen gleichmächtig, falls es eine Bijektion \(f: A\rightarrow B \) gibt, schreiben \(A\sim B \). Eine Menge \(A \) heißt abzählbar, falls \(A \) endlich ist oder es eine Bijektion \(f: \N\rightarrow A \) gibt. Ist \(A \) abzählbar und unendlich, so heißt \(A \) abzählbar unendlich.
+	Seien \(M \ko A \ko B \) Mengen.
+	\begin{enumerate}[(a)]
+		\item \(M \) heißt endlich \(\longeq M = \emptyset \) oder \(\exists \, n \in \N \, \exists \, f \colon [n] \longrightarrow M \bijektiv \). \\
+			  In diesem Fall heißt \(\#M \coloneqq n \) die Mächtigkeit von M. \\
+			  Für die leere Menge setzen wir \(\#\emptyset \coloneqq 0 \). \\
+		\item \(M \) heißt unendlich \(\longeq M \) ist nicht endlich.
+		\item \(A \ko B \) heißen gleichmächtig \(\longeq \exists \, f \colon A \longrightarrow B \, \bijektiv \). \\
+			  Schreibe auch \(A \sim B\).
+		\item \(M \) heißt abzählbar \(\longeq \exists \, f \colon \N \longrightarrow M \, \bijektiv \).
+		\item \(M \) heißt abzählbar unendlich \(\longeq M \) ist unendlich und abzählbar.
+	\end{enumerate}
 \end{defi}
 
 \begin{bem}
-	Satz von Cantor und Berenstein: \\
-	Ang. \(\exists \) Injektion \(f:A\rightarrow B, f:B\rightarrow A \), dann \(\exists \) Bijektion \(h:A\rightarrow B \).
+	Ist \(M \) endlich, so ist \(\#M \) wohldefiniert.
+\end{bem}
+\begin{bew}
+	Seien \(f \colon [n] \rightarrow M \ko g \colon [m] \rightarrow M \) bijektiv.
+	\[\begin{tikzcd}
+		& M &  \\
+	   {[n]} \arrow[ru, "f"] &  & {[m]} \arrow[lu, "g"'] \arrow[ll, "h"']
+	\end{tikzcd}\]
+	\( h \coloneqq \inverse{f} \circ g \colon [m] \longrightarrow [n] \) ist auch bijektiv. \(\overset{\autoref{satz:schubfach:kor_2}}{\implies} m=n \).
+\end{bew}
+
+\begin{bem}[Satz von Cantor und Berenstein]\label{satz:cantor_Berenstein}\leavevmode \\
+	Seien \(A \ko B \) Mengen und \(f \colon A \longrightarrow B \) sowie \(g \colon B \longrightarrow A \) injektiv.
+	Dann existiert eine Bijektion \(h \colon A \longrightarrow B \).
 \end{bem}
 \begin{bew}
 	Siehe Kolmogorov-Fomin: Introductory Real Analysis. \\

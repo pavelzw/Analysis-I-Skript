@@ -58,7 +58,19 @@ verantwortlich.
 	\newpage
 	\subfile{chapters/chapter1.tex}
 }
-\foreach \c in {2,...,16}{
+\foreach \c in {2,...,6}{
+	\subfile{chapters/chapter\c.tex}
+	\iftoggle{short}{}{\newpage}
+}
+
+\theoremstyle{definition}
+\renewtheorem{satz}{Satz}[section]
+\renewtheorem{kor}[satz]{Korollar}
+\renewtheorem{lem}[satz]{Lemma}
+\renewtheorem{defi}[satz]{Definition}
+\renewtheorem{bem}{Bemerkung}[satz]
+
+\foreach \c in {7,...,16}{
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }

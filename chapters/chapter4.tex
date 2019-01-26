@@ -168,50 +168,69 @@
 	\[[n + 1] \coloneqq [n] \cup \set{n + 1} \ko \quad n \in \N.\]
 \end{notation}
 
-\begin{satz}[Schubfachprinzip]\label{satz:schubfach} \leavevmode \\
-	Ist \(f \colon [m] \longrightarrow [n]\ko \text{ mit } m \ko n \in \N \) injektiv, dann ist \(m \leq n \).
-\end{satz} %%Bis hier formatiert%%
+\begin{satz*}[Schubfachprinzip]\label{satz:schubfach}\leavevmode \\
+	Ist \(f \colon [m] \longrightarrow [n] \) eine Funktion mit \(m > n \), so existiert ein \(k \in [n]\) mit 
+	\(\#\inverse{f}(\set{k}) \geq 2\).
+\end{satz*}
 \begin{bew}
-	Fassen obige Aussage als \(A(n) \) auf, die für alle \(m\in\N \) zu zeigen ist. \\
-	Induktionsanfang:
-	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}. \]
-	Induktionsschritt: \\
-	Induktionsvoraussetzung: \(A(n) \) ist wahr für \(n\in\N \). \\
-	Zu zeigen: \(A(n+1) \) ist wahr. \\
-	Angenommen, \(f:[m]\rightarrow[n+1] = [n] \cup \{n+1\} \) sei injektiv. \\
-	Zu zeigen: \(m\leq n+1 \) \\
-	Fallunterscheidung:
-	\begin{enumerate}
-		\item Ang.\  \(m=1 \Rightarrow m=1\leq n+1\checkmark{} \)
-		\item Ang.\  \(m>1, m\in\N \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\N \) \\
-		      \((*) \) Beh.: \(\exists \) inj.\  \(\tilde{f}: \{1,\ldots,m-1\}\rightarrow \{1,\ldots,n\} \). \\
-		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}. \]
-	\end{enumerate}
-	Beweis von \((*) \): \\
-	Angenommen, \(\exists f: [m]\rightarrow[n+1] \) inj. \\
-	Dann \(\exists \tilde{f}: [m+1]\rightarrow [m+1]\rightarrow[n] \) inj. \\
-	Fallunterscheidung:
-	\begin{itemize}
-		\item Ang. \(f(k)\in [n] \forall 1\leq k \leq m-1 \). Dann setze \(\tilde{f}(k) \coloneqq f\vert_{[m-1]} \\
-			  \tilde{f}(k) \coloneqq f(k), 1\leq k\leq m-1 \) \\
-		      (Nachrechnen \(\tilde{f} \) ist injektiv.)
-		\item \(\exists j\in\N, 1\leq j\leq m-1 \) mit \(f(j) = n+1 \). \\
-		      Dann definiere \(\tilde{f}: [m-1]\rightarrow [n] \)
-		      \[\tilde{f}(k) \coloneqq
-			      	\begin{cases}
-				    	f(k), 1 \leq k \leq m-1, k\neq j \\
-				      	f(m), k=j
-			      	\end{cases} \]
-		      Man prüfe nach \(\tilde{f}: [m-1]\rightarrow [n] \) injektiv!
-	\end{itemize}
+	Angenommen für alle \(k \in [n] \) gilt \(\#\inverse{f}(\set{k}) < 2 \). Es gilt also \\
+	\(\inverse{f}(\set{k}) = \set{j_k} \) für ein \(j_k \in [m]\). Ferner gilt \(\abs{[n]} = n\).\\
+	Somit folgt, dass \(\#\inverse{f}([n]) = n < m \). \Lightning{ zu \(m > n\).}
 \end{bew}
 
-\begin{kor}
-	Sind \(n,m\in\N \) und \(f:[m]\rightarrow[n] \) bijektiv \(\Rightarrow m=n \).
+\begin{kor}\label{satz:schubfach:kor}\leavevmode \\
+	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) injektiv \(\implies m \leq n \).
 \end{kor}
 \begin{bew}
-	Nach Voraussetzung ist \(f: [m]\rightarrow[n] \) injektiv und \(f^{-1}:[n]\rightarrow[m] \) auch injektiv. \\
-	\(\Rightarrow m\leq n \wedge n \leq m \Rightarrow m = n \).
+	Angenommen \(m > n\), dann folgt aber, dass ein \(k \in [n] \) existiert mit \(\#\inverse{f}(\set{k}) \geq 2 \).
+	Es gibt also \(m_1 \ko m_2 \in [m] \ko \; m_1 \neq m_2 \) \\
+	mit \(f(m_1) = k = f(m_2) \).\Lightning{ zu \(f \) injektiv.}
+\end{bew}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%Irgendwie ist dieser Beweis sehr umständlich und Lang. Ich habe mir die Freiheit genommen ihn durch eine kurze Version zu ersetzen.%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%\begin{bew}
+%%%	Fassen obige Aussage als \(A(n) \) auf, die für alle \(m\in\N \) zu zeigen ist. \\
+%%%	Induktionsanfang:
+%%%	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}. \]
+%%%	Induktionsschritt: \\
+%%%	Induktionsvoraussetzung: \(A(n) \) ist wahr für \(n\in\N \). \\
+%%%	Zu zeigen: \(A(n+1) \) ist wahr. \\
+%%%	Angenommen, \(f:[m]\rightarrow[n+1] = [n] \cup \{n+1\} \) sei injektiv. \\
+%%%	Zu zeigen: \(m\leq n+1 \) \\
+%%%	Fallunterscheidung:
+%%%	\begin{enumerate}
+%%%		\item Ang.\  \(m=1 \Rightarrow m=1\leq n+1\checkmark{} \)
+%%%		\item Ang.\  \(m>1, m\in\N \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\N \) \\
+%%%		      \((*) \) Beh.: \(\exists \) inj.\  \(\tilde{f}: \{1,\ldots,m-1\}\rightarrow \{1,\ldots,n\} \). \\
+%%%		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}. \]
+%%%	\end{enumerate}
+%%%	Beweis von \((*) \): \\
+%%%	Angenommen, \(\exists f: [m]\rightarrow[n+1] \) inj. \\
+%%%	Dann \(\exists \tilde{f}: [m+1]\rightarrow [m+1]\rightarrow[n] \) inj. \\
+%%%	Fallunterscheidung:
+%%%	\begin{itemize}
+%%%		\item Ang. \(f(k)\in [n] \forall 1\leq k \leq m-1 \). Dann setze \(\tilde{f}(k) \coloneqq f\vert_{[m-1]} \\
+%%%			  \tilde{f}(k) \coloneqq f(k), 1\leq k\leq m-1 \) \\
+%%%		      (Nachrechnen \(\tilde{f} \) ist injektiv.)
+%%%		\item \(\exists j\in\N, 1\leq j\leq m-1 \) mit \(f(j) = n+1 \). \\
+%%%		      Dann definiere \(\tilde{f}: [m-1]\rightarrow [n] \)
+%%%		      \[\tilde{f}(k) \coloneqq
+%%%			      	\begin{cases}
+%%%				    	f(k), 1 \leq k \leq m-1, k\neq j \\
+%%%				      	f(m), k=j
+%%%			      	\end{cases} \]
+%%%		      Man prüfe nach \(\tilde{f}: [m-1]\rightarrow [n] \) injektiv!
+%%%	\end{itemize}
+%%%\end{bew}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{kor} \leavevmode \\
+	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv \(\implies m = n \).
+\end{kor}
+\begin{bew}
+	Nach Voraussetzung sind sowohl \(f \) als auch \(\inverse{f} \) injektiv. \\
+	\(\implies m \leq n \wedge n \leq m \implies m = n \).
 \end{bew}
 
 \begin{defi}

@@ -166,6 +166,7 @@
 	Sei \(n \in \N \). \([n] \coloneqq \set{1 \ko \ldots \ko n} \) ist induktiv gegeben durch
 	\[[1] \coloneqq \set{1} \]
 	\[[n + 1] \coloneqq [n] \cup \set{n + 1} \ko \quad n \in \N.\]
+	Es bezeichne weiterhin \(\#[n] \coloneqq n \) die Mächtigkeit oder Größe von \([n] \).
 \end{notation}
 
 \begin{satz*}[Schubfachprinzip]\label{satz:schubfach}\leavevmode \\
@@ -173,8 +174,8 @@
 	\(\#\inverse{f}(\set{k}) \geq 2\).
 \end{satz*}
 \begin{bew}
-	Angenommen für alle \(k \in [n] \) gilt \(\#\inverse{f}(\set{k}) < 2 \). Es gilt also \\
-	\(\inverse{f}(\set{k}) = \set{j_k} \) für ein \(j_k \in [m]\). Ferner gilt \(\abs{[n]} = n\).\\
+	Angenommen für alle \(k \in [n] \) gilt \(\#\inverse{f}(\set{k}) < 2 \). Es gilt also für alle \(k \)\\
+	\(\inverse{f}(\set{k}) = \set{j_k} \) für ein \(j_k \in [m]\). Ferner gilt \(\#[n] = n\).\\
 	Somit folgt, dass \(\#\inverse{f}([n]) = n < m \). \Lightning{ zu \(m > n\).}
 \end{bew}
 

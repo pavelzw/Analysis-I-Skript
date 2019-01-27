@@ -9,6 +9,11 @@
 % \setcounter{section}{[x - 1]}
 % \section{[chaptername]}
 % ...
+% %%Optional-Nur hinzufügen, wenn das Kapitel Zitate benutzt
+% \onlyinsubfile{
+% 	\bibliographystyle{unsrt}
+% 	\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+% }
 % \end{document}
 
 \IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
@@ -79,4 +84,10 @@ verantwortlich.
 %</tag-skript>%
 %%%%%%%%%%%%%%%
 
+\bibliographystyle{unsrt}
+\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+
 \end{document}
+
+
+

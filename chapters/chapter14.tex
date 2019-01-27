@@ -54,7 +54,7 @@ Man ersetzt \( z \) durch \( iz \) in \( e^z \).
 Beachte \( \N_0 \ni n \mapsto i^n \) hat Periode \( 4 \).
 \[ n = 2k, k\in\N_0 \Rightarrow i^n = i^{2k} = {(i^2)}^k = {(-1)}^k \]
 \[ n = 2k+1, k\in\N_0 \Rightarrow i^n = i^{2k+1} = i^{(2k)} \cdot i = {(-1)}^k \cdot i \]
-\[ \Rightarrow e^{iz} = \limes{L} \sum_{n=0}^L i^n \frac{z^n}{n!} = \limes{L} \left( \sum_{\substack{0\leq n \leq L\\ n\text{ gerade}}} i^n \frac{z^n}{n!} + \sum_{\substack{0\leq n \leq L\\ n\text{ ungerade}}} i^n \frac{z^n}{n!} \right) \]
+\[ \Rightarrow e^{iz} = \limes{L} \sum_{n=0}^L i^n \frac{z^n}{n!} = \limes{L} \left( \sum_{\substack{0\leq n \leq L\\ n\text{ gerade}}} i^n \frac{z^n}{n!} + \sum_{\substack{0 \leq n \leq L\\ n\text{ ungerade}}} i^n \frac{z^n}{n!} \right) \]
 \[ = \limes{L} \left( \sum_{\substack{0\leq 2k \leq L\\ k\in\N_0}} {(-1)}^k \frac{z^{2k}}{(2k)!} + i \cdot \sum_{\substack{0\leq 2k+1 \leq L\\ k\in\N_0 }} {(-1)}^k \frac{z^{2k+1}}{(2k+1)!} \right) (*) \]
 und: Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
 (Nachrechnen mit Quotientenkriterium, dass beide Reihen in \( (*) \) für alle \( z\in\C \) konvergieren. (HA))

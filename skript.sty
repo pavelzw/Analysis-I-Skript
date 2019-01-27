@@ -10,8 +10,10 @@
 \RequirePackage{dsfont} %statt \mathbb{1}
 \RequirePackage{tikz}
 \RequirePackage[nottoc]{tocbibind}
+\RequirePackage{aligned-overset}
 \usetikzlibrary{cd}
 \usetikzlibrary{babel}
+\usetikzlibrary{tikzmark}
 
 \usetikzlibrary{matrix}
 \RequirePackage{hyperref} %Hyperlinks in pdf
@@ -43,7 +45,7 @@
 \newtheorem{bspe}[bem]{Beispiele}
 
 \declaretheoremstyle[%
-  spaceabove=-6pt,%
+  spaceabove=0pt,%
   spacebelow=6pt,%
   headfont=\normalfont\itshape,%
   postheadspace=1em,%
@@ -79,6 +81,7 @@
 \ProcessOptions
 
 \newenvironment{alignenum}[2]{\provideFormat{#1}\begin{enumerate}[#2]}{\end{enumerate}}
+\newenvironment{faelle}{\begin{description}[font=\normalfont]}{\end{description}}
 \newenvironment{lrcases}{\left\{\!\begin{aligned}}{\end{aligned}\right\}}
 \newenvironment{aitem}{\item \(\begin{aligned}[t]}{\end{aligned}\)}
 \newcommand{\N}{\mathbb{N}}
@@ -89,6 +92,8 @@
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\PO}{\mathcal{P}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\obda}{o.\ B.\ d.\ A.\ }
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{{Re}}}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{\(-\)}}

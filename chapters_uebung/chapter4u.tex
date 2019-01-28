@@ -30,7 +30,7 @@
         Für alle \(k \in \N\) gilt
         \[a_{k+1} - a_k = \frac{1}{2}\left(a_{k} + a_{k-1}\right) - a_k = -\frac{1}{2} \cdot (a_k - a_{k-1})\]
         Durch vollständige Induktion folgt:\\
-        (IV): \(a_{k+1} - a_k =  (-\frac{1}{2})^k \cdot (b - a) \quad \forall k \in \N\)\\
+        (IV): \(a_{k+1} - a_k =  (-\frac{1}{2})^k \cdot (b - a) \; \forall \, k \in \N\)\\
         Also gilt:
         \[a_n = a_0 + (a_1 - a_0) + (a_2 - a_1) + \dots + (a_n - a_{n-1}) = a + \sum_{k=0}^{n-1}(a_{k+1} - a_k) \overset{\text{(IV)}}{=} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right)\]
         Betrachten wir erstmal \(b_m = \sum_{k=0}^{m} (-\frac{1}{2})^k\) für \(m \geq 0\)\\
@@ -50,7 +50,7 @@
     Die Folgenglieder \((f_n) = (0, 1, 1, 2, 3, 5, 8, \dots)\) werden Fibonacci-Zahlen genannt.
 \end{defi}
 \begin{beh}[1]
-    \[f_{n+1} \cdot f_n^2 = (-1)^n \quad \forall n \geq 1\]
+    \[f_{n+1} \cdot f_n^2 = (-1)^n \; \forall \, n \geq 1\]
     Beweis durch vollständige Induktion
 \end{beh}
 \begin{beh}[2]
@@ -65,12 +65,12 @@
 \end{defi}
 \begin{defi}
     Modifikation von Definition 7.1.2\\
-    Sei \(\varepsilon > 0\) und es existiert \(n_0 \in \N\), so dass \(\forall n \geq n_0\) gilt:
+    Sei \(\varepsilon > 0\) und es existiert \(n_0 \in \N\), so dass \(\forall \, n \geq n_0\) gilt:
     \[|a_n^2 + 2a_n| < \varepsilon\]
     \((a_n)_n\) ist dann keine Nullfolge.
 \end{defi}
 \begin{bsp}
-    \(a_n = -(1 + (-1)^n)\), es gilt \(a_n \in \{-2, 0\} \quad \forall n \in \N\)
+    \(a_n = -(1 + (-1)^n)\), es gilt \(a_n \in \{-2, 0\} \; \forall \, n \in \N\)
     \[|a_n^2 + 2a_n| = |a_n| \cdot |a_n + 2| = 0 < \varepsilon\]
     obwohl \((a_n)_n\) offensichtlich divergent ist.\\
     Selbes Setup:
@@ -106,7 +106,7 @@ zu einer Folge \((a_n)_n\) ist die Folge der Cesaro-Mittel gegeben durch:
     \[C = \max\{|a_1-a|,|a_2-a|, \dots, |a_n-a|\}\]
     Wähle \(n_0 \in \N\) so, dass \(n_0 > N\) und \(\frac{N \cdot C}{n_0} < \frac{\varepsilon}{2}\)\\
     Dann gilt
-    \[\frac{(N-1) \cdot C}{n} < \frac{N \cdot C}{n_0} \leq \frac{\varepsilon}{2} \quad \forall n \geq n_0\]
+    \[\frac{(N-1) \cdot C}{n} < \frac{N \cdot C}{n_0} \leq \frac{\varepsilon}{2} \; \forall \, n \geq n_0\]
     Sei \(n > n_0\): Es gilt
     \[a = \frac{n}{n}a = \frac{1}{n} \sum_{k=1}^{n} a\]
     und

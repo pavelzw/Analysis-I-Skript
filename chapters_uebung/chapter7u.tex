@@ -27,7 +27,7 @@
     und damit ist \((s_n)_n\) monoton fallend.\\
     \(\Rightarrow\): Sei \(\limes{n} a_n = a\), d.h. \(\limes{n} s_n = a\)\\
     Weiter \(\varepsilon \geq 0\)\\
-    Da \((s_n)_n\) monoton fallend ist, ist \(s_n \geq a \; \forall n \in \N\)\\
+    Da \((s_n)_n\) monoton fallend ist, ist \(s_n \geq a \; \forall \, n \in \N\)\\
     Somit ist Bedingung 2. erfüllt. Weiter muss es ein \(N \in \N\) geben, so dass \(s_n < a + \varepsilon\) für \(n \geq N\)\\
     d.h. \(a_n < a + \varepsilon\) für \(n \geq N\) Also gilt auch 1.\\
     \(\Leftarrow\): seinen Bedingungen 1. und 2. erfüllt.\\
@@ -59,14 +59,14 @@
     Wir definieren:\\
     \(s_n := \underset{k \geq n}{sup(a_k)}\)\\
     \((s_n)_n\) ist monoton fallend.\\
-    Da \((a_n)_n\) beschränkt ist, gilt \(\underset{k \in \N}{inf}(a_k) \leq s_n \leq \underset{k \in \N}{sup}(a_k) \; \forall \in \N\)\\
+    Da \((a_n)_n\) beschränkt ist, gilt \(\underset{k \in \N}{inf}(a_k) \leq s_n \leq \underset{k \in \N}{sup}(a_k) \; \forall \, \in \N\)\\
     Also ist \((s_n)_n\) beschränkt und \(s_n \in \R\).\\
     Nach dem Monotoniekriterium konvergiert \((s_n)_n\)\\
     \[s := \limes{n} s_n = \underset{n \rightarrow \infty}{inf}(s_n)_n = \underset{n \in \N}{inf}\underset{k \geq n}{sup}(a_k)_n \in \R\]\\
     Wir beweisen jetzt:
     \begin{enumerate}
         \item \(s \in H((a_n)_n)\)
-        \item \(a \leq s \; \forall a \in H((a_n)_n)\)
+        \item \(a \leq s \; \forall \, a \in H((a_n)_n)\)
     \end{enumerate}
     Beweis von 1.:\\
     \(H((a_n)_n)\) ist die Menge aller Grenzwerte von konvergenten Teilfolgen der Folge \((a_n)_n\) somit genügt es zu zeigen, dass zu jedem \(N \in \N\) und \(\varepsilon > 0\) ein \(n \in \N\) existiert, so dass \((a_n - s) < \varepsilon\)\\
@@ -104,7 +104,7 @@
     Bleibt zu zeigen:
     \[\limessup{n} a_n \geq \limes{n} \underset{k \geq n}{sup} (a_k)\]
     Wir definieren: \(s_n := \underset{k \geq n}{sup} (a_k)\) und \(s := \limes{n} s_n\)\\
-    Wir wollen zeigen: \(s \leq \limessup{n} a_n + \varepsilon \; \forall \varepsilon > 0\)\\
+    Wir wollen zeigen: \(s \leq \limessup{n} a_n + \varepsilon \; \forall \, \varepsilon > 0\)\\
     Sei \(\varepsilon > 0\)\\
     Nach Satz 1 existiert \(N \in \N\) mit \(a_k \leq \limessup{n} a_n + \varepsilon\) für \(k \geq N\)\\
     Insbesondere gilt:\\
@@ -112,7 +112,7 @@
     Also auch \(s = \limes{n} s_n \leq s_n \leq \limessup{n} a_n + \varepsilon\)\\
 \end{bew}	
 \begin{bsp}
-    Bestimmung von Limes superior und Limes inferior:\\
+    Bestimmung von Limes Superior und Limes Inferior:\\
     \(a_n := (-1)^n \cdot (1 + \frac{1}{n})\) für alle \(n \in \N\)\\
     Beh.: \(\limessup{n} a_n = 1\), \(\limesinf{n} a_n = -1\)\\
     \begin{bew}

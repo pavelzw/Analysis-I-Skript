@@ -26,6 +26,8 @@
 \RequirePackage{float}
 \RequirePackage{mwe}
 \RequirePackage{subfig}
+\RequirePackage{xr}
+\RequirePackage{bm} 
 \restylefloat{table}
 
 \theoremstyle{definition}
@@ -94,6 +96,8 @@
 \newcommand{\PO}{\mathcal{P}}
 \newcommand{\1}{\mathds{1}}
 \newcommand{\obda}{o.\ B.\ d.\ A.\ }
+\newcommand{\dphp}{d.h.}
+\newcommand{\zB}{z.B.}
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{{Re}}}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{\(-\)}}
@@ -138,24 +142,30 @@
   \vphantom{\big|} % pretend it's a little taller at normal size
   \right|_{#2} % this is the delimiter
 }}
+\newcommand{\sectionNumbering}{
+	\renewcommand\thesatz{\thesection.\arabic{satz}}
+	\renewcommand\thekor{\thesection.\arabic{satz}}
+	\renewcommand\thelem{\thesection.\arabic{satz}}
+	\renewcommand\thedefi{\thesection.\arabic{satz}}
+}
 
-\makeatletter
-\def\renewtheorem#1{%
-  \expandafter\let\csname#1\endcsname\relax
-  \expandafter\let\csname c@#1\endcsname\relax
-  \gdef\renewtheorem@envname{#1}
-  \renewtheorem@secpar
-}
-\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
-\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
-\def\renewtheorem@nonumberedlike#1{  
-\def\renewtheorem@caption{#1}
-\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
-\renewtheorem@thirdpar
-}
-\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
-\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
-\makeatother
+% \makeatletter
+% \def\renewtheorem#1{%
+%   \expandafter\let\csname#1\endcsname\relax
+%   \expandafter\let\csname c@#1\endcsname\relax
+%   \gdef\renewtheorem@envname{#1}
+%   \renewtheorem@secpar
+% }
+% \def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+% \def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+% \def\renewtheorem@nonumberedlike#1{  
+% \def\renewtheorem@caption{#1}
+% \edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+% \renewtheorem@thirdpar
+% }
+% \def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+% \def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+% \makeatother
 
 \DeclareMathOperator{\ko}{,}
 \DeclareMathOperator{\IV}{(IV)}

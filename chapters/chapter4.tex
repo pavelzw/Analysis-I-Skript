@@ -8,460 +8,558 @@
 \subsection{Funktionen als Abbildungen}
 
 \begin{defi}
-	Eine Funktion (oder Abbildung) von einer Menge \(A\) in eine Menge \(B\) ordnet jedem Element \(a \in A\)
-	ein eindeutiges Element \(b \in B\) zu. Schreibe:
-	\[f \colon A \longrightarrow B \ko \quad a \mapsto f(a)\]
-	Die Abbildung \(f \colon A \longrightarrow B\) heißt
+	Eine Funktion (oder Abbildung) von einer Menge \(A \) in eine Menge \(B \) ordnet jedem Element \(a \in A \)
+	ein eindeutiges Element \(b \in B \) zu. Schreibe:
+	\[f \colon A \longrightarrow B \ko \quad a \mapsto f(a) \]
+	Die Abbildung \(f \colon A \longrightarrow B \) heißt
 	\begin{enumerate}[(a)]
-		\item injektiv \(\longeq\) Aus \(f(a) = f(a^\prime)\) mit \(a \ko a^\prime \in A\) folgt \(a = a^\prime\).
-		\item surjektiv \(\longeq \forall b \in B \; \exists a \in A \colon \; f(a) = b\).
-		\item bijektiv \(\longeq\) f ist injektiv und surjektiv. 
+		\item \underline{injektiv} \(\longeq \) Aus \(f(a) = f(a^\prime) \) mit \(a \ko a^\prime \in A \) folgt \(a = a^\prime \).
+		\item \underline{surjektiv} \(\longeq \forall b \in B \, \exists a \in A \colon \; f(a) = b \).
+		\item \underline{bijektiv} \(\longeq \) f ist injektiv und surjektiv. 
 	\end{enumerate}
 \end{defi}
 
 \begin{bsp}
-	\(f \colon \R \longrightarrow \R_{\geq 0} \coloneqq \set{x \in \R \; \vert \; x \geq 0} \ko \; x \mapsto x^{2}\) ist surjektiv und nicht injektiv.
+	\(f \colon \R \longrightarrow \R_{\geq 0} \coloneqq \set{x \in \R \; \vert \; x \geq 0} \ko \; x \mapsto x^{2} \) ist surjektiv und nicht injektiv.
 \end{bsp}
 
 \begin{bem}
-	Sei \(f \colon A \longrightarrow B\) eine Funktion.
+	Sei \(f \colon A \longrightarrow B \) eine Funktion.
 	\begin{enumerate}[(a)]
-		\item \(f \injektiv \iff a \ko a^\prime \in A \ko \; a \neq a^\prime \Rightarrow f(a) \neq f(a^\prime)\)
-		\item \(f \bijektiv \iff \forall \, b \in B \, \existse \,a \in A \colon \; f(a) = b\)
+		\item \(f \injektiv \iff a \ko a^\prime \in A \ko \; a \neq a^\prime \Rightarrow f(a) \neq f(a^\prime) \)
+		\item \(f \bijektiv \iff \forall \, b \in B \, \existse \,a \in A \colon \; f(a) = b \)
 	\end{enumerate}
 \end{bem}
 
 \begin{defi*}
-	Es sei \(f \colon A \longrightarrow B\) eine Funktion.\\
-	Ist \(f\) bijektiv so definiert
-	\[\inverse{f} \colon B \longrightarrow A \ko \quad b \mapsto a \text{ mit } f(a) = b\]
-	die Umkehrfunktion von \(f\).
-	Ist \(f\) nicht bijektiv so definiert
-	\[\inverse{f} \colon \PO(B) = \PO(A) \ko \quad B \supseteq M \mapsto \set{a \in A \; \vert \; f(a) \in M}\]
-	die Urbildfunktion von \(f\) eine verallgemeinerte Umkehrfunktion.
-	Ist nun \(g \colon B \longrightarrow C\) eine weiter Funktion so heißt
-	\[g \circ f \colon A \longrightarrow C \ko \quad (g \circ f)(a) \coloneqq g \circ f(a) \coloneqq g(f(a))\]
-	die Verkettung von \(f\) und \(g\). Diese verkettete Funktion lässt sich durch folgendes Diagramm darstellen:
-	\[A \overset{f}{\longrightarrow} B \overset{g}{\longrightarrow} C.\]
+	Es sei \(f \colon A \longrightarrow B \) eine Funktion. \\
+	Ist \(f \) bijektiv so definiert
+	\[\inverse{f} \colon B \longrightarrow A \ko \quad b \mapsto a \text{ mit } f(a) = b \]
+	die \underline{Umkehrfunktion von \(f \)}.
+	Ist \(f \) nicht bijektiv so definiert
+	\[\inverse{f} \colon \PO(B) = \PO(A) \ko \quad B \supseteq M \mapsto \set{a \in A \; \vert \; f(a) \in M} \]
+	die \underline{Urbildfunktion von \(f \)} eine verallgemeinerte Umkehrfunktion. \\
+	Ist nun \(g \colon B \longrightarrow C \) eine weiter Funktion so heißt
+	\[g \circ f \colon A \longrightarrow C \ko \quad (g \circ f)(a) \coloneqq g \circ f(a) \coloneqq g(f(a)) \]
+	die \underline{Verkettung von \(f \) und \(g \)}. Diese verkettete Funktion lässt sich durch folgendes Diagramm darstellen:
+	\[A \overset{f}{\longrightarrow} B \overset{g}{\longrightarrow} C. \]
 \end{defi*}
 
 \begin{defi*}[Identitätsabbildung]
-	Sei \(A\) eine Menge, dann ist die Identität auf \(A\) definiert durch
-	\[\id_{A} \colon A \longrightarrow A \ko \quad a \mapsto a.\]
+	Sei \(A \) eine Menge, dann ist die \underline{Identität} \\
+	\underline{auf \(A \)} definiert durch
+	\[\id_{A} \colon A \longrightarrow A \ko \quad a \mapsto a. \]
 \end{defi*}
 
 
 \begin{bem}
-	Sei \(f \colon A \longrightarrow B\) eine Funktion. Dann gilt
-	\[f \bijektiv \implies \inverse{f} \circ f = \id_{A} \text{ und } f \circ \inverse{f} = \id_{B}.\]
+	Sei \(f \colon A \longrightarrow B \) eine Funktion. Dann gilt
+	\[f \bijektiv \implies \inverse{f} \circ f = \id_{A} \text{ und } f \circ \inverse{f} = \id_{B}. \]
 \end{bem}
 
 
 \subsection{Abbildungen als Graph}
 
 \begin{defi}
-	Seien \(A \ko B\) Mengen. Dann ist \((a,b)\) ein sog. Tupel.\\
-	in der Mengenlehre: \((a,b) := \{ \{a\}, \{a,b\} \} \).
+	Seien \(A \ko B \) Mengen und \(a \in A \ko \, b \in B \). \\
+	Dann heißt \((a \ko b) \) \underline{Tupel}.
+	In der Mengenlehre sind diese definiert durch 
+	\[(a \ko b) \coloneqq \set{\set{a}\ko \set{a \ko b}}. \]
+	Die Reihenfolge der Elemente spielt also eine wichtige Rolle und im Allgemeinen gilt \((a \ko b) \neq (b \ko a) \).
+	Die Menge
+	\[A \times B \coloneqq \set{(a \ko b) \; \vert \; a \in A \ko \, b \in B} \]
+	heißt \underline{kartesisches Produkt} von \(A \) und \(B \).
 \end{defi}
-Beachte: Reihenfolge ist wichtig! im Allgemeinen \( (a,b)\neq (b,a) \) \\
-Menge \(A\times B := \{(a,b)|a\in A, b\in B\} \) \\
-heißt kartesisches Produkt (von \(A\) und \(B\) \\
-z.B. \( \R\times\R \) \\
-\subgraphic{0.3}{img03.pdf}\\
-\textbf{2. Abbildungen Projektionen}\\
-\subgraphic{0.3}{img04.pdf}\\
-\(\Pi_1 = \Pi_A : A\times B \rightarrow A, (a,b)\mapsto a\) (Projektion auf 1. Koordinate)\\
-\(\Pi_2 = \Pi_B : A\times B \rightarrow B, (a,b) \mapsto b\) (Projektion auf 2. Koordinate)\\
-\(\Pi_A(a,b) = a\) \\
-\(\Pi_B(a,b) = b\) \\
-\(n\)-Tupel: Mengen \(A_1,\dots ,A_n, n\in \N \).\\
-\(A_1\times A_2\) wie vorhin\\
-\(A_1\times\cdots\times A_{n+1} := (A_1\times\cdots\times A_n)\times A_{n+1}, n\in \N \) (induktiv)\\
-Beobachtung:\\
-\begin{align*}
-	&(A\times B)\times C\\
-	=& A\times (B\times C) + \{(a,b,c)|a\in A, b\in B, c\in C\} \\
-	=& ((a,b),c)\\
-	=& (a,(b,c))
-\end{align*}
-\[ \] \\
-Genauer: \( \exists \) Bijektion \(\Phi : (A\times B) \times C \rightarrow A\times (B\times C)\)
 
-\begin{defi}[Graph einer Abbildung]
-	Geg: \(f: A \rightarrow B\) Funktion\\
-	\(\Gamma := \Gamma_f := \{(a,b) \in A\times B : b = f(a)\} \subset A\times B\) \\
-	\subgraphic{0.3}{img05.pdf}
-	\quad
-	\subgraphic{0.3}{img06.pdf}\\
-	\(P\subset A\times B\) ist der Graph einer Funktion genau dann, 
-	wenn \(b_1 = b_2\) aus \((a_1,b_1), (a_2,b_2) \in \Gamma \) folgt. 
-	(und \(\forall a\in A \,\exists \, b\in B:(a,b)\in\Gamma \))
-\end{defi}
-\begin{satz}
-	\(\Gamma \subset A\times B\) ist genau dann Graph einer Abbildung 
-	\(f: A\rightarrow B\), wenn die Projektion \(\Pi_A \vert_\Gamma : 
-	\Gamma \rightarrow A\) bijektiv ist.\\
-	Notation:\\
-	\[ g: D \rightarrow E, X\subset D \]
-	\[ g\vert_X: X\rightarrow E, x\mapsto g(x) \]
-\end{satz}
-\begin{bew}
-	Sei \(\Gamma = \Gamma_f \) mit \(f: A\rightarrow B\) Funktion\\
-	\( \overunderset{ (a,b)\in \Gamma_f }{ \Leftrightarrow b = f(a) }{\Rightarrow} \forall \, a\in A\) existiert genau ein \(b\in B\) mit \(f(a) = b\).\\
-	\(\Rightarrow \Pi_A \vert_\Gamma \) ist bijektiv.\\
-	Umgekehrt: Sei \(\Pi_A \vert_\Gamma \rightarrow A\) bijektiv.\\
-	D.\ h.\ ist \( (a_j, b_j) \in \Gamma, j \in \{1,2\} \) \\
-	und \( \Pi_A(a_1, b_1) = \Pi_A(a_2, b_2) \Rightarrow (a_1, b_1) = (a_2, b_2)\) \\
-	\(\Leftrightarrow a_1 = a_2, b_1 = b_2\) \\
-	\(\Rightarrow \) zu \(a\in A \exists ! b\in B, (a,b) \in \Gamma \).\\
-	Da \( b=\Pi_B(a,b) = \Pi_B({(\Pi_A\vert_\Gamma)}^{-1}(a)) \) \\
-	Definiere \(f:= \Pi_B \circ {(\Pi_A\vert_\Gamma)}^{-1}:A\rightarrow B\) ist Funktion\\
-	\subgraphic{0.3}{img07.pdf}\\
-	nachrechnen \( \Gamma = \Gamma_f \)
-\end{bew}
-\begin{bem}
-	In Satz 3 gilt \(f = \Pi_B \circ {(\Pi_A\vert_\Gamma)}^{-1} \) %ENTSPRICHT 4.2
-\end{bem}
-\begin{bsp}
-	Ist \(f: A\rightarrow B\) bijektiv\\
-	\(b=f(a),\quad f^{-1}(b)=a\) \\
-	Dann gilt: \(\Gamma_f^{-1} = \{(b, f^{-1}(b)) | b\in B\} \\
-	= \{(f(a),a):a\in A\} = S(\Gamma_f), S: A\times B \rightarrow B\times A\) (swap), \( (a,b)\mapsto(b,a) \).\\
-	\subgraphic{0.3}{img08.pdf} \quad
-	\subgraphic{0.3}{img09.pdf}\\
-	\(\Gamma_{f^{-1}} = \) Spiegeln von \( \Gamma_f \) an Winkelhalbierenden.
+\begin{bsp}\(\R \times \R \) \\
+	\begin{figure}[h!]
+		\centering
+		\subgraphic{0.3}{img03.pdf}
+		\caption{Kartesisches Koordinatensystem der Ebene}
+	\end{figure}
 \end{bsp}
-\subsection{Schubfachprinzip und endliche Mengen}
-Notation: Sei \( n\in\N \). \([n] := \{1,\ldots,n\} \) ist gegeben durch:
-\[ [1] = \{1,\ldots,1\} = \{1\} \]
-\[ [n+1] = \{1,\ldots,n,n+1\} = [n] \cup \{n+1\}\text{ induktive Def.} n\in\N \]
-\[ [2]=\{1,2\}, [3]=\{1,2,3\} \]
 
-\begin{satz}[Schubfachprinzip]
-	Ist \(f:[m]\rightarrow [n] (m,n\in\N) \) injektiv, dann ist \(m\leq n\).
+\begin{defi*}
+	Seien \(A \ko B \) Mengen. Die Abbildungen
+	\[\Pi_1 \coloneqq \Pi_A \colon A \times B \rightarrow A \ko \quad (a \ko b) \mapsto a \]
+	\[\Pi_2 \coloneqq \Pi_B \colon A \times B \rightarrow B \ko \quad (a \ko b) \mapsto b \]
+	heißen \underline{Projektion auf die erste beziehungsweise zweite Koordinate}. \\
+	Es gilt also \(\Pi_A(a \ko b) = a \) und \(\Pi_B(a \ko b) = b\).
+\end{defi*}
+
+\begin{defi*}
+	Es seien \(A_1 \ko \ldots \ko A_n \) Mengen für \(n \in \N \). Dann sei \(A_1 \times A_2 \) definiert wie oben.
+	Ferner definiere induktiv
+	\[A_1 \times \cdots \times A_j \coloneqq (A_1 \times \cdots \times A_{j-1}) \times A_j \ko \quad j \in \set{2 \ko \ldots \ko n}.\]
+\end{defi*}
+
+\begin{bem}
+	Seien \(A \ko B \ko C\) Mengen. Dann gilt
+	\[(A \times B) \times C = A \times (B \times C) \text{ mit } ((a \ko b) \ko c) = (a \ko (b \ko c)).\]
+	Es existiert also eine Bijektion \(\Phi \colon (A \times B) \times C \longrightarrow A \times (B \times C)\).
+\end{bem}
+
+\begin{defi}[Graph einer Abbildung]\leavevmode \\
+	Sei \(f \colon A \longrightarrow B \) Funktion. Die Menge
+	\[\Gamma \coloneqq \Gamma_f \coloneqq \set{(a \ko b) \in A \times B \colon \; b = f(a)} \varsubsetneq A \times B \]
+	heißt \underline{Graph von \(f\)}.
+	\iftoggle{short}{}{
+		\begin{figure}[h!]
+			\centering
+			\subfloat[Graph]{\subgraphic{0.3}{img05.pdf}}
+			\qquad
+			\subfloat[Kein Graph]{\subgraphic{0.3}{img06.pdf}}
+		\end{figure}
+	}
+\end{defi}
+
+\begin{notation}[Einschränkung von Funktionen]\leavevmode \\
+	Sei \(f \colon A \longrightarrow B \) eine Funktion und \(X \subseteq A\) eine Teilmenge von \(A \).
+	\[\restr{f}{X} \colon X \longrightarrow B \ko \quad x \mapsto f(x)\]
+	heißt \underline{Einschränkung von \(f \) auf \(X \)}.
+\end{notation}
+
+\begin{satz}\label{satz:graph}
+	\(\Gamma \subset A \times B \) ist genau dann Graph einer Abbildung \(f \colon A \longrightarrow B \),
+	wenn die Projektion \(\restr{\Pi_A}{\Gamma} \colon \Gamma \longrightarrow A \) bijektiv ist.
 \end{satz}
 \begin{bew}
-	Fassen obige Aussage als \(A(n)\) auf, die für alle \(m\in\N \) zu zeigen ist.\\
-	Induktionsanfang:
-	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}.\]
-	Induktionsschritt:\\
-	Induktionsvoraussetzung: \(A(n)\) ist wahr für \(n\in\N \).\\
-	Zu zeigen: \(A(n+1)\) ist wahr.\\
-	Angenommen, \(f:[m]\rightarrow[n+1] = [n] \cup \{n+1\} \) sei injektiv.\\
-	Zu zeigen: \(m\leq n+1\) \\
-	Fallunterscheidung:
-	\begin{enumerate}
-		\item Ang.\  \(m=1 \Rightarrow m=1\leq n+1\checkmark{}\)
-		\item Ang.\  \(m>1, m\in\N \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\N \) \\
-		      \((*)\) Beh.: \(\exists \) inj.\  \(\tilde{f}: \{1,\ldots,m-1\}\rightarrow \{1,\ldots,n\} \).\\
-		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}.\]
-	\end{enumerate}
-	Beweis von \((*)\):\\
-	Angenommen, \(\exists f: [m]\rightarrow[n+1]\) inj.\\
-	Dann \(\exists \tilde{f}: [m+1]\rightarrow [m+1]\rightarrow[n]\) inj.\\
-	Fallunterscheidung:
-	\begin{itemize}
-		\item Ang. \(f(k)\in [n] \forall 1\leq k \leq m-1\). Dann setze \(\tilde{f}(k) := f\vert_{[m-1]}\\
-			  \tilde{f}(k) := f(k), 1\leq k\leq m-1\) \\
-		      (Nachrechnen \(\tilde{f}\) ist injektiv.)
-		\item \(\exists j\in\N, 1\leq j\leq m-1\) mit \(f(j) = n+1\).\\
-		      Dann definiere \(\tilde{f}: [m-1]\rightarrow [n]\)
-		      \[\tilde{f}(k) :=
-			      	\begin{cases}
-				    	f(k), 1 \leq k \leq m-1, k\neq j \\
-				      	f(m), k=j
-			      	\end{cases}\]
-		      Man prüfe nach \(\tilde{f}: [m-1]\rightarrow [n]\) injektiv!
-	\end{itemize}
+	\equirl{
+		Sei \(\Gamma = \Gamma_f \) wobei \(f \colon A \rightarrow B \)eine Funktion ist.\\
+		\(\overunderset{(a \ko b) \in \Gamma_f }{ \Leftrightarrow b = f(a)}{\implies} \forall \, a \in A \)
+		existiert genau ein \(b\in B \) mit \(f(a) = b \). \\
+		\(\overunderset{\phantom{(a \ko b) \in \Gamma_f}}{\phantom{\Leftrightarrow b = f(a)}}{\implies} \restr{\Pi_A}{\Gamma} \) ist bijektiv.
+	}{
+		Sei \(\restr{\Pi_A}{\Gamma} \rightarrow A \) bijektiv. Dann gilt für \( (a_j \ko b_j) \in \Gamma \ko j \in \set{1 \ko 2} \) \\
+		mit \( \Pi_A(a_1 \ko b_1) = \Pi_A(a_2 \ko b_2) \) auch \((a_1 \ko b_1) = (a_2 \ko b_2) \).\\
+		\(\implies a_1 = a_2 \ko \, b_1 = b_2 \implies \forall \, a \in A \, \existse \, b \in B \colon \; (a \ko b) \in \Gamma \),\\
+		da \(b = \Pi_B(a \ko b) = \Pi_B(\inverse{\left(\restr{\Pi_A}{\Gamma}\right)}(a)) \).\\
+		Definiere \(f \coloneqq \Pi_B \circ \inverse{\left(\restr{\Pi_A}{\Gamma}\right)} \colon A \longrightarrow B\). Nachrechnen zeigt \(\Gamma = \Gamma_f \).\qedhere
+		\begin{figure}[H]
+			\centering
+			\subgraphic{0.25}{img07.pdf}
+			\caption{Situation im Beweis von \autoref{satz:graph}}
+		\end{figure}
+	}
 \end{bew}
 
-\begin{kor}
-	Sind \(n,m\in\N \) und \(f:[m]\rightarrow[n]\) bijektiv \(\Rightarrow m=n\).
+\begin{bem}
+	In \autoref{satz:graph} gilt \(f = \Pi_B \circ \inverse{\left(\restr{\Pi_A}{\Gamma}\right)} \). %ENTSPRICHT 4.2
+\end{bem}
+
+\begin{bsp}
+	Ist \(f \colon A \longrightarrow B \) bijektiv, also \(f(a) = b \Leftrightarrow \inverse{f}(b) = a\), so gilt \\
+	\[\inverse{\Gamma_f} = \set{(b \ko \inverse{f}(b)) \; \vert \; b \in B} = \set{(f(a), a) \; \vert \; a \in A} = S(\Gamma_f) \ko \]
+	wobei \(S \colon A \times B \longleftrightarrow B \times A \ko \, (a \ko b) \mapsto (b \ko a)\).
+	\begin{figure}[h!]
+		\centering
+		\subfloat{\subgraphic{0.3}{img08.pdf}}
+		\qquad
+		\subfloat{\subgraphic{0.3}{img09.pdf}}
+		\caption{\(\protect\Gamma_{f^{^{\protect\shortminus 1}}} \) entspricht Spiegeln von \(\protect\Gamma_{f} \) an der Winkelhalbierenden.}
+	\end{figure}
+\end{bsp}
+
+
+\subsection{Schubfachprinzip und endliche Mengen}
+
+\begin{notation}
+	Sei \(n \in \N \). \([n] \coloneqq \set{1 \ko \ldots \ko n} \) ist induktiv gegeben durch
+	\[[1] \coloneqq \set{1} \]
+	\[[n + 1] \coloneqq [n] \cup \set{n + 1} \ko \quad n \in \N.\]
+	Es bezeichne weiterhin \(\#[n] \coloneqq n \) die \underline{Mächtigkeit} von \([n] \).
+\end{notation}
+
+\begin{satz*}[Schubfachprinzip]\label{satz:schubfach}\leavevmode \\
+	Ist \(f \colon [m] \longrightarrow [n] \) eine Funktion mit \(m > n \), so existiert ein \(k \in [n]\) mit 
+	\(\inverse{f}(\set{k}) \subseteq \set{m_1 \ko m_2} \) wobei \(m_1 \neq m_2 \) ist.
+\end{satz*}
+\begin{bew}
+	Angenommen für alle \(k \in [n] \) gilt \(\inverse{f}(\set{k}) \subseteq \set{j_k} \) für ein \(k_j \in [m] \).
+	Ferner gilt \(\#[n] = n \). Da durch \(f \) jedem Element in \([m] \) genau ein Element in \([n] \) zugeordnet wird
+	sind die \(j_k \), falls existent, alle unterschiedlich.
+	Somit folgt, dass \(\inverse{f}([n]) \subseteq \set{j_1 \ko \ldots \ko j_n} \) für \(j_k \) paarweise verschieden. \Lightning{ zu \(m > n\).}
+\end{bew}
+
+\begin{kor}\label{satz:schubfach:kor}\leavevmode \\
+	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) injektiv \(\implies m \leq n \).
 \end{kor}
 \begin{bew}
-	Nach Voraussetzung ist \(f: [m]\rightarrow[n]\) injektiv und \(f^{-1}:[n]\rightarrow[m]\) auch injektiv.\\
-	\(\Rightarrow m\leq n \wedge n \leq m \Rightarrow m = n\).
+	Angenommen \(m > n\), dann folgt aber, dass ein \(k \in [n] \) existiert mit \(\#\inverse{f}(\set{k}) \geq 2 \).
+	Es gibt also \(m_1 \ko m_2 \in [m] \ko \; m_1 \neq m_2 \) \\
+	mit \(f(m_1) = k = f(m_2) \).\Lightning{ zu \(f \) injektiv.}
+\end{bew}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%Irgendwie ist dieser Beweis sehr umständlich und Lang. Ich habe mir die Freiheit genommen ihn durch eine kurze Version zu ersetzen.%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%\begin{bew}
+%%%	Fassen obige Aussage als \(A(n) \) auf, die für alle \(m\in\N \) zu zeigen ist. \\
+%%%	Induktionsanfang:
+%%%	\[ n=1: f:[m] \rightarrow \{1\} \injektiv \Rightarrow m=1, \text{ da sonst } f(1) = 1 = f(2) \text{\Lightning{} zu Injektivität}. \]
+%%%	Induktionsschritt: \\
+%%%	Induktionsvoraussetzung: \(A(n) \) ist wahr für \(n\in\N \). \\
+%%%	Zu zeigen: \(A(n+1) \) ist wahr. \\
+%%%	Angenommen, \(f:[m]\rightarrow[n+1] = [n] \cup \{n+1\} \) sei injektiv. \\
+%%%	Zu zeigen: \(m\leq n+1 \) \\
+%%%	Fallunterscheidung:
+%%%	\begin{enumerate}
+%%%		\item Ang.\  \(m=1 \Rightarrow m=1\leq n+1\checkmark{} \)
+%%%		\item Ang.\  \(m>1, m\in\N \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\N \) \\
+%%%		      \((*) \) Beh.: \(\exists \) inj.\  \(\tilde{f}: \{1,\ldots,m-1\}\rightarrow \{1,\ldots,n\} \). \\
+%%%		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}. \]
+%%%	\end{enumerate}
+%%%	Beweis von \((*) \): \\
+%%%	Angenommen, \(\exists f: [m]\rightarrow[n+1] \) inj. \\
+%%%	Dann \(\exists \tilde{f}: [m+1]\rightarrow [m+1]\rightarrow[n] \) inj. \\
+%%%	Fallunterscheidung:
+%%%	\begin{itemize}
+%%%		\item Ang. \(f(k)\in [n] \forall 1\leq k \leq m-1 \). Dann setze \(\tilde{f}(k) \coloneqq f\vert_{[m-1]} \\
+%%%			  \tilde{f}(k) \coloneqq f(k), 1\leq k\leq m-1 \) \\
+%%%		      (Nachrechnen \(\tilde{f} \) ist injektiv.)
+%%%		\item \(\exists j\in\N, 1\leq j\leq m-1 \) mit \(f(j) = n+1 \). \\
+%%%		      Dann definiere \(\tilde{f}: [m-1]\rightarrow [n] \)
+%%%		      \[\tilde{f}(k) \coloneqq
+%%%			      	\begin{cases}
+%%%				    	f(k), 1 \leq k \leq m-1, k\neq j \\
+%%%				      	f(m), k=j
+%%%			      	\end{cases} \]
+%%%		      Man prüfe nach \(\tilde{f}: [m-1]\rightarrow [n] \) injektiv!
+%%%	\end{itemize}
+%%%\end{bew}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{kor}\label{satz:schubfach:kor_2}\leavevmode \\
+	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv, so gilt \(m = n \).
+\end{kor}
+\begin{bew}
+	Nach Voraussetzung sind sowohl \(f \) als auch \(\inverse{f} \) injektiv. \\
+	\(\implies m \leq n \wedge n \leq m \implies m = n \).
 \end{bew}
 
 \begin{defi}
-	Eine Menge \(M\) ist endlich, falls \( M=\emptyset \) oder falls \( n\in\N_0 \) und eine Bijektion \( f:{1,\ldots,n}\rightarrow M \) existiert.\\
-	Die Anzahl der Elemente von \(M\) (\( \#M \)) ist dann \( \#M:=n \), setzen \( \#\emptyset := 0 \). Eine Menge ist unendlich, falls sie nicht endlich ist.
-	
-	\begin{bem}
-		Ist \(M\) endlich, so ist \( \#M\) wohldefiniert. \\
-		Angenommen:
-		\[ \begin{array}{lr}
-				f:[n]\rightarrow M \\
-				g:[m]\rightarrow M
-			\end{array}
-			\text{ beide bijektiv.}\]
-		\[ [n]\overset{f}{\longrightarrow} M \overset{g}{\longleftarrow} [m] \]
-		\( h:= f^{-1}\circ g = [m]\rightarrow[n]\) ist auch bijektiv. \(\overset{\text{Korr. 2}}{\Rightarrow} m=n\).
-	\end{bem}
-
-	Weiter in Definition:\\
-	Zwei Mengen \(A,B\) heißen gleichmächtig, falls es eine Bijektion \(f: A\rightarrow B\) gibt, schreiben \(A\sim B\). Eine Menge \(A\) heißt abzählbar, falls \(A\) endlich ist oder es eine Bijektion \(f: \N\rightarrow A\) gibt. Ist \(A\) abzählbar und unendlich, so heißt \(A\) abzählbar unendlich.
+	Seien \(M \ko A \ko B \) Mengen.
+	\begin{enumerate}[(a)]
+		\item \(M \) heißt \underline{endlich} \(\longeq M = \emptyset \) oder \(\exists \, n \in \N \, \exists \, f \colon [n] \longrightarrow M \bijektiv \). \\
+			  In diesem Fall heißt \(\#M \coloneqq n \) die \underline{Mächtigkeit von M}. \\
+			  Für die leere Menge setzen wir \(\#\emptyset \coloneqq 0 \). \\
+		\item \(M \) heißt \underline{unendlich} \(\longeq M \) ist nicht endlich.
+		\item \(A \ko B \) heißen gleichmächtig \(\longeq \exists \, f \colon A \longrightarrow B \, \bijektiv \). \\
+			  Schreibe auch \(A \sim B\).
+		\item \(M \) heißt \underline{abzählbar} \(\longeq \exists \, f \colon \N \longrightarrow M \, \bijektiv \).
+		\item \(M \) heißt \underline{abzählbar unendlich} \(\longeq M \) ist unendlich und abzählbar.
+	\end{enumerate}
 \end{defi}
 
 \begin{bem}
-	Satz von Cantor und Berenstein:\\
-	Ang. \(\exists \) Injektion \(f:A\rightarrow B, f:B\rightarrow A\), dann \(\exists \) Bijektion \(h:A\rightarrow B\).
+	Ist \(M \) endlich, so ist \(\#M \) wohldefiniert.
 \end{bem}
 \begin{bew}
-	Siehe Kolmogorov-Fomin: Introductory Real Analysis.\\
-	Könnten definieren \(A\leq B\), falls es eine inj. Funktion \(f: A\rightarrow B\) gibt.\\
-	\(A\leq B \wedge B\leq A \Leftrightarrow A\sim B\).
+	Seien \(f \colon [n] \rightarrow M \ko g \colon [m] \rightarrow M \) bijektiv.
+	\[\begin{tikzcd}
+		& M &  \\
+	   {[n]} \arrow[ru, "f"] &  & {[m]} \arrow[lu, "g"'] \arrow[ll, "h"']
+	\end{tikzcd}\]
+	\( h \coloneqq \inverse{f} \circ g \colon [m] \longrightarrow [n] \) ist auch bijektiv. \(\overset{\autoref{satz:schubfach:kor_2}}{\implies} m=n \).
 \end{bew}
 
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{bem}[Satz von Cantor und Berenstein]\label{satz:cantor_Berenstein}\leavevmode \\
+	Seien \(A \ko B \) Mengen und \(f \colon A \longrightarrow B \) sowie \(g \colon B \longrightarrow A \) injektiv.
+	Dann existiert eine Bijektion \(h \colon A \longrightarrow B \).
+\end{bem}
+\begin{bew}
+	Siehe \cite[Kolmogorov-Fomin: Introductory Real Analysis]{Kolmogorov}.
+\end{bew}
+
+\begin{prosa}
+	Die vorangegangene Bemerkung motiviert eine Definition der Form
+	\[A \leq B \longeq \exists \, f \colon A \longrightarrow B \injektiv .\]
+	Es bleibt dann zu zeigen, dass \(A \leq B \, \wedge \, B \leq A \iff A \sim B \).
+\end{prosa}
+
+\begin{defi*}
+	Seien \(A \ko B \) Mengen. \\
+	Existiert eine injektive Funktion \(f \colon A \longrightarrow B \) so schreibe \(A \leq B \). \\
+	In diesem Fall sage auch \gqq{Die Kardinalität von \(A \) ist kleiner als die Kardinalität von \(B \)} oder
+	\gqq{\(A \) ist weniger Mächtig als B}.
+\end{defi*}
+
 \begin{bem}
-	\(A\leq B\) heißt Kardinalität von \(A\) ist kleiner gleich der Kardinalität von \(B\).
-	\begin{enumerate}
-		\item Ist \(B\subset A\) und \(A\) endlich, so ist \(B\) endlich und \( \#B \leq \# A\).
-		\item \(A,B\) endlich und disjunkt, \(A\cap B = \emptyset \Rightarrow \#(A\cup B) = \#A + \#B \).
+	Seien \(A \ko B \) Mengen.
+	\begin{enumerate}[(a)]
+		\item Ist \(B \subset A \) und \(A \) endlich, so ist \(B \) endlich und \( \#B \leq \# A \).
+		\item Sind \(A \ko B \) endlich und disjunkt, also \(A \cap B = \emptyset \) dann gilt \\
+			  \(\#(A \cup B) = \#A + \#B \).
 	\end{enumerate}
 \end{bem}
 
-\begin{satz}
-	Zwei Aussagen:
-	\begin{enumerate}
+\begin{satz}\label{satz:mengen_abz}\leavevmode
+	\begin{enumerate}[(a)]
 		\item Jede Teilmenge einer abzählbaren Menge ist abzählbar.
-		\item Sind für \(j\in\N \quad A_j\) abzählbare Mengen. Dann ist \(\bigcup_{j\in\N}\) abzählbar.
+		\item Für alle \(j \in \N \) sei \(A_j \) eine abzählbare Menge. Dann ist
+			  \[\bigcup_{j \in \N}{A_j} \]
+			  abzählbar.
 	\end{enumerate}
 \end{satz}
-\begin{bew}
-	Beweis unterteilen:
-	\begin{enumerate}
-		\item Sei \(A\) abzählbar. Ist \(A\) endlich, so ist auch jedes \(B\subset A\) endlich, und somit abzählbar.\\
-		      Sei \(A\) abzählbar unendlich. Dann existiert eine Bijektion \(f: \N \rightarrow A\) und setzen wir \(a_n := f(n)\), so ist
-		      \[ A = \bigcup_{n\in\N} \{a_n\} = \{a_1, a_2,\ldots \}.\]
-			  Ist \(B\subset A\), so existieren \(n_j \in\N, 1\leq n_1<n_2<\ldots \) mit 
-			  \[ B = \{a_{n_1}, a_{n_2}, \ldots \}.\]
-		      Gibt es nur endlich viele \(n_j\), so ist \(B\) endlich, andernfalls ist \(h: \N \rightarrow B, g \mapsto h(j) := a_{n_j}\)
-		      eine Bijektion.
-		\item o.\ B.\ d.\ A.\ sind alle \(A_j\) paarweise verschieden, \(A_l \cap A_m \neq \emptyset \) für \(l\neq m\).
+\begin{bew}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \begin{faelle}
+			  	\item[Fall \(A \) endlich:] Jedes \(B \subseteq A \) ist endlich und somit abzählbar.
+			  	\item[Fall \(A \) abzählbar unendlich:] Es existiert eine Bijektion \(f \colon \N \rightarrow A \).\\
+				  Wir setzen \(a_n \coloneqq f(n) \, \forall \, n \in \N \). Dann ist \\
+				  \[ A = \bigcup_{n \in \N}{\set{a_n}} = \set{a_1 \ko a_2 \ko \ldots} \]
+				  Ist \(B \subseteq A \), so existieren \(n_j \in \N \ko 1 \leq n_1 < n_2 < \ldots \) mit \\ 
+				  \[ B = \set{a_{n_1} \ko a_{n_2} \ko \ldots}. \]
+				  Gibt es nur endlich viele \(n_j \), so ist \(B \) endlich, andernfalls ist \\
+				  \(h \colon \N \rightarrow B \ko \, j \mapsto a_{n_j} \) eine Bijektion.
+			  \end{faelle}
+		\item \obda sind alle \(A_j \) paarweise verschieden, also \(A_l \cap A_m \neq \emptyset \) für \(l \neq m \).
 		      Wenn nicht, betrachte
-		      \[ B_1 := A_1, \quad B_2 := A_2 \setminus A_1,\]
-		      \[ B_3 := A_3 \setminus \{A_1 \cup A_2\}, \ldots, \quad B_{n+1} := A_{n+1} \setminus \{A_1\cup\ldots\cup A_n\} \]
-		      Dann sind \(B_n\) paarweise verschieden und \[\bigcup_{l\in\N} B_l = \bigcup_{l\in\N} A_l.\]
-		      Schreiben \(A_l\) als Liste \(A_l = \{a_{1l}, a_{2l}, \ldots \} \) \\
-		      Bild:\\
-		      \begin{tikzpicture}
-			      \matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm]{
-				      s_{11}  & s_{12}  & s_{13}  & s_{14}  & \cdots \\
-				      s_{21}  & s_{22} & s_{23} & s_{24} & \cdots \\
-				      s_{31} & s_{32} & s_{33} & s_{34} & \cdots \\
-				      s_{41} & s_{42} & s_{43} & \cdots                                  \\
-			      };
-			      \draw[->]
-			      (m-1-1)edge(m-1-2)
-			      (m-1-2)edge(m-2-1)
-			      (m-2-1)edge(m-3-1)
-			      (m-3-1)edge(m-2-2)
-			      (m-2-2)edge(m-1-3)
-			      (m-1-3)edge(m-1-4)
-			      (m-1-4)edge(m-2-3)
-			      (m-2-3)edge(m-3-2)
-			      (m-3-2)edge(m-4-1);
-		      \end{tikzpicture}
-		      \\Jetzt können wir das obige rechteckige Schema diagonal abzählen! Dies liefert uns eine Bijektion von \(\N \) nach \(\bigcup_l\in\N A_l\).
+			  \[ B_1 \coloneqq A_1 \ko \quad B_2 \coloneqq A_2 \setminus A_1 \ko \quad B_3 \coloneqq A_3 \setminus \set{A_1 \cup A_2} \]
+			  \[ B_{n+1} \coloneqq A_{n+1} \setminus \set{A_1 \cup \ldots \cup A_n} \]
+		      Dann sind \(B_n \) paarweise verschieden und \[\bigcup_{j \in \N} B_j = \bigcup_{j \in \N} A_j. \]
+			  Schreiben \(A_j \) als Folge \(A_j = \set{a_{1j} \ko a_{2j} \ko \ldots } \) \\
+			  \begin{figure}[H]
+				\centering
+				\begin{tikzpicture}
+					\matrix(m)[matrix of math nodes,column sep=1cm,row sep=1cm,nodes={rectangle, minimum height=2em, minimum width=2em,
+							   anchor=center, %draw=gray,%align=center,
+							   inner sep=0pt, outer sep=0pt}]{
+						s_{11}  & s_{12}  & s_{13}  & s_{14}\;\cdots \\
+						s_{21}  & s_{22} & s_{23} & s_{24}\;\cdots \\
+						s_{31} & s_{32} & s_{33} & s_{34}\;\cdots \\
+						\underset{\vdots}{s_{41}} & \underset{\vdots}{s_{42}} & \underset{\vdots}{s_{43}} & \ddots \\
+					};
+					\draw[->]
+					(m-1-1)edge(m-1-2)
+					(m-1-2)edge(m-2-1)
+					(m-2-1)edge(m-3-1)
+					(m-3-1)edge(m-2-2)
+					(m-2-2)edge(m-1-3)
+					(m-1-3)edge(m-1-4)
+					(m-1-4)edge(m-2-3)
+					(m-2-3)edge(m-3-2)
+					(m-3-2)edge(m-4-1);
+				\end{tikzpicture}
+			  \end{figure}
+			  Jetzt können wir das obige rechteckige Schema diagonal abzählen. \\
+			  Dies liefert uns eine Bijektion von \(\N \) nach \(\bigcup_{j \in \N}{A_j} \).\qedhere
 	\end{enumerate}
 \end{bew}
 
-\begin{bem}
-	Als Übung: Man gebe explizit eine Bijektion \(f : \N \rightarrow \N \times \N \) an!
-\end{bem}
+\begin{bsp}
+	\(f \colon \N \longrightarrow \N \times \N \ko \, n \mapsto (u \ko v) \) mit \(n = 2^{u - 1}(2v - 1) \) ist eine Bijektion. 
+\end{bsp}
 
-\textbf{Permutationen:}
-\begin{defi}
-	Eine bijektive Abbildung \(\sigma : \{1,\ldots,n\} \rightarrow \{1,\ldots,n\} \) heißt Permutation.
-	\[n! = \prod_{k=1}^{n}k\]
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{defi}\leavevmode
+	\begin{enumerate}[(a)]
+		\item Eine bijektive Abbildung
+			  \(\sigma \colon \set{1 \ko \ldots \ko n} \rightarrow \set{1 \ko \ldots \ko n} \) heißt \\
+			  \underline{Permutation} von \(\set{1 \ko \ldots \ko n} \).
+		\item Die Menge
+			  \[S_n \coloneqq \set{\sigma \colon \set{1 \ko \ldots n} \rightarrow \set{1 \ko \ldots \ko n \; \vert \; \sigma \bijektiv}} \]
+			  bildet mit der Komposition eine Gruppe. \(S_n \) heißt auch \underline{Symmetrische} \underline{Gruppe}. 
+		\item Für \(n \in \N \) heißt \(n! = \prod_{k=1}^{n}k \) \underline{Fakultät} von \(n \).
+	\end{enumerate}
 \end{defi}
 
 \begin{satz}
-	\[n\in\N, S_n = \{\sigma: \{1,\ldots,n\}\rightarrow \{1,\ldots,n\} | \sigma \text{ ist bijektiv.}\} \Rightarrow \# S_n = n!\]
+	\(\#S_n = n! \).
 \end{satz}
-\begin{bew} per Induktion\\
-	\(n = 1\) ist klar.
-	Beobachtung: Permutation \(\sigma \in S_n\) identifizieren mit \(n\)-Tupel \( (\sigma(1), \sigma(2), \ldots, \sigma(n)) \) \\
-	Induktionsannahme: \( \# S_n = n!\) für ein \(n\in\N \) \\
-	Die Menge \(S_{n+1}\) ist die disjunkte Vereinigung der Teilmengen
-	\[S_{n+1, k} := \{\tau \in S_{n+1} | \tau_k = n+1 \} \quad k = 1,\ldots, n+1.\]
-	z.B.: \[S_{4,2} = \{ (1,4,2,3), (2,4,3,1), (3,4,1,2), (1,4,3,2), (2,4,1,3), (3,4,1,2) \} \]
-	Beobachtung: Jedem \(\tau = (\sigma_1,\ldots,\sigma_n)\in S_n\) können wir die Permutation \( (\sigma_1, \ldots, \sigma_{k-1}, \underbrace{n+1}_{k\text{-te Stelle}}, \sigma_k, \ldots, \sigma_n) \in S_{n,k} \) zuordnen und diese Abbildung ist bijektiv (nachprüfen).
-	\[\Rightarrow \# S_{n+1,k} = \# S_n \]
-	\[ S_{n+1} = \# (\bigcup_{k=1}^{n+1} S_{n+1,k} ) = \sum_{k=1}^{n+1} \underbrace{\# S_{n+1,k}}_{=\#S_n = n!} = \sum_{k=1}^{n+1} n! = (n+1)n! = (n+1)! \]
+\begin{bew}\leavevmode
+	\induktion{
+		\(\#S_1 = 1 = 1! \).
+	}{
+		Für ein \(n \in \N \) gelte \(\#S_n = n! \).
+	}{
+		Identifiziere \(\sigma \in S_n \) mit \(n \)-Tupeln. Dann lässt sich die Menge \(S_n \) als disjukte Vereinigung von Mengen
+		\[S_{n+1 \ko k} \coloneqq \set{\tau \in S_{n+ 1} \; \vert \; \tau_k = n + 1} \ko \quad k = 1 \ko \ldots \ko n + 1 \]
+		schreiben. z.B. \(S_{3 \ko 2} = \set{(1 \ko 3 \ko 2) \ko (2 \ko 3 \ko 1)} \). \\
+		Jedem \(\tau = (\sigma_1 \ko \ldots \ko \sigma_n) \in S_n \) können wir die Permutation
+		\[\tau_k \coloneqq (\sigma_1 \ko \ldots \ko \sigma_{k-1} \ko \underbrace{n + 1}_{k \text{-te Stelle}} \ko \sigma_k \ko \ldots \ko \sigma_n) \in S_{n + 1 \ko k} \]
+		zuordnen. \(\tau_k \) ist bijektiv, also eine Permutation (Übung). \\
+		\(\begin{aligned}[t]
+		  	&\implies &\#S_{n + 1 \ko k} &= \#S_n \overset{\IV}{=} n! \\
+		  	&\implies &\#S_{n + 1}       &= \#(\bigcup_{k=1}^{n+1} S_{n+1 \ko k} ) = \sum_{k=1}^{n+1}\#S_{n+1 \ko k} = \sum_{k=1}^{n+1} n! \\
+		  	&			&		           &= (n+1)n! = (n+1)!
+		 \end{aligned}\)
+	}
 \end{bew}
 
 \begin{defi}[Binomialkoeffizient]
-	Für \(\alpha \in\R \) und \( k\in\N \) setzen wir
-	\[ \binom{\alpha}{k} := \frac{\alpha(\alpha-1)\cdot\cdots\cdot(\alpha-k+1)}{k!}, \text{ sowie } \binom{\alpha}{0} := 1. \]
+	Seien \(\alpha \in \R \ko k \in \N \).
+	\[ \binom{\alpha}{k} \coloneqq \frac{\alpha(\alpha-1)\cdots(\alpha-k+1)}{k!} \ko \quad \binom{\alpha}{0} \coloneqq 1 \]
+	heißt Binomialkoeffizient von \(\alpha \) und \(k \).
 \end{defi}
 
-\begin{lem}[Rekursionsformel für Binomialkoeffizienten]
-	Für \( \alpha\in\R, k\in\N \) gilt \[ \binom{\alpha + 1}{k} = \binom{\alpha}{k} + \binom{\alpha}{k-1}. \]
+\begin{lem}[Rekursionsformel für Binomialkoeffizienten]\label{satz:bin_rek} \leavevmode \\
+	Seien \(\alpha \in \R \ko k \in \N \). Dann gilt
+	\[ \binom{\alpha + 1}{k} = \binom{\alpha}{k} + \binom{\alpha}{k-1}. \]
 \end{lem}
 \begin{bew}
-	Für \(k=1\) ist dies einfach zu sehen. Für \(k\geq 2\) gilt
-	\begin{align*}
-		 & \binom{\alpha}{k} + \binom{\alpha}{k-1}                                                                                                                                 \\
-		 & = \frac{\alpha (\alpha-1)\cdot\cdots\cdot(\alpha-k+1)}{1\cdot2\cdot\cdots\cdot k} + \frac{\alpha (\alpha-1)\cdot\cdots\cdot(\alpha-k+2)}{1\cdot2\cdot\cdots\cdot (k-1)} \\
-		 & = \frac{\alpha (\alpha-1)\cdot\cdots\cdot(\alpha-k+2)(\alpha-k+1+k)}{1\cdot2\cdot\cdots\cdot k}                                                                         \\
-		 & = \frac{(\alpha + 1)\alpha (\alpha-1)\cdot\cdots\cdot((\alpha-1)-k+1)}{1\cdot2\cdot\cdots\cdot k} = \binom{\alpha + 1}{k}
-	\end{align*}
+	Für \(k=1 \) ist dies einfach zu sehen. Für \(k \geq 2 \) gilt\\
+	\[\begin{aligned}[t]
+		& \binom{\alpha}{k} + \binom{\alpha}{k-1} &=& \frac{\alpha (\alpha-1)\cdots(\alpha-k+1)}{1\cdot2\cdots k} + \frac{\alpha (\alpha-1)\cdots(\alpha-k+2)}{1\cdot2\cdots (k-1)} \\
+		&                                         &=& \frac{\alpha (\alpha-1)\cdots(\alpha-k+2)(\alpha-k+1+k)}{1\cdot2\cdots k} \\
+		&                                         &=& \frac{(\alpha + 1)\alpha (\alpha-1)\cdots((\alpha-1)-k+1)}{1\cdot2\cdots k} = \binom{\alpha + 1}{k}
+	  \end{aligned}\]
 \end{bew}
 
-\begin{bem}
-	\begin{enumerate}
-		Pascal Dreieck:\\
-		\item Ist \(\alpha = n\in\N_0\), so können wir \(\binom{n}{k}\) ausrechnen mit dem Dreiecksschema von Blaise Pascal (1623\textendash1662).\\
-		      \begin{tabular}{>{\(n=}l<{\)\hspace{12pt}}*{13}{c}}
-			      0 &   &   &   &   &    &    & 1  &    &    &   &   &   &   \\
-			      1 &   &   &   &   &    & 1  &    & 1  &    &   &   &   &   \\
-			      2 &   &   &   &   & 1  &    & 2  &    & 1  &   &   &   &   \\
-			      3 &   &   &   & 1 &    & 3  &    & 3  &    & 1 &   &   &   \\
-			      4 &   &   & 1 &   & 4  &    & 6  &    & 4  &   & 1 &   &   \\
-			      5 &   & 1 &   & 5 &    & 10 &    & 10 &    & 5 &   & 1 &   \\
-			      6 & 1 &   & 6 &   & 15 &    & 20 &    & 15 &   & 6 &   & 1
-		      \end{tabular}
-		\item Ist \( \alpha=n\in\N_0 \), so folgt durch Erweitern mit \((n-k)!\) für \(n \in\N_0, k\in \{0,1,\ldots,n\} \) \[ \binom{n}{k} = \frac{n!}{k!(n-k)!} = \binom{n}{n-k}. \]
+\begin{bem}[Pascalsches Dreieck] \leavevmode
+	\begin{enumerate}[(1)]
+		\item Ist \(\alpha = n \in\ N_0 \), so können wir \(\binom{n}{k} \) ausrechnen mit dem Dreiecksschema von Blaise Pascal (1623\textendash1662). \\
+		      \begin{tabular}{>{\(n=}l<{ \)\hspace{12pt}}*{13}{c}}
+			      0 &   &   &   &   &    			&    		    							 & 1  										  &    			  &    &   &   &   &   \\
+			      1 &   &   &   &   &    		    & 1\tikzmark{a} 							 & \tiny+  									  & 1\tikzmark{b} &    &   &   &   &   \\
+			      2 &   &   &   &   & 1\tikzmark{c} & \tiny+									 & \tikzmark{d2}\(\overset{\tikzmark{d}}{2}\) &    			  & 1  &   &   &   &   \\
+			      3 &   &   &   & 1 &    		    & \(\overset{\tikzmark{e}}{3}\)\tikzmark{e2} & \tiny+   							 	  & \tikzmark{f}3 &    & 1 &   &   &   \\
+			      4 &   &   & 1 &   & 4  			&    										 & \(\overset{\tikzmark{g}}{6}\) 			  &   			  & 4  &   & 1 &   &   \\
+			      5 &   & 1 &   & 5 &    			& 10 										 &    										  & 10 			  &    & 5 &   & 1 &   \\
+			      6 & 1 &   & 6 &   & 15 			&    									     & 20 										  &    			  & 15 &   & 6 &   & 1
+			  \end{tabular}
+			  \begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip, shorten >=.5pt, shorten <=.5pt]
+				\draw [->] ([yshift=.75pt]{pic cs:a}) -- ({pic cs:d});
+				\draw [->] ([yshift=.75pt]{pic cs:b}) -- ({pic cs:d});
+				\draw [->] ([yshift=.75pt]{pic cs:c}) -- ({pic cs:e});
+				\draw [->] ([yshift=.75pt]{pic cs:d2}) -- ({pic cs:e});
+				\draw [->] ([yshift=.75pt]{pic cs:e2}) -- ({pic cs:g});
+				\draw [->] ([yshift=.75pt]{pic cs:f}) -- ({pic cs:g});
+			  \end{tikzpicture}
+		\item Ist \( \alpha=n \in \N_0 \), so folgt durch Erweitern mit \((n-k)! \)
+			  \[\binom{n}{k} = \frac{n!}{k!(n-k)!} = \binom{n}{n-k} \]
+			  für \(n \in\N_0, k\in \{0,1,\ldots,n\} \).
 	\end{enumerate}
 \end{bem}
 
-\begin{satz}
-	Zahl der Kombinationen:\\
-	Sei \( n\in\N_0, k\in \{1,\ldots,n\} \). Dann ist die Anzahl der \(k\)-elementigen Teilmengen von \( \{1,\ldots,n\} \) gleich \( \binom{n}{k} \).
+\begin{satz}[Zahl der Kombinationen]\label{satz:zahl_komb}\leavevmode \\
+	Sei \( n \in \N_0 \ko k \in \set{1 \ko \ldots \ko n} \). Dann ist die Anzahl der \(k \)-elementigen Teilmengen von \( \set{1 \ko \ldots \ko n} \) gleich \( \binom{n}{k} \).
 \end{satz}
 \begin{bew}
-	Die Behauptung gilt für \(k=0\) und beliebiges \(n\in\N \), da die leere Menge die einzige Teilmenge von \( \{1,\ldots,n\} \) mit 0 Elementen ist und nach Definition ist \( \binom{n}{0} = 1 \).\\
-	Insbesondere gilt die Behauptung dann für \(n=0\).\\
-	Induktiv über \(n\), wobei Behauptung für alle \(k\in \{0,1,\ldots,n\} \) zu zeigen ist.\\
-	Induktionsschluss: Bestimme die Anzahl der \(k\)-elementigen Teilmengen von \( \{ 1,\ldots,n+1 \} \) (wobei wir \(k\geq 1\) annehmen können).\\
-	Sei \(A\subset \{1,\ldots,n+1\} \) mit \( \#A = k\geq 1\). \\
-	Diese fallen in 2 Klassen:
-	Klasse 1: \(n+1 \notin A\).\\
-	Klasse 2: \(n+1 \in A\).\\
-	Die Mengen der Klasse 1 bestehen genau aus den \(k\)-elementigen Teilmengen von \( \{1,\ldots,n\} \).\\
-	Die Mengen der 2. Klasse erhält man aus den \((k-1)\)-elementigen Teilmengen von \( \{1,\ldots,n\} \) durch Vereinigung mit \( \{n+1\} \).\\
-	Also ist nach Induktionsannahme
-	\begin{align*}
-		 &  \# \{k\text{-elementige Teilmengen von } \{1,\ldots,n+1\} \}                                     \\
-		 &= \# \{k\text{-elementige Teilmengen von } \{1,\ldots,n\} \}                                      \\
-		 &+ \# \{(k-1)\text{-elementige Teilmengen von } \{1,\ldots,n\} \} \\
-		 &  \overset{\text{IV}}{=} \binom{n}{k} + \binom{n}{k-1} \overset{\text{Lem. 8}}{=} \binom{n+1}{k}.
-	\end{align*}
+	\induktion{
+		Die Behauptung gilt für \(k=0 \) und beliebiges \(n \in\N \), da die leere Menge die einzige Teilmenge von \( \set{1 \ko \ldots \ko n} \) mit \(0 \) Elementen ist
+		und nach Definition ist \( \binom{n}{0} = 1 \). Insbesondere gilt die Behauptung dann für \(n=0 \). 
+	}{
+		Für ein \(n \in \N \) gelte für alle \(k \in \set{1 \ko \ldots \ko n} \), dass \\
+		\[\#\set{A \subseteq [n] \; \vert \; \#A = k} = \binom{n}{k}. \]
+	}{
+		Sei \(A \subseteq \set{1 \ko \ldots \ko n + 1} \) mit \(\#A = k \geq 1 \). Dann ist entweder \(A \) eine \(k \)-elementige Teilmenge von \(\set{1 \ko \ldots \ko n} \)
+		oder lässt sich als disjunkte Vereinigung \(A = B \cup \set{n + 1} \) schreiben, wobei \(B \) eine \((k-1)\)-elementige Teilmenge von \(\set{1 \ko \ldots \ko n} \) ist.
+		Also gilt \\
+		\(\begin{aligned}
+			\#\set{A \subseteq [n+1] \; \vert \; \#A = k}&=\phantom{+} \#\set{A \subseteq [n] \; \vert \; \#A = k} \\
+			                               			     &\phantom{=}+\#\set{B \subseteq [n] \; \vert \; \#B = k - 1} \\
+			  		                   	    \overset{\IV}&{=} \binom{n}{k} + \binom{n}{k-1} \\
+					   	 \overset{\autoref{satz:bin_rek}}&{=} \binom{n+1}{k}.
+		  \end{aligned}\)
+	}
 \end{bew}
 
-\begin{satz}[Binomische Formel]
-	\[ a,b\in\R,n\in\N:{(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}. \]
-\end{satz}
-
-\begin{bem}
-	\begin{align}
-		{(a+b)}^1 & = a+b                     \\
-		{(a+b)}^2 & = a^2 + 2ab + b^2         \\
-		{(a+b)}^3 & = a^3 +3a^2b + 3ab^2 +b^3
-	\end{align}
-\end{bem}
-\begin{bew} Induktion
-	\[ n=1: {(a+b)}^1 = a+b = \sum_{k=0}^{1}\binom{1}{k} a^k b^{1-k} \checkmark{} \]
-	Induktionsvoraussetzung: für ein beliebiges, aber festes \(n \in\N \) gilt:
-	\[ {(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}. \]
-	Induktionsschritt:
-	\begin{align*}
-		 &{(a+b)}^{n+1} \\
-		=& (a+b) {(a+b)}^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} \\
-		=& \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k} \\
-		=& \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} + \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1} \\
-		=& \binom{n+1}{n+1} a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + \binom{n+1}{0} b^{n+1} \\
-		=& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k} \\
-		=& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}.
-	\end{align*}
-\end{bew}
-
-\textbf{Notation:} Geg. Menge \(A\), sei \[ \{0,1\}^A := \{ \text{Funktion }f:A\rightarrow \{0,1\} \} \] \(= \) Menge aller \(\{0,1\}\)-wertigen Funktionen mit Definitionsbereich \(A\).\\
-Allg.: \(A,B\) Mengen, \(B^A := \{ \text{Funktion } f: a\rightarrow B\}\).
-
-\begin{satz}
-	Sei \(A\neq\emptyset \) eine endliche Menge. Dann ist 
-	\[ \#( {\{0,1\}}^A) = 2^{\#A}.\]
+\begin{satz}[Binomische Formel] Seien \(a \ko b \in \R \ko n \in \N \). Dann gilt
+	\[{(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}. \]
 \end{satz}
 \begin{bew}
-	Sei \(n := \# A \in\N \).\\
-	\(\Rightarrow \) Bijektion \(h:\{1,\ldots,n\} \rightarrow A\).\\
-	\( \Rightarrow \) können annehmen \(A = \{1,2,\ldots,n\} \) \\
-	z.z. \( \#( {\{0,1\}}^{[n]} ) = 2^n\).\\
-	Induktion: \(n=1 \exists \) Fkt. \(f_1,f_2 : \{1\} \rightarrow \{0,1\} \\
-	f_1(1) = 0 \quad f_2(1) = 1 \) \\
-	Formel stimmt für \(n=1\).
-	Ang. Formel stimmt für \(n\geq 1\). Fkt. \(f: \{1,\ldots, n+1\} \rightarrow \{0,1\} \) \\
-	2 Klassen:
-	\begin{enumerate}
-		\item \(S_0 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 0 \} \)
-		\item \(S_1 = \{f: \{1,\ldots,n\} \rightarrow \{0,1\}: f(n+1) = 1 \} \)
+	\induktion{
+		\({(a+b)}^1 = a+b = \sum_{k=0}^{1}\binom{1}{k} a^k b^{1-k} \).
+	}{
+		Für ein \(n \in \N \) gelte \({(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} \), für alle \(a \ko b \in \R \).
+	}{
+		\(\!\begin{aligned}[t]
+			{(a+b)}^{n+1} =& (a+b) {(a+b)}^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} \\
+		   				  =& \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k} \\
+						  =& \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} \\
+						   &+ \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1} \\
+		   				  =& a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + b^{n+1} \\
+		   				  =& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}. \qquad\qquad\qquad\qquad\qquad\qquad\quad\;\;\, \qedhere
+	   \end{aligned}\)%%qed ist sehr schlecht gemacht grade
+	}
+\end{bew}
+
+\begin{bspe}\leavevmode
+	\begin{enumerate}[(1)]
+		\item \({(a+b)}^1 = a+b \)
+		\item \({(a+b)}^2 = a^2 + 2ab + b^2 \)
+		\item \({(a+b)}^3 = a^3 +3a^2b + 3ab^2 +b^3 \)
 	\end{enumerate}
-	\[S_0 \cap S_1 = \emptyset, {\{0,1\}}^{[n+1]} = S_0 \cup S_1 \]
-	\[\underbrace{\# S_0}_{=\#S_1} = \# ( {\{0,1\}}^{[n]} )  \overset{\text{IA}}{=} 2^n \]
-	\[ \Rightarrow \# ( {\{0,1\}}^{n+1} ) = \#S_0+\#S_1 = 2^n + 2^n = 2^{n+1}. \]
+\end{bspe}
+
+\begin{defi*}
+	Sei \(A \ko B \) eine Menge.
+	\[B^A \coloneqq \set{f \; \vert \; f \colon A \longrightarrow B } \]
+	ist die \underline{Menge aller \(B\)-wertigen Funktionen mit Definitionsbereich \(A \)}. \\
+	Insbesondere betrachten wir Funktionen der Form
+	\[\set{0 \ko 1}^A \coloneqq \set{f \; \vert \; f \colon A \longrightarrow \set{0 \ko 1} }. \]
+\end{defi*}
+
+\begin{satz}\label{satz:kard_fn}
+	Sei \(A \neq\emptyset \) eine endliche Menge. Dann ist \(\#( \set{0,1}^A) = 2^{\#A}\).
+\end{satz}
+\begin{bew}
+	Sei \(\#A \eqqcolon n \in \N \). Also existiert eine Bijektion \(h \colon [n] \longrightarrow A\) und
+	wir können \obda annehmen, dass \(A = \set{1 \ko 2 \ko \ldots \ko n} \).
+	Es bleibt also zu zeigen, dass \(\#\set{0 \ko 1}^{[n]} = 2^n \).
+	\induktion{
+		Für \(n = 1 \) existieren genau zwei Funktionen \(f_1 \ko f_2 \)von \(A = \set{1} \) nach \(\set{0 \ko 1} \).
+		Diese sind gegeben durch \(f_1(1) = 0 \ko f_2(1) = 1 \).
+	}{
+		Für ein \(n \in \N \) gelte \(\#\set{0 \ko 1}^{[n]} = 2^n \).
+	}{
+		Sei \(f \colon [n + 1] \longrightarrow \set{0 \ko 1} \) eine Funktion. Dann gehört \(f \) zu genau einer von zwei
+		disjunkten Mengen \(S_0 \) und \(S_1 \) mit
+		\[S_0 = \set{f \colon \set{1 \ko \ldots \ko n} \rightarrow \set{0 \ko 1} \; \vert \; f(n + 1) = 0 }\ko\]
+		\[S_0 = \set{f \colon \set{1 \ko \ldots \ko n} \rightarrow \set{0 \ko 1} \; \vert \; f(n + 1) = 1 }.\]
+		\(\begin{aligned}[t]
+			\implies& S_0 \cap S_1 = \emptyset \ko \set{0 \ko 1}^{[n]} = S_0 \cup S_1 \text{ und} \\
+			        & \#S_0 = \#S_1 = \#(\set{0 \ko 1}^{[n]}) \overset{\IV}{=} 2^n \\
+			\implies& \#(\set{0 \ko 1}^{[n + 1]}) = \#S_0 + \#S_1 = 2^n + 2^n = 2^{n + 1}.
+		  \end{aligned}\)
+	}
 \end{bew}
 
 \begin{kor}
-	Sei \(A\) endliche Menge. \\
-	\(\mathcal{P}(A) = \) Potenzmenge = \( \{B | B \subseteq A\} \) \\
-	\(\Rightarrow \#\mathcal{P}(A = 2^{\#A}) \).
+	Sei \(A \) eine endliche Menge. Dann gilt \(\#\PO(A) = 2^{\#A} \).
 \end{kor}
 \begin{bew}
-	Sei \(A\neq \emptyset \Rightarrow\mathcal{P}(\emptyset) = \{\emptyset \}, \quad 2^0 = 1 \checkmark{}\) \\
-	Sei \( \#A \in\N \). Nach Satz 11 reicht eine Bijektion \( \varphi : \mathcal{P} \rightarrow \underbrace{{\{0,1\}}^A}_{= \{f: A \rightarrow \{0,1 \} \}} \). Dies wird in Lemma 13 für beliebige Mengen \(A\) gemacht.
+	Sei \(A = \emptyset \implies \PO(\emptyset) = \set{\emptyset} \), also \(\#\PO(A) = 1 = 2^0 \). \\
+	Nach \autoref{satz:kard_fn} genügt zu zeigen, dass eine Bijektion \(\varphi \colon \PO(A) \longrightarrow \set{0 \ko 1}^A \) existiert.
+\end{bew}
+
+\begin{lem}\label{satz:bij_pow}
+	Sei \(A \neq \emptyset \). Dann sind \( \PO(A) \) und \(\set{0 \ko 1}^A \) gleichmächtig.
+\end{lem}
+\begin{bew}
+	Sei \(B \subseteq A \) und definiere die Indikatorfunktion auf \(B \) folgendermaßen:
+	\[ \1_B(x) \coloneqq \begin{cases}
+			1 \ko & x \in B \\
+			0 \ko & x \in A \setminus B
+		\end{cases}\]
+	Beachte: \(B = \set{x \in A \; | \; \1_B(x) = 1 } = \inverse{\1_B}(\set{1}) \). \\
+	Definiere nun \( \varphi \colon \PO(A) \longrightarrow \set{0 \ko 1}^A \ko \, B \mapsto \1_B \). \\
+	Sei \(f \in \set{0 \ko 1}^A \). Mit \(B_f \coloneqq \inverse{f}(\set{1}) = \set{a \in A \; \vert \; f(a) = 1} \) \\
+	folgt \(\varphi(f) = \1_{B_f} = f \). Also ist \(\varphi \) surjektiv. \\
+	Seien nun \(B_1 \ko B_2 \subseteq A \) mit \(B_1 \neq B_2 \). \obda gelte \(B_1 \setminus B_2 \neq \emptyset \). \\
+	Dann existiert ein \(x \in B_1 \setminus B_2 \subseteq A \) und es gilt \(\1_{B_1}(x) = 0 \neq 1 = \1_{B_2}(x) \). \\
+	Es folgt \(\varphi(B_1) = \1_{B_1} \neq \1_{B_2} ? \varphi(B_2) \). Also ist \(\varphi \) injektiv und damit bijektiv.
 \end{bew}
 
 \begin{lem}
-	Sei \(A\neq\emptyset{}\). Dann sind \( \mathcal{P}(A) \) und \( {\{0,1\}}^A \) gleichmächtig.
+	Es existiert keine surjektive Funktion \(f \colon A \longrightarrow \PO(A) \).
 \end{lem}
 \begin{bew}
-	Brauchen \(\varphi : \mathcal{P}(A) \rightarrow {\{0,1\}}^A \).\\
-	Sei \(B \subseteq A \), Indikatorfunktion \[ \mathds{1}_B(x) := \begin{cases}
-			1, & x\in B            \\
-			0, & x\in A\setminus B
-		\end{cases}
-		, \mathds{1}_B : A \rightarrow \{0,1\}. \]
-	Beachte: \(B = \{x\in A | \mathds{1}_B(x) = 1 \} \).\\
-	Definiere \( \varphi : \mathcal{P}(A) \rightarrow {\{0,1\}}^A, B \mapsto \mathds{1}_B \).\\
-	Beh.: \(\varphi \) ist bijektiv.
-	\begin{enumerate}
-		\item \( \varphi \) ist surjektiv.\\
-		      Sei \(f: A\rightarrow \{0,1\} \) (nachrechnen)
-			  \[ B_f := f^{-1} (\{1\}) = \{a \in A \; \vert \; f(a) = 1 \} \Rightarrow \varphi(B_f) = \mathds{1}_{B_f} = f.\]
-		\item \( \varphi \) ist injektiv.\\
-		      Seien \( B_1,B_2\subseteq A, B_1 \neq B_2 \).
-		      \begin{align*}
-			      B_1\setminus B_2 \neq \emptyset \vee B_2\setminus B_1 \neq \emptyset                                    \\
-			      \text{o.B.d.A. } B_1 \setminus B_2 \neq \emptyset \Rightarrow \exists x \in B_2 \setminus B_1 \subset A \\
-			      \mathds{1}_{B_1}(x) = 0 \neq 1 = \mathds{1}_{B_2}(x)                                                    \\
-			      \Rightarrow \varphi(B_1) = \mathds{1}_{B_1} \neq \mathds{1}_{B_2} = \varphi(B_2).
-		      \end{align*}
-	\end{enumerate}
+	Sei \(f \colon A \longrightarrow \PO(A) \) eine Funktion, also \(f(a) \subseteq A \) für alle \(a \in A \). \\
+	Betrachte \(R \coloneqq \set{a \in A \; \vert \; a \notin f(a)} \subseteq A \) und nehme an \(f \)  ist surjektiv. \\
+	Somit existiert ein \(a \in R \) mit \(R = f(a)\).
+	\begin{faelle}
+		\item[Fall \(a \in R \):] \(a \in f(a) = R =  \set{a \in A \; \vert \; a \notin f(a)} \). \Lightning{}
+		\item[Fall \(a \notin R\):] \(a \notin f(a) \implies a \in R \). \Lightning{} 
+	\end{faelle}
+	Folglich kann \(f \) nicht surjektiv sein.
 \end{bew}
 
-\begin{lem}
-	Sei \(A\) Menge. Dann gibt es keine surj. Fkt. \(f: A\rightarrow \mathcal{P}(A) \).
-\end{lem}
-
-\begin{bem}
-	Ist \(A\) endlich \( \Rightarrow \# \mathcal{P} (A) = 2^{\# A} > \#A \).\\
-	\( \varphi: \mathcal{P}(A) \rightarrow {\{0,1\}}^A, \quad A\supset B \mapsto \mathds{1}_B \).
-\end{bem}
-\begin{bew}
-	Sei \(f: A \rightarrow \mathcal{P}(A) \)
-	\[ f(A) \subset A \quad \forall a \in A. \]
-	Definiere \(R := \{a\in A, a \neq f(a)\} \subset A \).\\
-	Angenommen \(f: A \rightarrow \mathcal{P}(A) \) ist surjektiv.
-	\[ \Rightarrow \forall b\in A \exists b : B=f(b) \Rightarrow \exists a\in A : R = f(a). \]
-	\(\Rightarrow \) 2 Möglichkeiten:
-	\begin{enumerate}
-		\item \(a\in R\) \[ a\in f(a = R = \{x\in A| x\notin f(x)\}) \text{\Lightning{}} \]
-		\item \(a \notin R = f(a) \Rightarrow a \notin f(a) \Rightarrow a\in R \) \Lightning{}\\
-		      \( f\) kann nicht surjektiv sein!
-	\end{enumerate}
-\end{bew}
-
+\onlyinsubfile{
+	\bibliographystyle{unsrt}
+	\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+}
 \end{document}

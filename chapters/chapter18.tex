@@ -1,0 +1,231 @@
+\documentclass[../ana1.tex]{subfiles}
+\onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+
+\begin{document}
+\setcounter{section}{17}
+\section{Die Ableitung}
+
+Im Folgenden \( I \subset \R \) offenes Intervall, 
+\( f: I \rightarrow \R \) (oder \( \C \ko \R^d \)).
+
+\begin{defi}[Ableitung]
+    \( f : I \rightarrow \R \) (oder \( \C \ko \R^d \)) 
+    hat in \( x_0 \in I \) die Ableitung \( a\in \R \) 
+    (oder \( \C \ko \R^d \)), falls 
+    \[ \limes{n} \underbrace{\frac{f(x) - f(x_0)}{x - x_0}}_{
+        \text{Differenzenquotient}
+    } = a. (*) \]
+    Notation: \( f'(x_0) := a \).\\
+    Nennen \(f\) differenzierbar (diffbar) in \(x_0\), falls 
+    es so ein \(a\) mit \((*)\)gibt, falls also der Grenzwert 
+    in \((*)\) existiert.\\
+    Bild: 
+    %BILD
+    \begin{center}
+        \begin{tikzpicture}
+            
+        \end{tikzpicture}
+    \end{center}
+    Steigung der Geraden durch \( (x_0, f(x_0)) \) und 
+    \((x, f(x)) = \frac{f(x) - f(x_0)}{x - x_0}\).\\
+    Alternativ, \( x = x_0 + h \Rightarrow x - x_0 = h \)
+    \[ \limesx{h}{0} \frac{f(x_0 + h) - f(x_0)}{h} = a =: f'(x_0) \]
+\end{defi}
+
+\begin{bem}
+    Konvergenz bezüglich Euklidischer Norm in \( \R^d 
+    \Leftrightarrow \) Konvergenz der Koordinaten.
+\end{bem}
+\begin{lem}
+    Die Funktion \( f : I \rightarrow \R^d \) ist in \(x_0\) 
+    differenzierbar \( \Leftrightarrow f = (f_1,f_2,\ldots,f_d) \), 
+    alle \( f_j : I \rightarrow \R \) sind in \( x_0 \) 
+    differenzierbar.
+    \[ \frac{f(x) - f(x_0)}{x-x_0} = \left( 
+        \frac{ f_1(x) - f_1(x_0) }{x-x_0} \ko
+        \frac{ f_2(x) - f_2(x_0) }{x-x_0} \ko
+        \ldots \ko
+        \frac{ f_d(x) - f_d(x_0) }{x-x_0} \right) 
+        \rightarrow (f_1'(x_0), f_2'(x_0), \ldots, f_d'(x)) \]
+\end{lem}
+\begin{bsp}
+    \( f: I \rightarrow \R^3, f(t) = (x(t), y(t), z(t)) \) 
+    Durchschnittsgeschwindigkeit im Intervall \( [t_0, t] 
+    \subset I \) ist \( \frac{f(t) - f(t_0)}{t - t_0} 
+    \overset{t\rightarrow t_0}{\longrightarrow} \underbrace{ 
+        f'(t_0) }_{ = (x'(t), y'(t) ,z'(t))}
+    = v(t_0) \) \gqq{instante Geschwindigkeit}.
+\end{bsp}
+\begin{defi}[Ableitungsfunktion]
+    \( f : I \rightarrow \R^d \) (\( \C, \R^d \)) heißt 
+    differenzierbar (diffbar) auf \(I\) (einfach differenzierbar), 
+    falls \(f\) in jedem Punkt \( x_0 \in I \) differenzierbar ist. \\
+    Die hierdurch gegebene Funktion 
+    \[ f': I \rightarrow \R^d, x_0 \mapsto f'(x_0) 
+    = \limesx{x}{x_0} \frac{f(x) - f(x_0)}{x - x_0} \]
+    heißt Ableitungsfunktion oder kurz Ableitung.
+\end{defi}
+\begin{bspe}
+    \begin{enumerate}
+        \item 
+        Konstante Funktion \( f : I \rightarrow \R^d, f(x) = c, 
+        c \in \R^d \) fest.
+        \[ x \neq x_0 \Rightarrow \frac{f(x) - f(x_0)}{x-x_0} 
+        = \frac{c - c}{x - x_0} = 0 \Rightarrow f'(x_0) = 0 
+        \,\forall \, x_0 \in I. \]
+        \item 
+        \( f: \R \rightarrow \R, x \mapsto f(x) = x \). \\
+        \[ \frac{f(x) - f(x_0)}{ x-x_0 } 
+        = \frac{x - x_0}{x - x_0} = 1 \Rightarrow f'(x_0) = 1. \]
+        \item 
+        \( f : \R \rightarrow \R, x \mapsto f(x) = \abs{x} \)
+        ist nicht in \(0\) differenzierbar. 
+        %BILD
+        \[ \limesx{x}{0+} \frac{f(x) - f(0)}{x - 0} 
+        = \limesx{x}{0+} \frac{x}{x} = 1 \]
+        \[ \limesx{x}{0-} \frac{f(x) - f(0)}{x - 0} 
+        = \limesx{x}{0-} \frac{\abs{x}}{x} 
+        = \limesx{x}{0-} \frac{-x}{x} = \minus 1. \]
+        \item 
+        \( n\in\N, f: \R \rightarrow \R, x \mapsto x^n \).
+        \begin{align*}
+            x^n - x_0^n &= (x-x_0)( x^{n-1} + x^{n-2}x_0 
+            + x^{n-3}x_0^2 + \cdots + x x_0^{n-2} + x_0^{n-1} )\\
+            &= (x - x_0) \sum_{j=0}^{n-1} (x^{n-j-1} x_0^j) \\
+            &= \sum_{j=0}^{n-1} x x^{n-1-j} x_0^j 
+            - \sum_{j=0}^{n-1} x^{n-1-j} x_0^{j+1} \qquad l := j+1\\
+            &= \sum_{j=0}^{n-1} x^{n-j} x_0^j - \sum_{l=1}^n x^{n-l} x_0^l \\
+            &= x^n - x_0^n \; \checkmark
+        \end{align*}
+        \[ \Rightarrow \frac{x^n - x_0^n}{ x - x_0 } 
+        = \frac{ (x - x_0) \sum_{j=0}^{n-1} x^{n-1-j}x_0^j }{x-x_0}
+        = \sum_{j=0}^{n-1} x^{n-1-j} x_0^j \overset{
+            x \rightarrow x_0}{\longrightarrow
+        } \sum_{j=0} ^{n-1} x_0^{n-1-j} x_0^j = n x_0^{n-1}. \]
+        D.\ h.\  \( f_n(x) = x^n \) ist differenzierbar. 
+        \( f'(x) = n x^{n-1} \).
+    \end{enumerate}
+\end{bspe}
+\begin{satz}[differenzierbar \( \Rightarrow \) stetig]
+    \( I \) offenes Intervall \( f : I \rightarrow \R^d \) 
+    differenzierbar in \( x_0 \in I \Rightarrow f \) ist stetig 
+    in \(x_0\).
+\end{satz}
+\begin{bew}
+    Sei \( x\in I, x \neq x_0 \).
+    \[ f(x) = f(x_0) + \underbrace{
+    \frac{f(x) - f(x_0)}{x - x_0} }_{
+        \underset{x\rightarrow x_0}{\longrightarrow} f'(x_0)
+    } \underbrace{(x-x_0)}_{\rightarrow 0} 
+    \overset{x\rightarrow x_0 }{\longrightarrow} 
+    f(x_0) + f'(x_0) \cdot 0 = f(x_0). \]
+    \( \Rightarrow \limesx{x}{x_0} f(x) = f(x_0) \), also ist
+    \( f \) stetig in \( x_0 \).
+\end{bew}
+\begin{satz}[Differentiationsregeln]
+    Seien \( f, g: I \rightarrow \R^d \) differenzierbar in \(x_0\)
+    \[ \Rightarrow \alpha f + \beta g, \alpha, \beta \in \R 
+    \text{ ist in } x_0 \text{ differenzierbar.} \]
+    und 
+    \begin{enumerate}
+        \item Linearität 
+        \[ (\alpha f + \beta g)'(x_0) = \alpha f'(x_0) 
+        + \beta g'(x_0) \]
+        (ähnlich: \( f, g: I \rightarrow \C, \alpha, \beta \in \C \).)
+    \end{enumerate}
+    Sind \( f, g: I \rightarrow \R \) (oder \( \C \)) in \(x_0\)
+    differenzierbar, so sind auch \( f\cdot g \) und im Fall 
+    \( g(x_0) \neq 0 \) \( \frac{f}{g} \) differenzierbar und 
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item Produktregel
+        \[ (f \cdot g)'(x_0) = f'(x_0) \cdot g'(x_0) 
+        + f(x_0) \cdot g'(x_0) \]
+        \item Quotientenregel
+        \[ \left( \frac{f}{g} \right)'(x_0) 
+        = \frac{ f'(x_0) g'(x_0) - f(x_0) g'(x_0) }{ {g(x_0)}^2 }. \]
+        \[ (\frac{Z}{N})' = \frac{NAZ - ZAN}{N^2} \]
+        \( NAZ = \) Nenner mal Ableitung Zähler\\
+        \( ZAN = \) Zähler mal Ableitung Nenner.
+    \end{enumerate}
+\end{satz}
+\begin{bew}
+    \begin{enumerate}
+        \item 
+        \begin{align*}
+            &\frac{ (\alpha f + \beta g)(x) 
+            - (\alpha f + \beta g)(x_0) }{ x - x_0 } \\
+            &= \alpha \frac{ f(x) - f(x_0) }{x - x_0} + 
+            \beta \frac{ g(x) - g(x_0) }{x - x_0}\\
+            &\rightarrow \alpha f'(x_0) + g'(x_0).
+        \end{align*}
+        \item 
+        \begin{align*}
+            &\frac{ f(x) g(x) - f(x_0)g(x_0) }{ x - x_0 }\\ 
+            &= \frac{ (f(x) - f(x_0))g(x) + f(x_0)g(x) 
+            - f(x_0)g(x_0) }{ x - x_0 }\\
+            &= \underbrace{\frac{f(x) - f(x_0)}{ x - x_0 }}_{
+                \rightarrow f'(x_0)} \underbrace{g(x)}_{
+                    \substack{=g(x_0),\\ \text{da auch stetig in }\\ x_0}} 
+            + f(x_0) \underbrace{\frac{g(x) - g(x_0)}{ x - x_0 }}_{
+                \rightarrow g'(x_0)} \\
+            &\rightarrow f'(x_0) g(x_0) + f(x_0) g'(x_0)
+        \end{align*}
+        \item
+        %TODO eine Tafel fehlt
+    \end{enumerate}
+
+\end{bew}
+\begin{bsp}
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item Sei \( f_n : \R \rightarrow \R, f_n(x) = x^n, n\in\N \)
+        \( \overset{\text{Bsp.\ 2}}{\Rightarrow} f_1'(x) = 1 \)
+        \begin{align*}
+            \overset{\text{Produktregel}}{\Rightarrow} 
+        f_n'(x) = (f_1 \cdot f_{n-1})'(x) = f_1'(x) f_{n-1}(x)
+        + f_1(x) f{n-1}'(x)
+        \end{align*}
+        %TODO fertigmachen
+    \end{enumerate}
+\end{bsp}
+\begin{satz}[Kettenregel]
+    Seien \( f: I \rightarrow \R, g : J \rightarrow \R, f(I) \subset J \). 
+    Ist \( f \) in \( x_0 \in I \) differenzierbar und \(g\) in 
+    \( y_0 := f(x_0) \) differenzierbar, so ist auch 
+    \( g \circ f : I \rightarrow \R, (g \circ f)(x) = g(f(x)) \) in \(x_0\) 
+    differenzierbar und 
+    \[ (g \circ f)'(x_0) = g'(f(x_0)) \cdot f'(x_0) \]
+\end{satz}
+\begin{bew}
+    Sei \( x \neq x_0 \).
+    \[ \frac{ g(f(x_0)) - g(f(x_0)) }{ x - x_0 } = \begin{cases}
+        \frac{ g(f(x)) - g(f(x_0)) }{f(x) - f(x_0)} 
+        \frac{ f(x) - f(x_0) }{ x-x_0 }, &\text{falls } f(x) \neq f(x_0)\\
+        0, &\text{falls } f(x) = f(x_0)
+    \end{cases} \]
+    Definiere \[ \tilde{g} : J \rightarrow \R, \tilde{g}(y) := \begin{cases}
+        \frac{ g(y) - g(y_0) }{ y - y_0 }, &y \neq y_0\\
+        g'(y_0), &y=y_0
+    \end{cases} \]
+    \( y_0 := f(x_0) \).
+    \[ \Rightarrow \limesx{y}{y_0} \tilde{g}(y) = g'(y_0) = \tilde{g}(y_0). \]
+    Somit ist \( \tilde{g} \) in \(y_0\) stetig.
+    \[ \Rightarrow \frac{ g(f(x)) - g(f(x_0)) }{ x - x_0 } 
+    = \tilde{g}(f(x)) \frac{ f(x) - f(x_0) }{x - x_0}. \]
+    \[ \Rightarrow \limesx{x}{x_0} \frac{ g(f(x)) - g(f(x_0)) }{ x - x_0 } 
+    = \limesx{x}{x_0} \left( \tilde{g}(f(x)) \frac{f(x) - f(x_0)}{x - x_0} \right) 
+    = \limesx{x}{x_0} \tilde{g}(f(x)) \limesx{x}{x_0} \frac{f(x) - f(x_0)}{x - x_0} 
+    = \tilde{g}(f(x_0))f'(x_0) = g'(f(x_0)) f'(x_0). \] %TODO align
+\end{bew}
+Ang.: \( f : I \rightarrow J\) bijektiv, \( I, J \) offene Intervalle und 
+\( g = \inverse{f} : J \rightarrow I \).\\
+Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und 
+\( f \) ist differenzierbar in \(x_0\)
+\[ \overset{\text{Ableiten}}{\Rightarrow} 1 = (g(f(x_0)))' 
+= g'(f(x_0)) \cdot f'(x_0) \]
+\[ \Rightarrow f'(x_0) \neq 0 \text{ und } y_0 = f(x_0) \]
+\[ g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))} 
+\Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \] %TODO passt das?
+
+\end{document}

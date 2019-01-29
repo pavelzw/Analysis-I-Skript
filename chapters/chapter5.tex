@@ -1,121 +1,152 @@
 \documentclass[../ana1.tex]{subfiles}
+\onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+
 \begin{document}
 \setcounter{section}{4}
+
 %09.11.2018
-\section{Induktion}
-\subsection{Starke Induktion und das Wohlordnungsprinzip}
-\begin{satz}[starke Induktion]
-	Seien \(A(n)\) Aussagen für \(n\in\N \). Dann gilt
-	\begin{enumerate}
-		\item \(A(1)\) ist wahr
-		\item \(\forall n\in\N: A(1), \ldots, A(n)\) wahr \(\Rightarrow A(n+1)\) ist wahr
+\section{Starke Induktion und das Wohlordnungsprinzip}
+
+\begin{satz}[Starke Induktion]\label{satz:starke_ind}
+	Seien \(A(n) \) Aussagen für alle \(n \in \N \). Gilt
+	\begin{enumerate}[(i)]
+		\item \(A(1) \) ist wahr.
+		\item \(\forall \, n \in \N \colon \; A(1) \ko \ldots \ko A(n) \) wahr \(\implies A(n + 1) \) wahr.
 	\end{enumerate}
-	\(\Rightarrow \forall n\in\N \) ist \(A(n)\) wahr
+	So ist ist \(A(n) \) wahr für alle \(n \in \N \).
 \end{satz}
 \begin{bew}
-	Definiere die Aussage \(B(n) := \{ \)alle \(A(k)\) mit \(k\leq n\) sind wahr\( \}\Rightarrow \)
-	\begin{enumerate}
-		\item \(B(1)\) ist wahr
-		\item Ist \(B(n)\) wahr für ein \(n\in\N \), so ist \(B(n+1)\) wahr
+	Definiere die Aussage \(B(n) \coloneqq \set{ \text{alle } A(k) \text{ mit } k\leq n \text{ sind wahr} } \). Dann gilt
+	\begin{enumerate}[(i)]
+		\item \(B(1) \) ist wahr
+		\item Ist \(B(n) \) wahr für ein \(n \in\N \), so ist \(B(n+1) \) wahr
 	\end{enumerate}
-	\(\Rightarrow B(n)\) ist wahr für alle \(n\in\N \).
+	\(\implies B(n) \) ist wahr für alle \(n \in \N \).
 \end{bew}
-\begin{bem}
-	\((\forall n\in\N:A(k) \forall k<n \Rightarrow A(n)) \Leftrightarrow \forall n\in\N A(n)\).
+
+\begin{bem} \leavevmode \\
+	\(\displaystyle\left[\forall \, n \in \N \, \forall \, k < n \colon \; A(k) \implies A(n)\right] \iff \, \forall \, n \in \N \colon \; A(n). \)
 \end{bem}
-\begin{satz}[Wohlordnungsprinzip für \(\N \)]
-	Jede nichtleere Teilmenge der natürlichen Zahlen \(\N \) hat ein kleinstes Element.
+
+\begin{satz}[Wohlordnungsprinzip für \(\N \)]\label{satz:wohlordprinz} \leavevmode \\
+	Jede nichtleere Teilmenge der natürlichen Zahlen \(\N \) besitzt ein kleinstes Element.
 \end{satz}
 \begin{bew}
-	Sei \(A(n):= \{ \)Jede Teilmenge \(b\subset\N \) mit \(m\in B\) hat ein kleinstes Element\( \} \).\\
-	Müssen zeigen: \(A(n)\) ist wahr für alle \(n\in\N \).
-	\begin{enumerate}
-		\item \(A(1)\) ist wahr, denn ist \(B\subset \N \) mit \(1\in B\), so folgt \(\forall k \in B: l\geq 1\). Also ist \(1\) kleinstes Element in \(B\).
-		\item Angenommen für \(n\in\N \) sind \(A(1),\ldots,A(n)\) wahr. Sei \(B\subset \N \) mit \(n+1\in B\).\\
-		      \underline{1. Fall:} \( \{1,\ldots,n\}\cap B = \emptyset \Rightarrow n+1\) ist kleinstes Element in \(B\).\\
-		      \underline{2. Fall:} \( \{1,\ldots,n\} \cap B \neq \emptyset \Rightarrow \exists k\in \{1,\ldots,n\} \) mit \(k\in B\).\\
-		      Aus der Induktionsannahme folgt also \(A(k)\) ist wahr. \(\Rightarrow B\) hat ein kleinstes Element.
+	Sei \(A(n)\coloneqq \set{\forall \, \emptyset \neq B \subseteq \N \text{ mit } n \in B \text{ hat ein kleinstes Element}} \).
+	Zu zeigen ist also: \(A(n) \) ist wahr für alle \(n \in \N \). Es gilt
+	\begin{enumerate}[(i)]
+		\item \(A(1) \) ist wahr, denn ist \(B \subseteq \N \) mit \(1 \in B \), so folgt \(\forall \, k \in B \colon \; k \geq 1 \).
+			  Also ist \(1 \) kleinstes Element in \(B \).
+		\item Angenommen für \(n \in \N \) sind \(A(1) \ko \ldots \ko A(n) \) wahr. Sei \(B \subseteq \N \) mit \(n + 1 \in B \).
+			  \begin{faelle}
+				\item{Fall 1:} \(\set{1 \ko \ldots \ko n} \cap B = \emptyset \implies n + 1 \) ist kleinstes Element in \(B \).
+				\item{Fall 2:} \(\set{1 \ko \ldots \ko n} \cap B \neq \emptyset \implies \, \exists \, k \in \set{1 \ko \ldots \ko n} \) kleinstes Element von \(B \) nach \(\IV \).
+			  \end{faelle}
+		      \(\implies B \) hat ein kleinstes Element.
 	\end{enumerate}
-	In beiden Fällen hat \(B\) ein kleinstes Element, also ist \(A(n+1)\) wahr.\\
-	\(\overset{\text{Satz 1}}{\Rightarrow} \forall n\in \N A(n)\) wahr.
+	In beiden Fällen hat \(B \) ein kleinstes Element, also ist \(A(n+1) \) wahr.\\
+	\(\overset{\autoref{satz:starke_ind}}{\implies} \forall \, n \in \N \colon \; A(n) \) wahr.
 \end{bew}
-Notation:\\
-Ganze Zahlen \(\Z := (-\N)\cup \N_0 = \{0, \pm 1, \pm 2, \ldots \} = \{\ldots, -2,-1,0,1,2,\ldots \} \).\\
-Rationale Zahlen: \(\Q := \{ \frac{m}{n} \vert n\in\N, m\in\Z \} \).
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{notation}\leavevmode
+	\begin{enumerate}[(a)]
+		\item \(\Z \coloneqq \minus \N \cup \N_0 = \set{0 \ko \pm 1 \ko \pm 2  \ko \ldots} \) ist die Menge der \underline{ganze Zahlen}.
+		\item \(\Q \coloneqq \set{\frac{m}{n} \; \vert \; n \in \N \ko m \in \Z } \) ist die Menge der \underline{rationale Zahlen}.
+	\end{enumerate}
+\end{notation}
+
 \begin{kor}
-	Jede nichtleere, nach unten beschränkte Teilmenge in \(\Z \) hat ein kleinstes Element.
+	Jede nichtleere, nach unten beschränkte Teilmenge in \(\Z \) besitzt ein kleinstes Element.
 \end{kor}
 \begin{bew}
-	Sei \(A\subsetneq \Z, A\neq \emptyset, A\geq \beta \) für \(B\in\Z \) \\
-	Setze \(B:= A+\beta +1 =\{\alpha+|\beta|+1\vert \alpha\in A\}\subsetneq \N, B\neq \emptyset \\
-		\overset{\text{Satz 2}}{\Rightarrow} \exists n_0:= \min B \Rightarrow z_0 := n_0 - |\beta|-1\in\Z \) ist kleinstes Element von \(A\).
+	Sei \(\emptyset \neq A \subsetneq \Z \ko A \geq \beta \) für ein \( \beta \in\Z \) \\
+	Setze \(B \coloneqq A + \abs{\beta} + 1 = \set{\alpha + \abs{\beta} + 1 \; \vert \; \alpha \in A} \subseteq \N \ko B \neq \emptyset. \\
+	\overset{\autoref{satz:wohlordprinz}}{\implies} \exists \, n_0 \coloneqq \min B\\
+	\overset{\phantom{\autoref{satz:wohlordprinz}}}{\implies} z_0 \coloneqq n_0 - \abs{\beta} - 1 \in \Z \) ist kleinstes Element von \(A \).
 \end{bew}
-\subsection{Anwendungen}
-\begin{lem}
-	Sei \( a\in\R \) mit \( a > 0 \). Dann existiert \(q\in\N_0\) mit \(q\leq a<q+1\)
+
+\begin{lem}\label{satz:gauss_klammer}
+	Sei \( a \in\R \) mit \( a > 0 \). Dann existiert \(q \in \N_0 \) mit \(q \leq a < q + 1 \).
 \end{lem}
 \begin{bew}
-	Ist \( 0 < a < 1 \), so nehme \( q = 0 \).\\
-	Also \(a\geq 1\) und setze \(B := \{ n\in\N | a < n \} \).\\
-	Da \( \N \) nicht nach oben beschränkt ist (archim. Prinzip), gilt \(B\neq \emptyset \).\\
-	\(\overset{\text{Satz 2}}{\Rightarrow} m:=\min B\) existiert. Da \(m\in B\), ist \(m> a \geq 1\).\\
-	Somit gilt nach Satz 3.5.8, dass \(q:= m-1\in\N \).\\
-	Da \( m \) die kleinste natürliche Zahl mit \(m<a\) ist, folgt \(q = m-1 \leq a < m = q+1\).
+	Ist \( 0 < a < 1 \), so nehme \( q = 0 \). Sei also \(a \geq 1 \) und setze \(B \coloneqq \set{ n \in \N \; \vert \; a < n } \). \\
+	Da \( \N \) nicht nach oben beschränkt (\autoref{C3-satz:arch_prinz})ist, gilt \(B \neq \emptyset \). \\
+	\(\overset{\autoref{satz:wohlordprinz}}{\implies} m \coloneqq \min B \) existiert. Da \(m \in B \), ist \(m > a \geq 1 \). \\
+	Somit gilt nach \autoref{C3-satz:prop_N}, dass \(q\coloneqq m-1\in\N \).\\
+	Da \( m \) die kleinste natürliche Zahl mit \(m < a \) ist, folgt \(m - 1 \leq a < m \).
 \end{bew}
+
 \begin{bem}
-	Dieselbe Beweisidee zeigt auch 
-	\[ \forall a\in\R\exists q\in\Z \text{ mit } q\leq a<q+1.\]
+	Sei \(a \in \R \). Dann existiert \(q \in \Z \) mit \(q \leq a < q + 1 \).
 \end{bem}
-\begin{satz}[\( \Q \) ist dicht in \( \R \)]
-	Seien \( a,b\in\R, a<b \). Dann existiert \( r\in\Q \) mit \(a<r<b\).
+\begin{bew}
+	Analog zu \autoref{satz:gauss_klammer}.
+\end{bew}
+
+\begin{satz}[\(\Q \) ist dicht in \(\R \)]
+	Seien \(a \ko b \in \R \ko a < b \). Dann existiert \( r \in \Q \) mit \(a < r < b \).
 \end{satz}
 \begin{bew}
-	O.\ B.\ d.\ A.\  \(b\geq 0\), ansonsten betrachte \( a' = -a, b' = -b \).\\
-	Weiter können wir \(a\geq 0\) annehmen, sonst nehme \(r=0\).
-	Also sei \(0\leq a <b \overset{\text{Archimedes}}{\Rightarrow} \exists n\in\N: n(b-a)>1\).\\
-	Setze \( B := \{ l\in\N | l > na \} \subset \N \).
-	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow} m = \min B \text{ existiert}.\]
-	Da \(m=\min B\) ist, gilt 
-	\[m -a\leq na<m,\] 
-	somit gilt auch 
-	\[ na<m=\underbrace{m-1}_{<na}+\underbrace{1}_{<n(b-a)}=nb \]
-	\[ \Rightarrow na<m,nb \Leftrightarrow a<\frac{m}{n}<b.\]
+	\obda  sei \(b \geq 0 \), ansonsten betrachte \( a^\prime = \minus{a} \ko b^\prime = \minus{b} \). \\
+	Weiter können wir \(a \geq 0 \) annehmen, sonst nehme \(r = 0 \). \\
+	Sei also \(0 \leq a < b \overset{\autoref{C3-satz:arch_prinz}}{\implies} \exists \, n \in \N \colon \; n(b-a) > 1 \). \\
+	Setze \( B \coloneqq \set{ l \in \N \vert l > na } \subseteq \N \).
+	\( \overset{\autoref{satz:wohlordprinz}}{\implies} m = \min B \) existiert.\\
+	Ferner gilt \(m-a \leq na < m \) und somit
+	\[ na < m = \underbrace{m-1}_{< na} + \underbrace{1}_{< n(b-a)} = nb \]
+	\(\implies na < m  < nb \iff a < \frac{m}{n} < b\).
 \end{bew}
-\textbf{Exkurs}\\
-Beh.: \( \sqrt{2}\in\R\setminus \Q \).
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{bem}
+	\(\sqrt{2} \in \R \setminus \Q \).
+\end{bem}
 \begin{bew}[Beweis durch Widerspruch]
-	Sei \( r^2 = 2 \) mit \( r = \frac{m}{n}, n\in\N, m\in\Z \).\\
+	Angenommen \( r^2 = 2 \) mit \( r = \frac{p}{q} \ko q \in \N \ko p \in \Z \). \\
 	Wir definieren 
-	\[ A:= \{n\in\N|\exists m\in\Z \frac{m^2}{n^2}= 2\} \neq \emptyset \]
-	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow} n_* = \min A \in \N \]
-	Also existiert \( m\in\Z_+ \) mit
-	\[ m^2 = 2\cdot m_*^2 \Rightarrow m>n_* \]
-	Außerdem gilt
-	\[ m=\sqrt{2}n_* \overset{\sqrt{2}>1}{\Leftrightarrow} 0< \underbrace{m-n_*}_{\in\N} = \underbrace{\overbrace{(\sqrt{2} - 1)}}^{>0}_{<1} n_* < n_* \]
+	\[A \coloneqq \set{n \in \N \; \vert \; \exists \, m \in \Z \colon \; \frac{m^2}{n^2} = 2} \neq \emptyset \]
+	\(\overset{\autoref{satz:wohlordprinz}}{\implies} n_* = \min A \in \N \) existiert. Also existiert \( m \in \Z_+ \) mit
+	\(m^2 = 2n_*^2\). Somit ist \(m > n_* \).
+	Ferner gilt
+	\[ m= \sqrt{2}n_* \overset{\sqrt{2} > 1}{\iff} 0 < \underbrace{m - n_*}_{\in \N} = \underbrace{(\sqrt{2} - 1)}_{\in (0 \ko 1)} n_* < n_* \]
 	Nun gilt: 
-	\[ \sqrt{2} = \frac{m}{n_*} = \frac{m(m-n_*)}{n_*(m-n_*)} \overset{m^2=2n_*^2}{=} \frac{2n_*^2-mn_*}{n_*(m-n_*)} = \frac{2n_*-m}{m-n_*} \]
-	\Lightning{} \(2n_* -m \in \Z, m-n_* < n_* \), aber \(n_* = \min A\) \\
-	Somit kann kein \(m\in\Z \) existieren, sodass \(\frac{m^2}{n^2} = 2\) für beliebiges \(n\in\N \).\\
-	Also ist \(\sqrt{2}\) per Definition der rationalen Zahlen in \(\R\setminus\Q \).
+	\[ \sqrt{2} = \frac{m}{n_*} = \frac{m(m - n_*)}{n_*(m-n_*)} \overset{m^2 = 2n_*^2}{=} \frac{2n_*^2 - mn_*}{n_*(m - n_*)} = \frac{2n_* - m}{m - n_*} \]
+	Somit \(2n_* - m \in \Z \ko m - n_* < n_* \). \Lightning{ zu \(n_* = \min A \)} \\
+	Somit kann kein \(m \in \Z \) existieren, sodass \(\frac{m^2}{n^2} = 2 \) für beliebiges \(n \in \N \).
 \end{bew}
-\begin{satz}
-	Sei \(k\in\N \), dann gilt entweder \(\sqrt{k}\in\N \) oder \(\sqrt{k}\in\R\setminus\Q \).
+
+\begin{satz}\label{satz:sqrt_irr}
+	Sei \(k \in \N \), dann ist entweder \(\sqrt{k} \in \N \) oder \(\sqrt{k} \in \R \setminus \Q \).
 \end{satz}
 \begin{bew}
-	Sei \(k\in\N \) und \(\sqrt{k} \notin \N \).\\
-	Angenommen \(\sqrt{k}\in\Q \), also \(\sqrt{k} = \frac{m}{n}, m\in\Z,n\in\N \) \\
-	\(A:=\{n\in\N|\exists m\in\Z \frac{m^2}{n^2} = k\} \)
-	\[ \overset{\text{Satz 5.1.2}}{\Rightarrow}\exists n_* = \min A \in \N \]
-	Sei \(\frac{m}{n_*} = \sqrt{k}\), dann gilt
-	\[ m-n_* = \underbrace{(\sqrt{k}-1)}_{<1} n_* \] %DURCHGESTRICHEN
-	Aber wähle \(q\in\N: q\leq \sqrt{k} < q+1\) \\
-	Existiert nach Lemma 5.2.1. Da \(\sqrt{k} \notin \N \) gilt \(q<\sqrt{k}<q+1\).\\
-	Also gilt:
-	\[ 0\overset{q<\sqrt{k}}{<} \underbrace{m-qn_*}_{\in\N} = (\underbrace{\sqrt{k}-q}_{<1})n_* < n_* \]
+	Sei \(k \in \N \) und \(\sqrt{k} \notin \N \). \\
+	Angenommen \(\sqrt{k} \in \Q \), also \(\sqrt{k} = \frac{m}{n} \ko m \in \Z \ko n \in \N \). \\
+	Definiere \(A \coloneqq \set{n \in \N \; \vert \; \exists \, m \in \Z \colon \; \frac{m^2}{n^2} = k} \)
+	\(\overset{\autoref{satz:wohlordprinz}}{\implies}\exists \, n_* = \min A \in \N \). \\
+	Sei \(\frac{m}{n_*} = \sqrt{k} \), dann gilt
+	Ferner existier \(q \in \N \) mit \(q \leq \sqrt{k} < q+1 \) nach \autoref{satz:gauss_klammer} \\
+	Also gilt
+	\[ 0 < \underbrace{m-qn_*}_{\in \N} = (\underbrace{\sqrt{k}-q}_{\in (0 \ko 1)})n_* < n_* \]
 	Somit 
-	\[ \sqrt{k} = \frac{m}{n_*} = \frac{m(m-qn_*)}{n_*(m-qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m-qn_*)}=\frac{kn_*-mq}{m-qn_*}\]
-	\Lightning{} \(n_* = \min A, m-qn_* < n_*\) \\
-	Somit muss \(\sqrt{k}\in\R\setminus\Q \) sein.
+	\[ \sqrt{k} = \frac{m}{n_*} = \frac{m(m - qn_*)}{n_*(m - qn_*)} = \frac{kn_*^2 - mqn_*}{n_*(m - qn_*)}=\frac{kn_* - mq}{m - qn_*} \]
+	\Lightning{} zu \(n_* = \min A \ko m-qn_* < n_* \)
+\end{bew}
+
+\iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
+
+\begin{bem}(Erweiterung von \autoref{satz:sqrt_irr} auf \(n \)-te Wurzeln) \leavevmode \\
+	Seien \(n \in \N \ko k \in \Z \) und \(x \in \R \) mit \(x^n = k \). Dann ist entweder \(x \in \N \) oder \(x \in \R \setminus \Q \).
+\end{bem}
+\begin{bew}
+	Sei \(\frac{a}{b} \eqqcolon x \) mit \(x^n = k \ko a \in \Z \ko b \in \N \) und \(a \ko b\) teilerfremd \\
+	\dphp für \(q \in \N \) mit \(a = qp_a \ko b = qp_b \) für \(p_a \ko p_b \in \Z \) folgt \(q = 1 \).
+	Dann gilt
+	\[{\frac{a}{b}}^n = \frac{a^n}{b^n} = k \iff \frac{a^n}{b} = \underbrace{kb^{n - 1}}_{\in \Z}. \]
+	\(\implies \frac{a^n}{b} \in \Z \). Also muss \(b \) entweder \(1 \) oder \(\minus 1 \) sein.
+	\(\implies \frac{a}{b} \in \N \).
 \end{bew}
 
 \end{document}

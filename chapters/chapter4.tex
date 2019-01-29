@@ -148,7 +148,7 @@
 \end{bem}
 
 \begin{bsp}
-	Ist \(f \colon A \longrightarrow B \) bijektiv, also \(f(a) = b \Leftrightarrow \inverse{f}(b) = a\), so gilt \\
+	Ist \(f \colon A \longrightarrow B \) bijektiv, also \(f(a) = b \iff \inverse{f}(b) = a\), so gilt \\
 	\[\inverse{\Gamma_f} = \set{(b \ko \inverse{f}(b)) \; \vert \; b \in B} = \set{(f(a), a) \; \vert \; a \in A} = S(\Gamma_f) \ko \]
 	wobei \(S \colon A \times B \longleftrightarrow B \times A \ko \, (a \ko b) \mapsto (b \ko a)\).
 	\begin{figure}[h!]
@@ -206,7 +206,7 @@
 %%%		\item Ang.\  \(m=1 \Rightarrow m=1\leq n+1\checkmark{} \)
 %%%		\item Ang.\  \(m>1, m\in\N \overset{\text{Satz 3.5.8}}{\Rightarrow} m-1\in\N \) \\
 %%%		      \((*) \) Beh.: \(\exists \) inj.\  \(\tilde{f}: \{1,\ldots,m-1\}\rightarrow \{1,\ldots,n\} \). \\
-%%%		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ d.h. } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}. \]
+%%%		      \[ \overset{(*) + \text{IV}}{\Rightarrow} m-1\leq n, \text{ \dphp } m\leq n+1 \Rightarrow A(n+1) \text{ ist wahr}. \]
 %%%	\end{enumerate}
 %%%	Beweis von \((*) \): \\
 %%%	Angenommen, \(\exists f: [m]\rightarrow[n+1] \) inj. \\
@@ -377,7 +377,7 @@
 	}{
 		Identifiziere \(\sigma \in S_n \) mit \(n \)-Tupeln. Dann lässt sich die Menge \(S_n \) als disjukte Vereinigung von Mengen
 		\[S_{n+1 \ko k} \coloneqq \set{\tau \in S_{n+ 1} \; \vert \; \tau_k = n + 1} \ko \quad k = 1 \ko \ldots \ko n + 1 \]
-		schreiben. z.B. \(S_{3 \ko 2} = \set{(1 \ko 3 \ko 2) \ko (2 \ko 3 \ko 1)} \). \\
+		schreiben. \zB \(S_{3 \ko 2} = \set{(1 \ko 3 \ko 2) \ko (2 \ko 3 \ko 1)} \). \\
 		Jedem \(\tau = (\sigma_1 \ko \ldots \ko \sigma_n) \in S_n \) können wir die Permutation
 		\[\tau_k \coloneqq (\sigma_1 \ko \ldots \ko \sigma_{k-1} \ko \underbrace{n + 1}_{k \text{-te Stelle}} \ko \sigma_k \ko \ldots \ko \sigma_n) \in S_{n + 1 \ko k} \]
 		zuordnen. \(\tau_k \) ist bijektiv, also eine Permutation (Übung). \\

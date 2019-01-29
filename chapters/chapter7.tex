@@ -1,9 +1,11 @@
 \documentclass[../ana1.tex]{subfiles}
+\onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+
 \begin{document}
 \setcounter{section}{6}
 
 \section{Folgen und Konvergenz}
-\subsection{Grundlagen}
+
 \begin{defi}
 	Sei \(X\neq\emptyset \) eine Menge. Eine Folge (mit Werten in \(X\) oder auch \(X\)-wertige Folge) ist eine Funktion 
 	\[f: \N \rightarrow X, n \mapsto f(n)\in X\]
@@ -11,15 +13,18 @@
 	\(a_n\) heißt \(n\)-tes Folgenglied. Wir schreiben auch \({(a_n)}_{n\in\N}\) oder kurz \({(a_n)}_n\).\\
 	Ist \(X = \R \), so heißt die Folge reellwertig oder reelle Folge (Folge reeller Zahlen). \({(a_n)}_{n\in\N} \subset \R \).
 \end{defi}
+
 \begin{defi}[Konvergenz (reeller Folgen)]
 	Eine reelle Folge \({(a_n)}_{n\in\N}\) konvergiert (mit \(n\rightarrow\infty \)) gegen ein \(a\in\R \), falls 
 	\[\forall \varepsilon > 0 \exists k \in \N: \forall n\geq k \text{ folgt } |a_n - a| < \varepsilon.\]
 	Die Zahl \(a\) heißt Grenzwert der Folge, wir schreiben \(\limes{n}a_n = a\) oder \(a_n\rightarrow a\) (für \(n\rightarrow\infty \)).\\
 	Eine (reelle) Folge heißt konvergent, falls ein \(a\in\R \) der Grenzwert der Folge ist, andernfalls heißt die Folge divergent.
 \end{defi}
+
 \begin{bem}
 	\[\limes{n}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.\]
 \end{bem}
+
 \begin{bsp}
 	Beweis mit \(\varepsilon \)-Methode:
 	\begin{enumerate}
@@ -96,6 +101,7 @@
 	\end{bew}
 	\end{enumerate}
 \end{bsp}
+
 \begin{satz}
 	Falls die reelle Folge \({(a_n)}_{n\in\N}\) konvergiert, so ist ihr Grenzwert eindeutig bestimmt.
 \end{satz}
@@ -111,6 +117,7 @@
 	\[b-a = b-a_n + a_n -a \leq \underbrace{|b-a|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}\]
 	Somit muss \(a=b\) gelten!
 \end{bew}
+
 Bild:\\
 \begin{center}
 \begin{tikzpicture}[scale=2]
@@ -126,20 +133,25 @@ Bild:\\
 	\draw[->] (1.5,-0.4) -- (1.25,-0.1);
 \end{tikzpicture}
 \end{center}
+
 \begin{defi}[\(\varepsilon \)-Umgebung]
 	Die \(\varepsilon \)-Umgebung um \(a\in\R \) ist die Menge
 	\[U_\varepsilon(a):= \{x\in\R: |x-a| <\varepsilon \} = (a-\varepsilon, a+\varepsilon).\]
 \end{defi}
+
 Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 \[\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a) \forall n\geq K.\]
+
 \begin{defi}[Beschränktheit von Folgen]
 	Eine Folge \({(a_n)}_{n\in\N} \subset \R \) heißt beschränkt, wenn für \(C\geq 0\) gilt \(|a_n|\leq C \quad \forall n\in\N \) \\
 	nach oben beschränkt, wenn es ein \(C\in\R \) gibt mit \(a_n\leq C \quad \forall n\in\N \) \\
 	nach unten beschränkt, wenn es ein \(C\in\R \) gibt mit \(a_n\geq C \quad \forall n\in\N \).
 \end{defi}
+
 \begin{bem}
 	beschränkt \(\Leftrightarrow \) nach oben und nach unten beschränkt
 \end{bem}
+
 \begin{satz}
 	Jede konvergente Folge ist beschränkt.
 \end{satz}
@@ -153,6 +165,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 	Setze \(C:= \max \{|a_1|,\ldots,|a_{K-1}|, 1 + |a|\} \), so folgt
 	\[|a_n| \leq C \quad\forall n\in\N.\]
 \end{bew}
+
 \begin{lem}
 	Die Folge \({(b_n)}_n \subset \R \) konvergiert gegen \(b\neq 0\). Dann existiert \(K\in\N \), sodass 
 	\[|b_n| \geq \frac{|b|}{2}.\]
@@ -180,6 +193,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		&\Rightarrow |b_n| > |b| - \frac{|b|}{2} = \frac{|b|}{2} \quad \forall n\geq K.
 	\end{align*}
 \end{bew}
+
 \begin{satz}[Rechenregel für Grenzwerte]
 	Es gelte \(a_n\rightarrow a, b_n \rightarrow b\) für \(n\rightarrow\infty \).
 	\begin{enumerate}
@@ -229,6 +243,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		Somit folgt \( \frac{1}{b_n} \rightarrow \frac{1}{b} \) (für \(n\rightarrow \infty \)). Somit folgt die allg. Aussage aus Teil 2 von Satz 7.1.8.
 	\end{enumerate}
 \end{bew}
+
 %20.11.2018
 reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 \[ {(f+g)}_n := f_n + g_n, \quad n\in\N \]
@@ -241,6 +256,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 	&\supsetneq \{ \text{Raum der (reellen) Nullfolgen} \}.
 \end{align*}
 \({(f_n)}_{n\in\N}\) ist eine Nullfolge, falls \( \limes{n} f_n = 0 \).
+
 \begin{bsp}[1]
 	\( p,q \) Polynome vom Grad \(m,n\in\N \).\\
 	D. h. \[ p(x) = a_m x^m + a_{m-1} x^{m-1} + \cdots + a_1 x + a_0 \quad \forall x\in\R \]
@@ -255,6 +271,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\end{cases}
 	\end{align*}
 \end{bsp}
+
 \begin{bsp}[Geometrische Reihe]
 	\begin{align*}
 		-1<q<1.\\
@@ -265,13 +282,17 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 	Da \(q^n \rightarrow 0, n\rightarrow\infty \), Bsp. 6 oben.
 	Schreiben hierfür \[ \sum_{l=0}^{n} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
 \end{bsp}
+
 \begin{bsp}
 	Ist \( {(b_n)}_n \) beschränkt, \( {(a_n)}_n \) Nullfolge. \( \Rightarrow {(b_n a_n)}_n \) Nullfolge. (Hausaufgabe)
 \end{bsp}
+
 \textbf{Notation:} Wir sagen die Aussagen \( A(n), n\in\N \) gelten für fast alle \( n\in\N \), falls \( K_0\in\N \) existiert, sodass \(A(n)\) wahr ist für alle \( n\geq K_0 \) (d.\ h.\ für alle genügend großen \( n \), d.\ h.\  \( A(n) \) wahr für alle bis auf endlich viele \(n\in\N \)).
+
 \begin{bsp}
 	\[ a_n\rightarrow a,n\rightarrow\infty \Leftrightarrow \forall \varepsilon > 0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon \text{ für fast alle } n.)  \]
 \end{bsp}
+
 \begin{satz}
 	Seien \( {(a_n)}_n, {(b_n)}_n\) konvergente reelle Folgen, \( a_n\rightarrow a, b_n \rightarrow b, n\rightarrow\infty \). Dann gilt
 	\begin{enumerate}
@@ -322,8 +343,10 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\( \Leftrightarrow \) konvergiert \( {(c_n)}_n \) gegen \( a \)!
 	\end{enumerate}
 \end{bew}
+
 Achtung! \( a_n < b_n \forall n, a_n \rightarrow a, b_n \rightarrow b \nRightarrow  a<b\).\\
 Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
+
 \begin{defi}[Uneigentliche Konvergenz]
 	Die Folge \( {(a_n)}_n \) konvergiert uneigentlich (divergiert bestimmt) gegen \(+\infty \), falls 
 	\[ \forall R>0 \exists K\in\N \text{ mit } a_n >R \quad \forall n\geq K. \]
@@ -331,6 +354,7 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 	Analog für \( \limes{n} a_n = -\infty \), falls 
 	\[ \forall R<0 \exists K\in\N: a_n < R \forall n\geq K. \]
 \end{defi}
+
 \begin{bsp}
 	Ist \(a>1 \Rightarrow \limes{n}q^n = +\infty, 0< \frac{1}{q} < 1. \)
 \end{bsp}
@@ -347,14 +371,15 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 	\end{align*}
 	Ist \( q<1 \Rightarrow {(q_n)}_n \) nicht beschränkt ist.
 \end{bew}
+
 \begin{satz}[Kehrwerte]
 	\begin{enumerate}
 		\item Aus \( |a_n| \rightarrow \infty, n\rightarrow\infty \) folgt \(\frac{1}{a_n} \rightarrow0,n\rightarrow\infty \).
 		\item Aus \( a_n\rightarrow 0, a_n > 0 \) (bzw. \(a_n<0\)) \( \forall n \) folgt \( \frac{1}{a_n} \rightarrow\infty, n\rightarrow\infty \) (\( \frac{1}{a_n} \rightarrow -\infty, n\rightarrow\infty \)).
 	\end{enumerate}
 \end{satz}
-\begin{bew}
-	Übungsaufgabe
+\begin{bew}\phantom{\qedhere}
+	Übung.
 \end{bew}
 
 \end{document}

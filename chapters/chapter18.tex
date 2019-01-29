@@ -137,7 +137,7 @@ Im Folgenden \( I \subset \R \) offenes Intervall,
     \( \Rightarrow \limesx{x}{x_0} f(x) = f(x_0) \), also ist
     \( f \) stetig in \( x_0 \).
 \end{bew}
-\begin{satz}[Differentiationsregeln]
+\begin{satz}[Differentiationsregeln]\label{satz:diff_regeln}
     Seien \( f, g: I \rightarrow \R^d \) differenzierbar in \(x_0\)
     \[ \Rightarrow \alpha f + \beta g, \alpha, \beta \in \R 
     \text{ ist in } x_0 \text{ differenzierbar.} \]
@@ -205,7 +205,8 @@ Im Folgenden \( I \subset \R \) offenes Intervall,
         \item Sei \( f_n : \R \rightarrow \R, f_n(x) = x^n, n\in\N \)
         \( \overset{\text{Bsp.\ 2}}{\Rightarrow} f_1'(x) = 1 \)
         \begin{align*}
-            \overunderset{\text{Produkt-}}{\text{regel}}{\Rightarrow} 
+            \overunderset{\hyperref[satz:diff_regeln]{\text{Produkt-}}}{
+                \hyperref[satz:diff_regeln]{\text{regel}}}{\Rightarrow} 
             f_n'(x) &= (f_1 \cdot f_{n-1})'(x) \\
             &= f_1'(x) f_{n-1}(x) + f_1(x) f_{n-1}'(x)\\
             &= f_{n-1}(x) + x f_{n-1}'(x) = x^{n-1} + x f_{n-1}'(x)
@@ -268,6 +269,6 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 = g'(f(x_0)) \cdot f'(x_0) \]
 \[ \Rightarrow f'(x_0) \neq 0 \text{ und } y_0 = f(x_0) \]
 \[ g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))} 
-\Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \] %TODO passt das?
+\Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \]
 
 \end{document}

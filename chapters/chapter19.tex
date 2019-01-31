@@ -82,9 +82,9 @@
     \[ \exists \, \xi \in (a,b): f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
 \end{satz}
 \begin{bew}
-    \( h(x) :=  f(x) - [f(a) + \frac{f(b)-f(a)}{b-a} \cdot (x-a)] \) \\
+    \( h(x) :=  f(x) - \left[f(a) + \frac{f(b)-f(a)}{b-a} \cdot (x-a) \right] \) \\
     \( \Rightarrow h: [a,b] \rightarrow \R \) stetig und diffbar auf \( (a,b) \) und
-    \[ h(a) = 0 = h(b) \overset{\text{Rolle}}{\Rightarrow} 
+    \[ h(a) = 0 = h(b) \oversett{Rolle}{\Rightarrow} 
     \exists \, \xi \in (a,b): 0 = h'(\xi) = f'(\xi) - \frac{f(b)-f(a)}{b-a} \]
     \[ \Rightarrow f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
 \end{bew}

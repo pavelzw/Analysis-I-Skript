@@ -36,13 +36,13 @@
                 \draw[dotted] (0,0.5) -- (0.2,0.5) -- (0.2,0);
                 \draw (0,0.7) -- (0.1429,0.7) -- (0.1429,0);
                 \draw[<->] (-0.1,0.5) -- (-0.1,0.9) node[midway, left] {\( \varepsilon \)};
-                \draw[<->] (0.111,-0.1) -- (0.2,-0.1) node[midway, below] {\(\sigma \)};
+                \draw[<->] (0.111,-0.1) -- (0.2,-0.1) node[midway, below] {\(\delta \)};
 
                 \draw[dotted] (0,0.3) -- (0.333,0.3) -- (0.333,0);
                 \draw[dotted] (0,0.2) -- (0.5,0.2) -- (0.5,0);
                 \draw (0,0.25) -- (0.4,0.25) -- (0.4,0);
                 \draw[<->] (-0.1,0.2) -- (-0.1,0.3) node[midway, left] {\( \varepsilon \)};
-                \draw[<->] (0.333,-0.1) -- (0.5,-0.1) node[midway, below] {\(\sigma \)};
+                \draw[<->] (0.333,-0.1) -- (0.5,-0.1) node[midway, below] {\(\delta \)};
 
             \end{tikzpicture}
         \end{center}
@@ -169,8 +169,8 @@
         f(z_{\max}) &= \sup f(D) &= \max f(D)
     \end{align*}
     Insbesondere gilt 
-    \[ \abs{f(z)} \leq \max ( \abs{ f(z_{\min)} }, 
-    \abs{ f(z_{\max}) } ) \; \forall \, z\in D. \]
+    \[ \abs{f(z)} \leq \max \left( \abs{ f(z_{\min)} }, 
+    \abs{ f(z_{\max}) } \right) \; \forall \, z\in D. \]
 \end{satz}
 \begin{bew}\leavevmode \\
     Teil 1: \(f\) ist beschränkt.\\
@@ -289,7 +289,7 @@
     Beh.\ 1: \( {(f(z_n))}_n \) ist Cauchy-Folge.\\
     Sei \( \varepsilon > 0 \). Da \(f\) gleichmäßig stetig 
     ist, gilt 
-    \[ \exists \delta > 0 : \forall \, z, w \in D 
+    \[ \exists\, \delta > 0 : \forall \, z, w \in D 
     \text{ mit } \abs{z-w} < \delta \Rightarrow 
     \abs{f(z) - f(w)} < \varepsilon. \]
     Da \( {(z_n)}_n \) Cauchy ist, gibt es ein \( N\in\N \), 

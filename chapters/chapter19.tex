@@ -53,7 +53,7 @@
     \[ \Rightarrow \exists \, \xi \in (a,b) : f'(\xi) = 0. \]
 \end{satz}
 \begin{bew}
-    \( [a,b] \) ist kompakt und \(f\) ist stetig.
+    \( [a,b]\) ist kompakt und \(f\) ist stetig.
     \[ \Rightarrow \exists \xi_1 \in (a,b), \xi_2 \in [a,b]: \]
     \[ f(\xi_1) = \sup( f(x), x \in [a,b] ), f(\xi_2) 
     = \inf (f(x) : x \in [a,b]). \]
@@ -68,6 +68,14 @@
     \[ \Rightarrow f'(x) = 0 \, \forall \, x\in (a,b). \]
 \end{bew}
 \begin{satz}[Mittelwertsatz]
-    
+    \( f: [a, b] \rightarrow \R \) stetig und diffbar auf \((a,b)\)
+    \[ \exists \, \xi \in (a,b): f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
 \end{satz}
+\begin{bew}
+    \( h(x) :=  f(x) - [f(a) + \frac{f(b)-f(a)}{b-a} \cdot (x-a)] \) \\
+    \( \Rightarrow h: [a,b] \rightarrow \R \) stetig und diffbar auf \( (a,b) \) und
+    \[ h(a) = 0 = h(b) \overset{\text{Rolle}}{\Rightarrow} 
+    \exists \, \xi \in (a,b): 0 = h'(\xi) = f'(\xi) - \frac{f(b)-f(a)}{b-a} \]
+    \[ \Rightarrow f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
+\end{bew}
 \end{document}

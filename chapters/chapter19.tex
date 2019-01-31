@@ -14,7 +14,17 @@
     Ist \( x_0 \in (a,b) \), so kann \( \delta > 0 \) so klein 
     gewählt werden, dass \( (x_0 - \delta, x_0 + \delta) 
     \cap [a,b] = (x_0 - \delta, x_0 + \delta) \).
-    %BILD
+    \begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) -- (5,0);
+        \draw (0,0) node {\([\)} node[below=2mm] {\(a\)};
+        \draw (4,0) node {\(]\)} node[below=2mm] {\(b\)};
+        \draw (3.5,0.2) -- (3.5,-0.2) node[below] {\(x_0\)};
+        \draw (2,0) node {\((\)} node[below] {\( x_0 - \delta \)};
+        \draw (5,0) node {\()\)} node[below] {\( x_0 + \delta \)};
+        \draw[<->] (2,0.75) -- (4,0.75) node[midway,above] {\( [a,b] \cap U_\delta(x_0) \)};
+    \end{tikzpicture}
+    \end{center}
     Ist sogar \( f(x_0) < f(x) \,\forall \, x \in 
     (x_0 - \delta, x_0 + \delta) \cap [a,b] \), so heißt 
     das lokale Minimum isoliert (oder strikt).\\

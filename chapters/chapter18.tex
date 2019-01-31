@@ -270,5 +270,169 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \[ \Rightarrow f'(x_0) \neq 0 \text{ und } y_0 = f(x_0) \]
 \[ g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))} 
 \Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \]
-
+\begin{satz}[Differenzierbarkeit der Umkehrfunktion]
+    Sei \( f: I \rightarrow \R \) streng wachsend und stetig auf 
+    dem Intervall \(I\) mit Endpunkten \( a < b \). Dann gilt 
+    \begin{enumerate}
+        \item \( J = f(I) \) ist ein Intervall mit Endpunkten 
+        \[ \alpha := \limesx{x}{\alpha +} f(x) 
+        < \beta := \limesx{x}{b -} f(x) \]
+        \item Die Umkehrfunktion \( g: J = f(I) \rightarrow I \) ist 
+        ebenfalls stetig und streng wachsend.
+        \item \( \limesx{y}{\alpha +} g(y) = a, 
+        \limesx{y}{\beta -} g(y) = b \) (Man male ein Bild.)
+    \end{enumerate}
+    Zudem ist \( I \) ein offenes Intervall, so ist auch \( J = f(I) \) 
+    ein offenes Intervall und ist \(f\) in \(x_0\) differenzierbar mit 
+    \( f'(x) \neq 0 \), so ist \(g\) differenzierbar in \( y_0 = f(x_0) \) 
+    mit 
+    \[ g'(y_0) = \frac{1}{f'(g(y_0))} = \frac{1}{f'(x_0)}. \]
+\end{satz}
+\begin{prosa}
+    Zum Beweis benötigen wir 
+\end{prosa}
+\begin{lem}
+    Sei \( h: I \rightarrow \R \) monoton wachsend, \(I\) ein Intervall mit 
+    Endpunkten \( a < b \).\\
+    Dann hat \(h\) einseitige Grenzwerte. Genauer
+    \[ \limesx{x}{x_0 -} h(x) = \lim\limits_{x \nearrow x_0} h(x) 
+    = \sup \underset{\text{falls } x_0 > a}{\set{ h(x) 
+    \; \vert \; x \in I, x < x_0 }} \]
+    \[ \limesx{x}{x_0 +} h(x) = \lim\limits_{x \searrow x_0} h(x) 
+    = \inf \underset{\text{falls } x_0 < b}{\set{ h(x) 
+    \; \vert \; x \in I, x > x_0 }} \]
+    Analoge Aussage gilt, falls \(h\) monoton fallend ist.
+\end{lem}
+\begin{bew}
+    Später.
+\end{bew}
+\begin{bew}[von Satz 7]%href TODO
+    Schritt 1: \(f\) strikt wachsend. 
+    \( \Rightarrow f \) ist injektiv \( \Rightarrow f : 
+    I \rightarrow f(I) \) ist injektiv \( \Rightarrow \inverse{f} : 
+    f(I) \rightarrow I \) existiert.\\
+    Schritt 2: \( J := f(I) \) ist auch Intervall.\\
+    Seien \( y_1 < y_2 < J \) und \( y_1 < c < y_2 \)
+    \[ \Rightarrow \exists \, x_1 < x_2 \in I : y_1 = f(x_1), 
+    y_2 = f(x_2). \]
+    \[ f \text{ stetig } \overunderset{\text{Zwischen-}}{
+        \text{wertsatz}}{\Rightarrow} 
+    \exists \, x_1 < x < x_2: f(x) = c. \]
+    \[ \Rightarrow c \in J = f(I). \]
+    \[ \Rightarrow [y_1, y_2] \subset J = f(I). \]
+    \[ J \text{ ist ein Intervall.} \]
+    \[ \overset{\text{Lemma 8}}{\Rightarrow} \exists \, \alpha := 
+    \limesx{x}{\alpha +} f(x) < \beta = \limesx{x}{b -} f(x) \]
+    \( \alpha \) und \( \beta \) sind Endpunkte von \(J\).\\ 
+    \( \Rightarrow \) 1.\ ist gezeigt.\\
+    Schritt 3: \\
+    \( g: J \rightarrow I \) ist streng wachsend.\\
+    Wenn nicht, dann gäbe es 
+    \[ y_1 < y_2 \in J : g(y_1) \geq g(y_2) \]
+    \[ \Rightarrow y_1 = f(g(y_1)) \geq f(g(y_2)) \text{ \Lightning{}} \]
+    Schritt 4: \( g: J \rightarrow I \) ist stetig.\\
+    Es reicht zu zeigen: die eindeutigen Grenzwerte sind gleich dem 
+    Funktionswert.\\
+    O.\ B.\ d.\ A.: linksseitiger Grenzwert.
+    \[ y_0 = f(x_0) \in (\alpha, \beta] \]
+    \[ x_{\minus} := \limesx{y}{y_0 \minus} g(y) 
+    = \lim\limits_{y \nearrow y_0} g(y)
+    \overset{\text{Ann.}}{<} g(y_0) = x_0. \]
+    Bild:
+    %Bild graph von g
+    %Bild graph von f
+    \( g \) streng wachsend \( \Rightarrow a < x < x_0 \) \\
+    \( f \) stetig in \(x_0\): 
+    \begin{align*}
+        &f(x_{\minus})\\
+        &= f_{\minus}(\limesx{y}{y_0 \minus})\\
+        &= \limesx{y}{y_0 \minus} f(g(y))\\
+        &= \limesx{y}{y_0 \minus} y = y_0\\
+        &= f(x_0)
+    \end{align*}
+    \Lightning{} zu \(f\) streng wachsend.
+    Genauso \( \lim \) rechtsseitiger Grenzwert.\\
+    Schritt 5: 3.\ folgt durch Anwenden von 
+    1.\ und 2.\ auf \(g\) anstatt \(f\).\\
+    Schritt 6: Es gilt immer
+    \begin{align*}
+        &a\in I \Leftrightarrow \alpha \in J = f(I)\\
+        \text{und } &b\in I \Leftrightarrow \beta \in J.
+    \end{align*}
+    Insbesondere \(I\) offen \( \Leftrightarrow J \) offen.\\
+    Dann ist \( a \in I \subset [a,b] \)
+    \[ \Rightarrow \alpha = \inf \set{ f(x) \;\vert \; x \in I } 
+    = f(a) \in f(I) = J. \]
+    Umgekehrt: Ist \( \alpha \in J \), so ist 
+    \[ a = \inf \set{ g(y) \;\vert \; y \in J } 
+    = g(\alpha) \in g(J) = I. \]
+    Genauso zeigt man \( b\in I \Leftrightarrow \beta \in J \).\\
+    Schritt 7: nach Schritt 6 ist \( J = f(I) \) offenes Intervall, 
+    falls \( I \) offenes Intervall und \( g = \inverse{f} \) ist streng 
+    wachsend und stetig. Nehme \( y \neq y_0, y, y_0 \in J \).
+    \[ \Rightarrow g(y) \neq g(y_0) \]
+    \[ \text{und } x = g(y) \rightarrow g(y_0) 
+    = x_0 \text{ für } y \rightarrow y_0. \]
+    \begin{align*}
+        &\frac{ g(y) - g(y_0) }{ y - y_0 }\\
+        &= \frac{ g(y) - g(y_0) }{ f(g(y)) - f(g(y_0)) }\\
+        &= \frac{1}{ \frac{f(g(y)) - f(g(y_0))}{  g(y) - g(y_0)} }\\
+        &= \frac{1}{ \frac{ f(x) - f(x_0) }{ x - x_0 } }
+    \end{align*}
+    \[ x = g(y), x_0 = g(y_0). \]
+    \[ y \rightarrow y_0 \Rightarrow x = g(y) \rightarrow g(y_0) = x_0 \]
+    \begin{align*}
+        &\limesx{y}{y_{\minus}} \frac{ g(y) - g(y_0) }{ y - y_0 }\\
+        &= \limesx{x}{x_0} \frac{1}{ \frac{ f(x) - f(x_0) }{ x - x_0 } }\\
+        &= \frac{1}{f'(x_0)} \text{ existiert, da } f'(x_0) \neq 0.
+    \end{align*}
+    \[ \Rightarrow g'(y_0) = \frac{1}{ f'(x_0) } = \frac{1}{ f'(g(y_0)) }. \]
+\end{bew}
+\begin{bsp}
+    \( f: \R \rightarrow \R, x \mapsto x^3 = f(x) \)
+    \[ f'(x) = 3 x^2, f'(0) = 0. \]
+    \( x^3 = y \quad y > 0 \Rightarrow x = y^\frac{1}{3} \)
+    Inverse: 
+    \[ g(y) = \inverse{f}(y) = \begin{cases}
+        y^\frac{1}{3}, &y \geq 0\\
+        -{(-y)}^{\frac{1}{3}}, &y \geq 0.
+    \end{cases} \]
+    %BILD
+    \[ \frac{ g(y) - g(0) }{ y - 0 } 
+    = \abs{y}^{\minus \frac{2}{3}} \rightarrow \infty 
+    \text{ für } y \rightarrow 0. \]
+\end{bsp}
+\begin{bew}[von Lemma 8]%hrref
+    Sei \( x_0 > \alpha \).\\
+    \( h : I \rightarrow \R \) monoton wachsend. 
+    \( I \) hat Endpunkte \( a < b \).\\
+    Sei \( x_0 > a \). 
+    \[ \gamma := \sup \set{ h(x) \;\vert \; x \in I, x < x_0 } \]
+    \[ \Rightarrow \forall \, \tilde{\gamma} < \gamma 
+    \,\exists \, x' \in I, x' < x_0 : h(x') > \tilde{\gamma}. \]
+    \( h \) ist monoton wachsend 
+    \[ \Rightarrow \tilde{\gamma} < h(x') \leq h(x) \leq \gamma 
+    \;\forall \, x' \leq x < x_0 \]
+    \[ \Rightarrow \limesx{x}{x_0 \minus} h(x) \text{ existiert.} \]
+    \[ \text{und } h(x) = \gamma 
+    = \sup \set{ h(x) \;\vert \; x \in I, x < x_0 }. \]
+    Zweite Behauptung analog.
+\end{bew}
+\begin{bem}
+    \[ f'(x_0) = \limesx{x}{x_0} \frac{f(x) - f(x_0)}{ x - x_0 } \]
+    \[ \Leftrightarrow \limesx{x}{x_0} \underbrace{ \frac{1}{x - x_0} \left(
+        f(x) - \set{ f(x_0) + f'(x-0)(x-x_0) } \right) 
+    }_{=\varepsilon(x)} = 0 \]
+    \( x \neq x_0, \varepsilon(x_0) := 0 \).\\
+    D.\ h.\  \( \exists \, \text{ Funktion } 
+    \varepsilon : I \rightarrow \R, \varepsilon (x_0) = 0, \varepsilon \) 
+    ist stetig in \(x_0\).
+    \[ f(x) = \underbrace{f(x_0) + f'(x_0)(x - x_0)}_{
+        \text{affin linear}
+    } + \underbrace{\varepsilon(x)(x - x_0)}_{\substack{
+        \text{Fehler, geht schneller}\\\text{als linear gegen Null}\\
+        x \rightarrow x_0}} \]
+    %BILD
+    Bild:
+\end{bem}
 \end{document}

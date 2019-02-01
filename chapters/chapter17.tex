@@ -1,4 +1,6 @@
 \documentclass[../ana1.tex]{subfiles}
+\onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+
 \begin{document}
 \setcounter{section}{16}
 \section{Eigenschaften stetiger Funktionen}
@@ -34,13 +36,13 @@
                 \draw[dotted] (0,0.5) -- (0.2,0.5) -- (0.2,0);
                 \draw (0,0.7) -- (0.1429,0.7) -- (0.1429,0);
                 \draw[<->] (-0.1,0.5) -- (-0.1,0.9) node[midway, left] {\( \varepsilon \)};
-                \draw[<->] (0.111,-0.1) -- (0.2,-0.1) node[midway, below] {\(\sigma \)};
+                \draw[<->] (0.111,-0.1) -- (0.2,-0.1) node[midway, below] {\(\delta \)};
 
                 \draw[dotted] (0,0.3) -- (0.333,0.3) -- (0.333,0);
                 \draw[dotted] (0,0.2) -- (0.5,0.2) -- (0.5,0);
                 \draw (0,0.25) -- (0.4,0.25) -- (0.4,0);
                 \draw[<->] (-0.1,0.2) -- (-0.1,0.3) node[midway, left] {\( \varepsilon \)};
-                \draw[<->] (0.333,-0.1) -- (0.5,-0.1) node[midway, below] {\(\sigma \)};
+                \draw[<->] (0.333,-0.1) -- (0.5,-0.1) node[midway, below] {\(\delta \)};
 
             \end{tikzpicture}
         \end{center}
@@ -163,12 +165,12 @@
     auf \(D\) an, d.\ h.\ es gibt ein \( z_{\min} \)
     und \( z_{\max} \) mit
     \begin{align*}
-        f(z_{\min}) &= \inf f(D) \\
-        f(z_{\max}) &= \sup f(D)
+        f(z_{\min}) &= \inf f(D) &= \min f(D) \\
+        f(z_{\max}) &= \sup f(D) &= \max f(D)
     \end{align*}
     Insbesondere gilt 
-    \[ \abs{f(z)} \leq \max ( \abs{ f(z_{\min)} }, 
-    \abs{ f(z_{\max}) } ) \; \forall \, z\in D. \]
+    \[ \abs{f(z)} \leq \max \left( \abs{ f(z_{\min)} }, 
+    \abs{ f(z_{\max}) } \right) \; \forall \, z\in D. \]
 \end{satz}
 \begin{bew}\leavevmode \\
     Teil 1: \(f\) ist beschränkt.\\
@@ -287,7 +289,7 @@
     Beh.\ 1: \( {(f(z_n))}_n \) ist Cauchy-Folge.\\
     Sei \( \varepsilon > 0 \). Da \(f\) gleichmäßig stetig 
     ist, gilt 
-    \[ \exists \delta > 0 : \forall \, z, w \in D 
+    \[ \exists\, \delta > 0 : \forall \, z, w \in D 
     \text{ mit } \abs{z-w} < \delta \Rightarrow 
     \abs{f(z) - f(w)} < \varepsilon. \]
     Da \( {(z_n)}_n \) Cauchy ist, gibt es ein \( N\in\N \), 
@@ -340,7 +342,7 @@ Die Funktion
 \end{cases} \]
 hat keine stetige Fortsetzung auf \( \R \).
 Beachte: \( \bar{\Q} = \R \) (HA)
-\begin{satz}[Zwischenwertsatz]
+\begin{satz}[Zwischenwertsatz]\label{satz:zwischenwert}
     Eine stetige Funktion \( f: [a,b] \rightarrow \R \) 
     nimmt jeden Wert \( \gamma \) zwischen \( f(a) \) 
     und \( f(b) \) an mindestens einer Stelle 
@@ -376,5 +378,59 @@ Für den Beweis benötigt man das folgende Lemma.
         &\geq f(c) - \frac{f(c)}{2} \\
         &= \frac{f(c)}{2}.
     \end{align*}
+\end{bew}
+\begin{lem}[Nullstellensatz]
+    Sei \( f : [a,b] \rightarrow \R \) stetig 
+    mit \( f(a) \leq 0 \leq f(b) \). Dann existiert 
+    ein \( c \in [a,b] \) mit \(f(c) = 0\), d.\ h.\ 
+    \(f\) hat eine Nullstelle in \( [a,b] \).\\
+    Ist \( f(a) < 0 < f(b) \), so ist \( c \in (a,b) \).
+\end{lem}
+\begin{bew}
+    Ist \( f(a) = 0 \), so setze \( c=a \), ist \(f(b) = 0\), 
+    so setze \( c=b \).\\
+    O.\ B.\ d.\ A.\ ist \( f(a) < 0 < f(b) \).\\
+    Sei \( C := \set{x \in [a,b] \;\vert \; f(x) < 0} \). 
+    Dann ist \( C \neq \emptyset \), da \( a \in C \). 
+    Ferner ist \(C\) durch \(b\) nach oben beschränkt. 
+    Aus dem Vollständigkeitsaxiom folgt, dass eine reelle Zahl 
+    \(c\) existiert 
+    \[ c := \sup C. \]
+    Ferner ist \( c \in [a,b] \).\\
+    Da \( c = \sup C \), gibt es eine Folge 
+    \( {(x_n)}_n \subset C \), sodass \( \limes{n} x_n = c \) 
+    und da \(f\) stetig ist, gilt 
+    \[ f(c) = \limes{n} \underbrace{f(x_n)}_{\leq 0} \leq 0. \]
+    Also \( f(c) \leq 0 \) und somit \( c < b \).\\
+    Wäre \( f(c) < 0 \), dann folgt aus Lemma 9 die 
+    Existenz von \( \delta > 0 \), sodass aus \( x \in [a,b] 
+    \cap [c-\delta, c+\delta] \) auch \( f(x) < 0 \) folgt.\\
+    Da \( f(b) > 0 \), ist \( c + \delta < b \) und somit 
+    \[ c + \delta \in (a,b) \text{ und } f(c+\delta) < 0. \]
+    Damit ist \( c + \delta \in C \) und \( c < c + \delta \) 
+    \Lightning{} \(c = \sup C\).\\
+    Also muss \( f(c) = 0 \).
+\end{bew}
+Achtung: Wir benötigen hier sicherlich die Vollständigkeit von 
+\( \R \), da für die stetige Funktion 
+\[ f: \Q \rightarrow \set{-1, 1}, \]
+\[ x \mapsto \begin{cases}
+    1, &x^2 > 2 \\
+    -1, &x^2 < 2
+\end{cases} \]
+gilt der Zwischenwertsatz nicht.
+\begin{kor}
+    Sei \( f: [a,b] \rightarrow \R \) stetig und 
+    \( f(a) \cdot f(b) \leq 0 \), dann existiert 
+    ein \( c \in [a,b] \) mit \( f(c) = 0 \).
+\end{kor}
+\begin{bew}
+    Die Voraussetzung besagen, dass entweder 
+    \( f(a) \) oder \( f(b) \) Null sind oder 
+    \( f(a) \) und \( f(b) \) gegensätzliche 
+    Vorzeichen haben.\\
+    Es ist also \( f(a) \leq 0 \leq f(b) \) 
+    oder \( f(b) \leq 0 \leq f(a) \).
+    \( \overset{ZWS}{\Rightarrow} \) Behauptung.
 \end{bew}
 \end{document}

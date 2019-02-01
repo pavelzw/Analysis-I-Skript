@@ -83,7 +83,8 @@
     Jede Zahl hat eine eindeutige Darstellung zur Basis b.
 \end{satz}
 \begin{bew}
-    Konstruiere b-adische Darstellung durch vollständige Induktion nach n.\\
+    Konstruiere b-adische Darstellung durch\\
+    vollständige Induktion nach n.\\
     (IA):\\
     \(n = 0\) hat die Darstellung \(a_0 = 1\)\\
     (IS): \(n - 1 \rightarrow n\): sei \(n > 1\)\\
@@ -92,7 +93,8 @@
     Wenn \(a_m = a_{m-1} = \dots = a_0 = b-1\), dann stellen wir n als\\
     \(a_{m+1} = 1, a_j = 0\) für \(j \leq m\)\\
     Dies funktioniert, das aus der geometrischen Summenformel folgt:\\
-    \[n-1 = \sum_{j=0}^{m} (b-1)b^j = (b-1) \cdot \sum_{j=0}^{m}b^j = (b-1) \cdot \frac{1- b^{m+1}}{1-b} = \frac{-(1-b)(1-b^{m+1})}{1-b} = b^{m+1}-1\]\\
+    \[n-1 = \sum_{j=0}^{m} (b-1)b^j = (b-1) \cdot \sum_{j=0}^{m}b^j = (b-1) \cdot \frac{1- b^{m+1}}{1-b} \]
+    \[= \frac{-(1-b)(1-b^{m+1})}{1-b} = b^{m+1}-1 \]
     Ist dies nicht der Fall, muss also mindestens ein Koeffizient in der Darstellung von \(n-1\) kleiner als \(b-1\) sein.\\
     Sei \(\varepsilon\) der kleinste Index, so dass \(a_{\varepsilon} < b-1\).\\
     Wir definieren uns \(c_0, \dots, c_m\) durch:\\

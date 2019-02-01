@@ -5,10 +5,20 @@
 % Vorlage für chapter[x]u.tex:
 %
 % \documentclass[../ana1u.tex]{subfiles}
+%%%Optional%%
+% \onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+%
+%%%
 % \begin{document}
 % \setcounter{section}{[x - 1]}
 % \section{[chaptername]}
 % ...
+%%%Optional-Nur hinzufügen, wenn das Kapitel Zitate benutzt&%Unwahrscheinlich bei der Übung%%
+% \onlyinsubfile{
+% 	\bibliographystyle{unsrt}
+% 	\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+% }
+%%%
 % \end{document}
 
 
@@ -22,8 +32,18 @@
 	pdfauthor = {Daniel Augustin}
 }
 
+%%Sorgt dafür, dass Referenzen aus anderen Kapiteln verwendet werden können.
+%%Achtung .aux Dateien müssen vorhanden sein.
+\foreach \c in {1,...,17}{
+	\IfFileExists{chapters/chapter\c.tex} {
+		\externaldocument[C\c-]{chapters/chapter\c}
+	}{
+		\externaldocument[C\c-]{chapter\c}
+	}
+}
+
 \begin{document}
-\title{Analysis I (WS 18/19)\\ {\normalsize Übungsmitschrieb}}
+\title{\Huge Analysis I - WS 18/19\\ {\Large Übungsmitschrieb}}
 \date{\today}
 \maketitle
 
@@ -41,7 +61,7 @@ verantwortlich.
 \tableofcontents
 \newpage	
 
-\foreach \c in {1,...,8}{
+\foreach \c in {1,...,9}{
 	\subfile{chapters_uebung/chapter\c u.tex}
 	\newpage
 }

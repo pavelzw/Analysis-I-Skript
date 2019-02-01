@@ -5,10 +5,20 @@
 % Vorlage für chapter[x].tex:
 %
 % \documentclass[../ana1.tex]{subfiles}
+%%%Optional%%
+% \onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+%
+%%%
 % \begin{document}
 % \setcounter{section}{[x - 1]}
 % \section{[chaptername]}
 % ...
+%%%Optional-Nur hinzufügen, wenn das Kapitel Zitate benutzt&
+% \onlyinsubfile{
+% 	\bibliographystyle{unsrt}
+% 	\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+% }
+%%%
 % \end{document}
 
 \IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
@@ -17,6 +27,16 @@
 \hypersetup{
 	pdftitle = {Analysis I Vorlesungsmitschrieb (WS 18/19)},
 	pdfauthor = {Pavel Zwerschke}
+}
+
+%%Sorgt dafür, dass Referenzen aus anderen Kapiteln verwendet werden können.
+%%Achtung .aux Dateien müssen vorhanden sein.
+\foreach \c in {1,...,17}{
+	\IfFileExists{chapters/chapter\c.tex} {
+		\externaldocument[C\c-]{chapters/chapter\c}
+	}{
+		\externaldocument[C\c-]{chapter\c}
+	}
 }
 
 \begin{document}
@@ -28,7 +48,7 @@
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
 
-\title{Analysis I (WS 18/19)\\ {\normalsize Vorlesungsmitschrieb}}
+\title{\Huge Analysis I - WS 18/19\\ {\Large Vorlesungsmitschrieb}}
 \date{\today}
 \maketitle
 
@@ -58,7 +78,14 @@ verantwortlich.
 	\newpage
 	\subfile{chapters/chapter1.tex}
 }
-\foreach \c in {2,...,17}{
+\foreach \c in {2,...,4} {
+	\subfile{chapters/chapter\c.tex}
+	\iftoggle{short}{}{\newpage}
+}
+
+\sectionNumbering
+
+\foreach \c in {5,...,19} {
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }
@@ -67,4 +94,10 @@ verantwortlich.
 %</tag-skript>%
 %%%%%%%%%%%%%%%
 
+\bibliographystyle{unsrt}
+\IfFileExists{ana-skript.bib}{\bibliography{ana-skript}}{\bibliography{../ana-skript}}
+
 \end{document}
+
+
+

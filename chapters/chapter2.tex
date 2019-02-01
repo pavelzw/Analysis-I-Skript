@@ -4,7 +4,7 @@
 
 \section{Etwas Logik}
 \begin{defi*}
-	Eine (mathematische) Aussage ist ein Ausdruck, der entweder wahr oder falsch ist.
+	Eine (mathematische) \underline{Aussage} ist ein Ausdruck, der entweder wahr oder falsch ist.
 \end{defi*}
 
 \begin{bspe}\leavevmode
@@ -16,7 +16,7 @@
 		\item \(E \): \gqq{Jede gerade natürliche Zahl größer als 2 ist die Summe zweier Primzahlen.} (Goldbach Vermutung)
 		\item \(F \): \gqq{Morgen ist das Wetter schön.}
 		\item \(G \): \gqq{Ein einzelnes Atom im Vakuum mit der Kernladungszahl \(Z \) kann höchstens \(Z+1 \) Elektronen binden.} (Ionisierungsvermutung, es ist noch nicht einmal bekannt, ob es eine Zahl \(Z \) gibt, sodass höchstens \(Z+1 \) Elektronen gebunden werden.)
-		\item \(H(k,m,n) \): \gqq{Es gilt: \(k^2 + m^2 = n^2 \).} (z.B. \(H(3,4,5) \) ist wahr.)
+		\item \(H(k,m,n) \): \gqq{Es gilt: \(k^2 + m^2 = n^2 \).} (\zB \(H(3,4,5) \) ist wahr.)
 	\end{enumerate}
 \end{bspe}
 
@@ -73,14 +73,14 @@
 \begin{notation}\leavevmode
 	\begin{center}
 		\begin{tabular}{r||l}
-			\(\colon \)          & \gqq{so, dass gilt}                                                    \\
-			\(\exists \)         & \gqq{es gibt mindestens ein}, \gqq{es existiert}                 \\
-			\(\forall \)         & \gqq{für alle}                                                         \\
+			\(\colon \)          & \gqq{so, dass gilt} \\
+			\(\exists \)         & \gqq{es gibt mindestens ein}, \gqq{es existiert} \\
+			\(\forall \)         & \gqq{für alle} \\
 			\(\Rightarrow \)     & \gqq{impliziert} (\(A \Rightarrow B \) \gqq{aus \(A \) folgt \(B \)}) \\
-			\(\Leftrightarrow \) & \gqq{genau dann, wenn}                                                 \\
-			\(\neg A \)          & \gqq{nicht \(A \)}                                                                 \\
-			\(A \wedge B \)      & \gqq{\(A \) und \(B \)}                                                           \\
-			\(A \vee B \)        & \gqq{\(A \) oder \(B \)}                                                            \\
+			\(\Leftrightarrow \) & \gqq{genau dann, wenn}\\
+			\(\neg A \)          & \gqq{nicht \(A \)} \\
+			\(A \wedge B \)      & \gqq{\(A \) und \(B \)} \\
+			\(A \vee B \)        & \gqq{\(A \) oder \(B \)} \\
 			\(A \coloneqq B \)   & \gqq{\(A \) ist per Definition gleich \(B \)}
 		\end{tabular}
 	\end{center}
@@ -91,10 +91,10 @@
 	\begin{center}
 		\begin{tabular}{rl}
 			\(\neg(\neg A) \Leftrightarrow A \)                            & Gesetz der doppelten Verneinung \\
-			\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A \) & Kontraposition                  \\
-			\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B)) \)  & beim Widerspruchsbeweis         \\
-			\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B) \)     & de Morgan                       \\
-			\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B) \)     & de Morgan                       \\
+			\(A \Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A \) & Kontraposition \\
+			\(A \Rightarrow B \Leftrightarrow (\neg (A \wedge \neg B)) \)  & beim Widerspruchsbeweis \\
+			\(\neg(A \wedge B) \Leftrightarrow (\neg A \vee \neg B) \)     & de Morgan \\
+			\(\neg(A \vee B) \Leftrightarrow (\neg A \wedge \neg B) \)     & de Morgan \\
 		\end{tabular}
 	\end{center}
 \end{satz}
@@ -114,8 +114,8 @@
 \begin{defi*}
 	Sein \(n \in \N \), dann definiere:
 	\begin{enumerate}[(a)]
-		\item \(n \) ist gerade \(\longeq \exists k \in \N \colon n = 2k \).
-		\item \(n \) ist ungerade \(\longeq \exists k \in \N_{0} \colon n = 2k + 1 \).
+		\item \(n \) ist \underline{gerade} \(\longeq \exists \, k \in \N \colon \; n = 2k \).
+		\item \(n \) ist \underline{ungerade} \(\longeq \exists \, k \in \N_{0} \colon \; n = 2k + 1 \).
 	\end{enumerate}
 \end{defi*}
 
@@ -133,7 +133,7 @@
 \end{bsp}
 
 \begin{defi*}[Informelle Mengendefinition nach Cantor]\leavevmode \\
-	Eine Menge ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.
+	Eine \underline{Menge} ist eine Sammlung von Objekten (Elemente) zu einem neuen Objekt.
 \end{defi*}
 
 \begin{notation}\leavevmode
@@ -156,26 +156,26 @@
 \begin{defi}
 	Sei \(M \) eine Menge und \(A(x) \) Aussagen mit \(x\in M \).
 	\begin{enumerate}[(a)]
-		\item \(\forall \, x \in M \colon \, A(x) \) ist wahr, falls alle \(A(x) \) wahr sind.
-		\item \(\exists \, x \in M \colon \, A(x) \) ist wahr, falls mindestens eine Aussage \(A(x) \) wahr ist.
+		\item \(\forall \, x \in M \colon \; A(x) \) ist wahr, falls alle \(A(x) \) wahr sind.
+		\item \(\exists \, x \in M \colon \; A(x) \) ist wahr, falls mindestens eine Aussage \(A(x) \) wahr ist.
 	\end{enumerate}
 	Achtung: Reihenfolge der Quantoren ist wichtig!
 \end{defi}
 
 \begin{bsp}
 	Töpfe \(\coloneqq \) Menge der Töpfe, Deckel \(\coloneqq \) Menge der Deckel.\\
-	\(\forall \, T \in \text{Töpfe} \, \exists \, D \in \text{Deckel} \colon \, D \text{ passt auf } T \) \\
+	\(\forall \, T \in \text{Töpfe} \, \exists \, D \in \text{Deckel} \colon \; D \text{ passt auf } T \) \\
 	\(\iff \) Für jeden Topf gibt es mindestens einen Deckel, der passt. \\
-	\(\exists \, D \in \text{Deckel} \, \forall \, T \in \text{Töpfe} \colon \, D \text{ passt auf } T \) \\
+	\(\exists \, D \in \text{Deckel} \, \forall \, T \in \text{Töpfe} \colon \; D \text{ passt auf } T \) \\
 	\(\iff \) Es existiert mindestens ein Deckel, der auf alle Töpfe passt.
 \end{bsp}
 
 \begin{bem}[Negation von quantifizierten Aussagen]\leavevmode
-	\begin{alignenum}{\neg (\forall \, x \in M \colon \, A(x))}{(a)}
+	\begin{alignenum}{\neg (\forall \, x \in M \colon \; A(x))}{(a)}
 		\begin{aitem}
-			\Format{\neg (\forall \, x \in M \colon \, A(x))} &\Longleftrightarrow \exists \, x \in M \colon \, \neg A(x).&&
+			\Format{\neg (\forall \, x \in M \colon \; A(x))} &\Longleftrightarrow \exists \, x \in M \colon \; \neg A(x).&&
 		\end{aitem}\begin{aitem}
-			\Format{\neg (\exists \, x \in M \colon \, A(x))} &\Longleftrightarrow \forall \, x \in M \colon \, \neg A(X).&&
+			\Format{\neg (\exists \, x \in M \colon \; A(x))} &\Longleftrightarrow \forall \, x \in M \colon \; \neg A(X).&&
 		\end{aitem}
 	\end{alignenum}
 \end{bem}
@@ -186,14 +186,14 @@
 	Seien \(M,N,I \) Mengen und für \(i \in I \) sei \(M_{i} \) eine Menge.
 	\begin{enumerate}[(a)]
 		\item \(\emptyset \) ist die Menge ohne Elemente (leere Menge).
-		\item \(M \subseteq N \longeq \forall \, x \in M \colon \, x \in N \). M ist Teilmenge von N.
+		\item \(M \subseteq N \longeq \forall \, x \in M \colon \; x \in N \). M ist Teilmenge von N.
 		\item \(M \subsetneq N \longeq M \subseteq N \vee M \neq N \). M ist echte Teilmenge von N. 
 		\item \(M \cap N \coloneqq \set{x \; \vert \; x \in M \wedge x \in N} \) heißt Schnitt von \(M \) und \(N \).
 		\item \(M \cup N \coloneqq \set{x \; \vert \; x \in M \vee x \in N} \) heißt Vereinigung von \(M \) und \(N \).
 		\item \(M \setminus N \coloneqq \set{x \; \vert \; x \in M \wedge x \notin N} \) heißt Differenz von \(M \) und \(N \).
 		\item \(\PO(M) \coloneqq \set{A \; \vert \; A \subset M} \) heißt Potenzmenge von \(M \).
-		\item \(\underset{i \in I}{\bigcap} M_{i} \coloneqq \set{x \; \vert \; \forall \, i \in I \colon x \in M_{i}} \).
-		\item \(\underset{i \in I}{\bigcup} M_{i} \coloneqq \set{x \; \vert \; \exists \, i \in I \colon x \in M_{i}} \).
+		\item \(\underset{i \in I}{\bigcap} M_{i} \coloneqq \set{x \; \vert \; \forall \, i \in I \colon \; x \in M_{i}} \).
+		\item \(\underset{i \in I}{\bigcup} M_{i} \coloneqq \set{x \; \vert \; \exists \, i \in I \colon \; x \in M_{i}} \).
 	\end{enumerate}
 	Ist \(M \cap N = \emptyset \) so heißen \(M \) und \(N \) disjunkt.
 \end{defi}

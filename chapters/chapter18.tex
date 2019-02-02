@@ -270,7 +270,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \[ \Rightarrow f'(x_0) \neq 0 \text{ und } y_0 = f(x_0) \]
 \[ g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))} 
 \Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \]
-\begin{satz}[Differenzierbarkeit der Umkehrfunktion]
+\begin{satz}[Differenzierbarkeit der Umkehrfunktion]\label{satz:diffbar_umkehr}
     Sei \( f: I \rightarrow \R \) streng wachsend und stetig auf 
     dem Intervall \(I\) mit Endpunkten \( a < b \). Dann gilt 
     \begin{enumerate}
@@ -291,7 +291,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \begin{prosa}
     Zum Beweis benötigen wir 
 \end{prosa}
-\begin{lem}
+\begin{lem}\label{satz:monoton_grenzwert}
     Sei \( h: I \rightarrow \R \) monoton wachsend, \(I\) ein Intervall mit 
     Endpunkten \( a < b \).\\
     Dann hat \(h\) einseitige Grenzwerte. Genauer
@@ -303,10 +303,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     \; \vert \; x \in I, x > x_0 }} \]
     Analoge Aussage gilt, falls \(h\) monoton fallend ist.
 \end{lem}
-\begin{bew}
-    Später.
-\end{bew}
-\begin{bew}[von Satz 7]%href TODO
+\begin{bew}[von \autoref{satz:diffbar_umkehr}]
     Schritt 1: \(f\) strikt wachsend. 
     \( \Rightarrow f \) ist injektiv \( \Rightarrow f : 
     I \rightarrow f(I) \) ist injektiv \( \Rightarrow \inverse{f} : 
@@ -315,13 +312,13 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     Seien \( y_1 < y_2 < J \) und \( y_1 < c < y_2 \)
     \[ \Rightarrow \exists \, x_1 < x_2 \in I : y_1 = f(x_1), 
     y_2 = f(x_2). \]
-    \[ f \text{ stetig } \overunderset{\text{Zwischen-}}{
-        \text{wertsatz}}{\Rightarrow} 
+    \[ f \text{ stetig } 
+    \overunderref{C17-satz:zwischenwert}{Zwischen-}{wertsatz}{\Rightarrow}
     \exists \, x_1 < x < x_2: f(x) = c. \]
     \[ \Rightarrow c \in J = f(I). \]
     \[ \Rightarrow [y_1, y_2] \subset J = f(I). \]
     \[ J \text{ ist ein Intervall.} \]
-    \[ \overset{\text{Lemma 8}}{\Rightarrow} \exists \, \alpha := 
+    \[ \oversett{Lemma 8}{\Rightarrow} \exists \, \alpha := 
     \limesx{x}{\alpha +} f(x) < \beta = \limesx{x}{b -} f(x) \]
     \( \alpha \) und \( \beta \) sind Endpunkte von \(J\).\\ 
     \( \Rightarrow \) 1.\ ist gezeigt.\\
@@ -333,19 +330,46 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     Schritt 4: \( g: J \rightarrow I \) ist stetig.\\
     Es reicht zu zeigen: die eindeutigen Grenzwerte sind gleich dem 
     Funktionswert.\\
-    O.\ B.\ d.\ A.: linksseitiger Grenzwert.
+    \Obda: linksseitiger Grenzwert.
     \[ y_0 = f(x_0) \in (\alpha, \beta] \]
     \[ x_{\minus} := \limesx{y}{y_0 \minus} g(y) 
     = \lim\limits_{y \nearrow y_0} g(y)
     \overset{\text{Ann.}}{<} g(y_0) = x_0. \]
     Bild:
-    %Bild graph von g
-    %Bild graph von f
+    \begin{center}
+        \begin{tikzpicture}[scale = 0.3]
+            \draw[->] (0,-1) -- (0,10);
+            \draw[->] (-1,0) -- (10,0);
+            \draw[thin,domain=2:5,smooth,variable=\x,black] plot ({\x},{3 * ln(\x)});
+            \draw[thin,domain=5:8,smooth,variable=\x,black] plot ({\x},{3 * ln(\x) + 1.5}) node[above] {\(g\)};
+            \draw (2,0) node {\([\)} node[below=2mm] {\(\alpha \)};
+            \draw (8,0) node {\(]\)} node[below=2mm] {\( \beta \)};
+            \draw (5,0.5) -- (5,-0.5) node[below] {\(y_0\)};
+            \draw (0.5,2) -- (-0.5,2) node[left] {\(a\)};
+            \draw (0.5,7.74) -- (-0.5,7.74) node[left] {\(b\)};
+            \draw (0.5,6.33) -- (-0.5,6.33) node[left] {\(x_0\)};
+            \draw (0.5,4.83) -- (-0.5,4.83) node[left] {\(x_{\minus}\)};
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale = 0.3]
+            \draw[->] (0,-1) -- (0,10);
+            \draw[->] (-1,0) -- (10,0);
+            \draw[thin,domain=2:5,smooth,variable=\x,black] plot ({ 3 * ln(\x) },{\x});
+            \draw[thin,domain=4.83:6.33,smooth,variable=\x,black] plot ({\x},{5});
+            \draw[thin,domain=5:8,smooth,variable=\x,black] plot ({ 3 * ln(\x) + 1.5 },{\x}) node[above] {\(f\)};
+            \draw (2,0) node {\([\)} node[below=2mm] {\(a\)};
+            \draw (8,0) node {\(]\)} node[below=2mm] {\(b\)};
+            \draw (0.5,5) -- (-0.5,5) node[left] {\(y_0\)};
+            \draw (0.5,2) -- (-0.5,2) node[left] {\( \alpha \)};
+            \draw (0.5,7.74) -- (-0.5,7.74) node[left] {\( \beta \)};
+            \draw (6.33,0.5) -- (6.33,-.5) node[below] {\(x_0\)};
+            \draw (4.83,0.5) -- (4.83,-.5) node[below] {\(x_{\minus}\)};
+        \end{tikzpicture}
+    \end{center}
     \( g \) streng wachsend \( \Rightarrow a < x < x_0 \) \\
     \( f \) stetig in \(x_0\): 
     \begin{align*}
         &f(x_{\minus})\\
-        &= f_{\minus}(\limesx{y}{y_0 \minus})\\
+        &= f(\limesx{y}{y_0 \minus} g(y))\\
         &= \limesx{y}{y_0 \minus} f(g(y))\\
         &= \limesx{y}{y_0 \minus} y = y_0\\
         &= f(x_0)
@@ -391,18 +415,33 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \begin{bsp}
     \( f: \R \rightarrow \R, x \mapsto x^3 = f(x) \)
     \[ f'(x) = 3 x^2, f'(0) = 0. \]
-    \( x^3 = y \quad y > 0 \Rightarrow x = y^\frac{1}{3} \)
+    \[ x^3 = y \quad y > 0 \Rightarrow x = y^\frac{1}{3} \]
     Inverse: 
     \[ g(y) = \inverse{f}(y) = \begin{cases}
         y^\frac{1}{3}, &y \geq 0\\
         -{(-y)}^{\frac{1}{3}}, &y \geq 0.
     \end{cases} \]
-    %BILD
+
+    \begin{center}
+    \begin{tikzpicture}[scale=3/4]
+        \begin{axis}[grid=both,
+            xmin=-3,ymin=-3,
+            xmax=3,ymax=3,
+            axis lines=middle,
+            restrict y to domain=-3.5:3.5,
+            restrict x to domain=-4:4,
+            enlargelimits]
+        \addplot[black,samples=100] {x^3} node[right]{\(f\)};
+        \addplot[black,domain=0:3.5,samples=100] {pow(x,1/3)} node[above left] {\( \inverse{f} \)};
+        \addplot[black,domain=-3.5:0,samples=100] {-pow(-x,1/3)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
     \[ \frac{ g(y) - g(0) }{ y - 0 } 
     = \abs{y}^{\minus \frac{2}{3}} \rightarrow \infty 
     \text{ für } y \rightarrow 0. \]
 \end{bsp}
-\begin{bew}[von Lemma 8]%hrref
+\begin{bew}[von \autoref{satz:monoton_grenzwert}]
     Sei \( x_0 > \alpha \).\\
     \( h : I \rightarrow \R \) monoton wachsend. 
     \( I \) hat Endpunkte \( a < b \).\\
@@ -432,7 +471,16 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     } + \underbrace{\varepsilon(x)(x - x_0)}_{\substack{
         \text{Fehler, geht schneller}\\\text{als linear gegen Null}\\
         x \rightarrow x_0}} \]
-    %BILD
     Bild:
+    \begin{center}
+        \begin{tikzpicture}[scale = 0.3]
+            \draw[->] (0,-1) -- (0,10);
+            \draw[->] (-1,0) -- (10,0);
+            \draw[thin,domain=0.8:10,smooth,variable=\x,black] plot ({\x},{3 * ln(\x)}) node[below] {\(f\)};
+            \draw[thin,domain=-0.5:10,smooth,variable=\x,black] plot ({\x},{0.6 * \x + 1.828});
+            \draw[dotted] (1,0) -- (1,2.428) node[above] {\tiny\( \varepsilon(x) \)};
+            \draw (1,0) node[below right] {\(x\)};
+        \end{tikzpicture}
+    \end{center}
 \end{bem}
 \end{document}

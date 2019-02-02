@@ -9,6 +9,8 @@
 \RequirePackage{array}
 \RequirePackage{dsfont} %statt \mathbb{1}
 \RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.14}
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage{aligned-overset}
 \usetikzlibrary{cd}
@@ -95,9 +97,10 @@
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\PO}{\mathcal{P}}
 \newcommand{\1}{\mathds{1}}
-\newcommand{\obda}{o.\ B.\ d.\ A.\ }
-\newcommand{\dphp}{d.h.}
-\newcommand{\zB}{z.B.}
+\newcommand{\obda}{o.\ B.\ d.\ A.}
+\newcommand{\Obda}{O.\ B.\ d.\ A.}
+\newcommand{\dphp}{d.\ h.}
+\newcommand{\zB}{z.\ B.}
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\Re}{\operatorname{{Re}}}
 \newcommand{\minus}{\scalebox{0.75}[1.0]{\(-\)}}
@@ -111,6 +114,10 @@
 \newcommand{\existse}{\exists!}
 \newcommand{\inverse}[1]{{#1}^{\minus 1}}
 \newcommand{\overunderset}[3]{\overset{#1}{\underset{#2}{#3}}}
+\newcommand{\oversett}[2]{\overset{\text{#1}}{#2}}
+\newcommand{\undersett}[2]{\underset{\text{#1}}{#2}}
+\newcommand{\overunderref}[4]{\overundersett{\hyperref[#1]{#2}}{\hyperref[#1]{#3}}{#4}}
+\newcommand{\overundersett}[3]{\overunderset{\text{#1}}{\text{#2}}{#3}}
 \newcommand{\onlyinsubfile}[1]{#1}
 \newcommand{\notinsubfile}[1]{}
 \newcommand{\subgraphic}[2]{

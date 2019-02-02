@@ -77,10 +77,10 @@
     Also ist \( f(x) = 0 \,\forall \, x\in [a,b] \)
     \[ \Rightarrow f'(x) = 0 \, \forall \, x\in (a,b). \]
 \end{bew}
-\begin{satz}[Mittelwertsatz]
+\begin{satz}[Mittelwertsatz]\label{satz:mittlewert}
     \( f: [a, b] \rightarrow \R \) stetig und differenzierbar 
-    auf \((a,b)\) 
-    \[ \exists \, \xi \in (a,b): f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
+    auf \((a,b)\).
+    \[ \Rightarrow \exists \, \xi \in (a,b): f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
 \end{satz}
 \begin{bew}
     \( h(x) :=  f(x) - \left[f(a) + \frac{f(b)-f(a)}{b-a} 
@@ -91,5 +91,53 @@
     \exists \, \xi \in (a,b): 0 = h'(\xi) = f'(\xi) 
     - \frac{f(b)-f(a)}{b-a} \]
     \[ \Rightarrow f'(\xi) = \frac{f(b)-f(a)}{b-a}. \]
+\end{bew}
+\begin{kor}[Monotoniekriterium]\label{satz:monotoniekrit}
+    Sei \( f : [a,b] \rightarrow \R \) stetig und differenzierbar 
+    auf \( (a,b) \).\\
+    Dann gilt:
+    \begin{align*}
+        f'(x) = 0 \,\forall \, x \in (a,b) \Leftrightarrow 
+        f \text{ ist konstant auf } [a,b].\\
+        f'(x) \geq 0 \,\forall \, x \in (a,b) \Leftrightarrow 
+        f \text{ ist wachsend auf } [a,b].\\ 
+        f'(x) \leq 0 \,\forall \, x \in (a,b) \Leftrightarrow 
+        f \text{ ist fallend auf } [a,b].\\
+    \end{align*}
+    Strikte Ungleichungen implizieren strenge Monotonie auf 
+    \( [a,b] \).
+\end{kor}
+\begin{bew}
+    \[ \overref{satz:mittlewert}{MWS}{\Rightarrow} \exists \, 
+    \xi \in (x_1, x_2) \text{ mit } \]
+    \[ f(x_2) - f(x_1) = f'(\xi) \underbrace{(x_2 - x_1)}_{>0}
+    = \begin{cases}
+        =0, & \text{falls } f'(\xi) = 0\\
+        \geq 0 &\text{falls } f'(\xi) \geq 0\\
+        > 0 &\text{falls } f'(\xi) > 0\\
+        \leq 0 &\text{falls } f'(\xi) \leq 0\\
+        < 0 &\text{falls } f'(\xi) < 0
+    \end{cases}. \]
+\end{bew}
+\begin{kor}[Schrankensatz]
+    Sei \( f: [a,b] \rightarrow \R \) stetig und differenzierbar 
+    auf \( (a,b) \).\\
+    Dann gilt für \( a \leq x_1 < x_2 \leq b \): 
+    \begin{enumerate}
+        \item \( f'(x) \geq m \,\forall \, x \in (a,b) 
+        \Rightarrow f(x_2) - f(x_1) \geq m(x_2 - x_1) \).
+        \item \( f'(x) \leq M \, \forall \, x\in (a,b) 
+        \Rightarrow f(x_2) - f(x_1) \leq M(x_2 - x_1) \).
+    \end{enumerate}
+\end{kor}
+\begin{bew}
+    Sei \( g(x) = m(x) \).
+    \[ \Rightarrow (f - g)' = f' - g' \geq m - m = 0. \]
+    \( \oversett{\autoref{satz:monotoniekrit}}{\Rightarrow} 
+    f - g \) ist wachsend \dphp{} \( f(x_2) - m x_2 \geq 
+    f(x_1) - m x_1 \) 
+    \[ \Rightarrow f(x_2) - f(x_2) \geq m x_2 - m x_1 
+    = (x_2 - x_1)m. \]
+    Andere analog.
 \end{bew}
 \end{document}

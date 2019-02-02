@@ -1,0 +1,155 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{9}
+
+\section{Potenzreihen (18.01.19)}
+\begin{bsp}
+    Potenzreihe gegeben:
+    \[ \sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} \]
+    Gesucht ist:
+    \begin{enumerate}
+        \item Konvergenzradius
+        \item Alle \( z \in \C \), für die die Konvergenzreihe konvergiert.
+    \end{enumerate}
+    Konvergenzradius bestimmen: \\
+    \(a_n := \frac{5^n}{n} \) für \(n \in \N \) \\
+    Es gilt: 
+    \[ \sqrt[n]{a_n} = \frac{5}{\sqrt[n]{n}} \underset{n \rightarrow \infty}{\longrightarrow} 5 \]
+    Beachte \(z^{3n} \) nicht \(z^n \), somit gilt für den Konvergenzradius
+    \[r = \sqrt[3]{\frac{1}{\limessup{n}\sqrt[n]{|a_n|}}} = \frac{1}{\sqrt[3]{5}} \]
+    2. Version: \\
+    setze
+    \[b_k := \left\{
+        \begin{array}{ll}
+        \frac{5^l}{l} & k = 3l \text{ für } l \in \N \\
+        0 & \text{ sonst}
+        \end{array}
+        \right.  \forall \, k \in \N \]
+    Dann gilt:
+    \[\sqrt[k]{|b_k|} = \left\{
+        \begin{array}{ll}
+        \frac{\sqrt[3]{5}}{\sqrt[3l]{l}} & k = 3l \text{ für } l \in \N \\
+        0 & \text{ sonst}
+        \end{array}
+        \right. \]
+    \[\Rightarrow \sqrt[k]{|b_k|} = \left\{
+        \begin{array}{ll}
+        \frac{\sqrt[3]{5} \cdot \sqrt[3l]{3}}{\sqrt[3l]{3l}} & k = 3l \text{ für } l \in \N \\
+        0 & \text{ sonst}
+        \end{array}
+        \right. \]
+    Somit ist:
+    \[\limessup{l} \sqrt[k]{|b_k|} = \limes{l} \frac{\sqrt[3]{5} \cdot \sqrt[3l]{3}}{\sqrt[3l]{3l}} = \sqrt[3]{5} \]
+    Daher gilt, dass der Konvergenzradius von 
+    \[\sum_{k=1}^{\infty} b_k y^k \text{ ist } \frac{1}{\sqrt[3]{5}}\]
+    Da aber \(\sum_{k=1}^{\infty} b_k y^k \) und \(\sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} \) übereinstimmen
+    müssen beide den gleichen Konvergenzradius haben.
+\end{bsp}
+\begin{bsp}
+    Sei 
+    \[M := \left\{\frac{1}{\sqrt[3]{5}} e^{ix} \; \bigg \vert \; x = \frac{2}{3} \pi m, m \in \Z \right\}\]
+    Also für \(z \in M \) gilt: \(|z| = \frac{1}{\sqrt[3]{5}} \) und es existiert \(m \in \N \), sodass
+    \[\sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} = \sum_{n=1}^{\infty} \frac{5^n}{n} \cdot \frac{1}{5^n} e^{2 i \pi m n}
+    = \sum_{n=1}^{\infty} \frac{1}{n} \]
+    Diese Potenzreihe divergiert. \\
+    Wegen \(e^{i(x + 2 \pi m)} = e^{ix} \) gilt:
+    \[M = \left\{\frac{1}{\sqrt[3]{5}} \cdot e^{-i \cdot \frac{2}{3} \pi}, \frac{1}{\sqrt[3]{5}}, 
+    \frac{1}{\sqrt[3]{5}} \cdot e^{i \cdot \frac{3}{2} \pi} \right\} \]
+    Beachte nun \(z \in \C, |z| = \frac{1}{\sqrt[3]{5}} \) und \(z \not \in M \) \\
+    Dann gibt es \(x \in \R, z = \frac{1}{\sqrt[3]{5}} \cdot e^{ix} \) und 
+    \(x \not \in \left\{\frac{2}{3} \pi m \; \bigg \vert \; m \in \N \right\} \)
+    \[\sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} = \sum_{n=1}^{\infty} (e^{i3x})^n \cdot \frac{1}{n} \]
+    Wegen \(e^{i3x} \neq 1 \) gilt:
+    \[\underset{k \geq n}{\sup} \left|\sum_{n=1}^{k} (e^{i3x})^n \cdot \frac{1}{n} \right| = 
+    \underset{k \geq n}{\sup} \left|\frac{1-(e^{i3x})^{k+1}}{1-e^{i3x}} \right|\] 
+    \[\leq \underset{k \geq n}{\sup} \left|\frac{2}{1-e^{i3x}} \right| = \frac{2}{1-e^{i3x}} < \infty \; \forall \, k \in \N \] 
+    Somit konvergiert die Reihe \(\sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} \) nach dem ultimative Leibnizkriterium,
+    da \((\frac{1}{n})_n \) monoton fallende Nullfolge ist. \\
+    \(\Rightarrow \) Insgesamt konvergiert \(\sum_{n=1}^{\infty} \frac{5^n}{n} \cdot z^{3n} \) genau für diejenigen \(z \in \C \),
+    für die gilt \( |z| = \frac{1}{\sqrt[3]{5}} \) und
+    \(z \not \in \left\{\frac{1}{\sqrt[3]{5}} \cdot e^{-i \cdot \frac{2}{3} \pi}, \frac{1}{\sqrt[3]{5}}, 
+    \frac{1}{\sqrt[3]{5}} \cdot e^{i \cdot \frac{3}{2} \pi} \right\} \)
+\end{bsp}
+\begin{bsp}
+    \[\sum_{n=1}^{\infty} \frac{3^n 3!}{n^n} \cdot z^n \]
+    Setze \( a_n := \frac{3^n 3!}{n^n} \; \forall \, n \in \N \)
+    \[\sqrt[n]{|a_n|} = \frac{3^n 3!}{n^n} \overset{n \rightarrow \infty}{\longrightarrow} \frac{3}{e} \]
+    Somit ist der Konvergenzradius:
+    \[r = \frac{1}{\limessup{n} \sqrt[n]{|a_n|}} = \frac{e}{3} \]
+\end{bsp}
+\begin{satz}[Stirling-Formel]
+    Für alle natürlichen Zahlen \(n \geq 1 \) gilt:
+\[\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \leq n! \leq \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \cdot e^{\nicefrac{1}{12n}} \]
+\end{satz}
+\begin{bsp}
+    Für Abbildung: 
+    \[z \mapsto \frac{z}{z^2-3z+2} \]
+    \begin{enumerate}
+        \item Entwickle \(f \) als Potenzreihe um \(0 \)
+        \item Bestimme den Konvergenzradius der Reihe
+    \end{enumerate}
+    Lösung:
+    \begin{enumerate}
+        \item Partialbruchzerlegung:
+            \[\frac{z}{z^2-3z+2} = \frac{z}{(1-z)(2-z)} = \frac{1}{1-z} - \frac{2}{2-z} \; \forall \, z \in \C \setminus \{1,2\} \]
+            Aus der Formel für den Reihenwert für die geometrische Reihe folgt:
+            \[\frac{1}{1-z} = \sum_{n=0}^{\infty} z^n \text{ und } \frac{1}{1 - \frac{z}{2}} 
+            = \sum_{n=0}^{\infty} \left(\frac{z}{2}\right)^n \]
+            für alle \(z \in \C \) mit \(|z| < 1\) , somit gilt:
+            \[\frac{z}{z^2-3z+2} = \sum_{n=0}^{\infty} \left(1 - \left(\frac{1}{2} \right)^n\right)z^n \]
+        \item \(a_n := \left(1 - \left(\frac{1}{2}\right)^n\right) \) für \(n \in \N \) \\
+            Wegen \((a_n)_n \geq \frac{1}{2} \) für \(n \geq 1 \) folgt aus
+            \[\limes{n} \sqrt[n]{|a_n|} \leq \limes{n} \sqrt[n]{1} = 1 \]
+            \[\limes{n} \sqrt[n]{|a_n|} \geq \limes{n} \sqrt[n]{\frac{1}{2}} = 1 \]
+            dass
+            \[\limes{n} \sqrt[n]{|a_n|} = 1 \]
+            \[r = \frac{1}{\limessup{n} \sqrt[n]{|a_n|}} = 1 \]
+    \end{enumerate}
+\end{bsp}
+Wiederholung: \(D \subset \R^n, f: D \rightarrow \R^n \) \\
+\(f\) ist stetig in \(x_0 \in D\), falls 
+\[\forall \, \varepsilon > 0 \; \exists \, \delta > 0: |f(x)-f(x_0)| < \varepsilon \; \forall \, x \in D: |x-x_0| < \delta \]
+\begin{bspe}
+    \begin{enumerate}
+        \item Sei \(f: \R \rightarrow \R \) gegeben durch \(f(x) = \left\{
+            \begin{array}{ll}
+            -1 & x < 0 \\
+            1 & x \geq 0 \\
+            \end{array}
+            \right.\)
+            \(f\) ist in \(x_0 = 0 \) unstetig. Wähle \(\varepsilon \in (0,1) \) beiebig, dass gilt für \(x < 0 \):
+            \[|f(x)-f(x_0)| = |-1-1| = 2 > \varepsilon \Rightarrow \text{unstetig in } x_0 = 0 \]
+        \item Sei \(f: \R \rightarrow \R; x \mapsto \sqrt[n]{|x|} \) ist stetig in jedem \(x_0 \in \R \)
+            \begin{bew}
+                Für \(x,y \in \R \)
+                \[|\sqrt[n]{|y|}-\sqrt[n]{|x|}| \leq \sqrt[n]{|y-x|} \; (*) \]
+                Sei nun \(\varepsilon > 0 \) beliebig aber fest. \\
+                Wir setzen \(\delta := \varepsilon^n \), dann gilt \(|x-x_0|<\delta \)
+                \[|f(x)-f(x_0)| = |\sqrt[n]{|x|} - \sqrt[n]{x_0}| \leq \sqrt[n]{|x-x_0|} < \sqrt[n]{\delta} = \varepsilon \]
+            \end{bew}
+        \item \(f: \R \rightarrow \R, x \mapsto |x|^p \) ist stetig um \(x_0 \in \R \setminus \{0\} \) 
+        für beliebige rationale Zahlen \(p\). \\
+        Wenn \(p \geq 0 \), dann ist f auch um \(x_0 = 0 \) stetig
+    \end{enumerate}
+\end{bspe}
+\begin{satz}
+    Es sei \(f(x) = \sum_{n=0}^{\infty} a_n(x-a)^n \), wobei \(a_n,a \in \R \) und \\ %underfull hbox warum?
+    \(x \in (a - \xi, a + \xi) \) wobei \(\xi > 0 \) der Konvergenzradius der Potenzreihe ist. \\
+    Dann ist \(f\) in \(x_0 \in (a-\xi, a+\xi) \) stetig. \\
+\end{satz}
+\begin{bew}
+    Sei \(x_0 = a \). Für \(x_1 = a + \frac{\xi}{2} \) ist die Potenzreihe absolut konvergent, \dphp
+    \[\sum_{n=0}^{\infty} |a_n(x_1-a)^n| = \sum_{n=0}^{\infty} |a_n| \left(\frac{\xi}{2}\right)^n < \infty \]
+    und folglich auch 
+    \[\sum_{n=1}^{\infty} |a_n| \left(\frac{\xi}{2}\right)^{n-1} = M \]
+    Sei nun \(\varepsilon>0 \) bleiebig aber fest und \(\delta = \min \{\frac{\varepsilon}{M}, \frac{\xi}{2} \),
+    dann gilt für alle \(x \in \R \) mit \(|x-x_0| < \delta \)
+    \[|f(x)-f(x_0)| = |f(x)-f(a)| = \left|\sum_{n=0}^{\infty} a_n(x-a)^n-a_0\right| \]
+    \[|x-a| \cdot \left|\sum_{n=1}^{\infty} a_n(x-a)^{n-1}\right| \leq |x-a| \cdot \sum_{n=1}^{\infty} |a_n| \cdot |(x-a)|^{n-1} \]
+    \[\leq |x-a| \cdot \sum_{n=1}^{\infty} |a_n| \cdot \left(\frac{\xi}{2}\right)^{n-1} = |x-a| \cdot M < \delta \cdot M = \varepsilon \]
+    Im Fall \(x_0=b \neq a \) mit \(b \in (a-\xi, a+\xi) \), dann verwendet man die absolute Konvergenz der Potenzreihe, um diese 
+    umzuordnen nach Potenz \((x-b) \)
+    \[\sum a_n(x-a)^n = \sum a_n([x-b]+[b-a])^n \]
+    \[\text{Umordnung} = \sum b_n(x-b)^b \]
+\end{bew}
+\end{document}

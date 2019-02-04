@@ -138,15 +138,15 @@
 \iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
 
 \begin{bem}(Erweiterung von \autoref{satz:sqrt_irr} auf \(n \)-te Wurzeln) \leavevmode \\
-	Seien \(n \in \N \ko k \in \Z \) und \(x \in \R \) mit \(x^n = k \). Dann ist entweder \(x \in \N \) oder \(x \in \R \setminus \Q \).
+	Seien \(n \in \N \ko k \in \Z \) und \(x \in \R \) mit \(x^n = k \). Dann ist entweder \(x \in \Z \) oder \(x \in \R \setminus \Q \).
 \end{bem}
 \begin{bew}
-	Sei \(\frac{a}{b} \eqqcolon x \) mit \(x^n = k \ko a \in \Z \ko b \in \N \) und \(a \ko b\) teilerfremd \\
-	\dphp für \(q \in \N \) mit \(a = qp_a \ko b = qp_b \) für \(p_a \ko p_b \in \Z \) folgt \(q = 1 \).
+	Sei \(\frac{a}{b} \eqqcolon x \) mit \(x^n = k \ko a \in \Z \ko b \in \N \) und \(a \ko b\) teilerfremd, \\
+	\dphp{} für \(q \in \N \) mit \(a = qp_a \ko b = qp_b \) für \(p_a \ko p_b \in \Z \) folgt \(q = 1 \).
 	Dann gilt
-	\[{\frac{a}{b}}^n = \frac{a^n}{b^n} = k \iff \frac{a^n}{b} = \underbrace{kb^{n - 1}}_{\in \Z}. \]
+	\[{\left(\frac{a}{b}\right)}^n = \frac{a^n}{b^n} = k \iff \frac{a^n}{b} = \underbrace{kb^{n - 1}}_{\in \Z}. \]
 	\(\implies \frac{a^n}{b} \in \Z \). Also muss \(b \) entweder \(1 \) oder \(\minus 1 \) sein.
-	\(\implies \frac{a}{b} \in \N \).
+	\(\implies \frac{a}{b} \in \Z \).
 \end{bew}
 
 \end{document}

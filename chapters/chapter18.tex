@@ -154,7 +154,7 @@ Im Folgenden \( I \subset \R \) offenes Intervall,
     \begin{enumerate}
         \setcounter{enumi}{1}
         \item Produktregel
-        \[ (f \cdot g)'(x_0) = f'(x_0) \cdot g'(x_0) 
+        \[ (f \cdot g)'(x_0) = f'(x_0) \cdot g(x_0) 
         + f(x_0) \cdot g'(x_0) \]
         \item Quotientenregel
         \[ \left( \frac{f}{g} \right)'(x_0) 
@@ -270,7 +270,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \[ \Rightarrow f'(x_0) \neq 0 \text{ und } y_0 = f(x_0) \]
 \[ g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))} 
 \Leftrightarrow g'(f(x_0)) = \frac{1}{f'(x_0)}. \]
-\begin{satz}[Differenzierbarkeit der Umkehrfunktion]
+\begin{satz}[Differenzierbarkeit der Umkehrfunktion]\label{satz:diffbar_umkehr}
     Sei \( f: I \rightarrow \R \) streng wachsend und stetig auf 
     dem Intervall \(I\) mit Endpunkten \( a < b \). Dann gilt 
     \begin{enumerate}
@@ -291,7 +291,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \begin{prosa}
     Zum Beweis benötigen wir 
 \end{prosa}
-\begin{lem}
+\begin{lem}\label{satz:monoton_grenzwert}
     Sei \( h: I \rightarrow \R \) monoton wachsend, \(I\) ein Intervall mit 
     Endpunkten \( a < b \).\\
     Dann hat \(h\) einseitige Grenzwerte. Genauer
@@ -303,10 +303,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     \; \vert \; x \in I, x > x_0 }} \]
     Analoge Aussage gilt, falls \(h\) monoton fallend ist.
 \end{lem}
-\begin{bew}
-    Später.
-\end{bew}
-\begin{bew}[von Satz 7]%href TODO
+\begin{bew}[von \autoref{satz:diffbar_umkehr}]
     Schritt 1: \(f\) strikt wachsend. 
     \( \Rightarrow f \) ist injektiv \( \Rightarrow f : 
     I \rightarrow f(I) \) ist injektiv \( \Rightarrow \inverse{f} : 
@@ -315,8 +312,8 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     Seien \( y_1 < y_2 < J \) und \( y_1 < c < y_2 \)
     \[ \Rightarrow \exists \, x_1 < x_2 \in I : y_1 = f(x_1), 
     y_2 = f(x_2). \]
-    \[ f \text{ stetig } \overundersett{Zwischen-}{
-        wertsatz}{\Rightarrow} 
+    \[ f \text{ stetig } 
+    \overunderref{C17-satz:zwischenwert}{Zwischen-}{wertsatz}{\Rightarrow}
     \exists \, x_1 < x < x_2: f(x) = c. \]
     \[ \Rightarrow c \in J = f(I). \]
     \[ \Rightarrow [y_1, y_2] \subset J = f(I). \]
@@ -333,7 +330,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     Schritt 4: \( g: J \rightarrow I \) ist stetig.\\
     Es reicht zu zeigen: die eindeutigen Grenzwerte sind gleich dem 
     Funktionswert.\\
-    O.\ B.\ d.\ A.: linksseitiger Grenzwert.
+    \Obda: linksseitiger Grenzwert.
     \[ y_0 = f(x_0) \in (\alpha, \beta] \]
     \[ x_{\minus} := \limesx{y}{y_0 \minus} g(y) 
     = \lim\limits_{y \nearrow y_0} g(y)
@@ -444,7 +441,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     = \abs{y}^{\minus \frac{2}{3}} \rightarrow \infty 
     \text{ für } y \rightarrow 0. \]
 \end{bsp}
-\begin{bew}[von Lemma 8]%hrref
+\begin{bew}[von \autoref{satz:monoton_grenzwert}]
     Sei \( x_0 > \alpha \).\\
     \( h : I \rightarrow \R \) monoton wachsend. 
     \( I \) hat Endpunkte \( a < b \).\\
@@ -474,7 +471,6 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     } + \underbrace{\varepsilon(x)(x - x_0)}_{\substack{
         \text{Fehler, geht schneller}\\\text{als linear gegen Null}\\
         x \rightarrow x_0}} \]
-    %BILD
     Bild:
     \begin{center}
         \begin{tikzpicture}[scale = 0.3]

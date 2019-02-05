@@ -38,7 +38,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         &= \text{Vektorraum der beschränkten 
         komplexwertigen Funktionen} \\
         B(D, \R) &:= \set{ f: D \rightarrow \R, 
-        f \text{ ist beschränkt} }\\
+        f \text{ ist beschränkt} } \\
         &= \text{VR der beschränkten reellen Funktionen}
     \end{align*}
     Für \( f\in B(D,\R) \) (oder \( B(D,\C) \)) setzen wir 
@@ -57,8 +57,12 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     \end{enumerate}
     Dies gilt, da
     \begin{align*}
-        \abs{ f(x) + g(x) } \leq \abs{f(x)} + \abs{g(x)} \\
-        \leq \underset{y\in D}{\sup} \abs{ f(y) }
+        \abs{ f(x) + g(x) } &\leq \abs{f(x)} + \abs{g(x)} \\
+        &\leq \underset{y\in D}{\sup} \abs{ f(y) } 
+        + \underset{y\in D}{\sup} \abs{g(y)}\\
+        &= ||f||_\infty + ||g||_\infty \\
+        \Rightarrow ||f + g||_\infty &= \underset{x\in D}{\sup}
+        \abs{f(x) + g(x)} \leq ||f||_\infty + ||g||_\infty
     \end{align*}
 \end{defi}
 \end{document}

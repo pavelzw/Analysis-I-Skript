@@ -20,7 +20,8 @@
     Dann gilt per Definition \(a+b \in A+B \neq \emptyset\) und \(a-b \in A-B \neq \emptyset\)
 \end{satz}
 \begin{bew}
-    Sei \(z \in A + B\) dann existiert ein \(a \in A \wedge b \in B\) , so dass \(a + b = z\) und folgt:
+    Sei \(z \in A + B\) dann existiert ein \(a \in A \wedge b \in B\) , so dass \(a + b = z\) 
+    und folgt:
     \[a + b \leq \sup(A) + sup(B)\]	
     also ist \(\sup(A+B) \leq \sup(A) + \sup(B)\) (obere Schranke)\\
     wir nehmen an:
@@ -28,10 +29,12 @@
     dann existiert ein \(\varepsilon > 0\):
     \[\sup(A+B) + \varepsilon = \sup(A) + \sup(B)\]
     nach Lemma 3.3.2 gibt es \(a_0 \in A, b_0 \in B\):
-    \[a_0 > \sup(A) - \frac{\varepsilon}{2} \text{ und } b_0 > \sup(B) - \frac{\varepsilon}{2}\]
+    \[a_0 > \sup(A) - \frac{\varepsilon}{2} \text{ und } b_0 > \sup(B) 
+    - \frac{\varepsilon}{2}\]
     per Definition ist \(a_0 + b_0 \in A + B\)\\
     somit gilt:
-    \[a_0 + b_0 > \sup(A) - \frac{\varepsilon}{2} + \sup(B) - \frac{\varepsilon}{2} = \sup(A) + \sup(B) - \varepsilon = \sup(A+B) \text{ (Widerspruch)}\]\\
+    \[a_0 + b_0 > \sup(A) - \frac{\varepsilon}{2} + \sup(B) - \frac{\varepsilon}{2} 
+    = \sup(A) + \sup(B) - \varepsilon = \sup(A+B) \text{ \Lightning}\]
     Sei \(z \in A - B, a \in A, b \in B, z = a - b\)\\
     \(c \in C = \{d \in \R \; | \; d = -b, b \in B\} = -B\)\\
     \(z = a + c = a + (-b) = a - b\) 
@@ -48,11 +51,13 @@
     \(b > 0 \Rightarrow \frac{1}{b} > 0\)\\
     \(d > 0 \Rightarrow \frac{1}{d} > 0\)\\
     \(b > 0, d > 0: b+d > 0 \Rightarrow \frac{1}{b+d} > 0\)\\
-    Per Annahme gilt \(\frac{a}{b} < \frac{c}{d} \Rightarrow ad = \frac{a}{b} \cdot bd < \frac{c}{d} \cdot bd = cb\)
+    Per Annahme gilt \(\frac{a}{b} < \frac{c}{d} \Rightarrow ad = \frac{a}{b} \cdot bd 
+    < \frac{c}{d} \cdot bd = cb\)
     \begin{align*}
         &\Leftrightarrow ad + ab < cb + ab\\
         &\Leftrightarrow a(d+b) < b(c+a)\\
-        &\Leftrightarrow a(d+b) \cdot \frac{1}{b} \cdot \frac{1}{b+c} < b(c+a) \cdot \frac{1}{b} \cdot \frac{1}{b+c}\\
+        &\Leftrightarrow a(d+b) \cdot \frac{1}{b} \cdot \frac{1}{b+c} < b(c+a) \cdot 
+        \frac{1}{b} \cdot \frac{1}{b+c}\\
         &\Leftrightarrow \frac{a}{b} < \frac{c+a}{d+b}
     \end{align*}
     Andererseits:
@@ -68,15 +73,17 @@
     \[a^2 < b^2 \Leftrightarrow |a| < |b|\]
 \end{satz}
 \begin{bew}
-    "\(\Leftarrow\)":\\
-    sei \(0 \leq |a| < |b|\) dann gilt \(|b| > 0 \Leftrightarrow b^2 > 0\)\\
-    \[a^2 = a \cdot a \leq |a| \cdot |a| \leq |a| \cdot |b| < |b| \cdot |b| = |b \cdot b| = |b^2| = b^2\]
+    "\(\Leftarrow \)": sei \(0 \leq |a| < |b|\) dann gilt \(|b| > 0 \Leftrightarrow b^2 > 0\)
+    \[a^2 = a \cdot a \leq |a| \cdot |a| \leq |a| \cdot |b| < |b| \cdot |b| = |b \cdot b|
+     = |b^2| = b^2 \]
     somit ist \(a^2 < b^2\)\\
-    "\(\Rightarrow\)":\\
-    \[a^2 < b^2 \Rightarrow |a| < |b| \Leftrightarrow |b| \leq |a| \Rightarrow b^2 \leq a^2\]
-    Sei also \(0 \leq |b| \leq |a|\)\\
-    \[b^2 = b \cdot b \leq |b| \cdot |b| \leq |a| \cdot |b| < |a| \cdot |a| = |a \cdot a| = |a^2| = a^2\]
-    wenn \(b^2 \leq a^2 \Leftarrow |b| \leq |a|\), dann gilt auch \(|a| < |b| \Leftarrow a^2 < b^2\)
+    "\(\Rightarrow\)":
+    \[a^2 < b^2 \Rightarrow |a| < |b| \Leftrightarrow |b| \leq |a| \Rightarrow b^2 \leq a^2 \]
+    Sei also \(0 \leq |b| \leq |a|\)
+    \[b^2 = b \cdot b \leq |b| \cdot |b| \leq |a| \cdot |b| < |a| \cdot |a| = |a \cdot a| 
+    = |a^2| = a^2\]
+    wenn \(b^2 \leq a^2 \Leftarrow |b| \leq |a|\), dann gilt auch \(|a| < |b| \Leftarrow a^2 
+    < b^2\)
 \end{bew}
 \begin{kor}
     \[ab \leq \left(\frac{a+b}{2}\right)^2\]
@@ -88,13 +95,15 @@
     \[0 \leq (a-b)^2 = a^2 - 2ab + b^2 \Leftrightarrow 4ab \leq a^2 +2ab + b^2 = (a+b)^2\]
     \[ab \leq \left(\frac{a+b}{2}\right)^2\]
     Nun sei
-    \[ab = \left(\frac{a+b}{2}\right)^2 \Leftrightarrow 0 = (a-b)^2 \overset{(\ast)}{\Rightarrow} a = b\]
+    \[ab = \left(\frac{a+b}{2}\right)^2 \Leftrightarrow 0 = (a-b)^2 
+    \overset{(\ast)}{\Rightarrow} a = b\]
 \end{bew}
 \begin{satz}
-    \[\forall \, \varepsilon > 0: 2 \cdot |ab| \leq \varepsilon^2 \cdot a^2 + \frac{1}{\varepsilon^2} \cdot b^2 \quad \forall \, a,b \in \R\]
+    \[\forall \, \varepsilon > 0: 2 \cdot |ab| \leq \varepsilon^2 \cdot a^2 
+    + \frac{1}{\varepsilon^2} \cdot b^2 \quad \forall \, a,b \in \R\]
 \end{satz}
 \begin{bew}
-    mit \(\varepsilon = 1\):\\
+    mit \(\varepsilon = 1\):
     \begin{align*}
         2|ab| &\leq a^2 + b^2\\
         0 &\leq (|a| - |b|)^2 = |a|^2 - 2|a||b| + |b|^2\\
@@ -103,7 +112,8 @@
     \end{align*}
     \(\varepsilon > 0\) deshalb existiert \(\frac{1}{\varepsilon}\)\\
     somit 
-    \[2|a||b| = 2|a \cdot 1 \cdot b| = 2|a \cdot \varepsilon \cdot \frac{1}{\varepsilon} \cdot b| = 2|(a \cdot \varepsilon)(b \cdot \frac{1}{\varepsilon})|\]
+    \[2|a||b| = 2|a \cdot 1 \cdot b| = 2|a \cdot \varepsilon \cdot \frac{1}{\varepsilon} 
+    \cdot b| = 2|(a \cdot \varepsilon)(b \cdot \frac{1}{\varepsilon})|\]
     Sei \(\tilde{a} = a\varepsilon\) und \(\tilde{b} = \frac{1}{\varepsilon}b\)
     \[2\left|a\varepsilon \cdot \frac{1}{\varepsilon}b\right| = \tilde{a^2} + \tilde{b^2}\]
     \[2|\tilde{a} \cdot \tilde{b}| \leq a^2\varepsilon^2 + \frac{1}{\varepsilon^2}\] 

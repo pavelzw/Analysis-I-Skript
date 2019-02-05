@@ -1,0 +1,135 @@
+\documentclass[../ana1u.tex]{subfiles}
+\begin{document}
+\setcounter{section}{10}
+
+\section{Grenzwerte und gleichmäßige Stetigkeit (25.01.19)}
+\subsection{Grenzwerte}
+\begin{bsp}
+    Grenzwerte berechnen:
+    \begin{enumerate}
+        \item
+            \[\limesx{x}{1} \frac{x^n-1}{x-1} = \limesx{x}{1} \sum_{k=0}^{n-1} x^k = n \]
+        \item
+            \[\limes{x} ((x^{10}+10^{10})^{\minus{1}} \cdot \sum_{k=0}^{1000} (x+k)^{10}) 
+            = \limes{x} \frac{\sum_{k=0}^{1000} \left(1+\frac{k}{x}\right)^{10} \cdot x^{10}}
+            {\left(1+\left(\frac{10}{x}\right)\right)^{10} \cdot x^{10}} = 1001 \]
+        \item 
+            Beachte:
+            \[2+x\sqrt{1+\frac{4}{x^2}} = 2+x\sqrt{\frac{1}{x^2}(x^2+4)} 
+            = 2 + \frac{x}{|x|} \cdot \sqrt{x^2+4}\]
+            Dann sind:
+            \[\limesx{x}{0+} \left(2+x\sqrt{1+\frac{4}{x^2}}\right)
+            =\limesx{x}{0+} 2 + \frac{x}{|x|} \cdot \sqrt{x^2+4} = 4 \]
+            und 
+            \[\limesx{x}{0-} \left(2+x\sqrt{1+\frac{4}{x^2}}\right)
+            =\limesx{x}{0-} 2 + \frac{x}{|x|} \cdot \sqrt{x^2+4} = 0 \]
+    \end{enumerate}
+\end{bsp}
+\subsection{Gleichmäßige Stetigkeit}
+\begin{beh}
+    Sei \(f:\R \rightarrow \R \) stetig und die Grenzwerte \(\limes{x} f(x)\) und 
+    \(\limesx{x}{-\infty} f(x) \) existieren. \\
+    Dann ist \(f\) gleichmäßig stetig
+\end{beh}
+\begin{bew}
+    Setze \(\alpha := \limes{x} f(x) \) und \(\beta := \limesx{x}{-\infty} f(x) \) \\
+    Sei \(\varepsilon > 0 \). Wähle \(\xi, r > 0 \) mit
+    \[|f(x) - \alpha| < \frac{\varepsilon}{4} \; \forall \, x \geq \xi \]
+    \[|f(x) - \beta| < \frac{\varepsilon}{4} \; \forall \, x \leq -r \]
+    Sind \(x,y \geq \xi \) dann folgt:
+    \[|f(x)-f(y)| \leq |f(x) - \alpha| + |\alpha - f(y)| < \frac{\varepsilon}{4} + \frac{\varepsilon}{4} \]
+    Genauso folgt:
+    \[|f(x)-f(y)| \leq |f(x)-\beta| + |\beta-f(y)| < \frac{\varepsilon}{2} \]
+    Insbesondere gilt:
+    \[|f(x)-f(y)| < \varepsilon \; \forall \, x,y \in \R \text{ mit } x,y \geq \xi \text{ oder } x,y \leq -r \]
+    Da \(f\) stetig ist und \([r, \xi] \) beschränkt und abgeschlossen ist, folgt dass \(f\) gleichmäßig
+    stetig auf \([-r,\xi] \) ist. \\
+    Es gibt somit ein \(\delta > 0 \), sodass \(\forall \, x,y \in [-r, \xi] \) gilt
+    \[|x-y| < \delta \Rightarrow |f(x)-f(y)| < \frac{\varepsilon}{2} \]
+    Seien \(x,y \in \R \) mit \(|x-y| < \delta \) \\
+    Im Fall \(x,y \in [-r, \xi] \) gilt \(|f(x)-f(y)| < \frac{\varepsilon}{2} < \varepsilon \) \\
+    Genauso für \(x,y \in (-\infty, -r] \) und \(x,y \in [\xi, \infty) \) \\
+    Sei \(x \in [-r, \xi] \) und \(y > \xi \), dann gilt folgendes 
+    \[|x-\xi| = \xi - x \leq \xi - x+y - \xi = |x-y| < \delta \]
+    Sei \(y, \xi \geq \xi \) \\
+    Damit folgt:
+    \[|f(x)-f(y)| \leq |f(x)-f(\delta)| + |f(\delta)-f(y)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+    = \varepsilon \]
+    Analog \(x < -r, y \in [-r,\xi] \): \\
+    Die Fälle \(y \in [-r, \xi] \) und \(x > \xi \) sowie \(y < -r \) und \(x \in [-r, \xi] \) behandelt
+    man durch vertauschen von \(x \) und \(y \).
+\end{bew}
+\begin{defi*}
+    Lipschitz-Stetigkeit \\
+    Eine Funktion ist Lipschitz-Stetig (oder dehnungsbeschränkt) auf \(D \subset \R \) (\(f:D \rightarrow \R \)),
+    wenn eine Konstante \(L \geq 0 \) existiert, sodass
+    \[|f(x)-f(y)| \leq L|x-y| \; \forall \, x,y \in D \]
+    \(L \) nennt man Lipschitzkonstante.
+\end{defi*}
+\begin{bsp}
+    \(\sin: \R \rightarrow \R \) ist Lipschitzstetig \\
+    Aus den Additionstheoremen folgt:
+    \[\sin(2x) = 2 \cos(x)\sin(x) \]
+    \[\cos\left(\frac{x+y}{2}\right) = \cos\left(\frac{x}{2}\right) \cos\left(\frac{y}{2}\right)
+    - \sin\left(\frac{x}{2}\right) \sin\left(\frac{y}{2}\right)\]
+    \[\sin\left(\frac{x+y}{2}\right) = \sin\left(\frac{x}{2}\right) \cos\left(\frac{y}{2}\right)
+    - \cos\left(\frac{x}{2}\right) \sin\left(\frac{y}{2}\right)\]
+    und wir wissen
+    \[\cos^2(x) + \sin^2 (x) = 1 \]
+    Wir rechnen:
+    \[|\sin(x) - \sin(y)| = \left|2\cos\left(\frac{x}{2}\right)\sin\left(\frac{x}{2}\right)
+    - 2\cos\left(\frac{y}{2}\right)\sin\left(\frac{y}{2}\right) \right| \]
+    \[= 2 \bigg \vert \cos\left(\frac{x}{2}\right)\sin\left(\frac{x}{2}\right) \cdot
+    \left[\cos^2\left(\frac{y}{2}\right) + \sin^2 \left(\frac{y}{2}\right)\right] \]
+    \[- \left[\cos^2\left(\frac{x}{2}\right) + \sin^2 \left(\frac{x}{2}\right)\right]  
+    \cdot \cos\left(\frac{y}{2}\right)\sin\left(\frac{y}{2}\right) \bigg \vert \]
+    \[= 2 \bigg \vert \cos\left(\frac{x}{2}\right)\cos\left(\frac{y}{2}\right) \cdot 
+    \left[\sin\left(\frac{x}{2}\right)\cos\left(\frac{y}{2}\right) - \cos \left(\frac{x}{2}\right)
+    \sin\left(\frac{y}{2}\right)\right]\]
+    \[+ \sin\left(\frac{x}{2}\right)\sin\left(\frac{y}{2}\right) \cdot \left[\cos\left(\frac{x}{2}\right)
+    \sin\left(\frac{y}{2}\right) - \sin\left(\frac{x}{2}\right)\cos\left(\frac{y}{2}\right)\right] \bigg \vert \]
+    \[= 2\left|\cos\left(\frac{x+y}{2}\right)\right| \cdot \left|\sin \left(\frac{x-y}{2}\right)\right| 
+    \leq 2 \cdot \frac{|x-y|}{2} = |x-y| \]
+    \[\Rightarrow \sin: \R \rightarrow \R \text{ ist Lipschitzstetig mit } L = 1 \]
+\end{bsp}
+\begin{beh}
+    Lipschitzstetige Funktionen sind gleichmäßig stetig.
+\end{beh}
+\begin{bew}
+    Sei \(D \subset \R, f: D \rightarrow \R \) Lipschitzstetig \\
+    Dann gilt:
+    \[|f(x)-f(y)| \leq L|x-y| \; \forall \, x,y \in D \]
+    Somit existiert zu beliebigen \(\varepsilon > 0 \) ein \(0 < \delta = \frac{\varepsilon}{L} \),
+    sodass \(\forall \, x,y \in D \) mit \(|x-y| < \delta \) gilt 
+    \[|f(x) - f(y)| \leq L |x-y| < L \delta = \varepsilon \]
+\end{bew}
+\begin{beh}
+    \(f:[0,1] \rightarrow \R; x \mapsto \sqrt{x} \) ist gleichmäßig stetig, aber nicht Lipschitzstetig
+\end{beh}
+\begin{bew}
+    \(f \) ist auf \([0,1] \) gleichmäßig stetig, da jede stetige Funktion auf einen kompakten Intervall
+    gleichmäßig stetig ist. \\
+    Direkter Beweis: \\
+    Sei \(\varepsilon > 0 \) und \(\delta = \varepsilon^2 \). Weiter sei \(x,y \in [0,1] \) beliebig mit
+    \(|x-y| < \delta \). \\
+    Dann gilt:
+    \[|\sqrt{x}-\sqrt{y}| \leq \sqrt{|x-y|} < \sqrt{\delta} = \varepsilon \]
+    Somit ist \(f:[0,1] \rightarrow \R; x \mapsto \sqrt{x} \) gleichmäßig stetig. \\
+    Nun zur Lipschitzstetigkeit: \\
+    Sei \(L \geq 0 \) beliebig. Setze \(x := 0, y := \frac{1}{(L+1)^2} \in [0,1] \) \\
+    Dann ist \(x,y \in [0,1] \) und es gilt:
+    \[|\sqrt{x}-\sqrt{y}| = \sqrt{\frac{1}{(L+1)^2}} = \frac{1}{L+1} = (L+1) \cdot \frac{1}{(L+1)^2}
+    > L \cdot |x-y| \]
+    \[\Rightarrow f:[0,1] \rightarrow \R; x \mapsto \sqrt{x} \text{ ist nicht Lipschitzstetig} \]
+\end{bew}
+\begin{bsp}
+    \(f(x) = \frac{1}{x^2} \) mit
+    \begin{enumerate}
+        \item \(D = (0,1) \) nicht gleichmäßig stetig
+        \item \(D = \left[\frac{1}{10}, 1\right] \) gleichmäßig stetig
+        \item \(D = (1,\infty) \) Lipschitzstetig \(L=2 \)
+        \item \(f(x) = x \sin(x) \) auf \(D(f) = [0, \infty) \) ist nicht gleichmäßig stetig \\
+            (\(x_n = 2 \pi n \))
+    \end{enumerate}
+\end{bsp}
+\end{document}

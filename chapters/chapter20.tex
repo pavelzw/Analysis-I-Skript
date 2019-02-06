@@ -1,0 +1,68 @@
+\documentclass[../ana1.tex]{subfiles}
+\onlyinsubfile{\sectionNumbering} %Use numbering relative to sections and not subsection
+
+\begin{document}
+\setcounter{section}{19}
+\section{Funktionenfolgen}
+
+Im Folgenden ist \( D \subset \R \) (man kann aber auch 
+für die Stetigkeit \( D \subset R^d, d \in \N \) betrachten). \\
+Gegeben eine Folge von Funktionen \( {(f_n)}_n \).
+\[ f_n: D \rightarrow \R (\text{oder } f_n: D \rightarrow \C) \]
+Welche Art von Konvergenzbegriff ist sinnvoll?
+\begin{defi}[Punktweise Konvergenz]
+    \( f_n : D \rightarrow \C \) konvergiert punktweise 
+    gegen \( f: D \rightarrow \C \), falls 
+    \[ \limes{n} f_n(x) = f(x) \; \forall \, x \in D. \]
+\end{defi}
+\begin{bsp}
+    \[ f_n: [0,1] \rightarrow \R f_n(x) = \begin{cases}
+        1 - nx, &0 \leq x \leq \frac{1}{n} \\
+        0, &\frac{1}{n} < x \leq 1
+    \end{cases}. \]
+    \( f_n \) konvergiert punktweise gegen 
+    \[ f: [0,1] \rightarrow \R, f(x) = 
+    \begin{cases}
+        1, &x = 0 \\
+        0, &0 < x \leq 1
+    \end{cases}. \]
+    Beachte: Die Grenzfunktion \(f\) ist nicht stetig 
+    (in \(0\)).
+\end{bsp}
+\begin{defi}
+    \( f: D \rightarrow \C \) heißt beschränkt, falls 
+    \[ \underset{x\in D}{\sup} \abs{f(x)} < \infty \]
+    \begin{align*}
+        B(D, \C) &:= \set{ f: D \rightarrow \C, 
+        f \text{ ist beschränkt} } \\
+        &= \text{Vektorraum der beschränkten 
+        komplexwertigen Funktionen} \\
+        B(D, \R) &:= \set{ f: D \rightarrow \R, 
+        f \text{ ist beschränkt} } \\
+        &= \text{VR der beschränkten reellen Funktionen}
+    \end{align*}
+    Für \( f\in B(D,\R) \) (oder \( B(D,\C) \)) setzen wir 
+    \[ ||f||_\infty := \underset{x\in D}{\sup} \abs{f(x)} 
+    \text{ (Supremumsnorm)} \]
+    hat alle Eigenschaften einer Norm
+    \begin{enumerate}
+        \item \( ||f||_\infty \geq 0 \) und 
+        \( ||f||_\infty = 0 \Leftrightarrow f = 0 \) 
+        (Nullfunktion)
+        \item \( ||\lambda f||_\infty = |\lambda| \cdot 
+        ||f||_\infty \) (homogen), \( \lambda \in \R \)
+        \item \( ||f+g||_\infty \leq ||f||_\infty 
+        + ||g||_\infty \) (Dreiecksungleichung) \\
+        für \( f, g \in B(D, \R) \) (bzw. \( B(D,\C) \))
+    \end{enumerate}
+    Dies gilt, da
+    \begin{align*}
+        \abs{ f(x) + g(x) } &\leq \abs{f(x)} + \abs{g(x)} \\
+        &\leq \underset{y\in D}{\sup} \abs{ f(y) } 
+        + \underset{y\in D}{\sup} \abs{g(y)}\\
+        &= ||f||_\infty + ||g||_\infty \\
+        \Rightarrow ||f + g||_\infty &= \underset{x\in D}{\sup}
+        \abs{f(x) + g(x)} \leq ||f||_\infty + ||g||_\infty
+    \end{align*}
+\end{defi}
+\end{document}

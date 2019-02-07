@@ -303,15 +303,28 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     differenzierbar in \(x_0\) und \( f'(x_0) = g(x_0) \). \\
     Bew.: Sei \(x \neq x_0 \in I\).
     \begin{align*}
-        \frac{f(x) - f(x_0)}{x-x_0} - g(x_0) 
-        = \frac{ f(x) - f(x_0) }{ x-x_0 } 
-        - \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } 
-        + \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } 
-        - f_n'(x_0) + f_n'(x_0) - g(x_0)\\
-        \Rightarrow \abs{\frac{f(x)-f(x_0)}{x-x_0} -g(x_0)}
-        < \abs{\frac{f(x)-f(x_0)}{x-x_0} - \frac{f_n(x)-f_n(x_0)}{x-x_0}}
-        + \abs{\frac{f_n(x)-f_n(x_0)}{x-x_0}-f_n'(x_0)}
-        + \abs{f_n'(x_0)-f(x_0)} \; (**)
+        \frac{f(x) - f(x_0)}{x-x_0} - g(x_0)
+        &= \frac{ f(x) - f(x_0) }{ x-x_0 } \\
+        &- \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } 
+        + \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } \\
+        &- f_n'(x_0) + f_n'(x_0) - g(x_0)
+    \end{align*}
+    \begin{align*}
+        \Rightarrow &\abs{ \frac{f(x)-f(x_0)}{x-x_0} 
+        - g(x_0) } \\
+        \leq &\abs{ \frac{f(x)-f(x_0)}{x-x_0} 
+        - \frac{f_n(x)-f_n(x_0)}{x-x_0} } \\
+        + &\abs{ \frac{f_n(x)-f_n(x_0)}{x-x_0} 
+        - f_n'(x_0) } \\
+        + &\abs{ f_n'(x_0)
+        - f(x_0) } \; (**)
+    \end{align*}
+    \begin{align*}
+        &\overunderref{C19-satz:schranken}{Schranken-}{satz}{\Rightarrow}
+        \abs{\frac{f_l(x)-f_l(x_0)}{x-x_0}-\frac{f_n(x)-f_n(x_0)}{x-x_0}} \\
+        &= \abs{\frac{(f_l-f_n)(x)-(f_l - f_n)(x_0)}{x-x_0}} \\
+        &\leq \underbrace{||(f_l-f_n)'||_\infty}_
+        {\underset{x \in (a,b)}{\sup} \abs{f_l'(x)-f_n'(x)}}
     \end{align*}
 \end{bew}
 \end{document}

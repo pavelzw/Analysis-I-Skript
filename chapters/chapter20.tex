@@ -65,4 +65,253 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         \abs{f(x) + g(x)} \leq ||f||_\infty + ||g||_\infty
     \end{align*}
 \end{defi}
+\begin{defi}[gleichmäßige Konvergenz]
+    Eine Folge \( f: D \rightarrow \R \) (oder \( \C \)) 
+    konvergiert gleichmäßig gegen \( f: D \rightarrow \R \), 
+    falls 
+    \[ \limes{n} ||f_n - f ||_\infty = 0. \]
+\end{defi}
+\begin{bem} \leavevmode
+    \begin{enumerate}
+        \item Wir können auch erlauben, dass \(D \subset \C \) 
+        ist. Dann ist 
+        \[ ||f_n-f||_\infty = \underset{z \in D}{\sup}|f_n(z) 
+        - f(z)| \]
+        \item Großer Unterschied zwischen punktweiser und 
+        gleichmäßiger Konvergenz. Sei \( f_n : D \rightarrow \C \) 
+        \begin{enumerate}[(a)]
+            \item \( f_n \rightarrow f \) punktweise: 
+            \[ \forall \, \varepsilon > 0 \; \forall \, x \in 
+            D \; \exists \, K \in \N: \abs{ f_n(x) - f(x) } 
+            < \varepsilon \; \forall n > K. \]
+            \item \( f_n - f \) gleichmäßig
+            \[ \forall \, \varepsilon > 0 \; \exists \, K \in \N 
+            \;\forall \, x \in D: \abs{ f_n(x) - f(x) } < \varepsilon 
+            \;\forall n > K. \]
+        \end{enumerate}
+        Das heißt bei punktweiser Konvergenz darf \( K \) von 
+        \( \varepsilon \) und \( x \) abhängen, bei gleichmäßiger 
+        Konvergenz nur von \( \varepsilon \).
+    \end{enumerate}
+\end{bem}
+\begin{lem}[lokal gleichmäßige Konvergenz von Potenzreihen]\label{satz:glmKonvPotenz}
+    Sei \( P(z) = \sum_{n=0}^\infty a_n z^n \) eine Potenzreihe, 
+    die für \( z_0 \in \C \setminus \set{0} \) konvergiert. \\
+    Dann gibt es ein \( M \in [0,\infty) \) mit 
+    \begin{align*}
+        \abs{ P(z) - \sum_{l=0}^k a_l z^l } 
+        &\leq \sum_{l=k+1}^\infty \abs{ a_l } \abs{ z }^l \\
+        &\leq \frac{ M }{ 1 - \frac{\abs{z}}{\abs{z_0}} } 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1} 
+        \; \forall \, \abs{z} < \abs{z_0}
+    \end{align*}
+    Insbesondere gilt \( \forall 0 < \delta < 1 \)
+    \[ \limes{k} \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
+    \abs{ P(z) - \sum_{l=0}^k a_l z^l } = 0. \]
+    D. \ h. \ das Polynom 
+    \[ P_k(z) := \sum_{l=0}^k a_l z^l 
+    = a_0 + a_1 z + \cdots + a_k z^k \]
+    konvergiert auf der Kreisscheibe 
+    \[ \set{ z \in \C \;\vert \; \abs{z} \leq 
+    \delta \abs{z_0} } \]
+    gleichmäßig gegen \( P \).
+\end{lem}
+\begin{bew}
+    Da \( \sum_{n=0}^\infty a_n z_0^n \) konvergiert, ist 
+    \( a_n z_0^n \) eine Nullfolge.
+    \[ \Rightarrow M := \underset{n\in\N_0}{\sup} 
+    \abs{a_n z_0^n} \in [0,\infty) \]
+    \[ \Rightarrow \abs{a_n z^n} = \abs{a_n} \abs{z_0}^n 
+    {\left(\frac{\abs{z}}{\abs{z_n}}\right)}^n 
+    \leq M {\left(\frac{\abs{z}}{\abs{z_n}}\right)}^n \]
+    Sei \( P_k(z) = \sum_{l=0}^k a_l z^l \)
+    \begin{align*}
+        \Rightarrow \abs{ P(z) - P_k(z) } 
+        &= \abs{ \sum_{l=k+1}^\infty a_l z^l } \\
+        &\leq \sum_{l=k+1}^\infty \abs{a_l z^l} \\
+        &\leq \sum_{l=k+1}^\infty \abs{ a_l z_0^l } 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^l \\
+        &\leq M \sum_{l=k+1}^\infty 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^l \\
+        &\leq M {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1} 
+        \cdot \underbrace{\sum_{l=0}^\infty 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^l}_{
+            \text{konvergiert, falls } \frac{\abs{z}}{\abs{z_0}} < 1
+        }\\
+        &= \frac{ M }{ 1-\frac{\abs{z}}{\abs{z_0}} } 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1}.
+    \end{align*}
+    \begin{align*}
+        \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
+        \abs{P(z) - P_k(z)} 
+        &\leq \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
+        \frac{ M }{ 1 - \frac{\abs{z}}{\abs{z_0}} } 
+        {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1}\\
+        &\leq \frac{M}{1-\delta} \cdot \delta^{k+1}\\
+        &\overset{k\rightarrow\infty}{\longrightarrow} 0 
+        \text{ falls } 0 < \delta < 1.
+    \end{align*}
+\end{bew}
+\begin{bem}
+    Ist \(0 < R < \infty \) der Konvergenzradius der Potenzreihe 
+    \(P(z) = \sum_{n=0}^{\infty} a_n z^n \), so konvergiert
+    \(P(k) = \sum_{l=0}^{k} a_l z^l \) gleichmäßig auf
+    \([-R + \delta, R - \delta] \) gegen \( P \) für alle 
+    \( 0 < \delta < R \)
+    \[ \underset{\abs{z} \leq R-\delta}{\sup} \abs{P(z)-P_k(z)}
+    \overset{k \rightarrow \infty}{\longrightarrow} 0 \]
+    Ist \( R = \infty \), so konvergiert \( P_k \) auf 
+    \( [-L,L] \) gleichmäßig gegen \( P \) für jedes feste
+    \( L > 0 \) (lokal gleichmäßige Konvergenz)
+\end{bem}
+\begin{bsp}
+    Für alle \( 0 < L < \infty \) konvergiert 
+    \[ \sum_{l=0}^k \frac{z^l}{l!} \]
+    gleichmäßig gegen
+    \[ \sum_{l=0}^\infty \frac{z^l}{l!} = \exp z \]
+    auf \( \set{ z \in \C \; \vert \; \abs{z} \leq L } \).
+\end{bsp}
+\begin{satz}[Gleichmäßige Stetigkeit und Stetigkeit]\label{satz:glmStetigUStetig}
+    Seien \( f_n : D \rightarrow \C, n\in\N \) eine 
+    stetige Funktionenfolge auf \( D \subset \R \) 
+    (oder \( D = \C \)), die gleichmäßig gegen 
+    \( f: D \rightarrow \C \) konvergiert, d.\ h.\ 
+    \[ ||f_n - f||_\infty \rightarrow 0 
+    \text{ für } n\rightarrow\infty. \]
+    Dann ist \(f\) auch stetig auf \(D\).
+\end{satz}
+\begin{bew}
+    \( \frac{\varepsilon}{3} \)-Argument. \\
+    Sei \( x_0 \in D \) fest, aber beliebig gewählt. \\
+    Dann folgt \( \forall \, x \in D, n \in \N \) gilt:
+    \begin{align*}
+        \abs{ f(x) - f(x_0) } 
+        &= \abs{ f(x) - f_n(x) + f_n(x) - f_n(x_0) 
+        + f_n(x_0) - f(x_0) } \\
+        (*) &\leq \abs{ f(x) - f_n(x) } + \abs{f_n(x) - f_n(x_0)} 
+        + \abs{f_n(x_0) - f(x_0)}.
+    \end{align*}
+    Sei \( \varepsilon > 0 \).
+    Da \( ||f-f_n||_\infty \rightarrow 0 \) für 
+    \(n \rightarrow \infty \) gibt es ein \( n \in \N \)
+    \[ ||f-f_n||_\infty = \underset{x \in D}{\sup} 
+    \abs{f(x)-f_n(x)} < \frac{\varepsilon}{3} 
+    \; \forall \, n \geq N \]        
+    Da \( f_N \) stetig ist, existiert somit \( \delta > 0 \): 
+    \[ \overset{(*)}{\Rightarrow} \forall \, x\in D, 
+    \abs{x-x_0} < \delta. \]
+    \[ \abs{ f(x) - f(x_0) } < \frac{\varepsilon}{3} 
+    + \frac{\varepsilon}{3} + \frac{\varepsilon}{3}  = \varepsilon \]
+    also ist \( f \) stetig in \( x_0 \). \\            
+\end{bew}
+\begin{bew} [Alternativer Beweis]
+    Aus \( (*) \) folgt 
+    \begin{align*}
+        \abs{f(x) - f_n(x_0)} &\leq \underset{y \in D}{\sup}
+        \abs{f(y)-f_n(y)} + \abs{f_n(x) - f_n(x_0)}
+        + \underset{y \in D}{\sup} \abs{f_n(y) - f(y)} \\
+        &= 2 ||f-f_n||_\infty + \abs{f_n(x) -f_n(x_0)} 
+        \; \forall \, n \in \N 
+    \end{align*}
+    Da für festes \(n \in \N \) die Funktion \( f_n \) stetig
+    in \( x_0 \) ist
+    \[ \limsup\limits_{x\rightarrow x_0} \abs{f(x)-f(x_0)}
+    \leq 2 ||f-f_n||_\infty \rightarrow 0 \; (n \rightarrow \infty) \]    
+    \[ \Rightarrow \limsup\limits_{x\rightarrow x_0} 
+    \abs{ f(x) - f(x_0)} = 0 \Leftrightarrow 
+    f \text{ stetig in } x_0. \]
+\end{bew}
+\begin{satz}[Stetigkeit von Potenzreihen]
+    Sei \( P(z) = \sum_{n=0}^\infty a_n z^n \) eine komplexe 
+    Potenzreihe mit \( R > 0 \). Dann ist \( P \) stetig auf 
+    der Kreisscheibe 
+    \( B_R(0) = \set{ z\in\C \; \vert \; \abs{z} < R } \).
+\end{satz}
+\begin{bew}
+    Die Polynome \( P_k(z) = \sum_{l=0}^k a_l z^l = a_0 + a_1 z 
+    + \cdots + a_k z^k \) sind stetig auf \( \C \). \\
+    Nach \autoref{satz:glmKonvPotenz} konvergiert \( P_k \) 
+    gegen \(P\) gleichmäßig auf jeder Kreisscheibe 
+    \( \set{ z \in \C \; \vert \; \abs{z} \leq \rho } \) mit 
+    \( 0 < \rho < R \).
+    \[ \oversett{\autoref{satz:glmStetigUStetig}}{\Rightarrow} 
+    \set{z \in \C \; \vert \; \abs{z \leq \rho}}
+    \ni z \mapsto P(z) \text{ ist stetig.} \]
+    Da für \( z_0 \in \C, \abs{z_0} < R \) ein 
+    \( 0 < \rho < R \) existiert, sodass aus 
+    \( z_0 \leq \rho \) folgt, dass \( P \) stetig 
+    in jedem \( z_0 \in \C \) mit \( \abs{z_0} < R \) ist.
+\end{bew}
+\begin{bem}
+    Beim Vertauschen von Ableitungen und Grenzwerten von 
+    Funktionenfolgen muss man aufpassen! \\
+    Auch wenn die Funktionenfolge gleichmäßig konvergiert.
+\end{bem}
+\begin{bsp}
+    \( f_n(x) = \frac{1}{n} \sin (n^2 x) 
+    \oversett{glm.}{\rightarrow} 0 (n\rightarrow\infty) \).
+    Aber \( f_n'(x) = n^2\cos (n^2 x) \) konvergiert nicht.
+\end{bsp}
+\begin{satz}[Vertauschen von Konvergenz und Ableitung]
+    Seien \( f_n : I \rightarrow \R \) (oder \( \C \)) stetig 
+    und differenzierbar auf \( I = (a,b) \subset \R \).
+    Es gelte 
+    \begin{enumerate}[(a)]
+        \item \( \set{f_n(x_0)}_{n\in\N} \) konvergiert für 
+        \( x_0 \in I \).
+        \item Die Folge der Ableitungen 
+        \( \set{ f_n' }_{n \in \N} \) 
+        konvergiert gleichmäßig gegen eine Funktion 
+        \( g: I \rightarrow \R \) (oder \( \C \)), also 
+        \( ||f_n' - g||_\infty 
+        \overset{n\rightarrow\infty}{\longrightarrow} 0 \).
+        Dann konvergiert \( \set{f_n}_n \) gleichmäßig gegen 
+        \( f: I \rightarrow \R \) (oder \( \C \)). \\
+        \( f \) ist differenzierbar und \( f' = g \).
+    \end{enumerate}
+\end{satz}
+\begin{bem}
+    Konvergenz ist lokal gleichmäßig falls 
+    \[ a = -\infty \text{ oder } b = \infty. \]
+\end{bem}
+\begin{bew}\hfill \\
+    1. Schritt: Beh.:\ Sei \( f_n: I \rightarrow \R, x\in I \) 
+    beliebig \( \rightarrow f(x) = \limes{n} f_n(x) \) existiert. \\
+    Bew.:\ Seien \( n,m \in \N, h(x) := f_n(x) - f_m(x) \).
+    \( \overref{C19-satz:mittelwert}{MWS}{\Rightarrow} 
+    \exists \, \rho \) zwischen \(x\) und \(x_0\):
+    \begin{align*}
+        \abs{ h(x) - h(x_0) } 
+        &= \abs{ f_n(x) - f_m(x) - f_n(x_0) + f_m(x_0) } \\
+        &\leq \abs{ f_n'(\rho) - f_m'(\rho) }\abs{x-x_0}
+    \end{align*}
+    \begin{align*}
+        \abs{ f_n(x_0) - f_m(x_0) }
+        &\leq 
+        \underbrace{\abs{ f_n(x_0) - f_m(x_0) }}_{\rightarrow 0 \text{ siehe (a)}} 
+        + \abs{ f_n'(\rho) 
+        - f_m'(\rho) }\abs{x-x_0} \\
+        &\rightarrow \abs{ f_n'(\rho) - f_m'(\rho) } \abs{x-x_0} \\
+        &\leq \underbrace{||f_n' - f'||_\infty}_{\rightarrow 0 
+        \text{ für } n,m \rightarrow \infty \text{ siehe (b)}} 
+        \abs{x-x_0}        
+    \end{align*}
+    \( \Rightarrow \set{f_n(x)}_n \) ist Cauchy für jedes feste 
+    \( x\in I \). \\
+    \( \Rightarrow \limes{n} f_n(x) = f(x) \) existiert. \\
+    2.\ Schritt: Beh.: \( \forall x_0 \in I \) ist \( f \) 
+    differenzierbar in \(x_0\) und \( f'(x_0) = g(x_0) \). \\
+    Bew.: Sei \(x \neq x_0 \in I\).
+    \begin{align*}
+        \frac{f(x) - f(x_0)}{x-x_0} - g(x_0) 
+        = \frac{ f(x) - f(x_0) }{ x-x_0 } 
+        - \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } 
+        + \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } 
+        - f_n'(x_0) + f_n'(x_0) - g(x_0)\\
+        \Rightarrow \abs{\frac{f(x)-f(x_0)}{x-x_0} -g(x_0)}
+        < \abs{\frac{f(x)-f(x_0)}{x-x_0} - \frac{f_n(x)-f_n(x_0)}{x-x_0}}
+        + \abs{\frac{f_n(x)-f_n(x_0)}{x-x_0}-f_n'(x_0)}
+        + \abs{f_n'(x_0)-f(x_0)} \; (**)
+    \end{align*}
+\end{bew}
 \end{document}

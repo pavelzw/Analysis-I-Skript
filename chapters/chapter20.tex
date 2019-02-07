@@ -6,9 +6,9 @@
 \section{Funktionenfolgen}
 
 Im Folgenden ist \( D \subset \R \) (man kann aber auch 
-für die Stetigkeit \( D \subset R^d, d \in \N \) betrachten). \\
+für die Stetigkeit \( D \subset \R^d, d \in \N \) betrachten). \\
 Gegeben eine Folge von Funktionen \( {(f_n)}_n \).
-\[ f_n: D \rightarrow \R (\text{oder } f_n: D \rightarrow \C) \]
+\[ f_n: D \rightarrow \R \ (\text{oder } f_n: D \rightarrow \C) \]
 Welche Art von Konvergenzbegriff ist sinnvoll?
 \begin{defi}[Punktweise Konvergenz]
     \( f_n : D \rightarrow \C \) konvergiert punktweise 
@@ -16,7 +16,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     \[ \limes{n} f_n(x) = f(x) \; \forall \, x \in D. \]
 \end{defi}
 \begin{bsp}
-    \[ f_n: [0,1] \rightarrow \R f_n(x) = \begin{cases}
+    \[ f_n: [0,1] \rightarrow \R, f_n(x) = \begin{cases}
         1 - nx, &0 \leq x \leq \frac{1}{n} \\
         0, &\frac{1}{n} < x \leq 1
     \end{cases}. \]
@@ -33,13 +33,13 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     \( f: D \rightarrow \C \) heißt beschränkt, falls 
     \[ \underset{x\in D}{\sup} \abs{f(x)} < \infty \]
     \begin{align*}
-        B(D, \C) &:= \set{ f: D \rightarrow \C, 
+        B(D, \C) :=\ &\set{ f: D \rightarrow \C, 
         f \text{ ist beschränkt} } \\
-        &= \text{Vektorraum der beschränkten 
+        =\ &\text{Vektorraum der beschränkten 
         komplexwertigen Funktionen} \\
-        B(D, \R) &:= \set{ f: D \rightarrow \R, 
+        B(D, \R) :=\ &\set{ f: D \rightarrow \R, 
         f \text{ ist beschränkt} } \\
-        &= \text{VR der beschränkten reellen Funktionen}
+        =\ &\text{Vektorraum der beschränkten reellen Funktionen}
     \end{align*}
     Für \( f\in B(D,\R) \) (oder \( B(D,\C) \)) setzen wir 
     \[ ||f||_\infty := \underset{x\in D}{\sup} \abs{f(x)} 
@@ -76,18 +76,18 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         \item Wir können auch erlauben, dass \(D \subset \C \) 
         ist. Dann ist 
         \[ ||f_n-f||_\infty = \underset{z \in D}{\sup}|f_n(z) 
-        - f(z)| \]
+        - f(z)|. \]
         \item Großer Unterschied zwischen punktweiser und 
         gleichmäßiger Konvergenz. Sei \( f_n : D \rightarrow \C \) 
         \begin{enumerate}[(a)]
             \item \( f_n \rightarrow f \) punktweise: 
             \[ \forall \, \varepsilon > 0 \; \forall \, x \in 
             D \; \exists \, K \in \N: \abs{ f_n(x) - f(x) } 
-            < \varepsilon \; \forall n > K. \]
-            \item \( f_n - f \) gleichmäßig
+            < \varepsilon \; \forall \, n > K. \]
+            \item \( f_n \rightarrow f \) gleichmäßig
             \[ \forall \, \varepsilon > 0 \; \exists \, K \in \N 
             \;\forall \, x \in D: \abs{ f_n(x) - f(x) } < \varepsilon 
-            \;\forall n > K. \]
+            \;\forall \, n > K. \]
         \end{enumerate}
         Das heißt bei punktweiser Konvergenz darf \( K \) von 
         \( \varepsilon \) und \( x \) abhängen, bei gleichmäßiger 
@@ -100,12 +100,13 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     Dann gibt es ein \( M \in [0,\infty) \) mit 
     \begin{align*}
         \abs{ P(z) - \sum_{l=0}^k a_l z^l } 
+        &= \abs{ \sum_{l=k+1}^\infty a_l z^l }\\
         &\leq \sum_{l=k+1}^\infty \abs{ a_l } \abs{ z }^l \\
         &\leq \frac{ M }{ 1 - \frac{\abs{z}}{\abs{z_0}} } 
         {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1} 
         \; \forall \, \abs{z} < \abs{z_0}
     \end{align*}
-    Insbesondere gilt \( \forall 0 < \delta < 1 \)
+    Insbesondere gilt \( \forall \, 0 < \delta < 1 \)
     \[ \limes{k} \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
     \abs{ P(z) - \sum_{l=0}^k a_l z^l } = 0. \]
     D. \ h. \ das Polynom 

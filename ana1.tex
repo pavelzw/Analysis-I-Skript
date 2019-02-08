@@ -21,6 +21,7 @@
 %%%
 % \end{document}
 
+\newcommand{\chapteramount}{20}
 \IfFileExists{skript.sty}{\usepackage{skript}}{\usepackage{../skript}}
 
 %Metadaten
@@ -31,7 +32,7 @@
 
 %%Sorgt dafür, dass Referenzen aus anderen Kapiteln verwendet werden können.
 %%Achtung .aux Dateien müssen vorhanden sein.
-\foreach \c in {1,...,17}{
+\foreach \c in {1,...,\chapteramount}{
 	\IfFileExists{chapters/chapter\c.tex} {
 		\externaldocument[C\c-]{chapters/chapter\c}
 	}{
@@ -85,7 +86,7 @@ verantwortlich.
 
 \sectionNumbering
 
-\foreach \c in {5,...,19} {
+\foreach \c in {5,...,\chapteramount} {
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }

@@ -22,7 +22,7 @@
         \item Eindeutigkeit des Grenzwertes
     \end{enumerate}
     \begin{bew}
-        Umsetzen des Plans:\\
+        Umsetzen des Plans:
         \begin{enumerate}				
             \item Schritt:\\
                 Beweis durch vollständige Induktion:\\
@@ -40,7 +40,7 @@
                     &= \frac{1}{4}\left(x_{n-1}^2 + 2a + \frac{a^2}{x_{n-1}^2} - 4a\right)\\
                     &= \frac{1}{4}\left(x_{n-1} - \frac{a}{x_{n-1}}\right)^2 \geq 0
                 \end{align*}
-            \item Schritt:\\
+            \item Schritt:
                 \begin{align*}
                     x_{n+1} \leq x_n &\Leftrightarrow x_n - x_{n+1} \geq 1\\
                     x_n - x_{n+1} &= x_n - \frac{1}{2}(x_n + \frac{a}{x_n})\\
@@ -75,7 +75,7 @@
     Definieren relativen Fehler \(f_n\) im n-ten Schritt\\
     \(x_n = \sqrt{a} \cdot (1+f_a)\)\\
     Da \((x_n)_n\) monoton fallend ist, gilt \(f_n \geq 0 \; \forall \, n \geq 1\)\\
-    Einsetzen in Rekursionsformel:\\
+    Einsetzen in Rekursionsformel:
     \begin{align*}
         x_{x+1} &= \frac{1}{2}\left(x_n + \frac{a}{x_n}\right)\\
         \Leftrightarrow \sqrt{a}(1+f_{n+1}) &= \frac{1}{2}\left(\sqrt{a}(f_n+1) + \frac{a}{\sqrt{a}(1+f_n)} \right)\\
@@ -118,7 +118,9 @@
     \end{bew}
 \end{bsp}
 \begin{bsp}
-    Es seien \((f_n)_n\) die Folgen der Fibonacci Zahlen, weiter sei \(a_n := \frac{f_{n+1}}{f_n}\) für \(n \in \N\) und \(a := \frac{1}{2}(1 + \sqrt{5}), b := \frac{1}{2}(1 - \sqrt{5})\)\\
+    Es seien \((f_n)_n\) die Folgen der Fibonacci Zahlen, weiter sei 
+    \(a_n := \frac{f_{n+1}}{f_n}\) für \(n \in \N\) und 
+    \(a := \frac{1}{2}(1 + \sqrt{5}), b := \frac{1}{2}(1 - \sqrt{5})\)
     \begin{enumerate}
         \item \(\frac{1}{\sqrt{5}}\left(a^n-b^n\right)\)
         \item \(\limes{n} a_n = a\)
@@ -126,26 +128,45 @@
     \begin{bew}
         \begin{enumerate}
             \item Aussage:\\
-                Vollständige Induktion:\\
-                (IA):
-                \begin{align*}
-                    &n = 0: \; f_0 = \frac{1}{\sqrt{5}} \left(a^0-b^0 \right) = 0\\		
-                    &n = 1: \; f_1 = \frac{1}{\sqrt{5}} \left(a^1-b^1 \right) = \frac{1}{\sqrt{5}} \left(\frac{1}{2}(1 + \sqrt{5})-\frac{1}{2}(1 - \sqrt{5}) \right) = \frac{\sqrt{5}}{\sqrt{5}} = 1\\		
-                \end{align*}
+                (IA): \\
+                \(n=0 \): 
+                \[f_0 = \frac{1}{\sqrt{5}} \left(a^0-b^0 \right) = 0 \]
+                \(n=1 \):
+                \[f_1 = \frac{1}{\sqrt{5}} \left(a^1-b^1 \right)
+                = \frac{1}{\sqrt{5}} \left(\frac{1}{2}(1 + \sqrt{5}) 
+                - \frac{1}{2}(1 - \sqrt{5}) \right) = \frac{\sqrt{5}}{\sqrt{5}} = 1 \]
                 (IS): \(n \rightarrow n+1\)\\
                 Angenommen es gilt für ein \(n \in \N: f_k = \frac{1}{\sqrt{5}}\left(a^k-b^k\right) \; \forall \, k \geq n\)\\
                 Dann folgt:\\
                 \(f_{n+1} = f_n + f_n\)\\
-                \(= \frac{1}{\sqrt{5}}\left[a^n - b^n +a^{n-1} - b^{n-1}\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[a^{n-1}(a+1) - b^{n-1}(b+1)\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1} \cdot\left(\frac{1}{2}\left(1 + \sqrt{5}\right)+1\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{2}\left(1 - \sqrt{5}\right)+1\right)\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 + 2\sqrt{5}\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(6 - 2\sqrt{5}\right)\right)\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 + 2\sqrt{5} + 5\right)\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - 2\sqrt{5} + 5\right)\right)\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1+\sqrt{5}\right)^2\right) - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}\cdot\left(\frac{1}{4}\left(1 - \sqrt{5}\right)^2\right)\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n+1} - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n+1}\right]\)\\
-                \(= \frac{1}{\sqrt{5}}\left[a^{n+1} - b^{n+1}\right]\)\\
-                Aus dem Induktionsprinzip folgt somit \(f_n = \frac{1}{\sqrt{5}}\left(a^n-b^n\right) \; \forall \, n \in \N \)
-            \item Aussage:\\
+                \(= \frac{1}{\sqrt{5}}\left[a^n - b^n +a^{n-1} - b^{n-1}\right] \) \\
+                \(= \frac{1}{\sqrt{5}}\left[a^{n-1}(a+1) - b^{n-1}(b+1)\right] \) \\
+                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}
+                    \left(1 + \sqrt{5}\right)\right)^{n-1} \cdot
+                    \left(\frac{1}{2}\left(1 + \sqrt{5}\right)+1\right) \right. \) \\
+                \(\left. - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{2}\left(1 - \sqrt{5}\right)+1\right)\right]\) \\
+                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}\left(1 + \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(6 + 2\sqrt{5}\right)\right) \right.\) \\
+                \(\left. - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(6 - 2\sqrt{5}\right)\right)\right]\) \\
+                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}
+                    \left(1 + \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(1 + 2\sqrt{5} + 5\right)\right) \right.\) \\
+                \(\left. - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(1 - 2\sqrt{5} + 5\right)\right)\right]\) \\
+                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}
+                    \left(1 + \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(1+\sqrt{5}\right)^2\right) \right. \) \\
+                \(\left. - \left(\frac{1}{2}\left(1 - \sqrt{5}\right)\right)^{n-1}
+                    \cdot\left(\frac{1}{4}\left(1 - \sqrt{5}\right)^2\right)\right]\) \\
+                \(= \frac{1}{\sqrt{5}}\left[\left(\frac{1}{2}
+                    \left(1 + \sqrt{5}\right)\right)^{n+1} - \left(\frac{1}{2}
+                    \left(1 - \sqrt{5}\right)\right)^{n+1}\right]\) \\
+                \(= \frac{1}{\sqrt{5}}\left[a^{n+1} - b^{n+1}\right]\) \\
+                Aus dem Induktionsprinzip folgt somit 
+                \(f_n = \frac{1}{\sqrt{5}}\left(a^n-b^n\right) \; \forall \, n \in \N \)
+            \item Aussage:
             \begin{align*}
                 a_n = \frac{f_{n+1}}{f_n} \overset{\text{1)}}{=} \frac{a^{n+1} - b^{n+1}}{a^n - b^n} = \frac{a - b\left(\frac{b^n}{a^n}\right)}{1 - \left(\frac{b^n}{a^n}\right)} = \frac{a - b\left(\frac{b}{a}\right)^n}{1 - \left(\frac{b}{a}\right)^n}
             \end{align*}

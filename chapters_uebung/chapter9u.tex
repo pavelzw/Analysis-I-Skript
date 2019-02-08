@@ -2,22 +2,33 @@
 \begin{document}
 \setcounter{section}{8}
 
-\section{Cosinus, Sinus und Eulersche Formel (11.01.19)}
+\section{cos, sin und Eulersche Formel (11.01.19)}
 \begin{bem}
-	\[\underbrace{\exp(x)}_{e^z} = \sum_{n=0}^{\infty} \frac{z^n}{n!} = \sum_{n=0}^{\infty} a_n z^n = 1 + z^1 + \frac{z^2}{2} + \dots \]
+	\[\underbrace{\exp(x)}_{e^z} = \sum_{n=0}^{\infty} \frac{z^n}{n!} 
+	= \sum_{n=0}^{\infty} a_n z^n = 1 + z^1 + \frac{z^2}{2} + \dots \]
 \end{bem}
-Man ersetzt \(z\) durch \(iz\) in \(e^z\)\\
-\[e^{iz} = \sum_{n=0}^{\infty} \frac{(iz)^n}{n!} = \sum_{n=0}^{\infty} i^n \cdot \frac{z^n}{n!} \]
+Man ersetzt \(z \) durch \(iz \) in \(e^z \)
+\[e^{iz} = \sum_{n=0}^{\infty} \frac{(iz)^n}{n!} 
+= \sum_{n=0}^{\infty} i^n \cdot \frac{z^n}{n!} \]
 Beachte \(\N_0 \ni n \mapsto i^n \) hat Periode 4.
 \begin{align*}
-	n = 2k, k\in \N_0 &\Rightarrow i^n = i^{2k} = (i^2)^k = (-1)^k\\
+	n = 2k, k\in \N_0 &\Rightarrow i^n = i^{2k} = (i^2)^k = (-1)^k \\
 	n = 2k+1, k \in \N_0 &\Rightarrow i^n = i^{2k+1} = i^{2k} \cdot i = (-1)^k \cdot i
 \end{align*}
-\[e^{iz} = \limes{L} \sum_{n=0}^{L} i^n \cdot \frac{z^n}{n!} = \limes{L} \left(\sum_{\substack{0 \leq n \leq L \\ \text{n gerade}}} i^n \cdot \frac{z^n}{n!} + \sum_{\substack{0 \leq n \leq L \\ \text{n ungerade}}} i^n \cdot \frac{z^n}{n!}\right) \]
-\[= \limes{L} \left(\sum_{\substack{0 \leq 2k \leq L \\ k \in \N_0}} (-1)^k \cdot \frac{z^{2k}}{(2k)!} + i + \sum_{\substack{0 \leq 2k+1 \leq L \\ k \in \N_0}} \frac{z^{2k+1}}{(2k+1)!} \right) \]
-\[= \sum_{k=0}^{\infty} (-1)^k \cdot \frac{z^{2k}}{(2k)!} + i + \sum_{k=0}^{\infty} \frac{z^{2k+1}}{(2k+1)!} \; (*)\]
-Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
-(Nachrechnen mit Quotientenkriterium bei beiden Reihen in (*), dass sie für alle \(z \in \C\) konvergieren)
+\[e^{iz} = \limes{L} \sum_{n=0}^{L} i^n \cdot \frac{z^n}{n!} 
+= \limes{L} \left(\sum_{
+	\substack{0 \leq n \leq L \\ \text{n gerade}}} 
+	i^n \cdot \frac{z^n}{n!} + \sum_{\substack{0 \leq n \leq L \\ 
+	\text{n ungerade}}} i^n \cdot \frac{z^n}{n!}\right) \]
+\[= \limes{L} \left(\sum_{
+	\substack{0 \leq 2k \leq L \\ 
+	k \in \N_0}} (-1)^k \cdot \frac{z^{2k}}{(2k)!} + i + \sum_{\substack{0 \leq 2k+1 \leq L \\ 
+	k \in \N_0}} \frac{z^{2k+1}}{(2k+1)!} \right) \]
+\[= \sum_{k=0}^{\infty} (-1)^k \cdot \frac{z^{2k}}{(2k)!} + i + 
+\sum_{k=0}^{\infty} \frac{z^{2k+1}}{(2k+1)!} \; (*) \]
+Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz. \\
+(Nachrechnen mit Quotientenkriterium bei beiden Reihen in (*), dass sie für alle 
+\(z \in \C \) konvergieren)
 \begin{defi}
 	Wir setzen:
 	\[\cos(z) := \sum_{n=0}^{\infty} (-1)^n \cdot \frac{z^{2n}}{(2n)!} \]
@@ -26,25 +37,30 @@ Umordnung ist okay wegen absoluter Konvergenz und Umordnungssatz.\\
 Dann gilt:
 \[e^{iz} = \cos(z) + i\sin(z) \; \, z \in \C \]
 Beachte:\\
-Wenn \(z=t \in \R \), so sind \(\cos(t), \sin(t) \in \R\) \\
-und es gilt \(\underbrace{e^{it} = \cos(t) + i\sin(t), t \in \R}_{\text{Eulersche Formel}} \)\\
-Die eulersche Formel gibt eine Darstellung der komplexen Zahl \(e^{it} = \exp(it) \) in Real- und Imaginärteil:
+Wenn \(z=t \in \R \), so sind \(\cos(t), \sin(t) \in \R \) \\
+und es gilt 
+\(\underbrace{e^{it} = \cos(t) + i\sin(t), t \in \R}_{\text{Eulersche Formel}} \) \\
+Die eulersche Formel gibt eine Darstellung der komplexen Zahl \(e^{it} = \exp(it) \) 
+in Real- und Imaginärteil:
 \[\Re(e^{it}) = \cos(t) = \frac{1}{2} (e^{it} + e^{\overline{it}}) \]
 \[\Im(e^{it}) = \sin(t) = \frac{1}{2i} (e^{it} - e^{\overline{it}}) \]
 Sei:
 \[\exp_n(z) = \sum_{k=0}^{n} \frac{z^k}{k!} = 1 + z + \frac{z}{2} + \dots + \frac{z^n}{n!} \]
-\[\Rightarrow \overline{\exp_n{z}} = 1 + \overline{z} + \frac{\overline{z}}{2} + \dots + \frac{\overline{z^n}}{n!} = \exp_n(\overline{z}) \overset{n \rightarrow \infty}{\rightarrow} \exp(\overline{z}) \]
+\[\Rightarrow \overline{\exp_n{z}} 
+= 1 + \overline{z} + \frac{\overline{z}}{2} + \dots + \frac{\overline{z^n}}{n!} 
+= \exp_n(\overline{z}) \overset{n \rightarrow \infty}{\rightarrow} \exp(\overline{z}) \]
 \[\Rightarrow \overline{\exp_n{z}} = \exp(\overline{z}) \; \forall \, z \in \C \]
 somit folgt:
 \[e^{\overline{it}} = \overline{\exp(it)} = \exp(\overline{it}) = \exp(-it) = e^{-it} \]
-und daher gilt \(\forall \, t \in \C\):
+und daher gilt \(\forall \, t \in \C \):
 \[\cos(t) = \frac{1}{2} (e^{it} + e^{-it}) \]
 \[\sin(t) = \frac{1}{2} (e^{it} + e^{-it}) \]
 \begin{satz}
 	\(\forall \, t \in \R \) ist: \(\exp(it) = 1 \)
 \end{satz}
 \begin{bew}
-	\[|\exp(it)|^2 = \overline{\exp(it)} \cdot \exp(it) = e^{-it} \cdot e^{it} = e^{-it + it} = e^0 = 1 \]
+	\[|\exp(it)|^2 = \overline{\exp(it)} \cdot \exp(it) = e^{-it} \cdot e^{it} 
+	= e^{-it + it} = e^0 = 1 \]
 \end{bew}
 \begin{kor}
 	\(\forall \, t \in \R \) ist 
@@ -54,74 +70,95 @@ und daher gilt \(\forall \, t \in \C\):
 	Hausaufgabe
 \end{bew}
 \begin{lem}
-	Für den Konvergenzradius \(R\) von \(\sum_{n=0}^{\infty} \) gilt:
+	Für den Konvergenzradius \(R \) von \(\sum_{n=0}^{\infty} \) gilt:
 	\[R = \frac{1}{\limessup{n}\sqrt[n]{|a_n|}} \]
 	wobei \(\frac{1}{0} := \infty \) und \(\frac{1}{\infty} := 0 \) gesetzt wird.
 \end{lem}
 \begin{bew}
 	aus dem Wurzelkriterium folg, dass \( \sum_{n=0}^{\infty} a_n z^n\) konvergiert falls:
-	\[\limessup{n} |a_n z^n|^{\nicefrac{1}{n}} = \limessup{n} |a_n|^{\nicefrac{1}{n}}  \cdot |z| < 1 \]
+	\[\limessup{n} |a_n z^n|^{\nicefrac{1}{n}} 
+	= \limessup{n} |a_n|^{\nicefrac{1}{n}} \cdot |z| < 1 \]
 	\[r_0 := \frac{1}{\limessup{n}\sqrt[n]{|a_n|}} \]
 	\begin{enumerate}
-		\item Schritt: \(r_0 = \infty \Leftrightarrow \limessup{n} |a_n|^{\nicefrac{1}{n}} = 0 \)\\
-			Dann konvergiert \(\sum_{n=0}^{\infty} a_n z^n \; \forall \, z \in \C \)\\
-			\(R = \infty\)\\
-			Ist \(0 < r_0 < \infty \) so konvergiert \(\sum_{n=0}^{\infty} a_n z^n \) für \(|z| \leq r_0 \)\\
-			Also ist \(R \geq r_0\), falls \(0 < r_0 < \infty\)
-		\item Schritt: \(0 \leq r_0 < \infty \) und \(|z| > r_0 \)\\
-			\(q := \limessup{n}\sqrt[n]{|a_n|} \cdot |z| > \limessup{n}\sqrt[n]{|a_n|} \cdot r_0 = 1 \)\\
-			Also gibt es für jedes \(e > 0\) \(\infty\)-viele \(n \in \N_0\):\\
+		\item Schritt: 
+		\(r_0 = \infty \Leftrightarrow \limessup{n} |a_n|^{\nicefrac{1}{n}} = 0 \) \\
+			Dann konvergiert \(\sum_{n=0}^{\infty} a_n z^n \; \forall \, z \in \C \) \\
+			\(R = \infty\) \\
+			Ist \(0 < r_0 < \infty \) so konvergiert \(\sum_{n=0}^{\infty} a_n z^n \) 
+			für \(|z| \leq r_0 \) \\
+			Also ist \(R \geq r_0 \), falls \(0 < r_0 < \infty \)
+		\item Schritt: \(0 \leq r_0 < \infty \) und \(|z| > r_0 \) \\
+			\(q := \limessup{n}\sqrt[n]{|a_n|} \cdot |z| 
+			> \limessup{n}\sqrt[n]{|a_n|} \cdot r_0 = 1 \) \\
+			Also gibt es für jedes \(e > 0\) \(\infty\)-viele \(n \in \N_0 \):
 			\[\sqrt[n]{|a_n|} \cdot |z| \geq q - c \]
-			Wähle \(\varepsilon > 0 \) so klein, dass \(q \geq 1\):
+			Wähle \(\varepsilon > 0 \) so klein, dass \(q \geq 1 \):
 			\begin{align*}
-				&\Rightarrow \exists \, \infty \text{ viele } n \in \N_0: \sqrt[n]{|a_n|}|z| \geq 1 \Leftrightarrow |a_n||z|^n \geq 1\\
-				&\Rightarrow \text{Für jede } |z| > r_0 \text{ ist } (a_n z^n) \text{ keine Nullfolge}\\
+				&\Rightarrow \exists \, \infty \text{ viele } n \in \N_0: 
+				\sqrt[n]{|a_n|}|z| \geq 1 \Leftrightarrow |a_n||z|^n \geq 1 \\
+				&\Rightarrow \text{Für jede } |z| > r_0 \text{ ist } (a_n z^n) 
+				\text{ keine Nullfolge} \\
 				&\Rightarrow \sum_{n=0}^{\infty} a_n z^n \text{ konvergiert nicht}
 			\end{align*}
-			Nach der Definition von \(R\) ist \(R \leq r_0\) falls \(0 \leq r_0 < \infty\)
-		\item Schritt:\\
-		Aus Schritt 1 und 2 folgt \(R = r_0\) falls \(0 < r_0 < \infty\)\\
-		Ist \(r_0 = 0 \), so folgt \(0 \leq R \leq r_0 = 0 \Rightarrow R_0 = 0 \)\\
+			Nach der Definition von \(R \) ist \(R \leq r_0 \) falls \(0 \leq r_0 < \infty \)
+		\item Schritt: \\
+		Aus Schritt 1 und 2 folgt \(R = r_0 \) falls \(0 < r_0 < \infty \) \\
+		Ist \(r_0 = 0 \), so folgt \(0 \leq R \leq r_0 = 0 \Rightarrow R_0 = 0 \) \\
 		Ist \(r = \infty \), so folgt \(R \geq r = \infty \Rightarrow R = \infty \)
 	\end{enumerate}	
 \end{bew}
 \begin{kor}
-	Die Potenzreihen \(\sum_{n=1}^{\infty} a_n z^n \) und \(\sum_{n=1}^{\infty} n \cdot a_n z^{n-1} \) haben den selben Konvergenzradius.
+	Die Potenzreihen \(\sum_{n=1}^{\infty} a_n z^n \) und 
+	\(\sum_{n=1}^{\infty} n \cdot a_n z^{n-1} \) haben den selben Konvergenzradius.
 \end{kor}
 \begin{bew}
 	Da \(n^{\nicefrac{1}{n}} \overset{n \rightarrow \infty}{\rightarrow} 1 \)
 	\[\limessup{n}\sqrt[n]{|a_n|} > \limessup{n}\sqrt[n]{n \cdot |a_{n-1}|} \]
 \end{bew}
 \begin{kor}
-	Konvergiert \(\sum_{n=0}^{\infty} a_n z^n \) für ein \(z = z_1 \neq 0 \), so ist sie auf der Kreisscheibe \(\overline{B_r(0)} = \{z \in \C \, | \, |z| \leq r\} \) beschränkt für jedes\(0 < r_0 < |z_1| \)\\
-	d. h \(\exists \, M(r) \geq 0 \), sodass \(|\sum_{n=0}^{\infty} a_n z^n| \leq M(r) \; \forall \, |z| < r \)
+	Konvergiert \(\sum_{n=0}^{\infty} a_n z^n \) für ein \(z = z_1 \neq 0 \), 
+	so ist sie auf der Kreisscheibe \(\overline{B_r(0)} = \{z \in \C \, | \, |z| \leq r\} \) 
+	beschränkt für jedes\(0 < r_0 < |z_1| \) \\
+	d. h \(\exists \, M(r) \geq 0 \), sodass \(|\sum_{n=0}^{\infty} a_n z^n| 
+	\leq M(r) \; \forall \, |z| < r \)
 \end{kor}
 \begin{bew}
 	Ist \(|z| \leq r < |z_1| \), so ist
-	\[|a_n z^n| = |a_n||z^n| = |a_n| \cdot \underbrace{\frac{|z|^n}{|z_1|^n}}_{\leq \frac{r}{|z_1|^n = \theta < 1}} \cdot |z_1|^n \]
-	Da \(\sum_{n=0}^{\infty} a_n z^n \) konvergent ist, ist \(a_n z^n\) eine Nullfolge und somit insbesondere beschränkt.\\
+	\[|a_n z^n| = |a_n||z^n| = |a_n| \cdot 
+	\underbrace{\frac{|z|^n}{|z_1|^n}}_{\leq \frac{r}{|z_1|^n 
+	= \theta < 1}} \cdot |z_1|^n \]
+	Da \(\sum_{n=0}^{\infty} a_n z^n \) konvergent ist, 
+	ist \(a_n z^n\) eine Nullfolge und somit insbesondere beschränkt. \\
 	d.h. \(\exists \, 0 \leq K < \infty: |a_n z^n| \leq K \)
-	\[\Rightarrow |a_n z^n| \leq K\theta^n \; \forall \, |z| \leq r, \theta := \frac{r}{|z_1|} < 1 \]
-	\[\Rightarrow \left|\sum_{n=0}^{\infty} a_n z^n\right| \leq \sum_{n=0}^{\infty} |a_n z^n| \leq K \cdot \sum_{n=0}^{\infty} \theta^n = K \cdot \frac{1}{1 - \theta} \]
+	\[\Rightarrow |a_n z^n| \leq K\theta^n \; \forall \, |z| \leq r, 
+	\theta := \frac{r}{|z_1|} < 1 \]
+	\[\Rightarrow \left|\sum_{n=0}^{\infty} a_n z^n\right| 
+	\leq \sum_{n=0}^{\infty} |a_n z^n| \leq K \cdot \sum_{n=0}^{\infty} \theta^n 
+	= K \cdot \frac{1}{1 - \theta} \]
 	\[= \frac{K}{1 - \frac{r}{<|z_1|}} = \frac{K \cdot |z|}{|z_1| - r} =: M(r) \]
 	Dann gilt also:
 	\[|\sum_{n=0}^{\infty} a_n z^n| \leq M(r) \; \forall \, |z| \leq r \]
 \end{bew}
 \begin{kor}
-	Angenommen \(\sum_{n=0}^{\infty} a_n z^n \) konvergiert für ein \(t = t_1 \neq 0\)\\
+	Angenommen \(\sum_{n=0}^{\infty} a_n z^n \) konvergiert für ein \(t = t_1 \neq 0\) \\
 	Dann gibt es zu jedem \(0 < r < |z_1|, k \in \N_0 \) ein \(M(r, k) > 0 \) mit
-	\[\left|\sum_{n=k+1}^{\infty} a_n z^n\right| \leq M(r, k) \cdot |z|^{k+1} \; \forall \, |z| \leq r \]
+	\[\left|\sum_{n=k+1}^{\infty} a_n z^n\right| 
+	\leq M(r, k) \cdot |z|^{k+1} \; \forall \, |z| \leq r \]
 \end{kor}
 \begin{bew}
-	Da \(\sum_{n=0}^{\infty} a_n z^n \) konvergent ist, so konvergiert auch\\
-	\[z^{-(k+1)} \cdot \sum_{n=k+1}^{\infty} a_n z^n = \sum_{n=k+1}^{\infty} a_n z_1^{n-(k+1)} = \sum_{n=0}^{\infty} a_{n+k+1} z_1^n \]
+	Da \(\sum_{n=0}^{\infty} a_n z^n \) konvergent ist, so konvergiert auch
+	\[z^{-(k+1)} \cdot \sum_{n=k+1}^{\infty} a_n z^n 
+	= \sum_{n=k+1}^{\infty} a_n z_1^{n-(k+1)} = \sum_{n=0}^{\infty} a_{n+k+1} z_1^n \]
 \end{bew}
 \begin{lem}
 	\(\Rightarrow\) Konvergenzradius R von \(\sum_{n=0}^{\infty} a_{n+k+1} z^n \geq |z_1| \)
 \end{lem}
 \begin{lem}
 	Für jedes \(0 < r < |z_1| \) gibt es ein \(M = M(k,r) \), sodass
-	\[\left|\sum_{n=k+1}^{\infty} a_{n} z^{n-(k+1)}\right| = \left|\sum_{n=0}^{\infty} a_{n+k+1} |z|^n\right| \leq M(k,r) \; \forall \, |z| \leq r \]
-	\[\Rightarrow \left|\sum_{n=0}^{\infty} a_n z^n \right| = |z|^{k+1} \cdot \left|\sum_{n=k+1}^{\infty} a_{n} z^{n-(k+1)}\right| \leq |z|^{k+1} \cdot M(k,r) \; \forall \, |z| < r \]
+	\[\left|\sum_{n=k+1}^{\infty} a_{n} z^{n-(k+1)}\right| 
+	= \left|\sum_{n=0}^{\infty} a_{n+k+1} |z|^n\right| \leq M(k,r) \; \forall \, |z| \leq r \]
+	\[\Rightarrow \left|\sum_{n=0}^{\infty} a_n z^n \right| 
+	= |z|^{k+1} \cdot \left|\sum_{n=k+1}^{\infty} a_{n} z^{n-(k+1)}\right| 
+	\leq |z|^{k+1} \cdot M(k,r) \; \forall \, |z| < r \]
 \end{lem}
 \end{document}

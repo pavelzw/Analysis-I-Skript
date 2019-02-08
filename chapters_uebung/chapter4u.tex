@@ -32,7 +32,9 @@
         Durch vollständige Induktion folgt:\\
         (IV): \(a_{k+1} - a_k =  (-\frac{1}{2})^k \cdot (b - a) \; \forall \, k \in \N\)\\
         Also gilt:
-        \[a_n = a_0 + (a_1 - a_0) + (a_2 - a_1) + \dots + (a_n - a_{n-1}) = a + \sum_{k=0}^{n-1}(a_{k+1} - a_k) \overset{\text{(IV)}}{=} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right)\]
+        \[a_n = a_0 + (a_1 - a_0) + (a_2 - a_1) + \dots + (a_n - a_{n-1}) \]
+        \[= a + \sum_{k=0}^{n-1}(a_{k+1} - a_k) \overset{\text{(IV)}}{=} a 
+        + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right) \]
         Betrachten wir erstmal \(b_m = \sum_{k=0}^{m} (-\frac{1}{2})^k\) für \(m \geq 0\)\\
         Aus Satz 3.5.7 folgt
         \[\sum_{k=0}^{m} (-\frac{1}{2})^k = \frac{1-(-\frac{1}{2})^{m+1}}{1-(-\frac{1}{2})}\]
@@ -40,7 +42,10 @@
         somit gilt:
         \[\limes{m} b_m = \limes{m} \sum_{k=0}^{m} (-\frac{1}{2})^k = \limes{m} \frac{1-(-\frac{1}{2})^{m+1}}{1-(-\frac{1}{2})} = \frac{1}{1 + \frac{1}{2}} = \frac{2}{3}\]
         Nach Satz 7.1.8 a), b) folgt nun
-        \[\limes{n} a_n = \limes{n} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right) = a + \limes{n} \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k \cdot (b - a)\right)\]
+        \[\limes{n} a_n = \limes{n} a + \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k 
+        \cdot (b - a)\right) \]
+        \[= a + \limes{n} \sum_{k=0}^{n-1} \left(\left(-\frac{1}{2}\right)^k 
+        \cdot (b - a)\right)\]
         \[= a + \frac{2}{3}(b - a) = \frac{1}{3}(2b + a)\]
     \end{bew}
 \end{bsp}
@@ -78,7 +83,7 @@
         \[|a_n| < \varepsilon^2 + \varepsilon + 3\sqrt{\varepsilon} \Rightarrow (a_n)_n \text{ ist Nullfolge}\]
     \end{beh}
     \begin{bew}
-        Sei \(\varepsilon > 0\) beliebig\\
+        Sei \(\varepsilon > 0\) beliebig
         \begin{enumerate}
             \item Fall 1: \(\varepsilon \geq 1\)\\
                 Dann gilt \(\sqrt[k]{\varepsilon} < \varepsilon\) zu \(\delta = \frac{\sqrt{\varepsilon}}{16}\) existiert nach Voraussetzung ein \(n \in \N\) mit \(|a_n| < \delta^2 + \delta + 3\sqrt{\delta}\)\\

@@ -18,18 +18,19 @@
 \usetikzlibrary{tikzmark}
 
 \usetikzlibrary{matrix}
+\RequirePackage{xr}
+% \RequirePackage{xr-hyper}
+\RequirePackage{zref-xr}
 \RequirePackage{hyperref} %Hyperlinks in pdf
 \RequirePackage{subfiles}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage{mathtools}
 \RequirePackage{booktabs}
-\RequirePackage{zref-xr}
 \RequirePackage{thmtools}
 \RequirePackage{float}
 \RequirePackage{mwe}
 \RequirePackage{subfig}
-\RequirePackage{xr}
-\RequirePackage{bm} 
+\RequirePackage{bm}
 \restylefloat{table}
 
 \theoremstyle{definition}
@@ -113,6 +114,15 @@
 \newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
 \newcommand{\existse}{\exists!}
 \newcommand{\inverse}[1]{{#1}^{\minus 1}}
+
+\newcommand{\ifequals}[4]{%
+  \ifnum\pdfstrcmp{#1}{#2}=0
+  #3%
+  \else
+  #4%
+  \fi
+}
+
 \newcommand{\overunderset}[3]{\overset{#1}{\underset{#2}{#3}}}
 \newcommand{\overref}[3]{\overset{\hyperref[#1]{\text{#2}}}{#3}}
 \newcommand{\oversett}[2]{\overset{\text{#1}}{#2}}
@@ -157,7 +167,8 @@
 	\renewcommand\thedefi{\thesection.\arabic{satz}}
 }
 
-\DeclareMathOperator{\ko}{,}
+% \DeclareMathOperator{\ko}{,}
+\newcommand{\ko}[0]{\text{,}}
 \DeclareMathOperator{\IV}{(IV)}
 \DeclareMathOperator{\injektiv}{injektiv}
 \DeclareMathOperator{\surjektiv}{surjektiv}

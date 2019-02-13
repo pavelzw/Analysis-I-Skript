@@ -32,13 +32,15 @@
 
 %%Sorgt dafür, dass Referenzen aus anderen Kapiteln verwendet werden können.
 %%Achtung .aux Dateien müssen vorhanden sein.
-\foreach \c in {1,...,\chapteramount}{
-	\IfFileExists{chapters/chapter\c.tex} {
-		\externaldocument[C\c-]{chapters/chapter\c}
-	}{
-		\externaldocument[C\c-]{chapter\c}
-	}
-}
+\foreach\c in {1,...,\chapteramount}{
+		\IfFileExists{chapter\c.tex}{
+			%%Prevent labels to be overwritten in file
+			\ifequals{\jobname}{chapter\c}{}{
+				
+				\externaldocument{chapter\c}
+			}
+		}{}
+} 
 
 \begin{document}
 
@@ -53,7 +55,7 @@
 \date{\today}
 \maketitle
 
-\section*{Disclaimer} 
+\section*{Disclaimer}  
 Bei diesem Skript handelt es sich um einen inoffiziellen Mitschrieb 
 \gqq{Analysis~I} von Prof.\ Dr.\ Dirk Hundertmark im Wintersemester 
 2018/2019 an dem Karlsruher Institut für Technologie (KIT).	Die 
@@ -79,14 +81,14 @@ verantwortlich.
 	\newpage
 	\subfile{chapters/chapter1.tex}
 }
-\foreach \c in {2,...,4} {
+\foreach\c in {2,...,4} {
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }
 
 \sectionNumbering
 
-\foreach \c in {5,...,\chapteramount} {
+\foreach\c in {5,...,\chapteramount} {
 	\subfile{chapters/chapter\c.tex}
 	\iftoggle{short}{}{\newpage}
 }

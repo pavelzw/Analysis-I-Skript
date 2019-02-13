@@ -21,7 +21,7 @@
 	\({(a_n)}_{n\in\N}, a_{n+1} \geq a_n \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
 	und \( \exists C\in\R: a_n \leq C \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
 	\[ B:= \{a_n, n\in\N \} \subset \R, b\neq \emptyset \text{ und } B\leq C. \]
-	\(\overset{\text{Vollst.axiom}}{\Rightarrow} L := \sup B\) die kleinste obere Schranke für \(B\).\\
+	\(\overundersett{Vollst.}{axiom}{\Rightarrow} L := \sup B\) die kleinste obere Schranke für \(B\).\\
 	\(\Rightarrow a_n \leq L \quad \forall n\in\N \).\\
 	Und: \(L\) kleinste ob. Schranke \( \Rightarrow \forall \varepsilon>0: L-\varepsilon \) keine obere Schranke für \(B\).\\
 	\[ \Rightarrow \exists K \in\N: L-\varepsilon < a_K \leq a_{K+1} \leq a_{K+2} \leq \cdots \leq a_n \quad \forall n\geq K. \]
@@ -32,7 +32,7 @@
 \begin{bsp}[1]
 	\(x_0 > 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
 	Ang.: \( \limes{n} x_n = l \) existiert, dann auch \( \limes{n} x_{n+1} = l, l>0 \)
-	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \limes{n} x_{n+1} = \limes{n} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
+	\[ \overundersett{Grenzwert-}{sätze}{\Longrightarrow} l = \limes{n} x_{n+1} = \limes{n} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
 \end{bsp}
 \begin{bsp}[2]
 	\(f_n := {\left( 1 + \frac{1}{n} \right)}^n \) Grenzwert \( \limes{n} f_n = \limes{n} {\left( 1 + \frac{1}{n} \right)}^n \) existiert \( =: e \).\\
@@ -54,8 +54,13 @@
 	Also ist \(n\geq3\).
 	\begin{align*}
 		e_n = \sum_{k=0}^{n} \frac{1}{k!} = 1+1 + \sum_{k=2}^{n} \frac{1}{k!} \overset{(*)}{\leq} 2 + \sum_{k=2}^{n} \frac{1}{2 \cdot 3^{k-2}}\\
-		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} {\left(\frac{1}{3}\right)}^l}_{=\ensuremath{\frac{1 - {\left(\frac{1}{3}\right)}^{n-1}}}{1 - \frac{1}{3}}}\\
-		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} = 2 + \frac{3}{4} = 2,75.\\
+		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} 
+		{\left(\frac{1}{3}\right)}^l}_{
+			=\ensuremath{ \frac{1 
+			- {\left( \nicefrac{1}{3} \right)}^{n-1} } }
+			{1 - \nicefrac{1}{3}}}\\
+		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} 
+		= 2 + \frac{3}{4} = 2,75.\\
 		\Rightarrow e_n \leq 2,75 \forall n\geq 2.
 	\end{align*}
 	\(\Rightarrow {(e_n)}_n \) ist nach oben beschränkt.\\
@@ -66,8 +71,12 @@
 	\begin{align*}
 		\frac{f_n}{f_{n-1}} &= \frac{{(1+\frac{1}{n})}^n}{{(1+\frac{1}{n-1})}^{n-1}} \qquad n\geq 2\\
 		&= \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n-1}} = \frac{n}{n-1} \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n}} = \frac{n}{n-1} {\left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)}^n\\
-		&= \frac{n}{n-1} {\left( \frac{n^2-1}{n^2} \right)}^n = \frac{n}{n-1} \underbrace{{\left( 1-\frac{1}{n^2} \right)}^n}_{\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
-		&\geq \frac{n}{n-1} (1-n \frac{1}{n^2}) = \frac{n}{n-1} (1-\frac{1}{n}) = 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
+		&= \frac{n}{n-1} {\left( \frac{n^2-1}{n^2} \right)}^n 
+		= \frac{n}{n-1} \underbrace{{\left( 1-\frac{1}{n^2} \right)}^n}_{
+			\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
+		&\geq \frac{n}{n-1} \left(1-n \frac{1}{n^2} \right) 
+		= \frac{n}{n-1} \left( 1-\frac{1}{n} \right) 
+		= 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
 	\end{align*}
 	\( \Rightarrow \limes{n} f_n \) existiert!
 \end{bew}

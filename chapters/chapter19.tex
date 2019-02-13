@@ -77,7 +77,7 @@
     Also ist \( f(x) = 0 \,\forall \, x\in [a,b] \)
     \[ \Rightarrow f'(x) = 0 \, \forall \, x\in (a,b). \]
 \end{bew}
-\begin{satz}[Mittelwertsatz]\label{satz:mittlewert}
+\begin{satz}[Mittelwertsatz]\label{satz:mittelwert}
     \( f: [a, b] \rightarrow \R \) stetig und differenzierbar 
     auf \((a,b)\).
     \[ \Rightarrow \exists \, \xi \in (a,b): f'(\xi) = \frac{f(b)-f(a)}{b-a} \]
@@ -108,7 +108,7 @@
     \( [a,b] \).
 \end{kor}
 \begin{bew}
-    \[ \overref{satz:mittlewert}{MWS}{\Rightarrow} \exists \, 
+    \[ \overref{satz:mittelwert}{MWS}{\Rightarrow} \exists \, 
     \xi \in (x_1, x_2) \text{ mit } \]
     \[ f(x_2) - f(x_1) = f'(\xi) \underbrace{(x_2 - x_1)}_{>0}
     = \begin{cases}
@@ -119,7 +119,7 @@
         < 0 &\text{falls } f'(\xi) < 0
     \end{cases}. \]
 \end{bew}
-\begin{kor}[Schrankensatz]
+\begin{kor}[Schrankensatz]\label{satz:schranken}
     Sei \( f: [a,b] \rightarrow \R \) stetig und differenzierbar 
     auf \( (a,b) \).\\
     Dann gilt für \( a \leq x_1 < x_2 \leq b \): 
@@ -149,8 +149,8 @@
     \[ (2\xi, 3\xi^2) = f'(\xi) = \frac{f(1) - f(0)}{1-0} 
     = f(1) = (1,1) \]
     \[ \Rightarrow 2\xi = 1 \text{ und } 3\xi^2 = 1 \text{ \Lightning{}} \]
-    Problem: Für die einzelnen Komponenten kann nicht die s
-    elbe Stelle \( \xi \) gewählt weden!\\
+    Problem: Für die einzelnen Komponenten kann nicht die selbe Stelle 
+    \( \xi \) gewählt weden!\\
     Trotzdem gilt eine vektorwertige Version des Schrankensatzes.    
 \end{bsp}
 \begin{kor}[\( f' \) beschränkt \( \Rightarrow f \) Lipschitzstetig]

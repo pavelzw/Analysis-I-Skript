@@ -96,9 +96,9 @@
 \end{bsp}
 \begin{bem}
     Ist \( f: D \rightarrow \R^m, D \leq \R \) und \( x_0 \in D \),\\
-    \( D \cap (x_0, x_0 + \delta) \neq \emptyset \,\forall \, 
+    \( D \cap (x_0, x_0 + \delta) \neq \emptyset \;\forall \, 
     \delta > 0 \). Dann gilt: 
-    \[ \limesx{x}{x_0} f(x) = a \Leftrightarrow \limesx{x}{x_0} 
+    \[ \limesx{x}{x_0} f(x) = a \Leftrightarrow
     \limesx{x}{x_0-} f(x) = a \text{ und } \limesx{x}{x_0+} 
     f(x) = a. \]
 \end{bem}
@@ -114,7 +114,7 @@ mit Folgen arbeiten.
     \begin{enumerate}
         \item \( f(x) \rightarrow a \) für \( x\rightarrow x_0 \)
         \item \( \limes{k} f(x_k) = a \,\forall \, {(x_k)}_k 
-        \subseteq D \setminus \{x_a\} \) mit \( x_k \rightarrow x_0 \).
+        \subseteq D \setminus \{x_0\} \) mit \( x_k \rightarrow x_0 \).
     \end{enumerate}
 \end{satz}
 \begin{bew}
@@ -130,7 +130,7 @@ mit Folgen arbeiten.
     \[ \abs{f(x_k) - a} < \varepsilon \text{ für fast alle } k\in\N. \]
     \( \Rightarrow \limes{k} f(x_k) = a \).\\
     \( 2 \Rightarrow 1\): Wir zeigen 
-    \( \neg 2 \Rightarrow \neg 1\).
+    \( \neg 1 \Rightarrow \neg 2\).
     Ist \( 1 \) falsch, so existiert \( \varepsilon > 0 \), sodass
     gilt: 
     \[ \forall \, \delta > 0 \,\exists \, x \in D \text{ mit } 0 < 
@@ -139,7 +139,7 @@ mit Folgen arbeiten.
     \in D\setminus \{ x_0 \} : \abs{x_k - x} < \frac{1}{k} \) und 
     \( \abs{f(x_k) - a} \geq \varepsilon \).\\
     \( \Rightarrow f(x_k) \) konvergiert nicht gegen \(a\). 
-    \( \Rightarrow \neq 2 \) ist wahr.
+    \( \Rightarrow \neg 2 \) ist wahr.
 \end{bew}
 \begin{satz}[Rechenregel für Grenzwerte]
     Sei \( x_0 \in D \subset \R^n \) Häufungspunkt von \( D \). 

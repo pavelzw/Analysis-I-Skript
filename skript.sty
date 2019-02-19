@@ -114,6 +114,7 @@
 \newcommand{\limesinf}[1]{\liminf\limits_{#1\rightarrow\infty}}
 \newcommand{\existse}{\exists!}
 \newcommand{\inverse}[1]{{#1}^{\minus 1}}
+\newcommand{\abb}[3]{\ensuremath{#1:#2\rightarrow #3}}
 
 \newcommand{\ifequals}[4]{%
   \ifnum\pdfstrcmp{#1}{#2}=0
@@ -143,14 +144,14 @@
 	\end{enumerate}
 }
 \newcommand{\equilr}[2]{
-	\gqq{\ensuremath{\Leftarrow}} \ensuremath{\colon}#1\newline
-	\gqq{\ensuremath{\Rightarrow}} \ensuremath{\colon}#2
+	\gqq{\ensuremath{\Leftarrow}}\ensuremath{\colon}#1\newline
+	\gqq{\ensuremath{\Rightarrow}}\ensuremath{\colon}#2
 }
 \newcommand{\equirl}[2]{
-	\gqq{\ensuremath{\Rightarrow}} \ensuremath{\colon}#1\newline
-	\gqq{\ensuremath{\Leftarrow}} \ensuremath{\colon}#2
+	\gqq{\ensuremath{\Rightarrow}}\ensuremath{\colon}#1\newline
+	\gqq{\ensuremath{\Leftarrow}}\ensuremath{\colon}#2
 }
-\newcommand\longeq{\mathrel{\vcentcolon\Longleftrightarrow}}
+\newcommand\longeq{\mathrel{\Longleftrightarrow}}
 \newcommand{\set}[1]{\{#1\}}
 \newcommand{\provideFormat}[1]{\def\Format##1{\makebox[\widthof{\ensuremath{#1}}][r]{\ensuremath{##1}}}}
 \newcommand{\case}[2]{\begin{tabular}{rl}#1: #2\end{tabular}}
@@ -168,7 +169,7 @@
 }
 
 % \DeclareMathOperator{\ko}{,}
-\newcommand{\ko}[0]{\text{,}}
+\newcommand{\ko}[0]{,}
 \DeclareMathOperator{\IV}{(IV)}
 \DeclareMathOperator{\injektiv}{injektiv}
 \DeclareMathOperator{\surjektiv}{surjektiv}

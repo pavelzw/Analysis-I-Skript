@@ -17,6 +17,10 @@
 \usetikzlibrary{babel}
 \usetikzlibrary{tikzmark}
 
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \,}
+\let\oldexists\exists
+\renewcommand{\exists}{\oldexists \,}
 \usetikzlibrary{matrix}
 \RequirePackage{xr}
 % \RequirePackage{xr-hyper}

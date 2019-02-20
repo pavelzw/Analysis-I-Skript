@@ -8,10 +8,11 @@
 
 \begin{defi}
 	Sei \( X \neq \emptyset \) eine Menge. Eine Folge in \(X \) oder auch \(X \)-wertige Folge ist eine Funktion 
-	\[f \colon \N \longrightarrow X \ko \quad n \mapsto f(n) \in X. \]
+	\[ \abb{f}{\N}{X} \ko \quad n \mapsto f(n) \in X. \]
 	Wir setzen \(a_n \coloneqq f(n) \ko \, n \in \N \).\\
 	\(a_n \) heißt \(n \)-tes Folgenglied. Wir schreiben auch \({(a_n)}_{n \in \N}\) oder kurz \({(a_n)}_n \).\\
-	Ist \(X = \R \), so heißt die Folge reellwertig oder reelle Folge. Dabei gilt \({(a_n)}_{n\in\N} \subset \R \).
+	Ist \(X = \R \), so heißt die Folge reellwertig oder reelle Folge. \\
+	Dabei gilt \({(a_n)}_{n\in\N} \subset \R \).
 \end{defi}
 
 \begin{defi}[Konvergenz reeller Folgen] \leavevmode \\
@@ -22,17 +23,17 @@
 \end{defi}
 
 \begin{bem}
-	\[\limes{n}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.\]
+	\[\limes{n}a_n = a \Leftrightarrow \forall \, \varepsilon > 0 \exists \, k\in\N: \forall \, n\geq k \text{ folgt } |a_n -a|< \varepsilon.\]
 \end{bem}
 
 \begin{bsp}
 	Beweis mit \(\varepsilon \)-Methode:
 	\begin{enumerate}
 		\item \(a_n \coloneqq \frac{1}{n}\) konvergiert gegen \(0\). Denn zu geg.\  \(\varepsilon > 0\) wähle \(k\in\N \) mit \(k>\frac{1}{\varepsilon}\). Dann gilt für \(n\geq k\)
-		\[|a_n-a| = |\frac{1}{n} - 0| = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.\]
+		\[ \abs{a_n-a} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.\]
 		\item Konstante Folge. Sei \(a\in\R \) und sei \(a_n = a\) für \(n\in\N \).\\
 		Dann folgt \(\limes{n} a_n = a\), denn für \(\varepsilon > 0\)
-		\[|a_n - a| = |a-a|=0<\varepsilon \text{, wähle } k=1\]
+		\[ \abs{a_n - a} = |a-a|=0<\varepsilon \text{, wähle } k=1\]
 		\item Sei \(a_n \coloneqq {(-1)}^n\), also \(a_1 = -1, a_2 = 1, a_3 = -1, \ldots \) \\
 		Dann ist \({(a_n)}_{n\in\N}\) nicht konvergent.
 		\begin{bew}
@@ -50,15 +51,19 @@
 			\[ {(1+x)}^n \geq 1+nx \]
 			und somit 
 			\[ |q^n-0| = |q^n| = |q|^n = \frac{1}{{(1+x)}^n} \leq \frac{1}{1+nx}. \]
-			Also zu \(\varepsilon > 0\) wähle \(k\in\N \forall n\geq k\) gilt \(nx > \frac{1}{\varepsilon}\).
+			Also zu \(\varepsilon > 0\) wähle \(k\in\N \; \forall \, n\geq k\) gilt \(nx > \frac{1}{\varepsilon}\).
 			\[|q^n-0|\leq \frac{1}{1+nx} \leq \frac{1}{nx} < \varepsilon \text{ für } n\geq k.\]
 		\end{bew}
 		\item Sei \(a\in\R \) mit \(a>0\). Dann konvergiert die \(a_n = a^{\nicefrac{1}{n}}\) gegen \(1\).
-		\begin{bew}
+		\begin{bew}\hfill \\
 			Fall 1: Die Beh.\ stimmt für \( a=1 \).\\
-			Fall 2: \(a>1\). Dann ist \(a_n = a^{\nicefrac{1}{n}}>1\) und somit \(q_n \coloneqq a_n-1 = a^{\nicefrac{1}{n}} -1 >0\).\\
-			\[a_n = a^{\frac{1}{n}} = 1+q_n \Rightarrow a = {(1+q_n)}^n \underset{\text{Bern.\ Ungl.}}{\geq} 1+ nq_n\]
-			\[\Rightarrow 0 \leq q_n \leq \frac{a-1}{n} \forall n\in\N \]
+			Fall 2: \(a>1\). Dann ist 
+			\(a_n = a^{\nicefrac{1}{n}}>1\) 
+			und somit 
+			\[ q_n \coloneqq a_n-1 
+			= a^{\nicefrac{1}{n}} -1 >0. \]
+			\[a_n = a^{\frac{1}{n}} = 1+q_n \Rightarrow a = {(1+q_n)}^n \overundersett{Bern.}{Ungl.}{\geq} 1+ nq_n\]
+			\[\Rightarrow 0 \leq q_n \leq \frac{a-1}{n} \; \forall \, n\in\N \]
 			Zu \(\varepsilon > 0\) wähle \(K\in\N \) mit \(K>\frac{a-1}{\varepsilon}\).\\
 			Dann \(n\geq K\)
 			\[|a_n-1| = |a^{\nicefrac{1}{n}}-1|= a^{\nicefrac{1}{n}} -1 = q_n \leq \frac{a-1}{n} < \varepsilon.\]
@@ -85,8 +90,7 @@
 			{(1+q)}^n &= \sum_{k=0}^{n} \binom{n}{k} q^k1^{n-k}\\
 			&=1+\binom{n}{1}q + \binom{n}{2}q^2 + \sum_{k=3}^{n}\binom{n}{k} q^k1^{n-k}\\
 			&\geq 1+nq + \frac{n(n-1)}{2} q^2\\
-			&\geq 1+\frac{n(n-1)}{2} q^2 \quad\text{falls }	q\geq 0.\\
-			(*)
+			&\geq 1+\frac{n(n-1)}{2} q^2 \quad\text{falls }	q\geq 0. \tag{\(*\)}
 		\end{align*}
 		Setzen \(q_n \coloneqq n^{\nicefrac{1}{n}} -1 >0\) für \(n\geq 2\).
 		\[\Rightarrow n = {(1+q_n)}^n \overset{(*)}{\geq}1+\frac{n(n-1)}{2} q_n^2\]
@@ -140,7 +144,7 @@ Bild:\\
 \end{defi}
 
 Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
-\[\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a) \forall n\geq K.\]
+\[\Leftrightarrow \forall \varepsilon >0 \,\exists K\in\N: a_n \in U_\varepsilon(a) \;\forall n\geq K.\]
 
 \begin{defi}[Beschränktheit von Folgen]
 	Eine Folge \({(a_n)}_{n\in\N} \subset \R \) heißt beschränkt, wenn für \(C\geq 0\) gilt \(|a_n|\leq C \quad \forall n\in\N \) \\
@@ -168,7 +172,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 
 \begin{lem}
 	Die Folge \({(b_n)}_n \subset \R \) konvergiert gegen \(b\neq 0\). Dann existiert \(K\in\N \), sodass 
-	\[|b_n| \geq \frac{|b|}{2}.\]
+	\[|b_n| \geq \frac{|b|}{2} \,\forall n > K .\]
 \end{lem}
 \begin{bew}
 	Bild:\\
@@ -205,7 +209,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		\[\limes{n} \frac{a_n}{b_n} = \frac{a}{b}.\]
 	\end{enumerate}
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item 1. Fall \(\lambda = \mu = 1\).\\
 		Zu \(\varepsilon>0 \exists K_1, K_2 \in\N \), sodass
@@ -232,7 +236,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		Dann folgt \(\forall n\geq K \coloneqq \max \{K_1, K_2\} \)
 		\[|a_n b_n - ab|<\frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.\]
 		Also \(\limes{n} a_n b_n = ab\).
-		\item o.\ B.\ d.\ A.\  \(a_n = 1\). (aus 2.\ folgt dann der allgemeine Fall mit \( \frac{a_n}{b_n} = a_n \cdot\frac{1}{b_n} \))\\
+		\item \Obda{} \(a_n = 1\). (aus 2.\ folgt dann der allgemeine Fall mit \( \frac{a_n}{b_n} = a_n \cdot\frac{1}{b_n} \))\\
 		Da \(b_n \rightarrow b \neq 0\), folgt mit Lemma 7, dass ein \(K_0\in\N \) existiert mit \(|b_n| >\frac{|b|}{2} \) für \(n\geq K_0\) 
 		\[\frac{1}{b_n} \text{ ist wohldefiniert } \forall n\geq K_0.\]
 		Es gilt: \( \frac{1}{b} - \frac{1}{b_n} = \frac{b_n - b}{b b_n} \) und somit 

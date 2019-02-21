@@ -4,7 +4,6 @@
 \begin{document}
 \setcounter{section}{19}
 \section{Funktionenfolgen}
-
 Im Folgenden ist \( D \subset \R \) (man kann aber auch 
 für die Stetigkeit \( D \subset \R^d, d \in \N \) betrachten). \\
 Gegeben eine Folge von Funktionen \( {(f_n)}_n \).
@@ -66,7 +65,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     \end{align*}
 \end{defi}
 \begin{defi}[gleichmäßige Konvergenz]
-    Eine Folge \( f: D \rightarrow \R \) (oder \( \C \)) 
+    Eine Folge \( \abb{f_n}{D}{\R} \) (oder \( \C \)) 
     konvergiert gleichmäßig gegen \( f: D \rightarrow \R \), 
     falls 
     \[ \limes{n} ||f_n - f ||_\infty = 0. \]
@@ -109,7 +108,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     Insbesondere gilt \( \forall \, 0 < \delta < 1 \)
     \[ \limes{k} \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
     \abs{ P(z) - \sum_{l=0}^k a_l z^l } = 0. \]
-    D. \ h. \ das Polynom 
+    \Dphp{} das Polynom 
     \[ P_k(z) := \sum_{l=0}^k a_l z^l 
     = a_0 + a_1 z + \cdots + a_k z^k \]
     konvergiert auf der Kreisscheibe 
@@ -142,7 +141,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         &= \frac{ M }{ 1-\frac{\abs{z}}{\abs{z_0}} } 
         {\left( \frac{\abs{z}}{\abs{z_0}} \right)}^{k+1}.
     \end{align*}
-    \begin{align*}
+    \begin{align*} 
         \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
         \abs{P(z) - P_k(z)} 
         &\leq \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
@@ -279,7 +278,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     1. Schritt: Beh.:\ Sei \( f_n: I \rightarrow \R, x\in I \) 
     beliebig \( \rightarrow f(x) = \limes{n} f_n(x) \) existiert. \\
     Bew.:\ Seien \( n,m \in \N, h(x) := f_n(x) - f_m(x) \).
-    \( \overref{C19-satz:mittelwert}{MWS}{\Rightarrow} 
+    \( \overref{satz:mittelwert}{MWS}{\Rightarrow} 
     \exists \, \rho \) zwischen \(x\) und \(x_0\):
     \begin{align*}
         \abs{ h(x) - h(x_0) } 
@@ -321,7 +320,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         - g(x_0) } \; (**)
     \end{align*}
     \begin{align*}
-        &\overunderref{C19-satz:schranken}{Schranken-}{satz}{\Rightarrow}
+        &\overunderref{satz:schranken}{Schranken-}{satz}{\Rightarrow}
         \abs{\frac{f_l(x)-f_l(x_0)}{x-x_0}-\frac{f_n(x)-f_n(x_0)}{x-x_0}} \\
         &= \abs{\frac{(f_l-f_n)(x)-(f_l - f_n)(x_0)}{x-x_0}} \\
         &\leq \underbrace{||(f_l-f_n)'||_\infty}_

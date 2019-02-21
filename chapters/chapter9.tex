@@ -7,7 +7,7 @@
 \section{Cauchyfolgen}
 \begin{defi}[Cauchyfolge]
 	Eine Folge \({(a_n)}_n\) heißt Cauchyfolge (kurz Cauchy), falls
-	\[\forall \varepsilon>0 \exists K\in\N: |a_n-a_m| < \varepsilon \text{für alle } n,m\geq K \]
+	\[\forall \varepsilon > 0 \,\exists K\in\N: |a_n-a_m| < \varepsilon \, \forall n,m\geq K \]
 \end{defi}
 \begin{bem}
 	Reicht \(m,n\in\N \) mit \( m>n\geq K \) zu betrachten, da Def.\ symmetrisch in \(m,n\) ist und falls \(m=n \Rightarrow a_m-a_n=0\)
@@ -46,7 +46,7 @@
 	\(a_n \in B \forall n\in\N \) \\
 	\(B\) endliche Menge!\\
 	\( \Rightarrow \) Es gibt mindestens ein \(r_0 \in \{1,2,\ldots,R\} \), sodass \( a_n=b_{r_0}  \) für unendlich viele \(n\).\\
-	\[ \Leftrightarrow \forall K\in\N \exists n>K : a_n = b_{r_0} \]
+	\[ \Leftrightarrow \forall K\in\N \,\exists n>K : a_n = b_{r_0} \]
 	Jetzt induktiv: \\
 	\begin{align*}
 		n_1 \in\N: a_{n_1} = b_{r_0}.\\
@@ -69,7 +69,7 @@ Erinnerung: Folge ist eine Funktion \(f: \N\rightarrow X \) \\
 Geg. Folge \( {(a_n)}_{n\in\N} \) und eine Ausdünnung \( \sigma : \N\rightarrow \N. \) Setzen wir \( n_k := \sigma (k), k\in\N \) und \( {(a_{\sigma(k)})}_k = {(a_{n_k})}_{k\in\N} \) Teilfolge von \( {(a_n)}_{n\in\N} \).\\
 Beobachtung: abgeschlossene und beschränkte Intervalle sind aus Folgensicht fast so gut wie endliche Mengen!
 \begin{lem}
-	Sei \(I = [b,c], \quad b,c\in\R, b\leq c. {(a_n)}_n \subset I \).\ D.\ h.\  \(a_n \in I \quad\forall n\in\N \), dann gibt es eine Teilfolge, von \({(a_n)}_n\), die mit Grenzwert in \(I\) konvergiert.
+	Sei \(I = [b,c], \quad b,c\in\R, b\leq c.\ {(a_n)}_n \subset I \). \Dphp{} \(a_n \in I \quad\forall n\in\N \), dann gibt es eine Teilfolge, von \({(a_n)}_n\), die mit Grenzwert in \(I\) konvergiert.
 \end{lem}
 \begin{bew}
 	\(I_0 = [a,b]\) \\
@@ -137,9 +137,9 @@ Hauptbeobachtung:
 \begin{bem}
 	\( {(a_n)}_n \) Cauchyfolge \\
 	\begin{align*}
-		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:|a_m-a_n|<\varepsilon \quad \forall m>n\geq K.\\
-		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:|a_{n+p}-a_n|<\varepsilon \quad \forall n\geq K, p\in\N \\
-		&\Leftrightarrow \forall \varepsilon>0\exists K\in\N:\sup \underbrace{|a_{n+p}-a_n|}_{\text{muss gleichm.\ in }p\in\N\text{ klein sein für } n \text{ groß} }<\varepsilon \quad \forall m>n\geq K
+		&\Leftrightarrow \forall \varepsilon>0 \,\exists K\in\N:|a_m-a_n|<\varepsilon \quad \forall m>n\geq K.\\
+		&\Leftrightarrow \forall \varepsilon>0 \,\exists K\in\N:|a_{n+p}-a_n|<\varepsilon \quad \forall n\geq K, p\in\N \\
+		&\Leftrightarrow \forall \varepsilon>0 \,\exists K\in\N:\sup \underbrace{\set{|a_{n+p}-a_n|}}_{\substack{\text{muss gleichm.}\\\text{in }p\in\N\text{ klein sein}\\ \text{für } n \text{ groß} }}<\varepsilon \quad \forall n\geq K, p\in\N.
 	\end{align*}
 \end{bem}
 \begin{bew}

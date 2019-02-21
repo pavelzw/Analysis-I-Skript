@@ -13,9 +13,9 @@
 	\[f \colon A \longrightarrow B \ko \quad a \mapsto f(a) \]
 	Die Abbildung \(f \colon A \longrightarrow B \) heißt
 	\begin{enumerate}[(a)]
-		\item \underline{injektiv} \(\longeq \) Aus \(f(a) = f(a^\prime) \) mit \(a \ko a^\prime \in A \) folgt \(a = a^\prime \).
-		\item \underline{surjektiv} \(\longeq \forall b \in B \, \exists a \in A \colon \; f(a) = b \).
-		\item \underline{bijektiv} \(\longeq \) f ist injektiv und surjektiv. 
+		\item \textit{injektiv} \(\longeq \) Aus \(f(a) = f(a^\prime) \) mit \(a \ko a^\prime \in A \) folgt \(a = a^\prime \).
+		\item \textit{surjektiv} \(\longeq \forall b \in B \, \exists a \in A \colon \; f(a) = b \).
+		\item \textit{bijektiv} \(\longeq f \) ist injektiv und surjektiv. 
 	\end{enumerate}
 \end{defi}
 
@@ -35,19 +35,24 @@
 	Es sei \(f \colon A \longrightarrow B \) eine Funktion. \\
 	Ist \(f \) bijektiv so definiert
 	\[\inverse{f} \colon B \longrightarrow A \ko \quad b \mapsto a \text{ mit } f(a) = b \]
-	die \underline{Umkehrfunktion von \(f \)}.
-	Ist \(f \) nicht bijektiv so definiert
-	\[\inverse{f} \colon \PO(B) = \PO(A) \ko \quad B \supseteq M \mapsto \set{a \in A \; \vert \; f(a) \in M} \]
-	die \underline{Urbildfunktion von \(f \)} eine verallgemeinerte Umkehrfunktion. \\
-	Ist nun \(g \colon B \longrightarrow C \) eine weiter Funktion so heißt
+	die \textit{Umkehrfunktion von \(f \)}.
+	Ist \(f \) nicht bijektiv, so definiert
+	\[ \abb{\inverse{f}}{\PO(B)}{\PO(A)} \ko \quad B \supseteq M \mapsto \set{a \in A \; \vert \; f(a) \in M} \]
+	die \textit{Urbildfunktion von \(f \)} eine verallgemeinerte Umkehrfunktion. \\
+	Ist nun \(g \colon B \longrightarrow C \) eine weitere Funktion, so heißt
 	\[g \circ f \colon A \longrightarrow C \ko \quad (g \circ f)(a) \coloneqq g \circ f(a) \coloneqq g(f(a)) \]
-	die \underline{Verkettung von \(f \) und \(g \)}. Diese verkettete Funktion lässt sich durch folgendes Diagramm darstellen:
-	\[A \overset{f}{\longrightarrow} B \overset{g}{\longrightarrow} C. \]
+	die \textit{Verkettung von \(f \) und \(g \)}. Diese verkettete Funktion lässt sich durch folgendes Diagramm darstellen:
+	\begin{center}
+    \begin{tikzcd}
+        A \arrow{r}{f \circ g} \arrow{d}{g} & C \\
+        B \arrow{ur}{f}
+    \end{tikzcd}
+	\end{center}
 \end{defi*}
 
 \begin{defi*}[Identitätsabbildung]
-	Sei \(A \) eine Menge, dann ist die \underline{Identität} \\
-	\underline{auf \(A \)} definiert durch
+	Sei \(A \) eine Menge, dann ist die \textit{Identität} \\
+	\textit{auf \(A \)} definiert durch
 	\[\id_{A} \colon A \longrightarrow A \ko \quad a \mapsto a. \]
 \end{defi*}
 
@@ -62,13 +67,13 @@
 
 \begin{defi}
 	Seien \(A \ko B \) Mengen und \(a \in A \ko \, b \in B \). \\
-	Dann heißt \((a \ko b) \) \underline{Tupel}.
+	Dann heißt \((a \ko b) \) \textit{Tupel}.
 	In der Mengenlehre sind diese definiert durch 
-	\[(a \ko b) \coloneqq \set{\set{a}\ko \set{a \ko b}}. \]
+	\[(a \ko b) \coloneqq \set{ \set{\emptyset \ko \set{a}}\ko \set{b} }. \]
 	Die Reihenfolge der Elemente spielt also eine wichtige Rolle und im Allgemeinen gilt \((a \ko b) \neq (b \ko a) \).
 	Die Menge
 	\[A \times B \coloneqq \set{(a \ko b) \; \vert \; a \in A \ko \, b \in B} \]
-	heißt \underline{kartesisches Produkt} von \(A \) und \(B \).
+	heißt \textit{kartesisches Produkt} von \(A \) und \(B \).
 \end{defi}
 
 \begin{bsp}\(\R \times \R \) \\
@@ -83,7 +88,7 @@
 	Seien \(A \ko B \) Mengen. Die Abbildungen
 	\[\Pi_1 \coloneqq \Pi_A \colon A \times B \rightarrow A \ko \quad (a \ko b) \mapsto a \]
 	\[\Pi_2 \coloneqq \Pi_B \colon A \times B \rightarrow B \ko \quad (a \ko b) \mapsto b \]
-	heißen \underline{Projektion auf die erste beziehungsweise zweite Koordinate}. \\
+	heißen \textit{Projektion auf die erste bzw.\ zweite Koordinate}. \\
 	Es gilt also \(\Pi_A(a \ko b) = a \) und \(\Pi_B(a \ko b) = b\).
 \end{defi*}
 
@@ -102,7 +107,7 @@
 \begin{defi}[Graph einer Abbildung]\leavevmode \\
 	Sei \(f \colon A \longrightarrow B \) Funktion. Die Menge
 	\[\Gamma \coloneqq \Gamma_f \coloneqq \set{(a \ko b) \in A \times B \colon \; b = f(a)} \varsubsetneq A \times B \]
-	heißt \underline{Graph von \(f\)}.
+	heißt \textit{Graph von \(f\)}.
 	\iftoggle{short}{}{
 		\begin{figure}[h!]
 			\centering
@@ -116,7 +121,7 @@
 \begin{notation}[Einschränkung von Funktionen]\leavevmode \\
 	Sei \(f \colon A \longrightarrow B \) eine Funktion und \(X \subseteq A\) eine Teilmenge von \(A \).
 	\[\restr{f}{X} \colon X \longrightarrow B \ko \quad x \mapsto f(x)\]
-	heißt \underline{Einschränkung von \(f \) auf \(X \)}.
+	heißt \textit{Einschränkung von \(f \) auf \(X \)}.
 \end{notation}
 
 \begin{satz}\label{satz:graph}
@@ -167,18 +172,18 @@
 	Sei \(n \in \N \). \([n] \coloneqq \set{1 \ko \ldots \ko n} \) ist induktiv gegeben durch
 	\[[1] \coloneqq \set{1} \]
 	\[[n + 1] \coloneqq [n] \cup \set{n + 1} \ko \quad n \in \N.\]
-	Es bezeichne weiterhin \(\#[n] \coloneqq n \) die \underline{Mächtigkeit} von \([n] \).
+	Es bezeichne weiterhin \(\#[n] \coloneqq n \) die \textit{Mächtigkeit} von \([n] \).
 \end{notation}
 
 \begin{satz*}[Schubfachprinzip]\label{satz:schubfach}\leavevmode \\
 	Ist \(f \colon [m] \longrightarrow [n] \) eine Funktion mit \(m > n \), so existiert ein \(k \in [n]\) mit 
-	\(\inverse{f}(\set{k}) \subseteq \set{m_1 \ko m_2} \) wobei \(m_1 \neq m_2 \) ist.
+	\(\inverse{f}(\set{k}) \supseteq \set{m_1 \ko m_2} \), wobei \(m_1 \neq m_2 \) ist.
 \end{satz*}
 \begin{bew}
 	Angenommen für alle \(k \in [n] \) gilt \(\inverse{f}(\set{k}) \subseteq \set{j_k} \) für ein \(k_j \in [m] \).
 	Ferner gilt \(\#[n] = n \). Da durch \(f \) jedem Element in \([m] \) genau ein Element in \([n] \) zugeordnet wird
 	sind die \(j_k \), falls existent, alle unterschiedlich.
-	Somit folgt, dass \(\inverse{f}([n]) \subseteq \set{j_1 \ko \ldots \ko j_n} \) für \(j_k \) paarweise verschieden. \Lightning{ zu \(m > n\).}
+	Somit folgt, dass \(\inverse{f}([n]) \subseteq \set{j_1 \ko \ldots \ko j_n} \) für \(j_k \) paarweise verschieden \Lightning{ zu \(m > n\).}
 \end{bew}
 
 \begin{kor}\label{satz:schubfach:kor}\leavevmode \\
@@ -229,7 +234,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{kor}\label{satz:schubfach:kor_2}\leavevmode \\
-	Sind \(n \ko m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv, so gilt \(m = n \).
+	Sind \(n, m \in\N \) und ist \(f \colon [m] \longrightarrow[n] \) bijektiv, so gilt \(m = n \).
 \end{kor}
 \begin{bew}
 	Nach Voraussetzung sind sowohl \(f \) als auch \(\inverse{f} \) injektiv. \\
@@ -237,29 +242,33 @@
 \end{bew}
 
 \begin{defi}
-	Seien \(M \ko A \ko B \) Mengen.
+	Seien \(M, A, B \) Mengen.
 	\begin{enumerate}[(a)]
-		\item \(M \) heißt \underline{endlich} \(\longeq M = \emptyset \) oder \(\exists \, n \in \N \, \exists \, f \colon [n] \longrightarrow M \bijektiv \). \\
-			  In diesem Fall heißt \(\#M \coloneqq n \) die \underline{Mächtigkeit von M}. \\
-			  Für die leere Menge setzen wir \(\#\emptyset \coloneqq 0 \). \\
-		\item \(M \) heißt \underline{unendlich} \(\longeq M \) ist nicht endlich.
-		\item \(A \ko B \) heißen gleichmächtig \(\longeq \exists \, f \colon A \longrightarrow B \, \bijektiv \). \\
+		\item \(M \) heißt \textit{endlich} 
+		\(\longeq M = \emptyset \) oder 
+		\(\exists \, n \in \N \, \exists \, 
+		f \colon [n] \longrightarrow M \bijektiv \). \\
+			  In diesem Fall heißt \( \# M \coloneqq n \) die \textit{Mächtigkeit von M}. \\
+			  Für die leere Menge setzen wir \( \# \emptyset \coloneqq 0 \).
+		\item \(M \) heißt \textit{unendlich} \(\longeq M \) ist nicht endlich.
+		\item \(A, B \) heißen gleichmächtig \(\longeq \exists \, f \colon A \longrightarrow B \, \bijektiv \). \\
 			  Schreibe auch \(A \sim B\).
-		\item \(M \) heißt \underline{abzählbar} \(\longeq \exists \, f \colon \N \longrightarrow M \, \bijektiv \).
-		\item \(M \) heißt \underline{abzählbar unendlich} \(\longeq M \) ist unendlich und abzählbar.
+		\item \(M \) heißt \textit{abzählbar} \(\longeq \exists \, f \colon \N \longrightarrow M \, \bijektiv \).
+		\item \(M \) heißt \textit{überabzählbar unendlich}\\
+		\(\longeq M \) ist unendlich und nicht abzählbar.
 	\end{enumerate}
 \end{defi}
 
 \begin{bem}
-	Ist \(M \) endlich, so ist \(\#M \) wohldefiniert.
+	Ist \(M \) endlich, so ist \( \# M \) wohldefiniert.
 \end{bem}
 \begin{bew}
-	Seien \(f \colon [n] \rightarrow M \ko g \colon [m] \rightarrow M \) bijektiv.
+	Seien \( \abb{f}{[n]}{[M]}, \abb{g}{[m]}{M} \) bijektiv.
 	\[\begin{tikzcd}
 		& M &  \\
 	   {[n]} \arrow[ru, "f"] &  & {[m]} \arrow[lu, "g"'] \arrow[ll, "h"']
 	\end{tikzcd}\]
-	\( h \coloneqq \inverse{f} \circ g \colon [m] \longrightarrow [n] \) ist auch bijektiv. \(\overset{\autoref{satz:schubfach:kor_2}}{\implies} m=n \).
+	\( h \coloneqq \inverse{f} \circ g \colon [m] \longrightarrow [n] \) ist auch bijektiv. \(\oversett{\autoref{satz:schubfach:kor_2}}{\implies} m=n \).
 \end{bew}
 
 \iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript
@@ -281,8 +290,8 @@
 \begin{defi*}
 	Seien \(A \ko B \) Mengen. \\
 	Existiert eine injektive Funktion \(f \colon A \longrightarrow B \) so schreibe \(A \leq B \). \\
-	In diesem Fall sage auch \gqq{Die Kardinalität von \(A \) ist kleiner als die Kardinalität von \(B \)} oder
-	\gqq{\(A \) ist weniger Mächtig als B}.
+	In diesem Fall sage auch \gqq{Die Kardinalität von \(A \) ist kleiner gleich der Kardinalität von \(B \)} oder
+	\gqq{\(A \) ist weniger mächtig oder gleich mächtig wie \(B\)}.
 \end{defi*}
 
 \begin{bem}
@@ -358,16 +367,16 @@
 	\begin{enumerate}[(a)]
 		\item Eine bijektive Abbildung
 			  \(\sigma \colon \set{1 \ko \ldots \ko n} \rightarrow \set{1 \ko \ldots \ko n} \) heißt \\
-			  \underline{Permutation} von \(\set{1 \ko \ldots \ko n} \).
+			  \textit{Permutation} von \(\set{1 \ko \ldots \ko n} \).
 		\item Die Menge
 			  \[S_n \coloneqq \set{\sigma \colon \set{1 \ko \ldots n} \rightarrow \set{1 \ko \ldots \ko n \; \vert \; \sigma \bijektiv}} \]
-			  bildet mit der Komposition eine Gruppe. \(S_n \) heißt auch \underline{Symmetrische} \underline{Gruppe}. 
-		\item Für \(n \in \N \) heißt \(n! = \prod_{k=1}^{n}k \) \underline{Fakultät} von \(n \).
+			  bildet mit der Komposition eine Gruppe. \(S_n \) heißt auch \textit{symmetrische} \textit{Gruppe}. 
+		\item Für \(n \in \N \) heißt \(n! = \prod_{k=1}^{n}k \) \textit{Fakultät} von \(n \).
 	\end{enumerate}
 \end{defi}
 
 \begin{satz}
-	\(\#S_n = n! \).
+	\( \# S_n = n! \).
 \end{satz}
 \begin{bew}\leavevmode
 	\induktion{
@@ -437,7 +446,7 @@
 \begin{satz}[Zahl der Kombinationen]\label{satz:zahl_komb}\leavevmode \\
 	Sei \( n \in \N_0 \ko k \in \set{1 \ko \ldots \ko n} \). Dann ist die Anzahl der \(k \)-elementigen Teilmengen von \( \set{1 \ko \ldots \ko n} \) gleich \( \binom{n}{k} \).
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\induktion{
 		Die Behauptung gilt für \(k=0 \) und beliebiges \(n \in\N \), da die leere Menge die einzige Teilmenge von \( \set{1 \ko \ldots \ko n} \) mit \(0 \) Elementen ist
 		und nach Definition ist \( \binom{n}{0} = 1 \). Insbesondere gilt die Behauptung dann für \(n=0 \). 
@@ -452,7 +461,7 @@
 			\#\set{A \subseteq [n+1] \; \vert \; \#A = k}&=\phantom{+} \#\set{A \subseteq [n] \; \vert \; \#A = k} \\
 			                               			     &\phantom{=}+\#\set{B \subseteq [n] \; \vert \; \#B = k - 1} \\
 			  		                   	    \overset{\IV}&{=} \binom{n}{k} + \binom{n}{k-1} \\
-					   	 \overset{\autoref{satz:bin_rek}}&{=} \binom{n+1}{k}.
+					   	 \overset{\text{\autoref{satz:bin_rek}}}&{=} \binom{n+1}{k}.
 		  \end{aligned}\)
 	}
 \end{bew}
@@ -460,7 +469,7 @@
 \begin{satz}[Binomische Formel] Seien \(a \ko b \in \R \ko n \in \N \). Dann gilt
 	\[{(a+b)}^n = \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k}. \]
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\induktion{
 		\({(a+b)}^1 = a+b = \sum_{k=0}^{1}\binom{1}{k} a^k b^{1-k} \).
 	}{
@@ -488,7 +497,7 @@
 \begin{defi*}
 	Sei \(A \ko B \) eine Menge.
 	\[B^A \coloneqq \set{f \; \vert \; f \colon A \longrightarrow B } \]
-	ist die \underline{Menge aller \(B\)-wertigen Funktionen mit Definitionsbereich \(A \)}. \\
+	ist die Menge aller \(B\)-wertigen Funktionen mit Definitionsbereich \(A \). \\
 	Insbesondere betrachten wir Funktionen der Form
 	\[\set{0 \ko 1}^A \coloneqq \set{f \; \vert \; f \colon A \longrightarrow \set{0 \ko 1} }. \]
 \end{defi*}
@@ -498,7 +507,7 @@
 \end{satz}
 \begin{bew}
 	Sei \(\#A \eqqcolon n \in \N \). Also existiert eine Bijektion \(h \colon [n] \longrightarrow A\) und
-	wir können \obda annehmen, dass \(A = \set{1 \ko 2 \ko \ldots \ko n} \).
+	wir können \obda{} annehmen, dass \(A = \set{1 \ko 2 \ko \ldots \ko n} \).
 	Es bleibt also zu zeigen, dass \(\#\set{0 \ko 1}^{[n]} = 2^n \).
 	\induktion{
 		Für \(n = 1 \) existieren genau zwei Funktionen \(f_1 \ko f_2 \)von \(A = \set{1} \) nach \(\set{0 \ko 1} \).
@@ -539,9 +548,9 @@
 	Definiere nun \( \varphi \colon \PO(A) \longrightarrow \set{0 \ko 1}^A \ko \, B \mapsto \1_B \). \\
 	Sei \(f \in \set{0 \ko 1}^A \). Mit \(B_f \coloneqq \inverse{f}(\set{1}) = \set{a \in A \; \vert \; f(a) = 1} \) \\
 	folgt \(\varphi(f) = \1_{B_f} = f \). Also ist \(\varphi \) surjektiv. \\
-	Seien nun \(B_1 \ko B_2 \subseteq A \) mit \(B_1 \neq B_2 \). \obda gelte \(B_1 \setminus B_2 \neq \emptyset \). \\
+	Seien nun \(B_1 \ko B_2 \subseteq A \) mit \(B_1 \neq B_2 \). \obda{} gelte \(B_1 \setminus B_2 \neq \emptyset \). \\
 	Dann existiert ein \(x \in B_1 \setminus B_2 \subseteq A \) und es gilt \(\1_{B_1}(x) = 0 \neq 1 = \1_{B_2}(x) \). \\
-	Es folgt \(\varphi(B_1) = \1_{B_1} \neq \1_{B_2} ? \varphi(B_2) \). Also ist \(\varphi \) injektiv und damit bijektiv.
+	Es folgt \(\varphi(B_1) = \1_{B_1} \neq \1_{B_2} = \varphi(B_2) \). Also ist \(\varphi \) injektiv und damit bijektiv.
 \end{bew}
 
 \begin{lem}

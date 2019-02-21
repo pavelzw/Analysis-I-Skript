@@ -83,9 +83,9 @@
 \begin{defi}[Eulersche Zahl]
 	\( e:= \limes{n} {(1+\frac{1}{n})}^n \) (\(\leq 2,75\))
 \end{defi}
-\begin{bem}
+\begin{bem}\leavevmode
 	\begin{enumerate}
-		\item Es gilt auch \( \limes{n} {(1+\frac{x}{n})}^n \) exist. \( \forall x\in\R \) (H.A.)
+		\item Es gilt auch \( \limes{n} {(1+\frac{x}{n})}^n \) existiert. \( \forall x\in\R \) (H.A.)
 		\item Alternative Darstellung für \(e\):\\
 		Hatten gesehen: \(f_n \leq e_n = \sum_{k=0}^{n} \frac{1}{k!} \quad \forall n \) \\
 		\(e_n \leq 2,75, e_{n+1} > e_n \) \\
@@ -148,7 +148,7 @@
 		\end{tikzpicture}
 	\end{center}
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item \( \bigcap_{n\in\N} I_n \) besteht aus höchstens einem Punkt in \(\R \).\\
 		Ang. \( \exists a, a^2 \in \bigcap_{n\in\N} I_n \quad a\neq a^2 \) (o.B.d.A. \(\tilde{a}>a\)).\\
@@ -183,7 +183,7 @@
 \begin{satz}[\(k\)-adische Darstellung reeller Zahlen]
 	\(k\in\N, k\geq Z\) und \(x\in\R \). Dann gibt es \(z_0\in \Z \) und \(l_j \in \{0,1,\ldots,k-1\} \) derart, dass \(x = z_0 + \limes{n} \sum_{j=1}^{n} l_j k^{-j} = z_0 + \sum_{j=1}^{\infty} l_j k^{-j} \).\\
 	\(Z_0 := \lfloor x \rfloor := \min(p\in\Z, p>x) -1 = \max(q\in\Z, q\leq x). \) \\
-	\( 0\leq x-\lfloor c\rfloor <1. \) \\
+	\( 0\leq x-\lfloor x\rfloor <1. \) \\
 	\(\Rightarrow \) o.\ B.\ d.\ A.\ sei \(0\leq x<1\).
 	\begin{center}
 		\begin{tikzpicture}
@@ -200,7 +200,11 @@
 		\end{tikzpicture}
 	\end{center}
 	iteriere diesen Prozess.
-	\(\rightarrow \) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\) \\
+	\(\rightarrow \) kriegen 
+	\(l_j \in \{0,1,2,\ldots,k-1 \} \) 
+	und 
+	\[ \sum_{j=1}^{n} l_j k^{-j} 
+	\leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \tag{\(*\)}\]
 	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
 \end{satz}
 %27.11.2018
@@ -243,7 +247,7 @@
 		&= (k-1)\underbrace{ \sum_{j=1}^{n} {( \frac{1}{k})}^j + \frac{1}{k^n} }_{= \frac{1}{k} \sum_{j=0}^{n-1} {(\frac{1}{k})}^j = \frac{1}{k} \frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} }\\
 		&=\frac{k-1}{k}-\frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} + \frac{1}{k^n}\\
 		&= 1- {\left(\frac{1}{k}\right)}^n + \frac{1}{k^n} = 1.\\
-		\overset{\text{Mon. Konv.}}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
+		\overundersett{Mon.}{Konv.}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
 	\end{align*}
 	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \rightarrow\overset{n \rightarrow \infty}{\rightarrow} 0\) \\	 
 	\begin{align*}

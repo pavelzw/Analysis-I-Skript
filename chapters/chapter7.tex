@@ -212,20 +212,32 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 \begin{bew}\leavevmode
 	\begin{enumerate}
 		\item 1. Fall \(\lambda = \mu = 1\).\\
-		Zu \(\varepsilon>0 \exists K_1, K_2 \in\N \), sodass
+		Zu \(\varepsilon>0 \,\exists K_1, K_2 \in\N \), sodass
 		\begin{align*}
 			|a_n-a|<\frac{\varepsilon}{2} \quad \forall n\geq K_1\\
 			|b_n-b|<\frac{\varepsilon}{2} \quad \forall n\geq K_2
 		\end{align*}
 		Setze \(K \coloneqq \max \{K_1, K_2\} \). Dann folgt 
-		\[|a_n + b_n - (a+b)| = |(a_n-a)+(b_n-b)| \leq |a_n-a|+|b_n-b| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \quad \forall n\geq K.\]
-		Also ist \(\limes{n}a_n+b_n=a+b\).
+		\begin{align*}
+			\hphantom{=} |a_n + b_n - (a+b)| 
+			&= |(a_n-a)+(b_n-b)| \\
+			&\leq |a_n-a|+|b_n-b| \\
+			&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+			&= \varepsilon \quad \forall n\geq K.
+		\end{align*}
+		Also ist \(\limes{n}a_n+b_n=a+b\).\\
 		Fall 2: allg.\  \(\lambda,\mu\in\R \) \\
 		Aus 2.\ folgt 
 		\[\limes{n} \lambda a_n = \lambda \limes{n} a_n\]
-		\[\limes{n} \mu b_n = \mu \limes{n} b_n \qquad(*)\]
-		\(\overset{\text{Fall 1}}{\Rightarrow} \lambda a_n + \mu b_n\) ist konvergent und 
-		\[\limes{n} (\lambda a_n + \mu b_n) = \limes{n} (\lambda a_n) + \limes{n} (\mu b_n) \overset{(*)}{=} \lambda \limes{n} a_n + \mu \limes{n} b_n = \lambda a + \mu b.\]
+		\[\limes{n} \mu b_n = \mu \limes{n} b_n \tag{\(*\)} \]
+		\(\oversett{Fall 1}{\Rightarrow} \lambda a_n + \mu b_n\) ist konvergent und 
+		\begin{align*}
+			&\limes{n} (\lambda a_n + \mu b_n) \\
+			= &\limes{n} (\lambda a_n) + \limes{n} (\mu b_n) \\
+			\overset{(*)}{=} &\lambda \limes{n} a_n + \mu \limes{n} b_n \\
+			= &\lambda a + \mu b.
+		\end{align*}
+		\[\]
 		\item Sei \(n\in\N \). Dann folgt \(a_n b_n-ab = a_n b_n -a_n b + a_n b - ab=a_n(b_n-b)+(a_n-a)b\)
 		\[\Rightarrow |a_n b_n -ab|\leq |a_n| |b_n-b| + |a_n-a||b|.\]
 		Nach Satz 6 existiert \(C\geq 0\) mit \(|a_n|\leq C \forall n\in\N \). Setze \(D\coloneqq \max \{C, |b|\} \).
@@ -322,7 +334,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\end{tikzpicture}
 		\( \Rightarrow b_n > a_n \) \Lightning{}
 		\end{center}
-		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
+		\textit{Formal}: \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
 		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon \\
 		&\Rightarrow K \coloneqq \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
@@ -376,14 +388,14 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 	Ist \( q<1 \Rightarrow {(q_n)}_n \) nicht beschränkt ist.
 \end{bew}
 
-\begin{satz}[Kehrwerte]
+\begin{satz}[Kehrwerte]\leavevmode
 	\begin{enumerate}
 		\item Aus \( |a_n| \rightarrow \infty, n\rightarrow\infty \) folgt \(\frac{1}{a_n} \rightarrow0,n\rightarrow\infty \).
 		\item Aus \( a_n\rightarrow 0, a_n > 0 \) (bzw. \(a_n<0\)) \( \forall n \) folgt \( \frac{1}{a_n} \rightarrow\infty, n\rightarrow\infty \) (\( \frac{1}{a_n} \rightarrow -\infty, n\rightarrow\infty \)).
 	\end{enumerate}
 \end{satz}
-\begin{bew}\phantom{\qedhere}
-	Übung.
+\begin{bew}
+	Übung.\phantom{\qedhere}
 \end{bew}
 
 \end{document}

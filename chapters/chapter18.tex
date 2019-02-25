@@ -14,7 +14,7 @@ Im Folgenden \( I \subset \R \) offenes Intervall,
     (oder \( \C \ko \R^d \)), falls 
     \[ \limesx{x}{x_0} \underbrace{\frac{f(x) - f(x_0)}{x - x_0}}_{
         \text{Differenzenquotient}
-    } = a. (*) \]
+    } = a. \; (*) \]
     Notation: \( f'(x_0) := a \).\\
     Nennen \(f\) differenzierbar (diffbar) in \(x_0\), falls 
     es so ein \(a\) mit \((*)\) gibt, falls also der Grenzwert 
@@ -275,7 +275,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     dem Intervall \(I\) mit Endpunkten \( a < b \). Dann gilt 
     \begin{enumerate}
         \item \( J = f(I) \) ist ein Intervall mit Endpunkten 
-        \[ \alpha := \limesx{x}{\alpha +} f(x) 
+        \[ \alpha := \limesx{x}{a +} f(x) 
         < \beta := \limesx{x}{b -} f(x) \]
         \item Die Umkehrfunktion \( g: J = f(I) \rightarrow I \) ist 
         ebenfalls stetig und streng wachsend.
@@ -313,7 +313,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
     \[ \Rightarrow \exists \, x_1 < x_2 \in I : y_1 = f(x_1), 
     y_2 = f(x_2). \]
     \[ f \text{ stetig } 
-    \overunderref{C17-satz:zwischenwert}{Zwischen-}{wertsatz}{\Rightarrow}
+    \overunderref{satz:zwischenwert}{Zwischen-}{wertsatz}{\Rightarrow}
     \exists \, x_1 < x < x_2: f(x) = c. \]
     \[ \Rightarrow c \in J = f(I). \]
     \[ \Rightarrow [y_1, y_2] \subset J = f(I). \]
@@ -460,7 +460,7 @@ Ang.: \( g \) ist differenzierbar in \( y_0 \in J, y_0 = f(x_0) \) und
 \begin{bem}
     \[ f'(x_0) = \limesx{x}{x_0} \frac{f(x) - f(x_0)}{ x - x_0 } \]
     \[ \Leftrightarrow \limesx{x}{x_0} \underbrace{ \frac{1}{x - x_0} \left(
-        f(x) - \set{ f(x_0) + f'(x-0)(x-x_0) } \right) 
+        f(x) - \set{ f(x_0) + f'(x_0)(x-x_0) } \right) 
     }_{=\varepsilon(x)} = 0 \]
     \( x \neq x_0, \varepsilon(x_0) := 0 \).\\
     D.\ h.\  \( \exists \, \text{ Funktion } 

@@ -7,33 +7,34 @@
 \section{Folgen und Konvergenz}
 
 \begin{defi}
-	Sei \(X\neq\emptyset \) eine Menge. Eine Folge (mit Werten in \(X\) oder auch \(X\)-wertige Folge) ist eine Funktion 
-	\[f: \N \rightarrow X, n \mapsto f(n)\in X\]
-	Wir setzen \(a_n := f(n), n\in\N \).\\
-	\(a_n\) heißt \(n\)-tes Folgenglied. Wir schreiben auch \({(a_n)}_{n\in\N}\) oder kurz \({(a_n)}_n\).\\
-	Ist \(X = \R \), so heißt die Folge reellwertig oder reelle Folge (Folge reeller Zahlen). \({(a_n)}_{n\in\N} \subset \R \).
+	Sei \( X \neq \emptyset \) eine Menge. Eine Folge in \(X \) oder auch \(X \)-wertige Folge ist eine Funktion 
+	\[ \abb{f}{\N}{X} \ko \quad n \mapsto f(n) \in X. \]
+	Wir setzen \(a_n \coloneqq f(n) \ko \, n \in \N \).\\
+	\(a_n \) heißt \(n \)-tes Folgenglied. Wir schreiben auch \({(a_n)}_{n \in \N}\) oder kurz \({(a_n)}_n \).\\
+	Ist \(X = \R \), so heißt die Folge reellwertig oder reelle Folge. \\
+	Dabei gilt \({(a_n)}_{n\in\N} \subset \R \).
 \end{defi}
 
-\begin{defi}[Konvergenz (reeller Folgen)]
-	Eine reelle Folge \({(a_n)}_{n\in\N}\) konvergiert (mit \(n\rightarrow\infty \)) gegen ein \(a\in\R \), falls 
-	\[\forall \varepsilon > 0 \exists k \in \N: \forall n\geq k \text{ folgt } |a_n - a| < \varepsilon.\]
+\begin{defi}[Konvergenz reeller Folgen] \leavevmode \\
+	Eine reelle Folge \({(a_n)}_{n \in \N} \) konvergiert gegen ein \(a \in \R \), falls 
+	\[\forall \, \varepsilon > 0 \, \exists \, k \in \N \colon \; \forall \, n \geq k \text{ folgt } \abs{a_n - a} < \varepsilon. \]
 	Die Zahl \(a\) heißt Grenzwert der Folge, wir schreiben \(\limes{n}a_n = a\) oder \(a_n\rightarrow a\) (für \(n\rightarrow\infty \)).\\
 	Eine (reelle) Folge heißt konvergent, falls ein \(a\in\R \) der Grenzwert der Folge ist, andernfalls heißt die Folge divergent.
 \end{defi}
 
 \begin{bem}
-	\[\limes{n}a_n = a \Leftrightarrow \forall \varepsilon > 0 \exists k\in\N: \forall n\geq k \text{ folgt } |a_n -a|< \varepsilon.\]
+	\[\limes{n}a_n = a \Leftrightarrow \forall \, \varepsilon > 0 \exists \, k\in\N: \forall \, n\geq k \text{ folgt } |a_n -a|< \varepsilon.\]
 \end{bem}
 
 \begin{bsp}
 	Beweis mit \(\varepsilon \)-Methode:
 	\begin{enumerate}
-		\item \(a_n := \frac{1}{n}\) konvergiert gegen \(0\). Denn zu geg.\  \(\varepsilon > 0\) wähle \(k\in\N \) mit \(k>\frac{1}{\varepsilon}\). Dann gilt für \(n\geq k\)
-		\[|a_n-a| = |\frac{1}{n} - 0| = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.\]
+		\item \(a_n \coloneqq \frac{1}{n}\) konvergiert gegen \(0\). Denn zu geg.\  \(\varepsilon > 0\) wähle \(k\in\N \) mit \(k>\frac{1}{\varepsilon}\). Dann gilt für \(n\geq k\)
+		\[ \abs{a_n-a} = \abs{\frac{1}{n} - 0} = \frac{1}{n} \leq \frac{1}{k} < \varepsilon.\]
 		\item Konstante Folge. Sei \(a\in\R \) und sei \(a_n = a\) für \(n\in\N \).\\
 		Dann folgt \(\limes{n} a_n = a\), denn für \(\varepsilon > 0\)
-		\[|a_n - a| = |a-a|=0<\varepsilon \text{, wähle } k=1\]
-		\item Sei \(a_n := {(-1)}^n\), also \(a_1 = -1, a_2 = 1, a_3 = -1, \ldots \) \\
+		\[ \abs{a_n - a} = |a-a|=0<\varepsilon \text{, wähle } k=1\]
+		\item Sei \(a_n \coloneqq {(-1)}^n\), also \(a_1 = -1, a_2 = 1, a_3 = -1, \ldots \) \\
 		Dann ist \({(a_n)}_{n\in\N}\) nicht konvergent.
 		\begin{bew}
 			Angenommen: \({(a_n)}_n\) konvergiert und \(a\in\R \) ist Grenzwert. Zu \(\varepsilon = 1\) existiert dann \(k\in\N \) so, dass \(|a_n - a| < \varepsilon = 1 \quad \forall n\geq k\) \\
@@ -50,19 +51,23 @@
 			\[ {(1+x)}^n \geq 1+nx \]
 			und somit 
 			\[ |q^n-0| = |q^n| = |q|^n = \frac{1}{{(1+x)}^n} \leq \frac{1}{1+nx}. \]
-			Also zu \(\varepsilon > 0\) wähle \(k\in\N \forall n\geq k\) gilt \(nx > \frac{1}{\varepsilon}\).
+			Also zu \(\varepsilon > 0\) wähle \(k\in\N \; \forall \, n\geq k\) gilt \(nx > \frac{1}{\varepsilon}\).
 			\[|q^n-0|\leq \frac{1}{1+nx} \leq \frac{1}{nx} < \varepsilon \text{ für } n\geq k.\]
 		\end{bew}
 		\item Sei \(a\in\R \) mit \(a>0\). Dann konvergiert die \(a_n = a^{\nicefrac{1}{n}}\) gegen \(1\).
-		\begin{bew}
+		\begin{bew}\hfill \\
 			Fall 1: Die Beh.\ stimmt für \( a=1 \).\\
-			Fall 2: \(a>1\). Dann ist \(a_n = a^{\nicefrac{1}{n}}>1\) und somit \(q_n := a_n-1 = a^{\nicefrac{1}{n}} -1 >0\).\\
-			\[a_n = a^{\frac{1}{n}} = 1+q_n \Rightarrow a = {(1+q_n)}^n \underset{\text{Bern.\ Ungl.}}{\geq} 1+ nq_n\]
-			\[\Rightarrow 0 \leq q_n \leq \frac{a-1}{n} \forall n\in\N \]
+			Fall 2: \(a>1\). Dann ist 
+			\(a_n = a^{\nicefrac{1}{n}}>1\) 
+			und somit 
+			\[ q_n \coloneqq a_n-1 
+			= a^{\nicefrac{1}{n}} -1 >0. \]
+			\[a_n = a^{\frac{1}{n}} = 1+q_n \Rightarrow a = {(1+q_n)}^n \overundersett{Bern.}{Ungl.}{\geq} 1+ nq_n\]
+			\[\Rightarrow 0 \leq q_n \leq \frac{a-1}{n} \; \forall \, n\in\N \]
 			Zu \(\varepsilon > 0\) wähle \(K\in\N \) mit \(K>\frac{a-1}{\varepsilon}\).\\
 			Dann \(n\geq K\)
 			\[|a_n-1| = |a^{\nicefrac{1}{n}}-1|= a^{\nicefrac{1}{n}} -1 = q_n \leq \frac{a-1}{n} < \varepsilon.\]
-			Fall 3: \(0<a<1\). Dann ist \(b := \frac{1}{a}>1\).
+			Fall 3: \(0<a<1\). Dann ist \(b \coloneqq \frac{1}{a}>1\).
 			\[\overset{\text{Fall 2}}{\Rightarrow} \limes{n} b^{\frac{1}{n}} = 1\]
 			\begin{align*}
 				|a^{\nicefrac{1}{n}}-1|&=a^{\nicefrac{1}{n}}\left|1-\frac{a}{a^{\nicefrac{1}{n}}}\right|\\
@@ -76,7 +81,7 @@
 	\item Es gilt \(\limes{n}n^{\nicefrac{1}{n}}=1\).
 	\begin{bew}
 		1. Versuch:\\
-		Setze \(q_n := n^{\nicefrac{1}{n}} -1>0\) für \(n>1\) \\
+		Setze \(q_n \coloneqq n^{\nicefrac{1}{n}} -1>0\) für \(n>1\) \\
 		\[\Rightarrow n={(1+q_n)}^n \geq 1+nq_n\]
 		\[\Rightarrow |n^{\nicefrac{1}{n}}-1| = q_n \leq \frac{n-1}{n} = 1-\frac{1}{n}\]
 		funktioniert nicht\dots \\
@@ -85,10 +90,9 @@
 			{(1+q)}^n &= \sum_{k=0}^{n} \binom{n}{k} q^k1^{n-k}\\
 			&=1+\binom{n}{1}q + \binom{n}{2}q^2 + \sum_{k=3}^{n}\binom{n}{k} q^k1^{n-k}\\
 			&\geq 1+nq + \frac{n(n-1)}{2} q^2\\
-			&\geq 1+\frac{n(n-1)}{2} q^2 \quad\text{falls }	q\geq 0.\\
-			(*)
+			&\geq 1+\frac{n(n-1)}{2} q^2 \quad\text{falls }	q\geq 0. \tag{\(*\)}
 		\end{align*}
-		Setzen \(q_n := n^{\nicefrac{1}{n}} -1 >0\) für \(n\geq 2\).
+		Setzen \(q_n \coloneqq n^{\nicefrac{1}{n}} -1 >0\) für \(n\geq 2\).
 		\[\Rightarrow n = {(1+q_n)}^n \overset{(*)}{\geq}1+\frac{n(n-1)}{2} q_n^2\]
 		\[\Rightarrow q_n^2 \leq \frac{2(n-1)}{n(n-1)} = \frac{2}{n}\]
 		\[\Rightarrow q_n \leq \sqrt{\frac{2}{n}} \forall n\geq 2\]
@@ -112,7 +116,7 @@
 		\forall \varepsilon>0\exists K_1\in\N: \forall n\geq K_1 \quad |a_n -a| <\varepsilon \\
 		\forall \varepsilon>0\exists K_2\in\N: \forall n\geq K_2 \quad |a_n -b| <\varepsilon
 	\end{align*}
-	Setze \(\varepsilon:=\frac{b-a}{2} >0\).\\
+	Setze \(\varepsilon\coloneqq\frac{b-a}{2} >0\).\\
 	Dann folgt für \(n\geq \max \{K_1,K_2\} \)
 	\[b-a = b-a_n + a_n -a \leq \underbrace{|b-a|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}\]
 	Somit muss \(a=b\) gelten!
@@ -136,11 +140,11 @@ Bild:\\
 
 \begin{defi}[\(\varepsilon \)-Umgebung]
 	Die \(\varepsilon \)-Umgebung um \(a\in\R \) ist die Menge
-	\[U_\varepsilon(a):= \{x\in\R: |x-a| <\varepsilon \} = (a-\varepsilon, a+\varepsilon).\]
+	\[U_\varepsilon(a)\coloneqq \{x\in\R: |x-a| <\varepsilon \} = (a-\varepsilon, a+\varepsilon).\]
 \end{defi}
 
 Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
-\[\Leftrightarrow \forall\varepsilon >0 \exists K\in\N: a_n \in U_\varepsilon(a) \forall n\geq K.\]
+\[\Leftrightarrow \forall \varepsilon >0 \,\exists K\in\N: a_n \in U_\varepsilon(a) \;\forall n\geq K.\]
 
 \begin{defi}[Beschränktheit von Folgen]
 	Eine Folge \({(a_n)}_{n\in\N} \subset \R \) heißt beschränkt, wenn für \(C\geq 0\) gilt \(|a_n|\leq C \quad \forall n\in\N \) \\
@@ -162,13 +166,13 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		n\geq K &\Rightarrow |a_n| = |a_n -a+a| \leq |a_n -a| + |a| < 1 + |a|\\
 		n\leq K-1 &\Rightarrow |a_n| \leq \max \{|a_1|,\ldots,|a_{K-1}|\}.
 	\end{align*}
-	Setze \(C:= \max \{|a_1|,\ldots,|a_{K-1}|, 1 + |a|\} \), so folgt
+	Setze \(C\coloneqq \max \{|a_1|,\ldots,|a_{K-1}|, 1 + |a|\} \), so folgt
 	\[|a_n| \leq C \quad\forall n\in\N.\]
 \end{bew}
 
 \begin{lem}
 	Die Folge \({(b_n)}_n \subset \R \) konvergiert gegen \(b\neq 0\). Dann existiert \(K\in\N \), sodass 
-	\[|b_n| \geq \frac{|b|}{2}.\]
+	\[|b_n| \geq \frac{|b|}{2} \,\forall n > K .\]
 \end{lem}
 \begin{bew}
 	Bild:\\
@@ -186,7 +190,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		\draw (4,0) node[below=2mm] {\(b\)};
 	\end{tikzpicture}
 	\end{center}
-	Setze \(\varepsilon := \frac{|b|}{2}>0\). Dann existiert \(K\in\N \) mit 
+	Setze \(\varepsilon \coloneqq \frac{|b|}{2}>0\). Dann existiert \(K\in\N \) mit 
 	\[|b_n-b| < \varepsilon = \frac{|b|}{2} \quad\forall n\geq K, n\geq K\]
 	\begin{align*}
 		&\Rightarrow |b| = |b-b_n + b_n| \leq |b-b_n| + |b_n| \overset{n\geq K}{<} \frac{|b|}{2} + |b_n|\\
@@ -205,34 +209,46 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 		\[\limes{n} \frac{a_n}{b_n} = \frac{a}{b}.\]
 	\end{enumerate}
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item 1. Fall \(\lambda = \mu = 1\).\\
-		Zu \(\varepsilon>0 \exists K_1, K_2 \in\N \), sodass
+		Zu \(\varepsilon>0 \,\exists K_1, K_2 \in\N \), sodass
 		\begin{align*}
 			|a_n-a|<\frac{\varepsilon}{2} \quad \forall n\geq K_1\\
 			|b_n-b|<\frac{\varepsilon}{2} \quad \forall n\geq K_2
 		\end{align*}
-		Setze \(K := \max \{K_1, K_2\} \). Dann folgt 
-		\[|a_n + b_n - (a+b)| = |(a_n-a)+(b_n-b)| \leq |a_n-a|+|b_n-b| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \quad \forall n\geq K.\]
-		Also ist \(\limes{n}a_n+b_n=a+b\).
+		Setze \(K \coloneqq \max \{K_1, K_2\} \). Dann folgt 
+		\begin{align*}
+			\hphantom{=} |a_n + b_n - (a+b)| 
+			&= |(a_n-a)+(b_n-b)| \\
+			&\leq |a_n-a|+|b_n-b| \\
+			&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+			&= \varepsilon \quad \forall n\geq K.
+		\end{align*}
+		Also ist \(\limes{n}a_n+b_n=a+b\).\\
 		Fall 2: allg.\  \(\lambda,\mu\in\R \) \\
 		Aus 2.\ folgt 
 		\[\limes{n} \lambda a_n = \lambda \limes{n} a_n\]
-		\[\limes{n} \mu b_n = \mu \limes{n} b_n \qquad(*)\]
-		\(\overset{\text{Fall 1}}{\Rightarrow} \lambda a_n + \mu b_n\) ist konvergent und 
-		\[\limes{n} (\lambda a_n + \mu b_n) = \limes{n} (\lambda a_n) + \limes{n} (\mu b_n) \overset{(*)}{=} \lambda \limes{n} a_n + \mu \limes{n} b_n = \lambda a + \mu b.\]
+		\[\limes{n} \mu b_n = \mu \limes{n} b_n \tag{\(*\)} \]
+		\(\oversett{Fall 1}{\Rightarrow} \lambda a_n + \mu b_n\) ist konvergent und 
+		\begin{align*}
+			&\limes{n} (\lambda a_n + \mu b_n) \\
+			= &\limes{n} (\lambda a_n) + \limes{n} (\mu b_n) \\
+			\overset{(*)}{=} &\lambda \limes{n} a_n + \mu \limes{n} b_n \\
+			= &\lambda a + \mu b.
+		\end{align*}
+		\[\]
 		\item Sei \(n\in\N \). Dann folgt \(a_n b_n-ab = a_n b_n -a_n b + a_n b - ab=a_n(b_n-b)+(a_n-a)b\)
 		\[\Rightarrow |a_n b_n -ab|\leq |a_n| |b_n-b| + |a_n-a||b|.\]
-		Nach Satz 6 existiert \(C\geq 0\) mit \(|a_n|\leq C \forall n\in\N \). Setze \(D:= \max \{C, |b|\} \).
+		Nach Satz 6 existiert \(C\geq 0\) mit \(|a_n|\leq C \forall n\in\N \). Setze \(D\coloneqq \max \{C, |b|\} \).
 		\[|a_n b_n - ab| \leq D(|a_n-a|+|b_n-b|) \,\forall \, n\in\N.\]
 		Zu \(\varepsilon > 0\) wähle \(K_1,K_2\in\N \) mit 
 		\[|a_n-a|<\frac{\varepsilon}{2(0+1)} \quad \forall n\in K_1\]
 		\[|b_n-b|<\frac{\varepsilon}{2(0+1)} \quad \forall n\in K_2\]
-		Dann folgt \(\forall n\geq K := \max \{K_1, K_2\} \)
+		Dann folgt \(\forall n\geq K \coloneqq \max \{K_1, K_2\} \)
 		\[|a_n b_n - ab|<\frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.\]
 		Also \(\limes{n} a_n b_n = ab\).
-		\item o.\ B.\ d.\ A.\  \(a_n = 1\). (aus 2.\ folgt dann der allgemeine Fall mit \( \frac{a_n}{b_n} = a_n \cdot\frac{1}{b_n} \))\\
+		\item \Obda{} \(a_n = 1\). (aus 2.\ folgt dann der allgemeine Fall mit \( \frac{a_n}{b_n} = a_n \cdot\frac{1}{b_n} \))\\
 		Da \(b_n \rightarrow b \neq 0\), folgt mit Lemma 7, dass ein \(K_0\in\N \) existiert mit \(|b_n| >\frac{|b|}{2} \) für \(n\geq K_0\) 
 		\[\frac{1}{b_n} \text{ ist wohldefiniert } \forall n\geq K_0.\]
 		Es gilt: \( \frac{1}{b} - \frac{1}{b_n} = \frac{b_n - b}{b b_n} \) und somit 
@@ -246,8 +262,8 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 
 %20.11.2018
 reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
-\[ {(f+g)}_n := f_n + g_n, \quad n\in\N \]
-\(x {(\lambda f)}_n := \lambda f_n \Rightarrow {(\lambda f + \mu g)}_n = \lambda f_n + \mu g_n \) ist eine Linearkombination.\\
+\[ {(f+g)}_n \coloneqq f_n + g_n, \quad n\in\N \]
+\(x {(\lambda f)}_n \coloneqq \lambda f_n \Rightarrow {(\lambda f + \mu g)}_n = \lambda f_n + \mu g_n \) ist eine Linearkombination.\\
 \(\Rightarrow{}\) Raum der reellen Folgen ist ein reeller Vektorraum.
 \begin{align*}
 	&\{ \text{Raum der (reellen) Folgen} \} \\
@@ -275,7 +291,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 \begin{bsp}[Geometrische Reihe]
 	\begin{align*}
 		-1<q<1.\\
-		a_n &:= 1 + q + q^2 + \cdots + q^n\\
+		a_n &\coloneqq 1 + q + q^2 + \cdots + q^n\\
 		&= \sum_{l=0}^{n} q^l \overset{\text{Satz 3.5.7}}{=} \frac{1-q^{n+1}}{1-q}\\
 		\Rightarrow \limes{n} a_n &= \frac{1- \limes{n} q^{n+1}}{1-q} = \frac{1}{1-q}.
 	\end{align*}
@@ -318,12 +334,12 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\end{tikzpicture}
 		\( \Rightarrow b_n > a_n \) \Lightning{}
 		\end{center}
-		\underline{Formal:} \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
+		\textit{Formal}: \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
 		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon \\
-		&\Rightarrow K := \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
+		&\Rightarrow K \coloneqq \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
 		\end{align*}
-		Ang. \(a>b: \varepsilon := \frac{a-b}{2} > 0 \Rightarrow \) \\
+		Ang. \(a>b: \varepsilon \coloneqq \frac{a-b}{2} > 0 \Rightarrow \) \\
 		\(K \) wie oben \(:\Rightarrow a< a_n + \varepsilon \leq b_n + \varepsilon < b + e\varepsilon = b + 2 \frac{a-b}{2} = a \)
 		\( \Rightarrow a<a\) \Lightning{} \( \Rightarrow a\leq b \checkmark{}\).
 		Andere Möglichkeit:\\
@@ -372,14 +388,14 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 	Ist \( q<1 \Rightarrow {(q_n)}_n \) nicht beschränkt ist.
 \end{bew}
 
-\begin{satz}[Kehrwerte]
+\begin{satz}[Kehrwerte]\leavevmode
 	\begin{enumerate}
 		\item Aus \( |a_n| \rightarrow \infty, n\rightarrow\infty \) folgt \(\frac{1}{a_n} \rightarrow0,n\rightarrow\infty \).
 		\item Aus \( a_n\rightarrow 0, a_n > 0 \) (bzw. \(a_n<0\)) \( \forall n \) folgt \( \frac{1}{a_n} \rightarrow\infty, n\rightarrow\infty \) (\( \frac{1}{a_n} \rightarrow -\infty, n\rightarrow\infty \)).
 	\end{enumerate}
 \end{satz}
-\begin{bew}\phantom{\qedhere}
-	Übung.
+\begin{bew}
+	Übung.\phantom{\qedhere}
 \end{bew}
 
 \end{document}

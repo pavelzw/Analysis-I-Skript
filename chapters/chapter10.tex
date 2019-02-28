@@ -88,11 +88,11 @@ Haben immer \(b_n \leq d_n\)
 	{(a_n)}_n &b_n = \underset{k\geq n}{\sup} a_k = \sup \{ a_k | k\geq n \} \\
 	&d_n = \underset{k\geq n}{\inf} a_k = \inf \{ a_k | k\geq n \} \\
 	\Rightarrow b_{n+1} \leq b_n, d_{n+1} \geq d_n\\
-	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
+	\oversett{Mon. Konv.}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
 	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty \}
 \end{align*}
-(\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow b_, < \infty \) \\
-\({(a_n)}_n\) nach unten beschränkt \(\Leftrightarrow d_, > -\infty \))
+(\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow b_n < \infty \) \\
+\({(a_n)}_n\) nach unten beschränkt \(\Leftrightarrow d_n > -\infty \))
 \begin{defi}
 	Geg.\ reelle Folge \({(a_n)}_n\).
 	\begin{align*}
@@ -112,7 +112,7 @@ Haben immer \(b_n \leq d_n\)
 	\( \Rightarrow \) Sei \(n\geq M\) 
 	\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
 	\[ \underset{k\geq n}{\inf} a_k \leq a-\varepsilon \]
-	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n}leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
+	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n} \leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
 	\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
 	\glqq{}\(\Leftarrow \)\grqq{}: Ang.\  \( \liminf a_n = \limsup a_n =: a \) (d.\ h.\  \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
 	d.\ h.\  \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)

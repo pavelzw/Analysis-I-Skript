@@ -7,13 +7,17 @@
 \section{Existenz von Wurzeln in \(\R \)}
 
 \begin{notation}
-	Sei \( n \in\N \) und \(a > 0 \). Eine Zahl \(\alpha \in \R \) heißt dann \underline{\(n\)-te Wurzel} \underline{von \(a \)}, falls \(\alpha^n = a \).
-	In diesem Fall schreibe auch \( \alpha \eqqcolon a^{\frac{1}{n}}\) oder \(\alpha \eqqcolon \sqrt[n]{a} \).
+	Sei \( n \in\N \) und \(a > 0 \). Eine Zahl \(\alpha \in \R \) 
+	heißt dann \textit{\(n\)-te Wurzel von \(a \)}, 
+	falls \(\alpha^n = a \).\\
+	In diesem Fall schreibe auch 
+	\( \alpha \eqqcolon a^{\frac{1}{n}}\) 
+	oder \(\alpha \eqqcolon \sqrt[n]{a} \).
 \end{notation}
 
 \begin{satz}\label{satz:ex_wurzel}
 	Sei \(\alpha \in\R, a>0\) und \(n \in \N \). Dann existiert die \(n\)-te Wurzel von \(a\) als eindeutige reelle Zahl,
-	\dphp  \(\existse \, \alpha \in \R \) mit \(\alpha > 0 \) und \(\alpha^n = a \).
+	\dphp{} \(\existse \, \alpha \in \R \) mit \(\alpha > 0 \) und \(\alpha^n = a \).
 \end{satz}
 \begin{bew}
 	Angenommen, die Behauptung gilt für \(a \geq 1 \). \\
@@ -25,7 +29,7 @@
 	Es seien nun also \(a > 1 \ko n > 1 \). Setze
 	\[ A \coloneqq \set{ x \in \R \; \vert \; 0 < x \ko x^n< a }. \]
 	Dann ist \(1 \in A \) und somit \(A \neq \emptyset \). Außerdem ist \(A \) nach oben beschränkt, denn ist \(y \geq a\), so folgt
-	\[ y^n \geq a^n = \underbrace{a \cdot a \cdots a}_{n\text{-mal}} > \underbrace{1 \cdot 1 \cdots \cdot 1}_{n\text{-mal}} \cdot a = a \]
+	\[ y^n \geq a^n = \underbrace{a \cdot a \cdots a}_{n\text{-mal}} > \underbrace{1 \cdot 1 \cdots \cdot 1}_{n-1\text{-mal}} \cdot a = a \]
 	Somit ist \(A \leq a \). \(\overset{\text{\autoref{ax:V}}}{\implies} \alpha \coloneqq \sup A \in \R \) existiert. Da \(1 \in A \) folgt \(\alpha \geq 1 > 0 \). \\
 	Für \(\alpha \) gilt entweder \(\alpha^n <a \ko \alpha^n > a \) oder \(\alpha^n = a \). Ist \(\alpha^n = a \), so sind wir fertig. Bleibt also noch zu zeigen,
 	dass die anderen beiden Fälle nicht auftreten können.
@@ -59,7 +63,7 @@
 \end{bew}
 
 \begin{bem}
-	Für die rationalen Zahlen ist die Aussage aus \autoref{satz:ex_wurzel} falsch. \zB \(\sqrt{2} \notin \Q \).
+	Für die rationalen Zahlen ist die Aussage aus \autoref{satz:ex_wurzel} falsch. \zB{} \(\sqrt{2} \notin \Q \).
 \end{bem}
 
 \end{document}

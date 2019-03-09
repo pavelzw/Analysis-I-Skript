@@ -21,7 +21,7 @@
 	\({(a_n)}_{n\in\N}, a_{n+1} \geq a_n \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
 	und \( \exists C\in\R: a_n \leq C \quad \forall n\in\N \) (oder \( \forall n\geq K \in\N \))\\
 	\[ B:= \{a_n, n\in\N \} \subset \R, b\neq \emptyset \text{ und } B\leq C. \]
-	\(\overset{\text{Vollst.axiom}}{\Rightarrow} L := \sup B\) die kleinste obere Schranke für \(B\).\\
+	\(\overundersett{Vollst.}{axiom}{\Rightarrow} L := \sup B\) die kleinste obere Schranke für \(B\).\\
 	\(\Rightarrow a_n \leq L \quad \forall n\in\N \).\\
 	Und: \(L\) kleinste ob. Schranke \( \Rightarrow \forall \varepsilon>0: L-\varepsilon \) keine obere Schranke für \(B\).\\
 	\[ \Rightarrow \exists K \in\N: L-\varepsilon < a_K \leq a_{K+1} \leq a_{K+2} \leq \cdots \leq a_n \quad \forall n\geq K. \]
@@ -32,7 +32,7 @@
 \begin{bsp}[1]
 	\(x_0 > 0, \quad x_{n+1} := \frac{1}{2} \left( x_n + \frac{a}{x_n} \right) \) konvergent gegen \(\sqrt{a}, a>0 \).\\
 	Ang.: \( \limes{n} x_n = l \) existiert, dann auch \( \limes{n} x_{n+1} = l, l>0 \)
-	\[ \overset{\text{Grenzwertsätze}}{\Longrightarrow} l = \limes{n} x_{n+1} = \limes{n} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
+	\[ \overundersett{Grenzwert-}{sätze}{\Longrightarrow} l = \limes{n} x_{n+1} = \limes{n} \left( \frac{1}{2} \left(x_n + \frac{a}{x_n} \right) \right) = \frac{1}{2} \left( l + \frac{a}{l} \right) \Rightarrow l^2 = a, l = \sqrt{a}. \]
 \end{bsp}
 \begin{bsp}[2]
 	\(f_n := {\left( 1 + \frac{1}{n} \right)}^n \) Grenzwert \( \limes{n} f_n = \limes{n} {\left( 1 + \frac{1}{n} \right)}^n \) existiert \( =: e \).\\
@@ -43,7 +43,7 @@
 \begin{bew}
 	Beh. 1:
 	\begin{align*}
-		f_n = {(1+\frac{1}{n})}^n  &= \sum_{k=0}^{n} \binom{n}{k} {\left( \frac{1}{n} \right)}^k\\
+		f_n = {\left(1+\frac{1}{n}\right)}^n  &= \sum_{k=0}^{n} \binom{n}{k} {\left( \frac{1}{n} \right)}^k\\
 		&= \sum_{k=0}^{n} \underbrace{\frac{n!}{k!(n-k)!}}_{=\frac{n(n-1)\ldots (n-k+1)}{k!}} \\
 		&= \sum_{k=0}^{n} \frac{1}{k!} \frac{n}{n} \underbrace{\frac{n-1}{n}}_{<1} \underbrace{\frac{n-k+1}{n}}_{<1}\\
 		&\leq \sum_{k=0}^{n} \frac{1}{k!} =: e_n, \quad f_n \leq e_n \forall n\in\N \\
@@ -54,8 +54,13 @@
 	Also ist \(n\geq3\).
 	\begin{align*}
 		e_n = \sum_{k=0}^{n} \frac{1}{k!} = 1+1 + \sum_{k=2}^{n} \frac{1}{k!} \overset{(*)}{\leq} 2 + \sum_{k=2}^{n} \frac{1}{2 \cdot 3^{k-2}}\\
-		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} {(\frac{1}{3})}^l}_{=1 - {(\frac{1}{3})}^{n-1}}\\
-		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} = 2 + \frac{3}{4} = 2,75.\\
+		= 2 + \frac{1}{2} \underbrace{\sum_{l=0}^{n-2} 
+		{\left(\frac{1}{3}\right)}^l}_{
+			=\ensuremath{ \frac{1 
+			- {\left( \nicefrac{1}{3} \right)}^{n-1} } }
+			{1 - \nicefrac{1}{3}}}\\
+		\leq 2 + \frac{1}{2} \cdot \frac{3}{2} 
+		= 2 + \frac{3}{4} = 2,75.\\
 		\Rightarrow e_n \leq 2,75 \forall n\geq 2.
 	\end{align*}
 	\(\Rightarrow {(e_n)}_n \) ist nach oben beschränkt.\\
@@ -64,19 +69,23 @@
 	\( \Rightarrow {(f_n)}_n \) ist auch oben beschränkt.
 	Beh. 2:\\
 	\begin{align*}
-		\frac{f_n}{f_{n-1}} &= \frac{{(1+\frac{1}{n})}^n}{{(1+\frac{1}{n})}^{n-1}} \qquad n\geq 2\\
-		&= \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n-1}} = \frac{n}{n-1} \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n}} \frac{n}{n-1} {\left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)}^n\\
-		&= \frac{n}{n-1} {\left( \frac{n^2-1}{n^2} \right)}^n = \frac{n}{n-1} \underbrace{{\left( 1-\frac{1}{n^2} \right)}^n}_{\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
-		&\geq \frac{n}{n-1} (1-n \frac{1}{n^2}) = \frac{n}{n-1} (1-\frac{1}{n}) = 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
+		\frac{f_n}{f_{n-1}} &= \frac{{(1+\frac{1}{n})}^n}{{(1+\frac{1}{n-1})}^{n-1}} \qquad n\geq 2\\
+		&= \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n-1}} = \frac{n}{n-1} \frac{{(\frac{n+1}{n})}^n}{{(\frac{n}{n-1})}^{n}} = \frac{n}{n-1} {\left( \frac{\overbrace{(n+1)(n-1)}^{n^2-1}}{n^2} \right)}^n\\
+		&= \frac{n}{n-1} {\left( \frac{n^2-1}{n^2} \right)}^n 
+		= \frac{n}{n-1} \underbrace{{\left( 1-\frac{1}{n^2} \right)}^n}_{
+			\geq 1-n \frac{1}{n^2} \text{ (Bern. Ungl.)}}\\
+		&\geq \frac{n}{n-1} \left(1-n \frac{1}{n^2} \right) 
+		= \frac{n}{n-1} \left( 1-\frac{1}{n} \right) 
+		= 1 \Rightarrow f_n \geq f_{n-1} \forall n\geq 2.
 	\end{align*}
 	\( \Rightarrow \limes{n} f_n \) existiert!
 \end{bew}
 \begin{defi}[Eulersche Zahl]
 	\( e:= \limes{n} {(1+\frac{1}{n})}^n \) (\(\leq 2,75\))
 \end{defi}
-\begin{bem}
+\begin{bem}\leavevmode
 	\begin{enumerate}
-		\item Es gilt auch \( \limes{n} {(1+\frac{x}{n})}^n \) exist. \( \forall x\in\R \) (H.A.)
+		\item Es gilt auch \( \limes{n} {(1+\frac{x}{n})}^n \) existiert. \( \forall x\in\R \) (H.A.)
 		\item Alternative Darstellung für \(e\):\\
 		Hatten gesehen: \(f_n \leq e_n = \sum_{k=0}^{n} \frac{1}{k!} \quad \forall n \) \\
 		\(e_n \leq 2,75, e_{n+1} > e_n \) \\
@@ -139,7 +148,7 @@
 		\end{tikzpicture}
 	\end{center}
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item \( \bigcap_{n\in\N} I_n \) besteht aus höchstens einem Punkt in \(\R \).\\
 		Ang. \( \exists a, a^2 \in \bigcap_{n\in\N} I_n \quad a\neq a^2 \) (o.B.d.A. \(\tilde{a}>a\)).\\
@@ -174,7 +183,7 @@
 \begin{satz}[\(k\)-adische Darstellung reeller Zahlen]
 	\(k\in\N, k\geq Z\) und \(x\in\R \). Dann gibt es \(z_0\in \Z \) und \(l_j \in \{0,1,\ldots,k-1\} \) derart, dass \(x = z_0 + \limes{n} \sum_{j=1}^{n} l_j k^{-j} = z_0 + \sum_{j=1}^{\infty} l_j k^{-j} \).\\
 	\(Z_0 := \lfloor x \rfloor := \min(p\in\Z, p>x) -1 = \max(q\in\Z, q\leq x). \) \\
-	\( 0\leq x-\lfloor c\rfloor <1. \) \\
+	\( 0\leq x-\lfloor x\rfloor <1. \) \\
 	\(\Rightarrow \) o.\ B.\ d.\ A.\ sei \(0\leq x<1\).
 	\begin{center}
 		\begin{tikzpicture}
@@ -191,7 +200,11 @@
 		\end{tikzpicture}
 	\end{center}
 	iteriere diesen Prozess.
-	\(\rightarrow \) kriegen \(l_j \in \{0,1,2,\ldots,k-1 \} \) und \(\sum_{j=1}^{n} l_j k^{-j} \leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \quad (*)\) \\
+	\(\rightarrow \) kriegen 
+	\(l_j \in \{0,1,2,\ldots,k-1 \} \) 
+	und 
+	\[ \sum_{j=1}^{n} l_j k^{-j} 
+	\leq x < \sum_{j=1}^{n-1} l_j k^{-j + \frac{l_n + 1}{k^n}} \tag{\(*\)}\]
 	\[ \overset{(*)}{\Rightarrow} x = \limes{n} \sum_{j=1}^{n} l_j k^{-j}. \]
 \end{satz}
 %27.11.2018
@@ -234,7 +247,7 @@
 		&= (k-1)\underbrace{ \sum_{j=1}^{n} {( \frac{1}{k})}^j + \frac{1}{k^n} }_{= \frac{1}{k} \sum_{j=0}^{n-1} {(\frac{1}{k})}^j = \frac{1}{k} \frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} }\\
 		&=\frac{k-1}{k}-\frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} + \frac{1}{k^n}\\
 		&= 1- {\left(\frac{1}{k}\right)}^n + \frac{1}{k^n} = 1.\\
-		\overset{\text{Mon. Konv.}}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
+		\overundersett{Mon.}{Konv.}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
 	\end{align*}
 	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \rightarrow\overset{n \rightarrow \infty}{\rightarrow} 0\) \\	 
 	\begin{align*}

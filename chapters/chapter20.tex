@@ -65,7 +65,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     \end{align*}
 \end{defi}
 \begin{defi}[gleichmäßige Konvergenz]
-    Eine Folge \( f: D \rightarrow \R \) (oder \( \C \)) 
+    Eine Folge \( \abb{f_n}{D}{\R} \) (oder \( \C \)) 
     konvergiert gleichmäßig gegen \( f: D \rightarrow \R \), 
     falls 
     \[ \limes{n} ||f_n - f ||_\infty = 0. \]
@@ -108,7 +108,7 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
     Insbesondere gilt \( \forall \, 0 < \delta < 1 \)
     \[ \limes{k} \underset{\abs{z} \leq \delta \abs{z_0}}{\sup} 
     \abs{ P(z) - \sum_{l=0}^k a_l z^l } = 0. \]
-    D. \ h. \ das Polynom 
+    \Dphp{} das Polynom 
     \[ P_k(z) := \sum_{l=0}^k a_l z^l 
     = a_0 + a_1 z + \cdots + a_k z^k \]
     konvergiert auf der Kreisscheibe 
@@ -317,14 +317,67 @@ Welche Art von Konvergenzbegriff ist sinnvoll?
         + &\abs{ \frac{f_n(x)-f_n(x_0)}{x-x_0} 
         - f_n'(x_0) } \\
         + &\abs{ f_n'(x_0)
-        - f(x_0) } \; (**)
+        - g(x_0) } \; (**)
     \end{align*}
     \begin{align*}
         &\overunderref{satz:schranken}{Schranken-}{satz}{\Rightarrow}
         \abs{\frac{f_l(x)-f_l(x_0)}{x-x_0}-\frac{f_n(x)-f_n(x_0)}{x-x_0}} \\
         &= \abs{\frac{(f_l-f_n)(x)-(f_l - f_n)(x_0)}{x-x_0}} \\
         &\leq \underbrace{||(f_l-f_n)'||_\infty}_
-        {\underset{x \in (a,b)}{\sup} \abs{f_l'(x)-f_n'(x)}}
+        {=\underset{x \in (a,b)}{\sup} \abs{f_l'(x)-f_n'(x)}}.
     \end{align*}
+    Da \( ||f_l' - f_n'||_\infty \leq ||f_l' - g||_\infty 
+    + ||g - f_n||_\infty \) folgt 
+    \[ \abs{ \frac{ f(x) - f(x_0) }{ x-x_0 } 
+    - \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } } 
+    = \limes{l} \abs{ \frac{ f_l(x) - f_l(x_0) }{ x-x_0 } 
+    - \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } } 
+    \leq \limes{l} ||f_l' - f_n'||_\infty \leq ||g-f_n'||\infty \]
+    \[ \overset{(**)}{\Rightarrow} \abs{ \frac{ f(x) - f(x_0) }{ x-x_0 } 
+    - g(x_0) } 
+    \leq ||g - f_n' ||_\infty 
+    + \abs{ \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } - f_n'(x_0) } 
+    + \abs{ f_n'(x_0) - g(x_0) } (***) \]
+    \[ \leq 2\cdot ||g - f_n' ||_\infty 
+    + \abs{ \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } - f_n'(x_0) }  \]
+    Nun bilde Grenzwert \( x \rightarrow x_0 \)
+    \[ \overset{(***)}{\Rightarrow} 
+    \limsup\limits_{x\rightarrow x_0} 
+    \abs{ \frac{ f_n(x) - f_n(x_0) }{ x-x_0 } - g(x_0) } 
+    \leq 2 ||g - f_n'||_\infty 
+    \overset{n\rightarrow \infty}{\longrightarrow} 0. \]
+    \( \Rightarrow f'(x_0) \) existiert und es gilt 
+    \( f'(x_0) = g(x_0) \) für alle \( x_0 \in I \).
 \end{bew}
+\begin{prosa}
+    Anwendung auf Potenzreihe:\\
+    \( P(x) = \sum_{n=0}^\infty a_n x^n \) mit 
+    Konvergenzradius \( R > 0 \).\\
+    Informell ableiten ergibt 
+    \[ g(x) = \sum_{n=0}^\infty n a_n x^{n-1} 
+    = \sum_{n=1}^\infty n a_n x^{n-1} \]
+    \[ = \sum_{n=0}^\infty (n+1) a_{n+1} x^n 
+    = a_1 + 2 a_2 x + 3a_3 x^2 + \cdots + (n+1) a_{n+1} x^n + \cdots \]
+    hat auch Konvergenzradius \(R\).\\
+    \( \forall \, 0 < \tilde{R} < R \) konvergiert 
+    \[ \sum_{l=0}^k l a_l x^{l-1} 
+    = \left( \sum_{l=0}^k a_l x^l \right)' = P_k'(x) \]
+    gleichmäßig auf \( (-\tilde{R}, \tilde{R}) \) gegen \(g\) (Lemma 4)\\ %href
+    \[ \oversett{Satz 7}{\Rightarrow} P(x) 
+    = \limes{k} P_k(x) = \limes{k} \left( 
+    \sum_{l=0}^k a_l x^l \right) \]%href 
+    ist differenzierbar auf \( (-\tilde{R},\tilde{R}) \) und 
+    \[ P'(x) = \limes{k} P_k'(x) 
+    = \sum_{l=1}^\infty l a_l x^{l-1} (*) \]
+    Da \( \tilde{R} \) beliebig nahe bei \(R\) sein kann, gilt:\\
+    Jede Potenzreihe \( P(x) = \sum_{n=0}^\infty a_n x^n \) mit 
+    Konvergenzradius \( R > 0 \) ist auf \( (-R, R) \) differenzierbar 
+    und ihre Ableitung ist gegeben durch 
+    \[ P'(x) = \sum_{n=0}^\infty n a_n x^{n-1} \] 
+    kann man beliebig oft wiederholen.\\
+    Das heißt \(P\) ist beliebig oft differenzierbar auf 
+    \( (-R,R) \) und die \(n\)-te Ableitung ist gegeben durch 
+    \[ P^{(m)}(x) 
+    = \sum_{l=m}^\infty l (l-1)\cdots(l-m) a_l x^{l-m}. \]
+\end{prosa}
 \end{document}

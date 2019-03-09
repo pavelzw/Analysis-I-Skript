@@ -12,7 +12,7 @@ Skalare Multiplikation:
 \[\lambda \in \R: \lambda x := \lambda(x_1, \dots , x_d) = (\lambda x_1, \dots, \lambda x_d) \]
 \( \R^d \) ist ein (reeller) \(d\)-dim. Vektorraum.\\
 z.B. \(\R^2\): \(x = (x_1, x_2) \in \R^2\) \\
-\textbf{Bild}\\%BILD
+Bild:\\%BILD
 Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 \begin{defi}[Euklidische Länge und Skalarprodukt]
 	\[ x,y \in\R^d, x\cdot y = \langle x,y\rangle := \sum_{j=1}^{d}x_j y_j \]
@@ -42,9 +42,14 @@ Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 	\end{align*}
 	Ang. \(|y| > 0, a = |y|^2 > 0 \)
 	\begin{align*}
-		g(t) = at^2 + 2bt + c\\
-		= a{(t^2 + 2b/a t + c/a + {(b/a)}^2 - {(b/a)}^2)} a{({(t+b/a)}^2 + c/a - b^2/a^2)}\\
-		= a{(t+b/a)}^2 + c - b^2/a \geq 0 \quad\forall t\in\R.
+		g(t) &= at^2 + 2bt + c\\
+		&= a{\left(t^2 + \frac{2bt}{a} + \frac{c}{a} 
+		+ {\left(\frac{b}{a}\right)}^2 
+		- {\left(\frac{b}{a}\right)}^2\right)}\\ 
+		&= a{\left({\left(t+\frac{b}{a}\right)}^2 + \frac{c}{a} 
+		- \frac{b^2}{a^2}\right)}\\
+		&= a{\left(t + \frac{b}{a}\right)}^2 + c - \frac{b^2}{a} \geq 0 
+		\quad\forall \, t \in \R.
 	\end{align*}
 	\begin{align*}
 		\Rightarrow g(t) \geq 0 \quad\forall t \Leftrightarrow b^2 \leq ac (*) \Rightarrow \langle x,y\rangle^2 \leq |x|^2|y|^2\\

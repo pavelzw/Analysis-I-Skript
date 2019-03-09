@@ -52,8 +52,8 @@
 
 \begin{notation}\leavevmode
 	\begin{enumerate}[(a)]
-		\item \(\Z \coloneqq \minus \N \cup \N_0 = \set{0 \ko \pm 1 \ko \pm 2  \ko \ldots} \) ist die Menge der \underline{ganze Zahlen}.
-		\item \(\Q \coloneqq \set{\frac{m}{n} \; \vert \; n \in \N \ko m \in \Z } \) ist die Menge der \underline{rationale Zahlen}.
+		\item \(\Z \coloneqq \minus \N \cup \N_0 = \set{0 \ko \pm 1 \ko \pm 2  \ko \ldots} \) ist die Menge der \textit{ganzen Zahlen}.
+		\item \(\Q \coloneqq \set{\frac{m}{n} \; \vert \; n \in \N \ko m \in \Z } \) ist die Menge der \textit{rationalen Zahlen}.
 	\end{enumerate}
 \end{notation}
 
@@ -72,7 +72,7 @@
 \end{lem}
 \begin{bew}
 	Ist \( 0 < a < 1 \), so nehme \( q = 0 \). Sei also \(a \geq 1 \) und setze \(B \coloneqq \set{ n \in \N \; \vert \; a < n } \). \\
-	Da \( \N \) nicht nach oben beschränkt (\autoref{satz:arch_prinz})ist, gilt \(B \neq \emptyset \). \\
+	Da \( \N \) nicht nach oben beschränkt (\autoref{satz:arch_prinz}) ist, gilt \(B \neq \emptyset \). \\
 	\(\overset{\text{\autoref{satz:wohlordprinz}}}{\implies} m \coloneqq \min B \) existiert. Da \(m \in B \), ist \(m > a \geq 1 \). \\
 	Somit gilt nach \autoref{satz:prop_N}, dass \(q\coloneqq m-1\in\N \).\\
 	Da \( m \) die kleinste natürliche Zahl mit \(m < a \) ist, folgt \(m - 1 \leq a < m \).
@@ -89,13 +89,13 @@
 	Seien \(a \ko b \in \R \ko a < b \). Dann existiert \( r \in \Q \) mit \(a < r < b \).
 \end{satz}
 \begin{bew}
-	\obda  sei \(b \geq 0 \), ansonsten betrachte \( a^\prime = \minus{a} \ko b^\prime = \minus{b} \). \\
+	\Obda{} sei \(b \geq 0 \), ansonsten betrachte \( a^\prime = \minus{b} \ko b^\prime = \minus{a} \). \\
 	Weiter können wir \(a \geq 0 \) annehmen, sonst nehme \(r = 0 \). \\
 	Sei also \(0 \leq a < b \overset{\text{\autoref{satz:arch_prinz}}}{\implies} \exists \, n \in \N \colon \; n(b-a) > 1 \). \\
-	Setze \( B \coloneqq \set{ l \in \N \vert l > na } \subseteq \N \).
+	Setze \( B \coloneqq \set{ l \in \N \;\vert \; l > na } \subseteq \N \).
 	\( \overset{\text{\autoref{satz:wohlordprinz}}}{\implies} m = \min B \) existiert.\\
 	Ferner gilt \(m-a \leq na < m \) und somit
-	\[ na < m = \underbrace{m-1}_{< na} + \underbrace{1}_{< n(b-a)} = nb \]
+	\[ na < m = \underbrace{m-1}_{< na} + \underbrace{1}_{< n(b-a)} < nb \]
 	\(\implies na < m  < nb \iff a < \frac{m}{n} < b\).
 \end{bew}
 
@@ -126,8 +126,8 @@
 	Angenommen \(\sqrt{k} \in \Q \), also \(\sqrt{k} = \frac{m}{n} \ko m \in \Z \ko n \in \N \). \\
 	Definiere \(A \coloneqq \set{n \in \N \; \vert \; \exists \, m \in \Z \colon \; \frac{m^2}{n^2} = k} \)
 	\(\overset{\text{\autoref{satz:wohlordprinz}}}{\implies}\exists \, n_* = \min A \in \N \). \\
-	Sei \(\frac{m}{n_*} = \sqrt{k} \), dann gilt
-	Ferner existier \(q \in \N \) mit \(q \leq \sqrt{k} < q+1 \) nach \autoref{satz:gauss_klammer} \\
+	Sei \(\frac{m}{n_*} = \sqrt{k} \).\\
+	Ferner existiert \(q \in \N \) mit \(q \leq \sqrt{k} < q+1 \) nach \autoref{satz:gauss_klammer} \\
 	Also gilt
 	\[ 0 < \underbrace{m-qn_*}_{\in \N} = (\underbrace{\sqrt{k}-q}_{\in (0 \ko 1)})n_* < n_* \]
 	Somit 

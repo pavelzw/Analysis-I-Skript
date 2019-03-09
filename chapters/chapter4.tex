@@ -384,7 +384,7 @@
 		\(\begin{aligned}[t]
 		  	&\implies &\#S_{n + 1 \ko k} &= \#S_n \overset{\IV}{=} n! \\
 		  	&\implies &\#S_{n + 1}       &= \#(\bigcup_{k=1}^{n+1} S_{n+1 \ko k} ) = \sum_{k=1}^{n+1}\#S_{n+1 \ko k} = \sum_{k=1}^{n+1} n! \\
-		  	&			&		           &= (n+1)n! = (n+1)!
+		  	&			    &		               &= (n+1)n! = (n+1)!
 		 \end{aligned}\)
 	}
 \end{bew}
@@ -468,11 +468,11 @@
 	}{
 		\(\!\begin{aligned}[t]
 			{(a+b)}^{n+1} =& (a+b) {(a+b)}^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^k b^{n-k} \\
-		   				  =& \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k} \\
-						  =& \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} \\
-						   &+ \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1} \\
-		   				  =& a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + b^{n+1} \\
-		   				  =& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}. \qquad\qquad\qquad\qquad\qquad\qquad\quad\;\;\, \qedhere
+		   				      =& \sum_{k=1}^{n+1} \binom{n}{k-1} a^k b^{n-(k-1)} + \sum_{k=0}^{n} \binom{n}{k} a^k b^{n+1-k} \\
+						        =& \binom{n}{n} a^{n+1} + \sum_{k=1}^{n} \binom{n}{k-1} a^k b^{n+1-k} \\
+						         &+ \sum_{k=1}^{n} \binom{n}{k} a^k b^{n+1-k} + \binom{n}{0} b^{n+1} \\
+		   				      =& a^{n+1} + \sum_{k=1}^{n} \underbrace{\left(\binom{n}{k-1} + \binom{n}{k}\right)}_{=\binom{n+1}{k}} a^k b^{n+1-k} + b^{n+1} \\
+		   				      =& \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}. \qedhere
 	   \end{aligned}\)%%qed ist sehr schlecht gemacht grade
 	}
 \end{bew}
@@ -536,12 +536,14 @@
 			0 \ko & x \in A \setminus B
 		\end{cases}\]
 	Beachte: \(B = \set{x \in A \; | \; \1_B(x) = 1 } = \inverse{\1_B}(\set{1}) \). \\
-	Definiere nun \( \varphi \colon \PO(A) \longrightarrow \set{0 \ko 1}^A \ko \, B \mapsto \1_B \). \\
-	Sei \(f \in \set{0 \ko 1}^A \). Mit \(B_f \coloneqq \inverse{f}(\set{1}) = \set{a \in A \; \vert \; f(a) = 1} \) \\
-	folgt \(\varphi(f) = \1_{B_f} = f \). Also ist \(\varphi \) surjektiv. \\
+	Definiere nun \( \varphi \colon \PO(A) \longrightarrow \set{0 \ko 1}^A \ko \, B \mapsto \1_B \) und sei \(f \in \set{0 \ko 1}^A \). \\
+	Mit \(B_f \coloneqq \inverse{f}(\set{1}) = \set{a \in A \; \vert \; f(a) = 1} \)
+	folgt \(\varphi(f) = \1_{B_f} = f \). \\
+	\(\implies \varphi \) ist surjektiv. \\
 	Seien nun \(B_1 \ko B_2 \subseteq A \) mit \(B_1 \neq B_2 \). \obda gelte \(B_1 \setminus B_2 \neq \emptyset \). \\
 	Dann existiert ein \(x \in B_1 \setminus B_2 \subseteq A \) und es gilt \(\1_{B_1}(x) = 0 \neq 1 = \1_{B_2}(x) \). \\
-	Es folgt \(\varphi(B_1) = \1_{B_1} \neq \1_{B_2} ? \varphi(B_2) \). Also ist \(\varphi \) injektiv und damit bijektiv.
+	\(\implies \varphi(B_1) = \1_{B_1} \neq \1_{B_2} = \varphi(B_2) \). \\
+	Also ist \(\varphi \) injektiv und damit bijektiv.
 \end{bew}
 
 \begin{lem}

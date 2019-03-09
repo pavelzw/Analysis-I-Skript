@@ -189,22 +189,26 @@
 \end{satz}
 \begin{bew}\leavevmode
 	\begin{enumerate}[(a)]
-		\item Folgt direkt aus (A1) und der Definition von \(a > b \).
+		\item Folgt direkt aus \hyperref[ax:A1]{(A1)} und der Definition von \(a > b \).
 		\item \(a - c = \underbrace{(a - b)}_{> 0} + \underbrace{(b - c)}_{> 0} \overset{\text{(A2)}}{>} 0 \).
-		\item Im allgemeinen gilt \((a + c) - (b + c) = a - b > 0 \). \\
-			  Fall \gqq{\(c > 0 \)}: \(ac - bc = \underbrace{(a - b)}_{> 0} \cdot c \overset{\text{(A2)}}{>}0 \). \\
-			  Fall \gqq{\(c < 0 \)}: Es gilt \(\minus c > 0 \implies bc - ac = \underbrace{(a - b)}_{> 0} \cdot \underbrace{(\minus c)}_{> 0} \overset{\text{(A2)}}{>} 0 \).
-		\item \((a+c)-(b+d) = (a-b)+(c-d)>0 \) nach (A2). \\
+		\item Im Allgemeinen gilt \((a + c) - (b + c) = a - b > 0 \).
+					\begin{faelle}
+						\item[Fall \(c > 0 \):] \(ac - bc = \underbrace{(a - b)}_{> 0} \cdot c \overset{\text{(A2)}}{>}0 \).
+						\item[Fall \(c < 0 \):] Es gilt \(\minus c > 0 \implies bc - ac = \underbrace{(a - b)}_{> 0} \cdot \underbrace{(\minus c)}_{> 0} \overset{\text{\hyperref[ax:A2]{(A2)}}}{>} 0 \).
+					\end{faelle}
+		\item \((a+c)-(b+d) = (a-b)+(c-d)>0 \) nach \hyperref[ax:A2]{(A2)}. \\
 		      \(ac-bd=ac-bc+bc-bd=\underbrace{(a-b)}_{>0} \cdot \underbrace{\phantom{(}c\phantom{)}}_{>0} + \underbrace{\phantom{(}b\phantom{)}}_{>0} \cdot \underbrace{(c-d)}_{>0} \overset{\text{(A.2)}}{>}0 \).
-		\item Fall \gqq{\(a > 0 \)}: \(a^2 = a\cdot a > 0 \) (A2). \\
-			  Fall \gqq{\(a < 0 \)}: \(a^2 = (-a)\cdot(-a) > 0 \) (A2).
+		\item \begin{faelle}
+						\item[Fall \(a > 0 \):] \(a^2 = a\cdot a > 0 \) \hyperref[ax:A2]{(A2)}.
+						\item[Fall \(a < 0 \):] \(a^2 = (-a)\cdot(-a) > 0 \) \hyperref[ax:A2]{(A2)}.
+			    \end{faelle}
 		\item \(\frac{1}{a} > 0 \iff \frac{1}{a} = \underbrace{{\left(\frac{1}{a}\right)}^2}_{>0} \cdot \underbrace{a}_{>0} > 0 \).
 		\item \(\frac{1}{b} - \frac{1}{a} = \frac{1}{b}(a - b)\frac{1}{a} > 0 \).
 		\item \(a > b\ko  \; 0 > \lambda > 1 \implies \lambda > 0 \wedge 1 - \lambda > 0 \\
-			  \implies b = \lambda b + \underbrace{(1 - \lambda)b}_{< (1 - \lambda)a} < \lambda b + (1 - \lambda) a < \lambda a + (1 - \lambda)a = a \\
-			  \implies b < \lambda b + (1 - \lambda)a = a \). \\
-			  Insbesondere gilt mit \(\lambda = \frac{1}{2} \Rightarrow b < \frac{1}{2} b + \frac{1}{2}a = \frac{a + b}{2} < a \).
-		\item Leichte Übung.\qedhere
+			    \implies b = \lambda b + \underbrace{(1 - \lambda)b}_{< (1 - \lambda)a} < \lambda b + (1 - \lambda) a < \lambda a + (1 - \lambda)a = a \\
+			    \implies b < \lambda b + (1 - \lambda)a = a \). \\
+			    Insbesondere gilt mit \(\lambda = \frac{1}{2} \) auch \(b < \frac{1}{2} b + \frac{1}{2}a = \frac{a + b}{2} < a \).
+		\item Übung.\qedhere
 	\end{enumerate}
 \end{bew}
 
@@ -619,7 +623,7 @@
 
 \begin{satz}[Geometrische Summe]\label{satz:geom_sum}
 	Sei \(x\neq 1 \), dann ist 
-	\[\sum_{k = 0}^{n}{x}^{k} = \frac{1 - x^{n + 1}}{1 - x.} \]
+	\[\sum_{k = 0}^{n}{x}^{k} = \frac{1 - x^{n + 1}}{1 - x}. \]
 \end{satz}
 
 \iftoggle{short}{}{\newpage}%Formatierung ausführliches Skript

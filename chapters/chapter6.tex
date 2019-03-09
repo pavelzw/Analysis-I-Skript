@@ -37,21 +37,21 @@
 									  & = \alpha^n + \sum_{k=1}^{n-1} \binom{n}{k-1} \underbrace{\alpha^{k-1}}_{\leq a^{k-1}}\underbrace{\delta^{n+1-k}}_{\leq \delta \cdot \delta^{n-k} \leq \delta} \nonumber \\
 									  & \leq \alpha^n \delta \sum_{k=1}^{n-1} \binom{n}{k-1} \alpha^{k-1} \nonumber \\
 									  & \leq \alpha^n \delta \sum_{k=0}^{n} \binom{n}{k} \alpha^{k} \nonumber \\
-									  & = \alpha^n + \delta {(a+1)}^n \tag{*}
+									  & = \alpha^n + \delta {(a+1)}^n \tag{\textasteriskcentered}
 			\end{align}
 			Es gilt \(\alpha^n < a\) nach Annahme und \(\delta \coloneqq \frac{1}{2} \min{\left(1 \ko \frac{a-\alpha^n}{{(a+1)}^n}\right)} \) \\
-			Dann gilt \(0<\delta\leq 1\) und \((*) \). Also
+			Dann gilt \(0<\delta\leq 1\) und \((\textasteriskcentered) \). Also
 			\[ {(\alpha + \delta)}^n \leq \alpha^n + \delta {(a+1)}^n \leq \alpha^n + \frac{1}{2} (a-\alpha^n) = \frac{1}{2} (\alpha^n+a) < \frac{1}{2} (a+a) =a \]
 			Somit ist \(\alpha < \alpha + \delta \). \Lightning{} zu \(\alpha \) ist \(\sup A\). \\
 		\item[Fall \(\alpha^n > a\):] Sei \(0 < \delta \leq 1 \). Dann gilt
-			\!\begin{align}
-				{(\alpha - \delta)}^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-\delta)}^k = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-1)}^k\delta^k \nonumber \\
-								      & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k+1}\delta^{k+1} \nonumber \\
-								   	  & = \alpha^n - \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k} \delta^k \nonumber \\
-									  & \geq \alpha^n - \delta \sum_{k=0}^{n-1} \binom{n}{k+1} a^{n-k+1} \nonumber \\
-									  & = \alpha^n - \delta \sum_{k=1}^{n} \binom{n}{k} a^k \nonumber \\
-					 				  & \geq \alpha^n - \delta {(a+1)}^n \tag{**}
-			\end{align}
+			\!\begin{align*}
+				{(\alpha - \delta)}^n & = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-\delta)}^k = \sum_{k=0}^{n} \binom{n}{k} \alpha^{n-k} {(-1)}^k\delta^k \\
+								      & = \alpha^n + \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k+1}\delta^{k+1} \\
+								   	  & = \alpha^n - \sum_{k=0}^{n-1} \binom{n}{k+1} \alpha^{n-1-k} {(-1)}^{k} \delta^k \\
+									  & \geq \alpha^n - \delta \sum_{k=0}^{n-1} \binom{n}{k+1} a^{n-k+1} \\
+									  & = \alpha^n - \delta \sum_{k=1}^{n} \binom{n}{k} a^k \\
+					 				  & \geq \alpha^n - \delta {(a+1)}^n
+			\end{align*}
 			Setze nun \( \delta \coloneqq \frac{1}{2} \min \left(1 \ko \frac{\alpha^n-a}{{(a+1)}^n} \right) \). Dann gilt \(0 \leq \delta \leq \frac{1}{2} < 1 \). Somit gilt
 			\[{(\alpha -\delta)}^n \geq \alpha^n - \frac{1}{2} (\alpha^n + a) = \frac{1}{2} (\alpha^n + a) > \frac{1}{2} (a + a) \geq a. \]
 			Also ist \( \alpha - \delta \) eine obere Schranke für \(A \). Da \(\alpha - \delta < \alpha \), ist das ein Widerspruch zu \(\alpha = \sup A\). Somit bleibt nur \(\alpha^n = a\).

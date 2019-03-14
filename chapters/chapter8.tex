@@ -108,7 +108,7 @@
 \begin{bew}
 	\(e_n = \sum_{k=0}^{n} \frac{1}{k!} \) approximiert \(e\) extrem gut\\
 	\[ 0< e-e_n = \sum_{k=0}^{\infty} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} = \sum_{k=n+1}^{\infty} \frac{1}{k!}. \]
-	\[e-e_n = \limes{n}\left( \sum_{k=0}^{m} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} \right) = \limes{m} \left(\sum_{k=n+1}^{n} \frac{1}{k!} \right) \]
+	\[e-e_n = \limes{n}\left( \sum_{k=0}^{m} \frac{1}{k!} - \sum_{k=0}^{n} \frac{1}{k!} \right) = \limes{m} \left(\sum_{k=n+1}^{m} \frac{1}{k!} \right) \]
 	\begin{align*}
 	 	(*)\quad k \geq n+1\\
 		k! &= k(k-1)\dots 3\cdot 2\cdot 1\\
@@ -142,16 +142,16 @@
 			\draw (1,0) node {\([\)} node[below=2mm] {\(a_1\)};
 			\draw (1.5,0) node {\([\)} node[below=2mm] {\(a_2\)};
 			\draw (2.5,0) node {\([\)} node[below=2mm] {\(a_3\)};
-			\draw (3,0) node {\(]\)} node[below=2mm] {\(b_1\)} node[above=2mm] {\(I_1\)};
+			\draw (3,0) node {\(]\)} node[below=2mm] {\(b_3\)} node[above=2mm] {\(I_3\)};
 			\draw (5,0) node {\(]\)} node[below=2mm] {\(b_2\)} node[above=2mm] {\(I_2\)};
-			\draw (6,0) node {\(]\)} node[below=2mm] {\(b_3\)} node[above=2mm] {\(I_3\)};
+			\draw (6,0) node {\(]\)} node[below=2mm] {\(b_1\)} node[above=2mm] {\(I_1\)};
 		\end{tikzpicture}
 	\end{center}
 \end{satz}
 \begin{bew}\leavevmode
 	\begin{enumerate}
 		\item \( \bigcap_{n\in\N} I_n \) besteht aus höchstens einem Punkt in \(\R \).\\
-		Ang. \( \exists a, a^2 \in \bigcap_{n\in\N} I_n \quad a\neq a^2 \) (o.B.d.A. \(\tilde{a}>a\)).\\
+		Ang. \( \exists a,\tilde{a}\in \bigcap_{n\in\N} I_n \quad a\neq \tilde{a} \) (o.B.d.A. \(\tilde{a}>a\)).\\
 		\[I_{n+1} \subset I_n \quad\forall n \Rightarrow I_n \subset I_{n-1} \subset \ldots\subset I_m \quad \forall n>m.\]
 		\[ \Rightarrow \bigcap_{n\in\N} I_n = \{ x\in\R| x\in I_n \forall n\in\N \} \subset \{ x\in\R|x\in I_k \quad \forall 1\leq k \leq m \} = \bigcap_{k=1}^m I_k = I_m \]
 		\[ \Rightarrow \{ a,\tilde{a} \} \subset I_m \quad\forall m\in\N. \]
@@ -246,10 +246,10 @@
 		&\leq \sum_{j=1}^{n} \frac{k-1}{k^j} + \frac{1}{k^n}\\
 		&= (k-1)\underbrace{ \sum_{j=1}^{n} {( \frac{1}{k})}^j + \frac{1}{k^n} }_{= \frac{1}{k} \sum_{j=0}^{n-1} {(\frac{1}{k})}^j = \frac{1}{k} \frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} }\\
 		&=\frac{k-1}{k}-\frac{1-{(\frac{1}{k})}^n}{1-\frac{1}{k}} + \frac{1}{k^n}\\
-		&= 1- {\left(\frac{1}{k}\right)}^n + \frac{1}{k^n} = 1.\\
+		&\leq 1- {\left(\frac{1}{k}\right)}^n + \frac{1}{k^n} = 1.\\
 		\overundersett{Mon.}{Konv.}{\Rightarrow} a &= \limes{n} a_n \text{ existiert.}\\
 	\end{align*}
-	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \rightarrow\overset{n \rightarrow \infty}{\rightarrow} 0\) \\	 
+	Beachte: \(0 \leq x-a_n < \frac{1}{k^n} \overset{n \rightarrow \infty}\rightarrow 0\) \\	 
 	\begin{align*}
 		a_n \leq x < a_n + \frac{1}{k^n} \Rightarrow\overset{\text{Sandwich}}{\Rightarrow}
 		a &= \limes{n} a_n \leq x \leq \limes{n} a_n + \limes{n} \frac{1}{k^n}\\

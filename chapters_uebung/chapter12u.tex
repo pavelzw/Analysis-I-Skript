@@ -1,5 +1,41 @@
 \documentclass[../ana1u.tex]{subfiles}
 \begin{document}
-\setcounter{section}{9}
-
+\setcounter{section}{11}
+\section{(01.02.19)}
+\begin{defi}
+    Die Funktion \( \abb{f}{I}{\R} \) hat in \( x_0 \in I \) die Ableitung \(a \in \R \),
+    falls 
+    \[\limesx{x}{x_0} \frac{f(x) - f(x_0)}{x-x_0} = a \]
+    Alternativ:
+    \[f'(x_0) = a \Leftrightarrow \limesx{h}{0} \frac{f(x_0+h)-f(x_0)}{h} = a \] 
+\end{defi}
+\begin{bsp}
+    \begin{beh}
+        \(\abb{f}{\R}{\R} \) ist differenzierbar in allen \(x_0 \in \R \) mit Ableitung 
+        \(f'(x_0) = e^{x_0} \)
+    \end{beh}
+    \begin{bew}
+        Sei \(x_0 \in \R \) beliebig aber fest
+        \[\phi(h) = \frac{e^{x_0+h}-e^{x_0}}{h} = \frac{e^{x_0}e^{h}-e^{x_0}}{h}
+        = e^{x_0} \cdot \frac{e^{h} - 1}{h}\]
+        z.z. \(\limesx{x}{0} \frac{e^{x}-1}{x} = 1 \) \\
+        Für \(x \neq 0 \) gilt:
+        \[\frac{e^{x}-1}{x} = \frac{1}{x} \left(\sum_{k=0}^{\infty} \frac{x^k}{k!} - 1\right)
+        = \left(\sum_{k=0}^{\infty} \frac{x^{k-1}}{k!}\right) := P(x) \]  
+        Die Potenzreihe \(P(x) \) ist stetig in \(x\)
+        \[\limesx{x}{0} P(x) = P(0) = 1\]
+        somit folgt:
+        \[\limesx{h}{0} \phi(h) = \limesx{h}{0} e^{x_0} \cdot \frac{e^h - 1}{h} 
+        = e^{x_0} \cdot \limesx{h}{0} \frac{e^h-1}{h} = e^{x_0} \Rightarrow f'(x_0) = e^{x_0}\]
+    \end{bew}
+\end{bsp}
+\begin{bsp}
+    \begin{beh}
+        \(\abb{f}{\R}{\R}: x \mapsto \sin(x) \) ist differenzierbar in allen \(x_0 \in \R \)
+        und \(f'(x_0) = \cos(x_0) \) 
+    \end{beh}
+    \begin{bew}
+        Sei \(x_0 \in \R \) beliebig aber fest
+    \end{bew}
+\end{bsp}
 \end{document}

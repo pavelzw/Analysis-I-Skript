@@ -640,8 +640,8 @@
 \begin{bew} (Ohne vollständige Induktion)\leavevmode \\
 	\[\begin{aligned}[t]
 			&        & S_n         & \coloneqq \sum_{k = 0}^{n} x^k \\
-			&\implies& x \cdot S_n & = \sum_{k = 0}^{n} x^k = \sum_{k = 0}^{n} x^{k + 1} = \sum_{j = 1}^{n + 1} x^j \\
-			&\implies& (1 - x)S_n  & = S_n - x S_n = \sum_{k = 0}^{n} x^k - \sum_{k = 1}^{n + 1} x^k = x^0 - x^{n + 1} = 1 - x^{n + 1} \\
+			&\implies& x \cdot S_n & = \sum_{k = 0}^{n} x^{k + 1} = \sum_{j = 1}^{n + 1} x^j \\
+			&\implies& (1 - x)S_n  & = S_n - x S_n = \sum_{k = 0}^{n} x^k - \sum_{j = 1}^{n + 1} x^j = x^0 - x^{n + 1} = 1 - x^{n + 1} \\
 			&\implies& S_n         & = \frac{1 - x^{n + 1}}{1 - x}
 	  \end{aligned} \]
 \end{bew}

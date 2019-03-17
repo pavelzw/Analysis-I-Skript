@@ -34,7 +34,7 @@
 		\item Nach Kor. 9.6 hat \({(a_n)}_n\) konvergente Teilfolge \({(a_{n_k})}_k, L= \limes{k} a_{n_k} \). Dann ist \( \forall \varepsilon >0  \)
 		\begin{align*}
 			a_{n_k} \in U_\varepsilon(L) \text{ für fast alle }k\in\N \\
-			\Rightarrow a_{n_k} \in U_\varepsilon(L) \text{ für unendlich viele} n\in\N \\
+			\Rightarrow a_{n_k} \in U_\varepsilon(L) \text{ für unendlich viele } n\in\N \\
 			\Rightarrow a_n\in U_\varepsilon(L)\\
 			\Rightarrow L \text{ ist Häufungspunkt}.
 		\end{align*}
@@ -91,8 +91,8 @@ Haben immer \(b_n \leq d_n\)
 	\oversett{Mon. Konv.}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
 	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty \}
 \end{align*}
-(\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow b_n < \infty \) \\
-\({(a_n)}_n\) nach unten beschränkt \(\Leftrightarrow d_n > -\infty \))
+(\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow \limes{n} b_n < \infty \) \\
+\({(a_n)}_n\) nach unten beschränkt \(\Leftrightarrow \limes{n} d_n > -\infty \))
 \begin{defi}
 	Geg.\ reelle Folge \({(a_n)}_n\).
 	\begin{align*}
@@ -107,24 +107,26 @@ Haben immer \(b_n \leq d_n\)
 	\end{enumerate}
 \end{lem}
 \begin{bew}
-	\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark{}
-	\item \glqq{}\(\Rightarrow \)\grqq{}: Sei \(a:= \limes{n}a_n\in\R \), d.\ h.\  \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
-	\( \Rightarrow \) Sei \(n\geq M\) 
-	\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
-	\[ \underset{k\geq n}{\inf} a_k \leq a-\varepsilon \]
-	\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n} \leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
-	\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
-	\glqq{}\(\Leftarrow \)\grqq{}: Ang.\  \( \liminf a_n = \limsup a_n =: a \) (d.\ h.\  \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
-	d.\ h.\  \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
-	\begin{align*}
-		a-\varepsilon < \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M_1\\
-		a-\varepsilon < \underset{k\geq n}{\inf} a_k < a + \varepsilon \quad \forall n\geq M_2
-	\end{align*}
-	Setze \(M := \max(M_1, M_2) \) \\
-	\begin{align*}
-		\Rightarrow a-\varepsilon < \underset{k\geq n}{\inf} a_k \leq a_n \leq \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M\\
-		\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d.\ h.\ }a_n\rightarrow a \text{ für } n\rightarrow \infty.
-	\end{align*}
+	\begin{enumerate}
+		\item Sicherlich \( \underset{k\geq n}{\inf}a_k \leq \underset{k\geq n}{\sup} a_k \Rightarrow \) Beh. \checkmark{}
+		\item \glqq{}\(\Rightarrow \)\grqq{}: Sei \(a:= \limes{n}a_n\in\R \), d.\ h.\  \( \forall \varepsilon > 0 \exists M\in\N: a-\varepsilon < a_k < a+ \varepsilon \) für alle \(k \geq M \).\\
+		\( \Rightarrow \) Sei \(n\geq M\) 
+		\[ \underset{k\geq n}{\sup} a_k \leq a+\varepsilon \]
+		\[ \underset{k\geq n}{\inf} a_k \geq a-\varepsilon \]
+		\[ \Rightarrow a-\varepsilon \leq \underbrace{\limes{n}\underset{k\geq n}{\inf}a_k}_{=\liminf a_n} \leq \underbrace{\limes{n}\underset{k\geq n}{\sup}a_k}_{=\limsup a_n} \leq a+\varepsilon \text{ für jedes } \varepsilon>0. \]
+		\[ a\leq \liminf a_n \leq \limsup a_n \leq a_n \checkmark. \]
+		\glqq{}\(\Leftarrow \)\grqq{}: Ang.\  \( \liminf a_n = \limsup a_n =: a \) (d.\ h.\  \(b_n =  \underset{k\geq n}{\sup} a_k \rightarrow a \) für \( n\rightarrow\infty \).)\\
+		d.\ h.\  \( \forall \varepsilon>0: \exists M_1,M_2 \in\N: \)
+		\begin{align*}
+			a-\varepsilon < \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M_1\\
+			a-\varepsilon < \underset{k\geq n}{\inf} a_k < a + \varepsilon \quad \forall n\geq M_2
+		\end{align*}
+		Setze \(M := \max(M_1, M_2) \) \\
+		\begin{align*}
+			\Rightarrow a-\varepsilon < \underset{k\geq n}{\inf} a_k \leq a_n \leq \underset{k\geq n}{\sup} a_k < a + \varepsilon \quad \forall n\geq M\\
+			\Rightarrow \text{ fast alle } a_n\in(a-\varepsilon,a+\varepsilon)\text{, d.\ h.\ }a_n\rightarrow a \text{ für } n\rightarrow \infty.
+		\end{align*}
+	\end{enumerate}
 \end{bew}
 \begin{satz}
 	Sei \({(a_n)}_n\) beschränkte Folge. Dann gilt:\\
@@ -142,18 +144,18 @@ Haben immer \(b_n \leq d_n\)
 \end{satz}
 \begin{bew}
 	Nur für \( \limsup a_n \), denn \( \limsup\limits_{n\rightarrow\infty}(-a_n) = -\liminf\limits_{n\rightarrow\infty} a_n \) \\
-	\glqq{}\(\Rightarrow \)\grqq{}: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d.\ h.\  \(\forall \varepsilon>0\exists <\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \) \\
+	\glqq{}\(\Rightarrow \)\grqq{}: \(b_n = \underset{n\geq k}{\sup}a_k \rightarrow a^* \), d.\ h.\  \(\forall \varepsilon>0\exists M\in\N: a^*-\varepsilon < b_n < a^* + \varepsilon \quad \forall n\geq M. \) \\
 	\[ \Rightarrow a_n \leq b_n < a + \varepsilon \quad n\geq M. \]
-	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endlich viele \( a_n >a^* \Rightarrow 1 \) \\
-	Sei \( a< a^*: \varepsilon = a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \) \\
+	Sei \(  a>a^*, \varepsilon := a-a^* >0 \Rightarrow a_n < a^* + \varepsilon = a \quad \forall n\geq M. \Rightarrow \) höchstens endlich viele \( a_n >a^* \Rightarrow 1. \) \\
+	Sei \( a< a^*, \varepsilon := a^*-a >0 \Rightarrow a=a^*-\varepsilon < \underbrace{b_n}_{=\underset{k\geq n}{\sup} a_k} \quad \forall n\geq M. \) \\
 	\[ \Rightarrow a < \underset{k\geq n}{\sup} a_k \quad \forall n\geq M. \]
 	\(a=a^* - \varepsilon \).
 	Ang.: Fast alle \(a_n \leq a \) (=Negierung von \( \infty \)-viele \(a_n>a\)).\\
 	\[ \Rightarrow b_K = \underset{k\geq K}{\sup} a_k \leq a. \]
 	\[ \Rightarrow L = \max(M,K) \Rightarrow b_n \leq b_K \leq a \quad \forall n\geq L \text{ und } a<b_n=\underset{k\geq n}{\sup}a_k \forall n\geq L \text{\Lightning} \]
-	\( \Rightarrow \) es gibt \(\infty \)-viele \(a_n>a\)!
+	\( \Rightarrow \) es gibt \(\infty \)-viele \(a_n>a\)!\\
 	\glqq{}\(\Leftarrow \)\grqq{}: Sei \(a>a^* \overset{\text{1.}}{\Rightarrow} a_n \leq a \) für fast alle \(n\in\N \). \\
-	\( \Rightarrow b_n = \underset{k\geq n}{\sup}a_n \leq a \) für fast alle \(n\in\N \). \\
+	\( \Rightarrow b_n = \underset{k\geq n}{\sup} a_n \leq a \) für fast alle \(n\in\N \). \\
 	\[ \Rightarrow \limsup\limits_{n\rightarrow\infty} a_n = \lim b_n \leq a \quad \forall a> a^* \]
 	\[ \limsup\limits_{n\rightarrow\infty} a_n \leq a^*. \]
 	Sei \(a<a^* \overset{\text{2.}}{\Rightarrow} \exists \infty \)-viele \(a_n > a \Rightarrow \underset{k\geq n}{\sup} a_k > a \) für jedes \(n\in\N \) 

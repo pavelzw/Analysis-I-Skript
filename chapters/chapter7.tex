@@ -70,7 +70,7 @@
 			Fall 3: \(0<a<1\). Dann ist \(b \coloneqq \frac{1}{a}>1\).
 			\[\overset{\text{Fall 2}}{\Rightarrow} \limes{n} b^{\frac{1}{n}} = 1\]
 			\begin{align*}
-				|a^{\nicefrac{1}{n}}-1|&=a^{\nicefrac{1}{n}}\left|1-\frac{a}{a^{\nicefrac{1}{n}}}\right|\\
+				|a^{\nicefrac{1}{n}}-1|&=a^{\nicefrac{1}{n}}\left|1-\frac{1}{a^{\nicefrac{1}{n}}}\right|\\
 				&= a^{\nicefrac{1}{n}}\left| 1 - {\left(\frac{1}{a}\right)}^{\nicefrac{1}{n}} \right|\\
 				&= a^{\nicefrac{1}{n}} \left|1-b^{\nicefrac{1}{n}}\right|\\
 				&\leq \left|1-b^{\nicefrac{1}{n}} \right|\underset{n\rightarrow\infty}{\longrightarrow} 0
@@ -118,7 +118,7 @@
 	\end{align*}
 	Setze \(\varepsilon\coloneqq\frac{b-a}{2} >0\).\\
 	Dann folgt für \(n\geq \max \{K_1,K_2\} \)
-	\[b-a = b-a_n + a_n -a \leq \underbrace{|b-a|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}\]
+	\[b-a = b-a_n + a_n -a \leq \underbrace{|b-a_n|}_{<\varepsilon} + \underbrace{|a_n-a|}_{<\varepsilon} < 2\varepsilon = b-a \text{\Lightning}\]
 	Somit muss \(a=b\) gelten!
 \end{bew}
 
@@ -263,7 +263,7 @@ Beobachtung: Sei \({(a_n)}_{n\in\N}\) konvergent gegen \(a\in\R \).
 %20.11.2018
 reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 \[ {(f+g)}_n \coloneqq f_n + g_n, \quad n\in\N \]
-\(x {(\lambda f)}_n \coloneqq \lambda f_n \Rightarrow {(\lambda f + \mu g)}_n = \lambda f_n + \mu g_n \) ist eine Linearkombination.\\
+\(|{(\lambda f)}_n \coloneqq \lambda f_n \Rightarrow {(\lambda f + \mu g)}_n = \lambda f_n + \mu g_n \) ist eine Linearkombination.\\
 \(\Rightarrow{}\) Raum der reellen Folgen ist ein reeller Vektorraum.
 \begin{align*}
 	&\{ \text{Raum der (reellen) Folgen} \} \\
@@ -278,7 +278,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 	D. h. \[ p(x) = a_m x^m + a_{m-1} x^{m-1} + \cdots + a_1 x + a_0 \quad \forall x\in\R \]
 	\[q(x) = b_n x^n + b_{n-1} x^{n-1} + \cdots + b_1 x + b_0 \quad b_n \neq 0 \neq a_m \]
 	\begin{align*}
-		k\in\N. \frac{p(k)}{q(k)} = \frac{a_m x^m + a_{m-1} x^{m-1} + \cdots + a_1 x + a_0}{b_n x^n + b_{n-1} x^{n-1} + \cdots + b_1 x + b_0}\\
+		k\in\N. \frac{p(k)}{q(k)} = \frac{a_m k^m + a_{m-1} k^{m-1} + \cdots + a_1 k + a_0}{b_n k^n + b_{n-1} k^{n-1} + \cdots + b_1 k + b_0}\\
 		= k^{m-n} \frac{a_m + a_{m-1} k^{-1} + \cdots + a_1 k^{1-m} + a_0 k^{-m} }{b_n + b_{n-1} k^{-1} + \cdots + b_1 k^{1-n} + b_0 k^{-n}}\\
 		\overset{\text{Satz 8}}{\longrightarrow}
 		\begin{cases}
@@ -296,7 +296,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\Rightarrow \limes{n} a_n &= \frac{1- \limes{n} q^{n+1}}{1-q} = \frac{1}{1-q}.
 	\end{align*}
 	Da \(q^n \rightarrow 0, n\rightarrow\infty \), Bsp. 6 oben.
-	Schreiben hierfür \[ \sum_{l=0}^{n} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
+	Schreiben hierfür \[ \sum_{l=0}^{\infty} q^l = \frac{1}{1-q}, \quad -1<q<1 \]
 \end{bsp}
 
 \begin{bsp}
@@ -306,7 +306,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 \textbf{Notation:} Wir sagen die Aussagen \( A(n), n\in\N \) gelten für fast alle \( n\in\N \), falls \( K_0\in\N \) existiert, sodass \(A(n)\) wahr ist für alle \( n\geq K_0 \) (d.\ h.\ für alle genügend großen \( n \), d.\ h.\  \( A(n) \) wahr für alle bis auf endlich viele \(n\in\N \)).
 
 \begin{bsp}
-	\[ a_n\rightarrow a,n\rightarrow\infty \Leftrightarrow \forall \varepsilon > 0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon \text{ für fast alle } n.)  \]
+	\[ a_n\rightarrow a,n\rightarrow\infty \Leftrightarrow \forall \varepsilon > 0 \text{ ist } a_n\in U_\varepsilon(a) (= a-\varepsilon, a+\varepsilon) \text{ für fast alle } n.  \]
 \end{bsp}
 
 \begin{satz}
@@ -337,10 +337,10 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\textit{Formal}: \(\exists K_0 \in\N:a_n\leq b_n \quad \forall n\geq K_0. \)
 		\begin{align*}
 		&\forall \varepsilon > 0 \exists K_1 \in\N,K_2\in\N: &a_n \in U_\varepsilon(a) &\forall n\geq K_1, &a - \varepsilon < a_n < a+\varepsilon \\
-		&\Rightarrow K \coloneqq \max(K_0, K_1, K_2) &b_n \in U\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
+		&\Rightarrow K \coloneqq \max(K_0, K_1, K_2) &b_n \in U_\varepsilon (b) &\forall n\geq K_2,  &b-\varepsilon < b_n < b+\varepsilon.
 		\end{align*}
 		Ang. \(a>b: \varepsilon \coloneqq \frac{a-b}{2} > 0 \Rightarrow \) \\
-		\(K \) wie oben \(:\Rightarrow a< a_n + \varepsilon \leq b_n + \varepsilon < b + e\varepsilon = b + 2 \frac{a-b}{2} = a \)
+		\(K \) wie oben \(:\Rightarrow a< a_n + \varepsilon \leq b_n + \varepsilon < b + 2\varepsilon = b + 2 \frac{a-b}{2} = a \)
 		\( \Rightarrow a<a\) \Lightning{} \( \Rightarrow a\leq b \checkmark{}\).
 		Andere Möglichkeit:\\
 		\[ a_n \leq b_n, \forall \varepsilon > 0: a-\varepsilon < a_n<a + \varepsilon, b-\varepsilon < b_n < b + \varepsilon \quad \forall n\geq K. \]
@@ -352,7 +352,7 @@ reelle Folgen \(f = {(f_n)}_n, g = {(g_n)}_n  \) \\
 		\begin{align*}
 			&\exists K_0 \in\N: &a_n \leq c_n \leq b_n \quad \forall n\geq K_0\\
 			&\exists K_1, K_2 \in\N: &a-\varepsilon < a_n < a + \varepsilon \quad \forall n\geq K_1\\
-			&&\underbrace{b-\varepsilon}_{=a-\varepsilon} < b_n < \underbrace{b + \varepsilon}_{=a+\varepsilon} \, \forall \, n \geq K_2. \text{ (da) }b=a
+			&&\underbrace{b-\varepsilon}_{=a-\varepsilon} < b_n < \underbrace{b + \varepsilon}_{=a+\varepsilon} \, \forall \, n \geq K_2. \text{ (da }b=a)
 		\end{align*}
 		\[\forall  n\geq K: a-\varepsilon < a_n \leq c_n \leq b_n < a+\varepsilon \]
 		\[ \Rightarrow a-\varepsilon < c_n < a_n + \varepsilon \Leftrightarrow c_n\in U_\varepsilon(a) \quad \forall n\geq K \] 
@@ -365,7 +365,7 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 
 \begin{defi}[Uneigentliche Konvergenz]
 	Die Folge \( {(a_n)}_n \) konvergiert uneigentlich (divergiert bestimmt) gegen \(+\infty \), falls 
-	\[ \forall R>0 \exists K\in\N \text{ mit } a_n >R \quad \forall n\geq K. \]
+	\[ \forall R>0 \exists K\in\N \text{ mit } a_n > R \quad \forall n\geq K. \]
 	Schreiben \( \limes{n} a_n = \infty \) oder \( a_n \rightarrow +\infty, n\rightarrow \infty \)
 	Analog für \( \limes{n} a_n = -\infty \), falls 
 	\[ \forall R<0 \exists K\in\N: a_n < R \forall n\geq K. \]
@@ -383,9 +383,9 @@ Bsp. \(a_n = 0, b_n = \frac{1}{n}\).
 		&q>1 &\Rightarrow \limes{n}q^n = +\infty.\\
 		&q=1 &\Rightarrow \limes{n}q^n = 1.\\
 		&-1<q<1 & \Rightarrow \limes{n} q^n = 0.\\
-		&q\leq 1 & \Rightarrow {(q^n)}_n \text{ ist nicht konvergent.}
+		&q\leq -1 & \Rightarrow {(q^n)}_n \text{ ist nicht konvergent.}
 	\end{align*}
-	Ist \( q<1 \Rightarrow {(q_n)}_n \) nicht beschränkt ist.
+	Ist \( q<-1 \Rightarrow {(q_n)}_n \) nicht beschränkt ist.
 \end{bew}
 
 \begin{satz}[Kehrwerte]\leavevmode

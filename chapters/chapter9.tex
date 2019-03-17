@@ -28,7 +28,7 @@
 	\[ \forall \varepsilon > 0 \exists K\in\N:|a_m-a_n| < \varepsilon \quad \forall m,n\geq K. \]
 	Wähle \(\varepsilon = 1, k_0: |a_m-a_n| < 1 \quad \forall n,m\geq K_0 \) \\
 	Sei \(n \geq k_0 \Rightarrow |a_{K_0} - a_n| < 1. \)
-	\[ \Rightarrow |a_n| = |a_n - a_{K_0} + a_{K_0}| \leq |a_n - a_{K_0}| + |a_{K_0} < 1 + |a_{K_0}| \] für alle \(n\geq K_0\) \\
+	\[ \Rightarrow |a_n| = |a_n - a_{K_0} + a_{K_0}| \leq |a_n - a_{K_0}| + |a_{K_0}| < 1 + |a_{K_0}| \] für alle \(n\geq K_0\) \\
 	Also setze: \( C := \max ( |a_1|,|a_2|,\ldots,|a_{K_0}|,1+|a_{K_0}| ) < \infty \) 
 	\[ \Rightarrow \forall n\in\N \text{ ist } |a_n| \leq C. \]
 \end{bew}
@@ -91,9 +91,9 @@ Beobachtung: abgeschlossene und beschränkte Intervalle sind aus Folgensicht fas
 	2.) Nun endlich viele \(a_n\in I_{1,-} \Rightarrow b_1 := z_1, c_1 := c, I_1 := I_1 := I_{1,+} := [z_1,c] = [b_1,c_1] \Rightarrow \exists \infty \)-viele \(a_n \in I_1\).\\
 	\(|I_1| = \) Länge von \(I_1 = c_1-b_1 = \frac{c-b}{2} \). \(n_1 = \min (n\in\N:a_n \in I_1)  \Rightarrow n_1 \geq 1. a_{n_1} \in I_1 \).
 	Dann \(z_2 := \frac{b_1 + c_1}{2}\) \\
-	\(\Rightarrow \) Sind \(\infty \)-viele \(a_n\in I_{2,-} := [b_1,z_2] \), sp setze \(I_2 := I_{2,-}\). Somit sind \(\infty \)-viele \(a_n\in I_{2,+} = [z_1,c_1] \). Setze dann \(I_2 := I_{2,+}\).\\
+	\(\Rightarrow \) Sind \(\infty \)-viele \(a_n\in I_{2,-} := [b_1,z_2] \), so setze \(I_2 := I_{2,-}\). Somit sind \(\infty \)-viele \(a_n\in I_{2,+} = [z_1,c_1] \). Setze dann \(I_2 := I_{2,+}\).\\
 	\[ n_2 := \min(n>n_1:a_n\in I_2) \Rightarrow a_{n_2} \in I_2 \text{ und } n_2>n_1\geq 1. |I_2| = \frac{|I_1|}{2} = \frac{c-b}{2}. \]
-	Iteriere dies: Ang.\ haben \(I_k = [b_k, c_k] \subset I_{k-1} \subset \ldots \subset I_1 \subset I_0 = [b,c]. |I_k| = \frac{|I_0|}{2}. \) \\
+	Iteriere dies: Ang.\ haben \(I_k = [b_k, c_k] \subset I_{k-1} \subset \ldots \subset I_1 \subset I_0 = [b,c]. |I_k| = \frac{|I_0|}{2^k}. \) \\
 	\(z_{k+1} := \frac{b_k + c_k}{2} \) Mittelpunkt von \(I_k\).\\
 	Sind \(\infty \)-viele \(a_n\) in \(I_{k+1} := [b_k, z_{k+1}] \), so setze \(I_{k+1} := I_{k+1,-} \qquad b_{k+1} = b_k, c_{k+1} = z_k+1 \).\\
 	Somit \(I_{k+1} := I_{k+1,+} = [z_{k+1, c_k}]/ b_{k+1} = z_{k+1}, c_{k+1} = c_k. \) \\
@@ -144,7 +144,7 @@ Hauptbeobachtung:
 \end{bem}
 \begin{bew}
 	\glqq{}\( \Rightarrow \)\grqq{}: Nach Bem 1 konvergiert jede Teilfolge von \( {(a_n)}_n \) gegen denselben Grenzwert.\\
-	\glqq{}\(\Rightarrow \)\grqq{}: Ang. Teilfolge \( {(a_{n_k})}_k \) konvergiert gegen \(L\in\R \). \(L = \limes{k} a_{n_k} \) existiert.\\
+	\glqq{}\(\Leftarrow \)\grqq{}: Ang. Teilfolge \( {(a_{n_k})}_k \) konvergiert gegen \(L\in\R \). \(L = \limes{k} a_{n_k} \) existiert.\\
 	\( n_k\in\N, n_1<n_2<\cdots<n_k<n_{k+1}<\ldots \) \\
 	Auch: \({(a_n)}_n\) ist Cauchy, d.\ h.\ 
 	\[ \forall \varepsilon>0\exists K\in\N:|a_m-a_n|<\varepsilon \quad\forall m>n\geq K (*). \]

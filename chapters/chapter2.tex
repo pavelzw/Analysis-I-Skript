@@ -187,7 +187,7 @@
 	\begin{enumerate}[(a)]
 		\item \(\emptyset \) ist die Menge ohne Elemente (leere Menge).
 		\item \(M \subseteq N \longeq \forall \, x \in M \colon \; x \in N \). M ist Teilmenge von N.
-		\item \(M \subsetneq N \longeq M \subseteq N \vee M \neq N \). M ist echte Teilmenge von N. 
+		\item \(M \subsetneq N \longeq M \subseteq N \wedge M \neq N \). M ist echte Teilmenge von N. 
 		\item \(M \cap N \coloneqq \set{x \; \vert \; x \in M \wedge x \in N} \) heißt Schnitt von \(M \) und \(N \).
 		\item \(M \cup N \coloneqq \set{x \; \vert \; x \in M \vee x \in N} \) heißt Vereinigung von \(M \) und \(N \).
 		\item \(M \setminus N \coloneqq \set{x \; \vert \; x \in M \wedge x \notin N} \) heißt Differenz von \(M \) und \(N \).
@@ -209,7 +209,7 @@
 	\begin{enumerate}[(a)]
 		\item \(\emptyset \subseteq M \).
 		\item \(M \subseteq M \).
-		\item \(M = N \iff M \subseteq N \vee N \subseteq M \).
+		\item \(M = N \iff M \subseteq N \wedge N \subseteq M \).
 		\item \(A\subset B \wedge B \subset C \iff A \subset C \).
 		\item \(\begin{rcases*}
 					(A\cup B) \cup C = A \cup (B \cup C)\;\\

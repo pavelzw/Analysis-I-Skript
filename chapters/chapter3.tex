@@ -57,7 +57,7 @@
 
 \begin{bem}\leavevmode
 	\begin{enumerate}[(a)]
-		\item \((\K \ko +) \) und \((\K \ko \cdot) \) sind kommutative Gruppen.
+		\item \((\K \ko +) \) und \((\K \setminus \set{0} \ko \cdot) \) sind kommutative Gruppen.
 		\item Die neutralen Elemente \(0 \) und \(1 \) sind eindeutig bestimmt.
 	\end{enumerate}
 \end{bem}
@@ -82,7 +82,7 @@
 	\begin{enumerate}[(a)]
 		\item Umformen von Gleichungen:
 			\begin{enumerate}[(i)]
-				\item \(a + b = c \implies a = b - c \).
+				\item \(a + b = c \implies a = c - b \).
 				\item \(a \cdot b = c \) und \(b \neq 0 \implies a = \frac{c}{b} \).
 			\end{enumerate}
 		\item Allgemeine Rechenregeln:
@@ -114,11 +114,11 @@
 				\item[(iii)] \((a+b) + ((\minus a)+(\minus b)) = (a + (\minus a)) + (b + (\minus b)) = 0 + 0 = 0 \\
 							 \implies \minus(a+b) = (\minus a) + (\minus b) \).
 				\item[(ii, iv)] Analog zu (i) und (iii).
-				\item[(v)] \(a\cdot 0 = a \cdot (0+0) =a \cdot 0 + a \cdot 0 = a \cdot 0 + 0 \\
+				\item[(v)] \(a\cdot 0 = a \cdot (0+0) =a \cdot 0 + a \cdot 0 = a \cdot 0 + a \cdot 0 \\
 						   \implies a \cdot 0 = a \cdot 0 - a \cdot 0 = 0 \).
 				\item[(vi)] \(a \cdot b + a \cdot (\minus b) = a \cdot (b + (\minus b)) = a \cdot 0= 0 \\
 							\overunderset{\text{Eind.}}{\text{d.\ Inv.}}{\implies} \minus ab = a(\minus b) \). \\
-							Somit auch \((\minus a)(\minus b) = \minus((\minus a)b) = \minus(b(\minus a)) = (\minus ba) = \minus(\minus ab) = ab \).
+							Somit auch \((\minus a)(\minus b) = \minus((\minus a)b) = \minus(b(\minus a)) = \minus(\minus ba) = \minus(\minus ab) = ab \).
 				\item[(vii)] \(a(b - c) = a(b + (\minus c)) = ab + a(\minus c)= ab + (\minus ac)= ab - ac \).
 				\item[(viii)] Ist \(ab = 0 \) und \(a \neq 0 \implies 0 = (ab)\frac{1}{a} = \frac{1}{a} \cdot (ab) = (\frac{1}{a} \cdot a)b = 1b = b \).
 							  Also ist \(b = 0 \).\qedhere
@@ -177,8 +177,8 @@
 			    \end{lrcases} \).
 		\item aus \(a > b \) und \(c>d \) folgt
 		      \(\begin{lrcases}
-				      &a + c > b + d  \\
-					  &ac > bd \ko \text{ falls } c \ko d > 0
+					  &a + c > b + d  \\
+					  &ac > bd \ko \text{ falls } b \ko d > 0
 			      \end{lrcases} \).
 		\item für \(a\neq 0 \) ist \(a^{2} > 0 \).
 		\item aus \(a > 0 \) folgt \(\frac{1}{a} > 0 \).
@@ -281,14 +281,15 @@
 		\item[(c)] \Obda \(a \ko b \geq 0 \), da \(\minus a \cdot \minus b = a \cdot b \).
 		      	   \(\implies \abs{ab} = ab = \abs{a}\abs{b} \).
 		\item[(d)] Nach \autoref{satz:arechenregeln} gilt \( \abs{a + b}^{2} = {(a+b)}^{2} = a^{2} + 2ab + b^{2} \\
-				   = \abs{a}^{2} + 2ab + \abs{b}^{2} \leq \abs{a}^{2} 2\abs{ab} + \abs{b}^{2} \). \\
+				   = \abs{a}^{2} + 2ab + \abs{b}^{2} \leq \abs{a}^{2} + 2\abs{ab} + \abs{b}^{2} \\
+				   = \abs{a}^{2} + 2\abs{a}\abs{b} + \abs{b}^{2} = {(\abs{a} + \abs{b}\}^{2} \). \\
 				   \(\implies {\abs{a + b}}^{2} \leq {(\abs{a} + \abs{b})}^{2} \)
 			       \(\overset{\text{Übung}}{\Rightarrow} \abs{a + b} \leq \abs{a} + \abs{b} \). \\
 		     	   Übung: Aus \(\abs{c}^{2} \leq \abs{d}^{2} \) folgt \(\abs{c} \leq \abs{d} \) (Kontraposition).
 		\item[(e)] \(\abs{a} = \abs{a - b + b} = \abs{(a - b) + b} \overset{\text{(d)}}{\leq} \abs{a - b} + \abs{b} \\
 			       \implies \abs{a} - \abs{b} \leq \abs{a - b} \). \\
 				   Durch Vertauschen von \(a \) und \(b \) folgt \\
-				   \(\abs{b} - \abs{a} \leq \abs{b - a} = \abs{\minus b - a} = \abs{a - b} \). \\
+				   \(\abs{b} - \abs{a} \leq \abs{b - a} = \abs{\minus (b - a)} = \abs{a - b} \). \\
 				   Also \(\abs{b} - \abs{a} \leq \abs{a - b} \) und \(\abs{a} - \abs{b} \leq \abs{a - b}. \\
 				   \begin{aligned}
 					\implies &\abs{\abs{a} - \abs{b}} = \max(\abs{a} - \abs{b} \ko  \minus(\abs{a} - \abs{b})) \\
@@ -463,8 +464,8 @@
 	\begin{enumerate}[ ]
 		\item \(\Format{[a \ko b]} \coloneqq \set{x \in \R  \; \vert  \; a \leq x \leq b} \) abgeschlossenes Intervall.
 		\item \(\Format{(a \ko b)} \coloneqq \set{x \in \R  \; \vert  \; a < x < b} \) offenes Intervall.
-		\item \(\Format{[a \ko b)} \coloneqq \set{x \in \R  \; \vert  \; a < x < b} \) nach rechts halboffenes Intervall.
-		\item \(\Format{(a \ko b]} \coloneqq \set{x \in \R  \; \vert  \; a < x < b} \) nach links halboffenes Intervall.
+		\item \(\Format{[a \ko b)} \coloneqq \set{x \in \R  \; \vert  \; a \leq x < b} \) nach rechts halboffenes Intervall.
+		\item \(\Format{(a \ko b]} \coloneqq \set{x \in \R  \; \vert  \; a < x \leq b} \) nach links halboffenes Intervall.
 		\item \(\begin{rcases}
 					\Format{(\minus \infty \ko a]} \coloneqq \set{x \in \R  \; \vert  \; x \leq a} \\
 					\Format{(\minus \infty \ko a)} \coloneqq \set{x \in \R  \; \vert  \; x < a} \\

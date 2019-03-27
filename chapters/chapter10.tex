@@ -5,10 +5,10 @@
 \setcounter{section}{9}
 
 \section{Häufungspunkte, Limes Superior, Limes Inferior}
-\( {(a_n)}_n \) konvergente Folge \(a= \limes{n} a_n \)
+\( {(a_n)}_n \) konvergente Folge, \(a= \limes{n} a_n \)
 \[\Leftrightarrow\forall\varepsilon>0 \text{ ist } a_n\in U_\varepsilon(a) = (a-\varepsilon, a+\varepsilon) \text{ für fast alle } n\in\N. \]
 \begin{defi}
-	Sei \({(a_n)}_n\) Folge. \(a\in\R \) Häufungspunkt von \({(a_n)}_n\), falls \(\forall\varepsilon>0 a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N \) (d.\ h.\  \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
+	Sei \({(a_n)}_n\) Folge. \(a\in\R \) Häufungspunkt von \({(a_n)}_n\), falls \(\forall\varepsilon>0\, a_n\in U_\varepsilon(a) \) für unendlich viele \(n\in\N \) (d.\ h.\  \( \forall K\in\N \exists n>K:a_n \in U_\varepsilon (a) \))
 \end{defi}
 \begin{bem}
 	Eine konvergente Folge hat nur einen Häufungspunkt.\\
@@ -23,7 +23,7 @@
 	\end{tikzpicture}
 \end{bem}
 \( H({(a_n)}_n) = H((a_n)) :=  \) Menge der Häufungspunkte von \({(a_n)}_n\).
-\begin{lem}
+\begin{lem}\leavevmode
 	\begin{enumerate}
 		\item Ist \({(a_n)}_n\) beschränkt. So ist \(H({(a_n)}_n) \neq \emptyset \).
 		\item Konvergiert \({(a_n)}_n\) gegen \(a\), so ist \(H({(a_n)}_n) = \{a\} \).
@@ -88,7 +88,7 @@ Haben immer \(b_n \leq d_n\)
 	{(a_n)}_n &b_n = \underset{k\geq n}{\sup} a_k = \sup \{ a_k | k\geq n \} \\
 	&d_n = \underset{k\geq n}{\inf} a_k = \inf \{ a_k | k\geq n \} \\
 	\Rightarrow b_{n+1} \leq b_n, d_{n+1} \geq d_n\\
-	\overset{\text{Mon. Konv.}}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
+	\oversett{Mon. Konv.}{\Rightarrow} &\limes{n} b_n \text{ existiert in }\R \cup \{-\infty, \infty \} \\
 	&\limes{n} d_n \text{ existiert in }\R \cup \{-\infty, \infty \}
 \end{align*}
 (\({(a_n)}_n\) nach oben beschränkt \(\Leftrightarrow \limes{n} b_n < \infty \) \\
@@ -102,7 +102,7 @@ Haben immer \(b_n \leq d_n\)
 \end{defi}
 \begin{lem}
 	\begin{enumerate}
-		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \)
+		\item Es gilt immer \( \liminf\limits_{n\rightarrow\infty}a_n \leq \limsup\limits_{n\rightarrow\infty}a_n \).
 		\item \({(a_n)}_n\) beschränkte Folge: Dann gilt \({(a_n)}_n\) konvergiert \( \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n = \limsup\limits_{n\rightarrow\infty}a_n \Leftrightarrow \liminf\limits_{n\rightarrow\infty}a_n \geq \limsup\limits_{n\rightarrow\infty}a_n \).
 	\end{enumerate}
 \end{lem}

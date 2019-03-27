@@ -28,8 +28,8 @@ Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 	(S1) und (S2) \( \Rightarrow \langle\lambda x + \mu y, z\rangle = \lambda  \langle x,z\rangle + \mu \langle y,z\rangle \).
 \end{bem}
 \begin{satz}[Cauchy-Schwarz-Ungleichung, CSU]
-	\[ \forall x,y\in\R^d: |\langle x,y\rangle|\leq |x||y|\]
-	und \glqq{}\(=\)\grqq{} gilt, \( \Leftrightarrow x,y \) sind linear abhängig.
+	\[ \forall x,y\in\R^d: \abs{\langle x,y\rangle}\leq \abs{x}\abs{y}\]
+	und \gqq{\(=\)} gilt, \( \Leftrightarrow x,y \) sind linear abhängig.
 \end{satz}
 \begin{bew}
 	Haben immer \( x,y\in\R^d, t\in\R. \)
@@ -87,10 +87,13 @@ Länge von \(x = |x| = {{(x_1^2 + x_2^2)}^{1/2}}\)
 \begin{bem}
 	Auch:
 	\begin{align*}
-		&|x - y| \geq 0 \text{ und } |x - y| = 0 \Leftrightarrow x = y\\
-		&|x - y| = |y - x|\\
-		&|x - y| = |x-z + z-y| \leq |x - z| + |y - z| \quad \forall z \in \R^d\\
-		&||x| + |y|| \leq |x - y|
+        &\abs{x - y} \geq 0 \text{ und } 
+        \abs{x - y} = 0 \Leftrightarrow x = y\\
+		&\abs{x - y} = \abs{y - x}\\
+        &\abs{x - y} = \abs{x-z + z-y} 
+        \leq \abs{x - z} + \abs{y - z} 
+        \quad \forall z \in \R^d\\
+		&\abs{\abs{x} + \abs{y}} \leq \abs{x - y}
 	\end{align*}
 	 %Bild
 \end{bem}
@@ -125,7 +128,7 @@ Wir nennen diesen Körper den Körper der komplexen Zahlen, Bezeichnung: \( \C \
 	\[ \Re(z)=\Re(z') \text{ und } \Im(z) = \Im(z') \]
 \end{bem}
 \begin{defi}[komplexe Konjugation]
-	Für eine komplexe Zahl \( z=x+iy, \quad x,y\in\R \) definiert man die konjugierte komplexe Zahl durch
+	Für eine komplexe Zahl \( z=x+iy, \; x,y\in\R \) definiert man die konjugierte komplexe Zahl durch
 	\[ \bar{z} := x - iy \]
 	(Spiegelung an der reellen Achse)
 	%Bild
@@ -147,11 +150,11 @@ Wir nennen diesen Körper den Körper der komplexen Zahlen, Bezeichnung: \( \C \
 	Für \( z,w\in\C \) gilt
 	\begin{enumerate}
 		\item \( \bar{\bar{z}} = z \)
-		\item \( \bar{z+w} = \bar{z} + \bar{w} \)
-		\item \( \bar{z\cdot w} = \bar{z} \cdot \bar{w} \)
+		\item \( \overline{z+w} = \bar{z} + \bar{w} \)
+		\item \( \overline{z\cdot w} = \bar{z} \cdot \bar{w} \)
 	\end{enumerate}
 \end{lem}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item Sei \( z= x+iy \in\C \) mit \(x,y \in\R \). Dann gilt
 		\[ \bar{z} = \bar{(x+iy)} = x-iy \]
@@ -168,7 +171,7 @@ Dies ist eine nicht-negative reelle Zahl.
 	Der Betrag einer komplexen Zahl ist
 	\[ |z| = \sqrt{z \bar{z}}\in \{x\in\R | x\geq 0 \}. \]
 \end{defi}
-\begin{bem}.%schlecht formatiert
+\begin{bem}\leavevmode
 	\begin{enumerate}
 		\item Für \( z\in\R_+ \) gilt: \( |z| = z \quad |z| = \sqrt{z\bar{z}} = \sqrt{z^2} = z \)
 		\item Für \( z\in\C \) gilt: \( |z| = |\bar{z}| \) (Übungszettel 10)
@@ -177,12 +180,18 @@ Dies ist eine nicht-negative reelle Zahl.
 \begin{satz}
 	Der Betrag in \(\C \) hat die folgenden Eigenschaften:
 	\begin{enumerate}
-		\item Es ist \( |z|\geq 0 \quad \forall z\in\C \) und \( |z|=0 \Leftrightarrow z=0 \)
-		\item (Multiplikativität) \( |z_1 \cdot z_2| = |z_1|\cdot|z_2| \quad \forall z_1,z_2\in\C \)
-		\item (Dreiecksungleichung) \( |z_1+z_2| \leq |z_1| + |z_2| \)
+        \item Es ist \( \abs{z} \geq 0 
+        \quad \forall z\in\C \) und 
+        \( \abs{z} = 0 \Leftrightarrow z = 0 \)
+        \item (Multiplikativität) 
+        \( \abs{z_1 \cdot z_2} 
+        = \abs{z_1} \cdot \abs{z_2} 
+        \quad \forall z_1,z_2\in\C \)
+        \item (Dreiecksungleichung) 
+        \( \abs{z_1 + z_2} \leq \abs{z_1} + \abs{z_2} \)
 	\end{enumerate}
 \end{satz}
-\begin{bew}
+\begin{bew}\leavevmode
 	\begin{enumerate}
 		\item trivial
 		\item Seien \( z_1,z_2 \in\C \). Wir verwenden Def. 9.
@@ -243,7 +252,7 @@ Kovergenz im \(\R^d \Leftrightarrow \) Konvergenz zugehöriger Koordinatenfolgen
 	\[ \limes{n} x_{n_\nu} = a_\nu. \]
 \end{satz}
 \begin{bew}
-	\glqq{}\(\Rightarrow \)\grqq{}: Es gilt \( \limes{n}x_n = a \).\\
+	\gqq{\(\Rightarrow \)}: Es gilt \( \limes{n}x_n = a \).\\
 	Dann gibt es zu \(\varepsilon>0\) ein \(N\in\N \), sodass
 	\[ |x_n - a| < \varepsilon \text{ für alle } n\geq N. \]
 	Somit folgt für \(\nu = 1,\dots,d\):
@@ -279,7 +288,7 @@ Kovergenz im \(\R^d \Leftrightarrow \) Konvergenz zugehöriger Koordinatenfolgen
 	Jede beschränkte Folge in \(\R^d\) enthält eine konvergente Teilfolge.
 \end{satz}
 Erinnerung: A27 (Zettel 6): Sei \({(a_n)}_n\) eine reelle Folge. Dann besitzt \({(a_n)}_n\) eine monotone Teilfolge.
-\begin{bew}.\\ %SCHLECHT FORMATIERT
+\begin{bew}\leavevmode \\
 	\(d=1: \) Korollar 9.6 \checkmark{}\\
 	\(d=2: \) Sei \({(x_n)}_n, x_n\in\R^2\) beschränkte Folge. Dann ist \(x_n = (x_1,x_2)\in\R^2\) und Folge \({(x_{n1})}_n\) der ersten Koordinate ist eine beschränkte reelle Folge.\\
 	Somit besitzt \( {(x_{n1})}_n \) eine monotone Teilfolge \( {(x_{n_k 1})}_k \). Aus Satz 8.2 folgt, dass \( {(x_{n_k 1})}_k \) ist konvergent.\\

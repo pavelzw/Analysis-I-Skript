@@ -25,7 +25,7 @@
 \end{lem}
 \begin{bew}
 	Sei \(a_n\) Cauchyfolge. 
-	\[ \forall \varepsilon > 0 \exists K\in\N:|a_m-a_n| < \varepsilon \quad \forall m,n\geq K. \]
+	\[ \forall \varepsilon > 0 \, \exists K\in\N:|a_m-a_n| < \varepsilon \quad \forall m,n\geq K. \]
 	Wähle \(\varepsilon = 1, k_0: |a_m-a_n| < 1 \quad \forall n,m\geq K_0 \) \\
 	Sei \(n \geq k_0 \Rightarrow |a_{K_0} - a_n| < 1. \)
 	\[ \Rightarrow |a_n| = |a_n - a_{K_0} + a_{K_0}| \leq |a_n - a_{K_0}| + |a_{K_0}| < 1 + |a_{K_0}| \] für alle \(n\geq K_0\) \\
@@ -34,7 +34,7 @@
 \end{bew}
 \begin{bsp}
 	\begin{align*}
-		a_n = {(-1)}^n \text{ (oder} (-1)^n + 1/n \text{)} \\
+		a_n = {(-1)}^n \text{ (oder } (-1)^n + 1/n \text{)} \\
 		n = 2k, k\in\N \Rightarrow a_{2k} = {(-1)}^{2k} = 1 \\
 		a_{2k+1} = {(-1)}^{2k+1} = -1.
 	\end{align*}
@@ -43,7 +43,7 @@
 \begin{bsp}
 	\(B= \{b_1, b_2,\ldots,b_R \} \subset \R \quad R\in\N \).\\
 	\( {(a_n)}_n \) Folge mit Werten in \(B\).
-	\(a_n \in B \forall n\in\N \) \\
+	\(a_n \in B \, \forall n\in\N \) \\
 	\(B\) endliche Menge!\\
 	\( \Rightarrow \) Es gibt mindestens ein \(r_0 \in \{1,2,\ldots,R\} \), sodass \( a_n=b_{r_0}  \) für unendlich viele \(n\).\\
 	\[ \Leftrightarrow \forall K\in\N \,\exists n>K : a_n = b_{r_0} \]

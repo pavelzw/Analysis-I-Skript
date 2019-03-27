@@ -66,7 +66,7 @@ Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \
     und somit auch \( S - t_n = (S-S_n) + (S_n - t_n) \rightarrow 0 + 0 = 0 \Rightarrow t_n \rightarrow S \).
 \end{bew}
 \begin{bem}
-    Eine Reihe \( \sum_n a_n \) heißt unbedingt konvergent, falls wenn jede Umordnung \( \sum_n b_n \) ebenfalls konvergiert und denselben Grenzwert besitzt. Andernfalls heißt \( \sum_n a_n \) bedingt konvergent.
+    Eine Reihe \( \sum_n a_n \) heißt unbedingt konvergent, falls jede Umordnung \( \sum_n b_n \) ebenfalls konvergiert und denselben Grenzwert besitzt. Andernfalls heißt \( \sum_n a_n \) bedingt konvergent.
 \end{bem}
 \begin{satz*}[Dirichlet 1837]
     \[ \sum_n a_n, a_n \in\R^d \text{ ist unbedingt konvergent } \Leftrightarrow \sum_n a_n \text{ ist absolut konvergent.} \]
@@ -95,7 +95,7 @@ Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \
         \item Quotientenkriterium: \( \exists\, \theta \in [0,1) \) mit \( \frac{|a_{n+1}|}{|a_n|} \leq \theta \) für fast alle \(n\), \(a_n \neq 0\) für fast alle \(n\)
         \item Wurzelkriterium: \( \exists \, \theta \in [0,1) \sqrt[n]{|a_n|} \leq \theta \) für fast alle \(n\)
     \end{enumerate}
-    Umgekehrt ist \( \sum_n a_n \) divergent, falls \( \frac{|a_{n+1}|}{|a_n|} \geq 1 \) für fast alle \(n\) oder \( \sqrt[n]{|a_n|} \geq 1 \) für fast alle \(n\)
+    Umgekehrt ist \( \sum_n a_n \) divergent, falls \( \frac{|a_{n+1}|}{|a_n|} \geq 1 \) für fast alle \(n\) oder \( \sqrt[n]{|a_n|} \geq 1 \) für fast alle \(n\).
 \end{satz}
 \begin{bew}\leavevmode
     \begin{enumerate}
@@ -122,8 +122,8 @@ Existiert \( \limes{n} S_n \), so ist der Wert von \( \sum_{n=1}^\infty a_n := \
     \( p_n := a_{\tau_1(n)} \cdot b_{\tau_2(n)} \rightarrow \sum_{n=0}^\infty p_n \) absolut konvergent \\
     und \( \sum_{n=0}^\infty p_n = \sum_{k=0}^\infty a_k \cdot \sum_{l=0}^\infty b_l \).
 \end{satz}
-Bild:\\
 \begin{prosa}
+    Bild:\\
     \begin{center}
         \begin{tikzpicture}
             \foreach \x in {0,...,5} {

@@ -1,0 +1,39 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+    - 'v*'
+
+name: LaTeX
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            ana1.tex
+            ana1u.tex
+            ana1short.tex
+      - name: Upload LaTeX document
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: |
+            ana1.tex
+            ana1u.tex
+            ana1short.tex
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ana1.tex
+            ana1u.tex
+            ana1short.tex
